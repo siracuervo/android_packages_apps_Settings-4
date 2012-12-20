@@ -24,6 +24,14 @@
             <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS" />
         </PreferenceScreen> -->
 
+                <!-- Dark Jelly Edition Updates - launches UpdateMe App -->
+        <PreferenceScreen android:key="update_me_app"
+                          android:title="@string/update_me_app_settings_title">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.acquariusoft.UpdateMe"
+                    android:targetClass="com.acquariusoft.UpdateMe.UpdateMeActivity" />
+        </PreferenceScreen>
+
         <PreferenceScreen android:key="additional_system_update_settings"
                           android:title="@string/additional_system_update_settings_list_item_title">
             <intent android:action="android.intent.action.MAIN"
@@ -63,6 +71,14 @@
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.cyanogenmod.ChangeLog" />
+        </PreferenceScreen>
+
+        <!-- Dark Jelly Edition Change Log -->
+        <PreferenceScreen android:key="djechangelog"
+                android:title="@string/djechangelog_title">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.cyanogenmod.DJEChangeLog" />
         </PreferenceScreen>
 
         <!-- Legal Information -->
@@ -162,6 +178,12 @@
         <Preference android:key="mod_version"
                 style="?android:preferenceInformationStyle"
                 android:title="@string/mod_version"
+                android:summary="@string/mod_version_default" />
+
+        <!-- Build version -->
+        <Preference android:key="build_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/build_version"
                 android:summary="@string/mod_version_default" />
 
         <!-- Mod build date -->
