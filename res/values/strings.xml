@@ -1874,8 +1874,6 @@
     <string name="kernel_version">Kernel version</string>
     <!-- About phone screen,  setting option name-->
     <string name="build_number">Build number</string>
-    <!-- About phone screen,  build version of ROM-->
-    <string name="build_version">Build version</string>
     <!-- About phone screen,  setting option name-->
     <string name="selinux_status">SELinux status</string>
 
@@ -4896,7 +4894,7 @@
     <string name="title_toggle_screentimeout">Toggle Screen timeout</string>
     <string name="title_toggle_mobiledata">Toggle Mobile data</string>
     <string name="title_toggle_lockscreen">Toggle Lock screen</string>
-    <string name="title_toggle_networkmode">Toggle 2G/3G</string>
+    <string name="title_toggle_networkmode">Toggle network mode</string>
     <string name="title_toggle_autorotate">Toggle Orientation</string>
     <string name="title_toggle_airplane">Toggle Airplane mode</string>
     <string name="title_toggle_flashlight">Toggle LED flashlight</string>
@@ -4928,8 +4926,7 @@
 
     <!-- Change Log strings -->
     <string name="changelog_title">View changelog</string>
-    <string name="djechangelog_title">Dark Jelly Edition Change Log</string>
-    <string name="changelog_dialog">Changelog</string>
+    <string name="changelog_summary">Changelog</string>
     <string name="changelog_loading">Loading changelog...</string>
     <string name="changelog_error">Unable to load changelog</string>
     <string name="changelog_unknown">Unknown</string>
@@ -4949,9 +4946,6 @@
     <string name="cmupdate_settings_title">CyanogenMod updates</string>
     <string name="cmupdate_settings_summary">Check for, view or install available updates</string>
 
-    <!-- Dark Jelly Edition Updates -->
-    <string name="update_me_app_settings_title">Dark Jelly Edition Updates</string>
-
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="advanced_settings_title">Advanced</string>
 
@@ -4963,10 +4957,7 @@
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_clock_title">Clock</string>
     <string name="status_bar_general_title">General</string>
-    <string name="status_bar_clock_style_title">Clock style</string>
-    <string name="status_bar_clock_style_noclock">Do not show the clock</string>
-    <string name="status_bar_clock_style_right">Right clock</string>
-    <string name="status_bar_clock_style_center">Center clock</string>
+    <string name="status_bar_show_clock_title">Show clock</string>
     <string name="status_bar_am_pm_title">AM/PM style</string>
     <string name="status_bar_am_pm_info">24-hour clock is enabled</string>
     <string name="status_bar_battery_title">Battery status style</string>
@@ -4977,13 +4968,9 @@
     <string name="status_bar_style_icon">Icon</string>
     <string name="status_bar_style_hidden">Hidden</string>
     <string name="status_bar_signal_text_show_text">Text</string>
-    <string name="status_bar_battery_status_icon">Default icon</string>
-    <string name="status_bar_battery_status_circle">Circle (CM)</string>
-    <string name="status_bar_battery_status_circle_percentage">Circle &amp; percentage (CM)</string>
-    <string name="status_bar_battery_status_ABT">Circle (AlphaBlue Theme)</string>
-    <string name="status_bar_battery_status_AOKP">Circle (AOKP)</string>
-    <string name="status_bar_battery_status_HC">Circle (HoneyComb)</string>
-    <string name="status_bar_battery_status_percentage">Icon &amp; Percentage</string>
+    <string name="status_bar_battery_status_percentage">Percentage</string>
+    <string name="status_bar_battery_status_circle">Circle</string>
+    <string name="status_bar_battery_status_circle_percentage">Circle with percentage</string>
 
     <!-- Status bar notification count -->
     <string name="status_bar_notif_count_title">Show notification count</string>
@@ -5036,9 +5023,6 @@
     <string name="title_tile_flashlight">LED flashlight</string>
     <string name="title_tile_lockscreen">Lock screen</string>
     <string name="title_tile_lte">LTE</string>
-    <string name="title_tile_media_play_pause">Media: Play/Pause</string>
-    <string name="title_tile_media_next">Media: Skip to Next</string>
-    <string name="title_tile_media_previous">Media: Skip to Previous</string>
     <string name="title_tile_mobiledata">Mobile data</string>
     <string name="title_tile_profile">Profile</string>
     <string name="title_tile_autorotate">Orientation</string>
@@ -5050,7 +5034,7 @@
     <string name="title_tile_wifi">Wi-Fi</string>
     <string name="title_tile_wimax">WiMAX</string>
     <string name="title_tile_user">User switcher</string>
-    <string name="title_tile_networkmode">2G/3G</string>
+    <string name="title_tile_networkmode">Network mode</string>
 
     <string name="title_dynamic_tiles">Dynamic tiles</string>
     <string name="dynamic_tiles_note_title">Note</string>
@@ -5062,9 +5046,12 @@
 
     <string name="title_general">General</string>
     <string name="title_quick_pulldown">Quick pulldown</string>
-    <string name="summary_quick_pulldown">Show Quick Settings when pulling down notification bar near the right side of the screen</string>
+    <string name="summary_quick_pulldown">edge of the status bar pulls down Quick Settings</string>
+    <string name="quick_pulldown_off">Off</string>
+    <string name="quick_pulldown_left">Left</string>
+    <string name="quick_pulldown_right">Right</string>
     <string name="title_collapse_panel">Auto close panel</string>
-    <string name="summary_collapse_panel">Close the notification panel upon toggle</string>
+    <string name="summary_collapse_panel">Close the Quick Settings panel upon toggle</string>
 
     <!-- Reset tiles -->
     <string name="tiles_reset_title">Reset</string>
@@ -5076,5 +5063,8 @@
     <string name="volume_key_cursor_control_on">Volume up/down moves cursor left/right</string>
     <string name="volume_key_cursor_control_on_reverse">Volume up/down moves cursor right/left</string>
 
+    <!-- Wireless display -->
+    <string name="pref_wifi_disable_hdcp_title">Skip HDCP negotiation</string>
+    <string name="pref_wifi_disable_hdcp_summary">Try this option if you can connect but don\'t get any output</string>
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>
