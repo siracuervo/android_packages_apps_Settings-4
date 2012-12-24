@@ -2356,8 +2356,7 @@
 
     <!-- Change Log strings -->
     <string name="changelog_title">Mostra changelog</string>
-    <string name="changelog_dialog">Changelog</string>
-    <string name="changelog_loading">Caricamento changelog...</string>
+    <string name="changelog_loading">Caricamento changelog\u2026</string>
     <string name="changelog_error">Impossibile caricare il changelog</string>
     <string name="changelog_unknown">Sconosciuto</string>
     <string name="changelog_version">Versione</string>
@@ -2450,12 +2449,9 @@
     <string name="title_tile_brightness">Luminosità</string>
     <string name="title_tile_sleep">Blocca telefono</string>
     <string name="title_tile_gps">GPS</string>
-    <string name="title_tile_flashlight">Torcia LED</string>
+    <string name="title_tile_torch">Torcia LED</string>
     <string name="title_tile_lockscreen">Blocco schermo</string>
     <string name="title_tile_lte">LTE</string>
-    <string name="title_tile_media_play_pause">Media: Play/Pause</string>
-    <string name="title_tile_media_next">Media: Traccia successiva</string>
-    <string name="title_tile_media_previous">Media: Traccia precedente</string>
     <string name="title_tile_mobiledata">Dati mobili</string>
     <string name="title_tile_profile">Profilo</string>
     <string name="title_tile_autorotate">Orientamento</string>
