@@ -1877,6 +1877,8 @@
     <string name="kernel_version">Kernel version</string>
     <!-- About phone screen,  setting option name-->
     <string name="build_number">Build number</string>
+    <!-- About phone screen,  build version of ROM-->
+    <string name="build_version">Build version</string>
     <!-- About phone screen,  setting option name-->
     <string name="selinux_status">SELinux status</string>
 
@@ -4929,12 +4931,11 @@
 
     <!-- Change Log strings -->
     <string name="changelog_title">View changelog</string>
-<<<<<<< HEAD
+
     <string name="changelog_summary">Changelog</string>
     <string name="changelog_loading">Loading changelog...</string>
-=======
+    <string name="djechangelog_title">Dark Jelly Edition Change Log</string>
     <string name="changelog_loading">Loading changelog\u2026</string>
->>>>>>> upstream/cm-10.1
     <string name="changelog_error">Unable to load changelog</string>
     <string name="changelog_unknown">Unknown</string>
     <string name="changelog_version">Version</string>
@@ -4953,6 +4954,9 @@
     <string name="cmupdate_settings_title">CyanogenMod updates</string>
     <string name="cmupdate_settings_summary">Check for, view or install available updates</string>
 
+    <!-- Dark Jelly Edition Updates -->
+    <string name="update_me_app_settings_title">Dark Jelly Edition Updates</string>
+
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="advanced_settings_title">Advanced</string>
 
@@ -4964,7 +4968,10 @@
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_clock_title">Clock</string>
     <string name="status_bar_general_title">General</string>
-    <string name="status_bar_show_clock_title">Show clock</string>
+    <string name="status_bar_clock_style_title">Clock style</string>
+    <string name="status_bar_clock_style_noclock">Do not show the clock</string>
+    <string name="status_bar_clock_style_right">Right clock</string>
+    <string name="status_bar_clock_style_center">Center clock</string>
     <string name="status_bar_am_pm_title">AM/PM style</string>
     <string name="status_bar_am_pm_info">24-hour clock is enabled</string>
     <string name="status_bar_battery_title">Battery status style</string>
@@ -4975,9 +4982,13 @@
     <string name="status_bar_style_icon">Icon</string>
     <string name="status_bar_style_hidden">Hidden</string>
     <string name="status_bar_signal_text_show_text">Text</string>
-    <string name="status_bar_battery_status_percentage">Percentage</string>
-    <string name="status_bar_battery_status_circle">Circle</string>
-    <string name="status_bar_battery_status_circle_percentage">Circle with percentage</string>
+    <string name="status_bar_battery_status_icon">Default icon</string>
+    <string name="status_bar_battery_status_circle">Circle (CM)</string>
+    <string name="status_bar_battery_status_circle_percentage">Circle &amp; percentage (CM)</string>
+    <string name="status_bar_battery_status_ABT">Circle (AlphaBlue Theme)</string>
+    <string name="status_bar_battery_status_AOKP">Circle (AOKP)</string>
+    <string name="status_bar_battery_status_HC">Circle (HoneyComb)</string>
+    <string name="status_bar_battery_status_percentage">Icon &amp; Percentage</string>
 
     <!-- Status bar notification count -->
     <string name="status_bar_notif_count_title">Show notification count</string>
