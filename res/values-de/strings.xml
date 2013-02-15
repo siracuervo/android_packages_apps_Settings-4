@@ -2565,6 +2565,17 @@
     <string name="navigation_bar_menu_editable">Änderbar</string>
     <string name="navigation_bar_menu_locked">Gesperrt</string>
 
+    <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
+    <string name="navigation_bar_edit_summary">Schaltflächen bearbeiten</string>
+    <string name="navigation_bar_height">Höhe Navigationsleiste</string>
+    <string name="navigation_bar_height_48">48dp (Standard)</string>
+    <string name="navigation_bar_height_44">44dp</string>
+    <string name="navigation_bar_height_40">40dp</string>
+    <string name="navigation_bar_height_36">36dp</string>
+    <string name="navigation_bar_height_32">32dp</string>
+    <string name="navigation_bar_height_28">28dp</string>
+    <string name="navigation_bar_height_24">24dp</string>
+
     <!-- Maximize lock screen widgets -->
     <string name="lockscreen_maximize_widgets_title">Widgets maximieren</string>
     <string name="lockscreen_maximize_widgets_summary">Beim Einschalten Widgets maximiert und Bildschirmsperre minimiert anzeigen</string>
