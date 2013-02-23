@@ -21,11 +21,9 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
-import android.preference.ListPreference;
 import android.os.UserHandle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
-import android.provider.Settings.SettingNotFoundException;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.IWindowManager;
@@ -36,15 +34,13 @@ import com.android.settings.SettingsPreferenceFragment;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SystemSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
+public class SystemSettings extends SettingsPreferenceFragment {
     private static final String TAG = "SystemSettings";
 
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
-    private static final String KEY_NAV_BUTTONS_EDIT = "nav_buttons_edit";
-	private static final String KEY_NAV_BUTTONS_HEIGHT = "nav_buttons_height";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_STATUS_BAR = "status_bar";
     private static final String KEY_QUICK_SETTINGS = "quick_settings_panel";
@@ -53,7 +49,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements Prefer
 
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
-	private ListPreference mNavButtonsHeight;
     private boolean mIsPrimary;
 
     @Override
@@ -67,15 +62,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements Prefer
         mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
         if (mIsPrimary) {
             // Primary user only preferences
-			// Navigationbar height
-		    mNavButtonsHeight = (ListPreference) findPreference(KEY_NAV_BUTTONS_HEIGHT);
-		    mNavButtonsHeight.setOnPreferenceChangeListener(this);
-
-		    int statusNavButtonsHeight = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-		             Settings.System.NAV_BUTTONS_HEIGHT, 48);
-		    mNavButtonsHeight.setValue(String.valueOf(statusNavButtonsHeight));
-		    mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntry());
-
             // Battery lights
             mBatteryPulse = (PreferenceScreen) findPreference(KEY_BATTERY_LIGHT);
             if (mBatteryPulse != null) {
@@ -115,8 +101,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements Prefer
             prefScreen.removePreference(findPreference(KEY_BATTERY_LIGHT));
             prefScreen.removePreference(findPreference(KEY_HARDWARE_KEYS));
             prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR));
-            prefScreen.removePreference(findPreference(KEY_NAV_BUTTONS_EDIT));
-            prefScreen.removePreference(findPreference(KEY_NAV_BUTTONS_HEIGHT));
             prefScreen.removePreference(findPreference(KEY_STATUS_BAR));
             prefScreen.removePreference(findPreference(KEY_QUICK_SETTINGS));
             prefScreen.removePreference(findPreference(KEY_POWER_MENU));
@@ -188,18 +172,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements Prefer
                 getPreferenceScreen().removePreference(preference);
                 return true;
             }
-        }
-        return false;
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (preference == mNavButtonsHeight) {
-            int statusNavButtonsHeight = Integer.valueOf((String) objValue);
-            int index = mNavButtonsHeight.findIndexOfValue((String) objValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.NAV_BUTTONS_HEIGHT, statusNavButtonsHeight);
-            mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntries()[index]);
-            return true;
         }
         return false;
     }
