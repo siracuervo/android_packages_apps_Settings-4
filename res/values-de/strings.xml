@@ -1878,9 +1878,6 @@
     <string name="mod_version">CyanogenMod-Version</string>
     <string name="mod_version_default">Unbekannt</string>
 
-    <!-- About phone screen,  Build version of ROM-->
-    <string name="build_version">Build-Version</string>
-
     <!-- About phone screen - Build date of ROM -->
     <string name="build_date">Build-Datum</string>
 
@@ -2360,7 +2357,6 @@
 
     <!-- Change log strings -->
     <string name="changelog_title">Changelog anzeigen</string>
-    <string name="djechangelog_title">Dark Jelly Edition Changelog</string>
     <string name="changelog_loading">Changelog wird geladen\u2026</string>
     <string name="changelog_error">Changelog kann nicht geladen werden</string>
     <string name="changelog_unknown">Unbekannt</string>
@@ -2382,9 +2378,6 @@
     <!-- CM Updater -->
     <string name="cmupdate_settings_title">CyanogenMod-Updates</string>
     <string name="cmupdate_settings_summary">Auf neue Versionen prüfen und diese installieren</string>
-
-    <!-- Dark Jelly Edition Updates -->
-    <string name="update_me_app_settings_title">Dark Jelly Edition Updates</string>
 
     <!-- Advanced - Device specific settings -->
     <string name="advanced_settings_title">Erweitert</string>
@@ -2627,6 +2620,15 @@
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
     <!-- **** Dark Jelly Edition ADDITIONS Start **** -->
+
+    <string name="general_info_section_title">Allgemein</string>
+    <string name="cm_section_title">CyanogenMod</string>
+	<string name="dje_section_title">Dark Jelly Edition</string>
+	<string name="hw_section_title">Hardware</string>
+	<string name="sw_section_title">Software</string>
+    <string name="update_me_app_settings_title">Dark Jelly Edition Updates</string>
+    <string name="djechangelog_title">Dark Jelly Edition Changelog</string>
+    <string name="build_version">Build-Version</string>
 
     <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
     <string name="navigation_bar_edit_summary">Schaltflächen bearbeiten</string>

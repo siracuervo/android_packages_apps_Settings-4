@@ -1903,8 +1903,6 @@
     <string name="kernel_version">Kernel version</string>
     <!-- About phone screen,  setting option name-->
     <string name="build_number">Build number</string>
-    <!-- About phone screen,  build version of ROM-->
-    <string name="build_version">Build version</string>
     <!-- About phone screen,  setting option name-->
     <string name="selinux_status">SELinux status</string>
 
@@ -4961,7 +4959,6 @@
 
     <string name="changelog_summary">Changelog</string>
     <string name="changelog_loading">Loading changelog...</string>
-    <string name="djechangelog_title">Dark Jelly Edition Change Log</string>
     <string name="changelog_loading">Loading changelog\u2026</string>
     <string name="changelog_error">Unable to load changelog</string>
     <string name="changelog_unknown">Unknown</string>
@@ -4983,9 +4980,6 @@
     <!-- CM Updater -->
     <string name="cmupdate_settings_title">CyanogenMod updates</string>
     <string name="cmupdate_settings_summary">Check for, view or install available updates</string>
-
-    <!-- Dark Jelly Edition Updates -->
-    <string name="update_me_app_settings_title">Dark Jelly Edition Updates</string>
 
     <!-- Advanced, Device specific (DeviceParts) settings  -->
     <string name="advanced_settings_title">Advanced</string>
@@ -5189,6 +5183,16 @@
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
     <!-- **** Dark Jelly Edition ADDITIONS Start **** -->
+
+    <!-- Device info settings -->
+    <string name="general_info_section_title">General</string>
+    <string name="cm_section_title">CyanogenMod</string>
+	<string name="dje_section_title">Dark Jelly Edition</string>
+	<string name="hw_section_title">Hardware</string>
+	<string name="sw_section_title">Software</string>
+    <string name="update_me_app_settings_title">Dark Jelly Edition Updates</string>
+    <string name="djechangelog_title">Dark Jelly Edition Changelog</string>
+    <string name="build_version">Build version</string>
 
     <!-- Navigation bar height -->
     <string name="navigation_bar_edit_title">Navigation bar customization</string>
