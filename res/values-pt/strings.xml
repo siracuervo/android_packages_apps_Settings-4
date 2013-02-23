@@ -2045,17 +2045,17 @@
     <string name="memory_management_title">Gerenciamento de memória</string>
     <string name="memory_management_summary">Personalizar o uso de memória para mudar o desempenho do sistema</string>
     <string name="pref_zram_title">zRam</string>
-    <string name="pref_zram_summary">Comprime a memória para maior capacidade virtual (requer reinicio)</string>
+    <string name="pref_zram_summary">Comprime a memória para maior capacidade virtual (requer reinicialização)</string>
     <string name="pref_ksm_title">Kernel samepage merging</string>
     <string name="pref_ksm_summary">KSM reduz requisitos de memória fisica e melhora o desempenho</string>
     <string name="pref_purgeable_assets_title">Permitir liberação de recursos</string>
-    <string name="pref_purgeable_assets_summary">Remoção de recursos de memória permite a liberação de mais RAM quando necessária (requer reinicio)</string>
+    <string name="pref_purgeable_assets_summary">Remoção de recursos de memória permite a liberação de mais RAM quando necessária (requer reinicialização)</string>
     <string name="pref_use_dithering_title">Aplicar dithering</string>
     <string name="dithering_no_dither">Desativar pontilhamento</string>
     <string name="dithering_color_banding">Consertar bandas de cores (padrão)</string>
     <string name="dithering_blur_effect">Consertar bandas de cores e efeito de borrar</string>
     <string name="pref_use_16bpp_alpha_title">Transparência 16bit</string>
-    <string name="pref_use_16bpp_alpha_summary">Melhor desempenho gráfico, qualidade mais baixa e posiveis artefatos visuais (requer reinicio)</string>
+    <string name="pref_use_16bpp_alpha_summary">Melhor desempenho gráfico, qualidade mais baixa e possíveis artefatos visuais (requer reinicialização)</string>
     <string name="display_rotation_title">Rotação</string>
     <string name="display_rotation_disabled">Desabilitada</string>
     <string name="display_rotation_unit">graus</string>
@@ -2363,7 +2363,8 @@
     <string name="lockscreen_maximize_widgets_title">Maximizar widgets</string>
     <string name="lockscreen_maximize_widgets_summary">Mostrar widgets maximizados e o destravamento minimizado quando a tela é ligada</string>
     <string name="headset_category_title">Fone de ouvido</string>
-    <string name="headset_connect_player_title">Abrir aplicativo de música quando conectar</string>
+    <string name="headset_connect_player_title">Abrir aplicativo de música</string>
+    <string name="headset_connect_player_summary">Abrir aplicativo de música padrão quando o fone de ouvido for conectado</string>
     <string name="bluetooth_mas_request">Requisição de Acesso a Mensagem</string>
     <string name="bluetooth_mas_acceptance_dialog_text">%1$s gostaria de acessar suas mensagens. Conceder acesso para %2$s?</string>
     <string name="bluetooth_mas_remember_choice">Não perguntar novamente</string>
@@ -2385,16 +2386,14 @@
     <string name="cyanogenmod_waiver_title">Garantia</string>
     <string name="cyanogenmod_waiver_body">Alterar esta configuração pode ser contra as leis do seu local.\n\nAo selecionar abaixo \'OK\', você reconhece este aviso e garantia, proteção e isenção ao CyanogenMod e seus contribuintes de todas responsabilidades legais.</string>
     <string name="expanded_desktop_disabled">Desligado</string>
-    <string name="expanded_desktop_status_bar">Com barra de status</string>
-    <string name="expanded_desktop_no_status_bar">Sem barra de status</string>
+    <string name="expanded_desktop_status_bar">Barra de status visível</string>
+    <string name="expanded_desktop_no_status_bar">Barra de status oculta</string>
     <string name="light_sensor_current_value">Valor atual do sensor de luz: <xliff:g id="light_level">%d</xliff:g> lux</string>
     <string name="auto_brightness_dialog_title">Níveis automáticos de brilho</string>
     <string name="auto_brightness_level_format"><xliff:g id="start_level">%1$s</xliff:g> -\n<xliff:g id="end_level">%2$s</xliff:g> lux</string>
     <string name="auto_brightness_brightness_format"><xliff:g id="percent">%s</xliff:g>%%</string>
     <string name="auto_brightness_adjust_button">Ajustar</string>
     <string name="auto_brightness_reset_button">Restaurar</string>
-    <string name="auto_brightness_remove_button">Remover</string>
-    <string name="auto_brightness_add_line">Adicionar linha</string>
     <string name="auto_brightness_lux_dialog_title">Gama de luminosidade ambiente</string>
     <string name="auto_brightness_split_dialog_title">Dividir nível de brilho</string>
     <string name="auto_brightness_start_lux">Gama inicial (lux)</string>
@@ -2406,4 +2405,8 @@
     <string name="auto_brightness_menu_edit_lux">Gama de luminosidade ambiente</string>
     <string name="auto_brightness_menu_split">Dividir</string>
     <string name="auto_brightness_menu_remove">Remover</string>
+    <string name="volume_adjust_sounds_enable_title">Som do ajuste de volume</string>
+    <string name="volume_adjust_sounds_enable_summary">Reproduzir som quando ajustando o volume com o botão externo</string>
+    <string name="advanced_reboot_title">Reinicialização avançada</string>
+    <string name="advanced_reboot_summary">Quando desbloqueado, incluir opções no menu de energia para reincializar para recuperação ou bootloader</string>
 </resources>
