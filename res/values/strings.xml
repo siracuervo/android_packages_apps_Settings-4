@@ -4956,9 +4956,7 @@
 
     <!-- Change Log strings -->
     <string name="changelog_title">View changelog</string>
-
-    <string name="changelog_summary">Changelog</string>
-    <string name="changelog_loading">Loading changelog...</string>
+    <string name="changelog_summary">CyanogenMod Changelog</string>
     <string name="changelog_loading">Loading changelog\u2026</string>
     <string name="changelog_error">Unable to load changelog</string>
     <string name="changelog_unknown">Unknown</string>
@@ -5190,8 +5188,9 @@
 	<string name="dje_section_title">Dark Jelly Edition</string>
 	<string name="hw_section_title">Hardware</string>
 	<string name="sw_section_title">Software</string>
-    <string name="update_me_app_settings_title">Dark Jelly Edition Updates</string>
-    <string name="djechangelog_title">Dark Jelly Edition Changelog</string>
+    <string name="update_me_app_settings_title">OTA Update (launch UpdateMeApp)</string>
+    <string name="update_me_app_settings_summary">Dark Jelly Edition Updates</string>
+    <string name="djechangelog_summary">Dark Jelly Edition Changelog</string>
     <string name="build_version">Build version</string>
 
     <!-- Navigation bar height -->
