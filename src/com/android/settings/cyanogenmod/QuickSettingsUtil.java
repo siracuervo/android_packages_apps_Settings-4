@@ -23,6 +23,7 @@ import static com.android.internal.util.cm.QSConstants.TILE_BATTERY;
 import static com.android.internal.util.cm.QSConstants.TILE_BLUETOOTH;
 import static com.android.internal.util.cm.QSConstants.TILE_BRIGHTNESS;
 import static com.android.internal.util.cm.QSConstants.TILE_DELIMITER;
+import static com.android.internal.util.cm.QSConstants.TILE_EXPANDEDDESKTOP;
 import static com.android.internal.util.cm.QSConstants.TILE_GPS;
 import static com.android.internal.util.cm.QSConstants.TILE_LOCKSCREEN;
 import static com.android.internal.util.cm.QSConstants.TILE_LTE;
@@ -38,18 +39,21 @@ import static com.android.internal.util.cm.QSConstants.TILE_SLEEP;
 import static com.android.internal.util.cm.QSConstants.TILE_SYNC;
 import static com.android.internal.util.cm.QSConstants.TILE_TORCH;
 import static com.android.internal.util.cm.QSConstants.TILE_USER;
+import static com.android.internal.util.cm.QSConstants.TILE_VOLUME;
 import static com.android.internal.util.cm.QSConstants.TILE_WIFI;
 import static com.android.internal.util.cm.QSConstants.TILE_WIFIAP;
+import static com.android.internal.util.cm.QSUtils.deviceSupportsBluetooth;
+import static com.android.internal.util.cm.QSUtils.deviceSupportsTelephony;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
 
 import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
 
 import com.android.settings.R;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
 
 public class QuickSettingsUtil {
 
@@ -59,9 +63,6 @@ public class QuickSettingsUtil {
         TILES.put(TILE_AIRPLANE, new QuickSettingsUtil.TileInfo(
                 TILE_AIRPLANE, R.string.title_tile_airplane,
                 "com.android.systemui:drawable/ic_qs_airplane_off"));
-        TILES.put(TILE_AUTOROTATE, new QuickSettingsUtil.TileInfo(
-                TILE_AUTOROTATE, R.string.title_tile_autorotate,
-                "com.android.systemui:drawable/ic_qs_auto_rotate"));
         TILES.put(TILE_BATTERY, new QuickSettingsUtil.TileInfo(
                 TILE_BATTERY, R.string.title_tile_battery,
                 "com.android.systemui:drawable/ic_qs_battery_neutral"));
@@ -71,6 +72,9 @@ public class QuickSettingsUtil {
         TILES.put(TILE_BRIGHTNESS, new QuickSettingsUtil.TileInfo(
                 TILE_BRIGHTNESS, R.string.title_tile_brightness,
                 "com.android.systemui:drawable/ic_qs_brightness_auto_off"));
+        TILES.put(TILE_EXPANDEDDESKTOP, new QuickSettingsUtil.TileInfo(
+                TILE_EXPANDEDDESKTOP, R.string.title_tile_expanded_desktop,
+                "com.android.systemui:drawable/ic_qs_expanded_desktop_off"));
         TILES.put(TILE_SLEEP, new QuickSettingsUtil.TileInfo(
                 TILE_SLEEP, R.string.title_tile_sleep,
                 "com.android.systemui:drawable/ic_qs_sleep"));
@@ -92,46 +96,49 @@ public class QuickSettingsUtil {
         TILES.put(TILE_NFC, new QuickSettingsUtil.TileInfo(
                 TILE_NFC, R.string.title_tile_nfc,
                 "com.android.systemui:drawable/ic_qs_nfc_off"));
+        TILES.put(TILE_AUTOROTATE, new QuickSettingsUtil.TileInfo(
+                TILE_AUTOROTATE, R.string.title_tile_autorotate,
+                "com.android.systemui:drawable/ic_qs_auto_rotate"));
         TILES.put(TILE_PROFILE, new QuickSettingsUtil.TileInfo(
                 TILE_PROFILE, R.string.title_tile_profile,
                 "com.android.systemui:drawable/ic_qs_profiles"));
         TILES.put(TILE_QUIETHOURS, new QuickSettingsUtil.TileInfo(
                 TILE_QUIETHOURS, R.string.title_tile_quiet_hours,
                 "com.android.systemui:drawable/ic_qs_quiet_hours_off"));
+        TILES.put(TILE_SCREENTIMEOUT, new QuickSettingsUtil.TileInfo(
+                TILE_SCREENTIMEOUT, R.string.title_tile_screen_timeout,
+                "com.android.systemui:drawable/ic_qs_screen_timeout_off"));
         TILES.put(TILE_SETTINGS, new QuickSettingsUtil.TileInfo(
                 TILE_SETTINGS, R.string.title_tile_settings,
                 "com.android.systemui:drawable/ic_qs_settings"));
-        TILES.put(TILE_SLEEP, new QuickSettingsUtil.TileInfo(
-                TILE_SLEEP, R.string.title_tile_sleep,
-                "com.android.systemui:drawable/ic_qs_sleep"));
         TILES.put(TILE_RINGER, new QuickSettingsUtil.TileInfo(
                 TILE_RINGER, R.string.title_tile_sound,
                 "com.android.systemui:drawable/ic_qs_ring_on"));
         TILES.put(TILE_SYNC, new QuickSettingsUtil.TileInfo(
                 TILE_SYNC, R.string.title_tile_sync,
                 "com.android.systemui:drawable/ic_qs_sync_off"));
-        TILES.put(TILE_SCREENTIMEOUT, new QuickSettingsUtil.TileInfo(
-                TILE_SCREENTIMEOUT, R.string.title_tile_screen_timeout,
-                "com.android.systemui:drawable/ic_qs_screen_timeout_off"));
         TILES.put(TILE_TORCH, new QuickSettingsUtil.TileInfo(
                 TILE_TORCH, R.string.title_tile_torch,
                 "com.android.systemui:drawable/ic_qs_torch_off"));
+        TILES.put(TILE_USER, new QuickSettingsUtil.TileInfo(
+                TILE_USER, R.string.title_tile_user,
+                "com.android.systemui:drawable/ic_qs_default_user"));
+        TILES.put(TILE_VOLUME, new QuickSettingsUtil.TileInfo(
+                TILE_VOLUME, R.string.title_tile_volume,
+                "com.android.systemui:drawable/ic_qs_volume"));
         TILES.put(TILE_WIFI, new QuickSettingsUtil.TileInfo(
                 TILE_WIFI, R.string.title_tile_wifi,
                 "com.android.systemui:drawable/ic_qs_wifi_4"));
         TILES.put(TILE_WIFIAP, new QuickSettingsUtil.TileInfo(
                 TILE_WIFIAP, R.string.title_tile_wifiap,
                 "com.android.systemui:drawable/ic_qs_wifi_ap_neutral"));
-        TILES.put(TILE_USER, new QuickSettingsUtil.TileInfo(
-                TILE_USER, R.string.title_tile_user,
-                "com.android.systemui:drawable/ic_qs_default_user"));
     }
 
     public static String getCurrentTiles(Context context) {
         String tiles = Settings.System.getString(context.getContentResolver(),
                 Settings.System.QUICK_SETTINGS_TILES);
         if (tiles == null) {
-            tiles = TextUtils.join(TILE_DELIMITER, TILES_DEFAULT);
+            tiles = getDefaultTiles(context);
         }
         return tiles;
     }
@@ -142,7 +149,7 @@ public class QuickSettingsUtil {
     }
 
     public static void resetTiles(Context context) {
-        String defaultTiles = TextUtils.join(TILE_DELIMITER, TILES_DEFAULT);
+        String defaultTiles = getDefaultTiles(context);
         Settings.System.putString(context.getContentResolver(),
                 Settings.System.QUICK_SETTINGS_TILES, defaultTiles);
     }
@@ -185,6 +192,22 @@ public class QuickSettingsUtil {
             }
             return s;
         }
+    }
+
+    public static String getDefaultTiles(Context context) {
+        // Filter items not compatible with device
+        boolean bluetoothSupported = deviceSupportsBluetooth();
+        boolean telephonySupported = deviceSupportsTelephony(context);
+
+        if (!bluetoothSupported) {
+            TILES_DEFAULT.remove(TILE_BLUETOOTH);
+        }
+
+        if (!telephonySupported) {
+            TILES_DEFAULT.remove(TILE_MOBILEDATA);
+        }
+
+        return TextUtils.join(TILE_DELIMITER, TILES_DEFAULT);
     }
 
     public static class TileInfo {
