@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Statusbar -->
+    <string name="status_bar_battery_status_icon">Default icon</string>
+    <string name="status_bar_battery_status_circle">Circle (CM)</string>
+    <string name="status_bar_battery_status_circle_percentage">Circle &amp; percentage (CM)</string>
+    <string name="status_bar_battery_status_ABT">Circle (AlphaBlue Theme)</string>
+    <string name="status_bar_battery_status_AOKP">Circle (AOKP)</string>
+    <string name="status_bar_battery_status_HC">Circle (HoneyComb)</string>
+    <string name="status_bar_battery_status_percentage">Icon &amp; Percentage</string>
+
+    <!-- Clock style strings -->
+    <string name="status_bar_clock_style_title">Clock style</string>
+    <string name="status_bar_clock_style_noclock">Do not show the clock</string>
+    <string name="status_bar_clock_style_right">Right clock</string>
+    <string name="status_bar_clock_style_center">Center clock</string>
+
+    <!-- Device info settings -->
+
+    <!-- Change Log strings -->
+    <string name="changelog_summary">CyanogenMod Changelog</string>
+    <string name="djechangelog_summary">Dark Jelly Edition Changelog</string>
+
+    <!-- Section strings -->
+    <string name="general_info_section_title">General</string>
+    <string name="cm_section_title">CyanogenMod</string>
+	<string name="dje_section_title">Dark Jelly Edition</string>
+	<string name="hw_section_title">Hardware</string>
+	<string name="sw_section_title">Software</string>
+
+    <!-- OTA update strings -->
+    <string name="update_me_app_settings_title">OTA Update (launch UpdateMeApp)</string>
+    <string name="update_me_app_settings_summary">Dark Jelly Edition Updates</string>
+
+    <!-- Build version strings -->
+    <string name="build_version">Build version</string>
+
+    <!-- Navigation bar height -->
+    <string name="navigation_bar_edit_title">Navigation bar customization</string>
+    <string name="navigation_bar_edit_summary">Edit buttons layout</string>
+    <string name="navigation_bar_height_title">Navigation bar height</string>
+    <string name="navigation_bar_height_48">48dp (default)</string>
+    <string name="navigation_bar_height_44">44dp</string>
+    <string name="navigation_bar_height_40">40dp</string>
+    <string name="navigation_bar_height_36">36dp</string>
+    <string name="navigation_bar_height_32">32dp</string>
+    <string name="navigation_bar_height_28">28dp</string>
+    <string name="navigation_bar_height_24">24dp</string>
+</resources>
+

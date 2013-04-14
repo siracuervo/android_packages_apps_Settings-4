@@ -2361,7 +2361,6 @@
 
     <!-- Change log strings -->
     <string name="changelog_title">Changelog anzeigen</string>
-    <string name="changelog_summary">CyanogenMod Changelog</string>
     <string name="changelog_loading">Changelog wird geladen\u2026</string>
     <string name="changelog_error">Changelog kann nicht geladen werden</string>
     <string name="changelog_unknown">Unbekannt</string>
@@ -2395,10 +2394,6 @@
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_clock_title">Uhrzeit</string>
     <string name="status_bar_general_title">Allgemein</string>
-    <string name="status_bar_clock_style_title">Position der Uhr</string>
-    <string name="status_bar_clock_style_noclock">Uhr nicht anzeigen</string>
-    <string name="status_bar_clock_style_right">Uhr rechts</string>
-    <string name="status_bar_clock_style_center">Uhr zentriert</string>
     <string name="status_bar_show_clock_title">Uhr anzeigen</string>
     <string name="status_bar_am_pm_title">Tageszeitanzeige</string>
     <string name="status_bar_am_pm_info">24-Stunden-Modus ist aktiviert</string>
@@ -2410,12 +2405,6 @@
     <string name="status_bar_style_icon">Symbol</string>
     <string name="status_bar_style_hidden">Versteckt</string>
     <string name="status_bar_signal_text_show_text">Wert (dBm)</string>
-	<string name="status_bar_battery_status_circle">Kreis (CM)</string>
-    <string name="status_bar_battery_status_circle_percentage">Kreis &amp; Prozent (CM)</string>
-    <string name="status_bar_battery_status_ABT">Kreis (AlphaBlue Theme)</string>
-    <string name="status_bar_battery_status_AOKP">Kreis (AOKP)</string>
-    <string name="status_bar_battery_status_HC">Kreis (HoneyComb)</string>
-    <string name="status_bar_battery_status_percentage">Symbol &amp; Prozent</string>
 
     <!-- Status bar notification count -->
     <string name="status_bar_notif_count_title">Benachrichtigungszähler</string>
@@ -2667,26 +2656,9 @@
 
     <!-- **** Dark Jelly Edition ADDITIONS Start **** -->
 
-    <string name="general_info_section_title">Allgemein</string>
-    <string name="cm_section_title">CyanogenMod</string>
-	<string name="dje_section_title">Dark Jelly Edition</string>
-	<string name="hw_section_title">Hardware</string>
-	<string name="sw_section_title">Software</string>
-    <string name="update_me_app_settings_title">OTA Update (UpdateMeApp ausführen)</string>
-    <string name="update_me_app_settings_summary">Dark Jelly Edition Updates</string>
-    <string name="djechangelog_summary">Dark Jelly Edition Changelog</string>
-    <string name="build_version">Build-Version</string>
 
-    <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
-    <string name="navigation_bar_edit_summary">Schaltflächen bearbeiten</string>
-    <string name="navigation_bar_height">Höhe Navigationsleiste</string>
-    <string name="navigation_bar_height_48">48dp (Standard)</string>
-    <string name="navigation_bar_height_44">44dp</string>
-    <string name="navigation_bar_height_40">40dp</string>
-    <string name="navigation_bar_height_36">36dp</string>
-    <string name="navigation_bar_height_32">32dp</string>
-    <string name="navigation_bar_height_28">28dp</string>
-    <string name="navigation_bar_height_24">24dp</string>
+
+
 
     <!-- **** Dark Jelly Edition ADDITIONS END **** -->
 </resources>
