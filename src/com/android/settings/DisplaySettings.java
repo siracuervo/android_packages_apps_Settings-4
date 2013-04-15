@@ -69,6 +69,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
     private static final String KEY_WAKEUP_CATEGORY = "category_wakeup_options";
     private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
+    private static final String KEY_PLUGGED_UNPLUGGED_WAKE = "plugged_unplugged_wake";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
 
     // Strings used for building the summary
@@ -82,6 +83,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private DisplayManager mDisplayManager;
 
     private CheckBoxPreference mVolumeWake;
+    private CheckBoxPreference mPluggedUnpluggedWake;
     private Preference mCustomLabel;
     private PreferenceScreen mDisplayRotationPreference;
     private WarnedListPreference mFontSizePref;
@@ -157,12 +159,15 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             if (!getResources().getBoolean(R.bool.config_show_volumeRockerWake)
                     || !Utils.hasVolumeRocker(getActivity())) {
                 getPreferenceScreen().removePreference(mVolumeWake);
-                getPreferenceScreen().removePreference((PreferenceCategory) findPreference(KEY_WAKEUP_CATEGORY));
             } else {
                 mVolumeWake.setChecked(Settings.System.getInt(resolver,
                         Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
             }
         }
+
+        mPluggedUnpluggedWake = (CheckBoxPreference) findPreference(KEY_PLUGGED_UNPLUGGED_WAKE);
+        mPluggedUnpluggedWake.setChecked(Settings.System.getInt(resolver,
+                Settings.System.KEY_PLUGGED_UNPLUGGED_WAKE, 1) == 1);
 
         mCustomLabel = findPreference(PREF_CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
