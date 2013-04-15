@@ -47,6 +47,9 @@
     <!-- Build version strings -->
     <string name="build_version">Build version</string>
 
+    <!-- Navigation bar settings -->
+    <string name="navigation_bar_settings_title">Navigation bar</string>
+
     <!-- Navigation bar height -->
     <string name="navigation_bar_edit_title">Navigation bar customization</string>
     <string name="navigation_bar_edit_summary">Edit buttons layout</string>

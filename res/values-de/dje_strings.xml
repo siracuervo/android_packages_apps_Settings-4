@@ -46,6 +46,9 @@
     <!-- Build version strings -->
     <string name="build_version">Build-Version</string>
 
+    <!-- Navigation bar settings -->
+    <string name="navigation_bar_settings_title">Navigationsleiste</string>
+
     <!-- Navigation bar height -->
     <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
     <string name="navigation_bar_edit_summary">Schaltflächen bearbeiten</string>

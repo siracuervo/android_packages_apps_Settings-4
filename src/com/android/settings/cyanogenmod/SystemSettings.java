@@ -42,9 +42,7 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
-    private static final String KEY_NAVIGATION_BAR = "navigation_bar";
-    private static final String KEY_NAVIGATION_RING = "navigation_ring";
-    private static final String KEY_NAVIGATION_BAR_CATEGORY = "navigation_bar_category";
+    private static final String KEY_NAVIGATION_BAR_SETTINGS = "navigation_bar_settings";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_STATUS_BAR = "status_bar";
     private static final String KEY_QUICK_SETTINGS = "quick_settings_panel";
@@ -105,17 +103,13 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
                 prefScreen.removePreference(findPreference(KEY_HARDWARE_KEYS));
             }
             if (removeNavbar) {
-                prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR));
-                prefScreen.removePreference(findPreference(KEY_NAVIGATION_RING));
-                prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR_CATEGORY));
+                prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR_SETTINGS));
             }
         } else {
             // Secondary user is logged in, remove all primary user specific preferences
             prefScreen.removePreference(findPreference(KEY_BATTERY_LIGHT));
             prefScreen.removePreference(findPreference(KEY_HARDWARE_KEYS));
-            prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR));
-            prefScreen.removePreference(findPreference(KEY_NAVIGATION_RING));
-            prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR_CATEGORY));
+            prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR_SETTINGS));
             prefScreen.removePreference(findPreference(KEY_STATUS_BAR));
             prefScreen.removePreference(findPreference(KEY_QUICK_SETTINGS));
             prefScreen.removePreference(findPreference(KEY_POWER_MENU));
@@ -130,14 +124,6 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
                 prefScreen.removePreference(mNotificationPulse);
                 mNotificationPulse = null;
             }
-        }
-
-        // Pie controls
-        mPieControl = (PreferenceScreen) findPreference(KEY_PIE_CONTROL);
-        if (mPieControl != null && removeNavbar) {
-            // Remove on devices without a navbar to start with
-            prefScreen.removePreference(mPieControl);
-            mPieControl = null;
         }
 
         // Expanded desktop
@@ -174,9 +160,6 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
         // All users
         if (mNotificationPulse != null) {
             updateLightPulseDescription();
-        }
-        if (mPieControl != null) {
-            updatePieControlDescription();
         }
 
         // Primary user only
@@ -221,15 +204,6 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
             mBatteryPulse.setSummary(getString(R.string.notification_light_disabled));
         }
      }
-
-    private void updatePieControlDescription() {
-        if (Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.PIE_CONTROLS, 0) == 1) {
-            mPieControl.setSummary(getString(R.string.pie_control_enabled));
-        } else {
-            mPieControl.setSummary(getString(R.string.pie_control_disabled));
-        }
-    }
 
     private void updateExpandedDesktop(int value) {
         ContentResolver cr = getContentResolver();
