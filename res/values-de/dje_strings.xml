@@ -57,5 +57,10 @@
     <string name="navigation_bar_height_32">32dp</string>
     <string name="navigation_bar_height_28">28dp</string>
     <string name="navigation_bar_height_24">24dp</string>
+
+    <!-- Custom Carrier Text -->
+    <string name="custom_carrier_label_title">Netztbetreiber Name anpassen</string>
+    <string name="custom_carrier_label_explain">Gib bitte einen neuen Netzbetreiber Namen ein. Lass das Feld leer, um den originalen Netzbetreiber Namen wieder herzustellen.</string>
+    <string name="custom_carrier_label_notset">Kein angepasster Netzbetreiber Name gesetzt</string> 
 </resources>
 
