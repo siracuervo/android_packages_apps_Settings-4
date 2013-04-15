@@ -12,7 +12,11 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- System settings -->
+
     <!-- Statusbar -->
+
+    <!-- Battery style strings  -->
     <string name="status_bar_battery_status_icon">Default icon</string>
     <string name="status_bar_battery_status_circle">Circle (CM)</string>
     <string name="status_bar_battery_status_circle_percentage">Circle &amp; percentage (CM)</string>
@@ -48,9 +52,11 @@
     <string name="build_version">Build version</string>
 
     <!-- Navigation bar settings -->
+
+    <!-- Navigation bar strings -->
     <string name="navigation_bar_settings_title">Navigation bar</string>
 
-    <!-- Navigation bar height -->
+    <!-- Navigation bar height strings -->
     <string name="navigation_bar_edit_title">Navigation bar customization</string>
     <string name="navigation_bar_edit_summary">Edit buttons layout</string>
     <string name="navigation_bar_height_title">Navigation bar height</string>
@@ -62,12 +68,14 @@
     <string name="navigation_bar_height_28">28dp</string>
     <string name="navigation_bar_height_24">24dp</string>
 
-    <!-- Custom Carrier Text -->
+    <!-- Display settings -->
+
+    <!-- Custom Carrier Text strings -->
     <string name="custom_carrier_label_title">Custom carrier label</string>
     <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
 
-    <!-- (Un)plug screen wake up -->
+    <!-- (Un)plug screen wake up strings -->
     <string name="plugged_unplugged_wake_title">Charger</string>
     <string name="plugged_unplugged_wake_summary">Plugging/unplogging the charger will wake the device.</string>
 </resources>

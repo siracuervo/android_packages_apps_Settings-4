@@ -12,7 +12,11 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- System settings -->
+
     <!-- Statusbar -->
+
+    <!-- Battery style strings  -->
 	<string name="status_bar_battery_status_circle">Kreis (CM)</string>
     <string name="status_bar_battery_status_circle_percentage">Kreis &amp; Prozent (CM)</string>
     <string name="status_bar_battery_status_ABT">Kreis (AlphaBlue Theme)</string>
@@ -47,9 +51,11 @@
     <string name="build_version">Build-Version</string>
 
     <!-- Navigation bar settings -->
+
+    <!-- Navigation bar strings -->
     <string name="navigation_bar_settings_title">Navigationsleiste</string>
 
-    <!-- Navigation bar height -->
+    <!-- Navigation bar height strings -->
     <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
     <string name="navigation_bar_edit_summary">Schaltflächen bearbeiten</string>
     <string name="navigation_bar_height">Höhe Navigationsleiste</string>
@@ -61,12 +67,14 @@
     <string name="navigation_bar_height_28">28dp</string>
     <string name="navigation_bar_height_24">24dp</string>
 
-    <!-- Custom Carrier Text -->
+    <!-- Display settings -->
+
+    <!-- Custom Carrier Text strings -->
     <string name="custom_carrier_label_title">Netztbetreiber Name anpassen</string>
     <string name="custom_carrier_label_explain">Gib bitte einen neuen Netzbetreiber Namen ein. Lass das Feld leer, um den originalen Netzbetreiber Namen wieder herzustellen.</string>
     <string name="custom_carrier_label_notset">Kein angepasster Netzbetreiber Name gesetzt</string>
 
-    <!-- (Un)plug screen wake up -->
+    <!-- (Un)plug screen wake up strings -->
     <string name="plugged_unplugged_wake_title">Ladegerät</string>
     <string name="plugged_unplugged_wake_summary">Anschließen/Entfernen des Ladegerätes weckt das Gerät, und aktiviert den Bildschirm.</string>
 </resources>
