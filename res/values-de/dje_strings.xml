@@ -58,7 +58,7 @@
     <!-- Navigation bar height strings -->
     <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
     <string name="navigation_bar_edit_summary">Schaltflächen bearbeiten</string>
-    <string name="navigation_bar_height">Höhe Navigationsleiste</string>
+    <string name="navigation_bar_height_title">Höhe Navigationsleiste</string>
     <string name="navigation_bar_height_48">48dp (Standard)</string>
     <string name="navigation_bar_height_44">44dp</string>
     <string name="navigation_bar_height_40">40dp</string>
