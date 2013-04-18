@@ -99,7 +99,7 @@
 						android:key="djechangelog"
 				        android:title="@string/changelog_title"
 						android:summary="@string/djechangelog_summary"
-				        android:fragment="com.android.settings.cyanogenmod.DJEChangeLog" >
+				        android:fragment="com.android.settings.darkjelly.DJEChangeLog" >
 				</PreferenceScreen>
 
         </PreferenceCategory>
