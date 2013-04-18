@@ -63,19 +63,9 @@
             	android:key="custom_carrier_label"
             	android:title="@string/custom_carrier_label_title" />
 
-        <PreferenceCategory
-            android:key="category_wakeup_options"
-            android:title="@string/display_category_wakeup_options_title"/>
+        <PreferenceScreen
+            android:key="wakeup_options"
+            android:fragment="com.android.settings.darkjelly.WakeupOptions"
+            android:title="@string/wakeup_options_title"/>
 
-        <CheckBoxPreference
-            android:key="pref_volume_wake"
-            android:title="@string/pref_volume_wake_title"
-            android:summary="@string/pref_volume_wake_summary"
-            android:defaultValue="false" />
-
-         <CheckBoxPreference
-            android:key="plugged_unplugged_wake"
-            android:title="@string/plugged_unplugged_wake_title"
-            android:summary="@string/plugged_unplugged_wake_summary"
-            android:defaultValue="true" />
 </PreferenceScreen>

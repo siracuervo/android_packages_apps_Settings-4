@@ -67,9 +67,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_WIFI_DISPLAY = "wifi_display";
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
-    private static final String KEY_WAKEUP_CATEGORY = "category_wakeup_options";
-    private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
-    private static final String KEY_PLUGGED_UNPLUGGED_WAKE = "plugged_unplugged_wake";
+    private static final String KEY_WAKEUP_Options = "wakeup_options";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
 
     // Strings used for building the summary
@@ -154,20 +152,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mWifiDisplayPreference = null;
         }
 
-        mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
-        if (mVolumeWake != null) {
-            if (!getResources().getBoolean(R.bool.config_show_volumeRockerWake)
-                    || !Utils.hasVolumeRocker(getActivity())) {
-                getPreferenceScreen().removePreference(mVolumeWake);
-            } else {
-                mVolumeWake.setChecked(Settings.System.getInt(resolver,
-                        Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
-            }
+        if (!getResources().getBoolean(R.bool.config_show_volumeRockerWake)
+                || !Utils.hasVolumeRocker(getActivity())) {
+            getPreferenceScreen().removePreference((PreferenceScreen) findPreference(KEY_WAKEUP_Options)); 
         }
-
-        mPluggedUnpluggedWake = (CheckBoxPreference) findPreference(KEY_PLUGGED_UNPLUGGED_WAKE);
-        mPluggedUnpluggedWake.setChecked(Settings.System.getInt(resolver,
-                Settings.System.KEY_PLUGGED_UNPLUGGED_WAKE, 1) == 1);
 
         mCustomLabel = findPreference(PREF_CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
@@ -413,16 +401,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mVolumeWake) {
-            Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_WAKE_SCREEN,
-                    mVolumeWake.isChecked() ? 1 : 0);
-            return true;
-        } else if (preference == mPluggedUnpluggedWake) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.KEY_PLUGGED_UNPLUGGED_WAKE,
-                    mPluggedUnpluggedWake.isChecked() ? 1 : 0);
-            return true;
-        } else if (preference == mCustomLabel) {
+        if (preference == mCustomLabel) {
             AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
             alert.setTitle(R.string.custom_carrier_label_title);
             alert.setMessage(R.string.custom_carrier_label_explain);
