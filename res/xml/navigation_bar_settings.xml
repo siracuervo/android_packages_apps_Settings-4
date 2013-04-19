@@ -22,7 +22,8 @@
     <PreferenceScreen
         android:key="navigation_bar"
         android:fragment="com.android.settings.darkjelly.NavigationBar"
-        android:title="@string/navigation_bar_title" />
+        android:title="@string/navigation_bar_title"
+        android:summary="@string/navigation_bar_summary" />
 
     <PreferenceScreen
         android:key="navigation_ring"
