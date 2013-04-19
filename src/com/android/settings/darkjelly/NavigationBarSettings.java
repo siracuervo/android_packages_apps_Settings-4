@@ -27,6 +27,7 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class NavigationBarSettings extends SettingsPreferenceFragment {
     private static final String TAG = "NavigationBarSettings";
+    private static final String KEY_PIE_CONTROL = "pie_control";
 
     private PreferenceScreen mPieControl;
 
@@ -36,6 +37,8 @@ public class NavigationBarSettings extends SettingsPreferenceFragment {
 
         addPreferencesFromResource(R.xml.navigation_bar_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mPieControl = (PreferenceScreen) findPreference(KEY_PIE_CONTROL);
     }
 
     @Override
