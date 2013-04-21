@@ -67,7 +67,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_SCREEN_SAVER = "screensaver";
     private static final String KEY_WIFI_DISPLAY = "wifi_display";
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
-    private static final String KEY_WAKEUP_Options = "wakeup_options";
+    private static final String KEY_WAKEUP_OPTIONS = "wakeup_options";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
 
     // Strings used for building the summary
@@ -81,6 +81,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private DisplayManager mDisplayManager;
     private Preference mCustomLabel;
     private PreferenceScreen mDisplayRotationPreference;
+    private PreferenceScreen mWakeupOptionsPreference;
     private WarnedListPreference mFontSizePref;
 
     private final Configuration mCurConfig = new Configuration();
@@ -118,6 +119,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.display_settings);
 
         mDisplayRotationPreference = (PreferenceScreen) findPreference(KEY_DISPLAY_ROTATION);
+        mWakeupOptionsPreference = (PreferenceScreen) findPreference(KEY_WAKEUP_OPTIONS);
 
         mScreenSaverPreference = findPreference(KEY_SCREEN_SAVER);
         if (mScreenSaverPreference != null
@@ -134,6 +136,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         disableUnusableTimeouts(mScreenTimeoutPreference);
         updateTimeoutPreferenceDescription(currentTimeout);
         updateDisplayRotationPreferenceDescription();
+        updateWakeupOptionsPreferenceDescription();
 
         mFontSizePref = (WarnedListPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
@@ -151,7 +154,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         if (!getResources().getBoolean(R.bool.config_show_volumeRockerWake)
                 || !Utils.hasVolumeRocker(getActivity())) {
-            getPreferenceScreen().removePreference((PreferenceScreen) findPreference(KEY_WAKEUP_Options)); 
+            getPreferenceScreen().removePreference((PreferenceScreen) findPreference(KEY_WAKEUP_OPTIONS)); 
         }
 
         mCustomLabel = findPreference(PREF_CUSTOM_CARRIER_LABEL);
@@ -201,6 +204,32 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             summary.append(" " + getString(R.string.display_rotation_unit));
         }
         mDisplayRotationPreference.setSummary(summary);
+    }
+
+    private void updateWakeupOptionsPreferenceDescription() {
+        if (mWakeupOptionsPreference == null) {
+            // The preference was removed, do nothing
+            return;
+        }
+
+        // We have a preference, lets update the summary
+        Boolean volumewakeEnabled = Settings.System.getInt(getContentResolver(),
+                Settings.System.VOLUME_WAKE_SCREEN, 0) != 0;
+        Boolean pluggedunpluggedwakeEnabled = Settings.System.getInt(getContentResolver(),
+                Settings.System.KEY_PLUGGED_UNPLUGGED_WAKE, 0) != 0;
+
+        if (!volumewakeEnabled && !pluggedunpluggedwakeEnabled) {
+            mWakeupOptionsPreference.setSummary(getString(R.string.display_rotation_disabled));
+        }
+        if (volumewakeEnabled && !pluggedunpluggedwakeEnabled) {
+            mWakeupOptionsPreference.setSummary(getString(R.string.pref_volume_wake_title));
+        }
+        if (!volumewakeEnabled && pluggedunpluggedwakeEnabled) {
+            mWakeupOptionsPreference.setSummary(getString(R.string.plugged_unplugged_wake_title));
+        }
+        if (volumewakeEnabled && pluggedunpluggedwakeEnabled) {
+            mWakeupOptionsPreference.setSummary((getString(R.string.pref_volume_wake_title))+" & "+(getString(R.string.plugged_unplugged_wake_title)));
+        }
     }
 
     private void updateTimeoutPreferenceDescription(long currentTimeout) {
@@ -310,6 +339,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     public void onResume() {
         super.onResume();
         updateDisplayRotationPreferenceDescription();
+        updateWakeupOptionsPreferenceDescription();
 
         RotationPolicy.registerRotationPolicyListener(getActivity(),
                 mRotationPolicyListener);
