@@ -218,18 +218,21 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         Boolean pluggedunpluggedwakeEnabled = Settings.System.getInt(getContentResolver(),
                 Settings.System.KEY_PLUGGED_UNPLUGGED_WAKE, 0) != 0;
 
+        String wakeupsummary = "";
+
         if (!volumewakeEnabled && !pluggedunpluggedwakeEnabled) {
-            mWakeupOptionsPreference.setSummary(getString(R.string.display_rotation_disabled));
+            wakeupsummary = getString(R.string.display_rotation_disabled);
         }
         if (volumewakeEnabled && !pluggedunpluggedwakeEnabled) {
-            mWakeupOptionsPreference.setSummary(getString(R.string.pref_volume_wake_title));
+            wakeupsummary = getString(R.string.pref_volume_wake_title);
         }
         if (!volumewakeEnabled && pluggedunpluggedwakeEnabled) {
-            mWakeupOptionsPreference.setSummary(getString(R.string.plugged_unplugged_wake_title));
+            wakeupsummary = getString(R.string.plugged_unplugged_wake_title);
         }
         if (volumewakeEnabled && pluggedunpluggedwakeEnabled) {
-            mWakeupOptionsPreference.setSummary((getString(R.string.pref_volume_wake_title))+" & "+(getString(R.string.plugged_unplugged_wake_title)));
+            wakeupsummary = (getString(R.string.pref_volume_wake_title) + " & " + getString(R.string.plugged_unplugged_wake_title));
         }
+        mWakeupOptionsPreference.setSummary(wakeupsummary);
     }
 
     private void updateTimeoutPreferenceDescription(long currentTimeout) {
