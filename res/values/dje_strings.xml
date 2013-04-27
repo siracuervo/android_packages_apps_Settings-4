@@ -68,7 +68,11 @@
     <!-- Navigation bar strings -->
     <string name="navigation_bar_settings_title">Navigation bar</string>
     <string name="navigation_bar_settings_summary">Customize the Navigation bar &amp;\nPie controls</string>
-    <string name="navigation_bar_summary">Edit buttons layout &amp;\nnavigation bar height</string>
+
+    <!-- Navigation bar category strings -->
+    <string name="cat_nav_bar">Navigation bar</string>
+    <string name="cat_nav_ring">Navigation ring</string>
+    <string name="cat_pie_control">Pie</string>
 
     <!-- Navigation bar height strings -->
     <string name="navigation_bar_edit_title">Navigation bar customization</string>

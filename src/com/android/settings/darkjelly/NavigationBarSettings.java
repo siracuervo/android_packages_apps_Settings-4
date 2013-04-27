@@ -18,17 +18,25 @@ package com.android.settings.darkjelly;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.view.MenuItem;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class NavigationBarSettings extends SettingsPreferenceFragment {
-    private static final String TAG = "NavigationBarSettings";
+import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
+
+public class NavigationBarSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
+
+    private static final String KEY_NAV_BUTTONS_HEIGHT = "nav_buttons_height";
+    private static final String KEY_NAVIGATION_BAR_COLOR = "nav_bar_color";
     private static final String KEY_PIE_CONTROL = "pie_control";
 
+    private ListPreference mNavButtonsHeight;
+    private ColorPickerPreference mNavigationBarColor;
     private PreferenceScreen mPieControl;
 
     @Override
@@ -36,8 +44,17 @@ public class NavigationBarSettings extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.navigation_bar_settings);
+
         PreferenceScreen prefScreen = getPreferenceScreen();
 
+        mNavButtonsHeight = (ListPreference) findPreference(KEY_NAV_BUTTONS_HEIGHT);
+        mNavButtonsHeight.setOnPreferenceChangeListener(this);
+        int statusNavButtonsHeight = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                 Settings.System.NAV_BUTTONS_HEIGHT, 48);
+        mNavButtonsHeight.setValue(String.valueOf(statusNavButtonsHeight));
+        mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntry());
+        mNavigationBarColor = (ColorPickerPreference) findPreference(KEY_NAVIGATION_BAR_COLOR);
+        mNavigationBarColor.setOnPreferenceChangeListener(this);
         mPieControl = (PreferenceScreen) findPreference(KEY_PIE_CONTROL);
     }
 
@@ -53,6 +70,26 @@ public class NavigationBarSettings extends SettingsPreferenceFragment {
     @Override
     public void onPause() {
         super.onPause();
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if (preference == mNavButtonsHeight) {
+            int statusNavButtonsHeight = Integer.valueOf((String) objValue);
+            int index = mNavButtonsHeight.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.NAV_BUTTONS_HEIGHT, statusNavButtonsHeight);
+            mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntries()[index]);
+            return true;
+        } else if (preference == mNavigationBarColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex) & 0x00FFFFFF;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_COLOR, intHex);
+            return true;
+        }
+        return false;
     }
 
     private void updatePieControlDescription() {

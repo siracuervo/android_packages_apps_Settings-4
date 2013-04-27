@@ -67,7 +67,11 @@
     <!-- Navigation bar strings -->
     <string name="navigation_bar_settings_title">Navigationsleiste</string>
     <string name="navigation_bar_settings_summary">Die Navigationsleiste &amp;\nPie-Navigation anpassen</string>
-    <string name="navigation_bar_summary">Schaltflächen bearbeiten &amp;\nHöhe der Navigationsleiste anpassen</string>
+
+    <!-- Navigation bar category strings -->
+    <string name="cat_nav_bar">Navigationsleiste</string>
+    <string name="cat_nav_ring">Navigations-Ring</string>
+    <string name="cat_pie_control">Pie</string>
 
     <!-- Navigation bar height strings -->
     <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
