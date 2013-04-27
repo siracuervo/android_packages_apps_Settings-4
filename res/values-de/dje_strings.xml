@@ -81,6 +81,9 @@
     <string name="navigation_bar_height_28">28dp</string>
     <string name="navigation_bar_height_24">24dp</string>
 
+    <!-- Navigation bar color strings -->
+    <string name="navigation_bar_color_title">Farbe der Navigationsleiste</string> 
+
     <!-- Display settings -->
 
     <!-- Custom Carrier Text strings -->

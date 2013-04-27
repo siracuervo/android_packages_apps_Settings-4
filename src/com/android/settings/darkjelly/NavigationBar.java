@@ -22,15 +22,20 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.view.MenuItem;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
+
 public class NavigationBar extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
     private static final String KEY_NAV_BUTTONS_HEIGHT = "nav_buttons_height";
+    private static final String KEY_NAVIGATION_BAR_COLOR = "nav_bar_color";
 
     private ListPreference mNavButtonsHeight;
+    private ColorPickerPreference mNavigationBarColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,8 @@ public class NavigationBar extends SettingsPreferenceFragment implements Prefere
 
         mNavButtonsHeight = (ListPreference) findPreference(KEY_NAV_BUTTONS_HEIGHT);
         mNavButtonsHeight.setOnPreferenceChangeListener(this);
+        mNavigationBarColor = (ColorPickerPreference) findPreference(KEY_NAVIGATION_BAR_COLOR);
+        mNavigationBarColor.setOnPreferenceChangeListener(this);
 
         int statusNavButtonsHeight = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                  Settings.System.NAV_BUTTONS_HEIGHT, 48);
@@ -54,6 +61,14 @@ public class NavigationBar extends SettingsPreferenceFragment implements Prefere
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.NAV_BUTTONS_HEIGHT, statusNavButtonsHeight);
             mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntries()[index]);
+            return true;
+        } else if (preference == mNavigationBarColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex) & 0x00FFFFFF;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_COLOR, intHex);
             return true;
         }
         return false;
