@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.cyanogenmod.colorpicker;
+package com.android.settings.darkjelly.colorpicker;
 
 import android.app.Dialog;
 import android.content.Context;
