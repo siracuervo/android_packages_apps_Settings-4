@@ -16,13 +16,12 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Color Picker -->
     <string name="dialog_color_picker">Farbauswahl</string>
-    <string name="press_color_to_apply">Drücke auf eine Farbe um sie anzuwenden</string>
+    <string name="press_color_to_apply">Drücke unten auf eine Farbe um sie anzuwenden</string>
     <string name="arrow_right">→</string>
     <string name="arrow_down">↓</string>
     <string name="hex">Hex:</string>
-    <string name="hex_hint">#FF000000</string>
+    <string name="hex_hint">#ff000000</string>
     <string name="set">Setzen</string>
-    <string name="ics_color">!!!</string>
 
     <!-- System settings -->
 
