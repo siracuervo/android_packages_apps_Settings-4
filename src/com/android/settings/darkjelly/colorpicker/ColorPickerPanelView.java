@@ -28,7 +28,6 @@ import android.view.View;
  * It can be used to show the currently selected color which you will get from
  * the {@link ColorPickerView}.
  * @author Daniel Nilsson
- *
  */
 public class ColorPickerPanelView extends View {
 
@@ -51,12 +50,11 @@ public class ColorPickerPanelView extends View {
 
 	private AlphaPatternDrawable mAlphaPattern;
 
-
-	public ColorPickerPanelView(Context context){
+	public ColorPickerPanelView(Context context) {
 		this(context, null);
 	}
 
-	public ColorPickerPanelView(Context context, AttributeSet attrs){
+	public ColorPickerPanelView(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
 	}
 
@@ -65,38 +63,33 @@ public class ColorPickerPanelView extends View {
 		init();
 	}
 
-	private void init(){
+	private void init() {
 		mBorderPaint = new Paint();
 		mColorPaint = new Paint();
 		mDensity = getContext().getResources().getDisplayMetrics().density;
 	}
 
-
 	@Override
 	protected void onDraw(Canvas canvas) {
-
 		final RectF	rect = mColorRect;
 
-		if(BORDER_WIDTH_PX > 0){
+		if (BORDER_WIDTH_PX > 0) {
 			mBorderPaint.setColor(mBorderColor);
 			canvas.drawRect(mDrawingRect, mBorderPaint);
 		}
 
-		if(mAlphaPattern != null){
+		if (mAlphaPattern != null) {
 			mAlphaPattern.draw(canvas);
 		}
 
 		mColorPaint.setColor(mColor);
-
 		canvas.drawRect(rect, mColorPaint);
 	}
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-
 		int width = MeasureSpec.getSize(widthMeasureSpec);
 		int height = MeasureSpec.getSize(heightMeasureSpec);
-
 		setMeasuredDimension(width, height);
 	}
 
@@ -109,9 +102,7 @@ public class ColorPickerPanelView extends View {
 		mDrawingRect.right  = w - getPaddingRight();
 		mDrawingRect.top = getPaddingTop();
 		mDrawingRect.bottom = h - getPaddingBottom();
-
 		setUpColorRect();
-
 	}
 
 	private void setUpColorRect(){
@@ -123,23 +114,20 @@ public class ColorPickerPanelView extends View {
 		float right = dRect.right - BORDER_WIDTH_PX;
 
 		mColorRect = new RectF(left,top, right, bottom);
-
 		mAlphaPattern = new AlphaPatternDrawable((int)(5 * mDensity));
-
 		mAlphaPattern.setBounds(
 			Math.round(mColorRect.left),
 			Math.round(mColorRect.top),
 			Math.round(mColorRect.right),
 			Math.round(mColorRect.bottom)
 		);
-
 	}
 
 	/**
 	 * Set the color that should be shown by this view.
 	 * @param color
 	 */
-	public void setColor(int color){
+	public void setColor(int color) {
 		mColor = color;
 		invalidate();
 	}
@@ -148,7 +136,7 @@ public class ColorPickerPanelView extends View {
 	 * Get the color currently show by this view.
 	 * @return
 	 */
-	public int getColor(){
+	public int getColor() {
 		return mColor;
 	}
 
@@ -164,9 +152,8 @@ public class ColorPickerPanelView extends View {
 	/**
 	 * Get the color of the border surrounding the panel.
 	 */
-	public int getBorderColor(){
+	public int getBorderColor() {
 		return mBorderColor;
 	}
-
 }
 

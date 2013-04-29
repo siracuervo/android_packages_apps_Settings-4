@@ -44,7 +44,7 @@ public class AlphaPatternDrawable extends Drawable {
 	/**
 	 * Bitmap in which the pattern will be cahched.
 	 */
-	private Bitmap		mBitmap;
+	private Bitmap mBitmap;
 
 	public AlphaPatternDrawable(int rectangleSize) {
 		mRectangleSize = rectangleSize;
@@ -83,7 +83,6 @@ public class AlphaPatternDrawable extends Drawable {
 		numRectanglesVertical = (int) Math.ceil(height / mRectangleSize);
 
 		generatePatternBitmap();
-
 	}
 
 	/**
@@ -105,25 +104,18 @@ public class AlphaPatternDrawable extends Drawable {
 		Rect r = new Rect();
 		boolean verticalStartWhite = true;
 		for (int i = 0; i <= numRectanglesVertical; i++) {
-
 			boolean isWhite = verticalStartWhite;
 			for (int j = 0; j <= numRectanglesHorizontal; j++) {
-
 				r.top = i * mRectangleSize;
 				r.left = j * mRectangleSize;
 				r.bottom = r.top + mRectangleSize;
 				r.right = r.left + mRectangleSize;
 
 				canvas.drawRect(r, isWhite ? mPaintWhite : mPaintGray);
-
 				isWhite = !isWhite;
 			}
-
 			verticalStartWhite = !verticalStartWhite;
-
 		}
-
 	}
-
 }
 
