@@ -29,7 +29,6 @@
     <!-- Statusbar -->
 
     <!-- Battery style strings  -->
-    <string name="status_bar_battery_status_icon">Default icon</string>
     <string name="status_bar_battery_status_circle">Circle (CM)</string>
     <string name="status_bar_battery_status_circle_percentage">Circle &amp; percentage (CM)</string>
     <string name="status_bar_battery_status_ABT">Circle (AlphaBlue Theme)</string>
