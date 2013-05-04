@@ -1597,7 +1597,7 @@
 
         <activity android:name=".cyanogenmod.ChangeLog" />
 
-        <activity android:name=".cyanogenmod.DJEChangeLog" />
+        <activity android:name=".darkjelly.DJEChangeLog" />
 
         <activity android:name=".cyanogenmod.LockscreenInterface" />
 
