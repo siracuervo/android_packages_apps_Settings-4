@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2012 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -41,12 +41,11 @@
         android:key="status_bar_general"
         android:title="@string/status_bar_general_title">
 
-        <ListPreference
-            android:key="status_bar_battery"
-            android:dialogTitle="@string/status_bar_battery_title"
-            android:title="@string/status_bar_battery_title"
-            android:entries="@array/entries_status_bar_battery"
-            android:entryValues="@array/values_status_bar_battery" />
+		<ListPreference
+			android:key="status_bar_batt_bar"
+			android:title="@string/battery_bar_list_title"
+			android:entries="@array/battery_bar_entries"
+			android:entryValues="@array/battery_bar_values" />
 
         <ListPreference
             android:key="status_bar_signal"

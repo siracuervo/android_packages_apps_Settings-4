@@ -14,16 +14,51 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Farbauswahl</string>
+    <string name="press_color_to_apply">Drücke unten auf eine Farbe um sie anzuwenden</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Setzen</string>
+
     <!-- System settings -->
 
-    <!-- Statusbar -->
+    <!-- Style strings  -->
+    <string name="style_settings_title">Style</string>
 
-    <!-- Battery style strings  -->
+    <!-- Battery tyle strings  -->
+    <string name="battery_bar_cat">Akkuleiste</string>
+    <string name="battery_status_cat">Akkustand</string>
+
+    <!-- Battery bar strings  -->
+    <string name="battery_style_title">Akku Style</string>
+    <string name="battery_bar_list_title">Position der Akkuleiste</string>
+    <string name="battery_bar_style_title">Style der Akkuleiste</string>
+    <string name="battery_bar_animate_title">Lade-Animation</string>
+    <string name="battery_bar_animate_summary">Die Lade-Animation kann zu trägem Verhalten des Gerätes führen. Aktiviere sie, nach deinem eigenen Ermessen.</string> 
+    <string name="battery_bar_color_title">Farbe der Akkuleiste</string>
+    <string name="battery_bar_thickness_title">Dicke der Akkuleiste</string>
+    <string name="battery_bar_hide">Ausgeblendet</string>
+    <string name="battery_bar_statusbar">Statusleiste</string>
+    <string name="battery_bar_navbar_top">Über der Navigationsleiste</string>
+    <string name="battery_bar_navbar_buttom">Unter der Navigationsleiste</string>
+    <string name="battery_bar_regular">Normal</string>
+    <string name="battery_bar_center_mirrored">Mittig-gespiegelt</string>
+    <string name="battery_bar_thickness_1">1dp (Standard)</string>
+    <string name="battery_bar_thickness_2">2dp</string>
+    <string name="battery_bar_thickness_3">3dp</string>
+    <string name="battery_bar_thickness_4">4dp</string>
+
+    <!-- Battery status strings  -->
 	<string name="status_bar_battery_status_circle">Kreis (CM)</string>
     <string name="status_bar_battery_status_circle_percentage">Kreis &amp; Prozent (CM)</string>
     <string name="status_bar_battery_status_ABT">Kreis (AlphaBlue Theme)</string>
     <string name="status_bar_battery_status_AOKP">Kreis (AOKP)</string>
     <string name="status_bar_battery_status_HC">Kreis (HoneyComb)</string>
+
+    <!-- Statusbar -->
 
     <!-- Clock style strings -->
     <string name="status_bar_clock_style_title">Position der Uhr</string>
@@ -73,9 +108,6 @@
     <string name="navigation_bar_height_32">32dp</string>
     <string name="navigation_bar_height_28">28dp</string>
     <string name="navigation_bar_height_24">24dp</string>
-
-    <!-- Navigation bar color strings -->
-    <string name="navigation_bar_color_title">Farbe der Navigationsleiste</string> 
 
     <!-- Display settings -->
 
