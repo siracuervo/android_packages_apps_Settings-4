@@ -34,6 +34,7 @@
 
     <!-- Battery bar strings  -->
     <string name="battery_style_title">Akku Style</string>
+    <string name="battery_bar_style_summary">Die Akkuleiste mittig-gespiegelt darstellen</string>
     <string name="battery_bar_list_title">Position der Akkuleiste</string>
     <string name="battery_bar_style_title">Style der Akkuleiste</string>
     <string name="battery_bar_animate_title">Lade-Animation</string>
@@ -44,8 +45,6 @@
     <string name="battery_bar_statusbar">Statusleiste</string>
     <string name="battery_bar_navbar_top">Über der Navigationsleiste</string>
     <string name="battery_bar_navbar_buttom">Unter der Navigationsleiste</string>
-    <string name="battery_bar_regular">Normal</string>
-    <string name="battery_bar_center_mirrored">Mittig-gespiegelt</string>
     <string name="battery_bar_thickness_1">1dp (Standard)</string>
     <string name="battery_bar_thickness_2">2dp</string>
     <string name="battery_bar_thickness_3">3dp</string>

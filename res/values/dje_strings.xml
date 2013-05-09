@@ -34,6 +34,7 @@
 
     <!-- Battery bar strings  -->
     <string name="battery_style_title">Battery style</string>
+    <string name="battery_bar_style_summary">Display the battery bar center-mirrored</string>
     <string name="battery_bar_list_title">Battery bar location</string>
     <string name="battery_bar_style_title">Battery bar style</string>
     <string name="battery_bar_animate_title">Charging animation</string>
@@ -44,8 +45,6 @@
     <string name="battery_bar_statusbar">Statusbar</string>
     <string name="battery_bar_navbar_top">Top of navigation bar</string>
     <string name="battery_bar_navbar_buttom">Buttom of navigation bar</string>
-    <string name="battery_bar_regular">Regular</string>
-    <string name="battery_bar_center_mirrored">Center mirrored</string>
     <string name="battery_bar_thickness_1">1dp (default)</string>
     <string name="battery_bar_thickness_2">2dp</string>
     <string name="battery_bar_thickness_3">3dp</string>
