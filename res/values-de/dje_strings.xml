@@ -27,13 +27,14 @@
 
     <!-- Style strings  -->
     <string name="style_settings_title">Style</string>
+    <string name="battery_style_title">Akku Style</string>
+    <string name="status_bar_style_title">Statusleisten Style</string>
 
-    <!-- Battery tyle strings  -->
+    <!-- Battery style strings  -->
     <string name="battery_bar_cat">Akkuleiste</string>
     <string name="battery_status_cat">Akkustand</string>
 
     <!-- Battery bar strings  -->
-    <string name="battery_style_title">Akku Style</string>
     <string name="battery_bar_style_summary">Die Akkuleiste mittig-gespiegelt darstellen</string>
     <string name="battery_bar_list_title">Position der Akkuleiste</string>
     <string name="battery_bar_style_title">Style der Akkuleiste</string>
@@ -56,6 +57,9 @@
     <string name="status_bar_battery_status_ABT">Kreis (AlphaBlue Theme)</string>
     <string name="status_bar_battery_status_AOKP">Kreis (AOKP)</string>
     <string name="status_bar_battery_status_HC">Kreis (HoneyComb)</string>
+
+    <!-- Statusbar style strings  -->
+    <string name="status_bar_color_title">Farbe der Statusleiste</string>
 
     <!-- Statusbar -->
 
