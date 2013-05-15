@@ -32,11 +32,9 @@
 
     <!-- Battery style strings  -->
     <string name="battery_bar_cat">Battery bar</string>
-    <string name="battery_status_cat">Battery status</string>
 
     <!-- Battery bar strings  -->
     <string name="battery_bar_style_summary">Display the battery bar center-mirrored</string>
-    <string name="battery_bar_list_title">Battery bar location</string>
     <string name="battery_bar_style_title">Battery bar style</string>
     <string name="battery_bar_animate_title">Charging animation</string>
     <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string> 
@@ -51,7 +49,19 @@
     <string name="battery_bar_thickness_3">3dp</string>
     <string name="battery_bar_thickness_4">4dp</string>
 
-    <!-- Battery status strings  -->
+    <!-- Statusbar style strings  -->
+    <string name="status_bar_color_title">Status bar color</string>
+
+    <!-- Statusbar -->
+
+    <!-- Clock position strings -->
+    <string name="status_bar_clock_position_title">Clock style</string>
+    <string name="status_bar_clock_position_noclock">Do not show the clock</string>
+    <string name="status_bar_clock_position_right">Right clock</string>
+    <string name="status_bar_clock_position_center">Center clock</string>
+
+    <!-- Battery status style strings  -->
+    <string name="status_bar_battery_status_style_title">Battery status style</string>
     <string name="status_bar_battery_status_circle">Circle (CM)</string>
     <string name="status_bar_battery_status_circle_percentage">Circle &amp; percentage (CM)</string>
     <string name="status_bar_battery_status_ABT">Circle (AlphaBlue Theme)</string>
@@ -59,16 +69,8 @@
     <string name="status_bar_battery_status_HC">Circle (HoneyComb)</string>
     <string name="status_bar_battery_status_percentage">Icon &amp; Percentage</string>
 
-    <!-- Statusbar style strings  -->
-    <string name="status_bar_color_title">Status bar color</string>
-
-    <!-- Statusbar -->
-
-    <!-- Clock style strings -->
-    <string name="status_bar_clock_style_title">Clock style</string>
-    <string name="status_bar_clock_style_noclock">Do not show the clock</string>
-    <string name="status_bar_clock_style_right">Right clock</string>
-    <string name="status_bar_clock_style_center">Center clock</string>
+    <!-- Battery bar strings  -->
+    <string name="status_bar_battery_bar_position_title">Battery bar location</string>
 
     <!-- Device info settings -->
 

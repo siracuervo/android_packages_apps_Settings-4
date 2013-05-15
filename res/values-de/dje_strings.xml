@@ -32,11 +32,9 @@
 
     <!-- Battery style strings  -->
     <string name="battery_bar_cat">Akkuleiste</string>
-    <string name="battery_status_cat">Akkustand</string>
 
     <!-- Battery bar strings  -->
     <string name="battery_bar_style_summary">Die Akkuleiste mittig-gespiegelt darstellen</string>
-    <string name="battery_bar_list_title">Position der Akkuleiste</string>
     <string name="battery_bar_style_title">Style der Akkuleiste</string>
     <string name="battery_bar_animate_title">Lade-Animation</string>
     <string name="battery_bar_animate_summary">Die Lade-Animation kann zu trägem Verhalten des Gerätes führen. Aktiviere sie, nach deinem eigenen Ermessen.</string> 
@@ -51,23 +49,27 @@
     <string name="battery_bar_thickness_3">3dp</string>
     <string name="battery_bar_thickness_4">4dp</string>
 
-    <!-- Battery status strings  -->
+    <!-- Statusbar style strings  -->
+    <string name="status_bar_color_title">Farbe der Statusleiste</string>
+
+    <!-- Statusbar -->
+
+    <!-- Clock position strings -->
+    <string name="status_bar_clock_position_title">Position der Uhr</string>
+    <string name="status_bar_clock_position_noclock">Uhr nicht anzeigen</string>
+    <string name="status_bar_clock_position_right">Uhr rechts</string>
+    <string name="status_bar_clock_position_center">Uhr zentriert</string>
+
+    <!-- Battery status style strings  -->
+    <string name="status_bar_battery_status_style_title">Akkustand Style</string>
 	<string name="status_bar_battery_status_circle">Kreis (CM)</string>
     <string name="status_bar_battery_status_circle_percentage">Kreis &amp; Prozent (CM)</string>
     <string name="status_bar_battery_status_ABT">Kreis (AlphaBlue Theme)</string>
     <string name="status_bar_battery_status_AOKP">Kreis (AOKP)</string>
     <string name="status_bar_battery_status_HC">Kreis (HoneyComb)</string>
 
-    <!-- Statusbar style strings  -->
-    <string name="status_bar_color_title">Farbe der Statusleiste</string>
-
-    <!-- Statusbar -->
-
-    <!-- Clock style strings -->
-    <string name="status_bar_clock_style_title">Position der Uhr</string>
-    <string name="status_bar_clock_style_noclock">Uhr nicht anzeigen</string>
-    <string name="status_bar_clock_style_right">Uhr rechts</string>
-    <string name="status_bar_clock_style_center">Uhr zentriert</string>
+    <!-- Battery bar strings  -->
+    <string name="status_bar_battery_bar_position_title">Position der Akkuleiste</string>
 
     <!-- Device info settings -->
 

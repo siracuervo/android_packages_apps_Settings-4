@@ -36,14 +36,11 @@ public class BatteryStyle extends SettingsPreferenceFragment implements Preferen
     private static final String PREF_BATT_ANIMATE = "battery_bar_animate";
     private static final String PREF_BATT_BAR_COLOR = "battery_bar_color";
     private static final String PREF_BATT_BAR_WIDTH = "battery_bar_thickness";
-    private static final String PREF_BATTERY_STATUS = "battery_status";
-
 
     private CheckBoxPreference mBatteryBarStyle;
     private CheckBoxPreference mBatteryBarChargingAnimation;
     private ColorPickerPreference mBatteryBarColor;
     private ListPreference mBatteryBarThickness;
-    private ListPreference mBatteryStatusStyle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,7 +54,6 @@ public class BatteryStyle extends SettingsPreferenceFragment implements Preferen
         mBatteryBarChargingAnimation = (CheckBoxPreference) prefSet.findPreference(PREF_BATT_ANIMATE);
         mBatteryBarColor = (ColorPickerPreference) prefSet.findPreference(PREF_BATT_BAR_COLOR);
         mBatteryBarThickness = (ListPreference) prefSet.findPreference(PREF_BATT_BAR_WIDTH);
-        mBatteryStatusStyle = (ListPreference) prefSet.findPreference(PREF_BATTERY_STATUS);
 
         mBatteryBarStyle.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUSBAR_BATTERY_BAR_STYLE, 0) == 1));
@@ -72,12 +68,6 @@ public class BatteryStyle extends SettingsPreferenceFragment implements Preferen
         mBatteryBarThickness.setValue(String.valueOf(batteryBarThickness));
         mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntry());
         mBatteryBarThickness.setOnPreferenceChangeListener(this);
-
-        int batteryStatusStyle = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.STATUS_BAR_BATTERY, 0);
-        mBatteryStatusStyle.setValue(String.valueOf(batteryStatusStyle));
-        mBatteryStatusStyle.setSummary(mBatteryStatusStyle.getEntry());
-        mBatteryStatusStyle.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -93,13 +83,6 @@ public class BatteryStyle extends SettingsPreferenceFragment implements Preferen
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUSBAR_BATTERY_BAR_THICKNESS, batteryBarThickness);
             mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntries()[index]);
-            return true;
-        } else if (preference == mBatteryStatusStyle) {
-            int batteryStatusStyle = Integer.valueOf((String) newValue);
-            int index = mBatteryStatusStyle.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUS_BAR_BATTERY, batteryStatusStyle);
-            mBatteryStatusStyle.setSummary(mBatteryStatusStyle.getEntries()[index]);
             return true;
         }
         return false;
