@@ -133,12 +133,12 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mStatusBarClockStyle) {
-            int statusBarClockStyle = Integer.valueOf((String) newValue);
-            int index = mStatusBarClockStyle.findIndexOfValue((String) newValue);
+        if (preference == mStatusBarClockPosition) {
+            int statusBarClockPosition = Integer.valueOf((String) newValue);
+            int index = mStatusBarClockPosition.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUS_BAR_CLOCK_STYLE, statusBarClockStyle);
-            mStatusBarClockStyle.setSummary(mStatusBarClockStyle.getEntries()[index]);
+                    Settings.System.STATUS_BAR_CLOCK_POSITION, statusBarClockPosition);
+            mStatusBarClockPosition.setSummary(mStatusBarClockPosition.getEntries()[index]);
             return true;
         } else if (preference == mStatusBarAmPm) {
             int statusBarAmPm = Integer.valueOf((String) newValue);
@@ -158,7 +158,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             int statusBarBatteryBarPosition = Integer.valueOf((String) newValue);
             int index = mStatusBarBatteryBarPosition.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUSBAR_BATTERY_BAR_POSITION, statusBarBatteryBarPosition);
+                    Settings.System.STATUS_BAR_BATTERY_BAR_POSITION, statusBarBatteryBarPosition);
             mStatusBarBatteryBarPosition.setSummary(mStatusBarBatteryBarPosition.getEntries()[index]);
             return true;
         } else if (preference == mStatusBarCmSignal) {
