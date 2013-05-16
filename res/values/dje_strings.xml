@@ -51,6 +51,7 @@
 
     <!-- Statusbar style strings  -->
     <string name="status_bar_color_title">Status bar color</string>
+    <string name="status_bar_transparency_title">Status bar transparency</string> 
 
     <!-- Statusbar -->
 
