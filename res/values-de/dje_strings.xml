@@ -29,6 +29,7 @@
     <string name="style_settings_title">Style</string>
     <string name="battery_style_title">Akku Style</string>
     <string name="status_bar_style_title">Statusleisten Style</string>
+    <string name="navigation_bar_style_title">Navigationsleisten Style</string>
 
     <!-- Battery style strings  -->
     <string name="battery_bar_cat">Akkuleiste</string>
@@ -51,7 +52,10 @@
 
     <!-- Statusbar style strings  -->
     <string name="status_bar_color_title">Farbe der Statusleiste</string>
-    <string name="status_bar_transparency_title">Transparenz der Statusleiste</string> 
+    <string name="status_bar_transparency_title">Transparenz der Statusleiste</string>
+
+    <!-- Navigationbar_style style strings  -->
+    <string name="navigation_bar_color_title">Farbe der Navigationsleiste</string>
 
     <!-- Statusbar -->
 

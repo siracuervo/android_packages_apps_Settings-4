@@ -29,6 +29,7 @@
     <string name="style_settings_title">Style</string>
     <string name="battery_style_title">Battery style</string>
     <string name="status_bar_style_title">Status bar style</string>
+    <string name="navigation_bar_style_title">Navigation bar style</string>
 
     <!-- Battery style strings  -->
     <string name="battery_bar_cat">Battery bar</string>
@@ -51,7 +52,10 @@
 
     <!-- Statusbar style strings  -->
     <string name="status_bar_color_title">Status bar color</string>
-    <string name="status_bar_transparency_title">Status bar transparency</string> 
+    <string name="status_bar_transparency_title">Status bar transparency</string>
+
+    <!-- Navigationbar_style style strings  -->
+    <string name="navigation_bar_color_title">Navigation bar color</string>
 
     <!-- Statusbar -->
 
