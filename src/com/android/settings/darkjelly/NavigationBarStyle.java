@@ -26,15 +26,12 @@ import android.provider.Settings;
 import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.widget.SeekBarPreference;
 
 public class NavigationBarStyle extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
     private static final String PREF_NAVIGATION_BAR_COLOR = "navigation_bar_color";
-    private static final String PREF_NAVIGATION_BAR_ALPHA = "navigation_bar_alpha";
 
     private ColorPickerPreference mNavigationBarColor;
-    private SeekBarPreference mNavigationBarTransparency;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,21 +42,8 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements Pr
         PreferenceScreen prefSet = getPreferenceScreen();
 
         mNavigationBarColor = (ColorPickerPreference) prefSet.findPreference(PREF_NAVIGATION_BAR_COLOR);
-        mNavigationBarTransparency = (SeekBarPreference) findPreference(PREF_NAVIGATION_BAR_ALPHA); 
 
         mNavigationBarColor.setOnPreferenceChangeListener(this);
-
-        float navBarTransparency = 0.0f;
-        try{
-            navBarTransparency = Settings.System.getFloat(getActivity()
-                 .getContentResolver(), Settings.System.NAVIGATION_BAR_ALPHA);
-        } catch (Exception e) {
-            navBarTransparency = 0.0f;
-            Settings.System.putFloat(getActivity().getContentResolver(), Settings.System.NAVIGATION_BAR_ALPHA, 0.0f);
-        }
-        mNavigationBarTransparency.setProperty(Settings.System.NAVIGATION_BAR_ALPHA);
-        mNavigationBarTransparency.setInitValue((int) (navBarTransparency * 100));
-        mNavigationBarTransparency.setOnPreferenceChangeListener(this); 
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -69,12 +53,6 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements Pr
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NAVIGATION_BAR_COLOR, intHex);
             return true;
-        } else if (preference == mNavigationBarTransparency) {
-            float valNav = Float.parseFloat((String) newValue);
-            Settings.System.putFloat(getActivity().getContentResolver(),
-                    Settings.System.NAVIGATION_BAR_ALPHA,
-                    valNav / 100);
-            return true; 
         }
         return false;
     }
