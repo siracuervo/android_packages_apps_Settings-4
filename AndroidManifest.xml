@@ -1599,6 +1599,8 @@
 
         <activity android:name=".darkjelly.DJEChangeLog" />
 
+        <activity android:name=".darkjelly.NotificationDrawerStyle" />
+
         <activity android:name=".cyanogenmod.LockscreenInterface" />
 
         <activity android:name=".cyanogenmod.LockscreenButtons" />

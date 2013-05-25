@@ -95,5 +95,27 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+
+   <string-array name="notification_drawer_background_entries">
+        <item>@string/notification_drawer_background_color_fill</item>
+        <item>@string/notification_drawer_background_custom_image</item>
+        <item>@string/notification_drawer_background_default_wallpaper</item>
+    </string-array>
+
+    <string-array name="notification_drawer_background_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="notification_drawer_background_landscape_entries">
+        <item>@string/notification_drawer_background_custom_image</item>
+        <item>@string/notification_drawer_background_default_wallpaper</item>
+    </string-array>
+
+    <string-array name="notification_drawer_background_landscape_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
 </resources>
 

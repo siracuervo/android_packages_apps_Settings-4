@@ -30,6 +30,7 @@
     <string name="battery_style_title">Battery style</string>
     <string name="status_bar_style_title">Status bar style</string>
     <string name="navigation_bar_style_title">Navigation bar style</string>
+<string name="notification_drawer_style_title">Notification drawer style</string> 
 
     <!-- Battery style strings  -->
     <string name="battery_bar_cat">Battery bar</string>
@@ -54,8 +55,17 @@
     <string name="status_bar_color_title">Status bar color</string>
     <string name="status_bar_transparency_title">Status bar transparency</string>
 
-    <!-- Navigationbar_style style strings  -->
+    <!-- Navigationbar style strings  -->
     <string name="navigation_bar_color_title">Navigation bar color</string>
+
+    <!-- Notification drawer style strings -->
+    <string name="notification_drawer_background_title">Background</string>
+    <string name="notification_drawer_background_landscape_title">Different landscape background</string>
+    <string name="notification_drawer_background_color_fill">Color fill</string>
+    <string name="notification_drawer_background_custom_image">Custom image</string>
+    <string name="notification_drawer_background_default_wallpaper">Default background</string>
+    <string name="notification_drawer_background_custom_dialog_title">Choose color</string>
+    <string name="notification_drawer_background_alpha_title">Background transparency</string>
 
     <!-- Statusbar -->
 
