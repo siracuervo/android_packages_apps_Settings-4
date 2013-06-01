@@ -54,6 +54,12 @@
     <!-- Statusbar style strings  -->
     <string name="status_bar_color_title">Farbe der Statusleiste</string>
     <string name="status_bar_transparency_title">Transparenz der Statusleiste</string>
+    <string name="status_bar_alpha_mode_dialog_text_title">Anzeige der Statusleisten Transparenz</string>
+    <string name="status_bar_alpha_mode_text_title">Transparenz Modus</string>
+    <string name="status_bar_alpha_mode_home">Im Launcher</string>
+    <string name="status_bar_alpha_mode_default">Im Launcher und Sperrbildschirm</string>
+    <string name="status_bar_alpha_mode_always">Immer</string>
+    <string name="status_bar_style_reset">Zurücksetzten</string>
 
     <!-- Navigationbar style strings  -->
     <string name="navigation_bar_color_title">Farbe der Navigationsleiste</string>
@@ -66,8 +72,6 @@
     <string name="notification_drawer_background_default_wallpaper">Standard Hintergrund</string>
     <string name="notification_drawer_background_custom_dialog_title">Wähle eine Farbe</string>
     <string name="notification_drawer_background_alpha_title">Transparenz des Hintergrundes</string>
-
-
 
     <!-- Statusbar -->
 
