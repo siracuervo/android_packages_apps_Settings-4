@@ -1599,8 +1599,6 @@
 
 		<activity android:name=".darkjelly.DJEChangeLog" />
 
-        <activity android:name=".darkjelly.NotificationDrawerStyle" />
-
 		<activity android:name=".darkjelly.StatusBarStyle" />
 
 		<activity android:name=".darkjelly.NotificationDrawerStyle" />
