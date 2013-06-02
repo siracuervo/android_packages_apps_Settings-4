@@ -30,7 +30,7 @@
     <string name="battery_style_title">Battery style</string>
     <string name="status_bar_style_title">Status bar style</string>
     <string name="navigation_bar_style_title">Navigation bar style</string>
-    <string name="notification_drawer_style_title">Notification drawer style</string> 
+    <string name="notification_drawer_style_title">Notification drawer style</string>
 
     <!-- Battery style strings  -->
     <string name="battery_bar_cat">Battery bar</string>
