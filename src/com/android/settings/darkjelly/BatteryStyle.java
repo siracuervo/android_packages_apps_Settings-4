@@ -33,7 +33,7 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
 
-public class BatteryStyle extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
+public class BatteryStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String TAG = "BatteryStyle"; 
     private static final String PREF_BATT_BAR_STYLE = "battery_bar_style";
@@ -61,12 +61,10 @@ public class BatteryStyle extends SettingsPreferenceFragment implements Preferen
 
         addPreferencesFromResource(R.xml.battery_style);
 
-        prefs = getPreferenceScreen();
-
-        mBatteryBarStyle = (CheckBoxPreference) prefs.findPreference(PREF_BATT_BAR_STYLE);
-        mBatteryBarChargingAnimation = (CheckBoxPreference) prefs.findPreference(PREF_BATT_ANIMATE);
-        mBatteryBarColor = (ColorPickerPreference) prefs.findPreference(PREF_BATT_BAR_COLOR);
-        mBatteryBarThickness = (ListPreference) prefs.findPreference(PREF_BATT_BAR_WIDTH);
+        mBatteryBarStyle = (CheckBoxPreference) findPreference(PREF_BATT_BAR_STYLE);
+        mBatteryBarChargingAnimation = (CheckBoxPreference) findPreference(PREF_BATT_ANIMATE);
+        mBatteryBarColor = (ColorPickerPreference) findPreference(PREF_BATT_BAR_COLOR);
+        mBatteryBarThickness = (ListPreference) findPreference(PREF_BATT_BAR_WIDTH);
 
         mBatteryBarStyle.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUSBAR_BATTERY_BAR_STYLE, 0) == 1));

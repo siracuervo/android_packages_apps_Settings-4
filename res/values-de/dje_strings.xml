@@ -31,10 +31,10 @@
     <string name="status_bar_style_title">Style der Statusleiste</string>
     <string name="navigation_bar_style_title">Style der Navigationsleiste </string>
     <string name="notification_drawer_style_title">Style der Benachrichtigungs-Anzeige</string>
+    <string name="style_reset">Zurücksetzten</string>
 
     <!-- Battery style strings  -->
     <string name="battery_bar_cat">Akkuleiste</string>
-    <string name="battery_style_reset">Zurücksetzten</string>
 
     <!-- Battery bar strings  -->
     <string name="battery_bar_style_summary">Die Akkuleiste mittig-gespiegelt darstellen</string>
@@ -60,11 +60,9 @@
     <string name="status_bar_alpha_mode_home">Im Launcher</string>
     <string name="status_bar_alpha_mode_default">Im Launcher und Sperrbildschirm</string>
     <string name="status_bar_alpha_mode_always">Immer</string>
-    <string name="status_bar_style_reset">Zurücksetzten</string>
 
     <!-- Navigationbar style strings  -->
     <string name="navigation_bar_color_title">Farbe der Navigationsleiste</string>
-    <string name="navigation_bar_style_reset">Zurücksetzten</string>
 
     <!-- Notification drawer style strings -->
     <string name="notification_drawer_background_title">Hintergrund</string>

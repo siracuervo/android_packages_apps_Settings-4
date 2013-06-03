@@ -30,7 +30,7 @@ import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class NavigationBarStyle extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
+public class NavigationBarStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String TAG = "NavigationBarStyle";
     private static final String PREF_NAVIGATION_BAR_COLOR = "navigation_bar_color";
@@ -52,9 +52,7 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements Pr
 
         addPreferencesFromResource(R.xml.navigationbar_bar_style);
 
-        prefs = getPreferenceScreen();
-
-        mNavigationBarColor = (ColorPickerPreference) prefs.findPreference(PREF_NAVIGATION_BAR_COLOR);
+        mNavigationBarColor = (ColorPickerPreference) findPreference(PREF_NAVIGATION_BAR_COLOR);
 
         mNavigationBarColor.setOnPreferenceChangeListener(this);
         int intColor = Settings.System.getInt(getActivity().getContentResolver(),

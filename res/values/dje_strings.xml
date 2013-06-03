@@ -31,10 +31,10 @@
     <string name="status_bar_style_title">Status bar style</string>
     <string name="navigation_bar_style_title">Navigation bar style</string>
     <string name="notification_drawer_style_title">Notification drawer style</string>
+    <string name="style_reset">Reset</string>
 
     <!-- Battery style strings  -->
     <string name="battery_bar_cat">Battery bar</string>
-    <string name="battery_style_reset">Reset</string>
 
     <!-- Battery bar strings  -->
     <string name="battery_bar_style_summary">Display the battery bar center-mirrored</string>
@@ -60,11 +60,9 @@
     <string name="status_bar_alpha_mode_home">On launcher</string>
     <string name="status_bar_alpha_mode_default">On launcher and keyguard</string>
     <string name="status_bar_alpha_mode_always">Always</string>
-    <string name="status_bar_style_reset">Reset</string>
 
     <!-- Navigationbar style strings  -->
     <string name="navigation_bar_color_title">Navigation bar color</string>
-    <string name="navigation_bar_style_reset">Reset</string>
 
     <!-- Notification drawer style strings -->
     <string name="notification_drawer_background_title">Background</string>

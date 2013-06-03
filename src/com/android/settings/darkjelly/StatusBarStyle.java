@@ -32,7 +32,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.widget.SeekBarPreference;
 
-public class StatusBarStyle extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
+public class StatusBarStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String TAG = "StatusBarStyle"; 
     private static final String PREF_STATUS_BAR_COLOR = "status_bar_color";
@@ -58,11 +58,9 @@ public class StatusBarStyle extends SettingsPreferenceFragment implements Prefer
 
         addPreferencesFromResource(R.xml.status_bar_style);
 
-        prefs = getPreferenceScreen();
-
-        mStatusBarColor = (ColorPickerPreference) prefs.findPreference(PREF_STATUS_BAR_COLOR);
-        mStatusbarTransparency = (SeekBarPreference) prefs.findPreference(PREF_STATUS_BAR_ALPHA);
-        mStatusbarAlphaMode = (ListPreference) prefs.findPreference(PREF_STATUS_BAR_ALPHA_MODE); 
+        mStatusBarColor = (ColorPickerPreference) findPreference(PREF_STATUS_BAR_COLOR);
+        mStatusbarTransparency = (SeekBarPreference) findPreference(PREF_STATUS_BAR_ALPHA);
+        mStatusbarAlphaMode = (ListPreference) findPreference(PREF_STATUS_BAR_ALPHA_MODE); 
 
         mStatusBarColor.setOnPreferenceChangeListener(this);
         int intColor = Settings.System.getInt(getActivity().getContentResolver(),

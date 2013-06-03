@@ -61,8 +61,7 @@ import com.android.settings.darkjelly.colorpicker.ColorPickerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotificationDrawerStyle extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+public class NotificationDrawerStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String TAG = "NotificationDrawerStyle";
 
