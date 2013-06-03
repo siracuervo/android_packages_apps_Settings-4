@@ -35,12 +35,14 @@ import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
 
 public class BatteryStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String TAG = "BatteryStyle"; 
+    private static final String TAG = "BatteryStyle";
+    private static final String PREF_BATT_BAR_POSITION = "battery_bar_position";
     private static final String PREF_BATT_BAR_STYLE = "battery_bar_style";
     private static final String PREF_BATT_ANIMATE = "battery_bar_animate";
     private static final String PREF_BATT_BAR_COLOR = "battery_bar_color";
     private static final String PREF_BATT_BAR_WIDTH = "battery_bar_thickness";
 
+    private ListPreference mBatteryBarPosition;
     private CheckBoxPreference mBatteryBarStyle;
     private CheckBoxPreference mBatteryBarChargingAnimation;
     private ColorPickerPreference mBatteryBarColor;
@@ -61,10 +63,17 @@ public class BatteryStyle extends SettingsPreferenceFragment implements OnPrefer
 
         addPreferencesFromResource(R.xml.battery_style);
 
+        mBatteryBarPosition = (ListPreference) findPreference(PREF_BATT_BAR_POSITION);
         mBatteryBarStyle = (CheckBoxPreference) findPreference(PREF_BATT_BAR_STYLE);
         mBatteryBarChargingAnimation = (CheckBoxPreference) findPreference(PREF_BATT_ANIMATE);
         mBatteryBarColor = (ColorPickerPreference) findPreference(PREF_BATT_BAR_COLOR);
         mBatteryBarThickness = (ListPreference) findPreference(PREF_BATT_BAR_WIDTH);
+
+        int batteryBarPosition = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUSBAR_BATTERY_BAR_POSITION, 0);
+        mBatteryBarPosition.setValue(String.valueOf(batteryBarPosition));
+        mBatteryBarPosition.setSummary(mBatteryBarPosition.getEntry());
+        mBatteryBarPosition.setOnPreferenceChangeListener(this);
 
         mBatteryBarStyle.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUSBAR_BATTERY_BAR_STYLE, 0) == 1));
@@ -97,6 +106,8 @@ public class BatteryStyle extends SettingsPreferenceFragment implements OnPrefer
         switch (item.getItemId()) {
             case R.id.reset:
                 Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.STATUSBAR_BATTERY_BAR_POSITION, 0);
+                Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.STATUSBAR_BATTERY_BAR_STYLE, 0);
                 Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.STATUSBAR_BATTERY_BAR_ANIMATE, 0);
@@ -112,7 +123,14 @@ public class BatteryStyle extends SettingsPreferenceFragment implements OnPrefer
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mBatteryBarColor) {
+        if (preference == mBatteryBarPosition) {
+            int batteryBarPosition = Integer.valueOf((String) newValue);
+            int index = mBatteryBarPosition.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUSBAR_BATTERY_BAR_POSITION, batteryBarPosition);
+            mBatteryBarPosition.setSummary(mBatteryBarPosition.getEntries()[index]);
+            return true;
+        } else if (preference == mBatteryBarColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),

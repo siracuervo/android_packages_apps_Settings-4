@@ -37,6 +37,7 @@
     <string name="battery_bar_cat">Akkuleiste</string>
 
     <!-- Battery bar strings  -->
+    <string name="battery_bar_position_title">Position der Akkuleiste</string>
     <string name="battery_bar_style_summary">Die Akkuleiste mittig-gespiegelt darstellen</string>
     <string name="battery_bar_style_title">Style der Akkuleiste</string>
     <string name="battery_bar_animate_title">Lade-Animation</string>
@@ -88,9 +89,6 @@
     <string name="status_bar_battery_status_ABT">Kreis (AlphaBlue Theme)</string>
     <string name="status_bar_battery_status_AOKP">Kreis (AOKP)</string>
     <string name="status_bar_battery_status_HC">Kreis (HoneyComb)</string>
-
-    <!-- Battery bar strings  -->
-    <string name="status_bar_battery_bar_position_title">Position der Akkuleiste</string>
 
     <!-- Device info settings -->
 

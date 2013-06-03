@@ -36,7 +36,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_CLOCK_POSITION = "status_bar_clock_position";
     private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
     private static final String STATUS_BAR_BATTERY_STATUS_STYLE = "status_bar_battery_status_style";
-    private static final String STATUS_BAR_BATTERY_BAR_POSITION = "status_bar_battery_bar_position";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
@@ -45,7 +44,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private ListPreference mStatusBarClockPosition;
     private ListPreference mStatusBarAmPm;
     private ListPreference mStatusBarBatteryStatusStyle;
-    private ListPreference mStatusBarBatteryBarPosition;
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusBarBrightnessControl;
     private CheckBoxPreference mStatusBarNotifCount;
@@ -62,7 +60,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarClockPosition = (ListPreference) prefSet.findPreference(STATUS_BAR_CLOCK_POSITION);
         mStatusBarAmPm = (ListPreference) prefSet.findPreference(STATUS_BAR_AM_PM);
         mStatusBarBatteryStatusStyle = (ListPreference) prefSet.findPreference(STATUS_BAR_BATTERY_STATUS_STYLE);
-        mStatusBarBatteryBarPosition = (ListPreference) prefSet.findPreference(STATUS_BAR_BATTERY_BAR_POSITION);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
         mStatusBarBrightnessControl = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BRIGHTNESS_CONTROL);
         mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
@@ -85,12 +82,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarBatteryStatusStyle.setValue(String.valueOf(statusBarBatteryStatusStyle));
         mStatusBarBatteryStatusStyle.setSummary(mStatusBarBatteryStatusStyle.getEntry());
         mStatusBarBatteryStatusStyle.setOnPreferenceChangeListener(this);
-
-        int statusBarBatteryBarPosition = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.STATUS_BAR_BATTERY_BAR_POSITION, 0);
-        mStatusBarBatteryBarPosition.setValue(String.valueOf(statusBarBatteryBarPosition));
-        mStatusBarBatteryBarPosition.setSummary(mStatusBarBatteryBarPosition.getEntry());
-        mStatusBarBatteryBarPosition.setOnPreferenceChangeListener(this);
 
         int signalStyle = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_SIGNAL_TEXT, 0);
@@ -153,13 +144,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, statusBarBatteryStatusStyle);
             mStatusBarBatteryStatusStyle.setSummary(mStatusBarBatteryStatusStyle.getEntries()[index]);
-            return true;
-        } else if (preference == mStatusBarBatteryBarPosition) {
-            int statusBarBatteryBarPosition = Integer.valueOf((String) newValue);
-            int index = mStatusBarBatteryBarPosition.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUS_BAR_BATTERY_BAR_POSITION, statusBarBatteryBarPosition);
-            mStatusBarBatteryBarPosition.setSummary(mStatusBarBatteryBarPosition.getEntries()[index]);
             return true;
         } else if (preference == mStatusBarCmSignal) {
             int signalStyle = Integer.valueOf((String) newValue);

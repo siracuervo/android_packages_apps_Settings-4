@@ -37,6 +37,7 @@
     <string name="battery_bar_cat">Battery bar</string>
 
     <!-- Battery bar strings  -->
+    <string name="battery_bar_position_title">Battery bar location</string>
     <string name="battery_bar_style_summary">Display the battery bar center-mirrored</string>
     <string name="battery_bar_style_title">Battery bar style</string>
     <string name="battery_bar_animate_title">Charging animation</string>
@@ -89,9 +90,6 @@
     <string name="status_bar_battery_status_AOKP">Circle (AOKP)</string>
     <string name="status_bar_battery_status_HC">Circle (HoneyComb)</string>
     <string name="status_bar_battery_status_percentage">Icon &amp; Percentage</string>
-
-    <!-- Battery bar strings  -->
-    <string name="status_bar_battery_bar_position_title">Battery bar location</string>
 
     <!-- Device info settings -->
 
