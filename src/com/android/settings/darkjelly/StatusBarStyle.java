@@ -58,11 +58,11 @@ public class StatusBarStyle extends SettingsPreferenceFragment implements Prefer
 
         addPreferencesFromResource(R.xml.status_bar_style);
 
-        PreferenceScreen prefSet = getPreferenceScreen();
+        prefs = getPreferenceScreen();
 
-        mStatusBarColor = (ColorPickerPreference) prefSet.findPreference(PREF_STATUS_BAR_COLOR);
-        mStatusbarTransparency = (SeekBarPreference) prefSet.findPreference(PREF_STATUS_BAR_ALPHA);
-        mStatusbarAlphaMode = (ListPreference) prefSet.findPreference(PREF_STATUS_BAR_ALPHA_MODE); 
+        mStatusBarColor = (ColorPickerPreference) prefs.findPreference(PREF_STATUS_BAR_COLOR);
+        mStatusbarTransparency = (SeekBarPreference) prefs.findPreference(PREF_STATUS_BAR_ALPHA);
+        mStatusbarAlphaMode = (ListPreference) prefs.findPreference(PREF_STATUS_BAR_ALPHA_MODE); 
 
         mStatusBarColor.setOnPreferenceChangeListener(this);
         int intColor = Settings.System.getInt(getActivity().getContentResolver(),
@@ -146,5 +146,5 @@ public class StatusBarStyle extends SettingsPreferenceFragment implements Prefer
     @Override
     public void onResume() {
         super.onResume();
-    } 
+    }
 }

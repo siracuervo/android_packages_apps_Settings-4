@@ -22,6 +22,9 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
 import com.android.settings.R;
@@ -29,6 +32,7 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class NavigationBarStyle extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
+    private static final String TAG = "NavigationBarStyle";
     private static final String PREF_NAVIGATION_BAR_COLOR = "navigation_bar_color";
 
     private ColorPickerPreference mNavigationBarColor;
@@ -36,14 +40,53 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements Pr
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshSettings();
+
+    }
+
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
 
         addPreferencesFromResource(R.xml.navigationbar_bar_style);
 
-        PreferenceScreen prefSet = getPreferenceScreen();
+        prefs = getPreferenceScreen();
 
-        mNavigationBarColor = (ColorPickerPreference) prefSet.findPreference(PREF_NAVIGATION_BAR_COLOR);
+        mNavigationBarColor = (ColorPickerPreference) prefs.findPreference(PREF_NAVIGATION_BAR_COLOR);
 
         mNavigationBarColor.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_COLOR, 0xff000000); 
+        mNavigationBarColor.setNewPreviewColor(intColor);
+
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.navigationbar_bar_style, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.reset:
+                Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.NAVIGATION_BAR_COLOR, 0xff000000);
+                refreshSettings();
+                return true;
+             default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
+            Preference preference) {
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -58,8 +101,7 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements Pr
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
-            Preference preference) {
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    public void onResume() {
+        super.onResume();
     }
 }

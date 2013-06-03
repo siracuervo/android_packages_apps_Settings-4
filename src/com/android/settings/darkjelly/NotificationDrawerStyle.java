@@ -94,8 +94,6 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
 
         addPreferencesFromResource(R.xml.notification_drawer_style);
 
-        PreferenceScreen prefSet = getPreferenceScreen();
-
         customnavTemp = new File(getActivity().getFilesDir()+"/notification_wallpaper_temp.jpg");
         customnavTempLandscape = new File(getActivity().getFilesDir()+"/notification_wallpaper_temp_landscape.jpg");
 
@@ -120,7 +118,6 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
 
         updateCustomBackgroundSummary();
     }
-
 
     @Override
     public void onResume() {
