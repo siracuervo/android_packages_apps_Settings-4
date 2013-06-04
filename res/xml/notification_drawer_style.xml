@@ -34,4 +34,8 @@ limitations under the License.
              android:key="notification_drawer_background_alpha"
              android:title="@string/notification_drawer_background_alpha_title" />
 
+        <com.android.settings.widget.SeekBarPreference
+             android:key="notification_drawer_row_alpha"
+             android:title="@string/notification_drawer_row_alpha_title" />
+
 </PreferenceScreen>

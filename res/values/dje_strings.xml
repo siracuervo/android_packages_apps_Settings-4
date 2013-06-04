@@ -76,6 +76,7 @@
     <string name="notification_drawer_background_default_wallpaper">Default background</string>
     <string name="notification_drawer_background_custom_dialog_title">Choose color</string>
     <string name="notification_drawer_background_alpha_title">Background transparency</string>
+    <string name="notification_drawer_row_alpha_title">Rows background transparency</string>
 
     <!-- Statusbar -->
 

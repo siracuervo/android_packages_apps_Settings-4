@@ -68,10 +68,12 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
     private static final String PREF_NOTIFICATION_DRAWER_BACKGROUND = "notification_drawer_background";
     private static final String PREF_NOTIFICATION_DRAWER_BACKGROUND_LANDSCAPE = "notification_drawer_background_landscape";
     private static final String PREF_NOTIFICATION_DRAWER_BACKGROUND_ALPHA = "notification_drawer_background_alpha";
+    private static final String PREF_NOTIFICATION_DRAWER_ROW_ALPHA = "notification_drawer_row_alpha";
 
     private ListPreference mNotificationDrawerBackground;
     private ListPreference mNotificationDrawerBackgroundLandscape;
     SeekBarPreference mNotificationDrawerBackgroundAlpha;
+    SeekBarPreference mNotificationDrawerRowAlpha;
 
     private File customnavTemp;
     private File customnavTempLandscape;
@@ -98,22 +100,34 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
 
         mNotificationDrawerBackground = (ListPreference) findPreference(PREF_NOTIFICATION_DRAWER_BACKGROUND);
         mNotificationDrawerBackgroundLandscape = (ListPreference) findPreference(PREF_NOTIFICATION_DRAWER_BACKGROUND_LANDSCAPE);
+        mNotificationDrawerBackgroundAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_DRAWER_BACKGROUND_ALPHA);
+        mNotificationDrawerRowAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_DRAWER_ROW_ALPHA);
 
         mNotificationDrawerBackground.setOnPreferenceChangeListener(this);
 
         mNotificationDrawerBackgroundLandscape.setOnPreferenceChangeListener(this);
 
-        float BackgroundTransparency;
+        float BackgroundTransparency = 0.1f;
         try{
             BackgroundTransparency = Settings.System.getFloat(getActivity().getContentResolver(), Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA);
         }catch (Exception e) {
-            BackgroundTransparency = 0;
+            BackgroundTransparency = 0.1f;
             Settings.System.putFloat(getActivity().getContentResolver(), Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA, 0.1f);
         }
-        mNotificationDrawerBackgroundAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_DRAWER_BACKGROUND_ALPHA);
         mNotificationDrawerBackgroundAlpha.setInitValue((int) (BackgroundTransparency * 100));
         mNotificationDrawerBackgroundAlpha.setProperty(Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA);
         mNotificationDrawerBackgroundAlpha.setOnPreferenceChangeListener(this);
+
+        float RowTransparency = 0.0f;
+        try{
+            RowTransparency = Settings.System.getFloat(getActivity().getContentResolver(), Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA);
+        }catch (Exception e) {
+            RowTransparency = 0.0f;
+            Settings.System.putFloat(getActivity().getContentResolver(), Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA, 0.0f);
+        }
+        mNotificationDrawerRowAlpha.setInitValue((int) (RowTransparency * 100));
+        mNotificationDrawerRowAlpha.setProperty(Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA);
+        mNotificationDrawerRowAlpha.setOnPreferenceChangeListener(this);
 
         updateCustomBackgroundSummary();
     }
@@ -241,6 +255,11 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
             float valNav = Float.parseFloat((String) newValue);
             Settings.System.putFloat(getActivity().getContentResolver(),
                     Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA, valNav / 100);
+            return true;
+        }else if (preference == mNotificationDrawerRowAlpha) {
+            float valNav = Float.parseFloat((String) newValue);
+            Settings.System.putFloat(getActivity().getContentResolver(),
+                    Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA, valNav / 100);
             return true;
         }else if (preference == mNotificationDrawerBackground) {
             int indexOf = mNotificationDrawerBackground.findIndexOfValue(newValue.toString());
