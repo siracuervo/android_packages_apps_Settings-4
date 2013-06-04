@@ -36,7 +36,7 @@
     <!-- Battery style strings  -->
     <string name="battery_bar_cat">Battery bar</string>
 
-    <!-- Battery bar strings  -->
+    <!-- Battery style battery bar strings  -->
     <string name="battery_bar_position_title">Battery bar location</string>
     <string name="battery_bar_style_summary">Display the battery bar center-mirrored</string>
     <string name="battery_bar_style_title">Battery bar style</string>
@@ -54,6 +54,9 @@
     <string name="battery_bar_thickness_4">4dp</string>
 
     <!-- Statusbar style strings  -->
+    <string name="status_bar_bg_cat">Background</string>
+
+    <!-- Statusbar style background strings  -->
     <string name="status_bar_color_title">Status bar color</string>
     <string name="status_bar_transparency_title">Status bar transparency</string>
     <string name="status_bar_alpha_mode_dialog_text_title">Show status bar transparency</string>

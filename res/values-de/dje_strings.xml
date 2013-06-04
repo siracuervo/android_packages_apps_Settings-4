@@ -36,7 +36,7 @@
     <!-- Battery style strings  -->
     <string name="battery_bar_cat">Akkuleiste</string>
 
-    <!-- Battery bar strings  -->
+    <!-- Battery style battery bar strings  -->
     <string name="battery_bar_position_title">Position der Akkuleiste</string>
     <string name="battery_bar_style_summary">Die Akkuleiste mittig-gespiegelt darstellen</string>
     <string name="battery_bar_style_title">Style der Akkuleiste</string>
@@ -54,6 +54,9 @@
     <string name="battery_bar_thickness_4">4dp</string>
 
     <!-- Statusbar style strings  -->
+    <string name="status_bar_bg_cat">Hintergrund</string>
+
+    <!-- Statusbar style background strings  -->
     <string name="status_bar_color_title">Farbe der Statusleiste</string>
     <string name="status_bar_transparency_title">Transparenz der Statusleiste</string>
     <string name="status_bar_alpha_mode_dialog_text_title">Anzeige der Statusleisten Transparenz</string>
