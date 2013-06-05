@@ -1595,11 +1595,11 @@
 
         <activity android:name=".cyanogenmod.LockscreenTargets" />
 
-		<activity android:name=".cyanogenmod.StatusBar" />
-
         <activity android:name=".cyanogenmod.ChangeLog" />
 
 		<activity android:name=".darkjelly.DJEChangeLog" />
+
+		<activity android:name=".darkjelly.StatusBar" />
 
 		<activity android:name=".darkjelly.StatusBarStyle" />
 
