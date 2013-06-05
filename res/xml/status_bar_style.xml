@@ -37,6 +37,37 @@
 		    android:title="@string/status_bar_alpha_mode_text_title"
 		    android:entries="@array/status_bar_alpha_mode_entries"
 		    android:entryValues="@array/status_bar_alpha_mode_values" />
+	</PreferenceCategory>
 
+    <PreferenceCategory
+		android:key="battery_bar_cat"
+		android:title="@string/battery_bar_cat">
+
+		<ListPreference
+			android:key="battery_bar_position"
+			android:title="@string/battery_bar_position_title"
+			android:entries="@array/battery_bar_position_entries"
+			android:entryValues="@array/battery_bar_position_values" />
+
+		<CheckBoxPreference
+			android:key="battery_bar_style"
+			android:title="@string/battery_bar_style_title"
+			android:summary="@string/battery_bar_style_summary" />
+
+		<CheckBoxPreference
+			android:key="battery_bar_animate"
+			android:title="@string/battery_bar_animate_title"
+			android:summary="@string/battery_bar_animate_summary" />
+
+		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+			android:key="battery_bar_color"
+			android:title="@string/battery_bar_color_title"
+			android:defaultValue="#33B5E5" />
+
+		<ListPreference
+			android:key="battery_bar_thickness"
+			android:title="@string/battery_bar_thickness_title"
+			android:entries="@array/battery_bar_thickness_entries"
+			android:entryValues="@array/battery_bar_thickness_values" />
 	</PreferenceCategory>
 </PreferenceScreen>

@@ -27,16 +27,26 @@
 
     <!-- Style strings  -->
     <string name="style_settings_title">Style</string>
-    <string name="battery_style_title">Battery style</string>
     <string name="status_bar_style_title">Status bar style</string>
     <string name="navigation_bar_style_title">Navigation bar style</string>
     <string name="notification_drawer_style_title">Notification drawer style</string>
     <string name="style_reset">Reset</string>
 
-    <!-- Battery style strings  -->
-    <string name="battery_bar_cat">Battery bar</string>
+    <!-- Statusbar style strings  -->
+    <string name="status_bar_bg_cat">Background</string>
 
-    <!-- Battery style battery bar strings  -->
+    <!-- Statusbar style background strings  -->
+    <string name="status_bar_color_title">Status bar color</string>
+    <string name="status_bar_transparency_title">Status bar transparency</string>
+    <string name="status_bar_alpha_mode_dialog_text_title">Show status bar transparency</string>
+    <string name="status_bar_alpha_mode_text_title">Transparency mode</string>
+    <string name="status_bar_alpha_mode_home">On launcher</string>
+    <string name="status_bar_alpha_mode_default">On launcher and keyguard</string>
+    <string name="status_bar_alpha_mode_always">Always</string>
+    <string name="style_reset_statusbar_bg">Reset background settings</string>
+
+    <!-- Statusbar style battery bar strings  -->
+    <string name="battery_bar_cat">Battery bar</string>
     <string name="battery_bar_position_title">Battery bar location</string>
     <string name="battery_bar_style_summary">Display the battery bar center-mirrored</string>
     <string name="battery_bar_style_title">Battery bar style</string>
@@ -52,18 +62,7 @@
     <string name="battery_bar_thickness_2">2dp</string>
     <string name="battery_bar_thickness_3">3dp</string>
     <string name="battery_bar_thickness_4">4dp</string>
-
-    <!-- Statusbar style strings  -->
-    <string name="status_bar_bg_cat">Background</string>
-
-    <!-- Statusbar style background strings  -->
-    <string name="status_bar_color_title">Status bar color</string>
-    <string name="status_bar_transparency_title">Status bar transparency</string>
-    <string name="status_bar_alpha_mode_dialog_text_title">Show status bar transparency</string>
-    <string name="status_bar_alpha_mode_text_title">Transparency mode</string>
-    <string name="status_bar_alpha_mode_home">On launcher</string>
-    <string name="status_bar_alpha_mode_default">On launcher and keyguard</string>
-    <string name="status_bar_alpha_mode_always">Always</string>
+    <string name="style_reset_battery_bar">Reset battery bar settings</string>
 
     <!-- Navigationbar style strings  -->
     <string name="navigation_bar_color_title">Navigation bar color</string>

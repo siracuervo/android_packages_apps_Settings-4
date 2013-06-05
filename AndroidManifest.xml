@@ -1601,8 +1601,6 @@
 
 		<activity android:name=".darkjelly.DJEChangeLog" />
 
-		<activity android:name=".darkjelly.BatteryStyle" />
-
 		<activity android:name=".darkjelly.StatusBarStyle" />
 
 		<activity android:name=".darkjelly.NavigationBarStyle" />
