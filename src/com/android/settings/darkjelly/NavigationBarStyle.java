@@ -17,6 +17,7 @@
 package com.android.settings.darkjelly;
 
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
@@ -33,9 +34,12 @@ import com.android.settings.SettingsPreferenceFragment;
 public class NavigationBarStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String TAG = "NavigationBarStyle";
-    private static final String PREF_NAVIGATION_BAR_COLOR = "navigation_bar_color";
+
+    private static final String KEY_NAVIGATION_BAR_COLOR = "navigation_bar_color";
+    private static final String KEY_NAV_BUTTONS_HEIGHT = "nav_buttons_height";
 
     private ColorPickerPreference mNavigationBarColor;
+    private ListPreference mNavButtonsHeight;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,12 +56,19 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements On
 
         addPreferencesFromResource(R.xml.navigationbar_bar_style);
 
-        mNavigationBarColor = (ColorPickerPreference) findPreference(PREF_NAVIGATION_BAR_COLOR);
+        mNavigationBarColor = (ColorPickerPreference) findPreference(KEY_NAVIGATION_BAR_COLOR);
+        mNavButtonsHeight = (ListPreference) findPreference(KEY_NAV_BUTTONS_HEIGHT);
 
         mNavigationBarColor.setOnPreferenceChangeListener(this);
         int intColor = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.NAVIGATION_BAR_COLOR, 0xff000000); 
         mNavigationBarColor.setNewPreviewColor(intColor);
+
+        mNavButtonsHeight.setOnPreferenceChangeListener(this);
+        int statusNavButtonsHeight = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                 Settings.System.NAV_BUTTONS_HEIGHT, 48);
+        mNavButtonsHeight.setValue(String.valueOf(statusNavButtonsHeight));
+        mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntry());
 
         setHasOptionsMenu(true);
     }
@@ -71,9 +82,11 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.reset:
+            case R.id.reset_navigation_bar_style:
                 Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.NAVIGATION_BAR_COLOR, 0xff000000);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.NAV_BUTTONS_HEIGHT, 48);
                 refreshSettings();
                 return true;
              default:
@@ -82,8 +95,7 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements On
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
-            Preference preference) {
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
@@ -93,6 +105,13 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements On
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NAVIGATION_BAR_COLOR, intHex);
+            return true;
+        } else if (preference == mNavButtonsHeight) {
+            int statusNavButtonsHeight = Integer.valueOf((String) newValue);
+            int index = mNavButtonsHeight.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.NAV_BUTTONS_HEIGHT, statusNavButtonsHeight);
+            mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntries()[index]);
             return true;
         }
         return false;

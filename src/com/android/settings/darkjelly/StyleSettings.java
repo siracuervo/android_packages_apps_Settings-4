@@ -16,47 +16,19 @@
 
 package com.android.settings.darkjelly;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.os.RemoteException;
-import android.os.ServiceManager;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
-import android.view.IWindowManager;
-import android.view.WindowManagerGlobal;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class StyleSettings extends SettingsPreferenceFragment {
 
-    private static final String KEY_NAVIGATION_BAR_STYLE = "navigation_bar_style";
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.style_settings);
-        PreferenceScreen prefScreen = getPreferenceScreen();
-
-        boolean removeKeys = false;
-        boolean removeNavbar = false;
-
-        IWindowManager windowManager = IWindowManager.Stub.asInterface(
-                ServiceManager.getService(Context.WINDOW_SERVICE));
-        try {
-            if (windowManager.hasNavigationBar()) {
-                removeKeys = true;
-            } else {
-                removeNavbar = true;
-            }
-        } catch (RemoteException e) {
-            // Do nothing
-        }
-
-        // Remove the Navigationbar Style Preference on a device that does not have a navbar
-        if (removeNavbar) {
-            prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR_STYLE));
-        }
     }
 }

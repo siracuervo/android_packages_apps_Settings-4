@@ -28,12 +28,10 @@
     <!-- Style strings  -->
     <string name="style_settings_title">Style</string>
     <string name="cat_style_title">Style</string>
-    <string name="navigation_bar_style_title">Navigation bar style</string>
     <string name="notification_drawer_style_title">Notification drawer style</string>
     <string name="style_reset">Reset</string>
-
-    <!-- Navigationbar style strings  -->
-    <string name="navigation_bar_color_title">Navigation bar color</string>
+    <string name="color_title">Color</string>
+    <string name="transparency_title">Transparency</string>
 
     <!-- Notification drawer style strings -->
     <string name="notification_drawer_background_title">Background</string>
@@ -56,8 +54,6 @@
     <string name="style_reset_battery_bar">Reset battery bar</string>
 
     <!-- Statusbar style background strings  -->
-    <string name="status_bar_color_title">Color</string>
-    <string name="status_bar_transparency_title">Transparency</string>
     <string name="status_bar_alpha_mode_dialog_text_title">Show status bar transparency</string>
     <string name="status_bar_alpha_mode_text_title">Transparency mode</string>
     <string name="status_bar_alpha_mode_home">On launcher</string>
@@ -79,7 +75,6 @@
     <string name="battery_bar_center_title">Center-mirrored</string>
     <string name="battery_bar_animate_title">Charging animation</string>
     <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string> 
-    <string name="battery_bar_color_title">Color</string>
     <string name="battery_bar_thickness_title">Thickness</string>
     <string name="battery_bar_hide">Hide</string>
     <string name="battery_bar_statusbar">Statusbar</string>
@@ -116,21 +111,14 @@
     <!-- Build version strings -->
     <string name="build_version">Build version</string>
 
-    <!-- Navigation bar settings -->
-
-    <!-- Navigation bar strings -->
-    <string name="navigation_bar_settings_title">Navigation bar</string>
-    <string name="navigation_bar_settings_summary">Customize the Navigation bar &amp;\nPie controls</string>
-
-    <!-- Navigation bar category strings -->
-    <string name="cat_nav_bar">Navigation bar</string>
+    <!-- Navigation strings -->
+    <string name="navigation_title">Navigation</string>
+    <string name="navigation_summary">Customize the Navigation bar &amp;\nPie controls</string>
     <string name="cat_nav_ring">Navigation ring</string>
     <string name="cat_pie_control">Pie</string>
 
-    <!-- Navigation bar height strings -->
-    <string name="navigation_bar_edit_title">Navigation bar customization</string>
-    <string name="navigation_bar_edit_summary">Edit buttons layout</string>
-    <string name="navigation_bar_height_title">Navigation bar height</string>
+    <!-- Navigation bar style strings -->
+    <string name="navigation_bar_height_title">Height</string>
     <string name="navigation_bar_height_48">48dp (default)</string>
     <string name="navigation_bar_height_44">44dp</string>
     <string name="navigation_bar_height_40">40dp</string>
@@ -138,6 +126,11 @@
     <string name="navigation_bar_height_32">32dp</string>
     <string name="navigation_bar_height_28">28dp</string>
     <string name="navigation_bar_height_24">24dp</string>
+
+    <!-- Navigation bar strings -->
+    <string name="navigation_bar_title">Navigation bar</string>
+    <string name="navigation_bar_edit_title">Navigation bar customization</string>
+    <string name="navigation_bar_edit_summary">Edit buttons layout</string>
 
     <!-- Display settings -->
 

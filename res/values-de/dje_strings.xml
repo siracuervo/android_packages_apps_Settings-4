@@ -28,12 +28,10 @@
     <!-- Style strings  -->
     <string name="style_settings_title">Style</string>
     <string name="cat_style_title">Style</string>
-    <string name="navigation_bar_style_title">Style der Navigationsleiste </string>
     <string name="notification_drawer_style_title">Style der Benachrichtigungs-Anzeige</string>
     <string name="style_reset">Zurücksetzten</string>
-
-    <!-- Navigationbar style strings  -->
-    <string name="navigation_bar_color_title">Farbe der Navigationsleiste</string>
+    <string name="color_title">Farbe</string>
+    <string name="transparency_title">Transparenz</string>
 
     <!-- Notification drawer style strings -->
     <string name="notification_drawer_background_title">Hintergrund</string>
@@ -56,8 +54,6 @@
     <string name="style_reset_battery_bar">Akkuleiste zurücksetzten</string>
 
     <!-- Statusbar style background strings  -->
-    <string name="status_bar_color_title">Farbe</string>
-    <string name="status_bar_transparency_title">Transparenz</string>
     <string name="status_bar_alpha_mode_dialog_text_title">Anzeige der Statusleisten Transparenz</string>
     <string name="status_bar_alpha_mode_text_title">Transparenz Modus</string>
     <string name="status_bar_alpha_mode_home">Im Launcher</string>
@@ -79,7 +75,6 @@
     <string name="battery_bar_center_title">Mittig-gespiegelt</string>
     <string name="battery_bar_animate_title">Lade-Animation</string>
     <string name="battery_bar_animate_summary">Die Lade-Animation kann zu trägem Verhalten des Gerätes führen. Aktiviere sie, nach deinem eigenen Ermessen.</string> 
-    <string name="battery_bar_color_title">Farbe</string>
     <string name="battery_bar_thickness_title">Dicke</string>
     <string name="battery_bar_hide">Ausgeblendet</string>
     <string name="battery_bar_statusbar">Statusleiste</string>
@@ -116,21 +111,14 @@
     <!-- Build version strings -->
     <string name="build_version">Build-Version</string>
 
-    <!-- Navigation bar settings -->
-
-    <!-- Navigation bar strings -->
-    <string name="navigation_bar_settings_title">Navigationsleiste</string>
-    <string name="navigation_bar_settings_summary">Die Navigationsleiste &amp;\nPie-Navigation anpassen</string>
-
-    <!-- Navigation bar category strings -->
-    <string name="cat_nav_bar">Navigationsleiste</string>
+    <!-- Navigation strings -->
+    <string name="navigation_title">Navigation</string>
+    <string name="navigation_summary">Die Navigationsleiste &amp;\nPie-Navigation anpassen</string>
     <string name="cat_nav_ring">Navigations-Ring</string>
     <string name="cat_pie_control">Pie</string>
 
-    <!-- Navigation bar height strings -->
-    <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
-    <string name="navigation_bar_edit_summary">Schaltflächen bearbeiten</string>
-    <string name="navigation_bar_height_title">Höhe Navigationsleiste</string>
+    <!-- Navigation bar style strings -->
+    <string name="navigation_bar_height_title">Höhe</string>
     <string name="navigation_bar_height_48">48dp (Standard)</string>
     <string name="navigation_bar_height_44">44dp</string>
     <string name="navigation_bar_height_40">40dp</string>
@@ -138,6 +126,11 @@
     <string name="navigation_bar_height_32">32dp</string>
     <string name="navigation_bar_height_28">28dp</string>
     <string name="navigation_bar_height_24">24dp</string>
+
+    <!-- Navigation bar strings -->
+    <string name="navigation_bar_title">Navigationsleiste </string>
+    <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
+    <string name="navigation_bar_edit_summary">Schaltflächen bearbeiten</string>
 
     <!-- Display settings -->
 

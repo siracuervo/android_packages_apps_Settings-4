@@ -18,7 +18,6 @@ package com.android.settings.darkjelly;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
@@ -26,29 +25,20 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+public class Navigation extends SettingsPreferenceFragment {
 
-public class NavigationBarSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
-
-    private static final String KEY_NAV_BUTTONS_HEIGHT = "nav_buttons_height";
     private static final String KEY_PIE_CONTROL = "pie_control";
 
-    private ListPreference mNavButtonsHeight;
     private PreferenceScreen mPieControl;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.navigation_bar_settings);
+        addPreferencesFromResource(R.xml.navigation);
 
         PreferenceScreen prefScreen = getPreferenceScreen();
 
-        mNavButtonsHeight = (ListPreference) findPreference(KEY_NAV_BUTTONS_HEIGHT);
-        mNavButtonsHeight.setOnPreferenceChangeListener(this);
-        int statusNavButtonsHeight = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                 Settings.System.NAV_BUTTONS_HEIGHT, 48);
-        mNavButtonsHeight.setValue(String.valueOf(statusNavButtonsHeight));
-        mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntry());
         mPieControl = (PreferenceScreen) findPreference(KEY_PIE_CONTROL);
     }
 
@@ -64,18 +54,6 @@ public class NavigationBarSettings extends SettingsPreferenceFragment implements
     @Override
     public void onPause() {
         super.onPause();
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (preference == mNavButtonsHeight) {
-            int statusNavButtonsHeight = Integer.valueOf((String) objValue);
-            int index = mNavButtonsHeight.findIndexOfValue((String) objValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.NAV_BUTTONS_HEIGHT, statusNavButtonsHeight);
-            mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntries()[index]);
-            return true;
-        }
-        return false;
     }
 
     private void updatePieControlDescription() {

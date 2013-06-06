@@ -82,9 +82,9 @@
         android:title="@string/hardware_keys_title" />
 
     <PreferenceScreen
-        android:key="navigation_bar_settings"
-        android:fragment="com.android.settings.darkjelly.NavigationBarSettings"
-        android:title="@string/navigation_bar_settings_title"
-        android:summary="@string/navigation_bar_settings_summary" />
+        android:key="navigation_bar"
+        android:fragment="com.android.settings.darkjelly.Navigation"
+        android:title="@string/navigation_title"
+        android:summary="@string/navigation_summary" />
 
 </PreferenceScreen>

@@ -43,7 +43,7 @@
 
 		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
 			android:key="battery_bar_color"
-			android:title="@string/battery_bar_color_title"
+			android:title="@string/color_title"
 			android:defaultValue="#33B5E5" />
 
 		<CheckBoxPreference

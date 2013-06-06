@@ -19,11 +19,6 @@
     android:title="@string/style_settings_title">
 
 	<PreferenceScreen
-	    android:key="navigation_bar_style"
-        android:fragment="com.android.settings.darkjelly.NavigationBarStyle"
-	    android:title="@string/navigation_bar_style_title" />
-
-	<PreferenceScreen
         android:key="notification_drawer_style"
         android:fragment="com.android.settings.darkjelly.NotificationDrawerStyle"
         android:title="@string/notification_drawer_style_title" />
