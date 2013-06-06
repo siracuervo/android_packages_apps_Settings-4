@@ -61,9 +61,9 @@ import com.android.settings.darkjelly.colorpicker.ColorPickerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotificationDrawerStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class NotificationDrawerBackgroundStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String TAG = "NotificationDrawerStyle";
+    private static final String TAG = "NotificationDrawerBackgroundStyle";
 
     private static final String PREF_NOTIFICATION_DRAWER_BACKGROUND = "notification_drawer_background";
     private static final String PREF_NOTIFICATION_DRAWER_BACKGROUND_LANDSCAPE = "notification_drawer_background_landscape";
@@ -93,7 +93,7 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
         mResolver = getContentResolver();
         mActivity = getActivity();
 
-        addPreferencesFromResource(R.xml.notification_drawer_style);
+        addPreferencesFromResource(R.xml.notification_drawer_background_style);
 
         customnavTemp = new File(getActivity().getFilesDir()+"/notification_wallpaper_temp.jpg");
         customnavTempLandscape = new File(getActivity().getFilesDir()+"/notification_wallpaper_temp_landscape.jpg");

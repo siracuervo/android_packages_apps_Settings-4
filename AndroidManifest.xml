@@ -1605,9 +1605,9 @@
 
 		<activity android:name=".darkjelly.StatusBarBatteryStyle" />
 
-		<activity android:name=".darkjelly.NavigationBarStyle" />
+		<activity android:name=".darkjelly.NotificationDrawerBackgroundStyle" />
 
-		<activity android:name=".darkjelly.NotificationDrawerStyle" />
+		<activity android:name=".darkjelly.NavigationBarStyle" />
 
         <activity android:name=".cyanogenmod.LockscreenInterface" />
 
