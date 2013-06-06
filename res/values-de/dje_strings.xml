@@ -27,42 +27,10 @@
 
     <!-- Style strings  -->
     <string name="style_settings_title">Style</string>
-    <string name="status_bar_style_title">Style der Statusleiste</string>
+    <string name="cat_style_title">Style</string>
     <string name="navigation_bar_style_title">Style der Navigationsleiste </string>
     <string name="notification_drawer_style_title">Style der Benachrichtigungs-Anzeige</string>
     <string name="style_reset">Zurücksetzten</string>
-
-    <!-- Statusbar style strings  -->
-    <string name="status_bar_bg_cat">Hintergrund</string>
-
-    <!-- Statusbar style background strings  -->
-    <string name="status_bar_color_title">Farbe der Statusleiste</string>
-    <string name="status_bar_transparency_title">Transparenz der Statusleiste</string>
-    <string name="status_bar_alpha_mode_dialog_text_title">Anzeige der Statusleisten Transparenz</string>
-    <string name="status_bar_alpha_mode_text_title">Transparenz Modus</string>
-    <string name="status_bar_alpha_mode_home">Im Launcher</string>
-    <string name="status_bar_alpha_mode_default">Im Launcher und Sperrbildschirm</string>
-    <string name="status_bar_alpha_mode_always">Immer</string>
-    <string name="style_reset_statusbar_bg">Hintergrund Einst. zurücksetzen</string>
-
-    <!-- Battery style battery bar strings  -->
-    <string name="battery_bar_cat">Akkuleiste</string>
-    <string name="battery_bar_position_title">Position der Akkuleiste</string>
-    <string name="battery_bar_style_summary">Die Akkuleiste mittig-gespiegelt darstellen</string>
-    <string name="battery_bar_style_title">Style der Akkuleiste</string>
-    <string name="battery_bar_animate_title">Lade-Animation</string>
-    <string name="battery_bar_animate_summary">Die Lade-Animation kann zu trägem Verhalten des Gerätes führen. Aktiviere sie, nach deinem eigenen Ermessen.</string> 
-    <string name="battery_bar_color_title">Farbe der Akkuleiste</string>
-    <string name="battery_bar_thickness_title">Dicke der Akkuleiste</string>
-    <string name="battery_bar_hide">Ausgeblendet</string>
-    <string name="battery_bar_statusbar">Statusleiste</string>
-    <string name="battery_bar_navbar_top">Über der Navigationsleiste</string>
-    <string name="battery_bar_navbar_buttom">Unter der Navigationsleiste</string>
-    <string name="battery_bar_thickness_1">1dp (Standard)</string>
-    <string name="battery_bar_thickness_2">2dp</string>
-    <string name="battery_bar_thickness_3">3dp</string>
-    <string name="battery_bar_thickness_4">4dp</string>
-    <string name="style_reset_battery_bar">Akkuleisten Einst. zurücksetzen</string>
 
     <!-- Navigationbar style strings  -->
     <string name="navigation_bar_color_title">Farbe der Navigationsleiste</string>
@@ -79,19 +47,54 @@
 
     <!-- Statusbar -->
 
-    <!-- Clock position strings -->
-    <string name="status_bar_clock_position_title">Position der Uhr</string>
-    <string name="status_bar_clock_position_noclock">Uhr nicht anzeigen</string>
-    <string name="status_bar_clock_position_right">Uhr rechts</string>
-    <string name="status_bar_clock_position_center">Uhr zentriert</string>
+    <!-- Statusbar style -->
+    <string name="status_bar_background_style_title">Hintergrund</string>
+    <string name="status_bar_battery_style_title">Akku</string>
+    <string name="cat_battery_status">Akkustand</string>
+    <string name="cat_battery_bar">Akkuleiste</string>
+    <string name="style_reset_battery_status">Akkustand zurücksetzten</string>
+    <string name="style_reset_battery_bar">Akkuleiste zurücksetzten</string>
 
-    <!-- Battery status style strings  -->
-    <string name="status_bar_battery_status_style_title">Akkustand Style</string>
+    <!-- Statusbar style background strings  -->
+    <string name="status_bar_color_title">Farbe</string>
+    <string name="status_bar_transparency_title">Transparenz</string>
+    <string name="status_bar_alpha_mode_dialog_text_title">Anzeige der Statusleisten Transparenz</string>
+    <string name="status_bar_alpha_mode_text_title">Transparenz Modus</string>
+    <string name="status_bar_alpha_mode_home">Im Launcher</string>
+    <string name="status_bar_alpha_mode_default">Im Launcher und Sperrbildschirm</string>
+    <string name="status_bar_alpha_mode_always">Immer</string>
+
+    <!-- Statusbar style battery status strings  -->
+    <string name="status_bar_battery_status_style_title">Style</string>
 	<string name="status_bar_battery_status_circle">Kreis (CM)</string>
     <string name="status_bar_battery_status_circle_percentage">Kreis &amp; Prozent (CM)</string>
     <string name="status_bar_battery_status_ABT">Kreis (AlphaBlue Theme)</string>
     <string name="status_bar_battery_status_AOKP">Kreis (AOKP)</string>
     <string name="status_bar_battery_status_HC">Kreis (HoneyComb)</string>
+
+    <!-- Statusbar style battery bar strings  -->
+    <string name="battery_bar_style_title">Akkuleiste</string>
+    <string name="battery_bar_position_title">Position</string>
+    <string name="battery_bar_center_summary">Die Akkuleiste mittig-gespiegelt darstellen</string>
+    <string name="battery_bar_center_title">Mittig-gespiegelt</string>
+    <string name="battery_bar_animate_title">Lade-Animation</string>
+    <string name="battery_bar_animate_summary">Die Lade-Animation kann zu trägem Verhalten des Gerätes führen. Aktiviere sie, nach deinem eigenen Ermessen.</string> 
+    <string name="battery_bar_color_title">Farbe</string>
+    <string name="battery_bar_thickness_title">Dicke</string>
+    <string name="battery_bar_hide">Ausgeblendet</string>
+    <string name="battery_bar_statusbar">Statusleiste</string>
+    <string name="battery_bar_navbar_top">Über der Navigationsleiste</string>
+    <string name="battery_bar_navbar_buttom">Unter der Navigationsleiste</string>
+    <string name="battery_bar_thickness_1">1dp (Standard)</string>
+    <string name="battery_bar_thickness_2">2dp</string>
+    <string name="battery_bar_thickness_3">3dp</string>
+    <string name="battery_bar_thickness_4">4dp</string>
+
+    <!-- Clock position strings -->
+    <string name="status_bar_clock_position_title">Position der Uhr</string>
+    <string name="status_bar_clock_position_noclock">Uhr nicht anzeigen</string>
+    <string name="status_bar_clock_position_right">Uhr rechts</string>
+    <string name="status_bar_clock_position_center">Uhr zentriert</string>
 
     <!-- Device info settings -->
 

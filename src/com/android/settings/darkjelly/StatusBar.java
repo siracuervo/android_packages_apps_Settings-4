@@ -39,9 +39,9 @@ import com.android.settings.Utils;
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String TAG = "StatusBar";
+
     private static final String STATUS_BAR_CLOCK_POSITION = "status_bar_clock_position";
     private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
-    private static final String STATUS_BAR_BATTERY_STATUS_STYLE = "status_bar_battery_status_style";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
@@ -49,7 +49,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
     private ListPreference mStatusBarClockPosition;
     private ListPreference mStatusBarAmPm;
-    private ListPreference mStatusBarBatteryStatusStyle;
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusBarBrightnessControl;
     private CheckBoxPreference mStatusBarNotifCount;
@@ -72,7 +71,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         mStatusBarClockPosition = (ListPreference) findPreference(STATUS_BAR_CLOCK_POSITION);
         mStatusBarAmPm = (ListPreference) findPreference(STATUS_BAR_AM_PM);
-        mStatusBarBatteryStatusStyle = (ListPreference) findPreference(STATUS_BAR_BATTERY_STATUS_STYLE);
         mStatusBarCmSignal = (ListPreference) findPreference(STATUS_BAR_SIGNAL);
         mStatusBarBrightnessControl = (CheckBoxPreference) findPreference(STATUS_BAR_BRIGHTNESS_CONTROL);
         mStatusBarNotifCount = (CheckBoxPreference) findPreference(STATUS_BAR_NOTIF_COUNT);
@@ -98,12 +96,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarAmPm.setValue(String.valueOf(statusBarAmPm));
         mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
         mStatusBarAmPm.setOnPreferenceChangeListener(this);
-
-        int statusBarBatteryStatusStyle = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 0);
-        mStatusBarBatteryStatusStyle.setValue(String.valueOf(statusBarBatteryStatusStyle));
-        mStatusBarBatteryStatusStyle.setSummary(mStatusBarBatteryStatusStyle.getEntry());
-        mStatusBarBatteryStatusStyle.setOnPreferenceChangeListener(this);
 
         int signalStyle = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_SIGNAL_TEXT, 0);
@@ -146,13 +138,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.reset:
+            case R.id.reset_statusbar:
                 Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.STATUS_BAR_CLOCK_POSITION, 1);
                 Settings.System.putFloat(getActivity().getContentResolver(),
                        Settings.System.STATUS_BAR_AM_PM, 2);
-                Settings.System.putFloat(getActivity().getContentResolver(),
-                       Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 0);
                 Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.STATUS_BAR_SIGNAL_TEXT, 0);
                 Settings.System.putInt(getActivity().getContentResolver(),
@@ -180,13 +170,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_AM_PM, statusBarAmPm);
             mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntries()[index]);
-            return true;
-        } else if (preference == mStatusBarBatteryStatusStyle) {
-            int statusBarBatteryStatusStyle = Integer.valueOf((String) newValue);
-            int index = mStatusBarBatteryStatusStyle.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, statusBarBatteryStatusStyle);
-            mStatusBarBatteryStatusStyle.setSummary(mStatusBarBatteryStatusStyle.getEntries()[index]);
             return true;
         } else if (preference == mStatusBarCmSignal) {
             int signalStyle = Integer.valueOf((String) newValue);

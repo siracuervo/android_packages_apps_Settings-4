@@ -27,42 +27,10 @@
 
     <!-- Style strings  -->
     <string name="style_settings_title">Style</string>
-    <string name="status_bar_style_title">Status bar style</string>
+    <string name="cat_style_title">Style</string>
     <string name="navigation_bar_style_title">Navigation bar style</string>
     <string name="notification_drawer_style_title">Notification drawer style</string>
     <string name="style_reset">Reset</string>
-
-    <!-- Statusbar style strings  -->
-    <string name="status_bar_bg_cat">Background</string>
-
-    <!-- Statusbar style background strings  -->
-    <string name="status_bar_color_title">Status bar color</string>
-    <string name="status_bar_transparency_title">Status bar transparency</string>
-    <string name="status_bar_alpha_mode_dialog_text_title">Show status bar transparency</string>
-    <string name="status_bar_alpha_mode_text_title">Transparency mode</string>
-    <string name="status_bar_alpha_mode_home">On launcher</string>
-    <string name="status_bar_alpha_mode_default">On launcher and keyguard</string>
-    <string name="status_bar_alpha_mode_always">Always</string>
-    <string name="style_reset_statusbar_bg">Reset background settings</string>
-
-    <!-- Statusbar style battery bar strings  -->
-    <string name="battery_bar_cat">Battery bar</string>
-    <string name="battery_bar_position_title">Battery bar location</string>
-    <string name="battery_bar_style_summary">Display the battery bar center-mirrored</string>
-    <string name="battery_bar_style_title">Battery bar style</string>
-    <string name="battery_bar_animate_title">Charging animation</string>
-    <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string> 
-    <string name="battery_bar_color_title">Battery bar color</string>
-    <string name="battery_bar_thickness_title">Battery bar thickness</string>
-    <string name="battery_bar_hide">Hide</string>
-    <string name="battery_bar_statusbar">Statusbar</string>
-    <string name="battery_bar_navbar_top">Top of navigation bar</string>
-    <string name="battery_bar_navbar_buttom">Buttom of navigation bar</string>
-    <string name="battery_bar_thickness_1">1dp (default)</string>
-    <string name="battery_bar_thickness_2">2dp</string>
-    <string name="battery_bar_thickness_3">3dp</string>
-    <string name="battery_bar_thickness_4">4dp</string>
-    <string name="style_reset_battery_bar">Reset battery bar settings</string>
 
     <!-- Navigationbar style strings  -->
     <string name="navigation_bar_color_title">Navigation bar color</string>
@@ -79,20 +47,54 @@
 
     <!-- Statusbar -->
 
-    <!-- Clock position strings -->
-    <string name="status_bar_clock_position_title">Clock style</string>
-    <string name="status_bar_clock_position_noclock">Do not show the clock</string>
-    <string name="status_bar_clock_position_right">Right clock</string>
-    <string name="status_bar_clock_position_center">Center clock</string>
+    <!-- Statusbar style -->
+    <string name="status_bar_background_style_title">Background</string>
+    <string name="status_bar_battery_style_title">Battery</string>
+    <string name="cat_battery_status">Battery status</string>
+    <string name="cat_battery_bar">Battery bar</string>
+    <string name="style_reset_battery_status">Reset battery status</string>
+    <string name="style_reset_battery_bar">Reset battery bar</string>
 
-    <!-- Battery status style strings  -->
-    <string name="status_bar_battery_status_style_title">Battery status style</string>
+    <!-- Statusbar style background strings  -->
+    <string name="status_bar_color_title">Color</string>
+    <string name="status_bar_transparency_title">Transparency</string>
+    <string name="status_bar_alpha_mode_dialog_text_title">Show status bar transparency</string>
+    <string name="status_bar_alpha_mode_text_title">Transparency mode</string>
+    <string name="status_bar_alpha_mode_home">On launcher</string>
+    <string name="status_bar_alpha_mode_default">On launcher and keyguard</string>
+    <string name="status_bar_alpha_mode_always">Always</string>
+
+    <!-- Statusbar style battery status strings  -->
+    <string name="status_bar_battery_status_style_title">Style</string>
     <string name="status_bar_battery_status_circle">Circle (CM)</string>
     <string name="status_bar_battery_status_circle_percentage">Circle &amp; percentage (CM)</string>
     <string name="status_bar_battery_status_ABT">Circle (AlphaBlue Theme)</string>
     <string name="status_bar_battery_status_AOKP">Circle (AOKP)</string>
     <string name="status_bar_battery_status_HC">Circle (HoneyComb)</string>
     <string name="status_bar_battery_status_percentage">Icon &amp; Percentage</string>
+
+    <!-- Statusbar style battery bar style strings  -->
+    <string name="battery_bar_position_title">Location</string>
+    <string name="battery_bar_center_summary">Display the battery bar center-mirrored</string>
+    <string name="battery_bar_center_title">Center-mirrored</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string> 
+    <string name="battery_bar_color_title">Color</string>
+    <string name="battery_bar_thickness_title">Thickness</string>
+    <string name="battery_bar_hide">Hide</string>
+    <string name="battery_bar_statusbar">Statusbar</string>
+    <string name="battery_bar_navbar_top">Top of navigation bar</string>
+    <string name="battery_bar_navbar_buttom">Buttom of navigation bar</string>
+    <string name="battery_bar_thickness_1">1dp (default)</string>
+    <string name="battery_bar_thickness_2">2dp</string>
+    <string name="battery_bar_thickness_3">3dp</string>
+    <string name="battery_bar_thickness_4">4dp</string>
+
+    <!-- Clock position strings -->
+    <string name="status_bar_clock_position_title">Clock style</string>
+    <string name="status_bar_clock_position_noclock">Do not show the clock</string>
+    <string name="status_bar_clock_position_right">Right clock</string>
+    <string name="status_bar_clock_position_center">Center clock</string>
 
     <!-- Device info settings -->
 

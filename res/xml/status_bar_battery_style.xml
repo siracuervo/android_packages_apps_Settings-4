@@ -16,32 +16,24 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/status_bar_style_title">
+    android:title="@string/status_bar_battery_style_title">
 
     <PreferenceCategory
-		android:key="status_bar_bg_cat"
-		android:title="@string/status_bar_bg_cat">
-
-		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
-		    android:key="status_bar_color"
-		    android:title="@string/status_bar_color_title"
-		    android:defaultValue="0xff000000" />
-
-		<com.android.settings.widget.SeekBarPreference
-		    android:key="status_bar_alpha"
-		    android:title="@string/status_bar_transparency_title" />
+        android:key="category_battery_status"
+        android:title="@string/cat_battery_status">
 
 		<ListPreference
-		    android:key="status_bar_alpha_mode"
-		    android:dialogTitle="@string/status_bar_alpha_mode_dialog_text_title"
-		    android:title="@string/status_bar_alpha_mode_text_title"
-		    android:entries="@array/status_bar_alpha_mode_entries"
-		    android:entryValues="@array/status_bar_alpha_mode_values" />
-	</PreferenceCategory>
+		    android:key="status_bar_battery_status_style"
+		    android:dialogTitle="@string/status_bar_battery_status_style_title"
+		    android:title="@string/status_bar_battery_status_style_title"
+		    android:entries="@array/status_bar_battery_status_style_entries"
+		    android:entryValues="@array/status_bar_battery_status_style_values" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
-		android:key="battery_bar_cat"
-		android:title="@string/battery_bar_cat">
+        android:key="category_battery_bar"
+        android:title="@string/cat_battery_bar">
 
 		<ListPreference
 			android:key="battery_bar_position"
@@ -49,25 +41,27 @@
 			android:entries="@array/battery_bar_position_entries"
 			android:entryValues="@array/battery_bar_position_values" />
 
+		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+			android:key="battery_bar_color"
+			android:title="@string/battery_bar_color_title"
+			android:defaultValue="#33B5E5" />
+
 		<CheckBoxPreference
-			android:key="battery_bar_style"
-			android:title="@string/battery_bar_style_title"
-			android:summary="@string/battery_bar_style_summary" />
+			android:key="battery_bar_center"
+			android:title="@string/battery_bar_center_title"
+			android:summary="@string/battery_bar_center_summary" />
 
 		<CheckBoxPreference
 			android:key="battery_bar_animate"
 			android:title="@string/battery_bar_animate_title"
 			android:summary="@string/battery_bar_animate_summary" />
 
-		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
-			android:key="battery_bar_color"
-			android:title="@string/battery_bar_color_title"
-			android:defaultValue="#33B5E5" />
-
 		<ListPreference
 			android:key="battery_bar_thickness"
 			android:title="@string/battery_bar_thickness_title"
 			android:entries="@array/battery_bar_thickness_entries"
 			android:entryValues="@array/battery_bar_thickness_values" />
-	</PreferenceCategory>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
