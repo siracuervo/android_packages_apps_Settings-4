@@ -58,7 +58,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         refreshSettings();
-
     }
 
     public void refreshSettings() {

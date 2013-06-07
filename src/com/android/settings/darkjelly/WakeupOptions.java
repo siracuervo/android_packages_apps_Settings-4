@@ -50,7 +50,6 @@ public class WakeupOptions extends SettingsPreferenceFragment {
         mPluggedUnpluggedWake = (CheckBoxPreference) findPreference(KEY_PLUGGED_UNPLUGGED_WAKE);
         mPluggedUnpluggedWake.setChecked(Settings.System.getInt(resolver,
                 Settings.System.KEY_PLUGGED_UNPLUGGED_WAKE, 1) == 1);
-
     }
 
     @Override

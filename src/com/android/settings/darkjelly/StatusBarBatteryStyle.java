@@ -57,7 +57,6 @@ public class StatusBarBatteryStyle extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         refreshSettings();
-
     }
 
     public void refreshSettings() {

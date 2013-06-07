@@ -45,7 +45,6 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements On
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         refreshSettings();
-
     }
 
     public void refreshSettings() {

@@ -47,7 +47,6 @@ public class StatusBarBackgroundStyle extends SettingsPreferenceFragment impleme
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         refreshSettings();
-
     }
 
     public void refreshSettings() {

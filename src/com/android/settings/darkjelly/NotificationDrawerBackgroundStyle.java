@@ -1,7 +1,7 @@
 /*
- * Copyright (C) 2013 Dark Jelly
- *
  * Copyright (C) 2013 JellyBeer/BeerGang Project
+ * 
+ * Copyright (C) 2013 Dark Jelly
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -83,14 +83,12 @@ public class NotificationDrawerBackgroundStyle extends SettingsPreferenceFragmen
     private static final String WALLPAPER_NAME = "notification_wallpaper.jpg";
     private static final String WALLPAPER_NAME_LANDSCAPE = "notification_wallpaper_landscape.jpg";
 
-    private ContentResolver mResolver;
     private Activity mActivity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mResolver = getContentResolver();
         mActivity = getActivity();
 
         addPreferencesFromResource(R.xml.notification_drawer_background_style);
