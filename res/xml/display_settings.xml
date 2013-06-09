@@ -63,6 +63,12 @@
             	android:key="custom_carrier_label"
             	android:title="@string/custom_carrier_label_title" />
 
+        <CheckBoxPreference
+            android:key="screen_off_animation"
+            android:title="@string/screen_off_animation_title"
+            android:summary="@string/screen_off_animation_summary"
+            android:defaultValue="true" />
+
         <PreferenceScreen
             android:key="wakeup_options"
             android:fragment="com.android.settings.darkjelly.WakeupOptions"
