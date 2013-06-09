@@ -170,7 +170,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } else {
             getPreferenceScreen().removePreference(mScreenOffAnimation);
         }
-
     }
 
     private void updateDisplayRotationPreferenceDescription() {
