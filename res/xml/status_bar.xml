@@ -40,12 +40,10 @@
     <PreferenceCategory
         android:title="@string/status_bar_clock_title">
 
-        <ListPreference
+         <CheckBoxPreference
             android:key="status_bar_clock_position"
             android:title="@string/status_bar_clock_position_title"
-            android:entries="@array/status_bar_clock_position_entries"
-            android:entryValues="@array/status_bar_clock_position_values"
-            android:persistent="false" />
+            android:summary="@string/status_bar_clock_position_summary" />
 
         <ListPreference
             android:key="status_bar_am_pm"
@@ -59,6 +57,12 @@
     <PreferenceCategory
         android:key="status_bar_general"
         android:title="@string/status_bar_general_title">
+
+        <CheckBoxPreference
+            android:key="status_bar_show_clock"
+            android:title="@string/status_bar_show_clock_title"
+            android:summary="@string/status_bar_show_clock_summary" />
+
 
         <ListPreference
             android:key="status_bar_signal"

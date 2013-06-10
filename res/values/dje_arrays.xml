@@ -14,17 +14,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string-array name="status_bar_clock_position_entries" translatable="false">
-        <item>@string/status_bar_clock_position_noclock</item>
-        <item>@string/status_bar_clock_position_right</item>
-        <item>@string/status_bar_clock_position_center</item>
-    </string-array>
-
-    <string-array name="status_bar_clock_position_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
 
     <string-array name="status_bar_battery_status_style_entries" translatable="false">
         <item>@string/status_bar_style_icon</item>

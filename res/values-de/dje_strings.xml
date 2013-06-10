@@ -72,11 +72,13 @@
     <string name="battery_bar_thickness_3">3dp</string>
     <string name="battery_bar_thickness_4">4dp</string>
 
+    <!-- Show clock position strings -->
+    <string name="status_bar_show_clock_title">Die Uhr anzeigen</string>
+    <string name="status_bar_show_clock_summary">Aktivieren um die Uhr in der Statusleiste anzuzeigen</string>
+
     <!-- Clock position strings -->
     <string name="status_bar_clock_position_title">Position der Uhr</string>
-    <string name="status_bar_clock_position_noclock">Uhr nicht anzeigen</string>
-    <string name="status_bar_clock_position_right">Uhr rechts</string>
-    <string name="status_bar_clock_position_center">Uhr zentriert</string>
+    <string name="status_bar_clock_position_summary">Aktivieren um die Uhr zentriert in der Statusleiste anzuzeigen</string>
 
     <!-- Notification drawer style strings -->
     <string name="notification_drawer_background_title">Art des Hintergrundes</string>

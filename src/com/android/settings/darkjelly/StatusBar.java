@@ -40,6 +40,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
     private static final String TAG = "StatusBar";
 
+    private static final String STATUS_BAR_SHOW_CLOCK = "status_bar_show_clock";
     private static final String STATUS_BAR_CLOCK_POSITION = "status_bar_clock_position";
     private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
@@ -47,7 +48,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
 
-    private ListPreference mStatusBarClockPosition;
+    private CheckBoxPreference mStatusBarShowClock;
+    private CheckBoxPreference mStatusBarClockPosition;
     private ListPreference mStatusBarAmPm;
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusBarBrightnessControl;
@@ -68,18 +70,19 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         addPreferencesFromResource(R.xml.status_bar);
 
-        mStatusBarClockPosition = (ListPreference) findPreference(STATUS_BAR_CLOCK_POSITION);
+        mStatusBarShowClock = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_CLOCK);
+        mStatusBarClockPosition = (CheckBoxPreference) findPreference(STATUS_BAR_CLOCK_POSITION);
         mStatusBarAmPm = (ListPreference) findPreference(STATUS_BAR_AM_PM);
         mStatusBarCmSignal = (ListPreference) findPreference(STATUS_BAR_SIGNAL);
         mStatusBarBrightnessControl = (CheckBoxPreference) findPreference(STATUS_BAR_BRIGHTNESS_CONTROL);
         mStatusBarNotifCount = (CheckBoxPreference) findPreference(STATUS_BAR_NOTIF_COUNT);
         mPrefCategoryGeneral = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
 
-        int statusBarClockPosition = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.STATUS_BAR_CLOCK_POSITION, 1);
-        mStatusBarClockPosition.setValue(String.valueOf(statusBarClockPosition));
-        mStatusBarClockPosition.setSummary(mStatusBarClockPosition.getEntry());
-        mStatusBarClockPosition.setOnPreferenceChangeListener(this);
+        mStatusBarShowClock.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_SHOW_CLOCK, 1) == 1));
+
+        mStatusBarClockPosition.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK_POSITION, 0) == 1));
 
         try {
             if (Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -139,7 +142,9 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         switch (item.getItemId()) {
             case R.id.reset_statusbar:
                 Settings.System.putInt(getActivity().getContentResolver(),
-                        Settings.System.STATUS_BAR_CLOCK_POSITION, 1);
+                    Settings.System.STATUS_BAR_SHOW_CLOCK, 1);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.STATUS_BAR_CLOCK_POSITION, 0);
                 Settings.System.putFloat(getActivity().getContentResolver(),
                        Settings.System.STATUS_BAR_AM_PM, 2);
                 Settings.System.putInt(getActivity().getContentResolver(),
@@ -156,14 +161,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mStatusBarClockPosition) {
-            int statusBarClockPosition = Integer.valueOf((String) newValue);
-            int index = mStatusBarClockPosition.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.STATUS_BAR_CLOCK_POSITION, statusBarClockPosition);
-            mStatusBarClockPosition.setSummary(mStatusBarClockPosition.getEntries()[index]);
-            return true;
-        } else if (preference == mStatusBarAmPm) {
+        if (preference == mStatusBarAmPm) {
             int statusBarAmPm = Integer.valueOf((String) newValue);
             int index = mStatusBarAmPm.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
@@ -184,7 +182,17 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
 
-        if (preference == mStatusBarBrightnessControl) {
+        if (preference == mStatusBarShowClock) {
+            value = mStatusBarShowClock.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_SHOW_CLOCK, value ? 1 : 0);
+            return true;
+        } else if (preference == mStatusBarClockPosition) {
+            value = mStatusBarClockPosition.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_CLOCK_POSITION, value ? 1 : 0);
+            return true;
+        } else if (preference == mStatusBarBrightnessControl) {
             value = mStatusBarBrightnessControl.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, value ? 1 : 0);

@@ -73,11 +73,14 @@
     <string name="battery_bar_thickness_3">3dp</string>
     <string name="battery_bar_thickness_4">4dp</string>
 
+    <!-- Show clock position strings -->
+    <string name="status_bar_show_clock_title">Show clock</string>
+    <string name="status_bar_show_clock_summary">Enable to show the clock in the status bar</string>
+
     <!-- Clock position strings -->
-    <string name="status_bar_clock_position_title">Clock style</string>
-    <string name="status_bar_clock_position_noclock">Do not show the clock</string>
-    <string name="status_bar_clock_position_right">Right clock</string>
-    <string name="status_bar_clock_position_center">Center clock</string>
+    <string name="status_bar_clock_position_title">Clock position</string>
+    <string name="status_bar_clock_position_summary">Enabe to show the clock centered in the status bar</string>
+
 
     <!-- Notification drawer style strings -->
     <string name="notification_drawer_background_title">Type of the background</string>
