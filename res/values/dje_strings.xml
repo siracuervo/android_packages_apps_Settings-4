@@ -58,7 +58,7 @@
     <string name="status_bar_battery_status_percentage">Icon &amp; Percentage</string>
 
     <!-- Statusbar style battery bar style strings  -->
-    <string name="battery_bar_position_title">Location</string>
+    <string name="battery_bar_position_title">Position</string>
     <string name="battery_bar_center_summary">Display the battery bar center-mirrored</string>
     <string name="battery_bar_center_title">Center-mirrored</string>
     <string name="battery_bar_animate_title">Charging animation</string>
