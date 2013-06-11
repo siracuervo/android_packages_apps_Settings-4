@@ -63,7 +63,6 @@
     <string name="battery_bar_animate_title">Lade-Animation</string>
     <string name="battery_bar_animate_summary">Die Lade-Animation kann zu trägem Verhalten des Gerätes führen. Aktiviere sie, nach deinem eigenen Ermessen.</string> 
     <string name="battery_bar_thickness_title">Dicke</string>
-    <string name="battery_bar_hide">Ausgeblendet</string>
     <string name="battery_bar_statusbar">Statusleiste</string>
     <string name="battery_bar_navbar_top">Über der Navigationsleiste</string>
     <string name="battery_bar_navbar_buttom">Unter der Navigationsleiste</string>
@@ -82,6 +81,12 @@
     <!-- Clock strings -->
     <string name="status_bar_show_clock_title">Die Uhr anzeigen</string>
     <string name="status_bar_show_clock_summary">Aktivieren um die Uhr in der Statusleiste anzuzeigen</string>
+
+    <!-- Battery strings -->
+    <string name="status_bar_show_battery_status_title">Den Akkustatus anzeigen</string>
+    <string name="status_bar_show_battery_status_summary">Aktivieren um den Akkustatus in der Statusleiste anzuzeigen</string>
+    <string name="status_bar_show_battery_bar_title">Die Akkuleiste anzeigen</string>
+    <string name="status_bar_show_battery_bar_summary">Aktivieren um die Akkuleiste anzuzeigen</string>
 
     <!-- Notification drawer style strings -->
     <string name="notification_drawer_background_title">Art des Hintergrundes</string>

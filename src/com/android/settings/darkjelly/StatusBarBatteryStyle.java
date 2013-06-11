@@ -81,7 +81,7 @@ public class StatusBarBatteryStyle extends SettingsPreferenceFragment implements
         mStatusBarBatteryStatusStyle.setOnPreferenceChangeListener(this);
 
         int batteryBarPosition = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.STATUSBAR_BATTERY_BAR_POSITION, 0);
+                Settings.System.STATUSBAR_BATTERY_BAR_POSITION, 1);
         mBatteryBarPosition.setValue(String.valueOf(batteryBarPosition));
         mBatteryBarPosition.setSummary(mBatteryBarPosition.getEntry());
         mBatteryBarPosition.setOnPreferenceChangeListener(this);
@@ -123,7 +123,7 @@ public class StatusBarBatteryStyle extends SettingsPreferenceFragment implements
             }
             case R.id.reset_statusbar_battery_bar: {
                 Settings.System.putInt(getActivity().getContentResolver(),
-                        Settings.System.STATUSBAR_BATTERY_BAR_POSITION, 0);
+                        Settings.System.STATUSBAR_BATTERY_BAR_POSITION, 1);
                 Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.STATUSBAR_BATTERY_BAR_COLOR, 0xff33b5e5);
                 Settings.System.putInt(getActivity().getContentResolver(),

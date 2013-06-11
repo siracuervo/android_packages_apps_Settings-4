@@ -64,7 +64,6 @@
     <string name="battery_bar_animate_title">Charging animation</string>
     <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string> 
     <string name="battery_bar_thickness_title">Thickness</string>
-    <string name="battery_bar_hide">Hide</string>
     <string name="battery_bar_statusbar">Statusbar</string>
     <string name="battery_bar_navbar_top">Top of navigation bar</string>
     <string name="battery_bar_navbar_buttom">Buttom of navigation bar</string>
@@ -83,6 +82,12 @@
     <!-- Clock strings -->
     <string name="status_bar_show_clock_title">Show clock</string>
     <string name="status_bar_show_clock_summary">Enable to show the clock in the status bar</string>
+
+    <!-- Battery strings -->
+    <string name="status_bar_show_battery_status_title">Show battery status</string>
+    <string name="status_bar_show_battery_status_summary">Enable to show the battery status in the status bar</string>
+    <string name="status_bar_show_battery_bar_title">Show battery bar</string>
+    <string name="status_bar_show_battery_bar_summary">Enable to show the battery bar</string>
 
     <!-- Notification drawer style strings -->
     <string name="notification_drawer_background_title">Type of the background</string>

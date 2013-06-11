@@ -23,7 +23,6 @@
         <item>@string/status_bar_battery_status_AOKP</item>
         <item>@string/status_bar_battery_status_HC</item>
         <item>@string/status_bar_battery_status_percentage</item>
-        <item>@string/status_bar_style_hidden</item>
     </string-array>
 
     <string-array name="status_bar_battery_status_style_values" translatable="false">
@@ -34,18 +33,15 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
-        <item>7</item>
     </string-array>
 
     <string-array name="battery_bar_position_entries" translatable="false">
-        <item>@string/battery_bar_hide</item>
         <item>@string/battery_bar_statusbar</item>
         <item>@string/battery_bar_navbar_top</item>
         <item>@string/battery_bar_navbar_buttom</item>
     </string-array>
 
     <string-array name="battery_bar_position_values" translatable="false">
-        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
