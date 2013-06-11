@@ -103,6 +103,7 @@ public class StatusBarBatteryStyle extends SettingsPreferenceFragment implements
         mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntry());
         mBatteryBarThickness.setOnPreferenceChangeListener(this);
 
+        updateBatteryPreferenceStatus();
         setHasOptionsMenu(true);
     }
 
@@ -189,8 +190,38 @@ public class StatusBarBatteryStyle extends SettingsPreferenceFragment implements
         return false;
     }
 
+    private void updateBatteryPreferenceStatus() {
+
+        boolean isBatteryStatusEnabled = Settings.System.getInt(getContentResolver(),
+               Settings.System.STATUS_BAR_SHOW_BATTERY_STATUS, 1) == 1;
+
+        boolean isBatteryBarEnabled = Settings.System.getInt(getActivity().getContentResolver(),
+               Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, 0) == 1;
+
+        if (isBatteryStatusEnabled) {
+            mStatusBarBatteryStatusStyle.setEnabled(true);
+        } else {
+            mStatusBarBatteryStatusStyle.setEnabled(false);
+        }
+
+        if (isBatteryBarEnabled) {
+            mBatteryBarPosition.setEnabled(true);
+            mBatteryBarColor.setEnabled(true);
+            mBatteryBarCenter.setEnabled(true);
+            mBatteryBarChargingAnimation.setEnabled(true);
+            mBatteryBarThickness.setEnabled(true);
+        } else {
+            mBatteryBarPosition.setEnabled(false);
+            mBatteryBarColor.setEnabled(false);
+            mBatteryBarCenter.setEnabled(false);
+            mBatteryBarChargingAnimation.setEnabled(false);
+            mBatteryBarThickness.setEnabled(false);
+        }
+    }
+
     @Override
     public void onResume() {
         super.onResume();
+        updateBatteryPreferenceStatus();
     }
 }
