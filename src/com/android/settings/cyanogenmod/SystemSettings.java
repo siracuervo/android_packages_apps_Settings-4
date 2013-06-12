@@ -42,7 +42,7 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
-    private static final String KEY_NAVIGATION_BAR_SETTINGS = "navigation_bar_settings";
+    private static final String KEY_NAVIGATION_BAR_SETTINGS = "navigation_bar";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_STATUS_BAR = "status_bar";
     private static final String KEY_QUICK_SETTINGS = "quick_settings_panel";
