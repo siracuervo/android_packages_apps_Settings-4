@@ -38,9 +38,11 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment implements O
     private static final String TAG = "StatusBarClockStyle";
 
     private static final String STATUS_BAR_CLOCK_POSITION = "status_bar_clock_position";
+    private static final String STATUS_BAR_CLOCK_COLOR = "status_bar_clock_color";
     private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
 
     private CheckBoxPreference mStatusBarClockPosition;
+    private ColorPickerPreference mStatusBarClockColor;
     private ListPreference mStatusBarAmPm;
 
     @Override
@@ -58,10 +60,16 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment implements O
         addPreferencesFromResource(R.xml.status_bar_clock_style);
 
         mStatusBarClockPosition = (CheckBoxPreference) findPreference(STATUS_BAR_CLOCK_POSITION);
+        mStatusBarClockColor = (ColorPickerPreference) findPreference(STATUS_BAR_CLOCK_COLOR);
         mStatusBarAmPm = (ListPreference) findPreference(STATUS_BAR_AM_PM);
 
         mStatusBarClockPosition.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_CLOCK_POSITION, 0) == 1));
+
+        mStatusBarClockColor.setOnPreferenceChangeListener(this);
+        int statusBarClockColor = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_CLOCK_COLOR, 0xff33b5e5); 
+        mStatusBarClockColor.setNewPreviewColor(statusBarClockColor);
 
         try {
             if (Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -94,6 +102,8 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment implements O
                 Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.STATUS_BAR_CLOCK_POSITION, 0);
                 Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.STATUS_BAR_CLOCK_COLOR, 0xff33b5e5);
+                Settings.System.putInt(getActivity().getContentResolver(),
                        Settings.System.STATUS_BAR_AM_PM, 2);
                 refreshSettings();
                 return true;
@@ -109,6 +119,12 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment implements O
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_AM_PM, statusBarAmPm);
             mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntries()[index]);
+            return true;
+        } else if (preference == mStatusBarClockColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_CLOCK_COLOR, intHex);
             return true;
         }
         return false;
