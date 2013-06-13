@@ -25,6 +25,7 @@ import android.preference.PreferenceScreen;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.provider.Settings;
 
+import com.android.settings.Utils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -34,7 +35,7 @@ public class WakeupOptions extends SettingsPreferenceFragment {
     private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
     private static final String KEY_PLUGGED_UNPLUGGED_WAKE = "plugged_unplugged_wake";
 
-    private CheckBoxPreference mHomeWake
+    private CheckBoxPreference mHomeWake;
     private CheckBoxPreference mVolumeWake;
     private CheckBoxPreference mPluggedUnpluggedWake;
 
@@ -74,7 +75,7 @@ public class WakeupOptions extends SettingsPreferenceFragment {
 
         if (mPluggedUnpluggedWake != null) {
             if (!getResources().getBoolean(R.bool.config_show_PluggedUnpluggedWake)) {
-                getPreferenceScreen().removePreference(mHomeWake);
+                getPreferenceScreen().removePreference(mPluggedUnpluggedWake);
             } else {
                 mPluggedUnpluggedWake.setChecked(Settings.System.getInt(resolver,
                         Settings.System.KEY_PLUGGED_UNPLUGGED_WAKE, 1) == 1);

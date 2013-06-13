@@ -158,13 +158,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         updateCustomLabelTextSummary();
 
         // Remove the wake up screen if all items are removed
-        boolean isHomeButtonWakeRemoved = getResources().getBoolean(R.bool.config_show_volumeRockerWake);
-        boolean isVolumeRockerWakeRemoved = getResources().getBoolean(R.bool.config_show_volumeRockerWake);
-        boolean isPluggedUnpluggedWakeRemoved = getResources().getBoolean(R.bool.config_show_PluggedUnpluggedWake);
+        boolean isHomeButtonWakeRemoved = (getResources().getBoolean(R.bool.config_show_homeWake));
+        boolean isVolumeRockerWakeRemoved = (getResources().getBoolean(R.bool.config_show_volumeRockerWake));
+        boolean isPluggedUnpluggedWakeRemoved = (getResources().getBoolean(R.bool.config_show_PluggedUnpluggedWake));
 
-        if (!isHomeButtonWakeRemoved && !isVolumeRockerWakeRemoved && isPluggedUnpluggedWakeRemoved) {
-            getPreferenceScreen().removePreference(
-                    (PreferenceScreen) findPreference(KEY_WAKEUP_OPTIONS));
+        if (!isHomeButtonWakeRemoved && !isVolumeRockerWakeRemoved && !isPluggedUnpluggedWakeRemoved) {
+            getPreferenceScreen().removePreference(mWakeupOptionsPreference);
         }
 
         if (mWakeupOptionsPreference != null) {
@@ -449,7 +448,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-<<<<<<< HEAD
         if (preference == mCustomLabel) {
             AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
             alert.setTitle(R.string.custom_carrier_label_title);
