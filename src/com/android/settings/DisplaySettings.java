@@ -480,16 +480,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             });
 
             alert.show();
-=======
-        if (preference == mHomeWake) {
-            Settings.System.putInt(getContentResolver(), Settings.System.HOME_WAKE_SCREEN,
-                    mHomeWake.isChecked() ? 1 : 0);
-            return true;
-        } else if (preference == mVolumeWake) {
-            Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_WAKE_SCREEN,
-                    mVolumeWake.isChecked() ? 1 : 0);
-            return true;
->>>>>>> upstream/cm-10.1
         } else if (preference == mScreenOffAnimation) {
             Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_ANIMATION,
                     mScreenOffAnimation.isChecked() ? 1 : 0);
