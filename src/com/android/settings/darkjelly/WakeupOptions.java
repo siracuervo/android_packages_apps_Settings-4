@@ -30,9 +30,11 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class WakeupOptions extends SettingsPreferenceFragment {
 
+    private static final String KEY_HOME_WAKE = "pref_home_wake";
     private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
     private static final String KEY_PLUGGED_UNPLUGGED_WAKE = "plugged_unplugged_wake";
 
+    private CheckBoxPreference mHomeWake
     private CheckBoxPreference mVolumeWake;
     private CheckBoxPreference mPluggedUnpluggedWake;
 
@@ -43,24 +45,55 @@ public class WakeupOptions extends SettingsPreferenceFragment {
 
         addPreferencesFromResource(R.xml.wakeup_options);
 
+        mHomeWake = (CheckBoxPreference) findPreference(KEY_HOME_WAKE);
         mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
-        mVolumeWake.setChecked(Settings.System.getInt(resolver,
-                Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
-
         mPluggedUnpluggedWake = (CheckBoxPreference) findPreference(KEY_PLUGGED_UNPLUGGED_WAKE);
-        mPluggedUnpluggedWake.setChecked(Settings.System.getInt(resolver,
-                Settings.System.KEY_PLUGGED_UNPLUGGED_WAKE, 1) == 1);
+
+        // Start the wake-up preference handling
+
+        // Home button wake
+        if (mHomeWake != null) {
+            if (!getResources().getBoolean(R.bool.config_show_homeWake)) {
+                getPreferenceScreen().removePreference(mHomeWake);
+            } else {
+                mHomeWake.setChecked(Settings.System.getInt(resolver,
+                        Settings.System.HOME_WAKE_SCREEN, 1) == 1);
+            }
+        }
+
+        // Volume rocker wake
+        if (mVolumeWake != null) {
+            if (!getResources().getBoolean(R.bool.config_show_volumeRockerWake)
+                    || !Utils.hasVolumeRocker(getActivity())) {
+                getPreferenceScreen().removePreference(mVolumeWake);
+            } else {
+                mVolumeWake.setChecked(Settings.System.getInt(resolver,
+                        Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
+            }
+        }
+
+        if (mPluggedUnpluggedWake != null) {
+            if (!getResources().getBoolean(R.bool.config_show_PluggedUnpluggedWake)) {
+                getPreferenceScreen().removePreference(mHomeWake);
+            } else {
+                mPluggedUnpluggedWake.setChecked(Settings.System.getInt(resolver,
+                        Settings.System.KEY_PLUGGED_UNPLUGGED_WAKE, 1) == 1);
+            }
+        }
     }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mVolumeWake) {
+        if (preference == mHomeWake) {
+            Settings.System.putInt(getContentResolver(), Settings.System.HOME_WAKE_SCREEN,
+                    mVolumeWake.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mVolumeWake) {
             Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_WAKE_SCREEN,
                     mVolumeWake.isChecked() ? 1 : 0);
             return true;
         } else if (preference == mPluggedUnpluggedWake) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.KEY_PLUGGED_UNPLUGGED_WAKE,
+            Settings.System.putInt(getContentResolver(), Settings.System.KEY_PLUGGED_UNPLUGGED_WAKE,
                     mPluggedUnpluggedWake.isChecked() ? 1 : 0);
             return true;
         }

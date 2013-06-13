@@ -139,7 +139,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         disableUnusableTimeouts(mScreenTimeoutPreference);
         updateTimeoutPreferenceDescription(currentTimeout);
         updateDisplayRotationPreferenceDescription();
-        updateWakeupOptionsPreferenceDescription();
 
         mFontSizePref = (WarnedListPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
@@ -155,13 +154,22 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mWifiDisplayPreference = null;
         }
 
-        if (!getResources().getBoolean(R.bool.config_show_volumeRockerWake)
-                || !Utils.hasVolumeRocker(getActivity())) {
-            getPreferenceScreen().removePreference((PreferenceScreen) findPreference(KEY_WAKEUP_OPTIONS)); 
-        }
-
         mCustomLabel = findPreference(PREF_CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
+
+        // Remove the wake up screen if all items are removed
+        boolean isHomeButtonWakeRemoved = getResources().getBoolean(R.bool.config_show_volumeRockerWake);
+        boolean isVolumeRockerWakeRemoved = getResources().getBoolean(R.bool.config_show_volumeRockerWake);
+        boolean isPluggedUnpluggedWakeRemoved = getResources().getBoolean(R.bool.config_show_PluggedUnpluggedWake);
+
+        if (!isHomeButtonWakeRemoved && !isVolumeRockerWakeRemoved && isPluggedUnpluggedWakeRemoved) {
+            getPreferenceScreen().removePreference(
+                    (PreferenceScreen) findPreference(KEY_WAKEUP_OPTIONS));
+        }
+
+        if (mWakeupOptionsPreference != null) {
+            updateWakeupOptionsPreferenceDescription();
+        }
 
         mScreenOffAnimation = (CheckBoxPreference) findPreference(KEY_SCREEN_OFF_ANIMATION);
         if(getResources().getBoolean(com.android.internal.R.bool.config_screenOffAnimation)) {
@@ -441,6 +449,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+<<<<<<< HEAD
         if (preference == mCustomLabel) {
             AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
             alert.setTitle(R.string.custom_carrier_label_title);
@@ -471,6 +480,16 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             });
 
             alert.show();
+=======
+        if (preference == mHomeWake) {
+            Settings.System.putInt(getContentResolver(), Settings.System.HOME_WAKE_SCREEN,
+                    mHomeWake.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mVolumeWake) {
+            Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_WAKE_SCREEN,
+                    mVolumeWake.isChecked() ? 1 : 0);
+            return true;
+>>>>>>> upstream/cm-10.1
         } else if (preference == mScreenOffAnimation) {
             Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_ANIMATION,
                     mScreenOffAnimation.isChecked() ? 1 : 0);
