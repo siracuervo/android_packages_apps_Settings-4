@@ -114,13 +114,6 @@
 		            style="?android:preferenceInformationStyle"
 		            android:title="@string/model_number"
 		            android:summary="@string/device_info_default"/>
-		    
-		    <!-- Device Kernel version -->
-		    <Preference
-					android:key="kernel_version" 
-		            style="?android:preferenceInformationStyle"
-		            android:title="@string/kernel_version"
-		            android:summary="@string/device_info_default"/>
 
 		    <!-- Device cpu info -->
 		    <Preference
@@ -141,6 +134,13 @@
 	    <PreferenceCategory
         		android:key="sw_section"
         		android:title="@string/sw_section_title">
+
+		    <!-- Device Kernel version -->
+		    <Preference
+					android:key="kernel_version" 
+		            style="?android:preferenceInformationStyle"
+		            android:title="@string/kernel_version"
+		            android:summary="@string/device_info_default"/>
 
 				<!-- Device Baseband version -->
 				<Preference
