@@ -168,10 +168,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         if (mWakeupOptionsPreference != null) {
             updateWakeupOptionsPreferenceDescription();
+
         }
 
         mScreenOffAnimation = (CheckBoxPreference) findPreference(KEY_SCREEN_OFF_ANIMATION);
-        if(getResources().getBoolean(com.android.internal.R.bool.config_screenOffAnimation)) {
+        if (getResources().getBoolean(com.android.internal.R.bool.config_screenOffAnimation)) {
             mScreenOffAnimation.setChecked(Settings.System.getInt(resolver,
                     Settings.System.SCREEN_OFF_ANIMATION, 1) == 1);
         } else {
