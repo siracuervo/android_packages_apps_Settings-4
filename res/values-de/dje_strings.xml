@@ -89,9 +89,11 @@
     <string name="status_bar_show_battery_bar_summary">Aktivieren um die Akkuleiste anzuzeigen</string>
 
     <!-- Notification drawer strings -->
-    <string name="cat_buttons_title">Schalter</string>
+    <string name="cat_options_title">Optionen</string>
     <string name="notification_settings_btn_title">Einstellungen Button</string>
     <string name="notification_settings_btn_summary">Aktivieren, um den Einstellungen Button immer anzuzeigen</string>
+    <string name="notification_show_wifi_ssid_title">Wifi Netzwerkname Name</string>
+    <string name="notification_show_wifi_ssid_summary">Aktivieren, um den Wifi Netzwerkname Name anzuzeigen</string>
 
     <!-- Notification drawer style strings -->
     <string name="notification_drawer_background_title">Art des Hintergrundes</string>

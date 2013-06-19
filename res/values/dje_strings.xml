@@ -90,9 +90,11 @@
     <string name="status_bar_show_battery_bar_summary">Enable to show the battery bar</string>
 
     <!-- Notification drawer strings -->
-    <string name="cat_buttons_title">Buttons</string>
+    <string name="cat_options_title">Options</string>
     <string name="notification_settings_btn_title">Settings button</string>
     <string name="notification_settings_btn_summary">Enable, to always show the settings button</string>
+    <string name="notification_show_wifi_ssid_title">Wifi network name</string>
+    <string name="notification_show_wifi_ssid_summary">Enable, to show the Wifi network name</string>
 
     <!-- Notification drawer style strings -->
     <string name="notification_drawer_background_title">Type of the background</string>

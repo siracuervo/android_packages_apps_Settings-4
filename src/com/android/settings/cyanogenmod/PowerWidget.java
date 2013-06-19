@@ -61,11 +61,13 @@ public class PowerWidget extends SettingsPreferenceFragment implements
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
     private static final String UI_EXP_WIDGET = "expanded_widget";
     private static final String KEY_NOTIFICATION_SETTINGS_BTN = "notification_settings_btn";
+    private static final String KEY_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
     private static final String UI_EXP_WIDGET_HIDE_ONCHANGE = "expanded_hide_onchange";
     private static final String UI_EXP_WIDGET_HIDE_SCROLLBAR = "expanded_hide_scrollbar";
     private static final String UI_EXP_WIDGET_HAPTIC_FEEDBACK = "expanded_haptic_feedback";
 
-    private CheckBoxPreference mSettingsBtn; 
+    private CheckBoxPreference mNotificationSettingsBtn;
+    private CheckBoxPreference mNotificationShowWifiSsid;
     private CheckBoxPreference mPowerWidget;
     private CheckBoxPreference mPowerWidgetHideOnChange;
     private CheckBoxPreference mPowerWidgetHideScrollBar;
@@ -80,20 +82,20 @@ public class PowerWidget extends SettingsPreferenceFragment implements
 
             PreferenceScreen prefSet = getPreferenceScreen();
 
-        mSettingsBtn = (CheckBoxPreference) prefSet.findPreference(KEY_NOTIFICATION_SETTINGS_BTN); 
+            mNotificationSettingsBtn = (CheckBoxPreference) prefSet.findPreference(KEY_NOTIFICATION_SETTINGS_BTN);
+            mNotificationShowWifiSsid = (CheckBoxPreference) prefSet.findPreference(KEY_NOTIFICATION_SHOW_WIFI_SSID);
             mPowerWidget = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET);
-            mPowerWidgetHideOnChange = (CheckBoxPreference) prefSet
-                    .findPreference(UI_EXP_WIDGET_HIDE_ONCHANGE);
-            mPowerWidgetHideScrollBar = (CheckBoxPreference) prefSet
-                    .findPreference(UI_EXP_WIDGET_HIDE_SCROLLBAR);
-
-            mPowerWidgetHapticFeedback = (ListPreference) prefSet
-                    .findPreference(UI_EXP_WIDGET_HAPTIC_FEEDBACK);
+            mPowerWidgetHapticFeedback = (ListPreference) prefSet.findPreference(UI_EXP_WIDGET_HAPTIC_FEEDBACK);
+            mPowerWidgetHideOnChange = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET_HIDE_ONCHANGE);
+            mPowerWidgetHideScrollBar = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET_HIDE_SCROLLBAR);
+                    
             mPowerWidgetHapticFeedback.setOnPreferenceChangeListener(this);
             mPowerWidgetHapticFeedback.setSummary(mPowerWidgetHapticFeedback.getEntry());
 
-            mSettingsBtn.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+            mNotificationSettingsBtn.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.NOTIFICATION_SETTINGS_BUTTON, 0) == 1);
+            mNotificationShowWifiSsid.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
             mPowerWidget.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_VIEW_WIDGET, 0) == 1));
             mPowerWidgetHideOnChange.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -120,26 +122,27 @@ public class PowerWidget extends SettingsPreferenceFragment implements
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
 
-        if (preference == mSettingsBtn) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.NOTIFICATION_SETTINGS_BUTTON,
-                    mSettingsBtn.isChecked() ? 1 : 0);
+        if (preference == mNotificationSettingsBtn) {
+            value = mNotificationSettingsBtn.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.NOTIFICATION_SETTINGS_BUTTON, value ? 1 : 0);
+        } else if (preference == mNotificationShowWifiSsid) {
+            value = mNotificationShowWifiSsid.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.NOTIFICATION_SHOW_WIFI_SSID, value ? 1 : 0);
             return true;
         } else if (preference == mPowerWidget) {
             value = mPowerWidget.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.EXPANDED_VIEW_WIDGET,
-                    value ? 1 : 0);
+                    Settings.System.EXPANDED_VIEW_WIDGET, value ? 1 : 0);
         } else if (preference == mPowerWidgetHideOnChange) {
             value = mPowerWidgetHideOnChange.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.EXPANDED_HIDE_ONCHANGE,
-                    value ? 1 : 0);
+                    Settings.System.EXPANDED_HIDE_ONCHANGE, value ? 1 : 0);
         } else if (preference == mPowerWidgetHideScrollBar) {
             value = mPowerWidgetHideScrollBar.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.EXPANDED_HIDE_SCROLLBAR,
-                    value ? 1 : 0);
+                    Settings.System.EXPANDED_HIDE_SCROLLBAR, value ? 1 : 0);
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);

@@ -29,14 +29,20 @@
 	</PreferenceCategory>
 
     <PreferenceCategory
-        android:key="category_buttons"
-        android:title="@string/cat_buttons_title">
+        android:key="category_options"
+        android:title="@string/cat_options_title">
 
          <CheckBoxPreference
             android:key="notification_settings_btn"
             android:title="@string/notification_settings_btn_title"
             android:summary="@string/notification_settings_btn_summary"
             android:defaultValue="false" />
+
+         <CheckBoxPreference
+            android:key="notification_show_wifi_ssid"
+            android:title="@string/notification_show_wifi_ssid_title"
+            android:summary="@string/notification_show_wifi_ssid_summary"
+            android:defaultValue="false" /> 
 
 	</PreferenceCategory>
 
