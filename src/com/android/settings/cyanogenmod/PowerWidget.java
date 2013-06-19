@@ -60,10 +60,12 @@ public class PowerWidget extends SettingsPreferenceFragment implements
     private static final String TAG = "PowerWidget";
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
     private static final String UI_EXP_WIDGET = "expanded_widget";
+    private static final String KEY_NOTIFICATION_SETTINGS_BTN = "notification_settings_btn";
     private static final String UI_EXP_WIDGET_HIDE_ONCHANGE = "expanded_hide_onchange";
     private static final String UI_EXP_WIDGET_HIDE_SCROLLBAR = "expanded_hide_scrollbar";
     private static final String UI_EXP_WIDGET_HAPTIC_FEEDBACK = "expanded_haptic_feedback";
 
+    private CheckBoxPreference mSettingsBtn; 
     private CheckBoxPreference mPowerWidget;
     private CheckBoxPreference mPowerWidgetHideOnChange;
     private CheckBoxPreference mPowerWidgetHideScrollBar;
@@ -78,6 +80,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
 
             PreferenceScreen prefSet = getPreferenceScreen();
 
+        mSettingsBtn = (CheckBoxPreference) prefSet.findPreference(KEY_NOTIFICATION_SETTINGS_BTN); 
             mPowerWidget = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET);
             mPowerWidgetHideOnChange = (CheckBoxPreference) prefSet
                     .findPreference(UI_EXP_WIDGET_HIDE_ONCHANGE);
@@ -89,17 +92,15 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             mPowerWidgetHapticFeedback.setOnPreferenceChangeListener(this);
             mPowerWidgetHapticFeedback.setSummary(mPowerWidgetHapticFeedback.getEntry());
 
-            mPowerWidget.setChecked((Settings.System.getInt(getActivity().getApplicationContext()
-                    .getContentResolver(),
+            mSettingsBtn.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.NOTIFICATION_SETTINGS_BUTTON, 0) == 1);
+            mPowerWidget.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_VIEW_WIDGET, 0) == 1));
-            mPowerWidgetHideOnChange.setChecked((Settings.System.getInt(getActivity()
-                    .getApplicationContext().getContentResolver(),
+            mPowerWidgetHideOnChange.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_HIDE_ONCHANGE, 0) == 1));
-            mPowerWidgetHideScrollBar.setChecked((Settings.System.getInt(getActivity()
-                    .getApplicationContext().getContentResolver(),
+            mPowerWidgetHideScrollBar.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_HIDE_SCROLLBAR, 0) == 1));
-            mPowerWidgetHapticFeedback.setValue(Integer.toString(Settings.System.getInt(
-                    getActivity().getApplicationContext().getContentResolver(),
+            mPowerWidgetHapticFeedback.setValue(Integer.toString(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_HAPTIC_FEEDBACK, 2)));
         }
     }
@@ -119,7 +120,12 @@ public class PowerWidget extends SettingsPreferenceFragment implements
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
 
-        if (preference == mPowerWidget) {
+        if (preference == mSettingsBtn) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NOTIFICATION_SETTINGS_BUTTON,
+                    mSettingsBtn.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mPowerWidget) {
             value = mPowerWidget.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_VIEW_WIDGET,

@@ -89,6 +89,11 @@
     <string name="status_bar_show_battery_bar_title">Show battery bar</string>
     <string name="status_bar_show_battery_bar_summary">Enable to show the battery bar</string>
 
+    <!-- Notification drawer strings -->
+    <string name="cat_buttons_title">Buttons</string>
+    <string name="notification_settings_btn_title">Settings button</string>
+    <string name="notification_settings_btn_summary">Enable, to always show the settings button</string>
+
     <!-- Notification drawer style strings -->
     <string name="notification_drawer_background_title">Type of the background</string>
     <string name="notification_drawer_background_landscape_title">Different landscape background</string>

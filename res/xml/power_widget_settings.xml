@@ -28,6 +28,18 @@
 
 	</PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="category_buttons"
+        android:title="@string/cat_buttons_title">
+
+         <CheckBoxPreference
+            android:key="notification_settings_btn"
+            android:title="@string/notification_settings_btn_title"
+            android:summary="@string/notification_settings_btn_summary"
+            android:defaultValue="false" />
+
+	</PreferenceCategory>
+
     <!-- Notification drawer Power Widget -->
     <PreferenceCategory
        android:title="@string/power_widget_title">
