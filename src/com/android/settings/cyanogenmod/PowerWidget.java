@@ -60,17 +60,13 @@ public class PowerWidget extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "PowerWidget";
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
-    private static final String KEY_NOTIFICATION_CARRIER_WIFI_LABEL_COLOR = "notification_carrier_wifi_label_color";
     private static final String UI_EXP_WIDGET = "expanded_widget";
     private static final String KEY_NOTIFICATION_SETTINGS_BTN = "notification_settings_btn";
-    private static final String KEY_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
     private static final String UI_EXP_WIDGET_HIDE_ONCHANGE = "expanded_hide_onchange";
     private static final String UI_EXP_WIDGET_HIDE_SCROLLBAR = "expanded_hide_scrollbar";
     private static final String UI_EXP_WIDGET_HAPTIC_FEEDBACK = "expanded_haptic_feedback";
 
-    private ColorPickerPreference mNotificationCarrierWifiLabelColor;
     private CheckBoxPreference mNotificationSettingsBtn;
-    private CheckBoxPreference mNotificationShowWifiSsid;
     private CheckBoxPreference mPowerWidget;
     private CheckBoxPreference mPowerWidgetHideOnChange;
     private CheckBoxPreference mPowerWidgetHideScrollBar;
@@ -85,24 +81,16 @@ public class PowerWidget extends SettingsPreferenceFragment implements
 
             PreferenceScreen prefSet = getPreferenceScreen();
 
-            mNotificationCarrierWifiLabelColor = (ColorPickerPreference) findPreference(KEY_NOTIFICATION_CARRIER_WIFI_LABEL_COLOR);
             mNotificationSettingsBtn = (CheckBoxPreference) prefSet.findPreference(KEY_NOTIFICATION_SETTINGS_BTN);
-            mNotificationShowWifiSsid = (CheckBoxPreference) prefSet.findPreference(KEY_NOTIFICATION_SHOW_WIFI_SSID);
             mPowerWidget = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET);
             mPowerWidgetHapticFeedback = (ListPreference) prefSet.findPreference(UI_EXP_WIDGET_HAPTIC_FEEDBACK);
             mPowerWidgetHideOnChange = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET_HIDE_ONCHANGE);
             mPowerWidgetHideScrollBar = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET_HIDE_SCROLLBAR);
 
-            mNotificationCarrierWifiLabelColor.setOnPreferenceChangeListener(this);
             mPowerWidgetHapticFeedback.setOnPreferenceChangeListener(this);
 
-            int notificationCarrierWifiLabelColor = Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.NOTIFICATION_CARRIER_WIFI_LABEL_COLOR, 0xff999999); 
-            mNotificationCarrierWifiLabelColor.setNewPreviewColor(notificationCarrierWifiLabelColor);
             mNotificationSettingsBtn.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.NOTIFICATION_SETTINGS_BUTTON, 0) == 1);
-            mNotificationShowWifiSsid.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
             mPowerWidget.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_VIEW_WIDGET, 0) == 1));
             mPowerWidgetHideOnChange.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -116,13 +104,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mNotificationCarrierWifiLabelColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.NOTIFICATION_CARRIER_WIFI_LABEL_COLOR, intHex);
-            return true;
-        } else if (preference == mPowerWidgetHapticFeedback) {
+        if (preference == mPowerWidgetHapticFeedback) {
             int intValue = Integer.parseInt((String) newValue);
             int index = mPowerWidgetHapticFeedback.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
@@ -140,11 +122,6 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             value = mNotificationSettingsBtn.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.NOTIFICATION_SETTINGS_BUTTON, value ? 1 : 0);
-        } else if (preference == mNotificationShowWifiSsid) {
-            value = mNotificationShowWifiSsid.isChecked();
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.NOTIFICATION_SHOW_WIFI_SSID, value ? 1 : 0);
-            return true;
         } else if (preference == mPowerWidget) {
             value = mPowerWidget.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),

@@ -93,10 +93,9 @@
     <string name="cat_options_title">Options</string>
     <string name="notification_settings_btn_title">Settings button</string>
     <string name="notification_settings_btn_summary">Enable, to always show the settings button</string>
-    <string name="notification_show_wifi_ssid_title">Wifi network name</string>
-    <string name="notification_show_wifi_ssid_summary">Enable, to show the Wifi network name</string>
 
     <!-- Notification drawer style strings -->
+    <string name="notification_cw_label_style_title">Carrier and Wifi network name</string>
     <string name="notification_drawer_background_title">Type of the background</string>
     <string name="notification_drawer_background_landscape_title">Different landscape background</string>
     <string name="notification_drawer_background_color_fill">Color fill</string>
@@ -105,7 +104,11 @@
     <string name="notification_drawer_background_custom_dialog_title">Choose color</string>
     <string name="notification_drawer_background_alpha_title">Background transparency</string>
     <string name="notification_drawer_row_alpha_title">Rows background transparency</string>
-    <string name="notification_carrier_wifi_label_color_title">Carrier and Wifi name color</string>
+    <string name="custom_carrier_label_title">Custom carrier label</string>
+    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
+    <string name="custom_carrier_label_notset">Custom label currently not set</string>
+    <string name="notification_show_wifi_ssid_title">Wifi network name</string>
+    <string name="notification_show_wifi_ssid_summary">Enable, to show the Wifi network name</string>
 
     <!-- Navigation strings -->
     <string name="navigation_title">Navigation</string>
@@ -127,13 +130,6 @@
     <string name="navigation_bar_title">Navigation bar</string>
     <string name="navigation_bar_edit_title">Navigation bar customization</string>
     <string name="navigation_bar_edit_summary">Edit buttons layout</string>
-
-    <!-- Display settings -->
-
-    <!-- Custom Carrier Text strings -->
-    <string name="custom_carrier_label_title">Custom carrier label</string>
-    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
-    <string name="custom_carrier_label_notset">Custom label currently not set</string>
 
     <!-- Wake up options settings -->
 

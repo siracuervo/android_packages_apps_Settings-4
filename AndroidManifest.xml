@@ -1610,6 +1610,8 @@
 
 		<activity android:name=".darkjelly.NotificationDrawerBackgroundStyle" />
 
+		<activity android:name=".darkjelly.NotificationDrawerCwLabelStyle" />
+
 		<activity android:name=".darkjelly.NavigationBarStyle" />
 
         <activity android:name=".cyanogenmod.LockscreenInterface" />

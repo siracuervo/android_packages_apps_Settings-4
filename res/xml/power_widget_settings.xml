@@ -26,10 +26,10 @@
 		    android:fragment="com.android.settings.darkjelly.NotificationDrawerBackgroundStyle"
 		    android:title="@string/background_title" />
 
-		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
-		    android:key="notification_carrier_wifi_label_color"
-		    android:title="@string/notification_carrier_wifi_label_color_title"
-		    android:defaultValue="0xff999999" />
+		<PreferenceScreen
+		    android:key="notification_cw_label_style"
+		    android:fragment="com.android.settings.darkjelly.NotificationDrawerCwLabelStyle"
+		    android:title="@string/notification_cw_label_style_title" />
 
 	</PreferenceCategory>
 
@@ -42,12 +42,6 @@
             android:title="@string/notification_settings_btn_title"
             android:summary="@string/notification_settings_btn_summary"
             android:defaultValue="false" />
-
-         <CheckBoxPreference
-            android:key="notification_show_wifi_ssid"
-            android:title="@string/notification_show_wifi_ssid_title"
-            android:summary="@string/notification_show_wifi_ssid_summary"
-            android:defaultValue="false" /> 
 
 	</PreferenceCategory>
 
