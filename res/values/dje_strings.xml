@@ -105,6 +105,7 @@
     <string name="notification_drawer_background_custom_dialog_title">Choose color</string>
     <string name="notification_drawer_background_alpha_title">Background transparency</string>
     <string name="notification_drawer_row_alpha_title">Rows background transparency</string>
+    <string name="notification_carrier_wifi_label_color_title">Carrier and Wifi name color</string>
 
     <!-- Navigation strings -->
     <string name="navigation_title">Navigation</string>

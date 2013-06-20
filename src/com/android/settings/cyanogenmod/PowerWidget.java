@@ -50,6 +50,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.internal.telephony.Phone;
+import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -59,6 +60,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "PowerWidget";
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
+    private static final String KEY_NOTIFICATION_CARRIER_WIFI_LABEL_COLOR = "notification_carrier_wifi_label_color";
     private static final String UI_EXP_WIDGET = "expanded_widget";
     private static final String KEY_NOTIFICATION_SETTINGS_BTN = "notification_settings_btn";
     private static final String KEY_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
@@ -66,6 +68,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
     private static final String UI_EXP_WIDGET_HIDE_SCROLLBAR = "expanded_hide_scrollbar";
     private static final String UI_EXP_WIDGET_HAPTIC_FEEDBACK = "expanded_haptic_feedback";
 
+    private ColorPickerPreference mNotificationCarrierWifiLabelColor;
     private CheckBoxPreference mNotificationSettingsBtn;
     private CheckBoxPreference mNotificationShowWifiSsid;
     private CheckBoxPreference mPowerWidget;
@@ -82,16 +85,20 @@ public class PowerWidget extends SettingsPreferenceFragment implements
 
             PreferenceScreen prefSet = getPreferenceScreen();
 
+            mNotificationCarrierWifiLabelColor = (ColorPickerPreference) findPreference(KEY_NOTIFICATION_CARRIER_WIFI_LABEL_COLOR);
             mNotificationSettingsBtn = (CheckBoxPreference) prefSet.findPreference(KEY_NOTIFICATION_SETTINGS_BTN);
             mNotificationShowWifiSsid = (CheckBoxPreference) prefSet.findPreference(KEY_NOTIFICATION_SHOW_WIFI_SSID);
             mPowerWidget = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET);
             mPowerWidgetHapticFeedback = (ListPreference) prefSet.findPreference(UI_EXP_WIDGET_HAPTIC_FEEDBACK);
             mPowerWidgetHideOnChange = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET_HIDE_ONCHANGE);
             mPowerWidgetHideScrollBar = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET_HIDE_SCROLLBAR);
-                    
-            mPowerWidgetHapticFeedback.setOnPreferenceChangeListener(this);
-            mPowerWidgetHapticFeedback.setSummary(mPowerWidgetHapticFeedback.getEntry());
 
+            mNotificationCarrierWifiLabelColor.setOnPreferenceChangeListener(this);
+            mPowerWidgetHapticFeedback.setOnPreferenceChangeListener(this);
+
+            int notificationCarrierWifiLabelColor = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.NOTIFICATION_CARRIER_WIFI_LABEL_COLOR, 0xff999999); 
+            mNotificationCarrierWifiLabelColor.setNewPreviewColor(notificationCarrierWifiLabelColor);
             mNotificationSettingsBtn.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.NOTIFICATION_SETTINGS_BUTTON, 0) == 1);
             mNotificationShowWifiSsid.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -104,11 +111,18 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                     Settings.System.EXPANDED_HIDE_SCROLLBAR, 0) == 1));
             mPowerWidgetHapticFeedback.setValue(Integer.toString(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_HAPTIC_FEEDBACK, 2)));
+            mPowerWidgetHapticFeedback.setSummary(mPowerWidgetHapticFeedback.getEntry());
         }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mPowerWidgetHapticFeedback) {
+        if (preference == mNotificationCarrierWifiLabelColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NOTIFICATION_CARRIER_WIFI_LABEL_COLOR, intHex);
+            return true;
+        } else if (preference == mPowerWidgetHapticFeedback) {
             int intValue = Integer.parseInt((String) newValue);
             int index = mPowerWidgetHapticFeedback.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
