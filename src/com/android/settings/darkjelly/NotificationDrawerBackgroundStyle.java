@@ -72,8 +72,8 @@ public class NotificationDrawerBackgroundStyle extends SettingsPreferenceFragmen
 
     private ListPreference mNotificationDrawerBackground;
     private ListPreference mNotificationDrawerBackgroundLandscape;
-    SeekBarPreference mNotificationDrawerBackgroundAlpha;
-    SeekBarPreference mNotificationDrawerRowAlpha;
+    private SeekBarPreference mNotificationDrawerBackgroundAlpha;
+    private SeekBarPreference mNotificationDrawerRowAlpha;
 
     private File customnavTemp;
     private File customnavTempLandscape;
@@ -102,7 +102,6 @@ public class NotificationDrawerBackgroundStyle extends SettingsPreferenceFragmen
         mNotificationDrawerRowAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_DRAWER_ROW_ALPHA);
 
         mNotificationDrawerBackground.setOnPreferenceChangeListener(this);
-
         mNotificationDrawerBackgroundLandscape.setOnPreferenceChangeListener(this);
 
         float BackgroundTransparency = 0.1f;

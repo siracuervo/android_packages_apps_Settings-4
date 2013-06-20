@@ -93,7 +93,6 @@
     <string name="notification_settings_btn_title">Einstellungen Button</string>
     <string name="notification_settings_btn_summary">Aktivieren, um den Einstellungen Button immer anzuzeigen</string>
 
-
     <!-- Notification drawer style strings -->
     <string name="notification_cw_label_style_title">Netzbetr. und Wifi Netzw. Name</string>
     <string name="notification_drawer_background_title">Art des Hintergrundes</string>

@@ -31,9 +31,9 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class WakeupOptions extends SettingsPreferenceFragment {
 
-    private static final String KEY_HOME_WAKE = "pref_home_wake";
-    private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
-    private static final String KEY_PLUGGED_UNPLUGGED_WAKE = "plugged_unplugged_wake";
+    private static final String PREF_HOME_WAKE = "pref_home_wake";
+    private static final String PREF_VOLUME_WAKE = "pref_volume_wake";
+    private static final String PREF_PLUGGED_UNPLUGGED_WAKE = "plugged_unplugged_wake";
 
     private CheckBoxPreference mHomeWake;
     private CheckBoxPreference mVolumeWake;
@@ -46,9 +46,9 @@ public class WakeupOptions extends SettingsPreferenceFragment {
 
         addPreferencesFromResource(R.xml.wakeup_options);
 
-        mHomeWake = (CheckBoxPreference) findPreference(KEY_HOME_WAKE);
-        mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
-        mPluggedUnpluggedWake = (CheckBoxPreference) findPreference(KEY_PLUGGED_UNPLUGGED_WAKE);
+        mHomeWake = (CheckBoxPreference) findPreference(PREF_HOME_WAKE);
+        mVolumeWake = (CheckBoxPreference) findPreference(PREF_VOLUME_WAKE);
+        mPluggedUnpluggedWake = (CheckBoxPreference) findPreference(PREF_PLUGGED_UNPLUGGED_WAKE);
 
         // Start the wake-up preference handling
 
@@ -73,6 +73,7 @@ public class WakeupOptions extends SettingsPreferenceFragment {
             }
         }
 
+        // Plugged unplugged wake
         if (mPluggedUnpluggedWake != null) {
             if (!getResources().getBoolean(R.bool.config_show_PluggedUnpluggedWake)) {
                 getPreferenceScreen().removePreference(mPluggedUnpluggedWake);

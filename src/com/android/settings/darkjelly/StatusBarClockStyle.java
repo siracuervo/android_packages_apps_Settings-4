@@ -37,9 +37,9 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment implements O
 
     private static final String TAG = "StatusBarClockStyle";
 
-    private static final String STATUS_BAR_CLOCK_POSITION = "status_bar_clock_position";
-    private static final String STATUS_BAR_CLOCK_COLOR = "status_bar_clock_color";
-    private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
+    private static final String PREF_STAT_BAR_CLOCK_POSITION = "status_bar_clock_position";
+    private static final String PREF_STAT_BAR_CLOCK_COLOR = "status_bar_clock_color";
+    private static final String PREF_STAT_BAR_AM_PM = "status_bar_am_pm";
 
     private CheckBoxPreference mStatusBarClockPosition;
     private ColorPickerPreference mStatusBarClockColor;
@@ -59,17 +59,17 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment implements O
 
         addPreferencesFromResource(R.xml.status_bar_clock_style);
 
-        mStatusBarClockPosition = (CheckBoxPreference) findPreference(STATUS_BAR_CLOCK_POSITION);
-        mStatusBarClockColor = (ColorPickerPreference) findPreference(STATUS_BAR_CLOCK_COLOR);
-        mStatusBarAmPm = (ListPreference) findPreference(STATUS_BAR_AM_PM);
+        mStatusBarClockPosition = (CheckBoxPreference) findPreference(PREF_STAT_BAR_CLOCK_POSITION);
+        mStatusBarClockColor = (ColorPickerPreference) findPreference(PREF_STAT_BAR_CLOCK_COLOR);
+        mStatusBarAmPm = (ListPreference) findPreference(PREF_STAT_BAR_AM_PM);
 
         mStatusBarClockPosition.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_CLOCK_POSITION, 0) == 1));
 
-        mStatusBarClockColor.setOnPreferenceChangeListener(this);
         int statusBarClockColor = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_CLOCK_COLOR, 0xff33b5e5); 
         mStatusBarClockColor.setNewPreviewColor(statusBarClockColor);
+        mStatusBarClockColor.setOnPreferenceChangeListener(this);
 
         try {
             if (Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),

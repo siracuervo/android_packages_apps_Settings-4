@@ -61,10 +61,10 @@ public class StatusBarBackgroundStyle extends SettingsPreferenceFragment impleme
         mStatusbarTransparency = (SeekBarPreference) findPreference(PREF_STATUS_BAR_ALPHA);
         mStatusbarAlphaMode = (ListPreference) findPreference(PREF_STATUS_BAR_ALPHA_MODE);
 
-        mStatusBarColor.setOnPreferenceChangeListener(this);
         int statusBarColor = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_COLOR, 0xff000000); 
         mStatusBarColor.setNewPreviewColor(statusBarColor);
+        mStatusBarColor.setOnPreferenceChangeListener(this);
 
         float statBarTransparency = 0.0f;
         try{

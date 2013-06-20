@@ -39,7 +39,7 @@ public class StatusBarBatteryStyle extends SettingsPreferenceFragment implements
 
     private static final String TAG = "StatusBarBatteryStyle";
 
-    private static final String STATUS_BAR_BATTERY_STATUS_STYLE = "status_bar_battery_status_style";
+    private static final String PREF_BATT_STAT_STYLE = "status_bar_battery_status_style";
     private static final String PREF_BATT_BAR_POSITION = "battery_bar_position";
     private static final String PREF_BATT_BAR_COLOR = "battery_bar_color";
     private static final String PREF_BATT_BAR_CENTER = "battery_bar_center";
@@ -67,7 +67,7 @@ public class StatusBarBatteryStyle extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.status_bar_battery_style);
 
-        mStatusBarBatteryStatusStyle = (ListPreference) findPreference(STATUS_BAR_BATTERY_STATUS_STYLE);
+        mStatusBarBatteryStatusStyle = (ListPreference) findPreference(PREF_BATT_STAT_STYLE);
         mBatteryBarPosition = (ListPreference) findPreference(PREF_BATT_BAR_POSITION);
         mBatteryBarColor = (ColorPickerPreference) findPreference(PREF_BATT_BAR_COLOR);
         mBatteryBarCenter = (CheckBoxPreference) findPreference(PREF_BATT_BAR_CENTER);
@@ -86,10 +86,10 @@ public class StatusBarBatteryStyle extends SettingsPreferenceFragment implements
         mBatteryBarPosition.setSummary(mBatteryBarPosition.getEntry());
         mBatteryBarPosition.setOnPreferenceChangeListener(this);
 
-        mBatteryBarColor.setOnPreferenceChangeListener(this);
         int batteryBarColor = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_BATTERY_BAR_COLOR, 0xff33b5e5); 
         mBatteryBarColor.setNewPreviewColor(batteryBarColor);
+        mBatteryBarColor.setOnPreferenceChangeListener(this);
 
         mBatteryBarCenter.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUSBAR_BATTERY_BAR_STYLE, 0) == 1));
