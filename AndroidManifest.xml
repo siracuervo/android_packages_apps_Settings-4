@@ -1606,7 +1606,9 @@
 
 		<activity android:name=".darkjelly.StatusBarBackgroundStyle" />
 
-		<activity android:name=".darkjelly.StatusBarBatteryStyle" />
+		<activity android:name=".darkjelly.StatusBarBatteryStatusStyle" />
+
+		<activity android:name=".darkjelly.StatusBarBatteryBarStyle" />
 
 		<activity android:name=".darkjelly.NotificationDrawerBackgroundStyle" />
 

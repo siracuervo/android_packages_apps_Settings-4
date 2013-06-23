@@ -48,8 +48,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
 
-    private PreferenceScreen mStatusBarClockStyle;
-    private PreferenceScreen mStatusBarBatteryStyle;
     private CheckBoxPreference mStatusBarShowClock;
     private CheckBoxPreference mStatusBarShowBatteryStatus;
     private CheckBoxPreference mStatusBarShowBatteryBar;
@@ -72,8 +70,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         addPreferencesFromResource(R.xml.status_bar);
 
-        mStatusBarClockStyle = (PreferenceScreen) findPreference("status_bar_clock_style");
-        mStatusBarBatteryStyle = (PreferenceScreen) findPreference("status_bar_battery_style");
         mStatusBarShowClock = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_CLOCK);
         mStatusBarShowBatteryStatus = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_BATTERY_STATUS);
         mStatusBarShowBatteryBar = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_BATTERY_BAR);
@@ -81,8 +77,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarBrightnessControl = (CheckBoxPreference) findPreference(STATUS_BAR_BRIGHTNESS_CONTROL);
         mStatusBarNotifCount = (CheckBoxPreference) findPreference(STATUS_BAR_NOTIF_COUNT);
         mPrefCategoryGeneral = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
-
-        mStatusBarClockStyle.setDependency(STATUS_BAR_SHOW_CLOCK);
 
         mStatusBarShowClock.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_SHOW_CLOCK, 1) == 1));
@@ -120,10 +114,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         if (Utils.isTablet(getActivity())) {
             mPrefCategoryGeneral.removePreference(mStatusBarBrightnessControl);
-        }
-
-        if (mStatusBarBatteryStyle != null) {
-            updateBatteryScreenStatus();
         }
 
         setHasOptionsMenu(true);
@@ -182,13 +172,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             value = mStatusBarShowBatteryStatus.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_SHOW_BATTERY_STATUS, value ? 1 : 0);
-            updateBatteryScreenStatus();
             return true;
         } else if (preference == mStatusBarShowBatteryBar) {
             value = mStatusBarShowBatteryBar.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, value ? 1 : 0);
-            updateBatteryScreenStatus();
             return true;
         } else if (preference == mStatusBarBrightnessControl) {
             value = mStatusBarBrightnessControl.isChecked();
@@ -204,24 +192,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
-    private void updateBatteryScreenStatus() {
-
-        boolean isBatteryStatusEnabled = Settings.System.getInt(getContentResolver(),
-               Settings.System.STATUS_BAR_SHOW_BATTERY_STATUS, 1) == 1;
-
-        boolean isBatteryBarEnabled = Settings.System.getInt(getActivity().getContentResolver(),
-               Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, 0) == 1;
-
-        if (!isBatteryStatusEnabled && !isBatteryBarEnabled) {
-            mStatusBarBatteryStyle.setEnabled(false);
-        } else {
-            mStatusBarBatteryStyle.setEnabled(true);
-        }
-    }
-
     @Override
     public void onResume() {
         super.onResume();
-        updateBatteryScreenStatus();
     }
 }

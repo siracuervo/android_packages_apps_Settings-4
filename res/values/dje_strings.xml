@@ -26,6 +26,7 @@
     <string name="set">Set</string>
 
     <!-- Global used strings  -->
+    <string name="style_title">Style</string>
     <string name="cat_style_title">Style</string>
     <string name="background_title">Background</string>
     <string name="color_title">Color</string>
@@ -34,12 +35,9 @@
 
     <!-- Statusbar -->
 
-    <!-- Statusbar style -->
-    <string name="status_bar_battery_style_title">Battery</string>
-    <string name="cat_battery_status">Battery status</string>
-    <string name="cat_battery_bar">Battery bar</string>
-    <string name="style_reset_battery_status">Reset battery status</string>
-    <string name="style_reset_battery_bar">Reset battery bar</string>
+    <!-- Statusbar style strings  -->
+    <string name="status_bar_battery_status_style_title">Battery status</string>
+    <string name="status_bar_battery_bar_style_title">Battery bar</string>
 
     <!-- Statusbar style background strings  -->
     <string name="status_bar_alpha_mode_dialog_text_title">Show status bar transparency</string>
@@ -49,7 +47,9 @@
     <string name="status_bar_alpha_mode_always">Always</string>
 
     <!-- Statusbar style battery status strings  -->
-    <string name="battery_status_style_title">Style</string>
+    <string name="status_bar_battery_status_style_title">Battery status</string>
+    <string name="style_reset_battery_status">Reset battery status</string>
+    <string name="battery_status_style_title">Icon&#47;text</string>
     <string name="status_bar_battery_status_percentage">Percentage (Slimroms)</string>
     <string name="status_bar_battery_status_icon_percentage">Icon &amp; Percentage</string>
     <string name="status_bar_battery_status_circle">Circle (CM)</string>
@@ -69,6 +69,8 @@
     <string name="circle_battery_animation_speed_fast">Fast</string> 
 
     <!-- Statusbar style battery bar style strings  -->
+    <string name="status_bar_battery_bar_style_title">Battery bar</string>
+    <string name="style_reset_battery_bar">Reset battery bar</string>
     <string name="battery_bar_position_title">Position</string>
     <string name="battery_bar_center_summary">Display the battery bar center-mirrored</string>
     <string name="battery_bar_center_title">Center-mirrored</string>
