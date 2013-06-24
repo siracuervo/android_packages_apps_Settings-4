@@ -17,6 +17,7 @@
 package com.android.settings.darkjelly;
 
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -35,12 +36,14 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
     private static final String TAG = "StatusBarBatteryStatusStyle";
 
     private static final String PREF_BATT_STAT_STYLE = "battery_status_style";
+    private static final String PREF_BATT_STAT_CIRCLE_DOTTED = "battery_circle_dotted";
     private static final String PREF_BATT_STAT_CIRCLE_COLOR = "circle_battery_color";
     private static final String PREF_BATT_STAT_TEXT_COLOR = "battery_text_color";
     private static final String PREF_BATT_STAT_TEXT_CHARGING_COLOR = "battery_text_charging_color";
     private static final String PREF_BATT_STAT_CIRCLE_ANIMATIONSPEED = "circle_battery_animation_speed";
 
     private ListPreference mBatteryStatusStyle;
+    private CheckBoxPreference mCircleDotted;
     private ColorPickerPreference mCircleColor;
     private ColorPickerPreference mBatteryTextColor;
     private ColorPickerPreference mBatteryTextChargingColor;
@@ -61,6 +64,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         addPreferencesFromResource(R.xml.status_bar_battery_status_style);
 
         mBatteryStatusStyle = (ListPreference) findPreference(PREF_BATT_STAT_STYLE);
+        mCircleDotted = (CheckBoxPreference) findPreference(PREF_BATT_STAT_CIRCLE_DOTTED);
         mCircleColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_CIRCLE_COLOR);
         mBatteryTextColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_TEXT_COLOR);
         mBatteryTextChargingColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_TEXT_CHARGING_COLOR);
@@ -72,6 +76,8 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         mBatteryStatusStyle.setSummary(mBatteryStatusStyle.getEntry());
         mBatteryStatusStyle.setOnPreferenceChangeListener(this);
 
+        mCircleDotted.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_CIRCLE_DOTTED, 0) == 1));
 
         int circleColor = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_CIRCLE_BATTERY_COLOR, 0xff33b5e5); 
@@ -110,6 +116,8 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
             case R.id.reset_statusbar_battery_status:
                 Settings.System.putInt(getActivity().getContentResolver(),
                        Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 0);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                       Settings.System.STATUS_BAR_CIRCLE_DOTTED, 0);
                 Settings.System.putInt(getActivity().getContentResolver(),
                        Settings.System.STATUS_BAR_CIRCLE_BATTERY_COLOR, 0xff33b5e5);
                 Settings.System.putInt(getActivity().getContentResolver(),
@@ -165,18 +173,26 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        boolean value;
 
+        if (preference == mCircleDotted) {
+            value = mCircleDotted.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_CIRCLE_DOTTED, value ? 1 : 0);
+            return true;
+        }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     private void udateBatteryStatusOptions(int batteryIconStat) {
 
         if (batteryIconStat == 0 ||
-            batteryIconStat == 7 ||
-            batteryIconStat == 8 ||
-            batteryIconStat == 9) {
+            batteryIconStat == 5 ||
+            batteryIconStat == 6 ||
+            batteryIconStat == 7) {
 
             mBatteryStatusStyle.setEnabled(true);
+            mCircleDotted.setEnabled(false);
             mCircleColor.setEnabled(false);
             mBatteryTextColor.setEnabled(false);
             mBatteryTextChargingColor.setEnabled(false);
@@ -185,16 +201,16 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
             batteryIconStat == 2) {
 
             mBatteryStatusStyle.setEnabled(true);
+            mCircleDotted.setEnabled(false);
             mCircleColor.setEnabled(false);
             mBatteryTextColor.setEnabled(true);
             mBatteryTextChargingColor.setEnabled(true);
-            mCircleAnimSpeed.setEnabled(true);
+            mCircleAnimSpeed.setEnabled(false);
         } else if (batteryIconStat == 3 ||
-            batteryIconStat == 4 ||
-            batteryIconStat == 5 ||
-            batteryIconStat == 6) {
+            batteryIconStat == 4) {
 
             mBatteryStatusStyle.setEnabled(true);
+            mCircleDotted.setEnabled(true);
             mCircleColor.setEnabled(true);
             mBatteryTextColor.setEnabled(true);
             mBatteryTextChargingColor.setEnabled(true);

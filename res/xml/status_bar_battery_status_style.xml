@@ -25,6 +25,11 @@
 	    android:entries="@array/battery_status_style_entries"
 	    android:entryValues="@array/battery_status_style_values" />
 
+	<CheckBoxPreference
+		android:key="battery_circle_dotted"
+		android:title="@string/battery_status_circle_dotted_title"
+		android:summary="@string/battery_status_circle_dotted_summary" />
+
     <com.android.settings.darkjelly.colorpicker.ColorPickerPreference
         android:key="circle_battery_color"
         android:title="@string/circle_battery_color"

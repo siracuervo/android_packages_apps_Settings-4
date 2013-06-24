@@ -54,11 +54,11 @@
     <string name="status_bar_battery_status_icon_percentage">Symbol &amp; Prozent</string>
 	<string name="status_bar_battery_status_circle">Kreis (CM)</string>
     <string name="status_bar_battery_status_circle_percentage">Kreis &amp; Prozent (CM)</string>
-    <string name="status_bar_battery_status_dotted_circle">Kreis gepunktet (Slimroms)</string>
-    <string name="status_bar_battery_status_dotted_circle_percentage">Kreis gepunktet &amp; Prozent (Slimroms)</string>
     <string name="status_bar_battery_status_ABT">Kreis (AlphaBlue Theme)</string>
     <string name="status_bar_battery_status_AOKP">Kreis (AOKP)</string>
     <string name="status_bar_battery_status_HC">Kreis (HoneyComb)</string>
+    <string name="battery_status_circle_dotted_title">Kreis gepunktet (Slimroms)</string>
+    <string name="battery_status_circle_dotted_summary">Aktivieren, um den Kreis gepunktet anzuzeigen</string>
     <string name="circle_battery_color">Kreis Farbe</string>
     <string name="battery_text_color">Prozent Text Farbe</string>
     <string name="battery_text_charging_color">Prozent Text Lade Farbe</string>

@@ -54,11 +54,11 @@
     <string name="status_bar_battery_status_icon_percentage">Icon &amp; Percentage</string>
     <string name="status_bar_battery_status_circle">Circle (CM)</string>
     <string name="status_bar_battery_status_circle_percentage">Circle &amp; percentage (CM)</string>
-    <string name="status_bar_battery_status_dotted_circle">Dotted Circle (Slimroms)</string>
-    <string name="status_bar_battery_status_dotted_circle_percentage">Dotted Circle &amp; percentage (Slimroms)</string>
     <string name="status_bar_battery_status_ABT">Circle (AlphaBlue Theme)</string>
     <string name="status_bar_battery_status_AOKP">Circle (AOKP)</string>
     <string name="status_bar_battery_status_HC">Circle (HoneyComb)</string>
+    <string name="battery_status_circle_dotted_title">Circle dotted (Slimroms)</string>
+    <string name="battery_status_circle_dotted_summary">Activate, to show the battery circle dotted</string>
     <string name="circle_battery_color">Circle color</string>
     <string name="battery_text_color">Percentage text color</string>
     <string name="battery_text_charging_color">Percentage text charging color</string>
