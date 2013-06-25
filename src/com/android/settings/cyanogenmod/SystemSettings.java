@@ -48,13 +48,11 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_QUICK_SETTINGS = "quick_settings_panel";
     private static final String KEY_NOTIFICATION_DRAWER = "notification_drawer";
     private static final String KEY_POWER_MENU = "power_menu";
-    private static final String KEY_PIE_CONTROL = "pie_control";
     private static final String KEY_EXPANDED_DESKTOP = "expanded_desktop";
     private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
 
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
-    private PreferenceScreen mPieControl;
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
 
@@ -84,6 +82,13 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
             // Do nothing
         }
 
+        if (removeKeys) {
+            prefScreen.removePreference(findPreference(KEY_HARDWARE_KEYS));
+        }
+        if (removeNavbar) {
+            prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR_SETTINGS));
+        }
+
         // Determine which user is logged in
         mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
         if (mIsPrimary) {
@@ -97,23 +102,9 @@ public class SystemSettings extends SettingsPreferenceFragment  implements
                     mBatteryPulse = null;
                 }
             }
-
-            // Act on the above
-            if (removeKeys) {
-                prefScreen.removePreference(findPreference(KEY_HARDWARE_KEYS));
-            }
-            if (removeNavbar) {
-                prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR_SETTINGS));
-            }
         } else {
             // Secondary user is logged in, remove all primary user specific preferences
             prefScreen.removePreference(findPreference(KEY_BATTERY_LIGHT));
-            prefScreen.removePreference(findPreference(KEY_HARDWARE_KEYS));
-            prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR_SETTINGS));
-            prefScreen.removePreference(findPreference(KEY_STATUS_BAR));
-            prefScreen.removePreference(findPreference(KEY_QUICK_SETTINGS));
-            prefScreen.removePreference(findPreference(KEY_POWER_MENU));
-            prefScreen.removePreference(findPreference(KEY_NOTIFICATION_DRAWER));
         }
 
         // Preferences that applies to all users
