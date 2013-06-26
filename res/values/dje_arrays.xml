@@ -15,7 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string-array name="battery_status_style_entries" translatable="false">
+    <string-array name="battery_status_style_entries" >
         <item>@string/status_bar_style_icon</item>
         <item>@string/status_bar_battery_status_percentage</item>
         <item>@string/status_bar_battery_status_icon_percentage</item>
@@ -51,7 +51,7 @@
         <item>5</item>
     </string-array>
 
-    <string-array name="battery_bar_position_entries" translatable="false">
+    <string-array name="battery_bar_position_entries" >
         <item>@string/battery_bar_statusbar</item>
         <item>@string/battery_bar_navbar_top</item>
         <item>@string/battery_bar_navbar_buttom</item>
@@ -63,7 +63,7 @@
         <item>3</item>
     </string-array>
 
-    <string-array name="nav_buttons_height_entries" translatable="false">
+    <string-array name="nav_buttons_height_entries" >
         <item>@string/navigation_bar_height_48</item>
         <item>@string/navigation_bar_height_44</item>
         <item>@string/navigation_bar_height_40</item>
@@ -83,7 +83,7 @@
         <item>24</item>
     </string-array>
 
-    <string-array name="battery_bar_thickness_entries" translatable="false">
+    <string-array name="battery_bar_thickness_entries" >
         <item>@string/battery_bar_thickness_1</item>
         <item>@string/battery_bar_thickness_2</item>
         <item>@string/battery_bar_thickness_3</item>
