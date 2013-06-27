@@ -122,6 +122,7 @@
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
     <string name="notification_show_wifi_ssid_title">Wifi network name</string>
     <string name="notification_show_wifi_ssid_summary">Enable, to show the Wifi network name</string>
+    <string name="notification_header_style_title">Header</string>
 
     <!-- Navigation strings -->
     <string name="navigation_title">Navigation</string>
