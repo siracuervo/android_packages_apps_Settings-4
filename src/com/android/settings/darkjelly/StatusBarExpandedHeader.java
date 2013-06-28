@@ -34,10 +34,10 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
 
     private static final String TAG = "StatusBarExpandedHeader";
 
-    private static final String PREF_HEADER_CLOCK_COLOR = "header_clock_color";
+    private static final String PREF_HEADER_CLOCK_COLOR = "header_clock_date_color";
     private static final String PREF_HEADER_SETTINGS_BUTTON = "header_settings_button";
 
-    private ColorPickerPreference mHeaderClockColor;
+    private ColorPickerPreference mHeaderClockDateColor;
     private CheckBoxPreference mHeaderSettingsButton;
 
     @Override
@@ -54,14 +54,14 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
 
         addPreferencesFromResource(R.xml.status_bar_expanded_header);
 
-        mHeaderClockColor = (ColorPickerPreference) findPreference(PREF_HEADER_CLOCK_COLOR);
+        mHeaderClockDateColor = (ColorPickerPreference) findPreference(PREF_HEADER_CLOCK_COLOR);
         mHeaderSettingsButton = (CheckBoxPreference) findPreference(PREF_HEADER_SETTINGS_BUTTON);
 
-        mHeaderClockColor.setOnPreferenceChangeListener(this);
+        mHeaderClockDateColor.setOnPreferenceChangeListener(this);
 
-        int headerClockColor = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.STATUS_BAR_EXPANDED_CLOCK_COLOR, 0xffffffff);
-        mHeaderClockColor.setNewPreviewColor(headerClockColor);
+        int headerClockDateColor = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, 0xffffffff);
+        mHeaderClockDateColor.setNewPreviewColor(headerClockDateColor);
 
         mHeaderSettingsButton.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, 0) == 1);
@@ -80,7 +80,7 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
         switch (item.getItemId()) {
             case R.id.reset_status_bar_expanded_header:
                 Settings.System.putInt(getActivity().getContentResolver(),
-                        Settings.System.STATUS_BAR_EXPANDED_CLOCK_COLOR, 0xffffffff);
+                        Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, 0xffffffff);
                 Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, 0);
                 refreshSettings();
@@ -91,11 +91,11 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mHeaderClockColor) {
+        if (preference == mHeaderClockDateColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_EXPANDED_CLOCK_COLOR, intHex);
+                    Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, intHex);
             return true;
         }
         return false;
