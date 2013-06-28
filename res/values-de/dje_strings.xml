@@ -102,10 +102,15 @@
     <string name="status_bar_show_battery_bar_title">Die Akkuleiste anzeigen</string>
     <string name="status_bar_show_battery_bar_summary">Aktivieren um die Akkuleiste anzuzeigen</string>
 
-    <!-- Notification drawer strings -->
-    <string name="cat_options_title">Optionen</string>
-    <string name="notification_settings_btn_title">Einstellungen Button</string>
-    <string name="notification_settings_btn_summary">Aktivieren, um den Einstellungen Button immer anzuzeigen</string>
+    <!-- Statusbar expanded -->
+
+    <!-- Statusbar expanded strings -->
+    <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
+    <string name="status_bar_expanded_header_title">Kopfzeile</string>
+
+    <!-- Statusbar expanded header strings -->
+    <string name="header_settings_btn_title">Einstellungen Schaltfläche</string>
+    <string name="header_settings_btn_summary">Aktivieren, um den Einstellungen Schaltfläche immer anzuzeigen</string>
 
     <!-- Notification drawer style strings -->
     <string name="notification_cw_label_style_title">Netzbetr. und Wifi Netzw. Name</string>
@@ -122,7 +127,6 @@
     <string name="custom_carrier_label_notset">Kein angepasster Netzbetreiber Name gesetzt</string>
     <string name="notification_show_wifi_ssid_title">Wifi Netzwerkname Name</string>
     <string name="notification_show_wifi_ssid_summary">Aktivieren, um den Wifi Netzwerknamen anzuzeigen</string>
-    <string name="notification_header_style_title">Header</string>
 
     <!-- Navigation strings -->
     <string name="navigation_title">Navigation</string>

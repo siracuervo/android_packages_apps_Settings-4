@@ -60,12 +60,10 @@ public class PowerWidget extends SettingsPreferenceFragment implements
     private static final String TAG = "PowerWidget";
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
     private static final String UI_EXP_WIDGET = "expanded_widget";
-    private static final String KEY_NOTIFICATION_SETTINGS_BTN = "notification_settings_btn";
     private static final String UI_EXP_WIDGET_HIDE_ONCHANGE = "expanded_hide_onchange";
     private static final String UI_EXP_WIDGET_HIDE_SCROLLBAR = "expanded_hide_scrollbar";
     private static final String UI_EXP_WIDGET_HAPTIC_FEEDBACK = "expanded_haptic_feedback";
 
-    private CheckBoxPreference mNotificationSettingsBtn;
     private CheckBoxPreference mPowerWidget;
     private CheckBoxPreference mPowerWidgetHideOnChange;
     private CheckBoxPreference mPowerWidgetHideScrollBar;
@@ -80,7 +78,6 @@ public class PowerWidget extends SettingsPreferenceFragment implements
 
             PreferenceScreen prefSet = getPreferenceScreen();
 
-            mNotificationSettingsBtn = (CheckBoxPreference) prefSet.findPreference(KEY_NOTIFICATION_SETTINGS_BTN);
             mPowerWidget = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET);
             mPowerWidgetHapticFeedback = (ListPreference) prefSet.findPreference(UI_EXP_WIDGET_HAPTIC_FEEDBACK);
             mPowerWidgetHideOnChange = (CheckBoxPreference) prefSet.findPreference(UI_EXP_WIDGET_HIDE_ONCHANGE);
@@ -88,8 +85,6 @@ public class PowerWidget extends SettingsPreferenceFragment implements
 
             mPowerWidgetHapticFeedback.setOnPreferenceChangeListener(this);
 
-            mNotificationSettingsBtn.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.NOTIFICATION_SETTINGS_BUTTON, 0) == 1);
             mPowerWidget.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_VIEW_WIDGET, 0) == 1));
             mPowerWidgetHideOnChange.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -117,11 +112,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
 
-        if (preference == mNotificationSettingsBtn) {
-            value = mNotificationSettingsBtn.isChecked();
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.NOTIFICATION_SETTINGS_BUTTON, value ? 1 : 0);
-        } else if (preference == mPowerWidget) {
+        if (preference == mPowerWidget) {
             value = mPowerWidget.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.EXPANDED_VIEW_WIDGET, value ? 1 : 0);

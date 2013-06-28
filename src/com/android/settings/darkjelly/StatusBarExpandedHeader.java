@@ -16,7 +16,8 @@
 
 package com.android.settings.darkjelly;
 
-import android.os.Bundle; 
+import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
@@ -29,13 +30,15 @@ import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class NotificationHeaderStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class StatusBarExpandedHeader extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String TAG = "NotificationHeaderStyle";
+    private static final String TAG = "StatusBarExpandedHeader";
 
-    private static final String PREF_NOTIFICATION_HEADER_CLOCK_COLOR = "notification_header_clock_color";
+    private static final String PREF_HEADER_CLOCK_COLOR = "header_clock_color";
+    private static final String PREF_HEADER_SETTINGS_BUTTON = "header_settings_button";
 
-    private ColorPickerPreference mNotificationHeaderClockColor;
+    private ColorPickerPreference mHeaderClockColor;
+    private CheckBoxPreference mHeaderSettingsButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,15 +52,19 @@ public class NotificationHeaderStyle extends SettingsPreferenceFragment implemen
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.notification_drawer_header_style);
+        addPreferencesFromResource(R.xml.status_bar_expanded_header);
 
-        mNotificationHeaderClockColor = (ColorPickerPreference) findPreference(PREF_NOTIFICATION_HEADER_CLOCK_COLOR);
+        mHeaderClockColor = (ColorPickerPreference) findPreference(PREF_HEADER_CLOCK_COLOR);
+        mHeaderSettingsButton = (CheckBoxPreference) findPreference(PREF_HEADER_SETTINGS_BUTTON);
 
-        mNotificationHeaderClockColor.setOnPreferenceChangeListener(this);
+        mHeaderClockColor.setOnPreferenceChangeListener(this);
 
-        int notificationHeaderClockColor = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.NOTIFICATION_HEADER_CLOCK_COLOR, 0xffffffff);
-        mNotificationHeaderClockColor.setNewPreviewColor(notificationHeaderClockColor);
+        int headerClockColor = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_EXPANDED_CLOCK_COLOR, 0xffffffff);
+        mHeaderClockColor.setNewPreviewColor(headerClockColor);
+
+        mHeaderSettingsButton.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, 0) == 1);
 
         setHasOptionsMenu(true);
     }
@@ -65,15 +72,17 @@ public class NotificationHeaderStyle extends SettingsPreferenceFragment implemen
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.notification_drawer_header_style, menu);
+        inflater.inflate(R.menu.status_bar_expanded_header, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.reset_notification_drawer_header_style:
+            case R.id.reset_status_bar_expanded_header:
                 Settings.System.putInt(getActivity().getContentResolver(),
-                        Settings.System.NOTIFICATION_HEADER_CLOCK_COLOR, 0xffffffff);
+                        Settings.System.STATUS_BAR_EXPANDED_CLOCK_COLOR, 0xffffffff);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, 0);
                 refreshSettings();
                 return true;
              default:
@@ -82,11 +91,11 @@ public class NotificationHeaderStyle extends SettingsPreferenceFragment implemen
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mNotificationHeaderClockColor) {
+        if (preference == mHeaderClockColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.NOTIFICATION_HEADER_CLOCK_COLOR, intHex);
+                    Settings.System.STATUS_BAR_EXPANDED_CLOCK_COLOR, intHex);
             return true;
         }
         return false;
@@ -94,8 +103,15 @@ public class NotificationHeaderStyle extends SettingsPreferenceFragment implemen
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        boolean value;
 
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
+        if (preference == mHeaderSettingsButton) {
+            value = mHeaderSettingsButton.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, value ? 1 : 0);
+            return true;
+        }
+        return false;
     }
 
     @Override

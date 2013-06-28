@@ -14,13 +14,9 @@
      limitations under the License.
 -->
 
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/notification_header_style_title">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
-		    android:key="notification_header_clock_color"
-		    android:title="@string/color_title"
-		    android:defaultValue="0xffffffff" />
+    <item android:id="@+id/reset_status_bar_expanded_header"
+          android:title="@string/style_reset" />
 
-</PreferenceScreen>
+</menu>
