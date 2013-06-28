@@ -106,7 +106,7 @@
 
     <!-- Statusbar expanded strings -->
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
-    <string name="status_bar_expanded_cat_clock_date_title">Uhr &amp; datum</string>
+    <string name="status_bar_expanded_cat_clock_date_title">Uhr &amp; Datum</string>
     <string name="status_bar_expanded_cat_options_title">Optionen</string>
     <string name="status_bar_expanded_header_title">Kopfzeile</string>
 
