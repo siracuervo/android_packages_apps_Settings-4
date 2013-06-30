@@ -24,8 +24,6 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class StatusBarExpanded extends SettingsPreferenceFragment {
 
-    private static final String TAG = "StatusBarExpanded";
-
     private static final String PREF_NOTIFICATION_HEADER_CLOCK_COLOR = "notification_header_clock_color";
 
     @Override

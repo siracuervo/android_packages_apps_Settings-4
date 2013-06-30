@@ -77,4 +77,9 @@
         android:title="@string/navigation_title"
         android:summary="@string/navigation_summary" />
 
+    <PreferenceScreen
+        android:key="general"
+        android:fragment="com.android.settings.darkjelly.General"
+        android:title="@string/general_title" />
+
 </PreferenceScreen>

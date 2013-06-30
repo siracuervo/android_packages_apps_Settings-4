@@ -1603,19 +1603,27 @@
 
 		<activity android:name=".darkjelly.DJEChangeLog" />
 
-		<activity android:name=".darkjelly.StatusBar" />
+		<activity android:name=".darkjelly.General" />
 
-		<activity android:name=".darkjelly.StatusBarBackgroundStyle" />
-
-		<activity android:name=".darkjelly.StatusBarBatteryStatusStyle" />
-
-		<activity android:name=".darkjelly.StatusBarBatteryBarStyle" />
+		<activity android:name=".darkjelly.NavigationBarStyle" />
 
 		<activity android:name=".darkjelly.NotificationDrawerBackgroundStyle" />
 
 		<activity android:name=".darkjelly.NotificationDrawerCwLabelStyle" />
 
-		<activity android:name=".darkjelly.NavigationBarStyle" />
+		<activity android:name=".darkjelly.StatusBar" />
+
+		<activity android:name=".darkjelly.StatusBarBackgroundStyle" />
+
+		<activity android:name=".darkjelly.StatusBarBatteryBarStyle" />
+
+		<activity android:name=".darkjelly.StatusBarBatteryStatusStyle" />
+
+		<activity android:name=".darkjelly.StatusBarClockStyle" />
+
+		<activity android:name=".darkjelly.StatusBarExpandedHeader" />
+
+		<activity android:name=".darkjelly.StatusBarStyle" />
 
         <activity android:name=".cyanogenmod.LockscreenInterface" />
 

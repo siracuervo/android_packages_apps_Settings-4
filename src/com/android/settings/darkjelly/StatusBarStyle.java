@@ -1,6 +1,4 @@
 /*
- * Copyright (C) 2012 The CyanogenMod Project
- *
  * Copyright (C) 2013 Dark Jelly
  *
  * Licensed under the Apache License, Version 2.0 (the "License");

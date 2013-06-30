@@ -151,6 +151,11 @@
     <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
     <string name="navigation_bar_edit_summary">Schaltflächen bearbeiten</string>
 
+    <!-- General strings -->
+    <string name="general_title">Allgemein</string>
+    <string name="dual_pane_title">Tablet Dual-Panel Modus</string>
+    <string name="dual_pane_summary">Die Einstellungen neustarten, um die Änderungen wirksam zu machen</string>
+
     <!-- Wake up options settings -->
 
     <!-- Wake up options strings -->
