@@ -29,22 +29,10 @@
         android:fragment="com.android.settings.darkjelly.StatusBarExpanded"
         android:title="@string/status_bar_expanded_title" />
 
-    <ListPreference
-        android:key="expanded_desktop"
-        android:title="@string/power_menu_expanded_desktop"
-        android:entries="@array/expanded_desktop_entries"
-        android:entryValues="@array/expanded_desktop_values"
-        android:persistent="false" />
-
-    <CheckBoxPreference
-        android:key="expanded_desktop_no_navbar"
-        android:title="@string/power_menu_expanded_desktop"
-        android:persistent="false" />
-
     <PreferenceScreen
-        android:key="power_menu"
-        android:title="@string/power_menu_title"
-        android:fragment="com.android.settings.cyanogenmod.PowerMenu" />
+        android:key="general"
+        android:fragment="com.android.settings.darkjelly.General"
+        android:title="@string/general_title" />
 
     <!-- Lock clock -->
     <PreferenceScreen
@@ -76,10 +64,5 @@
         android:fragment="com.android.settings.darkjelly.Navigation"
         android:title="@string/navigation_title"
         android:summary="@string/navigation_summary" />
-
-    <PreferenceScreen
-        android:key="general"
-        android:fragment="com.android.settings.darkjelly.General"
-        android:title="@string/general_title" />
 
 </PreferenceScreen>
