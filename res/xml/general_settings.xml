@@ -45,4 +45,12 @@
         android:fragment="com.android.settings.darkjelly.RamBar"
         android:title="@string/ram_bar" />
 
+        <ListPreference
+            android:key="low_battery_warning_policy"
+            android:title="@string/low_battery_warning_policy_title"
+            android:dialogTitle="@string/low_battery_warning_policy_dialog_title"
+            android:entries="@array/low_battery_warning_policy_entries"
+            android:entryValues="@array/low_battery_warning_policy_values"
+            android:defaultValue="0" />
+
 </PreferenceScreen>

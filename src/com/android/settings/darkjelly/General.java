@@ -41,12 +41,14 @@ public class General extends SettingsPreferenceFragment implements Preference.On
     private static final String PREF_DUAL_PANE = "dual_pane";
     private static final String KEY_EXPANDED_DESKTOP = "expanded_desktop";
     private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
-    private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar"; 
+    private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar";
+    private static final String KEY_LOW_BATTERY_WARNING_POLICY = "low_battery_warning_policy";
 
     private CheckBoxPreference mDualPane;
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
     private Preference mRamBar;
+    private ListPreference mLowBatteryWarning;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,18 +59,16 @@ public class General extends SettingsPreferenceFragment implements Preference.On
         ContentResolver resolver = getActivity().getContentResolver();
 
         mDualPane = (CheckBoxPreference) findPreference(PREF_DUAL_PANE);
+        mExpandedDesktopPref = (ListPreference) findPreference(KEY_EXPANDED_DESKTOP);
+        mExpandedDesktopNoNavbarPref = (CheckBoxPreference) findPreference(KEY_EXPANDED_DESKTOP_NO_NAVBAR);
+        mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
+        mLowBatteryWarning = (ListPreference) findPreference(KEY_LOW_BATTERY_WARNING_POLICY);
 
-        mDualPane = (CheckBoxPreference) findPreference(PREF_DUAL_PANE);
         boolean preferDualPane = getResources().getBoolean(
                 com.android.internal.R.bool.preferences_prefer_dual_pane);
         boolean dualPaneMode = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.DUAL_PANE_PREFS, (preferDualPane ? 1 : 0)) == 1;
         mDualPane.setChecked(dualPaneMode);
-
-
-        // Expanded desktop
-        mExpandedDesktopPref = (ListPreference) findPreference(KEY_EXPANDED_DESKTOP);
-        mExpandedDesktopNoNavbarPref = (CheckBoxPreference) findPreference(KEY_EXPANDED_DESKTOP_NO_NAVBAR);
 
         int expandedDesktopValue = Settings.System.getInt(getContentResolver(),
                 Settings.System.EXPANDED_DESKTOP_STYLE, 0);
@@ -89,7 +89,12 @@ public class General extends SettingsPreferenceFragment implements Preference.On
             Log.e(TAG, "Error getting navigation bar status");
         }
 
-        mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
+        int lowBatteryWarning = Settings.System.getInt(getActivity().getContentResolver(),
+                                    Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, 0);
+        mLowBatteryWarning.setValue(String.valueOf(lowBatteryWarning));
+        mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
+        mLowBatteryWarning.setOnPreferenceChangeListener(this);
+
         updateRamBar();
     }
 
@@ -102,8 +107,14 @@ public class General extends SettingsPreferenceFragment implements Preference.On
             boolean value = (Boolean) objValue;
             updateExpandedDesktop(value ? 2 : 0);
             return true;
+        } else if (preference == mLowBatteryWarning) {
+            int lowBatteryWarning = Integer.valueOf((String) objValue);
+            int index = mLowBatteryWarning.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, lowBatteryWarning);
+            mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntries()[index]);
+            return true;
         }
-
         return false;
     }
 

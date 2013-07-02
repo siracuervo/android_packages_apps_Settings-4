@@ -155,6 +155,16 @@
     <string name="ram_bar_color_disabled">Disabled</string>
     <string name="ram_bar_button_reset">Reset colors</string>
 
+    <!-- Low battery warning policy -->
+    <string name="low_battery_warning_policy_title">Low battery warning</string>
+    <string name="low_battery_warning_policy_dialog_title">Indicate low battery warning with</string>
+    <string name="low_battery_warning_policy_popup_sound">Pop-up and sound</string>
+    <string name="low_battery_warning_policy_notif_sound">Notification and sound</string>
+    <string name="low_battery_warning_policy_popup">Pop-up dialog only</string>
+    <string name="low_battery_warning_policy_notif">Notification only</string>
+    <string name="low_battery_warning_policy_sound">Sound only</string>
+    <string name="low_battery_warning_policy_disabled">Disabled</string>
+
     <!-- Navigation strings -->
     <string name="navigation_title">Navigation</string>
     <string name="navigation_summary">Customize the Navigation bar &amp;\nPie controls</string>
