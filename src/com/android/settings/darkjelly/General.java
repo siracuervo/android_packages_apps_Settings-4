@@ -41,10 +41,12 @@ public class General extends SettingsPreferenceFragment implements Preference.On
     private static final String PREF_DUAL_PANE = "dual_pane";
     private static final String KEY_EXPANDED_DESKTOP = "expanded_desktop";
     private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
+    private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar"; 
 
     private CheckBoxPreference mDualPane;
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
+    private Preference mRamBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,6 +88,9 @@ public class General extends SettingsPreferenceFragment implements Preference.On
         } catch (RemoteException e) {
             Log.e(TAG, "Error getting navigation bar status");
         }
+
+        mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
+        updateRamBar();
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -138,4 +143,25 @@ public class General extends SettingsPreferenceFragment implements Preference.On
             mExpandedDesktopPref.setSummary(res.getString(summary));
         }
     }
+
+    private void updateRamBar() {
+        int ramBarMode = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.RECENTS_RAM_BAR_MODE, 0);
+        if (ramBarMode != 0)
+            mRamBar.setSummary(getResources().getString(R.string.ram_bar_color_enabled));
+        else
+            mRamBar.setSummary(getResources().getString(R.string.ram_bar_color_disabled));
+    }
+
+     @Override
+     public void onResume() {
+         super.onResume();
+         updateRamBar();
+     }
+ 
+     @Override
+     public void onPause() {
+         super.onResume();
+         updateRamBar();
+     } 
 }

@@ -130,6 +130,31 @@
     <string name="notification_show_wifi_ssid_title">Wifi Netzwerkname Name</string>
     <string name="notification_show_wifi_ssid_summary">Aktivieren, um den Wifi Netzwerknamen anzuzeigen</string>
 
+    <!-- General strings -->
+    <string name="general_title">Allgemein</string>
+
+    <!-- Dual pane strings -->
+    <string name="dual_pane_title">Tablet Dual-Panel Modus</string>
+    <string name="dual_pane_summary">Die Einstellungen neustarten, um die Änderungen wirksam zu machen</string>
+
+    <!-- Ram bar strings -->
+    <string name="ram_bar">Recents RAM-Leiste</string>
+    <string name="ram_bar_note_title">Hinweis</string>
+    <string name="ram_bar_note_summary">Diese RAM-Leiste zeigt an, wie Android tatsächlich den verfügbaren RAM verwendet. Beachte bitte, das das Zwischengespeichern von Anwendungen im Hintergrund dabei hilft, diese Anwendungen schneller zu öffnen.</string>
+    <string name="ram_bar_mode_title">Recents RAM-Leisten Modus</string>
+    <string name="ram_bar_mode_dialog_title">Auf der Recents RAM-Leiste anzeigen</string>
+    <string name="ram_bar_none">Keine</string>
+    <string name="ram_bar_apps">Anwendungen</string>
+    <string name="ram_bar_cache">Anwendungen und Cache</string>
+    <string name="ram_bar_other">Anwendungen, Cache und Andere</string>
+    <string name="ram_bar_style_cat">Recents RAM-Leisten Style</string>
+    <string name="ram_bar_color_app_mem_color">Farbe des Anwendungen RAMs</string>
+    <string name="ram_bar_color_cache_mem_color">Farbe des Cache RAMs</string>
+    <string name="ram_bar_color_total_mem_color">Farbe des Anderen RAMs</string>
+    <string name="ram_bar_color_enabled">Aktiviert</string>
+    <string name="ram_bar_color_disabled">Deaktiviert</string>
+    <string name="ram_bar_button_reset">Farben zurück setzen</string>
+
     <!-- Navigation strings -->
     <string name="navigation_title">Navigation</string>
     <string name="navigation_summary">Die Navigationsleiste &amp;\nPie-Navigation anpassen</string>
@@ -150,11 +175,6 @@
     <string name="navigation_bar_title">Navigationsleiste </string>
     <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
     <string name="navigation_bar_edit_summary">Schaltflächen bearbeiten</string>
-
-    <!-- General strings -->
-    <string name="general_title">Allgemein</string>
-    <string name="dual_pane_title">Tablet Dual-Panel Modus</string>
-    <string name="dual_pane_summary">Die Einstellungen neustarten, um die Änderungen wirksam zu machen</string>
 
     <!-- Wake up options settings -->
 
