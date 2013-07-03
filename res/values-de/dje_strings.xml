@@ -156,8 +156,8 @@
     <string name="ram_bar_button_reset">Farben zurück setzen</string>
 
     <!-- Low battery warning policy -->
-    <string name="low_battery_warning_policy_title">Warnung bei niedrigem Batteriestand</string>
-    <string name="low_battery_warning_policy_dialog_title">Warnung bei niedrigem Batteriestand mit</string>
+    <string name="low_battery_warning_policy_title">Warnung bei niedrigem Akkustand</string>
+    <string name="low_battery_warning_policy_dialog_title">Warnung bei niedrigem Akkustand mit</string>
     <string name="low_battery_warning_policy_popup_sound">Pop-up und Ton</string>
     <string name="low_battery_warning_policy_notif_sound">Benachrichtigung und Ton</string>
     <string name="low_battery_warning_policy_popup">Nur Pop-up</string>
