@@ -27,8 +27,10 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class Navigation extends SettingsPreferenceFragment {
 
+    private static final String PREF_PIE_CONTROL_STYLE = "pie_control_style";
     private static final String PREF_PIE_CONTROL = "pie_control";
 
+    private PreferenceScreen mPieControlStyle;
     private PreferenceScreen mPieControl;
 
     @Override
@@ -37,6 +39,7 @@ public class Navigation extends SettingsPreferenceFragment {
 
         addPreferencesFromResource(R.xml.navigation);
 
+        mPieControlStyle = (PreferenceScreen) findPreference(PREF_PIE_CONTROL_STYLE);
         mPieControl = (PreferenceScreen) findPreference(PREF_PIE_CONTROL);
     }
 
@@ -45,7 +48,7 @@ public class Navigation extends SettingsPreferenceFragment {
         super.onResume();
 
         if (mPieControl != null) {
-            updatePieControlDescription();
+            updatePieControlStateAndDescription();
         }
     }
 
@@ -54,12 +57,14 @@ public class Navigation extends SettingsPreferenceFragment {
         super.onPause();
     }
 
-    private void updatePieControlDescription() {
+    private void updatePieControlStateAndDescription() {
         if (Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.PIE_CONTROLS, 0) == 1) {
             mPieControl.setSummary(getString(R.string.pie_control_enabled));
+            mPieControlStyle.setEnabled(true);
         } else {
             mPieControl.setSummary(getString(R.string.pie_control_disabled));
+            mPieControlStyle.setEnabled(false);
         }
     }
 }

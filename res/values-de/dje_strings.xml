@@ -24,14 +24,22 @@
     <string name="hex">Hex:</string>
     <string name="hex_hint">#ff000000</string>
     <string name="set">Setzen</string>
+    <string name="theme_default_color">Design Standard</string>
 
     <!-- Global used strings  -->
     <string name="style_title">Style</string>
     <string name="cat_style_title">Style</string>
+    <string name="cat_options_title">Optionen</string>
     <string name="background_title">Hintergrund</string>
     <string name="color_title">Farbe</string>
     <string name="transparency_title">Transparenz</string>
+    <string name="reset_cm_default">Auf CM Standard zurücksetzten</string>
+    <string name="reset_dark_jelly_default">Auf Dark Jelly Standard zurücksetzten</string>
+    <string name="backup_color">Die aktuellen Farbwerte sichern</string>
+    <string name="restore_color">Farbwerte wiederherstellen</string>
     <string name="style_reset">Zurücksetzten</string>
+    <string name="enable_theme_default_title">Design Standard</string>
+    <string name="enable_theme_default_summary">Aktivieren, damit die Standard Farben des aktuellen Designs benutzt werden</string>
 
     <!-- Statusbar -->
 
@@ -185,6 +193,25 @@
     <string name="navigation_bar_title">Navigationsleiste </string>
     <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
     <string name="navigation_bar_edit_summary">Schaltflächen bearbeiten</string>
+
+    <!-- pie controls strings -->
+
+    <!-- pie controls style strings -->
+    <string name="show_custom_carrier_label_title">Angepasster Netzbetreiber Name</string>
+    <string name="show_custom_carrier_label_enabled_summary">Aktivieren, damit der angepasste Netztbetreiber Name angezeigt wird</string>
+
+    <!-- pie controls color strings -->
+    <string name="disable_icon_overlay_title">Farbige Symbole</string>
+    <string name="disable_icon_overlay_summary">Aktivieren, damit die Symbole ohne Farb-Overlay aus dem aktuellen Design geladen werden</string>
+    <string name="pie_snap_color_title">Snap</string>
+    <string name="pie_overlay_color_title">Overlay</string>
+    <string name="pie_text_color_title">Text</string>
+    <string name="button_background_normal_color_title">Hintergrund normal</string>
+    <string name="button_background_selected_color_title">Hintergrund gedrückt</string>
+    <string name="button_background_long_pressed_color_title">Hintergrund lange gedrückt</string>
+    <string name="button_outline_color_title">Umrandung</string>
+    <string name="button_icon_color_title">Symbol</string>
+    <string name="button_icon_default_pie_color_summary">Pie Standard</string>
 
     <!-- Wake up options settings -->
 

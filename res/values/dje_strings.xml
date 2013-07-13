@@ -24,14 +24,22 @@
     <string name="hex">Hex:</string>
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
+    <string name="theme_default_color">Theme default</string>
 
     <!-- Global used strings  -->
     <string name="style_title">Style</string>
     <string name="cat_style_title">Style</string>
+    <string name="cat_options_title">Options</string>
     <string name="background_title">Background</string>
     <string name="color_title">Color</string>
     <string name="transparency_title">Transparency</string>
+    <string name="reset_cm_default">Reset to CM default</string>
+    <string name="reset_dark_jelly_default">Reset to Dark Jelly default</string>
+    <string name="backup_color">Backup current color values</string>
+    <string name="restore_color">Restore color values</string>
     <string name="style_reset">Reset</string>
+    <string name="enable_theme_default_title">Theme default</string>
+    <string name="enable_theme_default_summary">Enable, to use theme default colors of the current theme</string>
 
     <!-- Statusbar -->
 
@@ -185,6 +193,25 @@
     <string name="navigation_bar_title">Navigation bar</string>
     <string name="navigation_bar_edit_title">Navigation bar customization</string>
     <string name="navigation_bar_edit_summary">Edit buttons layout</string>
+
+    <!-- pie controls strings -->
+
+    <!-- pie controls style strings -->
+    <string name="show_custom_carrier_label_title">Custom carrier label</string>
+    <string name="show_custom_carrier_label_enabled_summary">Enable, to show the custom carrier label</string>
+
+    <!-- pie controls color strings -->
+    <string name="disable_icon_overlay_title">Colored icons</string>
+    <string name="disable_icon_overlay_summary">Enable, to load the icons without color overlay from current theme</string>
+    <string name="pie_snap_color_title">Snap</string>
+    <string name="pie_overlay_color_title">Overlay</string>
+    <string name="pie_text_color_title">Text</string>
+    <string name="button_background_normal_color_title">Bckground normal</string>
+    <string name="button_background_selected_color_title">Background selected</string>
+    <string name="button_background_long_pressed_color_title">Background long pressed</string>
+    <string name="button_outline_color_title">Outline</string>
+    <string name="button_icon_color_title">Icon</string>
+    <string name="button_icon_default_pie_color_summary">Pie default</string>
 
     <!-- Wake up options settings -->
 
