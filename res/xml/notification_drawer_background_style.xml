@@ -25,6 +25,11 @@
             android:entries="@array/notification_drawer_background_entries"
             android:entryValues="@array/notification_drawer_background_values"/>
 
+		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+		    android:key="notification_drawer_background_color"
+		    android:title="@string/color_title"
+		    android:defaultValue="0xff000000" />
+
         <ListPreference
             android:key="notification_drawer_background_landscape"
             android:persistent="false"

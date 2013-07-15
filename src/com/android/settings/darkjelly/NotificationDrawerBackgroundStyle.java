@@ -56,7 +56,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.widget.SeekBarPreference;
-import com.android.settings.darkjelly.colorpicker.ColorPickerView;
+import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,11 +66,13 @@ public class NotificationDrawerBackgroundStyle extends SettingsPreferenceFragmen
     private static final String TAG = "NotificationDrawerBackgroundStyle";
 
     private static final String PREF_NOTIFICATION_DRAWER_BACKGROUND = "notification_drawer_background";
+    private static final String PREF_NOTIFICATION_DRAWER_BACKGROUND_COLOR = "notification_drawer_background_color";
     private static final String PREF_NOTIFICATION_DRAWER_BACKGROUND_LANDSCAPE = "notification_drawer_background_landscape";
     private static final String PREF_NOTIFICATION_DRAWER_BACKGROUND_ALPHA = "notification_drawer_background_alpha";
     private static final String PREF_NOTIFICATION_DRAWER_ROW_ALPHA = "notification_drawer_row_alpha";
 
     private ListPreference mNotificationDrawerBackground;
+    private ColorPickerPreference mNotificationDrawerBackgroundColor;
     private ListPreference mNotificationDrawerBackgroundLandscape;
     private SeekBarPreference mNotificationDrawerBackgroundAlpha;
     private SeekBarPreference mNotificationDrawerRowAlpha;
@@ -97,11 +99,13 @@ public class NotificationDrawerBackgroundStyle extends SettingsPreferenceFragmen
         customnavTempLandscape = new File(getActivity().getFilesDir()+"/notification_wallpaper_temp_landscape.jpg");
 
         mNotificationDrawerBackground = (ListPreference) findPreference(PREF_NOTIFICATION_DRAWER_BACKGROUND);
+        mNotificationDrawerBackgroundColor = (ColorPickerPreference) findPreference(PREF_NOTIFICATION_DRAWER_BACKGROUND_COLOR);
         mNotificationDrawerBackgroundLandscape = (ListPreference) findPreference(PREF_NOTIFICATION_DRAWER_BACKGROUND_LANDSCAPE);
         mNotificationDrawerBackgroundAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_DRAWER_BACKGROUND_ALPHA);
         mNotificationDrawerRowAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_DRAWER_ROW_ALPHA);
 
         mNotificationDrawerBackground.setOnPreferenceChangeListener(this);
+        mNotificationDrawerBackgroundColor.setOnPreferenceChangeListener(this);
         mNotificationDrawerBackgroundLandscape.setOnPreferenceChangeListener(this);
 
         float BackgroundTransparency = 0.1f;
@@ -144,14 +148,17 @@ public class NotificationDrawerBackgroundStyle extends SettingsPreferenceFragmen
             resId = R.string.notification_drawer_background_default_wallpaper;
             mNotificationDrawerBackground.setValueIndex(2);
             mNotificationDrawerBackgroundLandscape.setEnabled(false);
+            mNotificationDrawerBackgroundColor.setEnabled(false);
         } else if (value.isEmpty()) {
             resId = R.string.notification_drawer_background_custom_image;
             mNotificationDrawerBackground.setValueIndex(1);
             mNotificationDrawerBackgroundLandscape.setEnabled(true);
+            mNotificationDrawerBackgroundColor.setEnabled(false);
         } else {
             resId = R.string.notification_drawer_background_color_fill;
             mNotificationDrawerBackground.setValueIndex(0);
             mNotificationDrawerBackgroundLandscape.setEnabled(false);
+            mNotificationDrawerBackgroundColor.setEnabled(true);
         }
         mNotificationDrawerBackground.setSummary(getResources().getString(resId));
 
@@ -248,45 +255,12 @@ public class NotificationDrawerBackgroundStyle extends SettingsPreferenceFragmen
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mNotificationDrawerBackgroundAlpha) {
-            float valNav = Float.parseFloat((String) newValue);
-            Settings.System.putFloat(getActivity().getContentResolver(),
-                    Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA, valNav / 100);
-            return true;
-        }else if (preference == mNotificationDrawerRowAlpha) {
-            float valNav = Float.parseFloat((String) newValue);
-            Settings.System.putFloat(getActivity().getContentResolver(),
-                    Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA, valNav / 100);
-            return true;
-        }else if (preference == mNotificationDrawerBackground) {
+        if (preference == mNotificationDrawerBackground) {
             int indexOf = mNotificationDrawerBackground.findIndexOfValue(newValue.toString());
             switch (indexOf) {
             //Displays color dialog when user has chosen color fill
             case 0:
-                final ColorPickerView colorView = new ColorPickerView(mActivity);
-                int currentColor = Settings.System.getInt(getContentResolver(),
-                        Settings.System.NOTIFICATION_DRAWER_BACKGROUND, -1);
-                if (currentColor != -1) {
-                    colorView.setColor(currentColor);
-                }
-                colorView.setAlphaSliderVisible(false);
-                new AlertDialog.Builder(mActivity)
-                .setTitle(R.string.notification_drawer_background_custom_dialog_title)
-                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener(){
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Settings.System.putInt(getContentResolver(), Settings.System.NOTIFICATION_DRAWER_BACKGROUND, colorView.getColor());
-                        updateCustomBackgroundSummary();
-                        deleteWallpaper(false);
-                        deleteWallpaper(true);
-                        observerResourceHelper();
-                    }
-                }).setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener(){
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                }).setView(colorView).show();
+            mNotificationDrawerBackgroundColor.setEnabled(true);
                 break;
             //Launches intent for user to select an image/crop it to set as background
             case 1:
@@ -332,7 +306,17 @@ public class NotificationDrawerBackgroundStyle extends SettingsPreferenceFragmen
                 break;
             }
             return true;
-        }else if (preference == mNotificationDrawerBackgroundLandscape) {
+        } else if (preference == mNotificationDrawerBackgroundColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NOTIFICATION_DRAWER_BACKGROUND, intHex);
+            observerResourceHelper();
+            updateCustomBackgroundSummary();
+            deleteWallpaper(false);
+            deleteWallpaper(true);
+            return true;
+        } else if (preference == mNotificationDrawerBackgroundLandscape) {
 
             int indexOf = mNotificationDrawerBackgroundLandscape.findIndexOfValue(newValue.toString());
             switch (indexOf) {
@@ -376,6 +360,16 @@ public class NotificationDrawerBackgroundStyle extends SettingsPreferenceFragmen
                 updateCustomBackgroundSummary();
                 break;
             }
+            return true;
+        } else if (preference == mNotificationDrawerBackgroundAlpha) {
+            float valNav = Float.parseFloat((String) newValue);
+            Settings.System.putFloat(getActivity().getContentResolver(),
+                    Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA, valNav / 100);
+            return true;
+        } else if (preference == mNotificationDrawerRowAlpha) {
+            float valNav = Float.parseFloat((String) newValue);
+            Settings.System.putFloat(getActivity().getContentResolver(),
+                    Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA, valNav / 100);
             return true;
         }
         return false;
