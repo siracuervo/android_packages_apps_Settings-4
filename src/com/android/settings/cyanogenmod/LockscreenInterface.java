@@ -49,7 +49,7 @@ import android.widget.Toast;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.notificationlight.ColorPickerView;
+import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
 
 public class LockscreenInterface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -67,6 +67,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_LOCKSCREEN_MAXIMIZE_WIDGETS = "lockscreen_maximize_widgets";
     private static final String KEY_LOCKSCREEN_MUSIC_CONTROLS = "lockscreen_music_controls";
     private static final String KEY_BACKGROUND = "lockscreen_background";
+    private static final String KEY_BACKGROUND_COLOR = "lockscreen_background_color";
     private static final String KEY_SCREEN_SECURITY = "screen_security";
 
     private static final String LOCKSCREEN_GENERAL_CATEGORY = "lockscreen_general_category";
@@ -75,6 +76,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_LOCKSCREEN_ENABLE_CAMERA = "lockscreen_enable_camera";
 
     private ListPreference mCustomBackground;
+    private ColorPickerPreference mCustomBackgroundColor;
     private ListPreference mBatteryStatus;
     private CheckBoxPreference mMaximizeWidgets;
     private CheckBoxPreference mMusicControls;
@@ -134,6 +136,9 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         // This applies to all users
         mCustomBackground = (ListPreference) findPreference(KEY_BACKGROUND);
         mCustomBackground.setOnPreferenceChangeListener(this);
+        mCustomBackgroundColor = (ColorPickerPreference) findPreference(KEY_BACKGROUND_COLOR);
+        mCustomBackgroundColor.setOnPreferenceChangeListener(this);
+        mCustomBackgroundColor.setAlphaSliderEnabled(true);
         updateCustomBackgroundSummary();
 
         mEnableWidgets = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_ENABLE_WIDGETS);
@@ -161,12 +166,21 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         if (value == null) {
             resId = R.string.lockscreen_background_default_wallpaper;
             mCustomBackground.setValueIndex(LOCKSCREEN_BACKGROUND_DEFAULT_WALLPAPER);
+            mCustomBackgroundColor.setSummary("");
+            mCustomBackgroundColor.setNewPreviewColor(0x00000000);
+            mCustomBackgroundColor.setEnabled(false);
         } else if (value.isEmpty()) {
             resId = R.string.lockscreen_background_custom_image;
             mCustomBackground.setValueIndex(LOCKSCREEN_BACKGROUND_CUSTOM_IMAGE);
+            mCustomBackgroundColor.setSummary("");
+            mCustomBackgroundColor.setNewPreviewColor(0x00000000);
+            mCustomBackgroundColor.setEnabled(false);
         } else {
             resId = R.string.lockscreen_background_color_fill;
             mCustomBackground.setValueIndex(LOCKSCREEN_BACKGROUND_COLOR_FILL);
+            mCustomBackgroundColor.setEnabled(true);
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(value)));
+            mCustomBackgroundColor.setSummary(hex);
         }
         mCustomBackground.setSummary(getResources().getString(resId));
     }
@@ -241,6 +255,13 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         } else if (preference == mCustomBackground) {
             int selection = mCustomBackground.findIndexOfValue(objValue.toString());
             return handleBackgroundSelection(selection);
+        } else if (preference == mCustomBackgroundColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(objValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_BACKGROUND, intHex);
+            updateCustomBackgroundSummary();
+            return true;
         } else if (preference == mEnableCamera) {
             updateKeyguardState((Boolean) objValue, mEnableWidgets.isChecked());
             return true;
@@ -267,33 +288,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
     private boolean handleBackgroundSelection(int selection) {
         if (selection == LOCKSCREEN_BACKGROUND_COLOR_FILL) {
-            final ColorPickerView colorView = new ColorPickerView(getActivity());
-            int currentColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.LOCKSCREEN_BACKGROUND, -1);
-
-            if (currentColor != -1) {
-                colorView.setColor(currentColor);
-            }
-            colorView.setAlphaSliderVisible(true);
-
-            new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.lockscreen_custom_background_dialog_title)
-                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getContentResolver(),
-                                    Settings.System.LOCKSCREEN_BACKGROUND, colorView.getColor());
-                            updateCustomBackgroundSummary();
-                        }
-                    })
-                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    })
-                    .setView(colorView)
-                    .show();
+            mCustomBackgroundColor.setEnabled(true);
         } else if (selection == LOCKSCREEN_BACKGROUND_CUSTOM_IMAGE) {
             final Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
             intent.setType("image/*");

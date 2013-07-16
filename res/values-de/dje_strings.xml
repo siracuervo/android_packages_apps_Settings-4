@@ -32,6 +32,7 @@
     <string name="cat_options_title">Optionen</string>
     <string name="background_title">Hintergrund</string>
     <string name="color_title">Farbe</string>
+    <string name="color_fill_title">Farbfüllung</string>
     <string name="transparency_title">Transparenz</string>
     <string name="reset_cm_default">Auf CM Standard zurücksetzten</string>
     <string name="reset_dark_jelly_default">Auf Dark Jelly Standard zurücksetzten</string>

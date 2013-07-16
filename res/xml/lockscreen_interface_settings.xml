@@ -37,6 +37,11 @@
             android:entries="@array/lockscreen_background_entries"
             android:entryValues="@array/lockscreen_background_values" />
 
+		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+		    android:key="lockscreen_background_color"
+		    android:title="@string/color_fill_title"
+		    android:defaultValue="0x00000000" />
+
         <ListPreference
             android:key="lockscreen_battery_status"
             android:persistent="false"
