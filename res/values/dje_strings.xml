@@ -127,7 +127,6 @@
     <string name="notification_cw_label_style_title">Carrier and Wifi network name</string>
     <string name="notification_drawer_background_title">Type of the background</string>
     <string name="notification_drawer_background_landscape_title">Different landscape background</string>
-    <string name="notification_drawer_background_color_fill">Color fill</string>
     <string name="notification_drawer_background_custom_image">Custom image</string>
     <string name="notification_drawer_background_default_wallpaper">Default background</string>
     <string name="notification_drawer_background_custom_dialog_title">Choose color</string>

@@ -148,17 +148,23 @@ public class NotificationDrawerBackgroundStyle extends SettingsPreferenceFragmen
             resId = R.string.notification_drawer_background_default_wallpaper;
             mNotificationDrawerBackground.setValueIndex(2);
             mNotificationDrawerBackgroundLandscape.setEnabled(false);
+            mNotificationDrawerBackgroundColor.setSummary("");
+            mNotificationDrawerBackgroundColor.setNewPreviewColor(0x00000000);
             mNotificationDrawerBackgroundColor.setEnabled(false);
         } else if (value.isEmpty()) {
             resId = R.string.notification_drawer_background_custom_image;
             mNotificationDrawerBackground.setValueIndex(1);
             mNotificationDrawerBackgroundLandscape.setEnabled(true);
+            mNotificationDrawerBackgroundColor.setSummary("");
+            mNotificationDrawerBackgroundColor.setNewPreviewColor(0x00000000);
             mNotificationDrawerBackgroundColor.setEnabled(false);
         } else {
-            resId = R.string.notification_drawer_background_color_fill;
+            resId = R.string.color_fill_title;
             mNotificationDrawerBackground.setValueIndex(0);
             mNotificationDrawerBackgroundLandscape.setEnabled(false);
             mNotificationDrawerBackgroundColor.setEnabled(true);
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(value)));
+            mNotificationDrawerBackgroundColor.setSummary(hex);
         }
         mNotificationDrawerBackground.setSummary(getResources().getString(resId));
 

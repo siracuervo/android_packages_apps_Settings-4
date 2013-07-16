@@ -90,7 +90,7 @@
     </string-array>
 
    <string-array name="notification_drawer_background_entries">
-        <item>@string/notification_drawer_background_color_fill</item>
+        <item>@string/color_fill_title</item>
         <item>@string/notification_drawer_background_custom_image</item>
         <item>@string/notification_drawer_background_default_wallpaper</item>
     </string-array>
