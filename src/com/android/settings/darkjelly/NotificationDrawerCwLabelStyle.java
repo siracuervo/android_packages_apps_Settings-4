@@ -64,17 +64,18 @@ public class NotificationDrawerCwLabelStyle extends SettingsPreferenceFragment i
         }
 
         addPreferencesFromResource(R.xml.notification_drawer_cw_label_style);
-
+ 
         mNotificationCwLabelColor = (ColorPickerPreference) findPreference(PREF_NOTIFICATION_CW_LABEL_COLOR);
-        mCustomLabel = findPreference(PREF_CUSTOM_CARRIER_LABEL);
-        mNotificationShowWifiSsid = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
-
         mNotificationCwLabelColor.setOnPreferenceChangeListener(this);
-
-        int notificationCwLabelColor = Settings.System.getInt(getActivity().getContentResolver(),
+        int intColor = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.NOTIFICATION_CARRIER_WIFI_LABEL_COLOR, 0xff999999);
-        mNotificationCwLabelColor.setNewPreviewColor(notificationCwLabelColor);
+        mNotificationCwLabelColor.setNewPreviewColor(intColor);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mNotificationCwLabelColor.setSummary(hexColor);
 
+        mCustomLabel = findPreference(PREF_CUSTOM_CARRIER_LABEL);
+
+        mNotificationShowWifiSsid = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
         mNotificationShowWifiSsid.setChecked(Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
 
@@ -112,6 +113,7 @@ public class NotificationDrawerCwLabelStyle extends SettingsPreferenceFragment i
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NOTIFICATION_CARRIER_WIFI_LABEL_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
         }
         return false;

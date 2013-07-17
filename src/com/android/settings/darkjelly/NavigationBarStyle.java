@@ -35,10 +35,10 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements On
 
     private static final String TAG = "NavigationBarStyle";
 
-    private static final String PREF_NAVIGATION_BAR_COLOR = "navigation_bar_color";
+    private static final String PREF_NAV_BAR_COLOR = "nav_bar_color";
     private static final String PREF_NAV_BUTTONS_HEIGHT = "nav_buttons_height";
 
-    private ColorPickerPreference mNavigationBarColor;
+    private ColorPickerPreference mNavBarColor;
     private ListPreference mNavButtonsHeight;
 
     @Override
@@ -55,19 +55,20 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements On
 
         addPreferencesFromResource(R.xml.navigationbar_bar_style);
 
-        mNavigationBarColor = (ColorPickerPreference) findPreference(PREF_NAVIGATION_BAR_COLOR);
-        mNavButtonsHeight = (ListPreference) findPreference(PREF_NAV_BUTTONS_HEIGHT);
-
+        mNavBarColor = (ColorPickerPreference) findPreference(PREF_NAV_BAR_COLOR);
+        mNavBarColor.setOnPreferenceChangeListener(this);
         int intColor = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.NAVIGATION_BAR_COLOR, 0xff000000); 
-        mNavigationBarColor.setNewPreviewColor(intColor);
-        mNavigationBarColor.setOnPreferenceChangeListener(this);
+        mNavBarColor.setNewPreviewColor(intColor);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mNavBarColor.setSummary(hexColor);
 
-        int statusNavButtonsHeight = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                 Settings.System.NAV_BUTTONS_HEIGHT, 48);
-        mNavButtonsHeight.setValue(String.valueOf(statusNavButtonsHeight));
-        mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntry());
+        mNavButtonsHeight = (ListPreference) findPreference(PREF_NAV_BUTTONS_HEIGHT);
         mNavButtonsHeight.setOnPreferenceChangeListener(this);
+        int intHeight = Settings.System.getInt(getActivity().getContentResolver(),
+                 Settings.System.NAV_BUTTONS_HEIGHT, 48);
+        mNavButtonsHeight.setValue(String.valueOf(intHeight));
+        mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntry());
 
         setHasOptionsMenu(true);
     }
@@ -99,17 +100,18 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements On
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mNavigationBarColor) {
+        if (preference == mNavBarColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NAVIGATION_BAR_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
         } else if (preference == mNavButtonsHeight) {
-            int statusNavButtonsHeight = Integer.valueOf((String) newValue);
+            int intHeight = Integer.valueOf((String) newValue);
             int index = mNavButtonsHeight.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.NAV_BUTTONS_HEIGHT, statusNavButtonsHeight);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NAV_BUTTONS_HEIGHT, intHeight);
             mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntries()[index]);
             return true;
         }

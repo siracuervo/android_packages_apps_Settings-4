@@ -55,14 +55,14 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
         addPreferencesFromResource(R.xml.status_bar_expanded_header);
 
         mHeaderClockDateColor = (ColorPickerPreference) findPreference(PREF_HEADER_CLOCK_COLOR);
-        mHeaderSettingsButton = (CheckBoxPreference) findPreference(PREF_HEADER_SETTINGS_BUTTON);
-
         mHeaderClockDateColor.setOnPreferenceChangeListener(this);
-
-        int headerClockDateColor = Settings.System.getInt(getActivity().getContentResolver(),
+        int intColor = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, 0xffffffff);
-        mHeaderClockDateColor.setNewPreviewColor(headerClockDateColor);
+        mHeaderClockDateColor.setNewPreviewColor(intColor);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mHeaderClockDateColor.setSummary(hexColor);
 
+        mHeaderSettingsButton = (CheckBoxPreference) findPreference(PREF_HEADER_SETTINGS_BUTTON);
         mHeaderSettingsButton.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, 0) == 1);
 
@@ -96,6 +96,7 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
         }
         return false;

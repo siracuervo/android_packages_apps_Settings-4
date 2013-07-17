@@ -19,7 +19,7 @@
     android:title="@string/navigation_bar_title">
 
     <com.android.settings.darkjelly.colorpicker.ColorPickerPreference
-        android:key="navigation_bar_color"
+        android:key="nav_bar_color"
         android:title="@string/color_title"
         android:defaultValue="#000000" />
 

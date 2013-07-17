@@ -58,14 +58,15 @@ public class StatusBarBackgroundStyle extends SettingsPreferenceFragment impleme
         addPreferencesFromResource(R.xml.status_bar_background_style);
 
         mStatusBarColor = (ColorPickerPreference) findPreference(PREF_STATUS_BAR_COLOR);
-        mStatusbarTransparency = (SeekBarPreference) findPreference(PREF_STATUS_BAR_ALPHA);
-        mStatusbarAlphaMode = (ListPreference) findPreference(PREF_STATUS_BAR_ALPHA_MODE);
-
-        int statusBarColor = Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_COLOR, 0xff000000); 
-        mStatusBarColor.setNewPreviewColor(statusBarColor);
         mStatusBarColor.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_COLOR, 0xff000000); 
+        mStatusBarColor.setNewPreviewColor(intColor);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mStatusBarColor.setSummary(hexColor);
 
+        mStatusbarTransparency = (SeekBarPreference) findPreference(PREF_STATUS_BAR_ALPHA);
+        mStatusbarTransparency.setOnPreferenceChangeListener(this);
         float statBarTransparency = 0.0f;
         try{
             statBarTransparency = Settings.System.getFloat(getActivity()
@@ -76,13 +77,13 @@ public class StatusBarBackgroundStyle extends SettingsPreferenceFragment impleme
         }
         mStatusbarTransparency.setProperty(Settings.System.STATUS_BAR_ALPHA);
         mStatusbarTransparency.setInitValue((int) (statBarTransparency * 100));
-        mStatusbarTransparency.setOnPreferenceChangeListener(this);
 
+        mStatusbarAlphaMode = (ListPreference) findPreference(PREF_STATUS_BAR_ALPHA_MODE);
+        mStatusbarAlphaMode.setOnPreferenceChangeListener(this);
         int statusbarAlphaMode = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.STATUS_BAR_ALPHA_MODE, 1);
         mStatusbarAlphaMode.setValue(String.valueOf(statusbarAlphaMode));
         mStatusbarAlphaMode.setSummary(mStatusbarAlphaMode.getEntry());
-        mStatusbarAlphaMode.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
     }
@@ -116,6 +117,7 @@ public class StatusBarBackgroundStyle extends SettingsPreferenceFragment impleme
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
         } else if (preference == mStatusbarTransparency) {
             float valStat = Float.parseFloat((String) newValue);
