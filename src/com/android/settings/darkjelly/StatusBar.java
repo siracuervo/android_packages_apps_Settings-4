@@ -107,7 +107,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         } catch (SettingNotFoundException e) {
         }
 
-
         mStatusBarBrightnessControl.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
 
