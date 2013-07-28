@@ -42,6 +42,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_SHOW_CLOCK = "status_bar_show_clock";
     private static final String STATUS_BAR_SHOW_BATTERY_STATUS = "status_bar_show_battery_status";
     private static final String STATUS_BAR_SHOW_BATTERY_BAR = "status_bar_show_battery_bar";
+    private static final String STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR = "status_bar_enable_network_speed_indicator";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
@@ -50,6 +51,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private CheckBoxPreference mStatusBarShowClock;
     private CheckBoxPreference mStatusBarShowBatteryStatus;
     private CheckBoxPreference mStatusBarShowBatteryBar;
+    private CheckBoxPreference mStatusBarNetworkSpeed;
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusBarBrightnessControl;
     private CheckBoxPreference mStatusBarNotifCount;
@@ -72,6 +74,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarShowClock = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_CLOCK);
         mStatusBarShowBatteryStatus = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_BATTERY_STATUS);
         mStatusBarShowBatteryBar = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_BATTERY_BAR);
+        mStatusBarNetworkSpeed = (CheckBoxPreference) findPreference(STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR);
         mStatusBarCmSignal = (ListPreference) findPreference(STATUS_BAR_SIGNAL);
         mStatusBarBrightnessControl = (CheckBoxPreference) findPreference(STATUS_BAR_BRIGHTNESS_CONTROL);
         mStatusBarNotifCount = (CheckBoxPreference) findPreference(STATUS_BAR_NOTIF_COUNT);
@@ -85,6 +88,9 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         mStatusBarShowBatteryBar.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, 0) == 1));
+
+        mStatusBarNetworkSpeed.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR, 0) == 1));
 
         int signalStyle = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_SIGNAL_TEXT, 0);
@@ -129,11 +135,13 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         switch (item.getItemId()) {
             case R.id.reset_statusbar:
                 Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_SHOW_CLOCK, 1);
+                        Settings.System.STATUS_BAR_SHOW_CLOCK, 1);
                 Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_SHOW_BATTERY_STATUS, 1);
+                        Settings.System.STATUS_BAR_SHOW_BATTERY_STATUS, 1);
                 Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, 0);
+                        Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, 0);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR, 0);
                 Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.STATUS_BAR_SIGNAL_TEXT, 0);
                 Settings.System.putInt(getActivity().getContentResolver(),
@@ -176,6 +184,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             value = mStatusBarShowBatteryBar.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, value ? 1 : 0);
+            return true;
+        } else if (preference == mStatusBarNetworkSpeed) {
+            value = mStatusBarNetworkSpeed.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR, value ? 1 : 0);
             return true;
         } else if (preference == mStatusBarBrightnessControl) {
             value = mStatusBarBrightnessControl.isChecked();

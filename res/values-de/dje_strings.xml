@@ -44,9 +44,14 @@
 
     <!-- Statusbar -->
 
+    <!-- Statusbar strings  -->
+    <string name="status_bar_enable_network_speed_indicator_title">Netzw.-Geschw.-Anz. aktivieren</string>
+    <string name="status_bar_enable_network_speed_indicator_summary">Aktivieren, um die Netzwerk-Geschwindigkeits-Anzeige einzuschalten</string>
+
     <!-- Statusbar style strings  -->
     <string name="status_bar_battery_status_style_title">Akkustatus</string>
     <string name="status_bar_battery_bar_style_title">Akkuleiste</string>
+    <string name="status_bar_network_speed_title">Netzw.-Geschw. Anzeige</string>
 
     <!-- Statusbar style background strings  -->
     <string name="status_bar_alpha_mode_dialog_text_title">Anzeige der Statusleisten Transparenz</string>
@@ -110,6 +115,18 @@
     <string name="status_bar_show_battery_status_summary">Aktivieren um den Akkustatus in der Statusleiste anzuzeigen</string>
     <string name="status_bar_show_battery_bar_title">Die Akkuleiste anzeigen</string>
     <string name="status_bar_show_battery_bar_summary">Aktivieren um die Akkuleiste anzuzeigen</string>
+
+    <!-- Network speed strings -->
+    <string name="network_speed_download_title">Download Geschw. anzeigen</string>
+    <string name="network_speed_download_summary">Aktivieren um die Download Geschwindigkeit in der Statusleiste anzuzeigen</string>
+    <string name="network_speed_upload_title">Upload Geschw. anzeigen</string>
+    <string name="network_speed_upload_summary">Aktivieren um die Upload Geschwindigkeit in der Statusleiste anzuzeigen</string>
+    <string name="network_speed_bit_byte_title">Bit-Werte anzeigen</string>
+    <string name="network_speed_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
+    <string name="network_speed_hide_traffic_title">Anzeige verstecken</string>
+    <string name="network_speed_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
+    <string name="color_download_title">Download Farbe</string>
+    <string name="color_upload_title">Upload Farbe</string>
 
     <!-- Statusbar expanded -->
 

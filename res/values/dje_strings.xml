@@ -44,9 +44,14 @@
 
     <!-- Statusbar -->
 
+    <!-- Statusbar strings  -->
+    <string name="status_bar_enable_network_speed_indicator_title">Enable network speed indicator</string>
+    <string name="status_bar_enable_network_speed_indicator_summary">Enable, to activate the network speed indicator</string>
+
     <!-- Statusbar style strings  -->
     <string name="status_bar_battery_status_style_title">Battery status</string>
     <string name="status_bar_battery_bar_style_title">Battery bar</string>
+    <string name="status_bar_network_speed_title">Network speed indicator</string>
 
     <!-- Statusbar style background strings  -->
     <string name="status_bar_alpha_mode_dialog_text_title">Show status bar transparency</string>
@@ -110,6 +115,18 @@
     <string name="status_bar_show_battery_status_summary">Enable to show the battery status in the status bar</string>
     <string name="status_bar_show_battery_bar_title">Show battery bar</string>
     <string name="status_bar_show_battery_bar_summary">Enable to show the battery bar</string>
+
+    <!-- Network speed strings -->
+    <string name="network_speed_download_title">Show download speed</string>
+    <string name="network_speed_download_summary">Enable to show the download speed in the status bar</string>
+    <string name="network_speed_upload_title">Show upload speed</string>
+    <string name="network_speed_upload_summary">Enable to show the upload speed in the status bar</string>
+    <string name="network_speed_bit_byte_title">Show bit values</string>
+    <string name="network_speed_bit_byte_summary">Enable to show the values in bit instead of byte</string>
+    <string name="network_speed_hide_traffic_title">Hide the indicator</string>
+    <string name="network_speed_hide_traffic_summary">Enable to hide the indicator if there is no traffic</string>
+    <string name="color_download_title">Download Color</string>
+    <string name="color_upload_title">Upload Color</string>
 
     <!-- Statusbar expanded -->
 

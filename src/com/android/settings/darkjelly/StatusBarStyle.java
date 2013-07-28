@@ -31,6 +31,7 @@ public class StatusBarStyle extends SettingsPreferenceFragment {
     private PreferenceScreen mStatusBarBatteryStatusStyle;
     private PreferenceScreen mStatusBarBatteryBarStyle;
     private PreferenceScreen mStatusBarClockStyle;
+    private PreferenceScreen StatusBarNetworkSpeedStyle;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class StatusBarStyle extends SettingsPreferenceFragment {
         mStatusBarBatteryStatusStyle = (PreferenceScreen) findPreference("status_bar_battery_status_style");
         mStatusBarBatteryBarStyle = (PreferenceScreen) findPreference("status_bar_battery_bar_style");
         mStatusBarClockStyle = (PreferenceScreen) findPreference("status_bar_clock_style");
+        StatusBarNetworkSpeedStyle = (PreferenceScreen) findPreference("status_bar_network_speed_style");
 
 
         boolean isBatteryStatusEnabled = Settings.System.getInt(getContentResolver(),
@@ -51,6 +53,9 @@ public class StatusBarStyle extends SettingsPreferenceFragment {
 
         boolean isClockEnabled = Settings.System.getInt(getContentResolver(),
                Settings.System.STATUS_BAR_SHOW_CLOCK, 1) == 1;
+
+        boolean isNetworkSpeedIndicatorEnabled = Settings.System.getInt(getContentResolver(),
+               Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR, 0) == 1;
 
         if (isBatteryStatusEnabled) {
             mStatusBarBatteryStatusStyle.setEnabled(true);
@@ -68,6 +73,12 @@ public class StatusBarStyle extends SettingsPreferenceFragment {
             mStatusBarClockStyle.setEnabled(true);
         } else {
             mStatusBarClockStyle.setEnabled(false);
+        }
+
+        if (isNetworkSpeedIndicatorEnabled) {
+            StatusBarNetworkSpeedStyle.setEnabled(true);
+        } else {
+            StatusBarNetworkSpeedStyle.setEnabled(false);
         }
     }
 }
