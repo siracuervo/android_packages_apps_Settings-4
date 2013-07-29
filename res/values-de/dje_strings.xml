@@ -16,6 +16,21 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Device info settings -->
 
+    <!-- Change Log strings -->
+    <string name="changelog_summary">CyanogenMod Changelog</string>
+    <string name="djechangelog_summary">Dark Jelly Edition Changelog</string>
+
+    <!-- Section strings -->
+    <string name="general_info_section_title">Allgemein</string>
+    <string name="cm_section_title">CyanogenMod</string>
+	<string name="dje_section_title">Dark Jelly Edition</string>
+	<string name="hw_section_title">Hardware</string>
+	<string name="sw_section_title">Software</string>
+
+    <!-- OTA update strings -->
+    <string name="update_me_app_settings_title">OTA Update (UpdateMeApp ausführen)</string>
+    <string name="update_me_app_settings_summary">Dark Jelly Edition Updates</string>
+
     <!-- Build version strings -->
     <string name="build_version">Build-Version</string>
 </resources>
