@@ -14,6 +14,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- System settings -->
+
+    <!-- General strings -->
+    <string name="general_title">Allgemein</string>
+    <string name="dual_pane_title">Tablet Dual-Panel Modus</string>
+    <string name="dual_pane_summary">Die Einstellungen neustarten, um die Änderungen wirksam zu machen</string>
+
     <!-- Device info settings -->
 
     <!-- Change Log strings -->
