@@ -27,6 +27,7 @@ import android.content.Intent;
 import android.content.RestrictionEntry;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
@@ -143,6 +144,16 @@ public class Settings extends PreferenceActivity
     private AuthenticatorHelper mAuthenticatorHelper;
     private Header mLastHeader;
     private boolean mListeningToAccountUpdates;
+    private boolean isPackageExists(String targetPackage){
+        List<ApplicationInfo> packages;
+        PackageManager pm;
+            pm = getPackageManager();        
+            packages = pm.getInstalledApplications(0);
+            for (ApplicationInfo packageInfo : packages) {
+        if(packageInfo.packageName.equals(targetPackage)) return true;
+        }        
+    return false;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -495,6 +506,9 @@ public class Settings extends PreferenceActivity
                 }
             } else if (id == R.id.superuser) {
                 if (!DevelopmentSettings.isRootForAppsEnabled()) {
+                    target.remove(i);
+                // Remove Superuser Settings if SuperSU is installed
+                } else if (isPackageExists("eu.chainfire.supersu")) {
                     target.remove(i);
                 }
             } else if (id == R.id.account_add) {
