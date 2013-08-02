@@ -38,9 +38,13 @@ public class General extends SettingsPreferenceFragment implements
 
     private static final String PREF_DUAL_PANE = "dual_pane";
     private static final String PREF_EXPANDED_DESKTOP = "expanded_desktop";
+    private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar";
+    private static final String KEY_LOW_BATTERY_WARNING_POLICY = "low_battery_warning_policy";
 
     private CheckBoxPreference mDualPane;
     private ListPreference mExpandedDesktopPref;
+    private Preference mRamBar;
+    private ListPreference mLowBatteryWarning;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,21 +61,35 @@ public class General extends SettingsPreferenceFragment implements
         mDualPane.setChecked(dualPaneMode);
 
         mExpandedDesktopPref = (ListPreference) findPreference(PREF_EXPANDED_DESKTOP);
-
         int expandedDesktopValue = Settings.System.getInt(getContentResolver(),
                 Settings.System.EXPANDED_DESKTOP_STYLE, 0);
-
         mExpandedDesktopPref.setOnPreferenceChangeListener(this);
         mExpandedDesktopPref.setValue(String.valueOf(expandedDesktopValue));
         updateExpandedDesktop(expandedDesktopValue);
 
+        mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
 
+        mLowBatteryWarning = (ListPreference) findPreference(KEY_LOW_BATTERY_WARNING_POLICY);
+        int lowBatteryWarning = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, 0);
+        mLowBatteryWarning.setValue(String.valueOf(lowBatteryWarning));
+        mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
+        mLowBatteryWarning.setOnPreferenceChangeListener(this);
+
+        updateRamBar();
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mExpandedDesktopPref) {
             int expandedDesktopValue = Integer.valueOf((String) objValue);
             updateExpandedDesktop(expandedDesktopValue);
+            return true;
+        } else if (preference == mLowBatteryWarning) {
+            int lowBatteryWarning = Integer.valueOf((String) objValue);
+            int index = mLowBatteryWarning.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, lowBatteryWarning);
+            mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntries()[index]);
             return true;
         }
 
@@ -114,4 +132,25 @@ public class General extends SettingsPreferenceFragment implements
             mExpandedDesktopPref.setSummary(res.getString(summary));
         }
     }
+
+    private void updateRamBar() {
+        int ramBarMode = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.RECENTS_RAM_BAR_MODE, 0);
+        if (ramBarMode != 0)
+            mRamBar.setSummary(getResources().getString(R.string.ram_bar_color_enabled));
+        else
+            mRamBar.setSummary(getResources().getString(R.string.ram_bar_color_disabled));
+    }
+
+     @Override
+     public void onResume() {
+         super.onResume();
+         updateRamBar();
+     }
+ 
+     @Override
+     public void onPause() {
+         super.onResume();
+         updateRamBar();
+     } 
 }
