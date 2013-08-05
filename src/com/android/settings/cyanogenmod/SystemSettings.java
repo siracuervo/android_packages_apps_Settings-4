@@ -24,7 +24,6 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.preference.Preference;
-import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.util.Log;
@@ -40,18 +39,14 @@ public class SystemSettings extends SettingsPreferenceFragment {
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_BATTERY_LIGHT = "battery_light";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
-    private static final String KEY_NAVIGATION_BAR = "navigation_bar";
-    private static final String KEY_NAVIGATION_RING = "navigation_ring";
-    private static final String KEY_NAVIGATION_BAR_CATEGORY = "navigation_bar_category";
+    private static final String KEY_NAVIGATION_BAR_SETTINGS = "navigation_bar";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_STATUS_BAR = "status_bar";
     private static final String KEY_QUICK_SETTINGS = "quick_settings_panel";
     private static final String KEY_NOTIFICATION_DRAWER = "notification_drawer";
-    private static final String KEY_PIE_CONTROL = "pie_control";
 
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
-    private PreferenceScreen mPieControl;
 
     private boolean mIsPrimary;
 
@@ -66,9 +61,6 @@ public class SystemSettings extends SettingsPreferenceFragment {
         // and the navigation bar config on phones that has a navigation bar
         boolean removeKeys = false;
         boolean removeNavbar = false;
-
-        PreferenceCategory navbarCategory =
-                (PreferenceCategory) findPreference(KEY_NAVIGATION_BAR_CATEGORY);
 
         IWindowManager windowManager = IWindowManager.Stub.asInterface(
                 ServiceManager.getService(Context.WINDOW_SERVICE));
@@ -86,7 +78,7 @@ public class SystemSettings extends SettingsPreferenceFragment {
             prefScreen.removePreference(findPreference(KEY_HARDWARE_KEYS));
         }
         if (removeNavbar) {
-            prefScreen.removePreference(navbarCategory);
+            prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR_SETTINGS));
         }
 
         // Determine which user is logged in
@@ -117,14 +109,6 @@ public class SystemSettings extends SettingsPreferenceFragment {
             }
         }
 
-        // Pie controls
-        mPieControl = (PreferenceScreen) findPreference(KEY_PIE_CONTROL);
-        if (mPieControl != null && removeNavbar) {
-            // Remove on devices without a navbar to start with
-            prefScreen.removePreference(mPieControl);
-            mPieControl = null;
-        }
-
         // Don't display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
     }
@@ -136,9 +120,6 @@ public class SystemSettings extends SettingsPreferenceFragment {
         // All users
         if (mNotificationPulse != null) {
             updateLightPulseDescription();
-        }
-        if (mPieControl != null) {
-            updatePieControlDescription();
         }
 
         // Primary user only
@@ -167,15 +148,6 @@ public class SystemSettings extends SettingsPreferenceFragment {
             mBatteryPulse.setSummary(getString(R.string.notification_light_enabled));
         } else {
             mBatteryPulse.setSummary(getString(R.string.notification_light_disabled));
-        }
-     }
-
-    private void updatePieControlDescription() {
-        if (Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.PIE_CONTROLS, 0) == 1) {
-            mPieControl.setSummary(getString(R.string.pie_control_enabled));
-        } else {
-            mPieControl.setSummary(getString(R.string.pie_control_disabled));
         }
     }
 }

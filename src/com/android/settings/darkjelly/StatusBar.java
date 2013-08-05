@@ -1,6 +1,8 @@
 /*
  * Copyright (C) 2012 The CyanogenMod Project
  *
+ * Copyright (C) 2013 Dark Jelly
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.cyanogenmod;
+package com.android.settings.darkjelly;
 
 import android.content.ContentResolver;
 import android.os.Bundle;
@@ -34,6 +36,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+
+    private static final String TAG = "StatusBar";
 
     private static final String STATUS_BAR_CLOCK_CATEGORY = "status_bar_clock";
     private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";

@@ -26,6 +26,19 @@
     <string name="set">Setzen</string>
     <string name="theme_default_color">Design Standard</string>
 
+    <!-- Global used strings  -->
+    <string name="style_title">Style</string>
+    <string name="cat_style_title">Style</string>
+    <string name="background_title">Hintergrund</string>
+    <string name="color_title">Farbe</string>
+    <string name="transparency_title">Transparenz</string>
+    <string name="style_reset">Zurücksetzten</string>
+    <string name="alpha_mode_dialog_text_title">Anzeige der Transparenz</string>
+    <string name="alpha_mode_text_title">Transparenz Modus</string>
+    <string name="alpha_mode_home">Im Launcher</string>
+    <string name="alpha_mode_default">Im Launcher und Sperrbildschirm</string>
+    <string name="alpha_mode_always">Immer</string>
+
     <!-- General strings -->
     <string name="general_title">Allgemein</string>
 
@@ -60,6 +73,28 @@
     <string name="low_battery_warning_policy_notif">Nur Benachrichtigung</string>
     <string name="low_battery_warning_policy_sound">Nur Ton</string>
     <string name="low_battery_warning_policy_disabled">Deaktiviert</string>
+
+    <!-- Navigation strings -->
+    <string name="navigation_title">Navigation</string>
+    <string name="navigation_summary">Die Navigationsleiste &amp;\nPie-Navigation anpassen</string>
+    <string name="cat_nav_ring">Navigations-Ring</string>
+    <string name="cat_pie_control">Pie</string>
+
+    <!-- Navigation bar strings -->
+    <string name="navigation_bar_title">Navigationsleiste </string>
+    <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
+    <string name="navigation_bar_edit_summary">Schaltflächen bearbeiten</string>
+
+    <!-- Navigation bar style strings -->
+    <string name="navigation_bar_height_title">Höhe</string>
+    <string name="navigation_bar_width_title">Breite, (Querformat)</string>
+    <string name="navigation_bar_height_width_48">48dp (Standard)</string>
+    <string name="navigation_bar_height_width_44">44dp</string>
+    <string name="navigation_bar_height_width_40">40dp</string>
+    <string name="navigation_bar_height_width_36">36dp</string>
+    <string name="navigation_bar_height_width_32">32dp</string>
+    <string name="navigation_bar_height_width_28">28dp</string>
+    <string name="navigation_bar_height_width_24">24dp</string>
 
     <!-- Device info settings -->
 

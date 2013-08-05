@@ -26,6 +26,19 @@
     <string name="set">Set</string>
     <string name="theme_default_color">Theme default</string>
 
+    <!-- Global used strings  -->
+    <string name="style_title">Style</string>
+    <string name="cat_style_title">Style</string>
+    <string name="background_title">Background</string>
+    <string name="color_title">Color</string>
+    <string name="transparency_title">Transparency</string>
+    <string name="style_reset">Reset</string>
+    <string name="alpha_mode_dialog_text_title">Show transparency</string>
+    <string name="alpha_mode_text_title">Transparency mode</string>
+    <string name="alpha_mode_home">On launcher</string>
+    <string name="alpha_mode_default">On launcher and keyguard</string>
+    <string name="alpha_mode_always">Always</string>
+
     <!-- General strings -->
     <string name="general_title">General</string>
 
@@ -60,6 +73,28 @@
     <string name="low_battery_warning_policy_notif">Notification only</string>
     <string name="low_battery_warning_policy_sound">Sound only</string>
     <string name="low_battery_warning_policy_disabled">Disabled</string>
+
+    <!-- Navigation strings -->
+    <string name="navigation_title">Navigation</string>
+    <string name="navigation_summary">Customize the Navigation bar &amp;\nPie controls</string>
+    <string name="cat_nav_ring">Navigation ring</string>
+    <string name="cat_pie_control">Pie</string>
+
+    <!-- Navigation bar strings -->
+    <string name="navigation_bar_title">Navigation bar</string>
+    <string name="navigation_bar_edit_title">Navigation bar customization</string>
+    <string name="navigation_bar_edit_summary">Edit buttons layout</string>
+
+    <!-- Navigation bar style strings -->
+    <string name="navigation_bar_height_title">Height</string>
+    <string name="navigation_bar_width_title">Width, (landscape)</string>
+    <string name="navigation_bar_height_width_48">48dp (default)</string>
+    <string name="navigation_bar_height_width_44">44dp</string>
+    <string name="navigation_bar_height_width_40">40dp</string>
+    <string name="navigation_bar_height_width_36">36dp</string>
+    <string name="navigation_bar_height_width_32">32dp</string>
+    <string name="navigation_bar_height_width_28">28dp</string>
+    <string name="navigation_bar_height_width_24">24dp</string>
 
     <!-- Device info settings -->
 
