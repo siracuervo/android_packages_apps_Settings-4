@@ -23,4 +23,24 @@
 	    android:fragment="com.android.settings.darkjelly.StatusBarBackgroundStyle"
 	    android:title="@string/background_title" />
 
+	<PreferenceScreen
+	    android:key="status_bar_clock_style"
+	    android:fragment="com.android.settings.darkjelly.StatusBarClockStyle"
+	    android:title="@string/status_bar_clock_style_title" />
+
+	<PreferenceScreen
+	    android:key="status_bar_battery_status_style"
+	    android:fragment="com.android.settings.darkjelly.StatusBarBatteryStatusStyle"
+	    android:title="@string/status_bar_battery_status_style_title" />
+
+	<PreferenceScreen
+	    android:key="status_bar_battery_bar_style"
+	    android:fragment="com.android.settings.darkjelly.StatusBarBatteryBarStyle"
+	    android:title="@string/status_bar_battery_bar_style_title" />
+
+	<PreferenceScreen
+	    android:key="status_bar_network_speed_style"
+	    android:fragment="com.android.settings.darkjelly.StatusBarNetworkSpeedStyle"
+	    android:title="@string/status_bar_network_speed_title" />
+
 </PreferenceScreen>

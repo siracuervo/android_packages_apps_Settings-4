@@ -33,6 +33,7 @@
     <string name="color_title">Color</string>
     <string name="transparency_title">Transparency</string>
     <string name="style_reset">Reset</string>
+    <string name="reset_dark_jelly_default">Reset to Dark Jelly default</string>
     <string name="alpha_mode_dialog_text_title">Show transparency</string>
     <string name="alpha_mode_text_title">Transparency mode</string>
     <string name="alpha_mode_home">On launcher</string>
@@ -73,6 +74,81 @@
     <string name="low_battery_warning_policy_notif">Notification only</string>
     <string name="low_battery_warning_policy_sound">Sound only</string>
     <string name="low_battery_warning_policy_disabled">Disabled</string>
+
+    <!-- Statusbar -->
+
+    <!-- Statusbar strings -->
+    <string name="status_bar_show_clock_title">Show clock</string>
+    <string name="status_bar_show_clock_summary">Enable to show the clock in the status bar</string>
+    <string name="status_bar_show_battery_status_title">Show battery status</string>
+    <string name="status_bar_show_battery_status_summary">Enable to show the battery status in the status bar</string>
+    <string name="status_bar_show_battery_bar_title">Show battery bar</string>
+    <string name="status_bar_show_battery_bar_summary">Enable to show the battery bar</string>
+    <string name="status_bar_enable_network_speed_indicator_title">Enable network speed indicator</string>
+    <string name="status_bar_enable_network_speed_indicator_summary">Enable, to activate the network speed indicator</string>
+
+    <!-- Statusbar style strings  -->
+    <string name="status_bar_clock_style_title">Clock</string>
+    <string name="status_bar_clock_style_enabled">Showing clock</string>
+    <string name="status_bar_clock_style_disabled">Clock is hidden</string>
+    <string name="status_bar_battery_status_style_title">Battery status</string>
+    <string name="status_bar_battery_bar_style_title">Battery bar</string>
+    <string name="status_bar_network_speed_title">Network speed indicator</string>
+
+    <!-- Statusbar style clock style strings  -->
+    <string name="status_bar_clock_position_title">Position</string>
+    <string name="status_bar_clock_position_summary">Enabe to show the clock centered in the status bar</string>
+
+    <!-- Statusbar style battery status strings  -->
+    <string name="status_bar_battery_status_style_title">Battery status</string>
+    <string name="style_reset_battery_status">Reset battery status</string>
+    <string name="battery_status_style_title">Icon&#47;text</string>
+    <string name="status_bar_battery_status_percentage">Percentage (Slimroms)</string>
+    <string name="status_bar_battery_status_icon_percentage">Icon &amp; Percentage</string>
+    <string name="status_bar_battery_status_circle">Circle (CM)</string>
+    <string name="status_bar_battery_status_circle_percentage">Circle &amp; percentage (CM)</string>
+    <string name="status_bar_battery_status_ABT">Circle (AlphaBlue Theme)</string>
+    <string name="status_bar_battery_status_AOKP">Circle (AOKP)</string>
+    <string name="status_bar_battery_status_HC">Circle (HoneyComb)</string>
+    <string name="battery_status_circle_dotted_title">Circle dotted (Slimroms)</string>
+    <string name="battery_status_circle_dotted_summary">Activate, to show the battery circle dotted</string>
+    <string name="circle_battery_color">Circle color</string>
+    <string name="battery_text_color">Percentage text color</string>
+    <string name="battery_text_charging_color">Percentage text charging color</string>
+    <string name="circle_battery_animation_speed">Circle animation speed</string>
+    <string name="circle_battery_animation_speed_none">None</string>
+    <string name="circle_battery_animation_speed_slow">Slow</string>
+    <string name="circle_battery_animation_speed_stock">Normal</string>
+    <string name="circle_battery_animation_speed_fast">Fast</string> 
+
+    <!-- Statusbar style battery bar style strings  -->
+    <string name="status_bar_battery_bar_style_title">Battery bar</string>
+    <string name="style_reset_battery_bar">Reset battery bar</string>
+    <string name="battery_bar_position_title">Position</string>
+    <string name="battery_bar_center_summary">Display the battery bar center-mirrored</string>
+    <string name="battery_bar_center_title">Center-mirrored</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string> 
+    <string name="battery_bar_thickness_title">Thickness</string>
+    <string name="battery_bar_statusbar">Statusbar</string>
+    <string name="battery_bar_navbar_top">Top of navigation bar</string>
+    <string name="battery_bar_navbar_buttom">Buttom of navigation bar</string>
+    <string name="battery_bar_thickness_1">1dp (default)</string>
+    <string name="battery_bar_thickness_2">2dp</string>
+    <string name="battery_bar_thickness_3">3dp</string>
+    <string name="battery_bar_thickness_4">4dp</string>
+
+    <!-- Network speed strings -->
+    <string name="network_speed_download_title">Show download speed</string>
+    <string name="network_speed_download_summary">Enable to show the download speed in the status bar</string>
+    <string name="network_speed_upload_title">Show upload speed</string>
+    <string name="network_speed_upload_summary">Enable to show the upload speed in the status bar</string>
+    <string name="network_speed_bit_byte_title">Show bit values</string>
+    <string name="network_speed_bit_byte_summary">Enable to show the values in bit instead of byte</string>
+    <string name="network_speed_hide_traffic_title">Hide the indicator</string>
+    <string name="network_speed_hide_traffic_summary">Enable to hide the indicator if there is no traffic</string>
+    <string name="color_download_title">Download Color</string>
+    <string name="color_upload_title">Upload Color</string>
 
     <!-- Navigation strings -->
     <string name="navigation_title">Navigation</string>

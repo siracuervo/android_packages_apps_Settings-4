@@ -18,40 +18,37 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_title">
 
+    <!-- Status bar tweaks -->
+
 	<PreferenceScreen
 	    android:key="status_bar_style"
 	    android:fragment="com.android.settings.darkjelly.StatusBarStyle"
 	    android:title="@string/style_title" />
 
-    <!-- Status bar tweaks -->
-    <PreferenceCategory
-        android:key="status_bar_clock"
-        android:title="@string/status_bar_clock_title">
-
-       <CheckBoxPreference
-            android:key="status_bar_show_clock"
-            android:title="@string/status_bar_show_clock_title"
-            android:defaultValue="true" />
-
-        <ListPreference
-            android:key="status_bar_am_pm"
-            android:dialogTitle="@string/status_bar_am_pm_title"
-            android:title="@string/status_bar_am_pm_title"
-            android:entries="@array/entries_status_bar_am_pm"
-            android:entryValues="@array/values_status_bar_am_pm" />
-
-    </PreferenceCategory>
-
     <PreferenceCategory
         android:key="status_bar_general"
         android:title="@string/status_bar_general_title">
 
-        <ListPreference
-            android:key="status_bar_battery"
-            android:dialogTitle="@string/status_bar_battery_title"
-            android:title="@string/status_bar_battery_title"
-            android:entries="@array/entries_status_bar_battery"
-            android:entryValues="@array/values_status_bar_battery" />
+        <CheckBoxPreference
+            android:key="status_bar_show_clock"
+            android:title="@string/status_bar_show_clock_title"
+            android:summary="@string/status_bar_show_clock_summary" />
+
+        <CheckBoxPreference
+            android:key="status_bar_show_battery_status"
+            android:title="@string/status_bar_show_battery_status_title"
+            android:summary="@string/status_bar_show_battery_status_summary" />
+
+        <CheckBoxPreference
+            android:key="status_bar_show_battery_bar"
+            android:title="@string/status_bar_show_battery_bar_title"
+            android:summary="@string/status_bar_show_battery_bar_summary" />
+
+        <CheckBoxPreference
+            android:key="status_bar_enable_network_speed_indicator"
+            android:title="@string/status_bar_enable_network_speed_indicator_title"
+            android:summary="@string/status_bar_enable_network_speed_indicator_summary"
+            android:defaultValue="false" />
 
         <ListPreference
             android:key="status_bar_signal"

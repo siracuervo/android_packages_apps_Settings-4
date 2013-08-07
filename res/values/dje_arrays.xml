@@ -59,6 +59,68 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="battery_status_style_entries" >
+        <item>@string/status_bar_style_icon</item>
+        <item>@string/status_bar_battery_status_percentage</item>
+        <item>@string/status_bar_battery_status_icon_percentage</item>
+        <item>@string/status_bar_battery_status_circle</item>
+        <item>@string/status_bar_battery_status_circle_percentage</item>
+        <item>@string/status_bar_battery_status_ABT</item>
+        <item>@string/status_bar_battery_status_AOKP</item>
+        <item>@string/status_bar_battery_status_HC</item>
+    </string-array>
+
+    <string-array name="battery_status_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="circle_battery_animation_speed_entries" >
+        <item>@string/circle_battery_animation_speed_none</item>
+        <item>@string/circle_battery_animation_speed_slow</item>
+        <item>@string/circle_battery_animation_speed_stock</item>
+        <item>@string/circle_battery_animation_speed_fast</item>
+    </string-array>
+
+    <string-array name="circle_battery_animation_speed_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="battery_bar_position_entries" >
+        <item>@string/battery_bar_statusbar</item>
+        <item>@string/battery_bar_navbar_top</item>
+        <item>@string/battery_bar_navbar_buttom</item>
+    </string-array>
+
+    <string-array name="battery_bar_position_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="battery_bar_thickness_entries" >
+        <item>@string/battery_bar_thickness_1</item>
+        <item>@string/battery_bar_thickness_2</item>
+        <item>@string/battery_bar_thickness_3</item>
+        <item>@string/battery_bar_thickness_4</item>
+    </string-array>
+
+    <string-array name="battery_bar_thickness_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
     <string-array name="nav_buttons_height_width_entries" >
         <item>@string/navigation_bar_height_width_48</item>
         <item>@string/navigation_bar_height_width_44</item>

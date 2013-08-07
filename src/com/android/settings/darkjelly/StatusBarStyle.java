@@ -16,6 +16,7 @@
 
 package com.android.settings.darkjelly;
 
+import android.content.ContentResolver;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
@@ -28,9 +29,9 @@ public class StatusBarStyle extends SettingsPreferenceFragment {
 
     private static final String TAG = "StatusBarStyle";
 
+    private PreferenceScreen mStatusBarClockStyle;
     private PreferenceScreen mStatusBarBatteryStatusStyle;
     private PreferenceScreen mStatusBarBatteryBarStyle;
-    private PreferenceScreen mStatusBarClockStyle;
     private PreferenceScreen StatusBarNetworkSpeedStyle;
 
     @Override
@@ -38,6 +39,47 @@ public class StatusBarStyle extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.status_bar_style);
+        ContentResolver resolver = getActivity().getContentResolver();
 
+        mStatusBarClockStyle = (PreferenceScreen) findPreference("status_bar_clock_style");
+        mStatusBarBatteryStatusStyle = (PreferenceScreen) findPreference("status_bar_battery_status_style");
+        mStatusBarBatteryBarStyle = (PreferenceScreen) findPreference("status_bar_battery_bar_style");
+        StatusBarNetworkSpeedStyle = (PreferenceScreen) findPreference("status_bar_network_speed_style");
+
+        boolean isClockEnabled = Settings.System.getInt(resolver,
+               Settings.System.STATUS_BAR_SHOW_CLOCK, 1) == 1;
+
+        boolean isBatteryStatusEnabled = Settings.System.getInt(resolver,
+               Settings.System.STATUS_BAR_SHOW_BATTERY_STATUS, 1) == 1;
+
+        boolean isBatteryBarEnabled = Settings.System.getInt(resolver,
+               Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, 0) == 1;
+
+        boolean isNetworkSpeedIndicatorEnabled = Settings.System.getInt(resolver,
+               Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR, 0) == 1;
+
+        if (isClockEnabled) {
+            mStatusBarClockStyle.setEnabled(true);
+        } else {
+            mStatusBarClockStyle.setEnabled(false);
+        }
+
+        if (isBatteryStatusEnabled) {
+            mStatusBarBatteryStatusStyle.setEnabled(true);
+        } else {
+            mStatusBarBatteryStatusStyle.setEnabled(false);
+        }
+
+        if (isBatteryBarEnabled) {
+            mStatusBarBatteryBarStyle.setEnabled(true);
+        } else {
+            mStatusBarBatteryBarStyle.setEnabled(false);
+        }
+
+        if (isNetworkSpeedIndicatorEnabled) {
+            StatusBarNetworkSpeedStyle.setEnabled(true);
+        } else {
+            StatusBarNetworkSpeedStyle.setEnabled(false);
+        }
     }
 }
