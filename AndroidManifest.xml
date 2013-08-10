@@ -1725,6 +1725,10 @@
 
 		<activity android:name=".darkjelly.StatusBarNetworkSpeedStyle" />
 
+		<activity android:name=".darkjelly.StatusBarExpandedHeader" />
+
+		<activity android:name=".darkjelly.NotificationDrawerCwLabelStyle" />
+
 		<activity android:name=".darkjelly.NavigationBarStyle" />
 
         <activity android:name="Settings$ASSRamBarActivity"

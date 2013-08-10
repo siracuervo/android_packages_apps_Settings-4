@@ -150,6 +150,26 @@
     <string name="color_download_title">Download Color</string>
     <string name="color_upload_title">Upload Color</string>
 
+    <!-- Statusbar expanded -->
+
+    <!-- Statusbar expanded strings -->
+    <string name="status_bar_expanded_title">Status bar expanded</string>
+    <string name="status_bar_expanded_cat_clock_date_title">Clock &amp; date</string>
+    <string name="status_bar_expanded_cat_options_title">Options</string>
+    <string name="status_bar_expanded_header_title">Header</string>
+
+    <!-- Statusbar expanded header strings -->
+    <string name="header_settings_btn_title">Settings button</string>
+    <string name="header_settings_btn_summary">Enable, to always show the settings button</string>
+
+    <!-- Notification drawer style strings -->
+    <string name="notification_cw_label_style_title">Carrier and Wifi network name</string>
+    <string name="custom_carrier_label_title">Custom carrier label</string>
+    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
+    <string name="custom_carrier_label_notset">Custom label currently not set</string>
+    <string name="notification_show_wifi_ssid_title">Wifi network name</string>
+    <string name="notification_show_wifi_ssid_summary">Enable, to show the Wifi network name</string>
+
     <!-- Navigation strings -->
     <string name="navigation_title">Navigation</string>
     <string name="navigation_summary">Customize the Navigation bar &amp;\nPie controls</string>

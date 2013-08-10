@@ -149,6 +149,26 @@
     <string name="color_download_title">Download Farbe</string>
     <string name="color_upload_title">Upload Farbe</string>
 
+    <!-- Statusbar expanded -->
+
+    <!-- Statusbar expanded strings -->
+    <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
+    <string name="status_bar_expanded_cat_clock_date_title">Uhr &amp; Datum</string>
+    <string name="status_bar_expanded_cat_options_title">Optionen</string>
+    <string name="status_bar_expanded_header_title">Kopfzeile</string>
+
+    <!-- Statusbar expanded header strings -->
+    <string name="header_settings_btn_title">Einstellungen Schaltfläche</string>
+    <string name="header_settings_btn_summary">Aktivieren, um den Einstellungen Schaltfläche immer anzuzeigen</string>
+
+    <!-- Notification drawer style strings -->
+    <string name="notification_cw_label_style_title">Netzbetr. und Wifi Netzw. Name</string>
+    <string name="custom_carrier_label_title">Netztbetreiber Name anpassen</string>
+    <string name="custom_carrier_label_explain">Gib bitte einen neuen Netzbetreiber Namen ein. Lass das Feld leer, um den originalen Netzbetreiber Namen wieder herzustellen.</string>
+    <string name="custom_carrier_label_notset">Kein angepasster Netzbetreiber Name gesetzt</string>
+    <string name="notification_show_wifi_ssid_title">Wifi Netzwerkname Name</string>
+    <string name="notification_show_wifi_ssid_summary">Aktivieren, um den Wifi Netzwerknamen anzuzeigen</string>
+
     <!-- Navigation strings -->
     <string name="navigation_title">Navigation</string>
     <string name="navigation_summary">Die Navigationsleiste &amp;\nPie-Navigation anpassen</string>
