@@ -191,6 +191,12 @@
     <string name="navigation_bar_height_width_28">28dp</string>
     <string name="navigation_bar_height_width_24">24dp</string>
 
+    <!-- Display -->
+
+    <!-- Wake up options strings -->
+    <string name="wakeup_options_title">Aufwecken</string>
+    <string name="wakeup_options_disabled">Deaktiviert</string>
+
     <!-- Device info settings -->
 
     <!-- Change Log strings -->

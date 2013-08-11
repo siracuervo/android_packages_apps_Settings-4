@@ -63,12 +63,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_WIFI_DISPLAY = "wifi_display";
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
     private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
-    private static final String KEY_WAKEUP_CATEGORY = "category_wakeup_options";
-    private static final String KEY_HOME_WAKE = "pref_home_wake";
-    private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
     private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
     private static final String KEY_DISPLAY_COLOR = "color_calibration";
-    private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
+    private static final String KEY_WAKEUP_OPTIONS = "wakeup_options";
 
     // Strings used for building the summary
     private static final String ROTATION_ANGLE_0 = "0";
@@ -80,11 +77,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private DisplayManager mDisplayManager;
 
-    private CheckBoxPreference mHomeWake;
-    private CheckBoxPreference mVolumeWake;
-    private CheckBoxPreference mWakeWhenPluggedOrUnplugged;
     private PreferenceScreen mDisplayRotationPreference;
     private WarnedListPreference mFontSizePref;
+    private PreferenceScreen mWakeupOptionsPreference;
 
     private final Configuration mCurConfig = new Configuration();
 
@@ -160,40 +155,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mWifiDisplayPreference = null;
         }
 
-        // Start the wake-up category handling
-        boolean removeWakeupCategory = true;
-        PreferenceCategory wakeupCategory = (PreferenceCategory)
-                    findPreference(KEY_WAKEUP_CATEGORY);
-        // Home button wake
-        mHomeWake = (CheckBoxPreference) findPreference(KEY_HOME_WAKE);
-        if (mHomeWake != null) {
-            if (!res.getBoolean(R.bool.config_show_homeWake)) {
-                wakeupCategory.removePreference(mHomeWake);
-            } else {
-                mHomeWake.setChecked(Settings.System.getInt(resolver,
-                        Settings.System.HOME_WAKE_SCREEN, 1) == 1);
-                removeWakeupCategory = false;
-            }
-        }
-
-        // Volume rocker wake
-        mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
-        if (mVolumeWake != null) {
-            if (!res.getBoolean(R.bool.config_show_volumeRockerWake)
-                    || !Utils.hasVolumeRocker(getActivity())) {
-                wakeupCategory.removePreference(mVolumeWake);
-            } else {
-                mVolumeWake.setChecked(Settings.System.getInt(resolver,
-                        Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
-                removeWakeupCategory = false;
-            }
-        }
-
-        // Remove the wake-up category if neither of the two items above are enabled
-        if (removeWakeupCategory) {
-            getPreferenceScreen().removePreference(wakeupCategory);
-        }
-
         mScreenOffAnimation = (CheckBoxPreference) findPreference(KEY_SCREEN_OFF_ANIMATION);
         if (res.getBoolean(com.android.internal.R.bool.config_screenOffAnimation)) {
             mScreenOffAnimation.setChecked(Settings.System.getInt(resolver,
@@ -206,16 +167,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             removePreference(KEY_DISPLAY_COLOR);
         }
 
-        // Default value for wake-on-plug behavior from config.xml
-        boolean wakeUpWhenPluggedOrUnpluggedConfig = res.getBoolean(
-                com.android.internal.R.bool.config_unplugTurnsOnScreen);
-
-        mWakeWhenPluggedOrUnplugged =
-                (CheckBoxPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
-        mWakeWhenPluggedOrUnplugged.setChecked(Settings.Global.getInt(resolver,
-                Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
-                (wakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0)) == 1);
-
+        mWakeupOptionsPreference = (PreferenceScreen) findPreference(KEY_WAKEUP_OPTIONS);
+        updateWakeupOptionsPreferenceDescription();
     }
 
     private void updateDisplayRotationPreferenceDescription() {
@@ -375,6 +328,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
 
         updateState();
+        updateWakeupOptionsPreferenceDescription();
     }
 
     @Override
@@ -447,22 +401,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mHomeWake) {
-            Settings.System.putInt(getContentResolver(), Settings.System.HOME_WAKE_SCREEN,
-                    mHomeWake.isChecked() ? 1 : 0);
-            return true;
-        } else if (preference == mVolumeWake) {
-            Settings.System.putInt(getContentResolver(), Settings.System.VOLUME_WAKE_SCREEN,
-                    mVolumeWake.isChecked() ? 1 : 0);
-            return true;
-        } else if (preference == mScreenOffAnimation) {
+        if (preference == mScreenOffAnimation) {
             Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_ANIMATION,
                     mScreenOffAnimation.isChecked() ? 1 : 0);
-            return true;
-        } else if (preference == mWakeWhenPluggedOrUnplugged) {
-            Settings.Global.putInt(getContentResolver(),
-                    Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
-                    mWakeWhenPluggedOrUnplugged.isChecked() ? 1 : 0);
             return true;
         }
 
@@ -509,5 +450,47 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
         return false;
+    }
+
+    public void updateWakeupOptionsPreferenceDescription() {
+        StringBuilder summary = new StringBuilder();
+        boolean isWakeWhenPluggedOrUnpluggedEnabled = Settings.Global.getInt(getContentResolver(),
+                    Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED, 0) == 1;
+        boolean isHomeWakeEnabled = Settings.System.getInt(getContentResolver(),
+                    Settings.System.HOME_WAKE_SCREEN, 1) == 1;
+        boolean isVolumewakeEnabled = Settings.System.getInt(getContentResolver(),
+                    Settings.System.VOLUME_WAKE_SCREEN, 0) == 1;
+
+        boolean isHomeWakePresent = getResources().getBoolean(R.bool.config_show_homeWake);
+        boolean isVolumewakePresent = getResources().getBoolean(R.bool.config_show_volumeRockerWake)
+                    && Utils.hasVolumeRocker(getActivity());
+
+        if (!isWakeWhenPluggedOrUnpluggedEnabled &&
+                (!isHomeWakeEnabled || !isHomeWakePresent) &&
+                (!isVolumewakeEnabled || !isVolumewakePresent)) {
+            summary.append(getString(R.string.wakeup_options_disabled));
+        } else {
+            ArrayList<String> wakeupList = new ArrayList<String>();
+            String delim = "";
+            if (isWakeWhenPluggedOrUnpluggedEnabled) {
+                wakeupList.add(getString(R.string.wake_when_plugged_or_unplugged_title));
+            }
+            if (isHomeWakeEnabled && isHomeWakePresent) {
+                wakeupList.add(getString(R.string.pref_home_wake_title));
+            }
+            if (isVolumewakeEnabled && isVolumewakePresent) {
+                wakeupList.add(getString(R.string.pref_volume_wake_title));
+            }
+            for (int i = 0; i < wakeupList.size(); i++) {
+                summary.append(delim).append(wakeupList.get(i));
+                if ((wakeupList.size() - i) > 2) {
+                    delim = ", ";
+                } else {
+                    delim = " & ";
+                }
+            }
+            summary.append(" ");
+        }
+        mWakeupOptionsPreference.setSummary(summary);
     }
 }
