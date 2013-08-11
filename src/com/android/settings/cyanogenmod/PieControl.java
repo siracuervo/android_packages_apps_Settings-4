@@ -21,7 +21,6 @@ public class PieControl extends SettingsPreferenceFragment
 
     private static final String PIE_CONTROL = "pie_control_checkbox";
     private static final String PIE_SENSITIVITY = "pie_control_sensitivity";
-    private static final String PIE_SIZE = "pie_control_size";
     private static final String[] TRIGGER = {
         "pie_control_trigger_left",
         "pie_control_trigger_bottom",
@@ -31,7 +30,6 @@ public class PieControl extends SettingsPreferenceFragment
 
     private CheckBoxPreference mPieControl;
     private ListPreference mPieSensitivity;
-    private SeekBarDialogPreference mPieSize;
     private CheckBoxPreference[] mTrigger = new CheckBoxPreference[4];
 
     private ContentObserver mPieTriggerObserver = new ContentObserver(new Handler()) {
@@ -52,7 +50,6 @@ public class PieControl extends SettingsPreferenceFragment
         mPieControl.setOnPreferenceChangeListener(this);
         mPieSensitivity = (ListPreference) prefSet.findPreference(PIE_SENSITIVITY);
         mPieSensitivity.setOnPreferenceChangeListener(this);
-        mPieSize = (SeekBarDialogPreference) prefSet.findPreference(PIE_SIZE);
 
         for (int i = 0; i < TRIGGER.length; i++) {
             mTrigger[i] = (CheckBoxPreference) prefSet.findPreference(TRIGGER[i]);
@@ -122,7 +119,6 @@ public class PieControl extends SettingsPreferenceFragment
             mTrigger[i].setEnabled(value);
         }
         mPieSensitivity.setEnabled(value);
-        mPieSize.setEnabled(value);
     }
 
     private void updatePieTriggers() {

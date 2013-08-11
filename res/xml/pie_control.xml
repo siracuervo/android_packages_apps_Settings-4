@@ -32,11 +32,6 @@
         android:entryValues="@array/pie_control_sensitivity_values"
         android:persistent="false"/>
 
-    <com.android.settings.cyanogenmod.PieSizePreference
-        android:key="pie_control_size"
-        android:title="@string/pie_control_size"
-        android:dialogTitle="@string/pie_control_size" />
-
     <PreferenceCategory
         android:title="@string/pie_control_trigger_positions">
 
