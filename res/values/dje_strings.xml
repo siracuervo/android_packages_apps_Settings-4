@@ -170,6 +170,9 @@
     <string name="header_settings_btn_summary">Enable, to always show the settings button</string>
 
     <!-- Notification drawer style strings -->
+    <string name="notification_drawer_background_color_title">Background color</string>
+    <string name="notification_drawer_background_alpha_title">Background transparency</string>
+    <string name="notification_drawer_row_alpha_title">Rows background transparency</string>
     <string name="notification_cw_label_style_title">Carrier and Wifi network name</string>
     <string name="custom_carrier_label_title">Custom carrier label</string>
     <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
