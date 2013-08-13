@@ -455,7 +455,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     public void updateWakeupOptionsPreferenceDescription() {
         StringBuilder summary = new StringBuilder();
         boolean isWakeWhenPluggedOrUnpluggedEnabled = Settings.Global.getInt(getContentResolver(),
-                    Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED, 0) == 1;
+                    Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED, 1) == 1;
         boolean isHomeWakeEnabled = Settings.System.getInt(getContentResolver(),
                     Settings.System.HOME_WAKE_SCREEN, 1) == 1;
         boolean isVolumewakeEnabled = Settings.System.getInt(getContentResolver(),
