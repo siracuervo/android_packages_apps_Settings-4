@@ -25,6 +25,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -77,19 +78,17 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment implements O
         mStatusBarClockColor.setOnPreferenceChangeListener(this);
 
         mStatusBarAmPm = (ListPreference) findPreference(PREF_STAT_BAR_AM_PM);
-        try {
-            if (Settings.System.getInt(mResolver,
-                    Settings.System.TIME_12_24) == 24) {
-                mStatusBarAmPm.setEnabled(false);
-                mStatusBarAmPm.setSummary(R.string.status_bar_am_pm_info);
-            }
-        } catch (SettingNotFoundException e ) {
+        if (DateFormat.is24HourFormat(getActivity())) {
+            prefs.removePreference(mStatusBarAmPm);
+        } else {
+            mStatusBarAmPm = (ListPreference) findPreference(PREF_STAT_BAR_AM_PM);
+            int statusBarAmPm = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_AM_PM, 2);
+
+            mStatusBarAmPm.setValue(String.valueOf(statusBarAmPm));
+            mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
+            mStatusBarAmPm.setOnPreferenceChangeListener(this);
         }
-        int statusBarAmPm = Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_AM_PM, 2);
-        mStatusBarAmPm.setValue(String.valueOf(statusBarAmPm));
-        mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
-        mStatusBarAmPm.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
     }

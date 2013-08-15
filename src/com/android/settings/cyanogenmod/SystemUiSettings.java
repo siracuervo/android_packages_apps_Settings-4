@@ -51,12 +51,13 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         addPreferencesFromResource(R.xml.system_ui_settings);
         PreferenceScreen prefScreen = getPreferenceScreen();
 
-        mDualPane = (CheckBoxPreference) findPreference(PREF_DUAL_PANE);
+        mDualPane = (CheckBoxPreference) findPreference(KEY_DUAL_PANE);
         boolean preferDualPane = getResources().getBoolean(
                 com.android.internal.R.bool.preferences_prefer_dual_pane);
         boolean dualPaneMode = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.DUAL_PANE_PREFS, (preferDualPane ? 1 : 0)) == 1;
         mDualPane.setChecked(dualPaneMode);
+        mDualPane.setOnPreferenceChangeListener(this);
 
         // Expanded desktop
         mExpandedDesktopPref = (ListPreference) findPreference(KEY_EXPANDED_DESKTOP);
