@@ -47,10 +47,6 @@
     <!-- General strings -->
     <string name="general_title">Allgemein</string>
 
-    <!-- Dual pane strings -->
-    <string name="dual_pane_title">Tablet Dual-Panel Modus</string>
-    <string name="dual_pane_summary">Die Einstellungen neustarten, um die Änderungen wirksam zu machen</string>
-
     <!-- Ram bar strings -->
     <string name="ram_bar">Recents RAM-Leiste</string>
     <string name="ram_bar_note_title">Hinweis</string>
@@ -78,6 +74,10 @@
     <string name="low_battery_warning_policy_notif">Nur Benachrichtigung</string>
     <string name="low_battery_warning_policy_sound">Nur Ton</string>
     <string name="low_battery_warning_policy_disabled">Deaktiviert</string>
+
+    <!-- Dual pane strings -->
+    <string name="dual_pane_title">Tablet Dual-Panel Modus</string>
+    <string name="dual_pane_summary">Die Einstellungen neustarten, um die Änderungen wirksam zu machen</string>
 
     <!-- Statusbar -->
 
@@ -216,12 +216,6 @@
     <string name="navigation_bar_height_width_32">32dp</string>
     <string name="navigation_bar_height_width_28">28dp</string>
     <string name="navigation_bar_height_width_24">24dp</string>
-
-    <!-- Display -->
-
-    <!-- Wake up options strings -->
-    <string name="wakeup_options_title">Aufwecken</string>
-    <string name="wakeup_options_disabled">Deaktiviert</string>
 
     <!-- Device info settings -->
 
