@@ -24,6 +24,11 @@
         android:fragment="com.android.settings.darkjelly.General"
         android:title="@string/general_title" />
 
+    <CheckBoxPreference
+        android:key="dual_pane"
+        android:title="@string/dual_pane_title"
+        android:summary="@string/dual_pane_summary" />
+
     <PreferenceScreen
         android:key="status_bar"
         android:fragment="com.android.settings.darkjelly.StatusBar"
@@ -34,30 +39,17 @@
         android:fragment="com.android.settings.darkjelly.StatusBarExpanded"
         android:title="@string/status_bar_expanded_title" />
 
-    <!-- Lock clock -->
-    <PreferenceScreen
-        android:key="lock_clock"
-        android:title="@string/lock_clock_title"
-        android:summary="@string/lock_clock_summary">
-        <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.cyanogenmod.lockclock"
-                android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
-    </PreferenceScreen>
+    <ListPreference
+        android:key="expanded_desktop"
+        android:title="@string/power_menu_expanded_desktop"
+        android:entries="@array/expanded_desktop_entries"
+        android:entryValues="@array/expanded_desktop_values"
+        android:persistent="false" />
 
-    <PreferenceScreen
-        android:key="notification_pulse"
-        android:title="@string/notification_pulse_title"
-        android:fragment="com.android.settings.notificationlight.NotificationLightSettings" />
-
-    <PreferenceScreen
-        android:key="battery_light"
-        android:title="@string/battery_light_title"
-        android:fragment="com.android.settings.notificationlight.BatteryLightSettings" />
-
-    <PreferenceScreen
-        android:key="hardware_keys"
-        android:fragment="com.android.settings.cyanogenmod.HardwareKeys"
-        android:title="@string/hardware_keys_title" />
+    <CheckBoxPreference
+        android:key="expanded_desktop_no_navbar"
+        android:title="@string/power_menu_expanded_desktop"
+        android:persistent="false" />
 
     <PreferenceScreen
         android:key="navigation_bar"

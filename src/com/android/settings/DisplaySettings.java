@@ -1,18 +1,18 @@
 /*
- * Copyright (C) 2010 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+* Copyright (C) 2010 The Android Open Source Project
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 
 package com.android.settings;
 
@@ -34,6 +34,7 @@ import android.hardware.display.WifiDisplayStatus;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
+import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -64,8 +65,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
     private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
     private static final String KEY_SCREEN_OFF_ANIMATION = "screen_off_animation";
-    private static final String KEY_DISPLAY_COLOR = "color_calibration";
-    private static final String KEY_WAKEUP_OPTIONS = "wakeup_options";
+    private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
+
+    private static final String CATEGORY_LIGHTS = "lights_prefs";
+    private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
+    private static final String KEY_BATTERY_LIGHT = "battery_light";
 
     // Strings used for building the summary
     private static final String ROTATION_ANGLE_0 = "0";
@@ -77,9 +81,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private DisplayManager mDisplayManager;
 
+    private CheckBoxPreference mWakeWhenPluggedOrUnplugged;
     private PreferenceScreen mDisplayRotationPreference;
     private WarnedListPreference mFontSizePref;
-    private PreferenceScreen mWakeupOptionsPreference;
 
     private final Configuration mCurConfig = new Configuration();
 
@@ -90,6 +94,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private Preference mWifiDisplayPreference;
 
     private CheckBoxPreference mScreenOffAnimation;
+
+    private PreferenceScreen mNotificationPulse;
+    private PreferenceScreen mBatteryPulse;
 
     private ContentObserver mAccelerometerRotationObserver =
             new ContentObserver(new Handler()) {
@@ -163,12 +170,32 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             getPreferenceScreen().removePreference(mScreenOffAnimation);
         }
 
-        if (!DisplayColor.isSupported()) {
-            removePreference(KEY_DISPLAY_COLOR);
-        }
+        mWakeWhenPluggedOrUnplugged =
+                (CheckBoxPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
 
-        mWakeupOptionsPreference = (PreferenceScreen) findPreference(KEY_WAKEUP_OPTIONS);
-        updateWakeupOptionsPreferenceDescription();
+        boolean hasNotificationLed = res.getBoolean(
+                com.android.internal.R.bool.config_intrusiveNotificationLed);
+        boolean hasBatteryLed = res.getBoolean(
+                com.android.internal.R.bool.config_intrusiveBatteryLed);
+        PreferenceCategory lightPrefs = (PreferenceCategory) findPreference(CATEGORY_LIGHTS);
+
+        if (hasNotificationLed || hasBatteryLed) {
+            mBatteryPulse = (PreferenceScreen) findPreference(KEY_BATTERY_LIGHT);
+            mNotificationPulse = (PreferenceScreen) findPreference(KEY_NOTIFICATION_PULSE);
+
+            // Battery light is only for primary user
+            if (UserHandle.myUserId() != UserHandle.USER_OWNER || !hasBatteryLed) {
+                lightPrefs.removePreference(mBatteryPulse);
+                mBatteryPulse = null;
+            }
+
+            if (!hasNotificationLed) {
+                lightPrefs.removePreference(mNotificationPulse);
+                mNotificationPulse = null;
+            }
+        } else {
+            getPreferenceScreen().removePreference(lightPrefs);
+        }
     }
 
     private void updateDisplayRotationPreferenceDescription() {
@@ -316,8 +343,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         RotationPolicy.registerRotationPolicyListener(getActivity(),
                 mRotationPolicyListener);
 
+        final ContentResolver resolver = getContentResolver();
+
         // Display rotation observer
-        getContentResolver().registerContentObserver(
+        resolver.registerContentObserver(
                 Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true,
                 mAccelerometerRotationObserver);
 
@@ -327,8 +356,14 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mWifiDisplayStatus = mDisplayManager.getWifiDisplayStatus();
         }
 
+        // Default value for wake-on-plug behavior from config.xml
+        boolean wakeUpWhenPluggedOrUnpluggedConfig = getResources().getBoolean(
+                com.android.internal.R.bool.config_unplugTurnsOnScreen);
+
+        mWakeWhenPluggedOrUnplugged.setChecked(Settings.Global.getInt(resolver,
+                Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
+                (wakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0)) == 1);
         updateState();
-        updateWakeupOptionsPreferenceDescription();
     }
 
     @Override
@@ -364,6 +399,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         readFontSizePreference(mFontSizePref);
         updateScreenSaverSummary();
         updateWifiDisplaySummary();
+        updateLightPulseSummary();
+        updateBatteryPulseSummary();
     }
 
     private void updateScreenSaverSummary() {
@@ -390,6 +427,28 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
+    private void updateLightPulseSummary() {
+        if (mNotificationPulse != null) {
+            if (Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.NOTIFICATION_LIGHT_PULSE, 0) == 1) {
+                mNotificationPulse.setSummary(R.string.notification_light_enabled);
+            } else {
+                mNotificationPulse.setSummary(R.string.notification_light_disabled);
+            }
+        }
+    }
+
+    private void updateBatteryPulseSummary() {
+        if (mBatteryPulse != null) {
+            if (Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.BATTERY_LIGHT_ENABLED, 1) == 1) {
+                mBatteryPulse.setSummary(R.string.notification_light_enabled);
+            } else {
+                mBatteryPulse.setSummary(R.string.notification_light_disabled);
+            }
+        }
+    }
+
     public void writeFontSizePreference(Object objValue) {
         try {
             mCurConfig.fontScale = Float.parseFloat(objValue.toString());
@@ -404,6 +463,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         if (preference == mScreenOffAnimation) {
             Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_ANIMATION,
                     mScreenOffAnimation.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mWakeWhenPluggedOrUnplugged) {
+            Settings.Global.putInt(getContentResolver(),
+                    Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
+                    mWakeWhenPluggedOrUnplugged.isChecked() ? 1 : 0);
             return true;
         }
 
@@ -450,47 +514,5 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
         return false;
-    }
-
-    public void updateWakeupOptionsPreferenceDescription() {
-        StringBuilder summary = new StringBuilder();
-        boolean isWakeWhenPluggedOrUnpluggedEnabled = Settings.Global.getInt(getContentResolver(),
-                    Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED, 1) == 1;
-        boolean isHomeWakeEnabled = Settings.System.getInt(getContentResolver(),
-                    Settings.System.HOME_WAKE_SCREEN, 1) == 1;
-        boolean isVolumewakeEnabled = Settings.System.getInt(getContentResolver(),
-                    Settings.System.VOLUME_WAKE_SCREEN, 0) == 1;
-
-        boolean isHomeWakePresent = getResources().getBoolean(R.bool.config_show_homeWake);
-        boolean isVolumewakePresent = getResources().getBoolean(R.bool.config_show_volumeRockerWake)
-                    && Utils.hasVolumeRocker(getActivity());
-
-        if (!isWakeWhenPluggedOrUnpluggedEnabled &&
-                (!isHomeWakeEnabled || !isHomeWakePresent) &&
-                (!isVolumewakeEnabled || !isVolumewakePresent)) {
-            summary.append(getString(R.string.wakeup_options_disabled));
-        } else {
-            ArrayList<String> wakeupList = new ArrayList<String>();
-            String delim = "";
-            if (isWakeWhenPluggedOrUnpluggedEnabled) {
-                wakeupList.add(getString(R.string.wake_when_plugged_or_unplugged_title));
-            }
-            if (isHomeWakeEnabled && isHomeWakePresent) {
-                wakeupList.add(getString(R.string.pref_home_wake_title));
-            }
-            if (isVolumewakeEnabled && isVolumewakePresent) {
-                wakeupList.add(getString(R.string.pref_volume_wake_title));
-            }
-            for (int i = 0; i < wakeupList.size(); i++) {
-                summary.append(delim).append(wakeupList.get(i));
-                if ((wakeupList.size() - i) > 2) {
-                    delim = ", ";
-                } else {
-                    delim = " & ";
-                }
-            }
-            summary.append(" ");
-        }
-        mWakeupOptionsPreference.setSummary(summary);
     }
 }

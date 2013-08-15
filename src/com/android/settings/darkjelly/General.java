@@ -36,13 +36,9 @@ public class General extends SettingsPreferenceFragment implements
 
     private static final String TAG = "General";
 
-    private static final String PREF_DUAL_PANE = "dual_pane";
-    private static final String PREF_EXPANDED_DESKTOP = "expanded_desktop";
     private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar";
     private static final String KEY_LOW_BATTERY_WARNING_POLICY = "low_battery_warning_policy";
 
-    private CheckBoxPreference mDualPane;
-    private ListPreference mExpandedDesktopPref;
     private Preference mRamBar;
     private ListPreference mLowBatteryWarning;
 
@@ -52,20 +48,6 @@ public class General extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
 
         addPreferencesFromResource(R.xml.general_settings);
-
-        mDualPane = (CheckBoxPreference) findPreference(PREF_DUAL_PANE);
-        boolean preferDualPane = getResources().getBoolean(
-                com.android.internal.R.bool.preferences_prefer_dual_pane);
-        boolean dualPaneMode = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.DUAL_PANE_PREFS, (preferDualPane ? 1 : 0)) == 1;
-        mDualPane.setChecked(dualPaneMode);
-
-        mExpandedDesktopPref = (ListPreference) findPreference(PREF_EXPANDED_DESKTOP);
-        int expandedDesktopValue = Settings.System.getInt(getContentResolver(),
-                Settings.System.EXPANDED_DESKTOP_STYLE, 0);
-        mExpandedDesktopPref.setOnPreferenceChangeListener(this);
-        mExpandedDesktopPref.setValue(String.valueOf(expandedDesktopValue));
-        updateExpandedDesktop(expandedDesktopValue);
 
         mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
 
