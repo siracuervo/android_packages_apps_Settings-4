@@ -18,6 +18,10 @@ limitations under the License.
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/general_title">
 
+	<PreferenceScreen
+	    android:key="custom_carrier_label"
+	    android:title="@string/custom_carrier_label_title" />
+
     <PreferenceScreen
         android:key="recents_ram_bar"
         android:fragment="com.android.settings.darkjelly.RamBar"
@@ -32,5 +36,3 @@ limitations under the License.
         android:defaultValue="0" />
 
 </PreferenceScreen>
-
-

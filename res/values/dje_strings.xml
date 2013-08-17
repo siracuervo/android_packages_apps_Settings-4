@@ -46,9 +46,25 @@
     <string name="alpha_mode_home">On launcher</string>
     <string name="alpha_mode_default">On launcher and keyguard</string>
     <string name="alpha_mode_always">Always</string>
+    <string name="custom_carrier_label_title">Customize custom carrier label</string>
+    <string name="custom_carrier_label_notset">Custom label currently not set</string>
+    <string name="cw_label_style_title">Carrier and Wifi network name</string>
+    <string name="show_custom_carrier_label_title">ustom carrier label</string>
+    <string name="show_custom_carrier_label_enabled_summary">Enable, to show the custom carrier label</string>
+    <string name="show_wifi_ssid_title">Wifi network name</string>
+    <string name="show_wifi_ssid_summary">Enable, to show the Wifi network name</string>
+
+    <!-- Lockscreen strings -->
+    <string name="lockscreen_carrier_label_title">Carrier label</string>
+
+    <!-- Custom carrier label strings -->
+    <string name="show_custom_carrier_label_title">Show</string>
 
     <!-- General strings -->
     <string name="general_title">General</string>
+
+    <!-- Custom carrier label strings -->
+    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
 
     <!-- Ram bar strings -->
     <string name="ram_bar">Recents RAM bar</string>
@@ -173,12 +189,6 @@
     <string name="notification_drawer_background_color_title">Background color</string>
     <string name="notification_drawer_background_alpha_title">Background transparency</string>
     <string name="notification_drawer_row_alpha_title">Rows background transparency</string>
-    <string name="notification_cw_label_style_title">Carrier and Wifi network name</string>
-    <string name="custom_carrier_label_title">Custom carrier label</string>
-    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
-    <string name="custom_carrier_label_notset">Custom label currently not set</string>
-    <string name="notification_show_wifi_ssid_title">Wifi network name</string>
-    <string name="notification_show_wifi_ssid_summary">Enable, to show the Wifi network name</string>
 
     <!-- Navigation strings -->
     <string name="navigation_title">Navigation</string>
@@ -187,10 +197,6 @@
     <string name="cat_pie_control">Pie</string>
 
     <!-- pie controls strings -->
-
-    <!-- pie controls style strings -->
-    <string name="show_custom_carrier_label_title">Custom carrier label</string>
-    <string name="show_custom_carrier_label_enabled_summary">Enable, to show the custom carrier label</string>
 
     <!-- pie controls color strings -->
     <string name="disable_icon_overlay_title">Colored icons</string>

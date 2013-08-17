@@ -43,9 +43,25 @@
     <string name="alpha_mode_home">Im Launcher</string>
     <string name="alpha_mode_default">Im Launcher und Sperrbildschirm</string>
     <string name="alpha_mode_always">Immer</string>
+    <string name="custom_carrier_label_title">Netztbetreiber Name anpassen</string>
+    <string name="custom_carrier_label_notset">Kein angepasster Netzbetreiber Name gesetzt</string>
+    <string name="show_custom_carrier_label_title">Angepasster Netzbetreiber Name</string>
+    <string name="show_custom_carrier_label_enabled_summary">Aktivieren, damit der angepasste Netztbetreiber Name angezeigt wird</string>
+    <string name="cw_label_style_title">Netzbetr. und Wifi Netzw. Name</string>
+    <string name="show_wifi_ssid_title">Wifi Netzwerkname Name</string>
+    <string name="show_wifi_ssid_summary">Aktivieren, um den Wifi Netzwerknamen anzuzeigen</string>
+
+    <!-- Lockscreen strings -->
+    <string name="lockscreen_carrier_label_title">Netzbetreiber Name</string>
+
+    <!-- Custom carrier label strings -->
+    <string name="show_custom_carrier_label_title">Anzeigen</string>
 
     <!-- General strings -->
     <string name="general_title">Allgemein</string>
+
+    <!-- Custom carrier label strings -->
+    <string name="custom_carrier_label_explain">Gib bitte einen neuen Netzbetreiber Namen ein. Lass das Feld leer, um den originalen Netzbetreiber Namen wieder herzustellen.</string>
 
     <!-- Ram bar strings -->
     <string name="ram_bar">Recents RAM-Leiste</string>
@@ -169,12 +185,6 @@
     <string name="notification_drawer_background_color_title">Hintergrundfarbe</string>
     <string name="notification_drawer_background_alpha_title">Transparenz des Hintergrundes</string>
     <string name="notification_drawer_row_alpha_title">Transparenz der Reihen</string>
-    <string name="notification_cw_label_style_title">Netzbetr. und Wifi Netzw. Name</string>
-    <string name="custom_carrier_label_title">Netztbetreiber Name anpassen</string>
-    <string name="custom_carrier_label_explain">Gib bitte einen neuen Netzbetreiber Namen ein. Lass das Feld leer, um den originalen Netzbetreiber Namen wieder herzustellen.</string>
-    <string name="custom_carrier_label_notset">Kein angepasster Netzbetreiber Name gesetzt</string>
-    <string name="notification_show_wifi_ssid_title">Wifi Netzwerkname Name</string>
-    <string name="notification_show_wifi_ssid_summary">Aktivieren, um den Wifi Netzwerknamen anzuzeigen</string>
 
     <!-- Navigation strings -->
     <string name="navigation_title">Navigation</string>
@@ -183,10 +193,6 @@
     <string name="cat_pie_control">Pie</string>
 
     <!-- pie controls strings -->
-
-    <!-- pie controls style strings -->
-    <string name="show_custom_carrier_label_title">Angepasster Netzbetreiber Name</string>
-    <string name="show_custom_carrier_label_enabled_summary">Aktivieren, damit der angepasste Netztbetreiber Name angezeigt wird</string>
 
     <!-- pie controls color strings -->
     <string name="disable_icon_overlay_title">Farbige Symbole</string>

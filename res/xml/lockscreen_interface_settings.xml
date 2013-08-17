@@ -100,4 +100,10 @@
             android:summary="@string/lockscreen_music_controls_summary" />
 
     </PreferenceCategory>
+
+	<PreferenceScreen
+	    android:key="lockscreen_carrier_label_style"
+	    android:fragment="com.android.settings.darkjelly.LockscreenCarrierLabelStyle"
+	    android:title="@string/lockscreen_carrier_label_title" />
+
 </PreferenceScreen>

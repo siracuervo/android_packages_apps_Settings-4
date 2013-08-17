@@ -1715,7 +1715,7 @@
 
         <!-- Dark Jelly activities Start -->
 
-		<activity android:name=".darkjelly.DJEChangeLog" />
+		<activity android:name=".darkjelly.LockscreenCarrierLabelStyle" />
 
         <activity android:name=".darkjelly.General" />
 
@@ -1738,6 +1738,8 @@
 		<activity android:name=".darkjelly.NotificationDrawerCwLabelStyle" />
 
 		<activity android:name=".darkjelly.NavigationBarStyle" />
+
+		<activity android:name=".darkjelly.DJEChangeLog" />
 
         <activity android:name="Settings$ASSRamBarActivity"
                 android:label="@string/ram_bar">

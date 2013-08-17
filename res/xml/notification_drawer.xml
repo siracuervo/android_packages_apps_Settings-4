@@ -42,7 +42,7 @@
 		<PreferenceScreen
 		    android:key="notification_cw_label_style"
 		    android:fragment="com.android.settings.darkjelly.NotificationDrawerCwLabelStyle"
-		    android:title="@string/notification_cw_label_style_title" />
+		    android:title="@string/cw_label_style_title" />
 
 	</PreferenceCategory>
 

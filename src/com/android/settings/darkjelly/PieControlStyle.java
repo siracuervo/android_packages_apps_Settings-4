@@ -32,7 +32,7 @@ public class PieControlStyle extends SettingsPreferenceFragment {
     private static final String TAG = "PieControlStyle";
 
     private static final String PREF_PIE_SIZE = "pie_control_size";
-    private static final String PREF_SHOW_CUSTOM_CARRIER_LABEL = "show_custom_carrier_label";
+    private static final String PREF_PIE_SHOW_CUSTOM_CARRIER_LABEL = "pie_control_show_custom_carrier_label";
 
     private SeekBarDialogPreference mPieSize;
     private CheckBoxPreference mShowCustomCarrierLabel;
@@ -46,9 +46,9 @@ public class PieControlStyle extends SettingsPreferenceFragment {
 
         mPieSize = (SeekBarDialogPreference) findPreference(PREF_PIE_SIZE);
 
-        mShowCustomCarrierLabel = (CheckBoxPreference) findPreference(PREF_SHOW_CUSTOM_CARRIER_LABEL);
+        mShowCustomCarrierLabel = (CheckBoxPreference) findPreference(PREF_PIE_SHOW_CUSTOM_CARRIER_LABEL);
         mShowCustomCarrierLabel.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.PIE_ENABLE_CUSTOM_CARRIER_LABEL, 0) == 1);
+                Settings.System.PIE_SHOW_CUSTOM_CARRIER_LABEL, 1) == 1);
         String customLabelText = Settings.System.getString(getActivity().getContentResolver(),
                 Settings.System.CUSTOM_CARRIER_LABEL);
         if (customLabelText == null || customLabelText.length() == 0) {
@@ -67,7 +67,7 @@ public class PieControlStyle extends SettingsPreferenceFragment {
         if (preference == mShowCustomCarrierLabel) {
             value = mShowCustomCarrierLabel.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.PIE_ENABLE_CUSTOM_CARRIER_LABEL, value ? 1 : 0);
+                    Settings.System.PIE_SHOW_CUSTOM_CARRIER_LABEL, value ? 1 : 0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);

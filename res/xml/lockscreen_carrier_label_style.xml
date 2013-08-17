@@ -16,23 +16,17 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/cw_label_style_title">
+    android:title="@string/lockscreen_carrier_label_title">
 
 	<CheckBoxPreference
-	    android:key="notification_show_custom_carrier_label"
+	    android:key="lockscreen_show_custom_carrier_label"
 	    android:title="@string/show_custom_carrier_label_title"
 	    android:persistent="false"
 	    android:defaultValue="false" />
 
-	<CheckBoxPreference
-		android:key="notification_show_wifi_ssid"
-		android:title="@string/show_wifi_ssid_title"
-		android:summary="@string/show_wifi_ssid_summary"
-		android:defaultValue="false" />
-
 	<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
-	    android:key="notification_carrier_wifi_label_color"
+	    android:key="lockscreen_carrier_label_color"
 	    android:title="@string/color_title"
-	    android:defaultValue="0xff999999" />
+	    android:defaultValue="0xffbebebe" />
 
 </PreferenceScreen>

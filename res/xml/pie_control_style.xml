@@ -24,7 +24,7 @@
 	    android:dialogTitle="@string/pie_control_size" />
 
 	<CheckBoxPreference
-	    android:key="show_custom_carrier_label"
+	    android:key="pie_control_show_custom_carrier_label"
 	    android:title="@string/show_custom_carrier_label_title"
 	    android:persistent="false"
 	    android:defaultValue="false" />
