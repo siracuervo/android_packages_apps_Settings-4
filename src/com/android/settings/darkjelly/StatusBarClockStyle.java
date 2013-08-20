@@ -79,7 +79,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment implements O
 
         mStatusBarAmPm = (ListPreference) findPreference(PREF_STAT_BAR_AM_PM);
         if (DateFormat.is24HourFormat(getActivity())) {
-            prefs.removePreference(mStatusBarAmPm);
+            removePreference(PREF_STAT_BAR_AM_PM);
         } else {
             mStatusBarAmPm = (ListPreference) findPreference(PREF_STAT_BAR_AM_PM);
             int statusBarAmPm = Settings.System.getInt(mResolver,
