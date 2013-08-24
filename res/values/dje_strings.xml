@@ -66,24 +66,6 @@
     <!-- Custom carrier label strings -->
     <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
 
-    <!-- Ram bar strings -->
-    <string name="ram_bar">Recents RAM bar</string>
-    <string name="ram_bar_note_title">Note</string>
-    <string name="ram_bar_note_summary">This rambar shows how android is really using your available ram. Please note that having apps open in the background and cached helps for your device to open your apps faster.</string>
-    <string name="ram_bar_mode_title">Recents RAM bar mode</string>
-    <string name="ram_bar_mode_dialog_title">Show on recents RAM bar</string>
-    <string name="ram_bar_none">None</string>
-    <string name="ram_bar_apps">Applications</string>
-    <string name="ram_bar_cache">Applications and cache</string>
-    <string name="ram_bar_other">Applications, cache and other</string>
-    <string name="ram_bar_style_cat">Recents RAM bar style</string>
-    <string name="ram_bar_color_app_mem_color">Applications RAM color</string>
-    <string name="ram_bar_color_cache_mem_color">Cache RAM color</string>
-    <string name="ram_bar_color_total_mem_color">Other RAM color</string>
-    <string name="ram_bar_color_enabled">Enabled</string>
-    <string name="ram_bar_color_disabled">Disabled</string>
-    <string name="ram_bar_button_reset">Reset colors</string>
-
     <!-- Low battery warning policy -->
     <string name="low_battery_warning_policy_title">Low battery warning</string>
     <string name="low_battery_warning_policy_dialog_title">Indicate low battery warning with</string>
@@ -189,6 +171,34 @@
     <string name="notification_drawer_background_color_title">Background color</string>
     <string name="notification_drawer_background_alpha_title">Background transparency</string>
     <string name="notification_drawer_row_alpha_title">Rows background transparency</string>
+
+    <!-- Recents apps strings -->
+    <string name="recents_apps_title">Recents Apps</string>
+
+    <!-- Ram bar strings -->
+    <string name="ram_bar">Recents RAM bar</string>
+    <string name="ram_bar_note_title">Note</string>
+    <string name="ram_bar_note_summary">This rambar shows how android is really using your available ram. Please note that having apps open in the background and cached helps for your device to open your apps faster.</string>
+    <string name="ram_bar_mode_title">Recents RAM bar mode</string>
+    <string name="ram_bar_mode_dialog_title">Show on recents RAM bar</string>
+    <string name="ram_bar_none">None</string>
+    <string name="ram_bar_apps">Applications</string>
+    <string name="ram_bar_cache">Applications and cache</string>
+    <string name="ram_bar_other">Applications, cache and other</string>
+    <string name="ram_bar_style_cat">Recents RAM bar style</string>
+    <string name="ram_bar_color_app_mem_color">Applications RAM color</string>
+    <string name="ram_bar_color_cache_mem_color">Cache RAM color</string>
+    <string name="ram_bar_color_total_mem_color">Other RAM color</string>
+    <string name="ram_bar_color_enabled">Enabled</string>
+    <string name="ram_bar_color_disabled">Disabled</string>
+    <string name="ram_bar_button_reset">Reset colors</string>
+
+    <!-- Clear all button strings -->
+    <string name="recents_clear_all_button_position_title">Clear all button position</string>
+    <string name="recents_clear_all_button_lt">Top left</string>
+    <string name="recents_clear_all_button_rt">Top right</string>
+    <string name="recents_clear_all_button_lb">Bottom left</string>
+    <string name="recents_clear_all_button_rb">Bottom right</string>
 
     <!-- Navigation strings -->
     <string name="navigation_title">Navigation</string>

@@ -39,6 +39,11 @@
         android:fragment="com.android.settings.darkjelly.StatusBarExpanded"
         android:title="@string/status_bar_expanded_title" />
 
+    <PreferenceScreen
+        android:key="recents_apps"
+        android:fragment="com.android.settings.darkjelly.RecentsAppsSettings"
+        android:title="@string/recents_apps_title" />
+
     <ListPreference
         android:key="expanded_desktop"
         android:title="@string/power_menu_expanded_desktop"

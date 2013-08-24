@@ -121,6 +121,20 @@
         <item>4</item>
     </string-array>
 
+    <string-array name="recents_clear_all_button_position_entries" >
+        <item>@string/recents_clear_all_button_lt</item>
+        <item>@string/recents_clear_all_button_rt</item>
+        <item>@string/recents_clear_all_button_lb</item>
+        <item>@string/recents_clear_all_button_rb</item>
+    </string-array>
+
+    <string-array name="recents_clear_all_button_position_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
     <string-array name="nav_buttons_height_width_entries" >
         <item>@string/navigation_bar_height_width_48</item>
         <item>@string/navigation_bar_height_width_44</item>

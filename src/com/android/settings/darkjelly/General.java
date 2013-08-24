@@ -42,11 +42,9 @@ public class General extends SettingsPreferenceFragment implements
     private static final String TAG = "General";
 
     private static final String KEY_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
-    private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar";
     private static final String KEY_LOW_BATTERY_WARNING_POLICY = "low_battery_warning_policy";
 
     private Preference mCustomLabel;
-    private Preference mRamBar;
     private ListPreference mLowBatteryWarning;
 
     private ContentResolver mResolver;
@@ -61,8 +59,6 @@ public class General extends SettingsPreferenceFragment implements
 
         mCustomLabel = findPreference(KEY_CUSTOM_CARRIER_LABEL);
 
-        mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
-
         mLowBatteryWarning = (ListPreference) findPreference(KEY_LOW_BATTERY_WARNING_POLICY);
         int lowBatteryWarning = Settings.System.getInt(mResolver,
                 Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, 0);
@@ -71,7 +67,6 @@ public class General extends SettingsPreferenceFragment implements
         mLowBatteryWarning.setOnPreferenceChangeListener(this);
 
         updateCustomLabelTextSummary();
-        updateRamBar();
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -136,26 +131,15 @@ public class General extends SettingsPreferenceFragment implements
         }
     }
 
-    private void updateRamBar() {
-        int ramBarMode = Settings.System.getInt(mResolver,
-                Settings.System.RECENTS_RAM_BAR_MODE, 0);
-        if (ramBarMode != 0)
-            mRamBar.setSummary(getResources().getString(R.string.ram_bar_color_enabled));
-        else
-            mRamBar.setSummary(getResources().getString(R.string.ram_bar_color_disabled));
-    }
-
      @Override
      public void onResume() {
          super.onResume();
          updateCustomLabelTextSummary();
-         updateRamBar();
      }
  
      @Override
      public void onPause() {
          super.onResume();
          updateCustomLabelTextSummary();
-         updateRamBar();
      } 
 }

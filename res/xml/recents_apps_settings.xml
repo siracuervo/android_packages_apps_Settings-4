@@ -16,18 +16,17 @@ limitations under the License.
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/general_title">
+    android:title="@string/recents_apps_title">
 
-	<PreferenceScreen
-	    android:key="custom_carrier_label"
-	    android:title="@string/custom_carrier_label_title" />
+    <PreferenceScreen
+        android:key="recents_ram_bar"
+        android:fragment="com.android.settings.darkjelly.RamBar"
+        android:title="@string/ram_bar" />
 
     <ListPreference
-        android:key="low_battery_warning_policy"
-        android:title="@string/low_battery_warning_policy_title"
-        android:dialogTitle="@string/low_battery_warning_policy_dialog_title"
-        android:entries="@array/low_battery_warning_policy_entries"
-        android:entryValues="@array/low_battery_warning_policy_values"
-        android:defaultValue="0" />
+        android:key="recents_clear_all_button_position"
+        android:title="@string/recents_clear_all_button_position_title"
+        android:entries="@array/recents_clear_all_button_position_entries"
+        android:entryValues="@array/recents_clear_all_button_position_values" />
 
 </PreferenceScreen>
