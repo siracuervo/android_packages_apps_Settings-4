@@ -38,7 +38,6 @@
     <string name="reset_dark_jelly_default">Reset to Dark Jelly default</string>
     <string name="backup_color">Backup current color values</string>
     <string name="restore_color">Restore color values</string>
-    <string name="style_reset">Reset</string>
     <string name="enable_theme_default_title">Theme default</string>
     <string name="enable_theme_default_summary">Enable, to use theme default colors of the current theme</string>
     <string name="alpha_mode_dialog_text_title">Show transparency</string>

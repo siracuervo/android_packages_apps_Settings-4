@@ -38,6 +38,8 @@
     <string name="reset_dark_jelly_default">Auf Dark Jelly Standard zurücksetzten</string>
     <string name="backup_color">Die aktuellen Farbwerte sichern</string>
     <string name="restore_color">Farbwerte wiederherstellen</string>
+    <string name="enable_theme_default_title">Design Standard</string>
+    <string name="enable_theme_default_summary">Aktivieren, um die standard Design Farben aus dem aktuellen Design zu benutzen</string>
     <string name="alpha_mode_dialog_text_title">Anzeige der Transparenz</string>
     <string name="alpha_mode_text_title">Transparenz Modus</string>
     <string name="alpha_mode_home">Im Launcher</string>
@@ -98,8 +100,8 @@
     <string name="status_bar_network_speed_title">Netzw.-Geschw. Anzeige</string>
 
     <!-- Statusbar style clock style strings  -->
-    <string name="status_bar_show_clock_title">Die Uhr anzeigen</string>
-    <string name="status_bar_show_clock_summary">Aktivieren um die Uhr in der Statusleiste anzuzeigen</string>
+    <string name="status_bar_clock_position_title">Position</string>
+    <string name="status_bar_clock_position_summary">Aktivieren um die Uhr in der Statusleiste zentriert anzuzeigen</string>
 
     <!-- Statusbar style battery status strings  -->
     <string name="style_reset_battery_status">Akkustand zurücksetzten</string>
