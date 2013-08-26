@@ -141,18 +141,6 @@
     <string name="battery_bar_thickness_3">3dp</string>
     <string name="battery_bar_thickness_4">4dp</string>
 
-    <!-- Network speed strings -->
-    <string name="network_speed_download_title">Download Geschw. anzeigen</string>
-    <string name="network_speed_download_summary">Aktivieren um die Download Geschwindigkeit in der Statusleiste anzuzeigen</string>
-    <string name="network_speed_upload_title">Upload Geschw. anzeigen</string>
-    <string name="network_speed_upload_summary">Aktivieren um die Upload Geschwindigkeit in der Statusleiste anzuzeigen</string>
-    <string name="network_speed_bit_byte_title">Bit-Werte anzeigen</string>
-    <string name="network_speed_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
-    <string name="network_speed_hide_traffic_title">Anzeige verstecken</string>
-    <string name="network_speed_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
-    <string name="color_download_title">Download Farbe</string>
-    <string name="color_upload_title">Upload Farbe</string>
-
     <!-- Statusbar expanded -->
 
     <!-- Statusbar expanded strings -->
@@ -165,10 +153,25 @@
     <string name="header_settings_btn_title">Einstellungen Schaltfläche</string>
     <string name="header_settings_btn_summary">Aktivieren, um den Einstellungen Schaltfläche immer anzuzeigen</string>
 
+    <!-- Quick access strings -->
+    <string name="quick_access_settings_title">Schnellzugriff</string>
+
     <!-- Notification drawer style strings -->
     <string name="notification_drawer_background_color_title">Hintergrundfarbe</string>
     <string name="notification_drawer_background_alpha_title">Transparenz des Hintergrundes</string>
     <string name="notification_drawer_row_alpha_title">Transparenz der Reihen</string>
+
+    <!-- Network speed strings -->
+    <string name="network_speed_download_title">Download Geschw. anzeigen</string>
+    <string name="network_speed_download_summary">Aktivieren um die Download Geschwindigkeit in der Statusleiste anzuzeigen</string>
+    <string name="network_speed_upload_title">Upload Geschw. anzeigen</string>
+    <string name="network_speed_upload_summary">Aktivieren um die Upload Geschwindigkeit in der Statusleiste anzuzeigen</string>
+    <string name="network_speed_bit_byte_title">Bit-Werte anzeigen</string>
+    <string name="network_speed_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
+    <string name="network_speed_hide_traffic_title">Anzeige verstecken</string>
+    <string name="network_speed_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
+    <string name="color_download_title">Download Farbe</string>
+    <string name="color_upload_title">Upload Farbe</string>
 
     <!-- Recents apps strings -->
     <string name="recents_apps_title">Letzte Apps</string>

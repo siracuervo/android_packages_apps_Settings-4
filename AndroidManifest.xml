@@ -1737,6 +1737,8 @@
 
         <activity android:name=".darkjelly.NotificationDrawer" />
 
+        <activity android:name=".darkjelly.QuickAccessSettings" />
+
 		<activity android:name=".darkjelly.NotificationDrawerCwLabelStyle" />
 
 		<activity android:name=".darkjelly.RecentsAppsSettings" />

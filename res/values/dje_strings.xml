@@ -142,18 +142,6 @@
     <string name="battery_bar_thickness_3">3dp</string>
     <string name="battery_bar_thickness_4">4dp</string>
 
-    <!-- Network speed strings -->
-    <string name="network_speed_download_title">Show download speed</string>
-    <string name="network_speed_download_summary">Enable to show the download speed in the status bar</string>
-    <string name="network_speed_upload_title">Show upload speed</string>
-    <string name="network_speed_upload_summary">Enable to show the upload speed in the status bar</string>
-    <string name="network_speed_bit_byte_title">Show bit values</string>
-    <string name="network_speed_bit_byte_summary">Enable to show the values in bit instead of byte</string>
-    <string name="network_speed_hide_traffic_title">Hide the indicator</string>
-    <string name="network_speed_hide_traffic_summary">Enable to hide the indicator if there is no traffic</string>
-    <string name="color_download_title">Download Color</string>
-    <string name="color_upload_title">Upload Color</string>
-
     <!-- Statusbar expanded -->
 
     <!-- Statusbar expanded strings -->
@@ -170,6 +158,21 @@
     <string name="notification_drawer_background_color_title">Background color</string>
     <string name="notification_drawer_background_alpha_title">Background transparency</string>
     <string name="notification_drawer_row_alpha_title">Rows background transparency</string>
+
+    <!-- Quick access strings -->
+    <string name="quick_access_settings_title">Quick Access ribbon</string>
+
+    <!-- Network speed strings -->
+    <string name="network_speed_download_title">Show download speed</string>
+    <string name="network_speed_download_summary">Enable to show the download speed in the status bar</string>
+    <string name="network_speed_upload_title">Show upload speed</string>
+    <string name="network_speed_upload_summary">Enable to show the upload speed in the status bar</string>
+    <string name="network_speed_bit_byte_title">Show bit values</string>
+    <string name="network_speed_bit_byte_summary">Enable to show the values in bit instead of byte</string>
+    <string name="network_speed_hide_traffic_title">Hide the indicator</string>
+    <string name="network_speed_hide_traffic_summary">Enable to hide the indicator if there is no traffic</string>
+    <string name="color_download_title">Download Color</string>
+    <string name="color_upload_title">Upload Color</string>
 
     <!-- Recents apps strings -->
     <string name="recents_apps_title">Recents Apps</string>
