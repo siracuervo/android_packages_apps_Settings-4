@@ -25,6 +25,7 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Setzen</string>
     <string name="theme_default_color">Design Standard</string>
+    <string name="system_default_color">System Standard</string>
 
     <!-- Global used strings  -->
     <string name="style_title">Style</string>
@@ -148,6 +149,7 @@
     <string name="status_bar_expanded_cat_clock_date_title">Uhr &amp; Datum</string>
     <string name="status_bar_expanded_cat_options_title">Optionen</string>
     <string name="status_bar_expanded_header_title">Kopfzeile</string>
+    <string name="quick_access_settings_style_title">Schnelleinstellungen&#47;Schnellzugriff</string>
 
     <!-- Statusbar expanded header strings -->
     <string name="header_settings_btn_title">Einstellungen Schaltfläche</string>
@@ -155,6 +157,13 @@
 
     <!-- Quick access strings -->
     <string name="quick_access_settings_title">Schnellzugriff</string>
+
+    <!-- Quick access settings style strings -->
+    <string name="enable_defaults_title">Standards aktivieren</string>
+    <string name="enable_system_default">System Standard</string>
+    <string name="enable_custom_color">Eigene Farbe</string>
+    <string name="tile_background_title">Kachel Hintergrund</string>
+    <string name="tile_background_alpha_title">Transparenz des Kachel Hintergrundes</string>
 
     <!-- Notification drawer style strings -->
     <string name="notification_drawer_background_color_title">Hintergrundfarbe</string>

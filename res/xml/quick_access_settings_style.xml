@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 Dark Jelly
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/quick_access_settings_style_title">
+
+    <PreferenceCategory
+        android:key="category_options"
+        android:title="@string/cat_options_title">
+
+		<ListPreference
+		    android:key="qas_enable_defaults"
+		    android:title="@string/enable_defaults_title"
+		    android:entries="@array/enable_defaults_entries"
+		    android:entryValues="@array/enable_defaults_values" />
+
+	</PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_color"
+        android:title="@string/color_title">
+
+		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+			android:key="qas_tile_background_color"
+			android:title="@string/tile_background_title"
+			android:defaultValue="0xff202020" />
+
+		<com.android.settings.widget.SeekBarPreference
+		    android:key="qas_tile_background_alpha"
+		    android:title="@string/tile_background_alpha_title" />
+
+	</PreferenceCategory>
+
+</PreferenceScreen>

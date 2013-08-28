@@ -121,6 +121,18 @@
         <item>4</item>
     </string-array>
 
+    <string-array name="enable_defaults_entries" >
+        <item>@string/enable_theme_default_title</item>
+        <item>@string/enable_system_default</item>
+        <item>@string/enable_custom_color</item>
+    </string-array>
+
+    <string-array name="enable_defaults_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <string-array name="recents_clear_all_button_position_entries" >
         <item>@string/recents_clear_all_button_lt</item>
         <item>@string/recents_clear_all_button_rt</item>

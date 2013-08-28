@@ -23,7 +23,7 @@
         android:title="@string/cat_options_title">
 
 		<CheckBoxPreference
-		    android:key="enable_theme_default"
+		    android:key="pie_enable_theme_default"
 		    android:title="@string/enable_theme_default_title"
 		    android:summary="@string/enable_theme_default_summary"
 		    android:persistent="false"

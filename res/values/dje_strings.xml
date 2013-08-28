@@ -25,6 +25,7 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
     <string name="theme_default_color">Theme default</string>
+    <string name="system_default_color">System default</string>
 
     <!-- Global used strings  -->
     <string name="style_title">Style</string>
@@ -149,6 +150,7 @@
     <string name="status_bar_expanded_cat_clock_date_title">Clock &amp; date</string>
     <string name="status_bar_expanded_cat_options_title">Options</string>
     <string name="status_bar_expanded_header_title">Header</string>
+    <string name="quick_access_settings_style_title">Quick Settings&#47;Quick Access ribbon</string>
 
     <!-- Statusbar expanded header strings -->
     <string name="header_settings_btn_title">Settings button</string>
@@ -161,6 +163,13 @@
 
     <!-- Quick access strings -->
     <string name="quick_access_settings_title">Quick Access ribbon</string>
+
+    <!-- Quick access settings style strings -->
+    <string name="enable_defaults_title">Enable defaults</string>
+    <string name="enable_system_default">System default</string>
+    <string name="enable_custom_color">Custom color</string>
+    <string name="tile_background_title">Tile background</string>
+    <string name="tile_background_alpha_title">Tile background transparency</string>
 
     <!-- Network speed strings -->
     <string name="network_speed_download_title">Show download speed</string>

@@ -42,7 +42,7 @@ public class PieControlColor extends SettingsPreferenceFragment implements OnPre
 
     private static final String TAG = "PieControlColor";
 
-    private static final String PREF_ENABLE_THEME_DEFAULT = "enable_theme_default";
+    private static final String PREF_ENABLE_THEME_DEFAULT = "pie_enable_theme_default";
     private static final String PREF_DISABLE_ICON_OVERLAY = "disable_icon_overlay";
     private static final String PREF_PIE_SNAP_COLOR = "pie_snap_color";
     private static final String PREF_PIE_OVERLAY_COLOR = "pie_overlay_color";

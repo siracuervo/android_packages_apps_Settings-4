@@ -36,11 +36,6 @@
         android:title="@string/cat_style_title">
 
 		<PreferenceScreen
-		    android:key="notification_drawer_background_style"
-		    android:fragment="com.android.settings.darkjelly.NotificationDrawerBackgroundStyle"
-		    android:title="@string/background_title" />
-
-		<PreferenceScreen
 		    android:key="notification_cw_label_style"
 		    android:fragment="com.android.settings.darkjelly.NotificationDrawerCwLabelStyle"
 		    android:title="@string/cw_label_style_title" />
