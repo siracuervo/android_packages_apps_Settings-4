@@ -72,6 +72,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
     private static final String KEY_LOCKSCREEN_ENABLE_WIDGETS = "lockscreen_enable_widgets";
     private static final String KEY_LOCKSCREEN_ENABLE_CAMERA = "lockscreen_enable_camera";
+    private static final String KEY_LOCKSCREEN_CARRIER_LABEL_STYLE = "lockscreen_carrier_label_style";
 
     private ListPreference mCustomBackground;
     private ListPreference mBatteryStatus;
@@ -149,6 +150,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         // Don't display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK), widgetsCategory);
+
+        // Remove the Carrier style screen on wifi only devices
+        if (Utils.isWifiOnly(getActivity())) {
+            removePreference(KEY_LOCKSCREEN_CARRIER_LABEL_STYLE);
+        }
     }
 
     private void updateCustomBackgroundSummary() {

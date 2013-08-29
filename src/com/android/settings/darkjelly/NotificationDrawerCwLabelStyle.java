@@ -30,6 +30,7 @@ import android.view.MenuItem;
 
 import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
 import com.android.settings.R;
+import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.widget.SeekBarPreference;
 
@@ -61,25 +62,31 @@ public class NotificationDrawerCwLabelStyle extends SettingsPreferenceFragment i
 
         addPreferencesFromResource(R.xml.notification_drawer_cw_label_style);
         mResolver = getActivity().getContentResolver();
- 
-        mNotificationShowCustomCarrierLabel = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_CUSTOM_CARRIER_LABEL);
-        mNotificationShowCustomCarrierLabel.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.NOTIFICATION_SHOW_CUSTOM_CARRIER_LABEL, 1) == 1);
-        String customLabelText = Settings.System.getString(mResolver,
-                Settings.System.CUSTOM_CARRIER_LABEL);
-        if (customLabelText == null || customLabelText.length() == 0) {
-            mNotificationShowCustomCarrierLabel.setSummary(R.string.custom_carrier_label_notset);
-            mNotificationShowCustomCarrierLabel.setEnabled(false);
-        } else {
-            mNotificationShowCustomCarrierLabel.setSummary(R.string.show_custom_carrier_label_enabled_summary);
-            mNotificationShowCustomCarrierLabel.setEnabled(true);
-        }
-        mNotificationShowCustomCarrierLabel.setOnPreferenceChangeListener(this);
 
-        mNotificationShowWifiSsid = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
-        mNotificationShowWifiSsid.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
-        mNotificationShowWifiSsid.setOnPreferenceChangeListener(this);
+        // Remove show custom carrier label and show wifi ssid preferences on wifi only devices
+        if (Utils.isWifiOnly(getActivity())) {
+            removePreference(PREF_NOTIFICATION_SHOW_CUSTOM_CARRIER_LABEL);
+            removePreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
+        } else {
+            mNotificationShowCustomCarrierLabel = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_CUSTOM_CARRIER_LABEL);
+            mNotificationShowCustomCarrierLabel.setChecked(Settings.System.getInt(mResolver,
+                    Settings.System.NOTIFICATION_SHOW_CUSTOM_CARRIER_LABEL, 1) == 1);
+            String customLabelText = Settings.System.getString(mResolver,
+                    Settings.System.CUSTOM_CARRIER_LABEL);
+            if (customLabelText == null || customLabelText.length() == 0) {
+                mNotificationShowCustomCarrierLabel.setSummary(R.string.custom_carrier_label_notset);
+                mNotificationShowCustomCarrierLabel.setEnabled(false);
+            } else {
+                mNotificationShowCustomCarrierLabel.setSummary(R.string.show_custom_carrier_label_enabled_summary);
+                mNotificationShowCustomCarrierLabel.setEnabled(true);
+            }
+            mNotificationShowCustomCarrierLabel.setOnPreferenceChangeListener(this);
+
+            mNotificationShowWifiSsid = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
+            mNotificationShowWifiSsid.setChecked(Settings.System.getInt(mResolver,
+                    Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
+            mNotificationShowWifiSsid.setOnPreferenceChangeListener(this);
+        }
 
         mNotificationCwLabelColor = (ColorPickerPreference) findPreference(PREF_NOTIFICATION_CW_LABEL_COLOR);
         int intColor = Settings.System.getInt(mResolver,
