@@ -75,10 +75,10 @@
         </PreferenceCategory>
 
 	    <PreferenceCategory
-        		android:key="dje_section"
-        		android:title="@string/dje_section_title">
+        		android:key="dj_section"
+        		android:title="@string/dj_section_title">
 
-                <!-- Dark Jelly Edition Updates - launches UpdateMe App -->
+                <!-- Dark Jelly Updates - launches UpdateMe App -->
         		<PreferenceScreen
 						android:key="update_me_app"
                         android:title="@string/update_me_app_settings_title"
@@ -88,12 +88,12 @@
                     		android:targetClass="com.acquariusoft.UpdateMe.UpdateMeActivity" />
         		</PreferenceScreen>
 
-				<!-- Dark Jelly Edition Change Log -->
+				<!-- Dark Jelly Change Log -->
 				<PreferenceScreen
-						android:key="djechangelog"
+						android:key="djchangelog"
 				        android:title="@string/changelog_title"
-						android:summary="@string/djechangelog_summary"
-				        android:fragment="com.android.settings.darkjelly.DJEChangeLog" >
+						android:summary="@string/djchangelog_summary"
+				        android:fragment="com.android.settings.darkjelly.DJChangeLog" >
 				</PreferenceScreen>
         </PreferenceCategory>
         

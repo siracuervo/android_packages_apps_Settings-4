@@ -40,9 +40,9 @@ import java.io.InputStreamReader;
 import com.android.internal.app.AlertActivity;
 import com.android.internal.app.AlertController;
 
-public class DJEChangeLog extends Fragment {
+public class DJChangeLog extends Fragment {
 
-    private static final String CHANGELOG_PATH = "/system/etc/CHANGELOG-DJE.txt";
+    private static final String CHANGELOG_PATH = "/system/etc/CHANGELOG-DJ.txt";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
