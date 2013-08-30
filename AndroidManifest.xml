@@ -1747,7 +1747,7 @@
 
 		<activity android:name=".darkjelly.NavigationBarStyle" />
 
-		<activity android:name=".darkjelly.DJEChangeLog" />
+		<activity android:name=".darkjelly.DJChangeLog" />
 
         <activity android:name="Settings$ASSRamBarActivity"
                 android:label="@string/ram_bar">
