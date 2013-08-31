@@ -34,6 +34,7 @@ import android.view.WindowManagerGlobal;
 import android.widget.EditText;
 
 import com.android.settings.R;
+import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class General extends SettingsPreferenceFragment implements
@@ -57,7 +58,12 @@ public class General extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.general_settings);
 
-        mCustomLabel = findPreference(KEY_CUSTOM_CARRIER_LABEL);
+        // Remove show custom carrier label and show wifi ssid preferences on wifi only devices
+        if (Utils.isWifiOnly(getActivity())) {
+            removePreference(KEY_CUSTOM_CARRIER_LABEL);
+        } else {
+            mCustomLabel = findPreference(KEY_CUSTOM_CARRIER_LABEL);
+        }
 
         mLowBatteryWarning = (ListPreference) findPreference(KEY_LOW_BATTERY_WARNING_POLICY);
         int lowBatteryWarning = Settings.System.getInt(mResolver,
@@ -66,7 +72,9 @@ public class General extends SettingsPreferenceFragment implements
         mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
         mLowBatteryWarning.setOnPreferenceChangeListener(this);
 
-        updateCustomLabelTextSummary();
+        if (!Utils.isWifiOnly(getActivity())) {
+            updateCustomLabelTextSummary();
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -134,12 +142,16 @@ public class General extends SettingsPreferenceFragment implements
      @Override
      public void onResume() {
          super.onResume();
-         updateCustomLabelTextSummary();
+         if (!Utils.isWifiOnly(getActivity())) {
+            updateCustomLabelTextSummary();
+        }
      }
  
      @Override
      public void onPause() {
          super.onResume();
-         updateCustomLabelTextSummary();
+         if (!Utils.isWifiOnly(getActivity())) {
+            updateCustomLabelTextSummary();
+        }
      } 
 }
