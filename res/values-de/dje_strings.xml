@@ -85,6 +85,8 @@
     <!-- Statusbar strings  -->
     <string name="status_bar_show_clock_title">Die Uhr anzeigen</string>
     <string name="status_bar_show_clock_summary">Aktivieren um die Uhr in der Statusleiste anzuzeigen</string>
+    <string name="status_bar_show_date_title">Das Datum anzeigen</string>
+    <string name="status_bar_show_date_summary">Aktivieren um das Datum neben der Uhr in der Statusleiste anzuzeigen</string>
     <string name="status_bar_show_battery_status_title">Den Akkustatus anzeigen</string>
     <string name="status_bar_show_battery_status_summary">Aktivieren um den Akkustatus in der Statusleiste anzuzeigen</string>
     <string name="status_bar_show_battery_bar_title">Die Akkuleiste anzeigen</string>
@@ -101,8 +103,20 @@
     <string name="status_bar_network_speed_title">Netzw.-Geschw. Anzeige</string>
 
     <!-- Statusbar style clock style strings  -->
+    <string name="status_bar_cat_clock_title">Uhr</string>
+    <string name="status_bar_cat_date_title">Datum</string>
     <string name="status_bar_clock_position_title">Position</string>
     <string name="status_bar_clock_position_summary">Aktivieren um die Uhr in der Statusleiste zentriert anzuzeigen</string>
+    <string name="status_bar_date_size_title">Größe</string>
+    <string name="status_bar_date_size_summary">Aktivieren um ein kleines Datum anzuzeigen</string>
+    <string name="status_bar_date_style_title">Style</string>
+    <string name="status_bar_date_style_normal">Normal</string>
+    <string name="status_bar_date_style_lowercase">Kleinbuchstaben</string>
+    <string name="status_bar_date_style_uppercase">Großbuchstaben</string>
+    <string name="status_bar_date_format_title">Datumsformat</string>
+    <string name="status_bar_date_custom_java_format">Eigenes Java Format</string>
+    <string name="status_bar_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
+    <string name="status_bar_date_string_edittext_summary">Zeichenfolge eingeben</string>
 
     <!-- Statusbar style battery status strings  -->
     <string name="style_reset_battery_status">Akkustand zurücksetzten</string>

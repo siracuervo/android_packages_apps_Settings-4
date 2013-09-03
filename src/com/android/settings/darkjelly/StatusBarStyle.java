@@ -49,6 +49,9 @@ public class StatusBarStyle extends SettingsPreferenceFragment {
         boolean isClockEnabled = Settings.System.getInt(resolver,
                Settings.System.STATUS_BAR_SHOW_CLOCK, 1) == 1;
 
+        boolean isDateEnabled = Settings.System.getInt(resolver,
+               Settings.System.STATUS_BAR_SHOW_DATE, 0) == 1;
+
         boolean isBatteryStatusEnabled = Settings.System.getInt(resolver,
                Settings.System.STATUS_BAR_SHOW_BATTERY_STATUS, 1) == 1;
 
@@ -58,10 +61,10 @@ public class StatusBarStyle extends SettingsPreferenceFragment {
         boolean isNetworkSpeedIndicatorEnabled = Settings.System.getInt(resolver,
                Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR, 0) == 1;
 
-        if (isClockEnabled) {
-            mStatusBarClockStyle.setEnabled(true);
-        } else {
+        if (!isClockEnabled && !isDateEnabled) {
             mStatusBarClockStyle.setEnabled(false);
+        } else {
+            mStatusBarClockStyle.setEnabled(true);
         }
 
         if (isBatteryStatusEnabled) {

@@ -44,6 +44,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
     private static final String STATUS_BAR_SHOW_CLOCK = "status_bar_show_clock";
+    private static final String STATUS_BAR_SHOW_DATE = "status_bar_show_date";
     private static final String STATUS_BAR_SHOW_BATTERY_STATUS = "status_bar_show_battery_status";
     private static final String STATUS_BAR_SHOW_BATTERY_BAR = "status_bar_show_battery_bar";
     private static final String STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR = "status_bar_enable_network_speed_indicator";
@@ -52,12 +53,15 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
 
     private CheckBoxPreference mStatusBarShowClock;
+    private CheckBoxPreference mStatusBarShowDate;
     private CheckBoxPreference mStatusBarShowBatteryStatus;
     private CheckBoxPreference mStatusBarShowBatteryBar;
     private CheckBoxPreference mStatusBarEnableNetworkSpeed;
     private ListPreference mStatusBarCmSignal;
     private CheckBoxPreference mStatusBarBrightnessControl;
     private CheckBoxPreference mStatusBarNotifCount;
+
+    private ContentResolver mResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,9 +73,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         addPreferencesFromResource(R.xml.status_bar);
 
         PreferenceScreen prefSet = getPreferenceScreen();
-        ContentResolver resolver = getActivity().getContentResolver();
+        mResolver = getActivity().getContentResolver();
 
         mStatusBarShowClock = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_CLOCK);
+        mStatusBarShowDate = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_DATE);
         mStatusBarShowBatteryStatus = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_BATTERY_STATUS);
         mStatusBarShowBatteryBar = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_BATTERY_BAR);
         mStatusBarEnableNetworkSpeed = (CheckBoxPreference) findPreference(STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR);
@@ -80,34 +85,38 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
         PreferenceCategory generalCategory = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
 
-        mStatusBarShowClock.setChecked(Settings.System.getInt(resolver,
+        mStatusBarShowClock.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_SHOW_CLOCK, 1) == 1);
         mStatusBarShowClock.setOnPreferenceChangeListener(this);
 
-        mStatusBarShowBatteryStatus.setChecked((Settings.System.getInt(resolver,
+        mStatusBarShowDate.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_SHOW_DATE, 0) == 1);
+        mStatusBarShowDate.setOnPreferenceChangeListener(this);
+
+        mStatusBarShowBatteryStatus.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_SHOW_BATTERY_STATUS, 1) == 1));
         mStatusBarShowBatteryStatus.setOnPreferenceChangeListener(this);
 
-        mStatusBarShowBatteryBar.setChecked((Settings.System.getInt(resolver,
+        mStatusBarShowBatteryBar.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, 0) == 1));
         mStatusBarShowBatteryBar.setOnPreferenceChangeListener(this);
 
-        mStatusBarEnableNetworkSpeed.setChecked((Settings.System.getInt(resolver,
+        mStatusBarEnableNetworkSpeed.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR, 0) == 1));
         mStatusBarEnableNetworkSpeed.setOnPreferenceChangeListener(this);
 
-        int signalStyle = Settings.System.getInt(resolver,
+        int signalStyle = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_SIGNAL_TEXT, 0);
         mStatusBarCmSignal.setValue(String.valueOf(signalStyle));
         mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntry());
         mStatusBarCmSignal.setOnPreferenceChangeListener(this);
 
-        mStatusBarBrightnessControl.setChecked(Settings.System.getInt(resolver,
+        mStatusBarBrightnessControl.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1);
         mStatusBarBrightnessControl.setOnPreferenceChangeListener(this);
 
         try {
-            if (Settings.System.getInt(resolver, Settings.System.SCREEN_BRIGHTNESS_MODE)
+            if (Settings.System.getInt(mResolver, Settings.System.SCREEN_BRIGHTNESS_MODE)
                     == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
                 mStatusBarBrightnessControl.setEnabled(false);
                 mStatusBarBrightnessControl.setSummary(R.string.status_bar_toggle_info);
@@ -115,7 +124,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         } catch (SettingNotFoundException e) {
         }
 
-        mStatusBarNotifCount.setChecked(Settings.System.getInt(resolver,
+        mStatusBarNotifCount.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1);
         mStatusBarNotifCount.setOnPreferenceChangeListener(this);
 
@@ -140,20 +149,14 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.reset_statusbar:
-                Settings.System.putInt(getActivity().getContentResolver(),
-                        Settings.System.STATUS_BAR_SHOW_CLOCK, 1);
-                Settings.System.putInt(getActivity().getContentResolver(),
-                        Settings.System.STATUS_BAR_SHOW_BATTERY_STATUS, 1);
-                Settings.System.putInt(getActivity().getContentResolver(),
-                        Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, 0);
-                Settings.System.putInt(getActivity().getContentResolver(),
-                        Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR, 0);
-                Settings.System.putInt(getActivity().getContentResolver(),
-                        Settings.System.STATUS_BAR_SIGNAL_TEXT, 0);
-                Settings.System.putInt(getActivity().getContentResolver(),
-                        Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0);
-                Settings.System.putInt(getActivity().getContentResolver(),
-                        Settings.System.STATUS_BAR_NOTIF_COUNT, 0);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_SHOW_CLOCK, 1);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_SHOW_DATE, 0);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_SHOW_BATTERY_STATUS, 1);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, 0);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR, 0);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_SIGNAL_TEXT, 0);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_NOTIF_COUNT, 0);
                 refreshSettings();
                 return true;
              default:
@@ -163,36 +166,39 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mStatusBarShowClock) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_SHOW_CLOCK, value ? 1 : 0);
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_SHOW_CLOCK, value ? 1 : 0);
+            return true;
+        } else if (preference == mStatusBarShowDate) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_SHOW_DATE, value ? 1 : 0);
             return true;
         } else if (preference == mStatusBarShowBatteryStatus) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_SHOW_BATTERY_STATUS, value ? 1 : 0);
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_SHOW_BATTERY_STATUS, value ? 1 : 0);
             return true;
         } else if (preference == mStatusBarShowBatteryBar) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, value ? 1 : 0);
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, value ? 1 : 0);
             return true;
         } else if (preference == mStatusBarEnableNetworkSpeed) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR, value ? 1 : 0);
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR, value ? 1 : 0);
             return true;
         } else if (preference == mStatusBarCmSignal) {
             int signalStyle = Integer.valueOf((String) newValue);
             int index = mStatusBarCmSignal.findIndexOfValue((String) newValue);
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
             mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntries()[index]);
             return true;
         } else if (preference == mStatusBarBrightnessControl) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, value ? 1 : 0);
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, value ? 1 : 0);
             return true;
         } else if (preference == mStatusBarNotifCount) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
             return true;
         }
         return false;

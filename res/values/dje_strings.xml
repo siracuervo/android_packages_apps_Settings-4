@@ -85,6 +85,8 @@
     <!-- Statusbar strings -->
     <string name="status_bar_show_clock_title">Show clock</string>
     <string name="status_bar_show_clock_summary">Enable to show the clock in the status bar</string>
+    <string name="status_bar_show_date_title">Show date</string>
+    <string name="status_bar_show_date_summary">Enable to show the date next to the clock in the status bar</string>
     <string name="status_bar_show_battery_status_title">Show battery status</string>
     <string name="status_bar_show_battery_status_summary">Enable to show the battery status in the status bar</string>
     <string name="status_bar_show_battery_bar_title">Show battery bar</string>
@@ -101,8 +103,20 @@
     <string name="status_bar_network_speed_title">Network speed indicator</string>
 
     <!-- Statusbar style clock style strings  -->
+    <string name="status_bar_cat_clock_title">Clock</string>
+    <string name="status_bar_cat_date_title">Date</string>
     <string name="status_bar_clock_position_title">Position</string>
     <string name="status_bar_clock_position_summary">Enabe to show the clock centered in the status bar</string>
+    <string name="status_bar_date_size_title">Size</string>
+    <string name="status_bar_date_size_summary">Enabe to display the date small sized</string>
+    <string name="status_bar_date_style_title">Style</string>
+    <string name="status_bar_date_style_normal">Normal</string>
+    <string name="status_bar_date_style_lowercase">Lowercase</string>
+    <string name="status_bar_date_style_uppercase">Uppercase</string>
+    <string name="status_bar_date_format_title">Date format</string>
+    <string name="status_bar_date_custom_java_format">Custom java format</string>
+    <string name="status_bar_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
+    <string name="status_bar_date_string_edittext_summary">Enter string</string> 
 
     <!-- Statusbar style battery status strings  -->
     <string name="status_bar_battery_status_style_title">Battery status</string>

@@ -18,6 +18,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_clock_style_title">
 
+    <PreferenceCategory
+        android:key="status_bar_cat_clock"
+        android:title="@string/status_bar_cat_clock_title">
+
          <CheckBoxPreference
             android:key="status_bar_clock_position"
             android:title="@string/status_bar_clock_position_title"
@@ -34,5 +38,28 @@
             android:title="@string/status_bar_am_pm_title"
             android:entries="@array/entries_status_bar_am_pm"
             android:entryValues="@array/values_status_bar_am_pm" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="status_bar_cat_date"
+        android:title="@string/status_bar_cat_date_title">
+
+        <CheckBoxPreference
+            android:key="status_bar_date_size"
+            android:title="@string/status_bar_date_size_title"
+            android:summary="@string/status_bar_date_size_summary" />
+
+        <ListPreference
+            android:key="status_bar_date_style"
+            android:title="@string/status_bar_date_style_title"
+            android:entries="@array/status_bar_date_style_entries"
+            android:entryValues="@array/status_bar_date_style_values" />
+
+        <ListPreference
+            android:key="status_bar_date_format"
+            android:title="@string/status_bar_date_format_title"
+            android:entries="@array/status_bar_date_format_entries"
+            android:entryValues="@array/status_bar_date_format_values" /> 
+    </PreferenceCategory>
 
 </PreferenceScreen>
