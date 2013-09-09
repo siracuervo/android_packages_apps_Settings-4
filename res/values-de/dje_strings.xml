@@ -57,9 +57,6 @@
     <!-- Lockscreen strings -->
     <string name="lockscreen_carrier_label_title">Netzbetreiber Name</string>
 
-    <!-- Custom carrier label strings -->
-    <string name="show_custom_carrier_label_title">Anzeigen</string>
-
     <!-- General strings -->
     <string name="general_title">Allgemein</string>
 
@@ -95,7 +92,7 @@
     <string name="status_bar_enable_network_speed_indicator_summary">Aktivieren, um die Netzwerk-Geschwindigkeits-Anzeige einzuschalten</string>
 
     <!-- Statusbar style strings  -->
-    <string name="status_bar_clock_style_title">Uhr</string>
+    <string name="status_bar_clock_date_style_title">Uhr &amp; Datum</string>
     <string name="status_bar_clock_style_enabled">Uhr wird angezeigt</string>
     <string name="status_bar_clock_style_disabled">Uhr ist ausgeblendet</string>
     <string name="status_bar_battery_status_style_title">Akkustatus</string>
@@ -104,9 +101,10 @@
 
     <!-- Statusbar style clock style strings  -->
     <string name="status_bar_cat_clock_title">Uhr</string>
+    <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>
     <string name="status_bar_cat_date_title">Datum</string>
-    <string name="status_bar_clock_position_title">Position</string>
-    <string name="status_bar_clock_position_summary">Aktivieren um die Uhr in der Statusleiste zentriert anzuzeigen</string>
+    <string name="status_bar_clock_date_position_title">Position</string>
+    <string name="status_bar_clock_date_position_summary">Aktivieren um Uhr (&amp; Datum) in der Statusleiste zentriert anzuzeigen</string>
     <string name="status_bar_date_size_title">Größe</string>
     <string name="status_bar_date_size_summary">Aktivieren um ein kleines Datum anzuzeigen</string>
     <string name="status_bar_date_style_title">Style</string>

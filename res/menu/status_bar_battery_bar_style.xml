@@ -16,7 +16,9 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/reset_statusbar_battery_bar"
-          android:title="@string/style_reset_battery_bar" />
+    <item android:id="@+id/statusbar_battery_bar_cm_default"
+          android:title="@string/reset_cm_default" />
+    <item android:id="@+id/statusbar_battery_bar_dark_jelly_default"
+          android:title="@string/reset_dark_jelly_default" />
 
 </menu>

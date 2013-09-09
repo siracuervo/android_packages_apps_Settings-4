@@ -36,6 +36,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
 
     private static final String TAG = "StatusBarBatteryStatusStyle";
 
+    private static final String PREF_ENABLE_THEME_DEFAULT = "status_bar_battery_status_enable_theme_default";
     private static final String PREF_BATT_STAT_STYLE = "battery_status_style";
     private static final String PREF_BATT_STAT_CIRCLE_DOTTED = "battery_circle_dotted";
     private static final String PREF_BATT_STAT_CIRCLE_COLOR = "circle_battery_color";
@@ -43,6 +44,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
     private static final String PREF_BATT_STAT_TEXT_CHARGING_COLOR = "battery_text_charging_color";
     private static final String PREF_BATT_STAT_CIRCLE_ANIMATIONSPEED = "circle_battery_animation_speed";
 
+    private CheckBoxPreference mEnableThemeDefault;
     private ListPreference mBatteryStatusStyle;
     private CheckBoxPreference mCircleDotted;
     private ColorPickerPreference mCircleColor;
@@ -51,6 +53,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
     private ListPreference mCircleAnimSpeed;
 
     private ContentResolver mResolver;
+    private int mBatteryStatus;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,12 +70,14 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         addPreferencesFromResource(R.xml.status_bar_battery_status_style);
         mResolver = getActivity().getContentResolver();
 
-        int intColor;
-        String hexColor;
+        mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
+        mEnableThemeDefault.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_BATTERY_STATUS_ENABLE_THEME_DEFAULT, 1) == 1);
+        mEnableThemeDefault.setOnPreferenceChangeListener(this);
 
         mBatteryStatusStyle = (ListPreference) findPreference(PREF_BATT_STAT_STYLE);
-        int batteryStatusStyle = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 4);
-        mBatteryStatusStyle.setValue(String.valueOf(batteryStatusStyle));
+        mBatteryStatus = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 4);
+        mBatteryStatusStyle.setValue(String.valueOf(mBatteryStatus));
         mBatteryStatusStyle.setSummary(mBatteryStatusStyle.getEntry());
         mBatteryStatusStyle.setOnPreferenceChangeListener(this);
 
@@ -81,24 +86,12 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         mCircleDotted.setOnPreferenceChangeListener(this);
 
         mCircleColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_CIRCLE_COLOR);
-        intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_BATTERY_COLOR, 0xff33b5e5); 
-        mCircleColor.setNewPreviewColor(intColor);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mCircleColor.setSummary(hexColor);
         mCircleColor.setOnPreferenceChangeListener(this);
 
         mBatteryTextColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_TEXT_COLOR);
-        intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_COLOR, 0xffffffff); 
-        mBatteryTextColor.setNewPreviewColor(intColor);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mBatteryTextColor.setSummary(hexColor);
         mBatteryTextColor.setOnPreferenceChangeListener(this);
 
         mBatteryTextChargingColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_TEXT_CHARGING_COLOR);
-        intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR, 0xff00ff00); 
-        mBatteryTextChargingColor.setNewPreviewColor(intColor);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mBatteryTextChargingColor.setSummary(hexColor);
         mBatteryTextChargingColor.setOnPreferenceChangeListener(this);
 
         mCircleAnimSpeed = (ListPreference) findPreference(PREF_BATT_STAT_CIRCLE_ANIMATIONSPEED);
@@ -107,7 +100,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         mCircleAnimSpeed.setSummary(mCircleAnimSpeed.getEntry());
         mCircleAnimSpeed.setOnPreferenceChangeListener(this);
 
-        udateBatteryStatusOptions(batteryStatusStyle);
+        updatePreferences(mBatteryStatus);
         setHasOptionsMenu(true);
     }
 
@@ -120,13 +113,22 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.reset_statusbar_battery_status:
+            case R.id.statusbar_battery_status_cm_default:
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 4);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_DOTTED, 0);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_BATTERY_COLOR, 0xff0099cc);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_COLOR, 0xff0099cc);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR, 0xff0099cc);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED, 1);
+                refreshSettings();
+                return true;
+            case R.id.statusbar_battery_status_dark_jelly_default:
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 4);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_DOTTED, 1);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_BATTERY_COLOR, 0xff33b5e5);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_COLOR, 0xffffffff);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR, 0xff00ff00);
-                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED, 3);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED, 5);
                 refreshSettings();
                 return true;
              default:
@@ -139,12 +141,17 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         int intHex;
         String hex;
 
-        if (preference == mBatteryStatusStyle) {
-            int batteryStatusStyle = Integer.valueOf((String) newValue);
+        if (preference == mEnableThemeDefault) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_ENABLE_THEME_DEFAULT, value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mBatteryStatusStyle) {
+            mBatteryStatus = Integer.valueOf((String) newValue);
             index = mBatteryStatusStyle.findIndexOfValue((String) newValue);
-            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, batteryStatusStyle);
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, mBatteryStatus);
             mBatteryStatusStyle.setSummary(mBatteryStatusStyle.getEntries()[index]);
-            udateBatteryStatusOptions(batteryStatusStyle);
+            updatePreferences(mBatteryStatus);
             return true;
         } else if (preference == mCircleDotted) {
             boolean value = (Boolean) newValue;
@@ -178,14 +185,17 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         return false;
     }
 
-    private void udateBatteryStatusOptions(int batteryIconStat) {
+    public void updatePreferences(int batteryIconStat) {
+        boolean isThemeDefaultEnabled = mEnableThemeDefault.isChecked();
+        String themeDefaultColorSummary = getResources().getString(R.string.theme_default_color);
+        int intColor = 0xff0099cc;
+        String hexColor = String.format("#%08x", (0xffffffff & 0xff0099cc));
 
         if (batteryIconStat == 0 ||
             batteryIconStat == 5 ||
             batteryIconStat == 6 ||
             batteryIconStat == 7) {
 
-            mBatteryStatusStyle.setEnabled(true);
             mCircleDotted.setEnabled(false);
             mCircleColor.setEnabled(false);
             mBatteryTextColor.setEnabled(false);
@@ -194,21 +204,54 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         } else if (batteryIconStat == 1 ||
             batteryIconStat == 2) {
 
-            mBatteryStatusStyle.setEnabled(true);
             mCircleDotted.setEnabled(false);
             mCircleColor.setEnabled(false);
-            mBatteryTextColor.setEnabled(true);
-            mBatteryTextChargingColor.setEnabled(true);
+            mBatteryTextColor.setEnabled(isThemeDefaultEnabled ? false : true);
+            mBatteryTextChargingColor.setEnabled(isThemeDefaultEnabled ? false : true);
             mCircleAnimSpeed.setEnabled(false);
-        } else if (batteryIconStat == 3 ||
-            batteryIconStat == 4) {
+        } else if (batteryIconStat == 3) {
 
-            mBatteryStatusStyle.setEnabled(true);
             mCircleDotted.setEnabled(true);
-            mCircleColor.setEnabled(true);
-            mBatteryTextColor.setEnabled(true);
-            mBatteryTextChargingColor.setEnabled(true);
+            mCircleColor.setEnabled(isThemeDefaultEnabled ? false : true);
+            mBatteryTextColor.setEnabled(false);
+            mBatteryTextChargingColor.setEnabled(false);
             mCircleAnimSpeed.setEnabled(true);
+        } else if (batteryIconStat == 4) {
+
+            mCircleDotted.setEnabled(true);
+            mCircleColor.setEnabled(isThemeDefaultEnabled ? false : true);
+            mBatteryTextColor.setEnabled(isThemeDefaultEnabled ? false : true);
+            mBatteryTextChargingColor.setEnabled(isThemeDefaultEnabled ? false : true);
+            mCircleAnimSpeed.setEnabled(true);
+        }
+
+        if (isThemeDefaultEnabled) {
+            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_BATTERY_COLOR, 0xff0099cc);
+            mCircleColor.setNewPreviewColor(intColor);
+            mCircleColor.setSummary(themeDefaultColorSummary);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_COLOR, 0xff0099cc); 
+            mBatteryTextColor.setNewPreviewColor(intColor);
+            mBatteryTextColor.setSummary(themeDefaultColorSummary);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR, 0xff0099cc);
+            mBatteryTextChargingColor.setNewPreviewColor(intColor);
+            mBatteryTextChargingColor.setSummary(themeDefaultColorSummary);
+        } else {
+            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_BATTERY_COLOR, 0xff0099cc);
+            mCircleColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mCircleColor.setSummary(hexColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_COLOR, 0xff0099cc); 
+            mBatteryTextColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mBatteryTextColor.setSummary(hexColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR, 0xff0099cc);
+            mBatteryTextChargingColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mBatteryTextChargingColor.setSummary(hexColor);
         }
     }
 

@@ -16,9 +16,9 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/statusbar_battery_status_cm_default"
+    <item android:id="@+id/notification_drawer_background_cm_default"
           android:title="@string/reset_cm_default" />
-    <item android:id="@+id/statusbar_battery_status_dark_jelly_default"
+    <item android:id="@+id/notification_drawer_background_dark_jelly_default"
           android:title="@string/reset_dark_jelly_default" />
 
 </menu>

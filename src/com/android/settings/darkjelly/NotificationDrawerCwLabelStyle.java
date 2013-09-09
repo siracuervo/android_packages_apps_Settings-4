@@ -108,10 +108,16 @@ public class NotificationDrawerCwLabelStyle extends SettingsPreferenceFragment i
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.reset_notification_drawer_cw_label_style:
-                Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_SHOW_CUSTOM_CARRIER_LABEL, 1);
+            case R.id.notification_drawer_cw_label_cm_default:
+                Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_SHOW_CUSTOM_CARRIER_LABEL, 0);
                 Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0);
                 Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_CARRIER_WIFI_LABEL_COLOR, 0xff999999);
+                refreshSettings();
+                return true;
+            case R.id.notification_drawer_cw_label_dark_jelly_default:
+                Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_SHOW_CUSTOM_CARRIER_LABEL, 1);
+                Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 1);
+                Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_CARRIER_WIFI_LABEL_COLOR, 0xffff0000);
                 refreshSettings();
                 return true;
              default:

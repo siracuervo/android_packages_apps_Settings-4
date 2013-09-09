@@ -18,11 +18,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/lockscreen_carrier_label_title">
 
-	<CheckBoxPreference
-	    android:key="lockscreen_show_custom_carrier_label"
-	    android:title="@string/show_custom_carrier_label_title"
-	    android:persistent="false"
-	    android:defaultValue="false" />
+    <PreferenceCategory
+        android:key="category_lockscreen_options"
+        android:title="@string/cat_options_title">
+
+		<CheckBoxPreference
+		    android:key="lockscreen_enable_theme_default"
+		    android:title="@string/enable_theme_default_title"
+		    android:summary="@string/enable_theme_default_summary"
+		    android:persistent="false"
+		    android:defaultValue="true" />
+
+	</PreferenceCategory>
 
 	<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
 	    android:key="lockscreen_carrier_label_color"

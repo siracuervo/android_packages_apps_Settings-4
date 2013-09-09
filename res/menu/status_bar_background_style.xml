@@ -16,7 +16,9 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/reset_statusbar_bg"
-          android:title="@string/style_reset" />
+    <item android:id="@+id/statusbar_bg_cm_default"
+          android:title="@string/reset_cm_default" />
+    <item android:id="@+id/statusbar_bg_dark_jelly_default"
+          android:title="@string/reset_dark_jelly_default" />
 
 </menu>

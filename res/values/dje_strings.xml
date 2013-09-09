@@ -49,16 +49,13 @@
     <string name="custom_carrier_label_title">Customize custom carrier label</string>
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
     <string name="cw_label_style_title">Carrier and Wifi network name</string>
-    <string name="show_custom_carrier_label_title">ustom carrier label</string>
+    <string name="show_custom_carrier_label_title">Custom carrier label</string>
     <string name="show_custom_carrier_label_enabled_summary">Enable, to show the custom carrier label</string>
     <string name="show_wifi_ssid_title">Wifi network name</string>
     <string name="show_wifi_ssid_summary">Enable, to show the Wifi network name</string>
 
     <!-- Lockscreen strings -->
     <string name="lockscreen_carrier_label_title">Carrier label</string>
-
-    <!-- Custom carrier label strings -->
-    <string name="show_custom_carrier_label_title">Show</string>
 
     <!-- General strings -->
     <string name="general_title">General</string>
@@ -95,7 +92,7 @@
     <string name="status_bar_enable_network_speed_indicator_summary">Enable, to activate the network speed indicator</string>
 
     <!-- Statusbar style strings  -->
-    <string name="status_bar_clock_style_title">Clock</string>
+    <string name="status_bar_clock_date_style_title">Clock &amp; date</string>
     <string name="status_bar_clock_style_enabled">Showing clock</string>
     <string name="status_bar_clock_style_disabled">Clock is hidden</string>
     <string name="status_bar_battery_status_style_title">Battery status</string>
@@ -104,9 +101,10 @@
 
     <!-- Statusbar style clock style strings  -->
     <string name="status_bar_cat_clock_title">Clock</string>
+    <string name="status_bar_cat_clock_date_title">Clock &amp; date</string>
     <string name="status_bar_cat_date_title">Date</string>
-    <string name="status_bar_clock_position_title">Position</string>
-    <string name="status_bar_clock_position_summary">Enabe to show the clock centered in the status bar</string>
+    <string name="status_bar_clock_date_position_title">Position</string>
+    <string name="status_bar_clock_date_position_summary">Enabe to show the clock (&amp; date) centered in the status bar</string>
     <string name="status_bar_date_size_title">Size</string>
     <string name="status_bar_date_size_summary">Enabe to display the date small sized</string>
     <string name="status_bar_date_style_title">Style</string>

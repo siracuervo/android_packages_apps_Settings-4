@@ -16,7 +16,9 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/reset_notification_drawer_cw_label_style"
-          android:title="@string/style_reset" />
+    <item android:id="@+id/notification_drawer_cw_label_cm_default"
+          android:title="@string/reset_cm_default" />
+    <item android:id="@+id/notification_drawer_cw_label_dark_jelly_default"
+          android:title="@string/reset_dark_jelly_default" />
 
 </menu>

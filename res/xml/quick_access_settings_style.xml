@@ -30,19 +30,13 @@
 
 	</PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="category_color"
-        android:title="@string/color_title">
+	<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+		android:key="qas_tile_background_color"
+		android:title="@string/tile_background_title"
+		android:defaultValue="0xff202020" />
 
-		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
-			android:key="qas_tile_background_color"
-			android:title="@string/tile_background_title"
-			android:defaultValue="0xff202020" />
-
-		<com.android.settings.widget.SeekBarPreference
-		    android:key="qas_tile_background_alpha"
-		    android:title="@string/tile_background_alpha_title" />
-
-	</PreferenceCategory>
+	<com.android.settings.widget.SeekBarPreference
+	    android:key="qas_tile_background_alpha"
+	    android:title="@string/tile_background_alpha_title" />
 
 </PreferenceScreen>

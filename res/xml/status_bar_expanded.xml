@@ -34,7 +34,7 @@
         android:title="@string/quick_settings_panel_title" />
 
     <PreferenceCategory
-        android:key="category_style"
+        android:key="category_status_bar_expanded_style"
         android:title="@string/cat_style_title">
 
 		<PreferenceScreen

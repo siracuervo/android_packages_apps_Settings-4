@@ -63,6 +63,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final int LOCKSCREEN_BACKGROUND_DEFAULT_WALLPAPER = 2;
 
     private static final String KEY_ALWAYS_BATTERY = "lockscreen_battery_status";
+    private static final String KEY_LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL = "lockscreen_show_custom_carrier_label";
     private static final String KEY_LOCKSCREEN_BUTTONS = "lockscreen_buttons";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_BACKGROUND = "lockscreen_background";
@@ -76,6 +77,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
     private ListPreference mCustomBackground;
     private ListPreference mBatteryStatus;
+    private CheckBoxPreference mLockscreenShowCustomCarrierLabel;
     private CheckBoxPreference mEnableWidgets;
     private CheckBoxPreference mEnableCamera;
 
@@ -125,6 +127,20 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         }
 
         // This applies to all users
+        mLockscreenShowCustomCarrierLabel = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL);
+        mLockscreenShowCustomCarrierLabel.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL, 1) == 1);
+        String customLabelText = Settings.System.getString(getActivity().getContentResolver(),
+                Settings.System.CUSTOM_CARRIER_LABEL);
+        if (customLabelText == null || customLabelText.length() == 0) {
+            mLockscreenShowCustomCarrierLabel.setSummary(R.string.custom_carrier_label_notset);
+            mLockscreenShowCustomCarrierLabel.setEnabled(false);
+        } else {
+            mLockscreenShowCustomCarrierLabel.setSummary(R.string.show_custom_carrier_label_enabled_summary);
+            mLockscreenShowCustomCarrierLabel.setEnabled(true);
+        }
+        mLockscreenShowCustomCarrierLabel.setOnPreferenceChangeListener(this);
+
         mCustomBackground = (ListPreference) findPreference(KEY_BACKGROUND);
         mCustomBackground.setOnPreferenceChangeListener(this);
         updateCustomBackgroundSummary();
@@ -223,6 +239,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             int index = mBatteryStatus.findIndexOfValue((String) objValue);
             Settings.System.putInt(cr, Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY, value);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
+            return true;
+        } else if (preference == mLockscreenShowCustomCarrierLabel) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL, value ? 1 : 0);
             return true;
         } else if (preference == mCustomBackground) {
             int selection = mCustomBackground.findIndexOfValue(objValue.toString());

@@ -18,6 +18,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/background_title">
 
+    <PreferenceCategory
+        android:key="category_notification_drawer_background_options"
+        android:title="@string/cat_options_title">
+
+		<CheckBoxPreference
+		    android:key="notification_drawer_background_enable_theme_default"
+		    android:title="@string/enable_theme_default_title"
+		    android:summary="@string/enable_theme_default_summary"
+		    android:persistent="false"
+		    android:defaultValue="true" />
+
+	</PreferenceCategory>
+
 		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
 		    android:key="notification_drawer_background_color"
 		    android:title="@string/notification_drawer_background_color_title"

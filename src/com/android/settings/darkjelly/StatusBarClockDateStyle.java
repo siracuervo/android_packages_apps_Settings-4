@@ -19,7 +19,7 @@ package com.android.settings.darkjelly;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnCancelListener; 
+import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
@@ -29,9 +29,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
-import android.provider.Settings.SettingNotFoundException;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -43,13 +41,14 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import java.util.Date;
 
-public class StatusBarClockStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener { 
+public class StatusBarClockDateStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener { 
 
-    private static final String TAG = "StatusBarClockStyle";
+    private static final String TAG = "StatusBarClockDateStyle";
 
     private static final String PREF_STAT_BAR_CAT_CLOCK = "status_bar_cat_clock";
-    private static final String PREF_STAT_BAR_CLOCK_POSITION = "status_bar_clock_position";
-    private static final String PREF_STAT_BAR_CLOCK_COLOR = "status_bar_clock_color";
+    private static final String PREF_ENABLE_THEME_DEFAULT = "status_bar_clock_date_enable_theme_default";
+    private static final String PREF_STAT_BAR_CLOCK_DATE_POSITION = "status_bar_clock_date_position";
+    private static final String PREF_STAT_BAR_CLOCK_DATE_COLOR = "status_bar_clock_date_color";
     private static final String PREF_STAT_BAR_AM_PM = "status_bar_am_pm";
     private static final String PREF_STAT_BAR_DATE_SIZE = "status_bar_date_size";
     private static final String PREF_STAT_BAR_DATE_STYLE = "status_bar_date_style";
@@ -59,8 +58,9 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment implements O
     public static final int STAT_BAR_DATE_STYLE_UPPERCASE = 2;
     private static final int STAT_BAR_CUSTOM_DATE_FORMAT_INDEX = 18;
 
-    private CheckBoxPreference mStatusBarClockPosition;
-    private ColorPickerPreference mStatusBarClockColor;
+    private CheckBoxPreference mEnableThemeDefault;
+    private CheckBoxPreference mStatusBarClockDatePosition;
+    private ColorPickerPreference mStatusBarClockDateColor;
     private ListPreference mStatusBarAmPm;
     private CheckBoxPreference mStatusBarDateSize;
     private ListPreference mStatusBarDateStyle;
@@ -80,28 +80,28 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment implements O
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.status_bar_clock_style);
+        addPreferencesFromResource(R.xml.status_bar_clock_date_style);
         mResolver = getActivity().getContentResolver();
-
-        boolean isClockEnabled = Settings.System.getInt(mResolver,
-               Settings.System.STATUS_BAR_SHOW_CLOCK, 1) == 1;
-        boolean isDateEnabled = Settings.System.getInt(mResolver,
-               Settings.System.STATUS_BAR_SHOW_DATE, 0) == 1;
 
         PreferenceCategory statusBarCatClock = (PreferenceCategory) findPreference(PREF_STAT_BAR_CAT_CLOCK);
 
-        mStatusBarClockPosition = (CheckBoxPreference) findPreference(PREF_STAT_BAR_CLOCK_POSITION);
-        mStatusBarClockPosition.setChecked((Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_CLOCK_POSITION, 0) == 1));
-        mStatusBarClockPosition.setOnPreferenceChangeListener(this);
+        mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
+        mEnableThemeDefault.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_CLOCK_DATE_ENABLE_THEME_DEFAULT, 1) == 1);
+        mEnableThemeDefault.setOnPreferenceChangeListener(this);
 
-        mStatusBarClockColor = (ColorPickerPreference) findPreference(PREF_STAT_BAR_CLOCK_COLOR);
+        mStatusBarClockDatePosition = (CheckBoxPreference) findPreference(PREF_STAT_BAR_CLOCK_DATE_POSITION);
+        mStatusBarClockDatePosition.setChecked((Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_CLOCK_POSITION, 0) == 1));
+        mStatusBarClockDatePosition.setOnPreferenceChangeListener(this);
+
+        mStatusBarClockDateColor = (ColorPickerPreference) findPreference(PREF_STAT_BAR_CLOCK_DATE_COLOR);
         int intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_CLOCK_COLOR, 0xff33b5e5); 
-        mStatusBarClockColor.setNewPreviewColor(intColor);
+        mStatusBarClockDateColor.setNewPreviewColor(intColor);
         String hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mStatusBarClockColor.setSummary(hexColor);
-        mStatusBarClockColor.setOnPreferenceChangeListener(this);
+        mStatusBarClockDateColor.setSummary(hexColor);
+        mStatusBarClockDateColor.setOnPreferenceChangeListener(this);
 
         mStatusBarAmPm = (ListPreference) findPreference(PREF_STAT_BAR_AM_PM);
         if (DateFormat.is24HourFormat(getActivity())) {
@@ -134,30 +134,7 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment implements O
         } 
         mStatusBarDateFormat.setOnPreferenceChangeListener(this);
 
-        if (isClockEnabled) {
-            mStatusBarClockPosition.setEnabled(true);
-            mStatusBarClockColor.setEnabled(true);
-            if (mStatusBarAmPm != null) {
-                mStatusBarAmPm.setEnabled(true);
-            }
-        } else {
-            mStatusBarClockPosition.setEnabled(false);
-            mStatusBarClockColor.setEnabled(false);
-            if (mStatusBarAmPm != null) {
-                mStatusBarAmPm.setEnabled(false);
-            }
-        }
-
-        if (isDateEnabled) {
-            mStatusBarDateSize.setEnabled(true);
-            mStatusBarDateStyle.setEnabled(true);
-            mStatusBarDateFormat.setEnabled(true);
-        } else {
-            mStatusBarDateSize.setEnabled(false);
-            mStatusBarDateStyle.setEnabled(false);
-            mStatusBarDateFormat.setEnabled(false);
-        }
-
+        updatePreferences();
         parseClockDateFormats();
         setHasOptionsMenu(true);
     }
@@ -165,15 +142,24 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment implements O
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.status_bar, menu);
+        inflater.inflate(R.menu.status_bar_clock_date_style, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.reset_statusbar:
+            case R.id.statusbar_clock_date_cm_default:
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CLOCK_POSITION, 0);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CLOCK_COLOR, 0xff33b5e5);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_AM_PM, 2);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_DATE_SIZE, 0);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_DATE_STYLE, 0);
+                Settings.System.putString(mResolver, Settings.System.STATUS_BAR_DATE_FORMAT, "EEE");
+                refreshSettings();
+                return true;
+            case R.id.statusbar_clock_date_dark_jelly_default:
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CLOCK_POSITION, 1);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CLOCK_COLOR, 0xffff0000);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_AM_PM, 2);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_DATE_SIZE, 0);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_DATE_STYLE, 0);
@@ -190,21 +176,26 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment implements O
 
         AlertDialog dialog;
 
-        if (preference == mStatusBarClockPosition) {
+        if (preference == mEnableThemeDefault) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CLOCK_DATE_ENABLE_THEME_DEFAULT, value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mStatusBarClockDatePosition) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CLOCK_POSITION, value ? 1 : 0);
+            return true;
+        } else if (preference == mStatusBarClockDateColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CLOCK_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
         } else if (preference == mStatusBarAmPm) {
             int statusBarAmPm = Integer.valueOf((String) newValue);
             int index = mStatusBarAmPm.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_AM_PM, statusBarAmPm);
             mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntries()[index]);
-            return true;
-        } else if (preference == mStatusBarClockColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CLOCK_COLOR, intHex);
-            preference.setSummary(hex);
             return true;
         } else if (preference == mStatusBarDateSize) {
             boolean value = (Boolean) newValue;
@@ -292,5 +283,49 @@ public class StatusBarClockStyle extends SettingsPreferenceFragment implements O
     @Override
     public void onResume() {
         super.onResume();
+    }
+
+    public void updatePreferences() {
+        boolean isClockEnabled = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_SHOW_CLOCK, 1) == 1;
+        boolean isDateEnabled = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_SHOW_DATE, 0) == 1;
+        boolean isThemeDefaultEnabled = mEnableThemeDefault.isChecked();
+
+        int color = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_CLOCK_COLOR, 0xff33b5e5);
+
+        if (isClockEnabled) {
+            mStatusBarClockDatePosition.setEnabled(true);
+            if (mStatusBarAmPm != null) {
+                mStatusBarAmPm.setEnabled(true);
+            }
+        } else {
+            mStatusBarClockDatePosition.setEnabled(false);
+            if (mStatusBarAmPm != null) {
+                mStatusBarAmPm.setEnabled(false);
+            }
+        }
+
+        if (isDateEnabled) {
+            mStatusBarDateSize.setEnabled(true);
+            mStatusBarDateStyle.setEnabled(true);
+            mStatusBarDateFormat.setEnabled(true);
+        } else {
+            mStatusBarDateSize.setEnabled(false);
+            mStatusBarDateStyle.setEnabled(false);
+            mStatusBarDateFormat.setEnabled(false);
+        }
+
+        if (isThemeDefaultEnabled) {
+            mStatusBarClockDateColor.setNewPreviewColor(color);
+            String themeDefaultColorSummary = getResources().getString(R.string.theme_default_color);
+            mStatusBarClockDateColor.setSummary(themeDefaultColorSummary);
+            mStatusBarClockDateColor.setEnabled(false);
+        } else {
+            mStatusBarClockDateColor.setEnabled(true);
+            String hexColor = String.format("#%08x", (0xffffffff & color));
+            mStatusBarClockDateColor.setNewPreviewColor(color);
+            mStatusBarClockDateColor.setSummary(hexColor);
+        }
     }
 }

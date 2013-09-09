@@ -18,6 +18,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/navigation_bar_title">
 
+    <PreferenceCategory
+        android:key="category_navigation_bar_options"
+        android:title="@string/cat_options_title">
+
+		<CheckBoxPreference
+		    android:key="navigation_bar_enable_theme_default"
+		    android:title="@string/enable_theme_default_title"
+		    android:summary="@string/enable_theme_default_summary"
+		    android:persistent="false"
+		    android:defaultValue="true" />
+
+	</PreferenceCategory>
+
     <com.android.settings.darkjelly.colorpicker.ColorPickerPreference
         android:key="nav_bar_color"
         android:title="@string/color_title"

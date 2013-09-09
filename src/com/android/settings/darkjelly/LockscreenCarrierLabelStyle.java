@@ -37,10 +37,10 @@ public class LockscreenCarrierLabelStyle extends SettingsPreferenceFragment impl
 
     private static final String TAG = "LockscreenCarrierLabelStyle";
 
-    private static final String PREF_LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL = "lockscreen_show_custom_carrier_label";
+    private static final String PREF_ENABLE_THEME_DEFAULT = "lockscreen_enable_theme_default";
     private static final String PREF_LOCKSCREEN_CUSTOM_LABEL_COLOR = "lockscreen_carrier_label_color";
 
-    private CheckBoxPreference mLockscreenShowCustomCarrierLabel;
+    private CheckBoxPreference mEnableThemeDefault;
     private ColorPickerPreference mLockscreenCustomLabelColor;
 
     private ContentResolver mResolver;
@@ -59,29 +59,16 @@ public class LockscreenCarrierLabelStyle extends SettingsPreferenceFragment impl
 
         addPreferencesFromResource(R.xml.lockscreen_carrier_label_style);
         mResolver = getActivity().getContentResolver();
- 
-        mLockscreenShowCustomCarrierLabel = (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL);
-        mLockscreenShowCustomCarrierLabel.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL, 1) == 1);
-        String customLabelText = Settings.System.getString(mResolver,
-                Settings.System.CUSTOM_CARRIER_LABEL);
-        if (customLabelText == null || customLabelText.length() == 0) {
-            mLockscreenShowCustomCarrierLabel.setSummary(R.string.custom_carrier_label_notset);
-            mLockscreenShowCustomCarrierLabel.setEnabled(false);
-        } else {
-            mLockscreenShowCustomCarrierLabel.setSummary(R.string.show_custom_carrier_label_enabled_summary);
-            mLockscreenShowCustomCarrierLabel.setEnabled(true);
-        }
-        mLockscreenShowCustomCarrierLabel.setOnPreferenceChangeListener(this);
+
+        mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
+        mEnableThemeDefault.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.LOCKSCREEN_ENABLE_THEME_DEFAULT, 1) == 1);
+        mEnableThemeDefault.setOnPreferenceChangeListener(this);
 
         mLockscreenCustomLabelColor = (ColorPickerPreference) findPreference(PREF_LOCKSCREEN_CUSTOM_LABEL_COLOR);
-        int intColor = Settings.System.getInt(mResolver,
-                Settings.System.LOCKSCREEN_CARRIER_LABEL_COLOR, 0xffbebebe);
-        mLockscreenCustomLabelColor.setNewPreviewColor(intColor);
-        String hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mLockscreenCustomLabelColor.setSummary(hexColor);
         mLockscreenCustomLabelColor.setOnPreferenceChangeListener(this);
 
+        updatePreferences();
         setHasOptionsMenu(true);
     }
 
@@ -94,9 +81,12 @@ public class LockscreenCarrierLabelStyle extends SettingsPreferenceFragment impl
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.reset_lockscreen_carrier_label_style:
-                Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL, 1);
+            case R.id.lockscreen_cm_default:
                 Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_CARRIER_LABEL_COLOR, 0xffbebebe);
+                refreshSettings();
+                return true;
+            case R.id.lockscreen_dark_jelly_default:
+                Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_CARRIER_LABEL_COLOR, 0xff33b5e5);
                 refreshSettings();
                 return true;
              default:
@@ -105,15 +95,15 @@ public class LockscreenCarrierLabelStyle extends SettingsPreferenceFragment impl
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mLockscreenShowCustomCarrierLabel) {
+        if (preference == mEnableThemeDefault) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL, value ? 1 : 0);
+            Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_ENABLE_THEME_DEFAULT, value ? 1 : 0);
+            refreshSettings();
             return true;
         } else if (preference == mLockscreenCustomLabelColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver,
-                    Settings.System.LOCKSCREEN_CARRIER_LABEL_COLOR, intHex);
+            Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_CARRIER_LABEL_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         }
@@ -121,12 +111,24 @@ public class LockscreenCarrierLabelStyle extends SettingsPreferenceFragment impl
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
+    }
+
+    public void updatePreferences() {
+        boolean isThemeDefaultEnabled = mEnableThemeDefault.isChecked();
+        int color = Settings.System.getInt(mResolver, Settings.System.LOCKSCREEN_CARRIER_LABEL_COLOR, 0xffbebebe);
+
+        if (isThemeDefaultEnabled) {
+            mLockscreenCustomLabelColor.setNewPreviewColor(color);
+            String themeDefaultColorSummary = getResources().getString(R.string.theme_default_color);
+            mLockscreenCustomLabelColor.setSummary(themeDefaultColorSummary);
+            mLockscreenCustomLabelColor.setEnabled(false);
+        } else {
+            mLockscreenCustomLabelColor.setEnabled(true);
+            mLockscreenCustomLabelColor.setNewPreviewColor(color);
+            String hexColor = String.format("#%08x", (0xffffffff & color));
+            mLockscreenCustomLabelColor.setSummary(hexColor);
+        }
     }
 }

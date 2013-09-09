@@ -18,6 +18,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_battery_bar_style_title">
 
+    <PreferenceCategory
+        android:key="category_status_bar_battery_bar_options"
+        android:title="@string/cat_options_title">
+
+		<CheckBoxPreference
+		    android:key="status_bar_battery_bar_enable_theme_default"
+		    android:title="@string/enable_theme_default_title"
+		    android:summary="@string/enable_theme_default_summary"
+		    android:persistent="false"
+		    android:defaultValue="true" />
+
+	</PreferenceCategory>
+
 	<ListPreference
 		android:key="battery_bar_position"
 		android:title="@string/battery_bar_position_title"

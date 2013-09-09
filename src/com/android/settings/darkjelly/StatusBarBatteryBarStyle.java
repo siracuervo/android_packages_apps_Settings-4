@@ -36,12 +36,14 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
 
     private static final String TAG = "StatusBarBatteryBarStyle";
 
+    private static final String PREF_ENABLE_THEME_DEFAULT = "status_bar_battery_bar_enable_theme_default";
     private static final String PREF_BATT_BAR_POSITION = "battery_bar_position";
     private static final String PREF_BATT_BAR_COLOR = "battery_bar_color";
     private static final String PREF_BATT_BAR_CENTER = "battery_bar_center";
     private static final String PREF_BATT_ANIMATE = "battery_bar_animate";
     private static final String PREF_BATT_BAR_WIDTH = "battery_bar_thickness";
 
+    private CheckBoxPreference mEnableThemeDefault;
     private ListPreference mBatteryBarPosition;
     private ColorPickerPreference mBatteryBarColor;
     private CheckBoxPreference mBatteryBarCenter;
@@ -65,6 +67,11 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
         addPreferencesFromResource(R.xml.status_bar_battery_bar_style);
         mResolver = getActivity().getContentResolver();
 
+        mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
+        mEnableThemeDefault.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_BATTERY_BAR_ENABLE_THEME_DEFAULT, 1) == 1);
+        mEnableThemeDefault.setOnPreferenceChangeListener(this);
+
         mBatteryBarPosition = (ListPreference) findPreference(PREF_BATT_BAR_POSITION);
         int batteryBarPosition = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_BATTERY_BAR_POSITION, 1);
@@ -73,11 +80,6 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
         mBatteryBarPosition.setOnPreferenceChangeListener(this);
 
         mBatteryBarColor = (ColorPickerPreference) findPreference(PREF_BATT_BAR_COLOR);
-        int intColor = Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_BATTERY_BAR_COLOR, 0xff33b5e5); 
-        mBatteryBarColor.setNewPreviewColor(intColor);
-        String hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mBatteryBarColor.setSummary(hexColor);
         mBatteryBarColor.setOnPreferenceChangeListener(this);
 
         mBatteryBarCenter = (CheckBoxPreference) findPreference(PREF_BATT_BAR_CENTER);
@@ -97,6 +99,7 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
         mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntry());
         mBatteryBarThickness.setOnPreferenceChangeListener(this);
 
+        updatePreferences();
         setHasOptionsMenu(true);
     }
 
@@ -109,11 +112,19 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.reset_statusbar_battery_bar:
+            case R.id.statusbar_battery_bar_cm_default:
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_BAR_POSITION, 1);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_BAR_COLOR, 0xff33b5e5);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_BAR_STYLE, 0);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_BAR_ANIMATE, 0);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_BAR_THICKNESS, 1);
+                refreshSettings();
+                return true;
+            case R.id.statusbar_battery_bar_dark_jelly_default:
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_BAR_POSITION, 1);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_BAR_COLOR, 0xff33b5e5);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_BAR_STYLE, 0);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_BAR_ANIMATE, 1);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_BAR_THICKNESS, 1);
                 refreshSettings();
                 return true;
@@ -123,7 +134,12 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mBatteryBarPosition) {
+        if (preference == mEnableThemeDefault) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_BAR_ENABLE_THEME_DEFAULT, value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mBatteryBarPosition) {
             int batteryBarPosition = Integer.valueOf((String) newValue);
             int index = mBatteryBarPosition.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_BAR_POSITION, batteryBarPosition);
@@ -156,5 +172,22 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
     @Override
     public void onResume() {
         super.onResume();
+    }
+
+    public void updatePreferences() {
+        boolean isThemeDefaultEnabled = mEnableThemeDefault.isChecked();
+        int color = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_BAR_COLOR, 0xff33b5e5);
+
+        if (isThemeDefaultEnabled) {
+            mBatteryBarColor.setNewPreviewColor(color);
+            String themeDefaultColorSummary = getResources().getString(R.string.theme_default_color);
+            mBatteryBarColor.setSummary(themeDefaultColorSummary);
+            mBatteryBarColor.setEnabled(false);
+        } else {
+            mBatteryBarColor.setEnabled(true);
+            mBatteryBarColor.setNewPreviewColor(color);
+            String hexColor = String.format("#%08x", (0xffffffff & color));
+            mBatteryBarColor.setSummary(hexColor);
+        }
     }
 }
