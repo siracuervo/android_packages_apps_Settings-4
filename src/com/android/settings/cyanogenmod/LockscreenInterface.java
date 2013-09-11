@@ -69,6 +69,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_BACKGROUND = "lockscreen_background";
     private static final String KEY_SCREEN_SECURITY = "screen_security";
 
+    private static final String LOCKSCREEN_STYLE_CATEGORY = "category_lockscreen_style";
+    private static final String LOCKSCREEN_OPTIONS_CATEGORY = "category_lockscreen_options";
     private static final String LOCKSCREEN_GENERAL_CATEGORY = "lockscreen_general_category";
     private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
     private static final String KEY_LOCKSCREEN_ENABLE_WIDGETS = "lockscreen_enable_widgets";
@@ -96,6 +98,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.lockscreen_interface_settings);
+
+        PreferenceCategory styleCategory = (PreferenceCategory) findPreference(LOCKSCREEN_STYLE_CATEGORY);
+        Preference style = (Preference) findPreference(KEY_LOCKSCREEN_CARRIER_LABEL_STYLE);
+        PreferenceCategory optionsCategory = (PreferenceCategory) findPreference(LOCKSCREEN_OPTIONS_CATEGORY);
         PreferenceCategory generalCategory = (PreferenceCategory) findPreference(LOCKSCREEN_GENERAL_CATEGORY);
         PreferenceCategory widgetsCategory = (PreferenceCategory) findPreference(LOCKSCREEN_WIDGETS_CATEGORY);
 
@@ -128,18 +134,33 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         // This applies to all users
         mLockscreenShowCustomCarrierLabel = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL);
-        mLockscreenShowCustomCarrierLabel.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL, 1) == 1);
-        String customLabelText = Settings.System.getString(getActivity().getContentResolver(),
-                Settings.System.CUSTOM_CARRIER_LABEL);
-        if (customLabelText == null || customLabelText.length() == 0) {
-            mLockscreenShowCustomCarrierLabel.setSummary(R.string.custom_carrier_label_notset);
-            mLockscreenShowCustomCarrierLabel.setEnabled(false);
+        if (Utils.isWifiOnly(getActivity())) {
+            if (style != null) {
+                // Remove the Carrier label screen on wifi only devices
+                styleCategory.removePreference(style);
+            }
+            if (mLockscreenShowCustomCarrierLabel != null) {
+                // Remove the show custom carrier label checkbox on wifi only devices
+                optionsCategory.removePreference(mLockscreenShowCustomCarrierLabel);
+            }
+            if (styleCategory != null) {
+                // Remove the style category on wifi only devices
+                removePreference(LOCKSCREEN_STYLE_CATEGORY);
+            }
         } else {
-            mLockscreenShowCustomCarrierLabel.setSummary(R.string.show_custom_carrier_label_enabled_summary);
-            mLockscreenShowCustomCarrierLabel.setEnabled(true);
+            mLockscreenShowCustomCarrierLabel.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL, 1) == 1);
+            String customLabelText = Settings.System.getString(getActivity().getContentResolver(),
+                    Settings.System.CUSTOM_CARRIER_LABEL);
+            if (customLabelText == null || customLabelText.length() == 0) {
+                mLockscreenShowCustomCarrierLabel.setSummary(R.string.custom_carrier_label_notset);
+                mLockscreenShowCustomCarrierLabel.setEnabled(false);
+            } else {
+                mLockscreenShowCustomCarrierLabel.setSummary(R.string.show_custom_carrier_label_enabled_summary);
+                mLockscreenShowCustomCarrierLabel.setEnabled(true);
+            }
+            mLockscreenShowCustomCarrierLabel.setOnPreferenceChangeListener(this);
         }
-        mLockscreenShowCustomCarrierLabel.setOnPreferenceChangeListener(this);
 
         mCustomBackground = (ListPreference) findPreference(KEY_BACKGROUND);
         mCustomBackground.setOnPreferenceChangeListener(this);
@@ -166,11 +187,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
         // Don't display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK), widgetsCategory);
-
-        // Remove the Carrier style screen on wifi only devices
-        if (Utils.isWifiOnly(getActivity())) {
-            removePreference(KEY_LOCKSCREEN_CARRIER_LABEL_STYLE);
-        }
     }
 
     private void updateCustomBackgroundSummary() {
