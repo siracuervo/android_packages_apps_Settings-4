@@ -51,11 +51,6 @@
         android:entryValues="@array/expanded_desktop_values"
         android:persistent="false" />
 
-    <CheckBoxPreference
-        android:key="expanded_desktop_no_navbar"
-        android:title="@string/power_menu_expanded_desktop"
-        android:persistent="false" />
-
     <PreferenceScreen
         android:key="navigation_bar"
         android:fragment="com.android.settings.darkjelly.Navigation"

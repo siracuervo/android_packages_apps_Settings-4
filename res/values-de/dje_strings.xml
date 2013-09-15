@@ -247,6 +247,8 @@
     <string name="navigation_bar_title">Navigationsleiste </string>
     <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
     <string name="navigation_bar_edit_summary">Schaltflächen bearbeiten</string>
+    <string name="show_navigation_bar_title">Navigationsleiste anzeigen</string>
+    <string name="show_navigation_bar_summary">Aktivieren, um die Navigationsleiste anzuzeigen</string>
 
     <!-- Navigation bar style strings -->
     <string name="navigation_bar_height_title">Höhe</string>

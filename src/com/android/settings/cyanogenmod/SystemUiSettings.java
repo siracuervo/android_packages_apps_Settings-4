@@ -19,14 +19,11 @@ package com.android.settings.cyanogenmod;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.RemoteException;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
-import android.util.Log;
-import android.view.WindowManagerGlobal;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -37,12 +34,9 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
 
     private static final String KEY_DUAL_PANE = "dual_pane";
     private static final String KEY_EXPANDED_DESKTOP = "expanded_desktop";
-    private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
-    private static final String KEY_NAVIGATION_BAR_SETTINGS = "navigation_bar";
 
     private CheckBoxPreference mDualPane;
     private ListPreference mExpandedDesktopPref;
-    private CheckBoxPreference mExpandedDesktopNoNavbarPref;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,36 +53,12 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         mDualPane.setChecked(dualPaneMode);
         mDualPane.setOnPreferenceChangeListener(this);
 
-        // Expanded desktop
         mExpandedDesktopPref = (ListPreference) findPreference(KEY_EXPANDED_DESKTOP);
-        mExpandedDesktopNoNavbarPref =
-                (CheckBoxPreference) findPreference(KEY_EXPANDED_DESKTOP_NO_NAVBAR);
-
         int expandedDesktopValue = Settings.System.getInt(getContentResolver(),
-                Settings.System.EXPANDED_DESKTOP_STYLE, 0);
-
-        try {
-            boolean hasNavBar = WindowManagerGlobal.getWindowManagerService().hasNavigationBar();
-
-            // Hide no-op "Status bar visible" mode on devices without navigation bar
-            if (hasNavBar) {
-                mExpandedDesktopPref.setOnPreferenceChangeListener(this);
-                mExpandedDesktopPref.setValue(String.valueOf(expandedDesktopValue));
-                updateExpandedDesktop(expandedDesktopValue);
-                prefScreen.removePreference(mExpandedDesktopNoNavbarPref);
-            } else {
-                mExpandedDesktopNoNavbarPref.setOnPreferenceChangeListener(this);
-                mExpandedDesktopNoNavbarPref.setChecked(expandedDesktopValue > 0);
-                prefScreen.removePreference(mExpandedDesktopPref);
-            }
-
-            // Hide navigation bar category on devices without navigation bar
-            if (!hasNavBar) {
-                prefScreen.removePreference(findPreference(KEY_NAVIGATION_BAR_SETTINGS));
-            }
-        } catch (RemoteException e) {
-            Log.e(TAG, "Error getting navigation bar status");
-        }
+            Settings.System.EXPANDED_DESKTOP_STYLE, 0);
+        mExpandedDesktopPref.setValue(String.valueOf(expandedDesktopValue));
+        updateExpandedDesktop(expandedDesktopValue);
+        mExpandedDesktopPref.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -100,10 +70,6 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         } else if (preference == mExpandedDesktopPref) {
             int expandedDesktopValue = Integer.valueOf((String) objValue);
             updateExpandedDesktop(expandedDesktopValue);
-            return true;
-        } else if (preference == mExpandedDesktopNoNavbarPref) {
-            boolean value = (Boolean) objValue;
-            updateExpandedDesktop(value ? 2 : 0);
             return true;
         }
 
@@ -130,7 +96,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             summary = R.string.expanded_desktop_no_status_bar;
         }
 
-        if (mExpandedDesktopPref != null && summary != -1) {
+        if (summary != -1) {
             mExpandedDesktopPref.setSummary(res.getString(summary));
         }
     }

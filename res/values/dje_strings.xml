@@ -248,6 +248,8 @@
     <string name="navigation_bar_title">Navigation bar</string>
     <string name="navigation_bar_edit_title">Navigation bar customization</string>
     <string name="navigation_bar_edit_summary">Edit buttons layout</string>
+    <string name="show_navigation_bar_title">Enable navigation bar</string>
+    <string name="show_navigation_bar_summary">Enable, to show the navigation bar</string>
 
     <!-- Navigation bar style strings -->
     <string name="navigation_bar_height_title">Height</string>

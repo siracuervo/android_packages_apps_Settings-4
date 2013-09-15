@@ -39,6 +39,13 @@
         android:key="category_nav_bar"
         android:title="@string/navigation_bar_title">
 
+		<CheckBoxPreference
+		    android:key="show_navigation_bar"
+		    android:title="@string/show_navigation_bar_title"
+		    android:summary="@string/show_navigation_bar_summary"
+		    android:persistent="false"
+		    android:defaultValue="false" />
+
         <PreferenceScreen
         	android:key="nav_buttons_edit"
             android:fragment="com.android.settings.cyanogenmod.NavBar"
