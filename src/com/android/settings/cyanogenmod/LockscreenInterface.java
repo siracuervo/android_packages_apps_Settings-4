@@ -143,10 +143,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                 // Remove the show custom carrier label checkbox on wifi only devices
                 optionsCategory.removePreference(mLockscreenShowCustomCarrierLabel);
             }
-            if (styleCategory != null) {
-                // Remove the style category on wifi only devices
-                removePreference(LOCKSCREEN_STYLE_CATEGORY);
-            }
         } else {
             mLockscreenShowCustomCarrierLabel.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL, 1) == 1);

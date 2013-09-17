@@ -16,14 +16,14 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/lockscreen_carrier_label_title">
+    android:title="@string/lockscreen_status_title">
 
     <PreferenceCategory
-        android:key="category_lockscreen_cl_options"
+        android:key="category_lockscreen_status_options"
         android:title="@string/cat_options_title">
 
 		<CheckBoxPreference
-		    android:key="lockscreen_cl_enable_theme_default"
+		    android:key="lockscreen_status_enable_theme_default"
 		    android:title="@string/enable_theme_default_title"
 		    android:summary="@string/enable_theme_default_summary"
 		    android:persistent="false"
@@ -32,7 +32,7 @@
 	</PreferenceCategory>
 
 	<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
-	    android:key="lockscreen_carrier_label_color"
+	    android:key="lockscreen_status_color"
 	    android:title="@string/color_title"
 	    android:defaultValue="0xffbebebe" />
 

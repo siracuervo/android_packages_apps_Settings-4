@@ -26,6 +26,11 @@
 	        android:fragment="com.android.settings.darkjelly.LockscreenCarrierLabelStyle"
 	        android:title="@string/lockscreen_carrier_label_title" />
 
+	    <PreferenceScreen
+	        android:key="lockscreen_status_style"
+	        android:fragment="com.android.settings.darkjelly.LockscreenStatusStyle"
+	        android:title="@string/lockscreen_status_title" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

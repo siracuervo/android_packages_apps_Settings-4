@@ -1718,6 +1718,8 @@
 
 		<activity android:name=".darkjelly.LockscreenCarrierLabelStyle" />
 
+		<activity android:name=".darkjelly.LockscreenStatusStyle" />
+
         <activity android:name=".darkjelly.General" />
 
 		<activity android:name=".darkjelly.StatusBar" />
