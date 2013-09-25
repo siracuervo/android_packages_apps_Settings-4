@@ -39,24 +39,34 @@
 	    android:entryValues="@array/battery_status_style_values" />
 
 	<CheckBoxPreference
+		android:key="battery_status_show_text"
+		android:title="@string/battery_status_show_text_title"
+		android:summary="@string/battery_status_show_text_summary" />
+
+	<CheckBoxPreference
 		android:key="battery_circle_dotted"
 		android:title="@string/battery_status_circle_dotted_title"
 		android:summary="@string/battery_status_circle_dotted_summary" />
 
     <com.android.settings.darkjelly.colorpicker.ColorPickerPreference
-        android:key="circle_battery_color"
-        android:title="@string/circle_battery_color"
+        android:key="battery_fill_color"
+        android:title="@string/battery_fill_color"
         android:defaultValue="0xff0099cc" />
+
+    <com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+        android:key="battery_empty_color"
+        android:title="@string/battery_empty_color"
+        android:defaultValue="0xff404040" />
 
     <com.android.settings.darkjelly.colorpicker.ColorPickerPreference
         android:key="battery_text_color"
         android:title="@string/battery_text_color"
-        android:defaultValue="0xff0099cc" />
+        android:defaultValue="0xffffffff" />
 
     <com.android.settings.darkjelly.colorpicker.ColorPickerPreference
         android:key="battery_text_charging_color"
         android:title="@string/battery_text_charging_color"
-        android:defaultValue="0xff0099cc" />
+        android:defaultValue="0xff00ff00" />
 
     <ListPreference
         android:key="circle_battery_animation_speed"
