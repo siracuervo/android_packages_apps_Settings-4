@@ -57,7 +57,6 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
     private ListPreference mCircleAnimSpeed;
 
     private ContentResolver mResolver;
-    private int mBatteryStatus;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,45 +72,109 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
 
         addPreferencesFromResource(R.xml.status_bar_battery_status_style);
         mResolver = getActivity().getContentResolver();
+        boolean isThemeDefaultEnabled = Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_BATTERY_STATUS_ENABLE_THEME_DEFAULT, 1) == 1;
+        boolean showtext = Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_TEXT, 1) == 1;
+        int intColor = 0xff0099cc;
+        String hexColor = String.format("#%08x", (0xffffffff & 0xff0099cc));
 
         mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
-        mEnableThemeDefault.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_BATTERY_STATUS_ENABLE_THEME_DEFAULT, 1) == 1);
+        mEnableThemeDefault.setChecked(isThemeDefaultEnabled);
         mEnableThemeDefault.setOnPreferenceChangeListener(this);
 
         mBatteryStatusStyle = (ListPreference) findPreference(PREF_BATT_STAT_STYLE);
-        mBatteryStatus = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 4);
-        mBatteryStatusStyle.setValue(String.valueOf(mBatteryStatus));
+        int batteryStatus = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 3);
+        mBatteryStatusStyle.setValue(String.valueOf(batteryStatus));
         mBatteryStatusStyle.setSummary(mBatteryStatusStyle.getEntry());
         mBatteryStatusStyle.setOnPreferenceChangeListener(this);
 
         mShowText = (CheckBoxPreference) findPreference(PREF_BATT_STAT_SHOW_TEXT);
-        mShowText.setChecked((Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_TEXT, 1) == 1));
-        mShowText.setOnPreferenceChangeListener(this);
+        if (batteryStatus != 1) {
+            mShowText.setChecked(showtext);
+            mShowText.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(PREF_BATT_STAT_SHOW_TEXT);
+        }
 
         mCircleDotted = (CheckBoxPreference) findPreference(PREF_BATT_STAT_CIRCLE_DOTTED);
-        mCircleDotted.setChecked((Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_DOTTED, 0) == 1));
-        mCircleDotted.setOnPreferenceChangeListener(this);
+        if (batteryStatus == 3) {
+            mCircleDotted.setChecked((Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_DOTTED, 0) == 1));
+            mCircleDotted.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(PREF_BATT_STAT_CIRCLE_DOTTED);
+        }
 
         mFillColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_FILL_COLOR);
-        mFillColor.setOnPreferenceChangeListener(this);
+        if (!isThemeDefaultEnabled) {
+            if (batteryStatus == 0 || batteryStatus == 2 || batteryStatus == 3) {
+                intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_FILL_COLOR, 0xff0099cc);
+                mFillColor.setNewPreviewColor(intColor);
+                hexColor = String.format("#%08x", (0xffffffff & intColor));
+                mFillColor.setSummary(hexColor);
+                mFillColor.setOnPreferenceChangeListener(this);
+            } else {
+                removePreference(PREF_BATT_STAT_FILL_COLOR);
+            }
+        } else {
+            removePreference(PREF_BATT_STAT_FILL_COLOR);
+        }
 
         mEmptyColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_EMPTY_COLOR);
-        mEmptyColor.setOnPreferenceChangeListener(this);
+        if (!isThemeDefaultEnabled) {
+            if (batteryStatus == 0 || batteryStatus == 2 || batteryStatus == 3) {
+                intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_EMPTY_COLOR, 0xff404040);
+                mEmptyColor.setNewPreviewColor(intColor);
+                hexColor = String.format("#%08x", (0xffffffff & intColor));
+                mEmptyColor.setSummary(hexColor);
+                mEmptyColor.setOnPreferenceChangeListener(this);
+            } else {
+                removePreference(PREF_BATT_STAT_EMPTY_COLOR);
+            }
+        } else {
+            removePreference(PREF_BATT_STAT_EMPTY_COLOR);
+        }
 
         mBatteryTextColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_TEXT_COLOR);
-        mBatteryTextColor.setOnPreferenceChangeListener(this);
+        if (!isThemeDefaultEnabled) {
+            if (showtext || batteryStatus == 1) {
+                intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_COLOR, 0xff0099cc); 
+                mBatteryTextColor.setNewPreviewColor(intColor);
+                hexColor = String.format("#%08x", (0xffffffff & intColor));
+                mBatteryTextColor.setSummary(hexColor);
+                mBatteryTextColor.setOnPreferenceChangeListener(this);
+            } else {
+                removePreference(PREF_BATT_STAT_TEXT_COLOR);
+            }
+        } else {
+            removePreference(PREF_BATT_STAT_TEXT_COLOR);
+        }
 
         mBatteryTextChargingColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_TEXT_CHARGING_COLOR);
-        mBatteryTextChargingColor.setOnPreferenceChangeListener(this);
+        if (!isThemeDefaultEnabled) {
+            if (showtext || batteryStatus == 1) {
+                intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR, 0xff0099cc);
+                mBatteryTextChargingColor.setNewPreviewColor(intColor);
+                hexColor = String.format("#%08x", (0xffffffff & intColor));
+                mBatteryTextChargingColor.setSummary(hexColor);
+                mBatteryTextChargingColor.setOnPreferenceChangeListener(this);
+            } else {
+                removePreference(PREF_BATT_STAT_TEXT_CHARGING_COLOR);
+            }
+        } else {
+            removePreference(PREF_BATT_STAT_TEXT_CHARGING_COLOR);
+        }
 
         mCircleAnimSpeed = (ListPreference) findPreference(PREF_BATT_STAT_CIRCLE_ANIMATIONSPEED);
-        int circleAnimSpeed = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED, 3);
-        mCircleAnimSpeed.setValue(String.valueOf(circleAnimSpeed));
-        mCircleAnimSpeed.setSummary(mCircleAnimSpeed.getEntry());
-        mCircleAnimSpeed.setOnPreferenceChangeListener(this);
+        if (batteryStatus == 3) {
+            int circleAnimSpeed = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED, 3);
+            mCircleAnimSpeed.setValue(String.valueOf(circleAnimSpeed));
+            mCircleAnimSpeed.setSummary(mCircleAnimSpeed.getEntry());
+            mCircleAnimSpeed.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(PREF_BATT_STAT_CIRCLE_ANIMATIONSPEED);
+        }
 
-        updatePreferences(mBatteryStatus);
         setHasOptionsMenu(true);
     }
 
@@ -162,15 +225,16 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
             refreshSettings();
             return true;
         } else if (preference == mBatteryStatusStyle) {
-            mBatteryStatus = Integer.valueOf((String) newValue);
+            int batteryStatus = Integer.valueOf((String) newValue);
             index = mBatteryStatusStyle.findIndexOfValue((String) newValue);
-            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, mBatteryStatus);
+            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, batteryStatus);
             mBatteryStatusStyle.setSummary(mBatteryStatusStyle.getEntries()[index]);
-            updatePreferences(mBatteryStatus);
+            refreshSettings();
             return true;
         } else if (preference == mShowText) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_TEXT, value ? 1 : 0);
+            refreshSettings();
             return true;
         } else if (preference == mCircleDotted) {
             boolean value = (Boolean) newValue;
@@ -208,93 +272,6 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
             return true;
         }
         return false;
-    }
-
-    public void updatePreferences(int batteryIconStat) {
-        boolean isThemeDefaultEnabled = mEnableThemeDefault.isChecked();
-        boolean showtext = mShowText.isChecked();
-        String themeDefaultColorSummary = getResources().getString(R.string.theme_default_color);
-        int intColor = 0xff0099cc;
-        String hexColor = String.format("#%08x", (0xffffffff & 0xff0099cc));
-
-        if (batteryIconStat == 0 ||
-            batteryIconStat == 2) {
-
-            mShowText.setEnabled(true);
-            mCircleDotted.setEnabled(false);
-            mFillColor.setEnabled(isThemeDefaultEnabled ? false : true);
-            mEmptyColor.setEnabled(isThemeDefaultEnabled ? false : true);
-            mBatteryTextColor.setEnabled(isThemeDefaultEnabled ? false : showtext ? true : false);
-            mBatteryTextChargingColor.setEnabled(isThemeDefaultEnabled ? false : showtext ? true : false);
-            mCircleAnimSpeed.setEnabled(false);
-        } else if (batteryIconStat == 1) {
-
-            mShowText.setEnabled(false);
-            mCircleDotted.setEnabled(false);
-            mFillColor.setEnabled(false);
-            mEmptyColor.setEnabled(false);
-            mBatteryTextColor.setEnabled(isThemeDefaultEnabled ? false : true);
-            mBatteryTextChargingColor.setEnabled(isThemeDefaultEnabled ? false : true);
-            mCircleAnimSpeed.setEnabled(false);
-        } else if (batteryIconStat == 3) {
-
-            mShowText.setEnabled(true);
-            mCircleDotted.setEnabled(true);
-            mFillColor.setEnabled(isThemeDefaultEnabled ? false : true);
-            mEmptyColor.setEnabled(isThemeDefaultEnabled ? false : true);
-            mBatteryTextColor.setEnabled(isThemeDefaultEnabled ? false : showtext ? true : false);
-            mBatteryTextChargingColor.setEnabled(isThemeDefaultEnabled ? false : showtext ? true : false);
-            mCircleAnimSpeed.setEnabled(true);
-        } else if (batteryIconStat == 4 ||
-            batteryIconStat == 5 ||
-            batteryIconStat == 6) {
-
-            mShowText.setEnabled(true);
-            mCircleDotted.setEnabled(false);
-            mFillColor.setEnabled(false);
-            mEmptyColor.setEnabled(false);
-            mBatteryTextColor.setEnabled(isThemeDefaultEnabled ? false : showtext ? true : false);
-            mBatteryTextChargingColor.setEnabled(isThemeDefaultEnabled ? false : showtext ? true : false);
-            mCircleAnimSpeed.setEnabled(false);
-        }
-
-        if (isThemeDefaultEnabled) {
-            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_FILL_COLOR, 0xff0099cc);
-            mFillColor.setNewPreviewColor(intColor);
-            mFillColor.setSummary(themeDefaultColorSummary);
-
-            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_EMPTY_COLOR, 0xff404040);
-            mEmptyColor.setNewPreviewColor(intColor);
-            mEmptyColor.setSummary(themeDefaultColorSummary);
-
-            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_COLOR, 0xff0099cc); 
-            mBatteryTextColor.setNewPreviewColor(intColor);
-            mBatteryTextColor.setSummary(themeDefaultColorSummary);
-
-            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR, 0xff0099cc);
-            mBatteryTextChargingColor.setNewPreviewColor(intColor);
-            mBatteryTextChargingColor.setSummary(themeDefaultColorSummary);
-        } else {
-            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_FILL_COLOR, 0xff0099cc);
-            mFillColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mFillColor.setSummary(hexColor);
-
-            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_EMPTY_COLOR, 0xff404040);
-            mEmptyColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mEmptyColor.setSummary(hexColor);
-
-            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_COLOR, 0xff0099cc); 
-            mBatteryTextColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mBatteryTextColor.setSummary(hexColor);
-
-            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR, 0xff0099cc);
-            mBatteryTextChargingColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mBatteryTextChargingColor.setSummary(hexColor);
-        }
     }
 
     @Override
