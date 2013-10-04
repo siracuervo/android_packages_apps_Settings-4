@@ -1725,8 +1725,6 @@
 
 		<activity android:name=".darkjelly.StatusBar" />
 
-		<activity android:name=".darkjelly.StatusBarStyle" />
-
 		<activity android:name=".darkjelly.StatusBarBackgroundStyle" />
 
 		<activity android:name=".darkjelly.StatusBarClockDateStyle" />

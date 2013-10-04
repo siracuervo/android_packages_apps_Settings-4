@@ -93,12 +93,11 @@
     <string name="status_bar_enable_network_speed_indicator_summary">Aktivieren, um die Netzwerk-Geschwindigkeits-Anzeige einzuschalten</string>
 
     <!-- Statusbar style strings  -->
-    <string name="status_bar_clock_date_style_title">Uhr &amp; Datum</string>
-    <string name="status_bar_clock_style_enabled">Uhr wird angezeigt</string>
-    <string name="status_bar_clock_style_disabled">Uhr ist ausgeblendet</string>
-    <string name="status_bar_battery_status_style_title">Akkustatus</string>
-    <string name="status_bar_battery_bar_style_title">Akkuleiste</string>
-    <string name="status_bar_network_speed_title">Netzw.-Geschw. Anzeige</string>
+    <string name="status_bar_background_title">Hintergrund anpassen</string>
+    <string name="status_bar_clock_date_style_title">Uhr &amp; Datum anpassen</string>
+    <string name="status_bar_battery_status_style_title">Akkustatus anpassen</string>
+    <string name="status_bar_battery_bar_style_title">Akkuleiste anpassen</string>
+    <string name="status_bar_network_speed_title">Netzw.-Geschw. Anzeige anpassen</string>
 
     <!-- Statusbar style clock style strings  -->
     <string name="status_bar_cat_clock_title">Uhr</string>

@@ -93,12 +93,11 @@
     <string name="status_bar_enable_network_speed_indicator_summary">Enable, to activate the network speed indicator</string>
 
     <!-- Statusbar style strings  -->
-    <string name="status_bar_clock_date_style_title">Clock &amp; date</string>
-    <string name="status_bar_clock_style_enabled">Showing clock</string>
-    <string name="status_bar_clock_style_disabled">Clock is hidden</string>
-    <string name="status_bar_battery_status_style_title">Battery status</string>
-    <string name="status_bar_battery_bar_style_title">Battery bar</string>
-    <string name="status_bar_network_speed_title">Network speed indicator</string>
+    <string name="status_bar_background_title">Customize background</string>
+    <string name="status_bar_clock_date_style_title">Customize clock &amp; date</string>
+    <string name="status_bar_battery_status_style_title">Customize battery status</string>
+    <string name="status_bar_battery_bar_style_title">Customize battery bar</string>
+    <string name="status_bar_network_speed_title">Customize network speed indicator</string>
 
     <!-- Statusbar style clock style strings  -->
     <string name="status_bar_cat_clock_title">Clock</string>
