@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.view.Menu;
@@ -35,13 +36,14 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
 
     private static final String TAG = "StatusBarExpandedHeader";
 
+    private static final String PREF_CATEGORY_CLOCK_DATE = "status_bar_expanded_header_cat_clock_date";
     private static final String PREF_ENABLE_THEME_DEFAULT = "status_bar_expanded_header_enable_theme_default";
-    private static final String PREF_HEADER_SETTINGS_BUTTON = "header_settings_button";
-    private static final String PREF_HEADER_CLOCK_COLOR = "header_clock_date_color";
+    private static final String PREF_HEADER_SETTINGS_BUTTON = "status_bar_expanded_header_settings_button";
+    private static final String PREF_HEADER_CLOCK_COLOR = "status_bar_expanded_header_clock_date_color";
 
     private CheckBoxPreference mEnableThemeDefault;
-    private ColorPickerPreference mHeaderClockDateColor;
     private CheckBoxPreference mHeaderSettingsButton;
+    private ColorPickerPreference mHeaderClockDateColor;
 
     private ContentResolver mResolver;
 
@@ -60,9 +62,11 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
         addPreferencesFromResource(R.xml.status_bar_expanded_header);
         mResolver = getActivity().getContentResolver();
 
+        boolean isThemeDefaultEnabled = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_EXPANDED_HEADER_ENABLE_THEME_DEFAULT, 1) == 1;
+
         mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
-        mEnableThemeDefault.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_ENABLE_THEME_DEFAULT, 1) == 1);
+        mEnableThemeDefault.setChecked(isThemeDefaultEnabled);
         mEnableThemeDefault.setOnPreferenceChangeListener(this);
 
         mHeaderSettingsButton = (CheckBoxPreference) findPreference(PREF_HEADER_SETTINGS_BUTTON);
@@ -70,10 +74,21 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
                 Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, 0) == 1);
         mHeaderSettingsButton.setOnPreferenceChangeListener(this);
 
-        mHeaderClockDateColor = (ColorPickerPreference) findPreference(PREF_HEADER_CLOCK_COLOR);
-        mHeaderClockDateColor.setOnPreferenceChangeListener(this);
+        PreferenceCategory headerClockDateCategory = (PreferenceCategory) findPreference(PREF_CATEGORY_CLOCK_DATE);
 
-        updatePreferences();
+        // Remove uneeded preferences depending on enabled states
+        mHeaderClockDateColor = (ColorPickerPreference) findPreference(PREF_HEADER_CLOCK_COLOR);
+        if (!isThemeDefaultEnabled) {
+            int color = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, 0xffffffff);
+            mHeaderClockDateColor.setNewPreviewColor(color);
+            String hexColor = String.format("#%08x", (0xffffffff & color));
+            mHeaderClockDateColor.setSummary(hexColor);
+            mHeaderClockDateColor.setOnPreferenceChangeListener(this);
+        } else {
+            headerClockDateCategory.removePreference(mHeaderClockDateColor);
+        }
+
         setHasOptionsMenu(true);
     }
 
@@ -119,22 +134,5 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
             return true;
         }
         return false;
-    }
-
-    public void updatePreferences() {
-        boolean isThemeDefaultEnabled = mEnableThemeDefault.isChecked();
-        int color = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, 0xffffffff);
-
-        if (isThemeDefaultEnabled) {
-            mHeaderClockDateColor.setNewPreviewColor(color);
-            String themeDefaultColorSummary = getResources().getString(R.string.theme_default_color);
-            mHeaderClockDateColor.setSummary(themeDefaultColorSummary);
-            mHeaderClockDateColor.setEnabled(false);
-        } else {
-            mHeaderClockDateColor.setEnabled(true);
-            mHeaderClockDateColor.setNewPreviewColor(color);
-            String hexColor = String.format("#%08x", (0xffffffff & color));
-            mHeaderClockDateColor.setSummary(hexColor);
-        }
     }
 }

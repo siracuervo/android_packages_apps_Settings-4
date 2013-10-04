@@ -29,9 +29,9 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.widget.SeekBarPreference;
 
-public class QuickAccessSettingsStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class StatusBarExpandedTilesBackgroundStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String TAG = "QuickAccessSettingsStyle";
+    private static final String TAG = "StatusBarExpandedTilesBackgroundStyle";
 
     private static final String PREF_ENABLE_DEFAULTS = "qas_enable_defaults";
     private static final String PREF_TILE_BACKGROUND_COLOR = "qas_tile_background_color";
@@ -55,9 +55,11 @@ public class QuickAccessSettingsStyle extends SettingsPreferenceFragment impleme
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.quick_access_settings_style);
-
+        addPreferencesFromResource(R.xml.status_bar_expanded_tiles_background_style);
         mResolver = getActivity().getContentResolver();
+
+        boolean isDefaultEnabled = Settings.System.getInt(mResolver,
+               Settings.System.QAS_ENABLE_THEME_DEFAULT, 0) != 2;
 
         mEnableDefaults = (ListPreference) findPreference(PREF_ENABLE_DEFAULTS);
         int enableDefaults = Settings.System.getInt(mResolver,
@@ -66,9 +68,18 @@ public class QuickAccessSettingsStyle extends SettingsPreferenceFragment impleme
         mEnableDefaults.setSummary(mEnableDefaults.getEntry());
         mEnableDefaults.setOnPreferenceChangeListener(this);
 
+        // Remove uneeded preferences depending on enabled states
         mTileBackgroundColor = (ColorPickerPreference) findPreference(PREF_TILE_BACKGROUND_COLOR);
-        mTileBackgroundColor.setOnPreferenceChangeListener(this);
-        mTileBackgroundColor.setAlphaSliderEnabled(true);
+        if (!isDefaultEnabled) {
+            int color = Settings.System.getInt(mResolver,
+                    Settings.System.QAS_TILE_BACKGROUND_COLOR, 0xff202020);
+            String hexColor = String.format("#%08x", (0xffffffff & color));
+            mTileBackgroundColor.setNewPreviewColor(color);
+            mTileBackgroundColor.setSummary(hexColor);
+            mTileBackgroundColor.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(PREF_TILE_BACKGROUND_COLOR);
+        }
 
         mTileBackgroundAlpha = (SeekBarPreference) findPreference(PREF_TILE_BACKGROUND_ALPHA);
         float tileBackgroundAlpha = 0.0f;
@@ -81,8 +92,6 @@ public class QuickAccessSettingsStyle extends SettingsPreferenceFragment impleme
         mTileBackgroundAlpha.setProperty(Settings.System.QAS_TILE_BACKGROUND_ALPHA);
         mTileBackgroundAlpha.setInitValue((int) (tileBackgroundAlpha * 100));
         mTileBackgroundAlpha.setOnPreferenceChangeListener(this);
-
-        updatePreferences();
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -105,36 +114,6 @@ public class QuickAccessSettingsStyle extends SettingsPreferenceFragment impleme
             return true; 
         }
         return false;
-    }
-
-    public void updatePreferences() {
-
-        boolean themeDefault = Settings.System.getInt(mResolver,
-                Settings.System.QAS_ENABLE_THEME_DEFAULT, 0) == 0;
-        boolean systemDefault = Settings.System.getInt(mResolver,
-                Settings.System.QAS_ENABLE_THEME_DEFAULT, 0) == 1;
-        boolean customColor = Settings.System.getInt(mResolver,
-                Settings.System.QAS_ENABLE_THEME_DEFAULT, 0) == 2;
-        String themeDefaultColorSummary = getResources().getString(R.string.theme_default_color);
-        String systemDefaultColorSummary = getResources().getString(R.string.system_default_color);
-        int color = 0x00000000;
-
-        if (themeDefault || systemDefault) {
-            color = 0x00000000;
-            mTileBackgroundColor.setNewPreviewColor(color);
-            if (themeDefault) {
-                mTileBackgroundColor.setSummary(themeDefaultColorSummary);
-            } else {
-                mTileBackgroundColor.setSummary(systemDefaultColorSummary);
-            }
-            mTileBackgroundColor.setEnabled(false);
-        } else if (customColor){
-            mTileBackgroundColor.setEnabled(true);
-            color = Settings.System.getInt(mResolver, Settings.System.QAS_TILE_BACKGROUND_COLOR, 0xff202020);
-            String hexColor = String.format("#%08x", (0xffffffff & color));
-            mTileBackgroundColor.setNewPreviewColor(color);
-            mTileBackgroundColor.setSummary(hexColor);
-        }
     }
 }
 

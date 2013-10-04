@@ -1737,11 +1737,11 @@
 
 		<activity android:name=".darkjelly.StatusBarExpandedHeader" />
 
+        <activity android:name=".darkjelly.StatusBarExpandedBackgroundStyle" />
+
+        <activity android:name=".darkjelly.StatusBarExpandedTilesBackgroundStyle" />
+
         <activity android:name=".darkjelly.NotificationDrawer" />
-
-        <activity android:name=".darkjelly.QuickAccessSettings" />
-
-        <activity android:name=".darkjelly.QuickAccessSettingsStyle" />
 
 		<activity android:name=".darkjelly.NotificationDrawerCwLabelStyle" />
 

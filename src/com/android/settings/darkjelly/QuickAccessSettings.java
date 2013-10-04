@@ -24,8 +24,6 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class QuickAccessSettings extends SettingsPreferenceFragment {
 
-    private static final String TAG = "QuickAccessSettings";
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

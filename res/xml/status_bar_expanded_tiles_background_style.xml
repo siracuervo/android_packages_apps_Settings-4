@@ -16,7 +16,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/quick_access_settings_style_title">
+    android:title="@string/background_title">
 
     <PreferenceCategory
         android:key="category_options"
@@ -32,11 +32,11 @@
 
 	<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
 		android:key="qas_tile_background_color"
-		android:title="@string/tile_background_title"
+		android:title="@string/color_title"
 		android:defaultValue="0xff202020" />
 
 	<com.android.settings.widget.SeekBarPreference
 	    android:key="qas_tile_background_alpha"
-	    android:title="@string/tile_background_alpha_title" />
+	    android:title="@string/transparency_title" />
 
 </PreferenceScreen>

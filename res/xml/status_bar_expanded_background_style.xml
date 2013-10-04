@@ -19,11 +19,11 @@
     android:title="@string/background_title">
 
     <PreferenceCategory
-        android:key="category_notification_drawer_background_options"
+        android:key="category_status_bar_expanded_background_options"
         android:title="@string/cat_options_title">
 
 		<CheckBoxPreference
-		    android:key="notification_drawer_background_enable_theme_default"
+		    android:key="status_bar_expanded_background_enable_theme_default"
 		    android:title="@string/enable_theme_default_title"
 		    android:summary="@string/enable_theme_default_summary"
 		    android:persistent="false"
@@ -31,17 +31,21 @@
 
 	</PreferenceCategory>
 
-		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
-		    android:key="notification_drawer_background_color"
-		    android:title="@string/notification_drawer_background_color_title"
-		    android:defaultValue="0xe60e0e0e" />
+	<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+	    android:key="status_bar_expanded_background_color"
+	    android:title="@string/status_bar_expanded_background_color_title"
+	    android:defaultValue="0xe60e0e0e" />
 
-        <com.android.settings.widget.SeekBarPreference
-             android:key="notification_drawer_background_alpha"
-             android:title="@string/notification_drawer_background_alpha_title" />
+    <com.android.settings.widget.SeekBarPreference
+         android:key="status_bar_expanded_background_alpha"
+         android:title="@string/status_bar_expanded_background_alpha_title" />
+
+    <PreferenceCategory
+        android:key="category_notification_drawer"
+        android:title="@string/cat_notification_drawer_title">
 
         <com.android.settings.widget.SeekBarPreference
              android:key="notification_drawer_row_alpha"
              android:title="@string/notification_drawer_row_alpha_title" />
-
+	</PreferenceCategory>
 </PreferenceScreen>

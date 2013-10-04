@@ -35,19 +35,19 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.widget.SeekBarPreference;
 import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
 
-public class NotificationDrawerBackgroundStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class StatusBarExpandedBackgroundStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String TAG = "NotificationDrawerBackgroundStyle";
+    private static final String TAG = "StatusBarExpandedBackgroundStyle";
 
-    private static final String PREF_ENABLE_THEME_DEFAULT = "notification_drawer_background_enable_theme_default";
-    private static final String PREF_NOTIFICATION_DRAWER_BACKGROUND_COLOR = "notification_drawer_background_color";
-    private static final String PREF_NOTIFICATION_DRAWER_BACKGROUND_ALPHA = "notification_drawer_background_alpha";
+    private static final String PREF_ENABLE_THEME_DEFAULT = "status_bar_expanded_background_enable_theme_default";
+    private static final String PREF_STATUSBAR_EXPANDED_BACKGROUND_COLOR = "status_bar_expanded_background_color";
+    private static final String PREF_STATUSBAR_EXPANDED_BACKGROUND_ALPHA = "status_bar_expanded_background_alpha";
     private static final String PREF_NOTIFICATION_DRAWER_ROW_ALPHA = "notification_drawer_row_alpha";
 
     private CheckBoxPreference mEnableThemeDefault;
-    private ColorPickerPreference mNotificationDrawerBackgroundColor;
-    private SeekBarPreference mNotificationDrawerBackgroundAlpha;
-    private SeekBarPreference mNotificationDrawerRowAlpha;
+    private ColorPickerPreference mBackgroundColor;
+    private SeekBarPreference mBackgroundAlpha;
+    private SeekBarPreference mRowAlpha;
 
     private ContentResolver mResolver;
 
@@ -64,61 +64,71 @@ public class NotificationDrawerBackgroundStyle extends SettingsPreferenceFragmen
         }
 
         mResolver = getActivity().getContentResolver();
+        addPreferencesFromResource(R.xml.status_bar_expanded_background_style);
 
-        addPreferencesFromResource(R.xml.notification_drawer_background_style);
+        boolean isThemeDefaultEnabled = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_EXPANDED_BACKGROUND_ENABLE_THEME_DEFAULT, 1) == 1;
 
         mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
-        mEnableThemeDefault.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_BACKGROUND_ENABLE_THEME_DEFAULT, 1) == 1);
+        mEnableThemeDefault.setChecked(isThemeDefaultEnabled);
         mEnableThemeDefault.setOnPreferenceChangeListener(this);
 
-        mNotificationDrawerBackgroundColor = (ColorPickerPreference) findPreference(PREF_NOTIFICATION_DRAWER_BACKGROUND_COLOR);
-        mNotificationDrawerBackgroundColor.setOnPreferenceChangeListener(this);
+        // Remove uneeded preferences depending on enabled states
+        mBackgroundColor = (ColorPickerPreference) findPreference(PREF_STATUSBAR_EXPANDED_BACKGROUND_COLOR);
+        if (!isThemeDefaultEnabled) {
+            int color = Settings.System.getInt(mResolver,
+                    Settings.System.NOTIFICATION_DRAWER_BACKGROUND, 0xe60e0e0e);
+            mBackgroundColor.setNewPreviewColor(color);
+            String hexColor = String.format("#%08x", (0xffffffff & color));
+            mBackgroundColor.setSummary(hexColor);
+            mBackgroundColor.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(PREF_STATUSBAR_EXPANDED_BACKGROUND_COLOR);
+        }
 
-        mNotificationDrawerBackgroundAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_DRAWER_BACKGROUND_ALPHA);
-        float BackgroundTransparency = 0.0f;
+        mBackgroundAlpha = (SeekBarPreference) findPreference(PREF_STATUSBAR_EXPANDED_BACKGROUND_ALPHA);
+        float backgroundTransparency = 0.0f;
         try{
-            BackgroundTransparency = Settings.System.getFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA);
+            backgroundTransparency = Settings.System.getFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA);
         }catch (Exception e) {
-            BackgroundTransparency = 0.0f;
+            backgroundTransparency = 0.0f;
             Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA, 0.1f);
         }
-        mNotificationDrawerBackgroundAlpha.setInitValue((int) (BackgroundTransparency * 100));
-        mNotificationDrawerBackgroundAlpha.setProperty(Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA);
-        mNotificationDrawerBackgroundAlpha.setOnPreferenceChangeListener(this);
+        mBackgroundAlpha.setInitValue((int) (backgroundTransparency * 100));
+        mBackgroundAlpha.setProperty(Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA);
+        mBackgroundAlpha.setOnPreferenceChangeListener(this);
 
-        mNotificationDrawerRowAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_DRAWER_ROW_ALPHA);
-        float RowTransparency = 0.0f;
+        mRowAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_DRAWER_ROW_ALPHA);
+        float rowTransparency = 0.0f;
         try{
-            RowTransparency = Settings.System.getFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA);
+            rowTransparency = Settings.System.getFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA);
         }catch (Exception e) {
-            RowTransparency = 0.0f;
+            rowTransparency = 0.0f;
             Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA, 0.0f);
         }
-        mNotificationDrawerRowAlpha.setInitValue((int) (RowTransparency * 100));
-        mNotificationDrawerRowAlpha.setProperty(Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA);
-        mNotificationDrawerRowAlpha.setOnPreferenceChangeListener(this);
+        mRowAlpha.setInitValue((int) (rowTransparency * 100));
+        mRowAlpha.setProperty(Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA);
+        mRowAlpha.setOnPreferenceChangeListener(this);
 
-        updatePreferences();
         setHasOptionsMenu(true);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.notification_drawer_background_style, menu);
+        inflater.inflate(R.menu.status_bar_expanded_background_style, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.notification_drawer_background_cm_default:
+            case R.id.status_bar_expanded_background_cm_default:
                 Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND, 0xe60e0e0e);
                 Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA, 0.0f);
                 Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA, 0.0f);
                 refreshSettings();
                 return true;
-            case R.id.notification_drawer_background_dark_jelly_default:
+            case R.id.status_bar_expanded_background_dark_jelly_default:
                 Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND, 0xff000000);
                 Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA, 0.4f);
                 Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA, 0.4f);
@@ -145,38 +155,21 @@ public class NotificationDrawerBackgroundStyle extends SettingsPreferenceFragmen
             Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_EXPANDED_BACKGROUND_ENABLE_THEME_DEFAULT, value ? 1 : 0);
             refreshSettings();
             return true;
-        } else if (preference == mNotificationDrawerBackgroundColor) {
+        } else if (preference == mBackgroundColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND, intHex);
             preference.setSummary(hex);
             return true;
-        } else if (preference == mNotificationDrawerBackgroundAlpha) {
+        } else if (preference == mBackgroundAlpha) {
             float valNav = Float.parseFloat((String) newValue);
             Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA, valNav / 100);
             return true;
-        } else if (preference == mNotificationDrawerRowAlpha) {
+        } else if (preference == mRowAlpha) {
             float valNav = Float.parseFloat((String) newValue);
             Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA, valNav / 100);
             return true;
         }
         return false;
-    }
-
-    public void updatePreferences() {
-        boolean isThemeDefaultEnabled = mEnableThemeDefault.isChecked();
-        int color = Settings.System.getInt(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND, 0xe60e0e0e);
-
-        if (isThemeDefaultEnabled) {
-            mNotificationDrawerBackgroundColor.setNewPreviewColor(color);
-            String themeDefaultColorSummary = getResources().getString(R.string.theme_default_color);
-            mNotificationDrawerBackgroundColor.setSummary(themeDefaultColorSummary);
-            mNotificationDrawerBackgroundColor.setEnabled(false);
-        } else {
-            mNotificationDrawerBackgroundColor.setEnabled(true);
-            mNotificationDrawerBackgroundColor.setNewPreviewColor(color);
-            String hexColor = String.format("#%08x", (0xffffffff & color));
-            mNotificationDrawerBackgroundColor.setSummary(hexColor);
-        }
     }
 }

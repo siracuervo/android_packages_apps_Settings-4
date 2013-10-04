@@ -160,29 +160,31 @@
 
     <!-- Statusbar expanded strings -->
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
-    <string name="status_bar_expanded_cat_clock_date_title">Uhr &amp; Datum</string>
-    <string name="status_bar_expanded_cat_options_title">Optionen</string>
+    <string name="cat_tiles_title">Kacheln</string>
     <string name="status_bar_expanded_header_title">Kopfzeile</string>
-    <string name="quick_access_settings_style_title">Schnelleinstellungen&#47;Schnellzugriff</string>
 
     <!-- Statusbar expanded header strings -->
-    <string name="header_settings_btn_title">Einstellungen Schaltfläche</string>
-    <string name="header_settings_btn_summary">Aktivieren, um den Einstellungen Schaltfläche immer anzuzeigen</string>
+    <string name="status_bar_expanded_header_cat_clock_date_title">Uhr &amp; Datum</string>
+    <string name="status_bar_expanded_header_settings_btn_title">Einstellungen Schaltfläche</string>
+    <string name="status_bar_expanded_header_settings_btn_summary">Aktivieren, um den Einstellungen Schaltfläche immer anzuzeigen</string>
 
     <!-- Quick access strings -->
     <string name="quick_access_settings_title">Schnellzugriffsleiste</string>
 
-    <!-- Quick access settings style strings -->
+    <!-- Notification drawer strings -->
+    <string name="notification_drawer_enable_quick_access_title">Die Schnellzugriffsleiste anzeigen</string>
+    <string name="notification_drawer_enable_quick_access_summary">Aktivieren, um die Schnellzugriffsleiste anzuzeigen</string>
+
+    <!-- Status bar expanded background style strings -->
+    <string name="cat_notification_drawer_title">Benachrichtigungsanzeige</string>
+    <string name="status_bar_expanded_background_color_title">Hintergrundfarbe</string>
+    <string name="status_bar_expanded_background_alpha_title">Transparenz des Hintergrundes</string>
+    <string name="notification_drawer_row_alpha_title">Transparenz der Reihen</string>
+
+    <!-- Status bar expanded tile background style strings -->
     <string name="enable_defaults_title">Standards aktivieren</string>
     <string name="enable_system_default">System Standard</string>
     <string name="enable_custom_color">Eigene Farbe</string>
-    <string name="tile_background_title">Kachel Hintergrund</string>
-    <string name="tile_background_alpha_title">Transparenz des Kachel Hintergrundes</string>
-
-    <!-- Notification drawer style strings -->
-    <string name="notification_drawer_background_color_title">Hintergrundfarbe</string>
-    <string name="notification_drawer_background_alpha_title">Transparenz des Hintergrundes</string>
-    <string name="notification_drawer_row_alpha_title">Transparenz der Reihen</string>
 
     <!-- Network speed strings -->
     <string name="network_speed_download_title">Download Geschw. anzeigen</string>

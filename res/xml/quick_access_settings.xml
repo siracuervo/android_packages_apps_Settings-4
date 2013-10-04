@@ -20,16 +20,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
-        android:key="qs_quick_access"
-        android:title="@string/title_quick_access"
-        android:defaultValue="false" />
-
-    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
         android:key="qs_quick_access_linked"
         android:title="@string/title_quick_access_linked"
         android:summary="@string/summary_quick_access_linked"
         android:defaultValue="true"
-        android:dependency="qs_quick_access"
         android:disableDependentsState="true" />
 
     <PreferenceScreen

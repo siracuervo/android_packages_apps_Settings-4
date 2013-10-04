@@ -161,29 +161,31 @@
 
     <!-- Statusbar expanded strings -->
     <string name="status_bar_expanded_title">Status bar expanded</string>
-    <string name="status_bar_expanded_cat_clock_date_title">Clock &amp; date</string>
-    <string name="status_bar_expanded_cat_options_title">Options</string>
+    <string name="cat_tiles_title">Tiles</string>
     <string name="status_bar_expanded_header_title">Header</string>
-    <string name="quick_access_settings_style_title">Quick Settings&#47;Quick Access ribbon</string>
 
     <!-- Statusbar expanded header strings -->
-    <string name="header_settings_btn_title">Settings button</string>
-    <string name="header_settings_btn_summary">Enable, to always show the settings button</string>
+    <string name="status_bar_expanded_header_cat_clock_date_title">Clock &amp; date</string>
+    <string name="status_bar_expanded_header_settings_btn_title">Settings button</string>
+    <string name="status_bar_expanded_header_settings_btn_summary">Enable, to always show the settings button</string>
 
-    <!-- Notification drawer style strings -->
-    <string name="notification_drawer_background_color_title">Background color</string>
-    <string name="notification_drawer_background_alpha_title">Background transparency</string>
-    <string name="notification_drawer_row_alpha_title">Rows background transparency</string>
+    <!-- Notification drawer strings -->
+    <string name="notification_drawer_enable_quick_access_title">Show Quick access ribbons</string>
+    <string name="notification_drawer_enable_quick_access_summary">Enable to show the Quick access ribbons</string>
 
     <!-- Quick access strings -->
     <string name="quick_access_settings_title">Quick Access ribbon</string>
 
-    <!-- Quick access settings style strings -->
+    <!-- Status bar expanded background style strings -->
+    <string name="cat_notification_drawer_title">Notification drawer</string>
+    <string name="status_bar_expanded_background_color_title">Background color</string>
+    <string name="status_bar_expanded_background_alpha_title">Background transparency</string>
+    <string name="notification_drawer_row_alpha_title">Rows background transparency</string>
+
+    <!-- Status bar expanded tile background style strings -->
     <string name="enable_defaults_title">Enable defaults</string>
     <string name="enable_system_default">System default</string>
     <string name="enable_custom_color">Custom color</string>
-    <string name="tile_background_title">Tile background</string>
-    <string name="tile_background_alpha_title">Tile background transparency</string>
 
     <!-- Network speed strings -->
     <string name="network_speed_download_title">Show download speed</string>
