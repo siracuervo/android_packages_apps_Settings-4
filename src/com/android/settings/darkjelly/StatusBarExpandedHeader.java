@@ -87,6 +87,7 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
             mHeaderClockDateColor.setOnPreferenceChangeListener(this);
         } else {
             headerClockDateCategory.removePreference(mHeaderClockDateColor);
+            removePreference(PREF_CATEGORY_CLOCK_DATE);
         }
 
         setHasOptionsMenu(true);
