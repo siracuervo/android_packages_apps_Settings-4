@@ -67,9 +67,11 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
         addPreferencesFromResource(R.xml.status_bar_battery_bar_style);
         mResolver = getActivity().getContentResolver();
 
+        boolean isThemeDefaultEnabled = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_BATTERY_BAR_ENABLE_THEME_DEFAULT, 1) == 1;
+
         mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
-        mEnableThemeDefault.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_BATTERY_BAR_ENABLE_THEME_DEFAULT, 1) == 1);
+        mEnableThemeDefault.setChecked(isThemeDefaultEnabled);
         mEnableThemeDefault.setOnPreferenceChangeListener(this);
 
         mBatteryBarPosition = (ListPreference) findPreference(PREF_BATT_BAR_POSITION);
@@ -79,8 +81,18 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
         mBatteryBarPosition.setSummary(mBatteryBarPosition.getEntry());
         mBatteryBarPosition.setOnPreferenceChangeListener(this);
 
+        // Remove uneeded preferences depending on enabled states
         mBatteryBarColor = (ColorPickerPreference) findPreference(PREF_BATT_BAR_COLOR);
-        mBatteryBarColor.setOnPreferenceChangeListener(this);
+        if (!isThemeDefaultEnabled) {
+            int color = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_BATTERY_BAR_COLOR, 0xff33b5e5);
+            mBatteryBarColor.setNewPreviewColor(color);
+            String hexColor = String.format("#%08x", (0xffffffff & color));
+            mBatteryBarColor.setSummary(hexColor);
+            mBatteryBarColor.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(PREF_BATT_BAR_COLOR);
+        }
 
         mBatteryBarCenter = (CheckBoxPreference) findPreference(PREF_BATT_BAR_CENTER);
         mBatteryBarCenter.setChecked((Settings.System.getInt(mResolver,
@@ -99,7 +111,6 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
         mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntry());
         mBatteryBarThickness.setOnPreferenceChangeListener(this);
 
-        updatePreferences();
         setHasOptionsMenu(true);
     }
 
@@ -172,22 +183,5 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    public void updatePreferences() {
-        boolean isThemeDefaultEnabled = mEnableThemeDefault.isChecked();
-        int color = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_BAR_COLOR, 0xff33b5e5);
-
-        if (isThemeDefaultEnabled) {
-            mBatteryBarColor.setNewPreviewColor(color);
-            String themeDefaultColorSummary = getResources().getString(R.string.theme_default_color);
-            mBatteryBarColor.setSummary(themeDefaultColorSummary);
-            mBatteryBarColor.setEnabled(false);
-        } else {
-            mBatteryBarColor.setEnabled(true);
-            mBatteryBarColor.setNewPreviewColor(color);
-            String hexColor = String.format("#%08x", (0xffffffff & color));
-            mBatteryBarColor.setSummary(hexColor);
-        }
     }
 }

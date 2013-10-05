@@ -62,16 +62,27 @@ public class StatusBarBackgroundStyle extends SettingsPreferenceFragment impleme
         }
 
         addPreferencesFromResource(R.xml.status_bar_background_style);
-
         mResolver = getActivity().getContentResolver();
 
+        boolean isThemeDefaultEnabled = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_ENABLE_THEME_DEFAULT, 1) == 1;
+
         mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
-        mEnableThemeDefault.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_ENABLE_THEME_DEFAULT, 1) == 1);
+        mEnableThemeDefault.setChecked(isThemeDefaultEnabled);
         mEnableThemeDefault.setOnPreferenceChangeListener(this);
 
+        // Remove uneeded preferences depending on enabled states
         mStatusBarColor = (ColorPickerPreference) findPreference(PREF_STATUS_BAR_COLOR);
-        mStatusBarColor.setOnPreferenceChangeListener(this);
+        if (!isThemeDefaultEnabled) {
+            int color = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_COLOR, 0xff000000);
+            String hexColor = String.format("#%08x", (0xffffffff & color));
+            mStatusBarColor.setNewPreviewColor(color);
+            mStatusBarColor.setSummary(hexColor);
+            mStatusBarColor.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(PREF_STATUS_BAR_COLOR);
+        }
 
         mStatusbarTransparency = (SeekBarPreference) findPreference(PREF_STATUS_BAR_ALPHA);
         float statBarTransparency = 0.0f;
@@ -93,7 +104,6 @@ public class StatusBarBackgroundStyle extends SettingsPreferenceFragment impleme
         mStatusbarAlphaMode.setSummary(mStatusbarAlphaMode.getEntry());
         mStatusbarAlphaMode.setOnPreferenceChangeListener(this);
 
-        updatePreferences();
         setHasOptionsMenu(true);
     }
 
@@ -110,13 +120,13 @@ public class StatusBarBackgroundStyle extends SettingsPreferenceFragment impleme
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_COLOR, 0xff000000);
                 Settings.System.putFloat(mResolver, Settings.System.STATUS_BAR_ALPHA, 0.0f);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_ALPHA_MODE, 1);
-                updatePreferences();
+                refreshSettings();
                 return true;
             case R.id.statusbar_bg_dark_jelly_default:
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_COLOR, 0xff202020);
                 Settings.System.putFloat(mResolver, Settings.System.STATUS_BAR_ALPHA, 0.4f);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_ALPHA_MODE, 1);
-                updatePreferences();
+                refreshSettings();
                 return true;
              default:
                 return super.onContextItemSelected(item);
@@ -161,22 +171,5 @@ public class StatusBarBackgroundStyle extends SettingsPreferenceFragment impleme
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    public void updatePreferences() {
-        boolean isThemeDefaultEnabled = mEnableThemeDefault.isChecked();
-        int color = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_COLOR, 0xff000000);;
-
-        if (isThemeDefaultEnabled) {
-            mStatusBarColor.setNewPreviewColor(color);
-            String themeDefaultColorSummary = getResources().getString(R.string.theme_default_color);
-            mStatusBarColor.setSummary(themeDefaultColorSummary);
-            mStatusBarColor.setEnabled(false);
-        } else {
-            mStatusBarColor.setEnabled(true);
-            String hexColor = String.format("#%08x", (0xffffffff & color));
-            mStatusBarColor.setNewPreviewColor(color);
-            mStatusBarColor.setSummary(hexColor);
-        }
     }
 }

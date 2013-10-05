@@ -65,15 +65,17 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
             prefs.removeAll();
         }
 
-        int intColor;
-        String hexColor;
+        int intColor = 0xff33b5e5;
+        String hexColor = String.format("#%08x", (0xffffffff & 0xff33b5e5));
 
         addPreferencesFromResource(R.xml.status_bar_network_speed);
         mResolver = getActivity().getContentResolver();
 
+        boolean isThemeDefaultEnabled = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_NETWORK_SPEED_ENABLE_THEME_DEFAULT, 1) == 1;
+
         mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
-        mEnableThemeDefault.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_NETWORK_SPEED_ENABLE_THEME_DEFAULT, 1) == 1);
+        mEnableThemeDefault.setChecked(isThemeDefaultEnabled);
         mEnableThemeDefault.setOnPreferenceChangeListener(this);
 
         mNetworkSpeedDl = (CheckBoxPreference) findPreference(PREF_NETWORK_SPEED_DOWNLOAD);
@@ -96,23 +98,28 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
                 Settings.System.STATUS_BAR_NETWORK_SPEED_HIDE_TRAFFIC, 1) == 1));
         mNetworkSpeedHide.setOnPreferenceChangeListener(this);
 
+        // Remove uneeded preferences depending on enabled states
         mNetworkSpeedDownColor = (ColorPickerPreference) findPreference(PREF_NETWORK_SPEED_DOWNLOAD_COLOR);
-        intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_NETWORK_SPEED_DOWNLOAD_COLOR, 0xff33b5e5); 
-        mNetworkSpeedDownColor.setNewPreviewColor(intColor);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mNetworkSpeedDownColor.setSummary(hexColor);
-        mNetworkSpeedDownColor.setOnPreferenceChangeListener(this);
-
         mNetworkSpeedUpColor = (ColorPickerPreference) findPreference(PREF_NETWORK_SPEED_UPLOAD_COLOR);
-        intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_NETWORK_SPEED_UPLOAD_COLOR, 0xff33b5e5); 
-        mNetworkSpeedUpColor.setNewPreviewColor(intColor);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mNetworkSpeedUpColor.setSummary(hexColor);
-        mNetworkSpeedUpColor.setOnPreferenceChangeListener(this);
+        if (!isThemeDefaultEnabled) {
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_NETWORK_SPEED_DOWNLOAD_COLOR, 0xff33b5e5); 
+            mNetworkSpeedDownColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mNetworkSpeedDownColor.setSummary(hexColor);
+            mNetworkSpeedDownColor.setOnPreferenceChangeListener(this);
 
-        updatePreferences();
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_NETWORK_SPEED_UPLOAD_COLOR, 0xff33b5e5); 
+            mNetworkSpeedUpColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mNetworkSpeedUpColor.setSummary(hexColor);
+            mNetworkSpeedUpColor.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(PREF_NETWORK_SPEED_DOWNLOAD_COLOR);
+            removePreference(PREF_NETWORK_SPEED_UPLOAD_COLOR);
+        }
+
         setHasOptionsMenu(true);
     }
 
@@ -189,36 +196,5 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    public void updatePreferences() {
-        boolean isThemeDefaultEnabled = mEnableThemeDefault.isChecked();
-        String themeDefaultColorSummary = getResources().getString(R.string.theme_default_color);
-        int intColor = 0xff33b5e5;
-        String hexColor = String.format("#%08x", (0xffffffff & 0xff33b5e5));
-
-        if (isThemeDefaultEnabled) {
-            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_NETWORK_SPEED_DOWNLOAD_COLOR, 0xff33b5e5);
-            mNetworkSpeedDownColor.setNewPreviewColor(intColor);
-            mNetworkSpeedDownColor.setSummary(themeDefaultColorSummary);
-            mNetworkSpeedDownColor.setEnabled(false);
-
-            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_NETWORK_SPEED_UPLOAD_COLOR, 0xff33b5e5); 
-            mNetworkSpeedUpColor.setNewPreviewColor(intColor);
-            mNetworkSpeedUpColor.setSummary(themeDefaultColorSummary);
-            mNetworkSpeedUpColor.setEnabled(false);
-        } else {
-            mNetworkSpeedDownColor.setEnabled(true);
-            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_NETWORK_SPEED_DOWNLOAD_COLOR, 0xff33b5e5);
-            mNetworkSpeedDownColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mNetworkSpeedDownColor.setSummary(hexColor);
-
-            mNetworkSpeedUpColor.setEnabled(true);
-            intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_NETWORK_SPEED_UPLOAD_COLOR, 0xff33b5e5); 
-            mNetworkSpeedUpColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mNetworkSpeedUpColor.setSummary(hexColor);
-        }
     }
 }
