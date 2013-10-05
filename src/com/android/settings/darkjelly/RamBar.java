@@ -18,6 +18,7 @@ package com.android.settings.darkjelly;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.ContentResolver;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -44,6 +45,7 @@ public class RamBar extends SettingsPreferenceFragment implements OnPreferenceCh
 
     private static final String TAG = "RamBar";
 
+    private static final String RAM_BAR_CAT_STYLE = "ram_bar_style";
     private static final String RAM_BAR_MODE = "ram_bar_mode";
     private static final String RAM_BAR_COLOR_APP_MEM = "ram_bar_color_app_mem";
     private static final String RAM_BAR_COLOR_CACHE_MEM = "ram_bar_color_cache_mem";
@@ -58,48 +60,74 @@ public class RamBar extends SettingsPreferenceFragment implements OnPreferenceCh
     private ColorPickerPreference mRamBarCacheMemColor;
     private ColorPickerPreference mRamBarTotalMemColor;
 
+    private ContentResolver mResolver;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshSettings();
+    }
+
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
 
         int intColor;
         String hexColor;
 
         addPreferencesFromResource(R.xml.ram_bar);
+        mResolver = getActivity().getContentResolver();
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
         mRamBarMode = (ListPreference) prefSet.findPreference(RAM_BAR_MODE);
-        int ramBarMode = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+        int ramBarMode = Settings.System.getInt(mResolver,
                 Settings.System.RECENTS_RAM_BAR_MODE, 0);
         mRamBarMode.setValue(String.valueOf(ramBarMode));
         mRamBarMode.setSummary(mRamBarMode.getEntry());
         mRamBarMode.setOnPreferenceChangeListener(this);
 
+        PreferenceCategory ramBarStyleCategory = (PreferenceCategory) findPreference(RAM_BAR_CAT_STYLE);
+
+        // Remove uneeded preferences depending on enabled states
         mRamBarAppMemColor = (ColorPickerPreference) findPreference(RAM_BAR_COLOR_APP_MEM);
-        mRamBarAppMemColor.setOnPreferenceChangeListener(this);
-        intColor = Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.RECENTS_RAM_BAR_ACTIVE_APPS_COLOR, DEFAULT_ACTIVE_APPS_COLOR);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mRamBarAppMemColor.setSummary(hexColor);
-
         mRamBarCacheMemColor = (ColorPickerPreference) findPreference(RAM_BAR_COLOR_CACHE_MEM);
-        mRamBarCacheMemColor.setOnPreferenceChangeListener(this);
-        intColor = Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.RECENTS_RAM_BAR_CACHE_COLOR, DEFAULT_CACHE_COLOR);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mRamBarCacheMemColor.setSummary(hexColor);
-
         mRamBarTotalMemColor = (ColorPickerPreference) findPreference(RAM_BAR_COLOR_TOTAL_MEM);
-        mRamBarTotalMemColor.setOnPreferenceChangeListener(this);
-        intColor = Settings.System.getInt(getActivity().getContentResolver(),
+        if (ramBarMode == 0 || ramBarMode == 1) {
+            ramBarStyleCategory.removePreference(mRamBarCacheMemColor);
+        } else {
+            mRamBarCacheMemColor.setOnPreferenceChangeListener(this);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.RECENTS_RAM_BAR_CACHE_COLOR, DEFAULT_CACHE_COLOR);
+            mRamBarCacheMemColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mRamBarCacheMemColor.setSummary(hexColor);
+        }
+        if (ramBarMode != 3) {
+            ramBarStyleCategory.removePreference(mRamBarTotalMemColor);
+        } else {
+           mRamBarTotalMemColor.setOnPreferenceChangeListener(this);
+           intColor = Settings.System.getInt(mResolver,
                     Settings.System.RECENTS_RAM_BAR_MEM_COLOR, DEFAULT_MEM_COLOR);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mRamBarTotalMemColor.setSummary(hexColor);
+           mRamBarTotalMemColor.setNewPreviewColor(intColor);
+           hexColor = String.format("#%08x", (0xffffffff & intColor));
+           mRamBarTotalMemColor.setSummary(hexColor);
+        }
+        if (ramBarMode == 0) {
+            ramBarStyleCategory.removePreference(mRamBarAppMemColor);
+            removePreference("ram_bar_style");
+        } else {
+            mRamBarAppMemColor.setOnPreferenceChangeListener(this);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.RECENTS_RAM_BAR_ACTIVE_APPS_COLOR, DEFAULT_ACTIVE_APPS_COLOR);
+            mRamBarAppMemColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mRamBarAppMemColor.setSummary(hexColor);
+        }
 
-        updateRamBarOptions();
         setHasOptionsMenu(true);
-
     }
 
     @Override
@@ -112,7 +140,13 @@ public class RamBar extends SettingsPreferenceFragment implements OnPreferenceCh
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.reset:
-                ramBarColorReset();
+                Settings.System.putInt(mResolver,
+                    Settings.System.RECENTS_RAM_BAR_ACTIVE_APPS_COLOR, DEFAULT_ACTIVE_APPS_COLOR);
+                Settings.System.putInt(mResolver,
+                    Settings.System.RECENTS_RAM_BAR_CACHE_COLOR, DEFAULT_CACHE_COLOR);
+                Settings.System.putInt(mResolver,
+                    Settings.System.RECENTS_RAM_BAR_MEM_COLOR, DEFAULT_MEM_COLOR);
+                refreshSettings();
                 return true;
             default:
                 return super.onContextItemSelected(item);
@@ -125,39 +159,36 @@ public class RamBar extends SettingsPreferenceFragment implements OnPreferenceCh
         if (preference == mRamBarMode) {
             int ramBarMode = Integer.valueOf((String) newValue);
             int index = mRamBarMode.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+            Settings.System.putInt(mResolver,
                     Settings.System.RECENTS_RAM_BAR_MODE, ramBarMode);
             mRamBarMode.setSummary(mRamBarMode.getEntries()[index]);
-            updateRamBarOptions();
+            refreshSettings();
             return true;
         } else if (preference == mRamBarAppMemColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer
                     .valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
-
             int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getContentResolver(),
+            Settings.System.putInt(mResolver,
                     Settings.System.RECENTS_RAM_BAR_ACTIVE_APPS_COLOR, intHex);
             return true;
         } else if (preference == mRamBarCacheMemColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer
                     .valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
-
             int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getContentResolver(),
+            Settings.System.putInt(mResolver,
                     Settings.System.RECENTS_RAM_BAR_CACHE_COLOR, intHex);
             return true;
         } else if (preference == mRamBarTotalMemColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer
                     .valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
-
             int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getContentResolver(),
+            Settings.System.putInt(mResolver,
                     Settings.System.RECENTS_RAM_BAR_MEM_COLOR, intHex);
             return true;
-         }
+        }
         return false;
     }
 
@@ -165,47 +196,4 @@ public class RamBar extends SettingsPreferenceFragment implements OnPreferenceCh
         boolean value;
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
-
-    private void ramBarColorReset() {
-        Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.RECENTS_RAM_BAR_ACTIVE_APPS_COLOR, DEFAULT_ACTIVE_APPS_COLOR);
-        Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.RECENTS_RAM_BAR_CACHE_COLOR, DEFAULT_CACHE_COLOR);
-        Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.RECENTS_RAM_BAR_MEM_COLOR, DEFAULT_MEM_COLOR);
-
-        mRamBarAppMemColor.setNewPreviewColor(DEFAULT_ACTIVE_APPS_COLOR);
-        mRamBarCacheMemColor.setNewPreviewColor(DEFAULT_CACHE_COLOR);
-        mRamBarTotalMemColor.setNewPreviewColor(DEFAULT_MEM_COLOR);
-        String hexColor = String.format("#%08x", (0xffffffff & DEFAULT_ACTIVE_APPS_COLOR));
-        mRamBarAppMemColor.setSummary(hexColor);
-        hexColor = String.format("#%08x", (0xffffffff & DEFAULT_ACTIVE_APPS_COLOR));
-        mRamBarCacheMemColor.setSummary(hexColor);
-        hexColor = String.format("#%08x", (0xffffffff & DEFAULT_MEM_COLOR));
-        mRamBarTotalMemColor.setSummary(hexColor);
-    }
-
-
-    private void updateRamBarOptions() {
-        int ramBarMode = Settings.System.getInt(getActivity().getContentResolver(),
-               Settings.System.RECENTS_RAM_BAR_MODE, 0);
-        if (ramBarMode == 0) {
-            mRamBarAppMemColor.setEnabled(false);
-            mRamBarCacheMemColor.setEnabled(false);
-            mRamBarTotalMemColor.setEnabled(false);
-        } else if (ramBarMode == 1) {
-            mRamBarAppMemColor.setEnabled(true);
-            mRamBarCacheMemColor.setEnabled(false);
-            mRamBarTotalMemColor.setEnabled(false);
-        } else if (ramBarMode == 2) {
-            mRamBarAppMemColor.setEnabled(true);
-            mRamBarCacheMemColor.setEnabled(true);
-            mRamBarTotalMemColor.setEnabled(false);
-        } else {
-            mRamBarAppMemColor.setEnabled(true);
-            mRamBarCacheMemColor.setEnabled(true);
-            mRamBarTotalMemColor.setEnabled(true);
-        }
-    }
-
 }
