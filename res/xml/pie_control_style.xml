@@ -15,7 +15,7 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/style_title"
+    android:title="@string/color_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
 	<com.android.settings.cyanogenmod.PieSizePreference
@@ -23,15 +23,73 @@
 	    android:title="@string/pie_control_size"
 	    android:dialogTitle="@string/pie_control_size" />
 
-	<CheckBoxPreference
-	    android:key="pie_control_show_custom_carrier_label"
-	    android:title="@string/show_custom_carrier_label_title"
-	    android:persistent="false"
-	    android:defaultValue="false" />
+    <PreferenceCategory
+        android:key="category_options"
+        android:title="@string/cat_options_title">
 
-	<PreferenceScreen
-		android:key="pie_control_color"
-	    android:fragment="com.android.settings.darkjelly.PieControlColor"
-		android:title="@string/color_title" />
+	    <CheckBoxPreference
+	        android:key="pie_control_show_custom_carrier_label"
+	        android:title="@string/show_custom_carrier_label_title"
+	        android:persistent="false"
+	        android:defaultValue="false" />
 
+		<CheckBoxPreference
+		    android:key="pie_enable_theme_default"
+		    android:title="@string/enable_theme_default_title"
+		    android:summary="@string/enable_theme_default_summary"
+		    android:persistent="false"
+		    android:defaultValue="true" />
+
+		<CheckBoxPreference
+		    android:key="disable_icon_overlay"
+		    android:title="@string/disable_icon_overlay_title"
+		    android:summary="@string/disable_icon_overlay_summary"
+		    android:persistent="false"
+		    android:defaultValue="true" />
+	</PreferenceCategory>
+
+   <PreferenceCategory
+        android:key="category_color"
+        android:title="@string/color_title">
+
+		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+			android:key="pie_snap_color"
+			android:title="@string/pie_snap_color_title"
+			android:defaultValue="0xff33b5e5" />
+
+		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+			android:key="pie_overlay_color"
+			android:title="@string/pie_overlay_color_title"
+			android:defaultValue="0xcc000000" />
+
+		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+			android:key="pie_text_color"
+			android:title="@string/pie_text_color_title"
+			android:defaultValue="0xffffffff" />
+
+		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+			android:key="button_background_normal_color"
+			android:title="@string/button_background_normal_color_title"
+			android:defaultValue="0xdd0099cc" />
+
+		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+			android:key="button_background_selected_color"
+			android:title="@string/button_background_selected_color_title"
+			android:defaultValue="0xff33b5e5" />
+
+		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+			android:key="button_background_long_pressed_color"
+			android:title="@string/button_background_long_pressed_color_title"
+			android:defaultValue="0xff8ad5f0" />
+
+		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+			android:key="button_outline_color"
+			android:title="@string/button_outline_color_title"
+			android:defaultValue="0xdd0099cc" />
+
+		<com.android.settings.darkjelly.colorpicker.ColorPickerPreference
+			android:key="button_icon_color"
+			android:title="@string/button_icon_color_title"
+			android:defaultValue="0xffffffff" />
+	</PreferenceCategory>
 </PreferenceScreen>

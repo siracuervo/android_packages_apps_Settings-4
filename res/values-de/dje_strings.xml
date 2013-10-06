@@ -227,12 +227,34 @@
     <string name="recents_clear_all_button_rb">Unten rechts</string>
 
     <!-- Navigation strings -->
+    <string name="cat_nav_ring">Navigations-Ring</string>
+    <string name="cat_pie_control">Pie-Navigation</string>
     <string name="navigation_title">Navigation</string>
     <string name="navigation_summary">Die Navigationsleiste &amp;\nPie-Navigation anpassen</string>
-    <string name="cat_nav_ring">Navigations-Ring</string>
-    <string name="cat_pie_control">Pie</string>
+
+    <!-- Navigation bar strings -->
+    <string name="navigation_bar_title">Navigationsleiste</string>
+    <string name="show_navigation_bar_title">Navigationsleiste anzeigen</string>
+    <string name="show_navigation_bar_summary">Aktivieren, um die Navigationsleiste anzuzeigen</string>
+    <string name="navigation_bar_style_title">Style der Navigationsleiste</string>
+    <string name="navigation_bar_edit_title">Schaltflächen bearbeiten</string>
+
+    <!-- Navigation bar style strings -->
+    <string name="navigation_bar_height_title">Höhe</string>
+    <string name="navigation_bar_width_title">Breite, (Querformat)</string>
+    <string name="navigation_bar_height_width_48">48dp (Standard)</string>
+    <string name="navigation_bar_height_width_44">44dp</string>
+    <string name="navigation_bar_height_width_40">40dp</string>
+    <string name="navigation_bar_height_width_36">36dp</string>
+    <string name="navigation_bar_height_width_32">32dp</string>
+    <string name="navigation_bar_height_width_28">28dp</string>
+    <string name="navigation_bar_height_width_24">24dp</string>
 
     <!-- pie controls strings -->
+    <string name="show_pie_control_title">Pie-Navigation anzeigen</string>
+    <string name="show_pie_control_summary">Aktivieren, um die Pie-Navigation auf dem Erweiterten Desktop anzuzeigen</string>
+    <string name="pie_control_settings_title">Einstellungen der Pie-Navigation</string>
+    <string name="pie_control_style_title">Pie-Navigation anpassen</string>
 
     <!-- pie controls color strings -->
     <string name="disable_icon_overlay_title">Farbige Symbole</string>
@@ -246,24 +268,6 @@
     <string name="button_outline_color_title">Umrandung</string>
     <string name="button_icon_color_title">Symbol</string>
     <string name="button_icon_default_pie_color_summary">Pie Standard</string>
-
-    <!-- Navigation bar strings -->
-    <string name="navigation_bar_title">Navigationsleiste </string>
-    <string name="navigation_bar_edit_title">Navigationsleiste anpassen</string>
-    <string name="navigation_bar_edit_summary">Schaltflächen bearbeiten</string>
-    <string name="show_navigation_bar_title">Navigationsleiste anzeigen</string>
-    <string name="show_navigation_bar_summary">Aktivieren, um die Navigationsleiste anzuzeigen</string>
-
-    <!-- Navigation bar style strings -->
-    <string name="navigation_bar_height_title">Höhe</string>
-    <string name="navigation_bar_width_title">Breite, (Querformat)</string>
-    <string name="navigation_bar_height_width_48">48dp (Standard)</string>
-    <string name="navigation_bar_height_width_44">44dp</string>
-    <string name="navigation_bar_height_width_40">40dp</string>
-    <string name="navigation_bar_height_width_36">36dp</string>
-    <string name="navigation_bar_height_width_32">32dp</string>
-    <string name="navigation_bar_height_width_28">28dp</string>
-    <string name="navigation_bar_height_width_24">24dp</string>
 
     <!-- Device info settings -->
 

@@ -28,7 +28,6 @@
 		    android:summary="@string/enable_theme_default_summary"
 		    android:persistent="false"
 		    android:defaultValue="true" />
-
 	</PreferenceCategory>
 
     <com.android.settings.darkjelly.colorpicker.ColorPickerPreference

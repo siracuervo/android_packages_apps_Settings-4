@@ -228,12 +228,34 @@
     <string name="recents_clear_all_button_rb">Bottom right</string>
 
     <!-- Navigation strings -->
+    <string name="cat_nav_ring">Navigation ring</string>
+    <string name="cat_pie_control">Pie comtrol</string>
     <string name="navigation_title">Navigation</string>
     <string name="navigation_summary">Customize the Navigation bar &amp;\nPie controls</string>
-    <string name="cat_nav_ring">Navigation ring</string>
-    <string name="cat_pie_control">Pie</string>
+    <string name="pie_control_style_title">Pie comtrol style</string>
+
+    <!-- Navigation bar strings -->
+    <string name="navigation_bar_title">Navigation bar</string>
+    <string name="show_navigation_bar_title">Enable navigation bar</string>
+    <string name="show_navigation_bar_summary">Enable, to show the navigation bar</string>
+    <string name="navigation_bar_style_title">Navigation bar style</string>
+    <string name="navigation_bar_edit_title">Edit buttons layout</string>
+
+    <!-- Navigation bar style strings -->
+    <string name="navigation_bar_height_title">Height</string>
+    <string name="navigation_bar_width_title">Width, (landscape)</string>
+    <string name="navigation_bar_height_width_48">48dp (default)</string>
+    <string name="navigation_bar_height_width_44">44dp</string>
+    <string name="navigation_bar_height_width_40">40dp</string>
+    <string name="navigation_bar_height_width_36">36dp</string>
+    <string name="navigation_bar_height_width_32">32dp</string>
+    <string name="navigation_bar_height_width_28">28dp</string>
+    <string name="navigation_bar_height_width_24">24dp</string>
 
     <!-- pie controls strings -->
+    <string name="show_pie_control_title">Show Pie controls</string>
+    <string name="show_pie_control_summary">Enable, to show the Pie controls on Expanded Desktop</string>
+    <string name="pie_control_settings_title">Customize Pie controls</string>
 
     <!-- pie controls color strings -->
     <string name="disable_icon_overlay_title">Colored icons</string>
@@ -247,24 +269,6 @@
     <string name="button_outline_color_title">Outline</string>
     <string name="button_icon_color_title">Icon</string>
     <string name="button_icon_default_pie_color_summary">Pie default</string>
-
-    <!-- Navigation bar strings -->
-    <string name="navigation_bar_title">Navigation bar</string>
-    <string name="navigation_bar_edit_title">Navigation bar customization</string>
-    <string name="navigation_bar_edit_summary">Edit buttons layout</string>
-    <string name="show_navigation_bar_title">Enable navigation bar</string>
-    <string name="show_navigation_bar_summary">Enable, to show the navigation bar</string>
-
-    <!-- Navigation bar style strings -->
-    <string name="navigation_bar_height_title">Height</string>
-    <string name="navigation_bar_width_title">Width, (landscape)</string>
-    <string name="navigation_bar_height_width_48">48dp (default)</string>
-    <string name="navigation_bar_height_width_44">44dp</string>
-    <string name="navigation_bar_height_width_40">40dp</string>
-    <string name="navigation_bar_height_width_36">36dp</string>
-    <string name="navigation_bar_height_width_32">32dp</string>
-    <string name="navigation_bar_height_width_28">28dp</string>
-    <string name="navigation_bar_height_width_24">24dp</string>
 
     <!-- Device info settings -->
 

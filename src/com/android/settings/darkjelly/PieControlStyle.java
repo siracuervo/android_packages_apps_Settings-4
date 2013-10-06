@@ -16,33 +16,80 @@
 
 package com.android.settings.darkjelly;
 
-import android.content.res.Resources;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.preference.SeekBarDialogPreference;
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
+import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.widget.SeekBarPreference;
 
-public class PieControlStyle extends SettingsPreferenceFragment {
+public class PieControlStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String TAG = "PieControlStyle";
 
+    private static final String PREF_CATEGORY_COLOR = "category_color";
     private static final String PREF_PIE_SIZE = "pie_control_size";
     private static final String PREF_PIE_SHOW_CUSTOM_CARRIER_LABEL = "pie_control_show_custom_carrier_label";
 
+    private static final String PREF_ENABLE_THEME_DEFAULT = "pie_enable_theme_default";
+    private static final String PREF_DISABLE_ICON_OVERLAY = "disable_icon_overlay";
+    private static final String PREF_PIE_SNAP_COLOR = "pie_snap_color";
+    private static final String PREF_PIE_OVERLAY_COLOR = "pie_overlay_color";
+    private static final String PREF_PIE_TEXT_COLOR = "pie_text_color";
+    private static final String PREF_BUTTON_BG_NORMAL_COLOR = "button_background_normal_color";
+    private static final String PREF_BUTTON_BG_SELECTED_COLOR = "button_background_selected_color";
+    private static final String PREF_BUTTON_BG_LONG_PRESSED_COLOR = "button_background_long_pressed_color";
+    private static final String PREF_BUTTON_OUTLINE_COLOR = "button_outline_color";
+    private static final String PREF_BUTTON_ICON_COLOR = "button_icon_color";
+
     private SeekBarDialogPreference mPieSize;
     private CheckBoxPreference mShowCustomCarrierLabel;
+    private CheckBoxPreference mEnableThemeDefault;
+    private CheckBoxPreference mDisableIconOverlay;
+    private ColorPickerPreference mPieSnapColor;
+    private ColorPickerPreference mPieOverlayColor;
+    private ColorPickerPreference mPieTextColor;
+    private ColorPickerPreference mButtonBgNormalColor;
+    private ColorPickerPreference mButtonBgSelectedColor;
+    private ColorPickerPreference mButtonBgLongPressedColor;
+    private ColorPickerPreference mButtonOutlineColor;
+    private ColorPickerPreference mButtonIconColor;
+
+    private ContentResolver mResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshSettings();
+    }
 
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
 
         addPreferencesFromResource(R.xml.pie_control_style);
+        mResolver = getActivity().getContentResolver();
+
+        boolean isThemeDefaultEnabled = Settings.System.getInt(mResolver,
+               Settings.System.PIE_ENABLE_THEME_DEFAULT, 1) == 1;
+        boolean isIconOverlayDisabled = Settings.System.getInt(mResolver,
+               Settings.System.PIE_DISABLE_ICON_OVERLAY, 1) == 1;
+        int intColor = 0xff33b5e5;
+        String hexColor = String.format("#%08x", (0xffffffff & 0xff33b5e5));
 
         mPieSize = (SeekBarDialogPreference) findPreference(PREF_PIE_SIZE);
 
@@ -58,18 +105,283 @@ public class PieControlStyle extends SettingsPreferenceFragment {
             mShowCustomCarrierLabel.setSummary(R.string.show_custom_carrier_label_enabled_summary);
             mShowCustomCarrierLabel.setEnabled(true);
         }
+
+        mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
+        mEnableThemeDefault.setChecked(isThemeDefaultEnabled);
+        mEnableThemeDefault.setOnPreferenceChangeListener(this);
+
+        mDisableIconOverlay = (CheckBoxPreference) findPreference(PREF_DISABLE_ICON_OVERLAY);
+        mDisableIconOverlay.setChecked(isIconOverlayDisabled);
+        mDisableIconOverlay.setOnPreferenceChangeListener(this);
+
+        // Remove uneeded preferences depending on enabled states
+        PreferenceCategory colorCategory = (PreferenceCategory) findPreference(PREF_CATEGORY_COLOR);
+        mPieSnapColor = (ColorPickerPreference) findPreference(PREF_PIE_SNAP_COLOR);
+        mPieOverlayColor = (ColorPickerPreference) findPreference(PREF_PIE_OVERLAY_COLOR);
+        mPieTextColor = (ColorPickerPreference) findPreference(PREF_PIE_TEXT_COLOR);
+        mButtonBgNormalColor = (ColorPickerPreference) findPreference(PREF_BUTTON_BG_NORMAL_COLOR);
+        mButtonBgSelectedColor = (ColorPickerPreference) findPreference(PREF_BUTTON_BG_SELECTED_COLOR);
+        mButtonBgLongPressedColor = (ColorPickerPreference) findPreference(PREF_BUTTON_BG_LONG_PRESSED_COLOR);
+        mButtonOutlineColor = (ColorPickerPreference) findPreference(PREF_BUTTON_OUTLINE_COLOR);
+        mButtonIconColor = (ColorPickerPreference) findPreference(PREF_BUTTON_ICON_COLOR);
+
+        if (!isThemeDefaultEnabled) {
+            mPieSnapColor.setEnabled(true);
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_SNAP_COLOR, 0xff33b5e5);
+            mPieSnapColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mPieSnapColor.setSummary(hexColor);
+            mPieSnapColor.setAlphaSliderEnabled(true);
+            mPieSnapColor.setOnPreferenceChangeListener(this);
+
+            mPieOverlayColor.setEnabled(true);
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_OVERLAY_COLOR, 0xcc000000);
+            mPieOverlayColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mPieOverlayColor.setSummary(hexColor);
+            mPieOverlayColor.setAlphaSliderEnabled(true);
+            mPieOverlayColor.setOnPreferenceChangeListener(this);
+
+            mPieTextColor.setEnabled(true);
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_TEXT_COLOR, 0xffffffff);
+            mPieTextColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mPieTextColor.setSummary(hexColor);
+            mPieTextColor.setAlphaSliderEnabled(true);
+            mPieTextColor.setOnPreferenceChangeListener(this);
+
+            mButtonBgNormalColor.setEnabled(true);
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_BG_NORMAL_COLOR, 0xdd0099cc);
+            mButtonBgNormalColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mButtonBgNormalColor.setSummary(hexColor);
+            mButtonBgNormalColor.setAlphaSliderEnabled(true);
+            mButtonBgNormalColor.setOnPreferenceChangeListener(this);
+
+            mButtonBgSelectedColor.setEnabled(true);
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_BG_SELECTED_COLOR, 0xff33b5e5);
+            mButtonBgSelectedColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mButtonBgSelectedColor.setSummary(hexColor);
+            mButtonBgSelectedColor.setAlphaSliderEnabled(true);
+            mButtonBgSelectedColor.setOnPreferenceChangeListener(this);
+
+            mButtonBgLongPressedColor.setEnabled(true);
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_BG_LONG_PRESSED_COLOR, 0xff8ad5f0);
+            mButtonBgLongPressedColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mButtonBgLongPressedColor.setSummary(hexColor);
+            mButtonBgLongPressedColor.setAlphaSliderEnabled(true);
+            mButtonBgLongPressedColor.setOnPreferenceChangeListener(this);
+
+            mButtonOutlineColor.setEnabled(true);
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_OUTLINE_COLOR, 0xdd0099cc);
+            mButtonOutlineColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mButtonOutlineColor.setSummary(hexColor);
+            mButtonOutlineColor.setAlphaSliderEnabled(true);
+            mButtonOutlineColor.setOnPreferenceChangeListener(this);
+
+            if (!isIconOverlayDisabled) {
+                intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_ICON_COLOR, 0xffffffff);
+                mButtonIconColor.setNewPreviewColor(intColor);
+                hexColor = String.format("#%08x", (0xffffffff & intColor));
+                mButtonIconColor.setSummary(hexColor);
+                mButtonIconColor.setAlphaSliderEnabled(true);
+                mButtonIconColor.setOnPreferenceChangeListener(this);
+            } else {
+                colorCategory.removePreference(mButtonIconColor);
+            }
+        } else {
+            colorCategory.removePreference(mPieSnapColor);
+            colorCategory.removePreference(mPieOverlayColor);
+            colorCategory.removePreference(mPieTextColor);
+            colorCategory.removePreference(mButtonBgNormalColor);
+            colorCategory.removePreference(mButtonBgSelectedColor);
+            colorCategory.removePreference(mButtonBgLongPressedColor);
+            colorCategory.removePreference(mButtonOutlineColor);
+            colorCategory.removePreference(mButtonIconColor);
+            removePreference(PREF_CATEGORY_COLOR);
+        }
+
+        setHasOptionsMenu(true);
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        boolean value;
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.pie_control_style, menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.pie_control_cm_default:
+                Settings.System.putInt(mResolver, Settings.System.PIE_SNAP_COLOR, 0xff33b5e5);
+                Settings.System.putInt(mResolver, Settings.System.PIE_OVERLAY_COLOR, 0xcc000000);
+                Settings.System.putInt(mResolver, Settings.System.PIE_TEXT_COLOR, 0xffffffff);
+                Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_BG_NORMAL_COLOR, 0xdd0099cc);
+                Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_BG_SELECTED_COLOR, 0xff33b5e5);
+                Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_BG_LONG_PRESSED_COLOR, 0xff8ad5f0);
+                Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_OUTLINE_COLOR, 0xdd0099cc);
+                Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_ICON_COLOR, 0xffffffff);
+                refreshSettings();
+                return true;
+            case R.id.pie_control_dark_jelly_default:
+                Settings.System.putInt(mResolver, Settings.System.PIE_SNAP_COLOR, 0xffff0000);
+                Settings.System.putInt(mResolver, Settings.System.PIE_OVERLAY_COLOR, 0xaa000000);
+                Settings.System.putInt(mResolver, Settings.System.PIE_TEXT_COLOR, 0xff33b5e5);
+                Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_BG_NORMAL_COLOR, 0xaa202020);
+                Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_BG_SELECTED_COLOR, 0xaa33b5e5);
+                Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_BG_LONG_PRESSED_COLOR, 0xaa8ad5f0);
+                Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_OUTLINE_COLOR, 0x30ff0000);
+                Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_ICON_COLOR, 0xffffffff);
+                refreshSettings();
+                return true;
+            case R.id.pie_control_backup_color:
+                backupAndRestore(true);
+                return true;
+            case R.id.pie_control_restore_color:
+                backupAndRestore(false);
+                return true;
+             default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mShowCustomCarrierLabel) {
-            value = mShowCustomCarrierLabel.isChecked();
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.PIE_SHOW_CUSTOM_CARRIER_LABEL, value ? 1 : 0);
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver, Settings.System.PIE_SHOW_CUSTOM_CARRIER_LABEL, value ? 1 : 0);
+            return true;
+        } else if (preference == mEnableThemeDefault) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver, Settings.System.PIE_ENABLE_THEME_DEFAULT, value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mDisableIconOverlay) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver, Settings.System.PIE_DISABLE_ICON_OVERLAY, value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mPieSnapColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.PIE_SNAP_COLOR, intHex);
+            return true;
+        } else if (preference == mPieOverlayColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.PIE_OVERLAY_COLOR, intHex);
+            return true;
+        } else if (preference == mPieTextColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.PIE_TEXT_COLOR, intHex);
+            return true;
+        } else if (preference == mButtonBgNormalColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.PIE_BUTTON_BG_NORMAL_COLOR, intHex);
+            return true;
+        } else if (preference == mButtonBgSelectedColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.PIE_BUTTON_BG_SELECTED_COLOR, intHex);
+            return true;
+        } else if (preference == mButtonBgLongPressedColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.PIE_BUTTON_BG_LONG_PRESSED_COLOR, intHex);
+            return true;
+        } else if (preference == mButtonOutlineColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.PIE_BUTTON_OUTLINE_COLOR, intHex);
+            return true;
+        } else if (preference == mButtonIconColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.PIE_BUTTON_ICON_COLOR, intHex);
             return true;
         }
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
+        return false;
+    }
+
+    public void backupAndRestore(boolean backup) {
+        int intColor;
+        String hex;
+
+        if (backup) {
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_SNAP_COLOR, 0xff33b5e5);
+            Settings.System.putInt(mResolver, Settings.System.PIE_SNAP_COLOR_B, intColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_OVERLAY_COLOR, 0xcc000000);
+            Settings.System.putInt(mResolver, Settings.System.PIE_OVERLAY_COLOR_B, intColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_TEXT_COLOR, 0xffffffff);
+            Settings.System.putInt(mResolver, Settings.System.PIE_TEXT_COLOR_B, intColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_BG_NORMAL_COLOR, 0xdd0099cc);
+            Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_BG_NORMAL_COLOR_B, intColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_BG_SELECTED_COLOR, 0xff33b5e5);
+            Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_BG_SELECTED_COLOR_B, intColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_BG_LONG_PRESSED_COLOR, 0xff8ad5f0);
+            Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_BG_LONG_PRESSED_COLOR_B, intColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_OUTLINE_COLOR, 0xdd0099cc);
+            Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_OUTLINE_COLOR_B, intColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_ICON_COLOR, 0xffffffff);
+            Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_ICON_COLOR_B, intColor);
+        } else {
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_SNAP_COLOR_B, 0xff33b5e5);
+            Settings.System.putInt(mResolver, Settings.System.PIE_SNAP_COLOR, intColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_OVERLAY_COLOR_B, 0xcc000000);
+            Settings.System.putInt(mResolver, Settings.System.PIE_OVERLAY_COLOR, intColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_TEXT_COLOR_B, 0xffffffff);
+            Settings.System.putInt(mResolver, Settings.System.PIE_TEXT_COLOR, intColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_BG_NORMAL_COLOR_B, 0xdd0099cc);
+            Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_BG_NORMAL_COLOR, intColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_BG_SELECTED_COLOR_B, 0xff33b5e5);
+            Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_BG_SELECTED_COLOR, intColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_BG_LONG_PRESSED_COLOR_B, 0xff8ad5f0);
+            Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_BG_LONG_PRESSED_COLOR, intColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_OUTLINE_COLOR_B, 0xdd0099cc);
+            Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_OUTLINE_COLOR, intColor);
+
+            intColor = Settings.System.getInt(mResolver, Settings.System.PIE_BUTTON_ICON_COLOR_B, 0xffffffff);
+            Settings.System.putInt(mResolver, Settings.System.PIE_BUTTON_ICON_COLOR, intColor);
+        }
+        refreshSettings();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 }

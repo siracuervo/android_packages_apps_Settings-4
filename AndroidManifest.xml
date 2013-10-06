@@ -1749,6 +1749,8 @@
 
 		<activity android:name=".darkjelly.NavigationBarStyle" />
 
+		<activity android:name=".darkjelly.PieControlStyle" />
+
 		<activity android:name=".darkjelly.DJChangeLog" />
 
         <activity android:name="Settings$ASSRamBarActivity"

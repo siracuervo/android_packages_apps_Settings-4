@@ -18,9 +18,20 @@
     android:title="@string/color_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+	<com.android.settings.cyanogenmod.PieSizePreference
+	    android:key="pie_control_size"
+	    android:title="@string/pie_control_size"
+	    android:dialogTitle="@string/pie_control_size" />
+
     <PreferenceCategory
         android:key="category_options"
         android:title="@string/cat_options_title">
+
+	    <CheckBoxPreference
+	        android:key="pie_control_show_custom_carrier_label"
+	        android:title="@string/show_custom_carrier_label_title"
+	        android:persistent="false"
+	        android:defaultValue="false" />
 
 		<CheckBoxPreference
 		    android:key="pie_enable_theme_default"
@@ -35,7 +46,6 @@
 		    android:summary="@string/disable_icon_overlay_summary"
 		    android:persistent="false"
 		    android:defaultValue="true" />
-
 	</PreferenceCategory>
 
    <PreferenceCategory
@@ -81,6 +91,5 @@
 			android:key="button_icon_color"
 			android:title="@string/button_icon_color_title"
 			android:defaultValue="0xffffffff" />
-
 	</PreferenceCategory>
 </PreferenceScreen>

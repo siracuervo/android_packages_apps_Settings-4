@@ -62,16 +62,26 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements On
         }
 
         addPreferencesFromResource(R.xml.navigationbar_bar_style);
-
         mResolver = getActivity().getContentResolver();
 
+        boolean isThemeDefaultEnabled = Settings.System.getInt(mResolver,
+               Settings.System.NAVIGATION_BAR_ENABLE_THEME_DEFAULT, 1) == 1;
+
         mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
-        mEnableThemeDefault.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.NAVIGATION_BAR_ENABLE_THEME_DEFAULT, 1) == 1);
+        mEnableThemeDefault.setChecked(isThemeDefaultEnabled);
         mEnableThemeDefault.setOnPreferenceChangeListener(this);
 
+        // Remove uneeded preferences depending on enabled states
         mNavBarColor = (ColorPickerPreference) findPreference(PREF_NAV_BAR_COLOR);
-        mNavBarColor.setOnPreferenceChangeListener(this);
+        if (!isThemeDefaultEnabled) {
+            int color = Settings.System.getInt(mResolver, Settings.System.NAVIGATION_BAR_COLOR, 0xff000000);
+            String hexColor = String.format("#%08x", (0xffffffff & color));
+            mNavBarColor.setNewPreviewColor(color);
+            mNavBarColor.setSummary(hexColor);
+            mNavBarColor.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(PREF_NAV_BAR_COLOR);
+        }
 
         mNavBarHeight = (ListPreference) findPreference(PREF_NAV_BAR_HEIGHT);
         int intHeight = Settings.System.getInt(mResolver,
@@ -87,7 +97,6 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements On
         mNavBarWidth.setSummary(mNavBarWidth.getEntry());
         mNavBarWidth.setOnPreferenceChangeListener(this);
 
-        updatePreferences();
         setHasOptionsMenu(true);
     }
 
@@ -104,13 +113,13 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements On
                 Settings.System.putInt(mResolver, Settings.System.NAVIGATION_BAR_COLOR, 0xff000000);
                 Settings.System.putInt(mResolver, Settings.System.NAVIGATION_BAR_HEIGHT, 48);
                 Settings.System.putInt(mResolver, Settings.System.NAVIGATION_BAR_WIDTH, 48);
-                updatePreferences();
+                refreshSettings();
                 return true;
             case R.id.navigationbar_dark_jelly_default:
                 Settings.System.putInt(mResolver, Settings.System.NAVIGATION_BAR_COLOR, 0xff202020);
                 Settings.System.putInt(mResolver, Settings.System.NAVIGATION_BAR_HEIGHT, 48);
                 Settings.System.putInt(mResolver, Settings.System.NAVIGATION_BAR_WIDTH, 48);
-                updatePreferences();
+                refreshSettings();
                 return true;
              default:
                 return super.onContextItemSelected(item);
@@ -156,23 +165,5 @@ public class NavigationBarStyle extends SettingsPreferenceFragment implements On
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    public void updatePreferences() {
-
-        boolean isThemeDefaultEnabled = mEnableThemeDefault.isChecked();
-        int color = Settings.System.getInt(mResolver, Settings.System.NAVIGATION_BAR_COLOR, 0xff000000);;
-
-        if (isThemeDefaultEnabled) {
-            mNavBarColor.setNewPreviewColor(color);
-            String themeDefaultColorSummary = getResources().getString(R.string.theme_default_color);
-            mNavBarColor.setSummary(themeDefaultColorSummary);
-            mNavBarColor.setEnabled(false);
-        } else {
-            mNavBarColor.setEnabled(true);
-            String hexColor = String.format("#%08x", (0xffffffff & color));
-            mNavBarColor.setNewPreviewColor(color);
-            mNavBarColor.setSummary(hexColor);
-        }
     }
 }
