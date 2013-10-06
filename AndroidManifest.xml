@@ -1719,7 +1719,7 @@
 
 		<activity android:name=".darkjelly.LockscreenCarrierLabelStyle" />
 
-		<activity android:name=".darkjelly.LockscreenStatusStyle" />
+		<activity android:name=".darkjelly.LockscreenBatteryStatusStyle" />
 
         <activity android:name=".darkjelly.General" />
 

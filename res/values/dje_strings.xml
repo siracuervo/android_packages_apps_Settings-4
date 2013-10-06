@@ -55,8 +55,8 @@
     <string name="show_wifi_ssid_summary">Enable, to show the Wifi network name</string>
 
     <!-- Lockscreen strings -->
-    <string name="lockscreen_carrier_label_title">Carrier label</string>
-    <string name="lockscreen_status_title">Status</string>
+    <string name="lockscreen_carrier_label_title">Carrier label color</string>
+    <string name="lockscreen_battery_status_color_title">battery status color</string>
 
     <!-- General strings -->
     <string name="general_title">General</string>

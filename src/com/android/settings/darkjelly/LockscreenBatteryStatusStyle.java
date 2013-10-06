@@ -32,9 +32,9 @@ import com.android.settings.darkjelly.colorpicker.ColorPickerPreference;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class LockscreenStatusStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class LockscreenBatteryStatusStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String TAG = "LockscreenStatusStyle";
+    private static final String TAG = "LockscreenBatteryStatusStyle";
 
     private static final String PREF_ENABLE_THEME_DEFAULT = "lockscreen_status_enable_theme_default";
     private static final String PREF_LOCKSCREEN_STATUS_COLOR = "lockscreen_status_color";
@@ -56,35 +56,46 @@ public class LockscreenStatusStyle extends SettingsPreferenceFragment implements
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.lockscreen_status_style);
+        addPreferencesFromResource(R.xml.lockscreen_battery_status_style);
         mResolver = getActivity().getContentResolver();
 
+        boolean isThemeDefaultEnabled = Settings.System.getInt(mResolver,
+               Settings.System.LOCKSCREEN_STATUS_ENABLE_THEME_DEFAULT, 1) == 1;
+
         mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
-        mEnableThemeDefault.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.LOCKSCREEN_STATUS_ENABLE_THEME_DEFAULT, 1) == 1);
+        mEnableThemeDefault.setChecked(isThemeDefaultEnabled);
         mEnableThemeDefault.setOnPreferenceChangeListener(this);
 
+        // Remove uneeded preferences depending on enabled states
         mLockscreenStatusColor = (ColorPickerPreference) findPreference(PREF_LOCKSCREEN_STATUS_COLOR);
-        mLockscreenStatusColor.setOnPreferenceChangeListener(this);
+        if (!isThemeDefaultEnabled) {
+            int color = Settings.System.getInt(mResolver,
+                    Settings.System.LOCKSCREEN_STATUS_COLOR, 0xffbebebe);
+            mLockscreenStatusColor.setNewPreviewColor(color);
+            String hexColor = String.format("#%08x", (0xffffffff & color));
+            mLockscreenStatusColor.setSummary(hexColor);
+            mLockscreenStatusColor.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(PREF_LOCKSCREEN_STATUS_COLOR);
+        }
 
-        updatePreferences();
         setHasOptionsMenu(true);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.lockscreen_status_style, menu);
+        inflater.inflate(R.menu.lockscreen_battery_status_style, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.lockscreen_status_cm_default:
+            case R.id.lockscreen_battery_status_cm_default:
                 Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_STATUS_COLOR, 0xffbebebe);
                 refreshSettings();
                 return true;
-            case R.id.lockscreen_status_dark_jelly_default:
+            case R.id.lockscreen_battery_status_dark_jelly_default:
                 Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_STATUS_COLOR, 0xff33b5e5);
                 refreshSettings();
                 return true;
@@ -112,22 +123,5 @@ public class LockscreenStatusStyle extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    public void updatePreferences() {
-        boolean isThemeDefaultEnabled = mEnableThemeDefault.isChecked();
-        int color = Settings.System.getInt(mResolver, Settings.System.LOCKSCREEN_STATUS_COLOR, 0xffbebebe);
-
-        if (isThemeDefaultEnabled) {
-            mLockscreenStatusColor.setNewPreviewColor(color);
-            String themeDefaultColorSummary = getResources().getString(R.string.theme_default_color);
-            mLockscreenStatusColor.setSummary(themeDefaultColorSummary);
-            mLockscreenStatusColor.setEnabled(false);
-        } else {
-            mLockscreenStatusColor.setEnabled(true);
-            mLockscreenStatusColor.setNewPreviewColor(color);
-            String hexColor = String.format("#%08x", (0xffffffff & color));
-            mLockscreenStatusColor.setSummary(hexColor);
-        }
     }
 }

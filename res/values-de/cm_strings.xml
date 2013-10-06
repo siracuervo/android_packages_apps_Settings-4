@@ -71,7 +71,7 @@
     <string name="lockscreen_target_edit_msg">Anwendung oder Symbol zum Ändern berühren</string>
     <string name="lockscreen_vibrate_enabled_title">Vibrieren</string>
     <string name="lockscreen_vibrate_enabled_head">Beim Entsperren vibrieren</string>
-    <string name="lockscreen_battery_status_title">Batteriestatus anzeigen</string>
+    <string name="lockscreen_battery_status_title">Akkustatus anzeigen</string>
     <string name="lockscreen_battery_status_charging">Nur beim Laden</string>
     <string name="lockscreen_battery_status_alwayson">Immer</string>
     <string name="profiles_settings_title">Profile</string>

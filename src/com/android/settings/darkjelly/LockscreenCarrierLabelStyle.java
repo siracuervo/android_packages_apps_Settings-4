@@ -59,15 +59,26 @@ public class LockscreenCarrierLabelStyle extends SettingsPreferenceFragment impl
         addPreferencesFromResource(R.xml.lockscreen_carrier_label_style);
         mResolver = getActivity().getContentResolver();
 
+        boolean isThemeDefaultEnabled = Settings.System.getInt(mResolver,
+               Settings.System.LOCKSCREEN_ENABLE_THEME_DEFAULT, 1) == 1;
+
         mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
-        mEnableThemeDefault.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.LOCKSCREEN_ENABLE_THEME_DEFAULT, 1) == 1);
+        mEnableThemeDefault.setChecked(isThemeDefaultEnabled);
         mEnableThemeDefault.setOnPreferenceChangeListener(this);
 
+        // Remove uneeded preferences depending on enabled states
         mLockscreenCustomLabelColor = (ColorPickerPreference) findPreference(PREF_LOCKSCREEN_CUSTOM_LABEL_COLOR);
-        mLockscreenCustomLabelColor.setOnPreferenceChangeListener(this);
+        if (!isThemeDefaultEnabled) {
+            int color = Settings.System.getInt(mResolver,
+                    Settings.System.LOCKSCREEN_CARRIER_LABEL_COLOR, 0xffbebebe);
+            mLockscreenCustomLabelColor.setNewPreviewColor(color);
+            String hexColor = String.format("#%08x", (0xffffffff & color));
+            mLockscreenCustomLabelColor.setSummary(hexColor);
+            mLockscreenCustomLabelColor.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(PREF_LOCKSCREEN_CUSTOM_LABEL_COLOR);
+        }
 
-        updatePreferences();
         setHasOptionsMenu(true);
     }
 
@@ -112,22 +123,5 @@ public class LockscreenCarrierLabelStyle extends SettingsPreferenceFragment impl
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    public void updatePreferences() {
-        boolean isThemeDefaultEnabled = mEnableThemeDefault.isChecked();
-        int color = Settings.System.getInt(mResolver, Settings.System.LOCKSCREEN_CARRIER_LABEL_COLOR, 0xffbebebe);
-
-        if (isThemeDefaultEnabled) {
-            mLockscreenCustomLabelColor.setNewPreviewColor(color);
-            String themeDefaultColorSummary = getResources().getString(R.string.theme_default_color);
-            mLockscreenCustomLabelColor.setSummary(themeDefaultColorSummary);
-            mLockscreenCustomLabelColor.setEnabled(false);
-        } else {
-            mLockscreenCustomLabelColor.setEnabled(true);
-            mLockscreenCustomLabelColor.setNewPreviewColor(color);
-            String hexColor = String.format("#%08x", (0xffffffff & color));
-            mLockscreenCustomLabelColor.setSummary(hexColor);
-        }
     }
 }

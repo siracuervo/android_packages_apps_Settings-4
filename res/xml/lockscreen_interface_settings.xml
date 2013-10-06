@@ -18,22 +18,6 @@
     android:title="@string/themes_settings_title" >
 
     <PreferenceCategory
-        android:key="category_lockscreen_style"
-        android:title="@string/cat_style_title">
-
-	    <PreferenceScreen
-	        android:key="lockscreen_carrier_label_style"
-	        android:fragment="com.android.settings.darkjelly.LockscreenCarrierLabelStyle"
-	        android:title="@string/lockscreen_carrier_label_title" />
-
-	    <PreferenceScreen
-	        android:key="lockscreen_status_style"
-	        android:fragment="com.android.settings.darkjelly.LockscreenStatusStyle"
-	        android:title="@string/lockscreen_status_title" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="category_lockscreen_options"
         android:title="@string/cat_options_title">
 
@@ -42,6 +26,11 @@
 	        android:title="@string/show_custom_carrier_label_title"
 	        android:persistent="false"
 	        android:defaultValue="false" />
+
+	    <PreferenceScreen
+	        android:key="lockscreen_carrier_label_style"
+	        android:fragment="com.android.settings.darkjelly.LockscreenCarrierLabelStyle"
+	        android:title="@string/lockscreen_carrier_label_title" />
 
         <ListPreference
             android:key="lockscreen_battery_status"
@@ -52,6 +41,10 @@
             android:entryValues="@array/lockscreen_battery_status_values"
             android:defaultValue="0" />
 
+	    <PreferenceScreen
+	        android:key="lockscreen_battery_status_style"
+	        android:fragment="com.android.settings.darkjelly.LockscreenBatteryStatusStyle"
+	        android:title="@string/lockscreen_battery_status_color_title" />
     </PreferenceCategory>
 
     <PreferenceCategory

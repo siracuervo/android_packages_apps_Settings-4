@@ -75,7 +75,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String LOCKSCREEN_WIDGETS_CATEGORY = "lockscreen_widgets_category";
     private static final String KEY_LOCKSCREEN_ENABLE_WIDGETS = "lockscreen_enable_widgets";
     private static final String KEY_LOCKSCREEN_ENABLE_CAMERA = "lockscreen_enable_camera";
-    private static final String KEY_LOCKSCREEN_CARRIER_LABEL_STYLE = "lockscreen_carrier_label_style";
 
     private ListPreference mCustomBackground;
     private ListPreference mBatteryStatus;
@@ -96,11 +95,20 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshSettings();
+    }
+
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
 
         addPreferencesFromResource(R.xml.lockscreen_interface_settings);
 
-        PreferenceCategory styleCategory = (PreferenceCategory) findPreference(LOCKSCREEN_STYLE_CATEGORY);
-        Preference style = (Preference) findPreference(KEY_LOCKSCREEN_CARRIER_LABEL_STYLE);
+        boolean isbatteryStatusDisabled = Settings.System.getInt(getActivity().getContentResolver(),
+               Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, 0) == 2;
+
         PreferenceCategory optionsCategory = (PreferenceCategory) findPreference(LOCKSCREEN_OPTIONS_CATEGORY);
         PreferenceCategory generalCategory = (PreferenceCategory) findPreference(LOCKSCREEN_GENERAL_CATEGORY);
         PreferenceCategory widgetsCategory = (PreferenceCategory) findPreference(LOCKSCREEN_WIDGETS_CATEGORY);
@@ -111,6 +119,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             // Its the primary user, show all the settings
             mBatteryStatus = (ListPreference) findPreference(KEY_BATTERY_STATUS);
             if (mBatteryStatus != null) {
+                int batteryStatus = Settings.System.getInt(getActivity().getContentResolver(),
+                        Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, 0);
+                mBatteryStatus.setValueIndex(batteryStatus);
+                mBatteryStatus.setSummary(mBatteryStatus.getEntries()[batteryStatus]);
                 mBatteryStatus.setOnPreferenceChangeListener(this);
             }
 
@@ -133,19 +145,19 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         }
 
         // This applies to all users
+
+        // Remove carrier label preferences on wifi only devices
         mLockscreenShowCustomCarrierLabel = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL);
+        PreferenceScreen carrierLabelStyle = (PreferenceScreen) findPreference("lockscreen_carrier_label_style");
+        PreferenceScreen batteryStatusStyle = (PreferenceScreen) findPreference("lockscreen_battery_status_style");
         if (Utils.isWifiOnly(getActivity())) {
-            if (style != null) {
-                // Remove the Carrier label screen on wifi only devices
-                styleCategory.removePreference(style);
-            }
-            if (mLockscreenShowCustomCarrierLabel != null) {
-                // Remove the show custom carrier label checkbox on wifi only devices
-                optionsCategory.removePreference(mLockscreenShowCustomCarrierLabel);
-            }
+            optionsCategory.removePreference(mLockscreenShowCustomCarrierLabel);
+            optionsCategory.removePreference(carrierLabelStyle);
         } else {
             mLockscreenShowCustomCarrierLabel.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL, 1) == 1);
+            mLockscreenShowCustomCarrierLabel.setOnPreferenceChangeListener(this);
+
             String customLabelText = Settings.System.getString(getActivity().getContentResolver(),
                     Settings.System.CUSTOM_CARRIER_LABEL);
             if (customLabelText == null || customLabelText.length() == 0) {
@@ -155,7 +167,11 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                 mLockscreenShowCustomCarrierLabel.setSummary(R.string.show_custom_carrier_label_enabled_summary);
                 mLockscreenShowCustomCarrierLabel.setEnabled(true);
             }
-            mLockscreenShowCustomCarrierLabel.setOnPreferenceChangeListener(this);
+        }
+        // Remove battery status style screen depending on enabled states
+        if (!isbatteryStatusDisabled) {
+        } else {
+            optionsCategory.removePreference(batteryStatusStyle);
         }
 
         mCustomBackground = (ListPreference) findPreference(KEY_BACKGROUND);
@@ -249,6 +265,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             int index = mBatteryStatus.findIndexOfValue((String) objValue);
             Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BATTERY_VISIBILITY, value);
             mBatteryStatus.setSummary(mBatteryStatus.getEntries()[index]);
+            refreshSettings();
             return true;
         } else if (preference == mLockscreenShowCustomCarrierLabel) {
             boolean value = (Boolean) objValue;
