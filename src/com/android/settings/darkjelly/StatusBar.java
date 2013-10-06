@@ -169,7 +169,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         PreferenceCategory generalCategory = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
 
         if (Utils.isWifiOnly(getActivity())) {
-            generalCategory.removePreference(mStatusBarCmSignal);
+            statusBarOptionsCategory.removePreference(mStatusBarCmSignal);
         }
 
         if (Utils.isTablet(getActivity())) {
