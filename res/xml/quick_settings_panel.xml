@@ -28,6 +28,13 @@
             android:entryValues="@array/quick_pulldown_values"
             android:persistent="false" />
 
+        <ListPreference
+            android:key="no_notifications_pulldown"
+            android:title="@string/no_notifications_pulldown_title"
+            android:entries="@array/no_notifications_pulldown_entries"
+            android:entryValues="@array/no_notifications_pulldown_values"
+            android:persistent="false" /> 
+
         <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
             android:key="qs_collapse_panel"
             android:title="@string/title_collapse_panel"

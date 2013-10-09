@@ -173,7 +173,7 @@
     <string name="notification_drawer_enable_quick_access_title">Show Quick access ribbons</string>
     <string name="notification_drawer_enable_quick_access_summary">Enable to show the Quick access ribbons</string>
 
-    <!-- Quick access strings -->
+    <!-- Status bar expanded Quick access strings -->
     <string name="quick_access_settings_title">Quick Access ribbon</string>
 
     <!-- Status bar expanded background style strings -->
@@ -186,6 +186,14 @@
     <string name="enable_defaults_title">Enable defaults</string>
     <string name="enable_system_default">System default</string>
     <string name="enable_custom_color">Custom color</string>
+
+    <!-- Status bar expanded Quick settings strings -->
+    <string name="no_notifications_pulldown_title">Quick pulldown without notifications</string>
+    <string name="no_notifications_pulldown_summary_nonperm">Pulldown quick settings if no non-permanent notifications are present</string>
+    <string name="no_notifications_pulldown_summary_all">Pulldown quick settings if no notifications are present</string>
+    <string name="no_notifications_pulldown_off">Off</string>
+    <string name="no_notifications_pulldown_nonperm">Non-permanent only</string>
+    <string name="no_notifications_pulldown_all">All Notifications</string>
 
     <!-- Network speed strings -->
     <string name="network_speed_download_title">Show download speed</string>

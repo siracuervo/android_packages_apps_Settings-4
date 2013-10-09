@@ -49,6 +49,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String EXP_NETWORK_MODE = "pref_network_mode";
     private static final String EXP_SCREENTIMEOUT_MODE = "pref_screentimeout_mode";
     private static final String QUICK_PULLDOWN = "quick_pulldown";
+    private static final String NO_NOTIFICATIONS_PULLDOWN = "no_notifications_pulldown";
     private static final String GENERAL_SETTINGS = "pref_general_settings";
     private static final String STATIC_TILES = "static_tiles";
     private static final String DYNAMIC_TILES = "pref_dynamic_tiles";
@@ -57,6 +58,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private ListPreference mNetworkMode;
     private ListPreference mScreenTimeoutMode;
     private ListPreference mQuickPulldown;
+    private ListPreference mNoNotificationsPulldown;
     private PreferenceCategory mGeneralSettings;
     private PreferenceCategory mStaticTiles;
     private PreferenceCategory mDynamicTiles;
@@ -77,10 +79,14 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mStaticTiles = (PreferenceCategory) prefSet.findPreference(STATIC_TILES);
         mDynamicTiles = (PreferenceCategory) prefSet.findPreference(DYNAMIC_TILES);
         mQuickPulldown = (ListPreference) prefSet.findPreference(QUICK_PULLDOWN);
+        mNoNotificationsPulldown = (ListPreference) prefSet.findPreference(NO_NOTIFICATIONS_PULLDOWN);
 
         if (!Utils.isPhone(getActivity())) {
             if (mQuickPulldown != null) {
                 mGeneralSettings.removePreference(mQuickPulldown);
+            }
+            if (mNoNotificationsPulldown != null) {
+                mGeneralSettings.removePreference(mNoNotificationsPulldown);
             }
         } else {
             mQuickPulldown.setOnPreferenceChangeListener(this);
@@ -88,6 +94,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                     Settings.System.QS_QUICK_PULLDOWN, 0);
             mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
             updatePulldownSummary(quickPulldownValue);
+
+            mNoNotificationsPulldown.setOnPreferenceChangeListener(this);
+            int noNotificationsPulldownValue = Settings.System.getInt(resolver,
+                    Settings.System.QS_NO_NOTIFICATION_PULLDOWN, 0);
+            mNoNotificationsPulldown.setValue(String.valueOf(noNotificationsPulldownValue));
+            updateNoNotificationsPulldownSummary(noNotificationsPulldownValue);
         }
 
         // Add the sound mode
@@ -177,6 +189,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                     quickPulldownValue);
             updatePulldownSummary(quickPulldownValue);
             return true;
+        } else if (preference == mNoNotificationsPulldown) {
+            int noNotificationsPulldownValue = Integer.valueOf((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.QS_NO_NOTIFICATION_PULLDOWN,
+                    noNotificationsPulldownValue);
+            updateNoNotificationsPulldownSummary(noNotificationsPulldownValue);
+            return true;
         } else if (preference == mScreenTimeoutMode) {
             int value = Integer.valueOf((String) newValue);
             int index = mScreenTimeoutMode.findIndexOfValue((String) newValue);
@@ -218,6 +236,18 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                     ? R.string.quick_pulldown_summary_left
                     : R.string.quick_pulldown_summary_right);
             mQuickPulldown.setSummary(res.getString(R.string.summary_quick_pulldown, direction));
+        }
+    }
+
+    private void updateNoNotificationsPulldownSummary(int value) {
+
+        if (value == 0) {
+            /* No Notifications Pulldown deactivated */
+            mNoNotificationsPulldown.setSummary(getResources().getString(R.string.no_notifications_pulldown_off));
+        } else {
+            mNoNotificationsPulldown.setSummary(getResources().getString(value == 1
+                    ? R.string.no_notifications_pulldown_summary_nonperm
+                    : R.string.no_notifications_pulldown_summary_all));
         }
     }
 

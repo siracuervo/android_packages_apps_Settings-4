@@ -168,7 +168,7 @@
     <string name="status_bar_expanded_header_settings_btn_title">Einstellungen Schaltfläche</string>
     <string name="status_bar_expanded_header_settings_btn_summary">Aktivieren, um den Einstellungen Schaltfläche immer anzuzeigen</string>
 
-    <!-- Quick access strings -->
+    <!-- Status bar expanded Quick access strings -->
     <string name="quick_access_settings_title">Schnellzugriffsleiste</string>
 
     <!-- Notification drawer strings -->
@@ -185,6 +185,14 @@
     <string name="enable_defaults_title">Standards aktivieren</string>
     <string name="enable_system_default">System Standard</string>
     <string name="enable_custom_color">Eigene Farbe</string>
+
+    <!-- Status bar expanded Quick settings strings -->
+    <string name="no_notifications_pulldown_title">Schnelles Öffnen ohne Benachrichtigungen</string>
+    <string name="no_notifications_pulldown_summary_nonperm">Die Schnelleinstellungen werden geöffnet, wenn keine entfernbaren Benachrichtigungen vorhanden sind</string>
+    <string name="no_notifications_pulldown_summary_all">Die Schnelleinstellungen werden geöffnet, wenn keine Benachrichtigungen vorhanden sind</string>
+    <string name="no_notifications_pulldown_off">Deaktiviert</string>
+    <string name="no_notifications_pulldown_nonperm">Nur Entfernbare</string>
+    <string name="no_notifications_pulldown_all">Keine Benachrichtigungen</string>
 
     <!-- Network speed strings -->
     <string name="network_speed_download_title">Download Geschw. anzeigen</string>
