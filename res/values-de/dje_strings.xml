@@ -199,6 +199,16 @@
     <string name="network_speed_download_summary">Aktivieren um die Download Geschwindigkeit in der Statusleiste anzuzeigen</string>
     <string name="network_speed_upload_title">Upload Geschw. anzeigen</string>
     <string name="network_speed_upload_summary">Aktivieren um die Upload Geschwindigkeit in der Statusleiste anzuzeigen</string>
+    <string name="traffic_summary">Datenmenge anzeigen</string>
+    <string name="traffic_timeout_0s">Nicht anzeigen</string>
+    <string name="traffic_timeout_1s">1 Sekunde</string>
+    <string name="traffic_timeout_2s">2 Sekunden</string>
+    <string name="traffic_timeout_3s">3 Sekunden</string>
+    <string name="traffic_timeout_5s">5 Sekunden</string>
+    <string name="traffic_timeout_8s">8 Sekunden</string>
+    <string name="traffic_timeout_10s">10 Sekunden</string>
+    <string name="traffic_timeout_15s">15 Sekunden</string>
+    <string name="traffic_timeout_25s">25 Sekunden</string>
     <string name="network_speed_bit_byte_title">Bit-Werte anzeigen</string>
     <string name="network_speed_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
     <string name="network_speed_hide_traffic_title">Anzeige verstecken</string>

@@ -200,6 +200,16 @@
     <string name="network_speed_download_summary">Enable to show the download speed in the status bar</string>
     <string name="network_speed_upload_title">Show upload speed</string>
     <string name="network_speed_upload_summary">Enable to show the upload speed in the status bar</string>
+    <string name="traffic_summary">Show summary of traffic</string>
+    <string name="traffic_timeout_0s">Don\'t show</string>
+    <string name="traffic_timeout_1s">1 second</string>
+    <string name="traffic_timeout_2s">2 seconds</string>
+    <string name="traffic_timeout_3s">3 seconds</string>
+    <string name="traffic_timeout_5s">5 seconds</string>
+    <string name="traffic_timeout_8s">8 seconds</string>
+    <string name="traffic_timeout_10s">10 seconds</string>
+    <string name="traffic_timeout_15s">15 seconds</string>
+    <string name="traffic_timeout_25s">25 seconds</string>
     <string name="network_speed_bit_byte_title">Show bit values</string>
     <string name="network_speed_bit_byte_summary">Enable to show the values in bit instead of byte</string>
     <string name="network_speed_hide_traffic_title">Hide the indicator</string>
