@@ -45,6 +45,18 @@
 	        android:key="lockscreen_battery_status_style"
 	        android:fragment="com.android.settings.darkjelly.LockscreenBatteryStatusStyle"
 	        android:title="@string/lockscreen_battery_status_color_title" />
+
+	    <CheckBoxPreference
+	        android:key="lockscreen_show_battery_status_ring"
+	        android:title="@string/lockscreen_show_battery_status_ring_title"
+		    android:summary="@string/lockscreen_show_battery_status_ring_summary"
+	        android:persistent="false"
+	        android:defaultValue="false" />
+
+	    <PreferenceScreen
+	        android:key="lockscreen_battery_status_ring_style"
+	        android:fragment="com.android.settings.darkjelly.LockscreenBatteryStatusRingStyle"
+	        android:title="@string/lockscreen_battery_status_ring_style_title" />
     </PreferenceCategory>
 
     <PreferenceCategory

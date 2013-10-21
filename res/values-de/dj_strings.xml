@@ -57,6 +57,18 @@
     <!-- Lockscreen strings -->
     <string name="lockscreen_carrier_label_title">Farbe des Netzbetreiber Namens</string>
     <string name="lockscreen_battery_status_color_title">Farbe des Akkustatus</string>
+    <string name="lockscreen_show_battery_status_ring_title">Den Akkustatus Ring anzeigen</string>
+    <string name="lockscreen_show_battery_status_ring_summary">Aktivieren, um den Akkustatus Ring um den Sperr Ring herum anzeigen</string>
+    <string name="lockscreen_battery_status_ring_style_title">Akkustatus Ring anpassen</string>
+
+    <!-- Lockscreen battery status ring style strings -->
+    <string name="lockscreen_battery_status_ring_dotted_title">Ring gepunktet</string>
+    <string name="lockscreen_battery_status_ring_dotted_summary">Aktivieren, um den Ring gepunktet anzuzeigen</string>
+    <string name="lockscreen_battery_status_ring_dot_length_title">Ring Punkt Länge</string>
+    <string name="lockscreen_battery_status_ring_dot_interval_title">Ring Punkt Abstand</string>
+    <string name="lockscreen_battery_status_ring_dot_offset_title">Ring Punkt Versatz</string>
+    <string name="lockscreen_battery_status_ring_color">Ring Farbe</string>
+    <string name="lockscreen_battery_status_ring_charging_color">Ring Lade Farbe</string>
 
     <!-- General strings -->
     <string name="general_title">Allgemein</string>

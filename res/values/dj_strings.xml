@@ -57,6 +57,18 @@
     <!-- Lockscreen strings -->
     <string name="lockscreen_carrier_label_title">Carrier label color</string>
     <string name="lockscreen_battery_status_color_title">battery status color</string>
+    <string name="lockscreen_show_battery_status_ring_title">Show the battery status ring</string>
+    <string name="lockscreen_show_battery_status_ring_summary">Enable, to Show the battery status ring around lock ring</string>
+    <string name="lockscreen_battery_status_ring_style_title">Customize battery status ring</string>
+
+    <!-- Lockscreen battery status ring style strings -->
+    <string name="lockscreen_battery_status_ring_dotted_title">Ring dotted</string>
+    <string name="lockscreen_battery_status_ring_dotted_summary">Activate, to show the Ring dotted</string>
+    <string name="lockscreen_battery_status_ring_dot_length_title">Ring Dot length</string>
+    <string name="lockscreen_battery_status_ring_dot_interval_title">Ring Dot interval</string>
+    <string name="lockscreen_battery_status_ring_dot_offset_title">Ring Dot offset</string>
+    <string name="lockscreen_battery_status_ring_color">Ring color</string>
+    <string name="lockscreen_battery_status_ring_charging_color">Ring charging color</string>
 
     <!-- General strings -->
     <string name="general_title">General</string>

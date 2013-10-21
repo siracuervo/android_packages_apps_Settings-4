@@ -1721,6 +1721,8 @@
 
 		<activity android:name=".darkjelly.LockscreenBatteryStatusStyle" />
 
+		<activity android:name=".darkjelly.LockscreenBatteryStatusRingStyle" />
+
         <activity android:name=".darkjelly.General" />
 
 		<activity android:name=".darkjelly.StatusBar" />
