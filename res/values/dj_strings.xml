@@ -41,6 +41,9 @@
     <string name="restore_color">Restore color values</string>
     <string name="enable_theme_default_title">Theme default</string>
     <string name="enable_theme_default_summary">Enable, to use theme default colors of the current theme</string>
+    <string name="dot_length_title">Ring&#47;Circle Dot length</string>
+    <string name="dot_interval_title">Ring&#47;Circle Dot interval</string>
+    <string name="dot_offset_title">Ring&#47;Circle Dot offset</string>
     <string name="alpha_mode_dialog_text_title">Show transparency</string>
     <string name="alpha_mode_text_title">Transparency mode</string>
     <string name="alpha_mode_home">On launcher</string>
@@ -64,9 +67,6 @@
     <!-- Lockscreen battery status ring style strings -->
     <string name="lockscreen_battery_status_ring_dotted_title">Ring dotted</string>
     <string name="lockscreen_battery_status_ring_dotted_summary">Activate, to show the Ring dotted</string>
-    <string name="lockscreen_battery_status_ring_dot_length_title">Ring Dot length</string>
-    <string name="lockscreen_battery_status_ring_dot_interval_title">Ring Dot interval</string>
-    <string name="lockscreen_battery_status_ring_dot_offset_title">Ring Dot offset</string>
     <string name="lockscreen_battery_status_ring_color">Ring color</string>
     <string name="lockscreen_battery_status_ring_charging_color">Ring charging color</string>
 

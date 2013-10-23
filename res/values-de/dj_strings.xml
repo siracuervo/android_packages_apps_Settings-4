@@ -41,6 +41,9 @@
     <string name="restore_color">Farbwerte wiederherstellen</string>
     <string name="enable_theme_default_title">Design Standard</string>
     <string name="enable_theme_default_summary">Aktivieren, um die standard Design Farben aus dem aktuellen Design zu benutzen</string>
+    <string name="dot_length_title">Ring&#47;Kreis Punkt Länge</string>
+    <string name="dot_interval_title">Ring&#47;Kreis Punkt Abstand</string>
+    <string name="dot_offset_title">Ring&#47;Kreis Punkt Versatz</string>
     <string name="alpha_mode_dialog_text_title">Anzeige der Transparenz</string>
     <string name="alpha_mode_text_title">Transparenz Modus</string>
     <string name="alpha_mode_home">Im Launcher</string>
@@ -64,9 +67,6 @@
     <!-- Lockscreen battery status ring style strings -->
     <string name="lockscreen_battery_status_ring_dotted_title">Ring gepunktet</string>
     <string name="lockscreen_battery_status_ring_dotted_summary">Aktivieren, um den Ring gepunktet anzuzeigen</string>
-    <string name="lockscreen_battery_status_ring_dot_length_title">Ring Punkt Länge</string>
-    <string name="lockscreen_battery_status_ring_dot_interval_title">Ring Punkt Abstand</string>
-    <string name="lockscreen_battery_status_ring_dot_offset_title">Ring Punkt Versatz</string>
     <string name="lockscreen_battery_status_ring_color">Ring Farbe</string>
     <string name="lockscreen_battery_status_ring_charging_color">Ring Lade Farbe</string>
 

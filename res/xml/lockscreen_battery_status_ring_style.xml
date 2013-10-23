@@ -38,7 +38,7 @@
 
     <ListPreference
         android:key="lockscreen_battery_status_ring_dot_length"
-        android:title="@string/lockscreen_battery_status_ring_dot_length_title"
+        android:title="@string/dot_length_title"
         android:entries="@array/lockscreen_battery_status_ring_dot_entries"
         android:entryValues="@array/lockscreen_battery_status_ring_dot_values"
         android:persistent="false"
@@ -46,7 +46,7 @@
 
     <ListPreference
         android:key="lockscreen_battery_status_ring_dot_interval"
-        android:title="@string/lockscreen_battery_status_ring_dot_interval_title"
+        android:title="@string/dot_interval_title"
         android:entries="@array/lockscreen_battery_status_ring_dot_entries"
         android:entryValues="@array/lockscreen_battery_status_ring_dot_values"
         android:persistent="false"
@@ -54,7 +54,7 @@
 
     <ListPreference
         android:key="lockscreen_battery_status_ring_dot_offset"
-        android:title="@string/lockscreen_battery_status_ring_dot_offset_title"
+        android:title="@string/dot_offset_title"
         android:entries="@array/lockscreen_battery_status_ring_dot_entries"
         android:entryValues="@array/lockscreen_battery_status_ring_dot_values"
         android:persistent="false"
