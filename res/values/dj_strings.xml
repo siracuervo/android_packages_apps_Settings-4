@@ -135,7 +135,7 @@
     <string name="status_bar_battery_status_icon">Icon (Android)</string>
     <string name="status_bar_battery_status_icon_cust">Icon (Dark Jelly)</string>
     <string name="status_bar_battery_status_percentage">Percentage (Slimroms)</string>
-    <string name="status_bar_battery_status_icon_mini">Icon Mini (Android)</string>
+    <string name="status_bar_battery_status_icon_mini">Icon Mini (CM)</string>
     <string name="status_bar_battery_status_icon_mini_cust">Icon Mini (Dark Jelly)</string>
     <string name="status_bar_battery_status_circle">Circle (CM)</string>
     <string name="status_bar_battery_status_ABT">Circle (AlphaBlue Theme)</string>
