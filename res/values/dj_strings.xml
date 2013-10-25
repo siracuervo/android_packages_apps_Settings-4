@@ -132,11 +132,13 @@
     <string name="status_bar_battery_status_style_title">Battery status</string>
     <string name="style_reset_battery_status">Reset battery status</string>
     <string name="battery_status_style_title">Icon&#47;text</string>
+    <string name="status_bar_battery_status_icon">Icon (Android)</string>
+    <string name="status_bar_battery_status_icon_cust">Icon (Dark Jelly)</string>
     <string name="status_bar_battery_status_percentage">Percentage (Slimroms)</string>
-    <string name="status_bar_battery_status_icon_mini">Icon (Mini)</string>
+    <string name="status_bar_battery_status_icon_mini">Icon Mini (Android)</string>
+    <string name="status_bar_battery_status_icon_mini_cust">Icon Mini (Dark Jelly)</string>
     <string name="status_bar_battery_status_circle">Circle (CM)</string>
     <string name="status_bar_battery_status_ABT">Circle (AlphaBlue Theme)</string>
-    <string name="status_bar_battery_status_AOKP">Circle (AOKP)</string>
     <string name="status_bar_battery_status_HC">Circle (HoneyComb)</string>
     <string name="battery_status_show_text_title">Show battery status text</string>
     <string name="battery_status_show_text_summary">Activate, to show the battery status text</string>

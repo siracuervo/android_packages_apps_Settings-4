@@ -131,11 +131,13 @@
     <!-- Statusbar style battery status strings  -->
     <string name="style_reset_battery_status">Akkustand zurücksetzten</string>
     <string name="battery_status_style_title">Symbol&#47;Text</string>
+    <string name="status_bar_battery_status_icon">Symbol (Android)</string>
+    <string name="status_bar_battery_status_icon_cust">Symbol (Dark Jelly)</string>
     <string name="status_bar_battery_status_percentage">Prozent (Slimroms)</string>
-    <string name="status_bar_battery_status_icon_mini">Symbol (Mini)</string>
+    <string name="status_bar_battery_status_icon_mini">Symbol Mini (Android)</string>
+    <string name="status_bar_battery_status_icon_mini_cust">Symbol Mini (Dark Jelly)</string>
 	<string name="status_bar_battery_status_circle">Kreis (CM)</string>
     <string name="status_bar_battery_status_ABT">Kreis (AlphaBlue Theme)</string>
-    <string name="status_bar_battery_status_AOKP">Kreis (AOKP)</string>
     <string name="status_bar_battery_status_HC">Kreis (HoneyComb)</string>
     <string name="battery_status_show_text_title">Akkustatus Text anzeigen</string>
     <string name="battery_status_show_text_summary">Aktivieren, um den Akkustatus Text anzuzeigen</string>

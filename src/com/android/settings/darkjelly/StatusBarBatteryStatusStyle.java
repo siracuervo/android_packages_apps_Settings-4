@@ -22,6 +22,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.view.Menu;
@@ -36,6 +37,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
 
     private static final String TAG = "StatusBarBatteryStatusStyle";
 
+    private static final String PREF_OPTIONS_CATEGORY = "category_status_bar_battery_status_options";
     private static final String PREF_ENABLE_THEME_DEFAULT = "status_bar_battery_status_enable_theme_default";
     private static final String PREF_BATT_STAT_STYLE = "battery_status_style";
     private static final String PREF_BATT_STAT_SHOW_TEXT = "battery_status_show_text";
@@ -84,29 +86,37 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
                 Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_TEXT, 1) == 1;
         boolean isCircleDottedEnabled = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_CIRCLE_DOTTED, 0) == 1;
+        int batteryStatus = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 3);
         int intColor = 0xff0099cc;
         String hexColor = String.format("#%08x", (0xffffffff & 0xff0099cc));
 
+        PreferenceCategory optionsCategory = (PreferenceCategory) findPreference(PREF_OPTIONS_CATEGORY);
         mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
-        mEnableThemeDefault.setChecked(isThemeDefaultEnabled);
-        mEnableThemeDefault.setOnPreferenceChangeListener(this);
+        if (batteryStatus == 0) {
+            if (optionsCategory != null) {
+                optionsCategory.removePreference(mEnableThemeDefault);
+                removePreference(PREF_OPTIONS_CATEGORY);
+            }
+        } else {
+            mEnableThemeDefault.setChecked(isThemeDefaultEnabled);
+            mEnableThemeDefault.setOnPreferenceChangeListener(this);
+        }
 
         mBatteryStatusStyle = (ListPreference) findPreference(PREF_BATT_STAT_STYLE);
-        int batteryStatus = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 3);
         mBatteryStatusStyle.setValue(String.valueOf(batteryStatus));
         mBatteryStatusStyle.setSummary(mBatteryStatusStyle.getEntry());
         mBatteryStatusStyle.setOnPreferenceChangeListener(this);
 
         mShowText = (CheckBoxPreference) findPreference(PREF_BATT_STAT_SHOW_TEXT);
-        if (batteryStatus != 1) {
+        if (batteryStatus == 0 || batteryStatus == 2) {
+            removePreference(PREF_BATT_STAT_SHOW_TEXT);
+        } else {
             mShowText.setChecked(showtext);
             mShowText.setOnPreferenceChangeListener(this);
-        } else {
-            removePreference(PREF_BATT_STAT_SHOW_TEXT);
         }
 
         mCircleDotted = (CheckBoxPreference) findPreference(PREF_BATT_STAT_CIRCLE_DOTTED);
-        if (batteryStatus == 3) {
+        if (batteryStatus == 5) {
             mCircleDotted.setChecked(isCircleDottedEnabled);
             mCircleDotted.setOnPreferenceChangeListener(this);
         } else {
@@ -116,7 +126,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         mCircleDotLength = (ListPreference) findPreference(PREF_BATT_STAT_CIRCLE_DOT_LENGTH);
         mCircleDotInterval = (ListPreference) findPreference(PREF_BATT_STAT_CIRCLE_DOT_INTERVAL);
         mCircleDotOffset = (ListPreference) findPreference(PREF_BATT_STAT_CIRCLE_DOT_OFFSET);
-        if (batteryStatus == 3 && isCircleDottedEnabled) {
+        if (batteryStatus == 5 && isCircleDottedEnabled) {
             int circleDotLength = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_DOT_LENGTH, 3);
             mCircleDotLength.setValue(String.valueOf(circleDotLength));
             mCircleDotLength.setSummary(mCircleDotLength.getEntry());
@@ -139,7 +149,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
 
         mFillColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_FILL_COLOR);
         if (!isThemeDefaultEnabled) {
-            if (batteryStatus == 0 || batteryStatus == 2 || batteryStatus == 3) {
+            if (batteryStatus == 1 || batteryStatus == 4 || batteryStatus == 5) {
                 intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_FILL_COLOR, 0xff0099cc);
                 mFillColor.setNewPreviewColor(intColor);
                 hexColor = String.format("#%08x", (0xffffffff & intColor));
@@ -154,7 +164,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
 
         mEmptyColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_EMPTY_COLOR);
         if (!isThemeDefaultEnabled) {
-            if (batteryStatus == 0 || batteryStatus == 2 || batteryStatus == 3) {
+            if (batteryStatus == 1 || batteryStatus == 4 || batteryStatus == 5) {
                 intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_EMPTY_COLOR, 0xff404040);
                 mEmptyColor.setNewPreviewColor(intColor);
                 hexColor = String.format("#%08x", (0xffffffff & intColor));
@@ -168,8 +178,8 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         }
 
         mBatteryTextColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_TEXT_COLOR);
-        if (!isThemeDefaultEnabled) {
-            if (showtext || batteryStatus == 1) {
+        if (!isThemeDefaultEnabled && batteryStatus != 0) {
+            if (showtext || batteryStatus == 2) {
                 intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_COLOR, 0xff0099cc); 
                 mBatteryTextColor.setNewPreviewColor(intColor);
                 hexColor = String.format("#%08x", (0xffffffff & intColor));
@@ -183,8 +193,8 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         }
 
         mBatteryTextChargingColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_TEXT_CHARGING_COLOR);
-        if (!isThemeDefaultEnabled) {
-            if (showtext || batteryStatus == 1) {
+        if (!isThemeDefaultEnabled && batteryStatus != 0) {
+            if (showtext || batteryStatus == 2) {
                 intColor = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR, 0xff0099cc);
                 mBatteryTextChargingColor.setNewPreviewColor(intColor);
                 hexColor = String.format("#%08x", (0xffffffff & intColor));
@@ -198,7 +208,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         }
 
         mCircleAnimSpeed = (ListPreference) findPreference(PREF_BATT_STAT_CIRCLE_ANIMATIONSPEED);
-        if (batteryStatus == 3) {
+        if (batteryStatus == 5) {
             int circleAnimSpeed = Settings.System.getInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED, 3);
             mCircleAnimSpeed.setValue(String.valueOf(circleAnimSpeed));
             mCircleAnimSpeed.setSummary(mCircleAnimSpeed.getEntry());
@@ -220,7 +230,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.statusbar_battery_status_cm_default:
-                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 3);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 5);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_TEXT, 0);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_DOTTED, 0);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_DOT_LENGTH, 3);
@@ -234,7 +244,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
                 refreshSettings();
                 return true;
             case R.id.statusbar_battery_status_dark_jelly_default:
-                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 3);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 5);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_TEXT, 1);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_DOTTED, 1);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_DOT_LENGTH, 3);
