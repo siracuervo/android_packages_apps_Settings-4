@@ -155,10 +155,8 @@
 
     <string-array name="battery_status_style_entries" >
         <item>@string/status_bar_battery_status_icon</item>
-        <item>@string/status_bar_battery_status_icon_cust</item>
         <item>@string/status_bar_battery_status_percentage</item>
         <item>@string/status_bar_battery_status_icon_mini</item>
-        <item>@string/status_bar_battery_status_icon_mini_cust</item>
         <item>@string/status_bar_battery_status_circle</item>
         <item>@string/status_bar_battery_status_ABT</item>
         <item>@string/status_bar_battery_status_HC</item>
@@ -171,8 +169,6 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
-        <item>6</item>
-        <item>7</item>
     </string-array>
 
     <string-array name="battery_circle_dot_entries">
