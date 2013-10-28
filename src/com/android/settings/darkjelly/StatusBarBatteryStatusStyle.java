@@ -223,7 +223,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.statusbar_battery_status_cm_default:
-                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 5);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 3);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_TEXT, 0);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_DOTTED, 0);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_DOT_LENGTH, 3);
@@ -237,7 +237,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
                 refreshSettings();
                 return true;
             case R.id.statusbar_battery_status_dark_jelly_default:
-                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 5);
+                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE, 3);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_TEXT, 1);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_DOTTED, 1);
                 Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_CIRCLE_DOT_LENGTH, 3);
