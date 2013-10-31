@@ -186,12 +186,12 @@
     <!-- Notification drawer strings -->
     <string name="notification_drawer_enable_quick_access_title">Die Schnellzugriffsleiste anzeigen</string>
     <string name="notification_drawer_enable_quick_access_summary">Aktivieren, um die Schnellzugriffsleiste anzuzeigen</string>
+    <string name="notification_drawer_row_alpha_title">Transparenz der Reihen</string>
 
     <!-- Status bar expanded background style strings -->
     <string name="cat_notification_drawer_title">Benachrichtigungsanzeige</string>
     <string name="status_bar_expanded_background_color_title">Hintergrundfarbe</string>
     <string name="status_bar_expanded_background_alpha_title">Transparenz des Hintergrundes</string>
-    <string name="notification_drawer_row_alpha_title">Transparenz der Reihen</string>
 
     <!-- Status bar expanded tile background style strings -->
     <string name="enable_defaults_title">Standards aktivieren</string>

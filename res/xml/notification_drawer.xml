@@ -37,6 +37,10 @@
 	    android:fragment="com.android.settings.darkjelly.QuickAccessSettings"
 	    android:title="@string/quick_access_settings_title" />
 
+    <com.android.settings.widget.SeekBarPreference
+         android:key="notification_drawer_row_alpha"
+         android:title="@string/notification_drawer_row_alpha_title" />
+
 	<PreferenceScreen
 	    android:key="notification_drawer_cw_label_style"
 	    android:fragment="com.android.settings.darkjelly.NotificationDrawerCwLabelStyle"

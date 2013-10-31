@@ -42,12 +42,10 @@ public class StatusBarExpandedBackgroundStyle extends SettingsPreferenceFragment
     private static final String PREF_ENABLE_THEME_DEFAULT = "status_bar_expanded_background_enable_theme_default";
     private static final String PREF_STATUSBAR_EXPANDED_BACKGROUND_COLOR = "status_bar_expanded_background_color";
     private static final String PREF_STATUSBAR_EXPANDED_BACKGROUND_ALPHA = "status_bar_expanded_background_alpha";
-    private static final String PREF_NOTIFICATION_DRAWER_ROW_ALPHA = "notification_drawer_row_alpha";
 
     private CheckBoxPreference mEnableThemeDefault;
     private ColorPickerPreference mBackgroundColor;
     private SeekBarPreference mBackgroundAlpha;
-    private SeekBarPreference mRowAlpha;
 
     private ContentResolver mResolver;
 
@@ -98,18 +96,6 @@ public class StatusBarExpandedBackgroundStyle extends SettingsPreferenceFragment
         mBackgroundAlpha.setProperty(Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA);
         mBackgroundAlpha.setOnPreferenceChangeListener(this);
 
-        mRowAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_DRAWER_ROW_ALPHA);
-        float rowTransparency = 0.0f;
-        try{
-            rowTransparency = Settings.System.getFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA);
-        }catch (Exception e) {
-            rowTransparency = 0.0f;
-            Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA, 0.0f);
-        }
-        mRowAlpha.setInitValue((int) (rowTransparency * 100));
-        mRowAlpha.setProperty(Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA);
-        mRowAlpha.setOnPreferenceChangeListener(this);
-
         setHasOptionsMenu(true);
     }
 
@@ -125,13 +111,11 @@ public class StatusBarExpandedBackgroundStyle extends SettingsPreferenceFragment
             case R.id.status_bar_expanded_background_cm_default:
                 Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND, 0xe60e0e0e);
                 Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA, 0.0f);
-                Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA, 0.0f);
                 refreshSettings();
                 return true;
             case R.id.status_bar_expanded_background_dark_jelly_default:
                 Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND, 0xff000000);
                 Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA, 0.4f);
-                Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA, 0.4f);
                 refreshSettings();
                 return true;
              default:
@@ -164,10 +148,6 @@ public class StatusBarExpandedBackgroundStyle extends SettingsPreferenceFragment
         } else if (preference == mBackgroundAlpha) {
             float valNav = Float.parseFloat((String) newValue);
             Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_BACKGROUND_ALPHA, valNav / 100);
-            return true;
-        } else if (preference == mRowAlpha) {
-            float valNav = Float.parseFloat((String) newValue);
-            Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA, valNav / 100);
             return true;
         }
         return false;

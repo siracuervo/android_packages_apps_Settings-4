@@ -40,12 +40,4 @@
          android:key="status_bar_expanded_background_alpha"
          android:title="@string/status_bar_expanded_background_alpha_title" />
 
-    <PreferenceCategory
-        android:key="category_notification_drawer"
-        android:title="@string/cat_notification_drawer_title">
-
-        <com.android.settings.widget.SeekBarPreference
-             android:key="notification_drawer_row_alpha"
-             android:title="@string/notification_drawer_row_alpha_title" />
-	</PreferenceCategory>
 </PreferenceScreen>

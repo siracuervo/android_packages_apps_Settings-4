@@ -26,6 +26,7 @@ import android.provider.Settings;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.widget.SeekBarPreference;
 
 public class NotificationDrawer extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
@@ -33,9 +34,11 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements Pr
 
     private static final String PREF_NOTIFICATION_DRAWER_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";
     private static final String PREF_NOTIFICATION_DRAWER_ENABLE_QUICK_ACCESS = "notification_drawer_enable_quick_access";
+    private static final String PREF_NOTIFICATION_DRAWER_ROW_ALPHA = "notification_drawer_row_alpha";
 
     private ListPreference mCollapseOnDismiss;
     private CheckBoxPreference mEnableQuickAccess;
+    private SeekBarPreference mRowAlpha;
 
     private ContentResolver mResolver;
 
@@ -72,6 +75,18 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements Pr
         if (!isQuickAccessEnabled) {
             removePreference("notification_drawer_quick_access_settings");
         }
+
+        mRowAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_DRAWER_ROW_ALPHA);
+        float rowTransparency = 0.0f;
+        try{
+            rowTransparency = Settings.System.getFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA);
+        }catch (Exception e) {
+            rowTransparency = 0.0f;
+            Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA, 0.0f);
+        }
+        mRowAlpha.setInitValue((int) (rowTransparency * 100));
+        mRowAlpha.setProperty(Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA);
+        mRowAlpha.setOnPreferenceChangeListener(this);
     }
 
     private void updateCollapseBehaviourSummary(int setting) {
@@ -93,6 +108,10 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements Pr
             boolean value = (Boolean) newValue;
             Settings.System.putInt(mResolver, Settings.System.QS_QUICK_ACCESS, value ? 1 : 0);
             refreshSettings();
+            return true;
+        } else if (preference == mRowAlpha) {
+            float valNav = Float.parseFloat((String) newValue);
+            Settings.System.putFloat(mResolver, Settings.System.NOTIFICATION_DRAWER_ROW_ALPHA, valNav / 100);
             return true;
         }
         return false;

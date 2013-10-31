@@ -184,6 +184,7 @@
     <!-- Notification drawer strings -->
     <string name="notification_drawer_enable_quick_access_title">Show Quick access ribbons</string>
     <string name="notification_drawer_enable_quick_access_summary">Enable to show the Quick access ribbons</string>
+    <string name="notification_drawer_row_alpha_title">Rows background transparency</string>
 
     <!-- Status bar expanded Quick access strings -->
     <string name="quick_access_settings_title">Quick Access ribbon</string>
@@ -192,7 +193,6 @@
     <string name="cat_notification_drawer_title">Notification drawer</string>
     <string name="status_bar_expanded_background_color_title">Background color</string>
     <string name="status_bar_expanded_background_alpha_title">Background transparency</string>
-    <string name="notification_drawer_row_alpha_title">Rows background transparency</string>
 
     <!-- Status bar expanded tile background style strings -->
     <string name="enable_defaults_title">Enable defaults</string>
