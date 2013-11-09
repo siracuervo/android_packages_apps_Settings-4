@@ -33,6 +33,8 @@
     <string name="cat_options_title">Options</string>
     <string name="background_title">Background</string>
     <string name="color_title">Color</string>
+    <string name="color_normal_title">Color (Normal)</string>
+    <string name="color_connected_title">Color (Google connected)</string>
     <string name="transparency_title">Transparency</string>
     <string name="style_reset">Reset</string>
     <string name="reset_cm_default">Reset to CM default</string>
@@ -168,6 +170,14 @@
     <string name="battery_bar_thickness_2">2dp</string>
     <string name="battery_bar_thickness_3">3dp</string>
     <string name="battery_bar_thickness_4">4dp</string>
+
+    <!-- Statusbar signal wifi style strings  -->
+    <string name="status_bar_signal_wifi_style_title">Customize network icons</string>
+    <string name="status_bar_cat_signal_strength_title">Mobile network strength icon&#47;text</string>
+    <string name="status_bar_cat_signal_network_type_title">Mobile network type icon</string>
+    <string name="status_bar_cat_signal_activity_title">Mobile network activity icon</string>
+    <string name="status_bar_cat_wifi_strength_title">Wifi network strength icon</string>
+    <string name="status_bar_cat_wifi_activity_title">Wifi network activity icon</string>
 
     <!-- Statusbar expanded -->
 
