@@ -15,12 +15,46 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="bluetooth_enter_pin_msg_hs">\nEscribe el PIN para vincular con \u00AB<xliff:g id="device_name">%1$s</xliff:g>\u00BB. (Seguridad alta habilitada: Es necesaria una clave de 16 caracteres)</string>
-    <string name="bluetooth_profile_sap">Acceso a SIM</string>
-    <string name="bluetooth_sap_profile_summary_connected">Conectado al servidor de acceso a SIM</string>
-    <string name="bluetooth_sap_profile_summary_use_for">Utilizar para acceso a SIM</string>
-    <string name="wifi_disabled_association_rejected">Asociación rechazada</string>
-    <string name="intent_sender_data_label"><xliff:g id="data">Datos:</xliff:g></string>
+    <string name="bluetooth_profile_dun">Acceso telefónico a redes</string>
+    <string name="bluetooth_dun_profile_summary_connected">Conectado al servidor de acceso telefónico a redes</string>
+    <string name="bluetooth_dun_profile_summary_use_for">Utilizado para el acceso telefónico a redes</string>
+    <string name="sim_absent">SIM/RUIM ausente</string>
+    <string name="sim_pin_change_failed_enable_sim_lock">Activar el bloqueo de SIM/RUIM antes de cambiar el PIN</string>
+    <string name="sim_enable_disable_lock_not_supported">El bloqueo no está soportado por esta SIM/RUIM</string>
+    <string name="sim_pin_attempts">\nIntentos restantes :</string>
+    <string name="sim_pin_enabled">PIN activado</string>
+    <string name="sim_pin_disabled">PIN desactivado</string>
+    <string name="device_additional_status_summary">Número de teléfono, señal, IMEI, etc.</string>
+    <string name="device_additional_status">Información adicional</string>
+    <string name="data_usage_tab_slot">SIM</string>
+    <string name="sel_sub_title">Configurar suscripciones</string>
+    <string name="sel_sub_summary">Seleccionar la suscripción 1, 2, 3, etc.</string>
+    <string name="select_subscription">Seleccionar suscripción</string>
+    <string name="subs_settings">Estado de la suscripción</string>
+    <string name="multi_sim_settings_title">Ajustes multi-SIM</string>
+    <string name="multi_sim_settings_summary">Establecer los ajustes de multi-SIM para voz, datos y SMS</string>
+    <string name="voice_title">Voz/USSD/MMI</string>
+    <string name="voice_summary">Seleccionar suscripción para llamadas de voz</string>
+    <string name="data_title">Datos</string>
+    <string name="data_summary">Seleccionar suscripción para llamadas de datos</string>
+    <string name="sms_title">SMS</string>
+    <string name="sms_summary">Seleccionar suscripción para el envío de SMS</string>
+    <string name="set_data_subscription_progress">Configurando la suscripción para datos\u2026</string>
+    <string name="set_dds_success">Suscripción para datos establecida</string>
+    <string name="set_dds_failed">No ha sido posible establecer la suscripción para datos. Elimina cualquier conexión para datos existente e inténtalo de nuevo.</string>
+    <string name="set_dds_error">No ha sido posible establecer la suscripción para datos</string>
+    <string name="set_sms_error">No ha sido posible establecer la suscripción para SMS. Suscripción no activada</string>
+    <string name="set_voice_error">No ha sido posible establecer la suscripción para voz. Suscripción no activada</string>
+    <string name="set_priority_sub_error">No ha sido posible establecer la suscripción prioritaria. Suscripción no activada</string>
+    <string name="prompt">Preguntar</string>
+    <string name="prompt_user">Preguntar al usuario</string>
+    <string name="tune_away_title">TuneAway</string>
+    <string name="tune_away_Default">Deshabilitado</string>
+    <string name="tune_away_enabled">¡TuneAway habilitado!</string>
+    <string name="tune_away_disabled">¡TuneAway deshabilitado!</string>
+    <string name="priority_sub_title">Suscripción prioritaria</string>
+    <string name="priority_sub_summary">Seleccionar la suscripción prioritaria</string>
+    <string name="label_global_roaming_settings">Ajustes globales de itinerancia</string>
     <string name="bluetooth_mas_request">Solicitud de acceso a mensajes</string>
     <string name="bluetooth_mas_acceptance_dialog_text">%1$s intenta acceder a los mensajes. ¿Permitir acceso a %2$s?</string>
     <string name="bluetooth_mas_remember_choice">No volver a preguntar</string>
@@ -51,6 +85,7 @@
     <string name="quiet_hours_note_summary">Nota: Las llamadas entrantes se comportarán de manera normal durante este modo</string>
     <string name="quiet_hours_enabled">Habilitar</string>
     <string name="quiet_hours_mute">Notificaciones</string>
+    <string name="quiet_hours_system">Sonidos del sistema</string>
     <string name="quiet_hours_still">Vibración</string>
     <string name="quiet_hours_dim">Notificaciones de luz</string>
     <string name="quiet_hours_haptic">Respuesta háptica</string>
@@ -186,6 +221,8 @@
     <string name="unlock_menu_unlock_summary">Presionar el botón Menú desbloquea el dispositivo</string>
     <string name="unlock_home_unlock_title">Botón Inicio</string>
     <string name="unlock_home_unlock_summary">Presionar el botón Inicio desbloquea el dispositivo</string>
+    <string name="unlock_camera_unlock_title">Botón Cámara</string>
+    <string name="unlock_camera_unlock_summary">Presionar el botón Cámara desbloquea el dispositivo</string>
     <string name="unlock_quick_unlock_control_title">Desbloqueo rápido</string>
     <string name="unlock_quick_unlock_control_summary">Desbloquear automáticamente cuando se introduce el PIN/clave correcto</string>
     <string name="delay_and_timeout_title">Retardo y tiempo de espera</string>
@@ -215,9 +252,6 @@
     <string name="io_scheds_title">Planificador de E/S</string>
     <string name="io_sched_title">Planificador E/S</string>
     <string name="perf_profile_title">Perfil</string>
-    <string name="perf_profile_pwrsv">Ahorro de energía</string>
-    <string name="perf_profile_bal">Equilibrado</string>
-    <string name="perf_profile_perf">Alto rendimiento</string>
     <string name="memory_management_title">Gestión de la memoria</string>
     <string name="pref_zram_title">zRam</string>
     <string name="pref_zram_summary">Comprimir memoria para incrementar la capacidad virtual. (requiere reiniciar)</string>
@@ -298,7 +332,6 @@
     <string name="volume_keys_control_ring_stream">Controlar volumen de llamada</string>
     <string name="display_lights_settings_title">Pantalla y leds</string>
     <string name="lights_category_title">Leds</string>
-    <string name="notification_pulse_title">Indicador de notificación</string>
     <string name="notification_light_general_title">General</string>
     <string name="notification_light_applist_title">Aplicaciones</string>
     <string name="notification_light_phonelist_title">Teléfono</string>
@@ -338,7 +371,7 @@
     <string name="battery_light_full_color_title">Cargada</string>
     <string name="volume_overlay_title">Panel de volumen</string>
     <string name="volbtn_music_controls_title">Control multimedia</string>
-    <string name="volbtn_music_controls_summary">Cuando la pantalla esté apagada, una pulsación prolongada de los controles de volumen avanzará/retrocederá sobre las pistas de música activas</string>
+    <string name="volbtn_music_controls_summary">Cuando la pantalla esté apagada, una pulsación prolongada de los controles de volumen, avanzará o retrocederá sobre las pistas de música activas</string>
     <string name="volume_ring_only_description">Tonos del teléfono</string>
     <string name="ring_mode_title">Modo de sonido</string>
     <string name="ring_mode_normal">Normal</string>
@@ -369,6 +402,12 @@
     <string name="hardware_keys_action_launch_camera">Iniciar Cámara</string>
     <string name="home_wake_title">Despertar</string>
     <string name="home_wake_summary">Presionando el botón Inicio, el dispositivo saldrá del modo en espera</string>
+    <string name="camera_wake_title">Despertar</string>
+    <string name="camera_wake_summary">Presionando el botón Cámara, el dispositivo saldrá del modo en espera</string>
+    <string name="camera_sleep_on_release_title">Vista rápida</string>
+    <string name="camera_sleep_on_release_summary">Una leve pulsación del botón Cámara, dejará la pantalla encendida hasta que éste sea liberado</string>
+    <string name="camera_music_controls_title">Control multimedia</string>
+    <string name="camera_music_controls_summary">Cuando la pantalla esté apagada, una pulsación prolongada del botón Cámara, parará o reanudará la pista de música activa</string>
     <string name="volume_wake_title">Despertar</string>
     <string name="volume_wake_summary">Presionando los botones de control de volumen, el dispositivo saldrá del modo en espera</string>
     <string name="swap_volume_buttons_title">Reorientar botones</string>
@@ -725,6 +764,7 @@ podrás crear una nueva línea con el fin de insertar puntos de control adiciona
     <string name="backlight_summary_enabled">Habilitado</string>
     <string name="gamma_tuning_title_head">Corrección gamma</string>
     <string name="gamma_tuning_summary_head">Ajustar la corrección gamma de la pantalla</string>
+    <string name="gamma_tuning_control_set_header">Grupo <xliff:g id="index">%d</xliff:g></string>
     <string name="gamma_tuning_contrast">Contraste</string>
     <string name="gamma_tuning_brightness">Brillo</string>
     <string name="gamma_tuning_saturation">Saturación</string>
@@ -739,4 +779,10 @@ podrás crear una nueva línea con el fin de insertar puntos de control adiciona
     <string name="font_size_sample">Muestra</string>
     <string name="selinux_enable_title">Seguridad mejorada de Android</string>
     <string name="selinux_enable_warning">Estás a punto de habilitar SEAndroid, un mecanismo de seguridad avanzada.\n\nEsta opción existe exclusivamente con fines de depuración, y es muy probable que tu dispositivo no esté preparado para ello y pueda llegar a colgarse o bloquearse, total o parcialmente.\n\n¿Estás seguro de que quieres continuar?</string>
+    <string name="gps_download_data_wifi_only">Descargar datos del GPS asistido solo en redes Wi-Fi</string>
+    <string name="wifi_disabled_association_rejected">Asociación rechazada</string>
+    <string name="bluetooth_enter_pin_msg_hs">\nEscribe el PIN para vincular con \u00AB<xliff:g id="device_name">%1$s</xliff:g>\u00BB. (Seguridad alta habilitada: Es necesaria una clave de 16 caracteres)</string>
+    <string name="bluetooth_profile_sap">Acceso a SIM</string>
+    <string name="bluetooth_sap_profile_summary_connected">Conectado al servidor de acceso a SIM</string>
+    <string name="bluetooth_sap_profile_summary_use_for">Utilizar para acceso a SIM</string>
 </resources>
