@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkjelly;
+package com.android.settings.darkkat;
 
 import android.content.ContentResolver;
 import android.os.Bundle;
