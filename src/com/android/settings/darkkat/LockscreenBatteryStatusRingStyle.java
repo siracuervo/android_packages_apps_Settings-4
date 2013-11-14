@@ -77,7 +77,7 @@ public class LockscreenBatteryStatusRingStyle extends SettingsPreferenceFragment
         mEnableThemeDefault.setOnPreferenceChangeListener(this);
 
         boolean isRingDottedEnabled = Settings.System.getInt(mResolver,
-                Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_DOTTED, 1) == 1;
+                Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_DOTTED, 0) == 1;
 
         mRingDotted = (CheckBoxPreference) findPreference(PREF_BATT_STAT_RING_DOTTED);
         mRingDotted.setChecked(isRingDottedEnabled);
