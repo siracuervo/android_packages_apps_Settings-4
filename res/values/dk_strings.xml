@@ -15,6 +15,44 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Settings headers -->
+    <string name="header_category_personalize">Personalize</string>
+
+    <!-- Global used strings  -->
+    <string name="cat_options_title">Options</string>
+    <string name="enable_theme_default_title">Theme default</string>
+    <string name="enable_theme_default_summary">Enable, to use theme default colors of the current theme</string>
+    <string name="reset_cm_default">Reset to CM default</string>
+    <string name="reset_dark_jelly_default">Reset to Dark Jelly default</string>
+    <string name="dot_length_title">Ring&#47;Circle Dot length</string>
+    <string name="dot_interval_title">Ring&#47;Circle Dot interval</string>
+    <string name="dot_offset_title">Ring&#47;Circle Dot offset</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on color below to apply</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Set</string>
+    <string name="theme_default_color">Theme default</string>
+    <string name="system_default_color">System default</string>
+
+    <!-- Interface settings -->
+
+    <!-- Lockscreen settings -->
+    <string name="lock_screen_settings_title">Lockscreen</string>
+    <string name="lockscreen_show_battery_status_ring_title">Show the battery status ring</string>
+    <string name="lockscreen_show_battery_status_ring_summary">Enable, to Show the battery status ring around lock ring</string>
+    <string name="lockscreen_battery_status_ring_style_title">Customize battery status ring</string>
+
+    <!-- Lockscreen battery status ring style strings -->
+    <string name="lockscreen_battery_status_ring_dotted_title">Ring dotted</string>
+    <string name="lockscreen_battery_status_ring_dotted_summary">Activate, to show the Ring dotted</string>
+    <string name="lockscreen_battery_status_ring_color">Ring color</string>
+    <string name="lockscreen_battery_status_ring_charging_color">Ring charging color</string>
+
     <!-- Development settings -->
 
     <!-- Advanced reboot options -->

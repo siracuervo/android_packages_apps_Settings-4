@@ -15,6 +15,44 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Settings headers -->
+    <string name="header_category_personalize">Personalisieren</string>
+
+    <!-- Global used strings  -->
+    <string name="cat_options_title">Optionen</string>
+    <string name="enable_theme_default_title">Design Standard</string>
+    <string name="enable_theme_default_summary">Aktivieren, um die standard Design Farben aus dem aktuellen Design zu benutzen</string>
+    <string name="reset_cm_default">Auf CM Standard zurücksetzten</string>
+    <string name="reset_dark_jelly_default">Auf Dark Jelly Standard zurücksetzten</string>
+    <string name="dot_length_title">Ring&#47;Kreis Punkt Länge</string>
+    <string name="dot_interval_title">Ring&#47;Kreis Punkt Abstand</string>
+    <string name="dot_offset_title">Ring&#47;Kreis Punkt Versatz</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Farbauswahl</string>
+    <string name="press_color_to_apply">Drücke unten auf eine Farbe um sie anzuwenden</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Setzen</string>
+    <string name="theme_default_color">Design Standard</string>
+    <string name="system_default_color">System Standard</string>
+
+    <!-- Interface settings -->
+
+    <!-- Lockscreen settings -->
+    <string name="lock_screen_settings_title">Bildschirmsperre</string>
+    <string name="lockscreen_show_battery_status_ring_title">Den Akkustatus Ring anzeigen</string>
+    <string name="lockscreen_show_battery_status_ring_summary">Aktivieren, um den Akkustatus Ring um den Sperr Ring herum anzeigen</string>
+    <string name="lockscreen_battery_status_ring_style_title">Akkustatus Ring anpassen</string>
+
+    <!-- Lockscreen battery status ring style strings -->
+    <string name="lockscreen_battery_status_ring_dotted_title">Ring gepunktet</string>
+    <string name="lockscreen_battery_status_ring_dotted_summary">Aktivieren, um den Ring gepunktet anzuzeigen</string>
+    <string name="lockscreen_battery_status_ring_color">Ring Farbe</string>
+    <string name="lockscreen_battery_status_ring_charging_color">Ring Lade Farbe</string>
+
     <!-- Development settings -->
 
     <!-- Advanced reboot options -->
