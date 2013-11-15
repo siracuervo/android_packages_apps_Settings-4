@@ -26,7 +26,7 @@
 
     <PreferenceScreen
         android:key="lockscreen_battery_status_ring_style"
-        android:fragment="com.android.settings.darkjelly.LockscreenBatteryStatusRingStyle"
+        android:fragment="com.android.settings.darkkat.LockscreenBatteryStatusRingStyle"
         android:title="@string/lockscreen_battery_status_ring_style_title" />
 
 </PreferenceScreen>
