@@ -46,6 +46,8 @@
     <string name="lockscreen_show_battery_status_ring_title">Show the battery status ring</string>
     <string name="lockscreen_show_battery_status_ring_summary">Enable, to Show the battery status ring around lock ring</string>
     <string name="lockscreen_battery_status_ring_style_title">Customize battery status ring</string>
+    <string name="lockscreen_maximize_widgets_title">Maximize widgets</string>
+    <string name="lockscreen_maximize_widgets_summary">Show widgets maximized and the unlock minimized when the screen is turned on</string>
 
     <!-- Lockscreen battery status ring style strings -->
     <string name="lockscreen_battery_status_ring_dotted_title">Ring dotted</string>

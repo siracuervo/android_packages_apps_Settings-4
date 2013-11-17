@@ -29,4 +29,11 @@
         android:fragment="com.android.settings.darkkat.LockscreenBatteryStatusRingStyle"
         android:title="@string/lockscreen_battery_status_ring_style_title" />
 
+    <CheckBoxPreference
+        android:key="lockscreen_maximize_widgets"
+        android:title="@string/lockscreen_maximize_widgets_title"
+        android:summary="@string/lockscreen_maximize_widgets_summary"
+        android:persistent="false"
+        android:defaultValue="false" />
+
 </PreferenceScreen>

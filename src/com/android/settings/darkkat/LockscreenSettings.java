@@ -32,8 +32,10 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
     private static final String TAG = "LockscreenSettings";
 
     private static final String KEY_LOCKSCREEN_SHOW_BATTERY_STATUS_RING = "lockscreen_show_battery_status_ring";
+    private static final String KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS = "lockscreen_maximize_widgets";
 
     private CheckBoxPreference mShowBatteryStatusRing;
+    private CheckBoxPreference mMaximizeWidgets;
 
     private boolean mIsPrimary;
 
@@ -57,6 +59,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
 
         // Determine which user is logged in
         mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
+
         if (mIsPrimary) {
             // Its the primary user, show all the settings
             boolean isbatteryStatusRingEnabled = Settings.System.getInt(mResolver,
@@ -64,6 +67,11 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
             mShowBatteryStatusRing = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_SHOW_BATTERY_STATUS_RING);
             mShowBatteryStatusRing.setChecked(isbatteryStatusRingEnabled);
             mShowBatteryStatusRing.setOnPreferenceChangeListener(this);
+
+            mMaximizeWidgets = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS);
+            mMaximizeWidgets.setChecked(Settings.System.getInt(mResolver,
+                   Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
+            mMaximizeWidgets.setOnPreferenceChangeListener(this);
 
             // Remove battery status ring style screen depending on enabled states
             if (!isbatteryStatusRingEnabled) {
@@ -73,6 +81,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
             // Secondary user is logged in, remove all primary user specific preferences
             removePreference(KEY_LOCKSCREEN_SHOW_BATTERY_STATUS_RING);
             removePreference("lockscreen_battery_status_ring_style");
+            removePreference(KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS);
         }
     }
 
@@ -84,6 +93,11 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(mResolver,
                     Settings.System.LOCKSCREEN_SHOW_BATTERY_STATUS_RING, value ? 1 : 0);
             refreshSettings();
+            return true;
+        } else if (preference == mMaximizeWidgets) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, value ? 1 : 0);
             return true;
         }
 

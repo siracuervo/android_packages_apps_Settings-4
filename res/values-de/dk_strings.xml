@@ -46,6 +46,8 @@
     <string name="lockscreen_show_battery_status_ring_title">Den Akkustatus Ring anzeigen</string>
     <string name="lockscreen_show_battery_status_ring_summary">Aktivieren, um den Akkustatus Ring um den Sperr Ring herum anzeigen</string>
     <string name="lockscreen_battery_status_ring_style_title">Akkustatus Ring anpassen</string>
+    <string name="lockscreen_maximize_widgets_title">Widgets maximieren</string>
+    <string name="lockscreen_maximize_widgets_summary">Beim Einschalten Widgets maximiert und Bildschirmsperre minimiert anzeigen</string>
 
     <!-- Lockscreen battery status ring style strings -->
     <string name="lockscreen_battery_status_ring_dotted_title">Ring gepunktet</string>
