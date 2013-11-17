@@ -58,7 +58,7 @@
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
 
-    <!-- INTERFACE -->
+    <!-- User Interface -->
     <header android:id="@+id/personalize_category"
         android:title="@string/header_category_personalize" />
 
@@ -68,6 +68,13 @@
         android:fragment="com.android.settings.darkkat.LockscreenSettings"
         android:title="@string/lock_screen_settings_title"
         android:icon="@drawable/ic_settings_lockscreen" />
+
+    <!-- Interface -->
+    <header
+        android:id="@+id/interface_settings"
+        android:fragment="com.android.settings.darkkat.InterfaceSettings"
+        android:title="@string/interface_settings_title"
+        android:icon="@drawable/ic_settings_interface" />
 
     <!-- DEVICE -->
     <header android:id="@+id/device_section"

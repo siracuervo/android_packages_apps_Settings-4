@@ -1579,6 +1579,8 @@
 
 		<activity android:name=".darkkat.LockscreenSettings" />
 		<activity android:name=".darkkat.LockscreenBatteryStatusRingStyle" />
+		<activity android:name=".darkkat.InterfaceSettings" />
+		<activity android:name=".darkkat.Statusbar" />
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"

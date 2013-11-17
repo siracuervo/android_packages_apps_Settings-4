@@ -39,7 +39,7 @@
     <string name="theme_default_color">Theme default</string>
     <string name="system_default_color">System default</string>
 
-    <!-- Interface settings -->
+    <!-- User Interface settings -->
 
     <!-- Lockscreen settings -->
     <string name="lock_screen_settings_title">Lockscreen</string>
@@ -49,11 +49,19 @@
     <string name="lockscreen_maximize_widgets_title">Maximize widgets</string>
     <string name="lockscreen_maximize_widgets_summary">Show widgets maximized and the unlock minimized when the screen is turned on</string>
 
+    <!-- Interface settings -->
+    <string name="interface_settings_title">Interface</string>
+
     <!-- Lockscreen battery status ring style strings -->
     <string name="lockscreen_battery_status_ring_dotted_title">Ring dotted</string>
     <string name="lockscreen_battery_status_ring_dotted_summary">Activate, to show the Ring dotted</string>
     <string name="lockscreen_battery_status_ring_color">Ring color</string>
     <string name="lockscreen_battery_status_ring_charging_color">Ring charging color</string>
+
+    <!-- Status bar settings -->
+    <string name="status_bar_title">Status bar</string>
+    <string name="status_bar_notif_count_title">Show notification count</string>
+    <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
 
     <!-- Development settings -->
 
