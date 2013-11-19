@@ -18,18 +18,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/lockscreen_battery_status_ring_style_title">
 
-    <PreferenceCategory
-        android:key="category_lockscreen_battery_status_ring_options"
-        android:title="@string/cat_options_title">
-
-		<CheckBoxPreference
-		    android:key="lockscreen_battery_status_ring_style_enable_theme_default"
-		    android:title="@string/enable_theme_default_title"
-		    android:summary="@string/enable_theme_default_summary"
-		    android:persistent="false"
-		    android:defaultValue="true" />
-	</PreferenceCategory>
-
 	<CheckBoxPreference
 		android:key="lockscreen_battery_status_ring_dotted"
 		android:title="@string/lockscreen_battery_status_ring_dotted_title"

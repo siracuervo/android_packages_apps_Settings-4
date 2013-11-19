@@ -20,8 +20,6 @@
 
     <!-- Global used strings  -->
     <string name="cat_options_title">Options</string>
-    <string name="enable_theme_default_title">Theme default</string>
-    <string name="enable_theme_default_summary">Enable, to use theme default colors of the current theme</string>
     <string name="reset_android_default">Reset to Android default</string>
     <string name="reset_darkkat_default">Reset to Darkkat default</string>
     <string name="color_title">Color</string>

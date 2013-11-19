@@ -36,7 +36,6 @@ public class LockscreenBatteryStatusRingStyle extends SettingsPreferenceFragment
 
     private static final String TAG = "LockscreenBatteryStatusRingStyle";
 
-    private static final String PREF_ENABLE_THEME_DEFAULT = "lockscreen_battery_status_ring_style_enable_theme_default";
     private static final String PREF_BATT_STAT_RING_DOTTED = "lockscreen_battery_status_ring_dotted";
     private static final String PREF_BATT_STAT_RING_DOT_LENGTH = "lockscreen_battery_status_ring_dot_length";
     private static final String PREF_BATT_STAT_RING_DOT_INTERVAL = "lockscreen_battery_status_ring_dot_interval";
@@ -44,7 +43,6 @@ public class LockscreenBatteryStatusRingStyle extends SettingsPreferenceFragment
     private static final String PREF_BATT_STAT_RING_COLOR = "lockscreen_battery_status_ring_color";
     private static final String PREF_BATT_STAT_RING_CHARGING_COLOR = "lockscreen_battery_status_ring_charging_color";
 
-    private CheckBoxPreference mEnableThemeDefault;
     private CheckBoxPreference mRingDotted;
     private ListPreference mRingDotLength;
     private ListPreference mRingDotInterval;
@@ -68,13 +66,6 @@ public class LockscreenBatteryStatusRingStyle extends SettingsPreferenceFragment
 
         addPreferencesFromResource(R.xml.lockscreen_battery_status_ring_style);
         mResolver = getActivity().getContentResolver();
-
-        boolean isThemeDefaultEnabled = Settings.System.getInt(mResolver,
-                Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_ENABLE_THEME_DEFAULT, 1) == 1;
-
-        mEnableThemeDefault = (CheckBoxPreference) findPreference(PREF_ENABLE_THEME_DEFAULT);
-        mEnableThemeDefault.setChecked(isThemeDefaultEnabled);
-        mEnableThemeDefault.setOnPreferenceChangeListener(this);
 
         boolean isRingDottedEnabled = Settings.System.getInt(mResolver,
                 Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_DOTTED, 0) == 1;
@@ -111,23 +102,18 @@ public class LockscreenBatteryStatusRingStyle extends SettingsPreferenceFragment
         String hexColor = String.format("#%08x", (0xffffffff & 0xff0099cc));
 
         mRingColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_RING_COLOR);
-        mRingChargingColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_RING_CHARGING_COLOR);
-        if (!isThemeDefaultEnabled) {
-            intColor = Settings.System.getInt(mResolver, Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_COLOR, 0xff0099cc);
-            mRingColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mRingColor.setSummary(hexColor);
-            mRingColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(mResolver, Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_COLOR, 0xff0099cc);
+        mRingColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mRingColor.setSummary(hexColor);
+        mRingColor.setOnPreferenceChangeListener(this);
 
-            intColor = Settings.System.getInt(mResolver, Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_CHARGING_COLOR, 0xff00ff00);
-            mRingChargingColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mRingChargingColor.setSummary(hexColor);
-            mRingChargingColor.setOnPreferenceChangeListener(this);
-        } else {
-            removePreference(PREF_BATT_STAT_RING_COLOR);
-            removePreference(PREF_BATT_STAT_RING_CHARGING_COLOR);
-        }
+        mRingChargingColor = (ColorPickerPreference) findPreference(PREF_BATT_STAT_RING_CHARGING_COLOR);
+        intColor = Settings.System.getInt(mResolver, Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_CHARGING_COLOR, 0xff00ff00);
+        mRingChargingColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mRingChargingColor.setSummary(hexColor);
+        mRingChargingColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
     }
@@ -169,12 +155,7 @@ public class LockscreenBatteryStatusRingStyle extends SettingsPreferenceFragment
         int intHex;
         String hex;
 
-        if (preference == mEnableThemeDefault) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_ENABLE_THEME_DEFAULT, value ? 1 : 0);
-            refreshSettings();
-            return true;
-        } else if (preference == mRingDotted) {
+        if (preference == mRingDotted) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_DOTTED, value ? 1 : 0);
             refreshSettings();

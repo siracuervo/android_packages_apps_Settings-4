@@ -20,8 +20,6 @@
 
     <!-- Global used strings  -->
     <string name="cat_options_title">Optionen</string>
-    <string name="enable_theme_default_title">Design Standard</string>
-    <string name="enable_theme_default_summary">Aktivieren, um die standard Design Farben aus dem aktuellen Design zu benutzen</string>
     <string name="reset_android_default">Auf Android Standard zurücksetzten</string>
     <string name="reset_darkkat_default">Auf DarkKat Standard zurücksetzten</string>
     <string name="color_title">Farbe</string>
