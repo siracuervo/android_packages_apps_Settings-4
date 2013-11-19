@@ -16,9 +16,9 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/lockscreen_battery_status_ring_android_default"
+    <item android:id="@+id/statusbar_clock_date_android_default"
           android:title="@string/reset_android_default" />
-    <item android:id="@+id/lockscreen_battery_status_ring_darkkat_default"
+    <item android:id="@+id/statusbar_clock_date_darkkat_default"
           android:title="@string/reset_darkkat_default" />
 
 </menu>

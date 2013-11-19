@@ -141,7 +141,7 @@ public class LockscreenBatteryStatusRingStyle extends SettingsPreferenceFragment
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.lockscreen_battery_status_ring_cm_default:
+            case R.id.lockscreen_battery_status_ring_android_default:
                 Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_DOTTED, 0);
                 Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_DOT_LENGTH, 5);
                 Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_DOT_INTERVAL, 4);
@@ -150,7 +150,7 @@ public class LockscreenBatteryStatusRingStyle extends SettingsPreferenceFragment
                 Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_CHARGING_COLOR, 0xff00ff00);
                 refreshSettings();
                 return true;
-            case R.id.lockscreen_battery_status_ring_dark_jelly_default:
+            case R.id.lockscreen_battery_status_ring_darkkat_default:
                 Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_DOTTED, 1);
                 Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_DOT_LENGTH, 5);
                 Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_BATTERY_STATUS_RING_DOT_INTERVAL, 4);

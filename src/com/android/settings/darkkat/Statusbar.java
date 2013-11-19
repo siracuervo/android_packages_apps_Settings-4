@@ -18,7 +18,6 @@ package com.android.settings.darkkat;
 
 import android.content.ContentResolver;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
@@ -31,11 +30,13 @@ public class Statusbar extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "StatusBar";
 
+    private static final String KEY_STATUS_BAR_SHOW_CLOCK = "status_bar_show_clock";
+    private static final String STATUS_BAR_SHOW_DATE = "status_bar_show_date";
     private static final String KEY_STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
 
+    private CheckBoxPreference mShowClock;
+    private CheckBoxPreference mShowDate;
     private CheckBoxPreference mNotifCount;
-
-    private boolean mIsPrimary;
 
     private ContentResolver mResolver;
 
@@ -55,25 +56,48 @@ public class Statusbar extends SettingsPreferenceFragment implements
 
         mResolver = getActivity().getContentResolver();
 
-        // Determine which user is logged in
-        mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
+        boolean isClockEnabled = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_SHOW_CLOCK, 1) == 1;
+        boolean isDateEnabled = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_SHOW_DATE, 0) == 1;
 
-        if (mIsPrimary) {
-            // Its the primary user, show all the settings
-            mNotifCount = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_NOTIF_COUNT);
-            mNotifCount.setChecked(Settings.System.getInt(mResolver,
-                   Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1);
-            mNotifCount.setOnPreferenceChangeListener(this);
+        mShowClock = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_SHOW_CLOCK);
+        mShowClock.setChecked(isClockEnabled);
+        mShowClock.setOnPreferenceChangeListener(this);
+
+        // Remove uneeded preferences if clock is disabled
+        mShowDate = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_DATE);
+        if (isClockEnabled) {
+            mShowDate.setChecked(isDateEnabled);
+            mShowDate.setOnPreferenceChangeListener(this);
         } else {
-            // Secondary user is logged in, remove all primary user specific preferences
-            removePreference(KEY_STATUS_BAR_NOTIF_COUNT);
+            removePreference(STATUS_BAR_SHOW_DATE);
+            removePreference("status_bar_clock_date_style");
         }
+
+        mNotifCount = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_NOTIF_COUNT);
+        mNotifCount.setChecked(Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1);
+        mNotifCount.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
 
-        if (preference == mNotifCount) {
+        if (preference == mShowClock) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_SHOW_CLOCK, value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mShowDate) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_SHOW_DATE, value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mNotifCount) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
@@ -81,5 +105,10 @@ public class Statusbar extends SettingsPreferenceFragment implements
         }
 
         return false;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 }

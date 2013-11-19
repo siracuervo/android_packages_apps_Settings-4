@@ -22,8 +22,9 @@
     <string name="cat_options_title">Optionen</string>
     <string name="enable_theme_default_title">Design Standard</string>
     <string name="enable_theme_default_summary">Aktivieren, um die standard Design Farben aus dem aktuellen Design zu benutzen</string>
-    <string name="reset_cm_default">Auf CM Standard zurücksetzten</string>
-    <string name="reset_dark_jelly_default">Auf Dark Jelly Standard zurücksetzten</string>
+    <string name="reset_android_default">Auf Android Standard zurücksetzten</string>
+    <string name="reset_darkkat_default">Auf DarkKat Standard zurücksetzten</string>
+    <string name="color_title">Farbe</string>
     <string name="dot_length_title">Ring&#47;Kreis Punkt Länge</string>
     <string name="dot_interval_title">Ring&#47;Kreis Punkt Abstand</string>
     <string name="dot_offset_title">Ring&#47;Kreis Punkt Versatz</string>
@@ -60,8 +61,34 @@
 
     <!-- Status bar settings -->
     <string name="status_bar_title">Statusleiste</string>
+    <string name="status_bar_show_clock_title">Die Uhr anzeigen</string>
+    <string name="status_bar_show_clock_summary">Aktivieren um die Uhr in der Statusleiste anzuzeigen</string>
+    <string name="status_bar_show_date_title">Das Datum anzeigen</string>
+    <string name="status_bar_show_date_summary">Aktivieren um das Datum neben der Uhr in der Statusleiste anzuzeigen</string>
+    <string name="status_bar_clock_date_style_title">Uhr &amp; Datum anpassen</string>
     <string name="status_bar_notif_count_title">Benachrichtigungszähler</string>
     <string name="status_bar_notif_count_summary">Anzahl der ungelesenen Benachrichtigungen in der Statusleiste anzeigen</string>
+
+    <!-- Statusbar style clock date style  -->
+    <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>
+    <string name="status_bar_cat_clock_title">Uhr</string>
+    <string name="status_bar_cat_date_title">Datum</string>
+    <string name="status_bar_clock_date_position_title">Position</string>
+    <string name="status_bar_clock_date_position_summary">Aktivieren um Uhr (&amp; Datum) in der Statusleiste zentriert anzuzeigen</string>
+    <string name="status_bar_am_pm_title">AM&#47;PM Style</string>
+    <string name="status_bar_am_pm_normal">Normal</string>
+    <string name="status_bar_am_pm_small">Klein</string>
+    <string name="status_bar_am_pm_none">Verborgen</string>
+    <string name="status_bar_date_size_title">Größe</string>
+    <string name="status_bar_date_size_summary">Aktivieren um ein kleines Datum anzuzeigen</string>
+    <string name="status_bar_date_style_title">Style</string>
+    <string name="status_bar_date_style_normal">Normal</string>
+    <string name="status_bar_date_style_lowercase">Kleinbuchstaben</string>
+    <string name="status_bar_date_style_uppercase">Großbuchstaben</string>
+    <string name="status_bar_date_format_title">Datumsformat</string>
+    <string name="status_bar_date_custom_java_format">Eigenes Java Format</string>
+    <string name="status_bar_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
+    <string name="status_bar_date_string_edittext_summary">Zeichenfolge eingeben</string>
 
     <!-- Development settings -->
 
