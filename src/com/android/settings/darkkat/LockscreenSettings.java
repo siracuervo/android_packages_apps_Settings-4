@@ -18,7 +18,6 @@ package com.android.settings.darkkat;
 
 import android.content.ContentResolver;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
@@ -36,8 +35,6 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
 
     private CheckBoxPreference mShowBatteryStatusRing;
     private CheckBoxPreference mMaximizeWidgets;
-
-    private boolean mIsPrimary;
 
     private ContentResolver mResolver;
 
@@ -57,31 +54,20 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
 
         mResolver = getActivity().getContentResolver();
 
-        // Determine which user is logged in
-        mIsPrimary = UserHandle.myUserId() == UserHandle.USER_OWNER;
+        boolean isbatteryStatusRingEnabled = Settings.System.getInt(mResolver,
+               Settings.System.LOCKSCREEN_SHOW_BATTERY_STATUS_RING, 0) == 1;
+        mShowBatteryStatusRing = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_SHOW_BATTERY_STATUS_RING);
+        mShowBatteryStatusRing.setChecked(isbatteryStatusRingEnabled);
+        mShowBatteryStatusRing.setOnPreferenceChangeListener(this);
 
-        if (mIsPrimary) {
-            // Its the primary user, show all the settings
-            boolean isbatteryStatusRingEnabled = Settings.System.getInt(mResolver,
-                   Settings.System.LOCKSCREEN_SHOW_BATTERY_STATUS_RING, 0) == 1;
-            mShowBatteryStatusRing = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_SHOW_BATTERY_STATUS_RING);
-            mShowBatteryStatusRing.setChecked(isbatteryStatusRingEnabled);
-            mShowBatteryStatusRing.setOnPreferenceChangeListener(this);
+        mMaximizeWidgets = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS);
+        mMaximizeWidgets.setChecked(Settings.System.getInt(mResolver,
+               Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
+        mMaximizeWidgets.setOnPreferenceChangeListener(this);
 
-            mMaximizeWidgets = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS);
-            mMaximizeWidgets.setChecked(Settings.System.getInt(mResolver,
-                   Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
-            mMaximizeWidgets.setOnPreferenceChangeListener(this);
-
-            // Remove battery status ring style screen depending on enabled states
-            if (!isbatteryStatusRingEnabled) {
-                removePreference("lockscreen_battery_status_ring_style");
-            }
-        } else {
-            // Secondary user is logged in, remove all primary user specific preferences
-            removePreference(KEY_LOCKSCREEN_SHOW_BATTERY_STATUS_RING);
+        // Remove battery status ring style screen depending on enabled states
+        if (!isbatteryStatusRingEnabled) {
             removePreference("lockscreen_battery_status_ring_style");
-            removePreference(KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS);
         }
     }
 
