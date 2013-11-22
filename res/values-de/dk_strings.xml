@@ -64,6 +64,9 @@
     <string name="status_bar_show_date_title">Das Datum anzeigen</string>
     <string name="status_bar_show_date_summary">Aktivieren um das Datum neben der Uhr in der Statusleiste anzuzeigen</string>
     <string name="status_bar_clock_date_style_title">Uhr &amp; Datum anpassen</string>
+    <string name="status_bar_show_battery_bar_title">Die Akkuleiste anzeigen</string>
+    <string name="status_bar_show_battery_bar_summary">Aktivieren um die Akkuleiste anzuzeigen</string>
+    <string name="status_bar_battery_bar_style_title">Akkuleiste anpassen</string>
     <string name="status_bar_enable_network_speed_indicator_title">Netzw.-Geschw.-Anz. aktivieren</string>
     <string name="status_bar_enable_network_speed_indicator_summary">Aktivieren, um die Netzwerk-Geschwindigkeits-Anzeige einzuschalten</string>
     <string name="status_bar_network_speed_title">Netzw.-Geschw. Anzeige anpassen</string>
@@ -90,6 +93,21 @@
     <string name="status_bar_date_custom_java_format">Eigenes Java Format</string>
     <string name="status_bar_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">Zeichenfolge eingeben</string>
+
+    <!-- Statusbar style battery bar strings  -->
+    <string name="battery_bar_position_title">Position</string>
+    <string name="battery_bar_center_summary">Die Akkuleiste mittig-gespiegelt darstellen</string>
+    <string name="battery_bar_center_title">Mittig-gespiegelt</string>
+    <string name="battery_bar_animate_title">Lade-Animation</string>
+    <string name="battery_bar_animate_summary">Die Lade-Animation kann zu trägem Verhalten des Gerätes führen. Aktiviere sie, nach deinem eigenen Ermessen.</string> 
+    <string name="battery_bar_thickness_title">Dicke</string>
+    <string name="battery_bar_statusbar">Statusleiste</string>
+    <string name="battery_bar_navbar_top">Über der Navigationsleiste</string>
+    <string name="battery_bar_navbar_buttom">Unter der Navigationsleiste</string>
+    <string name="battery_bar_thickness_1">1dp (Standard)</string>
+    <string name="battery_bar_thickness_2">2dp</string>
+    <string name="battery_bar_thickness_3">3dp</string>
+    <string name="battery_bar_thickness_4">4dp</string>
 
     <!-- Network speed style -->
     <string name="network_speed_download_title">Download Geschw. anzeigen</string>

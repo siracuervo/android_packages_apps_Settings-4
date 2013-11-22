@@ -64,6 +64,9 @@
     <string name="status_bar_show_date_title">Show date</string>
     <string name="status_bar_show_date_summary">Enable to show the date next to the clock in the status bar</string>
     <string name="status_bar_clock_date_style_title">Customize clock &amp; date</string>
+    <string name="status_bar_show_battery_bar_title">Show battery bar</string>
+    <string name="status_bar_show_battery_bar_summary">Enable to show the battery bar</string>
+    <string name="status_bar_battery_bar_style_title">Customize battery bar</string>
     <string name="status_bar_enable_network_speed_indicator_title">Enable network speed indicator</string>
     <string name="status_bar_enable_network_speed_indicator_summary">Enable, to activate the network speed indicator</string>
     <string name="status_bar_network_speed_title">Customize network speed indicator</string>
@@ -90,6 +93,21 @@
     <string name="status_bar_date_custom_java_format">Custom java format</string>
     <string name="status_bar_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">Enter string</string>
+
+    <!-- Statusbar style battery bar style strings  -->
+    <string name="battery_bar_position_title">Position</string>
+    <string name="battery_bar_center_summary">Display the battery bar center-mirrored</string>
+    <string name="battery_bar_center_title">Center-mirrored</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string> 
+    <string name="battery_bar_thickness_title">Thickness</string>
+    <string name="battery_bar_statusbar">Statusbar</string>
+    <string name="battery_bar_navbar_top">Top of navigation bar</string>
+    <string name="battery_bar_navbar_buttom">Buttom of navigation bar</string>
+    <string name="battery_bar_thickness_1">1dp (default)</string>
+    <string name="battery_bar_thickness_2">2dp</string>
+    <string name="battery_bar_thickness_3">3dp</string>
+    <string name="battery_bar_thickness_4">4dp</string>
 
     <!-- Network speed style -->
     <string name="network_speed_download_title">Show download speed</string>

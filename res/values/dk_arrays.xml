@@ -121,6 +121,32 @@
         <item>Custom java format</item>
     </string-array>
 
+    <string-array name="battery_bar_position_entries" >
+        <item>@string/battery_bar_statusbar</item>
+        <item>@string/battery_bar_navbar_top</item>
+        <item>@string/battery_bar_navbar_buttom</item>
+    </string-array>
+
+    <string-array name="battery_bar_position_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="battery_bar_thickness_entries" >
+        <item>@string/battery_bar_thickness_1</item>
+        <item>@string/battery_bar_thickness_2</item>
+        <item>@string/battery_bar_thickness_3</item>
+        <item>@string/battery_bar_thickness_4</item>
+    </string-array>
+
+    <string-array name="battery_bar_thickness_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
     <string-array name="traffic_summary_entries" >
         <item>@string/traffic_timeout_0s</item>
         <item>@string/traffic_timeout_1s</item>
