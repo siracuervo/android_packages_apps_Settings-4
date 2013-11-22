@@ -64,6 +64,9 @@
     <string name="status_bar_show_date_title">Das Datum anzeigen</string>
     <string name="status_bar_show_date_summary">Aktivieren um das Datum neben der Uhr in der Statusleiste anzuzeigen</string>
     <string name="status_bar_clock_date_style_title">Uhr &amp; Datum anpassen</string>
+    <string name="status_bar_enable_network_speed_indicator_title">Netzw.-Geschw.-Anz. aktivieren</string>
+    <string name="status_bar_enable_network_speed_indicator_summary">Aktivieren, um die Netzwerk-Geschwindigkeits-Anzeige einzuschalten</string>
+    <string name="status_bar_network_speed_title">Netzw.-Geschw. Anzeige anpassen</string>
     <string name="status_bar_notif_count_title">Benachrichtigungszähler</string>
     <string name="status_bar_notif_count_summary">Anzahl der ungelesenen Benachrichtigungen in der Statusleiste anzeigen</string>
 
@@ -87,6 +90,28 @@
     <string name="status_bar_date_custom_java_format">Eigenes Java Format</string>
     <string name="status_bar_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">Zeichenfolge eingeben</string>
+
+    <!-- Network speed style -->
+    <string name="network_speed_download_title">Download Geschw. anzeigen</string>
+    <string name="network_speed_download_summary">Aktivieren um die Download Geschwindigkeit in der Statusleiste anzuzeigen</string>
+    <string name="network_speed_upload_title">Upload Geschw. anzeigen</string>
+    <string name="network_speed_upload_summary">Aktivieren um die Upload Geschwindigkeit in der Statusleiste anzuzeigen</string>
+    <string name="traffic_summary">Datenmenge anzeigen</string>
+    <string name="traffic_timeout_0s">Nicht anzeigen</string>
+    <string name="traffic_timeout_1s">1 Sekunde</string>
+    <string name="traffic_timeout_2s">2 Sekunden</string>
+    <string name="traffic_timeout_3s">3 Sekunden</string>
+    <string name="traffic_timeout_5s">5 Sekunden</string>
+    <string name="traffic_timeout_8s">8 Sekunden</string>
+    <string name="traffic_timeout_10s">10 Sekunden</string>
+    <string name="traffic_timeout_15s">15 Sekunden</string>
+    <string name="traffic_timeout_25s">25 Sekunden</string>
+    <string name="network_speed_bit_byte_title">Bit-Werte anzeigen</string>
+    <string name="network_speed_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
+    <string name="network_speed_hide_traffic_title">Anzeige verstecken</string>
+    <string name="network_speed_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
+    <string name="color_download_title">Download Farbe</string>
+    <string name="color_upload_title">Upload Farbe</string>
 
     <!-- Development settings -->
 

@@ -32,10 +32,12 @@ public class Statusbar extends SettingsPreferenceFragment implements
 
     private static final String KEY_STATUS_BAR_SHOW_CLOCK = "status_bar_show_clock";
     private static final String STATUS_BAR_SHOW_DATE = "status_bar_show_date";
+    private static final String KEY_STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR = "status_bar_enable_network_speed_indicator";
     private static final String KEY_STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
 
     private CheckBoxPreference mShowClock;
     private CheckBoxPreference mShowDate;
+    private CheckBoxPreference mShowNetworkSpeedIndicator;
     private CheckBoxPreference mNotifCount;
 
     private ContentResolver mResolver;
@@ -60,12 +62,18 @@ public class Statusbar extends SettingsPreferenceFragment implements
                Settings.System.STATUS_BAR_SHOW_CLOCK, 1) == 1;
         boolean isDateEnabled = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_SHOW_DATE, 0) == 1;
+        boolean isNetworkSpeedIndicatorEnabled = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR, 0) == 1;
 
         mShowClock = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_SHOW_CLOCK);
         mShowClock.setChecked(isClockEnabled);
         mShowClock.setOnPreferenceChangeListener(this);
 
-        // Remove uneeded preferences if clock is disabled
+        mShowNetworkSpeedIndicator = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR);
+        mShowNetworkSpeedIndicator.setChecked(isNetworkSpeedIndicatorEnabled);
+        mShowNetworkSpeedIndicator.setOnPreferenceChangeListener(this);
+
+        // Remove uneeded preferences depending on enabled states
         mShowDate = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_DATE);
         if (isClockEnabled) {
             mShowDate.setChecked(isDateEnabled);
@@ -73,6 +81,11 @@ public class Statusbar extends SettingsPreferenceFragment implements
         } else {
             removePreference(STATUS_BAR_SHOW_DATE);
             removePreference("status_bar_clock_date_style");
+        }
+
+        // Remove uneeded preferences depending on enabled states
+        if (!isNetworkSpeedIndicatorEnabled) {
+            removePreference("status_bar_network_speed_style");
         }
 
         mNotifCount = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_NOTIF_COUNT);
@@ -95,6 +108,12 @@ public class Statusbar extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_SHOW_DATE, value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mShowNetworkSpeedIndicator) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR, value ? 1 : 0);
             refreshSettings();
             return true;
         } else if (preference == mNotifCount) {
