@@ -408,6 +408,11 @@
     <string name="quiet_hours_alarm_dialog_title">RUHIGE STUNDEN UMGANGEN</string>
     <string name="quiet_hours_alarm_message">" erfüllt die Vorraussetzungen um die Ruhigen Stunden zu umgehen!"</string>
 
+    <!-- AppOps additions -->
+    <string name="appops_settings">App Berechtigungen</string>
+    <string name="appops_sysapp_beware">Vorsicht!</string>
+    <string name="appops_sysapp_warning">"Das Ändern der Berechtigungen, von Android Kern Komponenten, kann zu unerwünschtem Verhalten führen. Die Änderungen hier geschehen auf eigene Gefahr!</string>
+
     <!-- Display settings -->
 
     <!-- Display rotation options -->
