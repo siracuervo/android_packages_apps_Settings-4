@@ -57,6 +57,11 @@
     <string name="lockscreen_battery_status_ring_color">Ring Farbe</string>
     <string name="lockscreen_battery_status_ring_charging_color">Ring Lade Farbe</string>
 
+    <!-- Power menu settings -->
+    <string name="power_menu_title">Ein-&#47;Aus Taste</string>
+    <string name="power_menu_toggle_screenshot_title">Bildschirmfoto</string>
+    <string name="power_menu_toggle_screenshot_summary">Aktivieren um die Bildschirmfoto Option im Ein-&#47;Aus Menü anzuzeigen</string>
+
     <!-- Status bar settings -->
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_show_clock_title">Die Uhr anzeigen</string>

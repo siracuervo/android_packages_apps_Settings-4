@@ -1579,6 +1579,7 @@
 
 		<activity android:name=".darkkat.LockscreenSettings" />
 		<activity android:name=".darkkat.LockscreenBatteryStatusRingStyle" />
+		<activity android:name=".darkkat.PowerMenu" />
 		<activity android:name=".darkkat.InterfaceSettings" />
 		<activity android:name=".darkkat.Statusbar" />
 		<activity android:name=".darkkat.StatusBarClockDateStyle" />

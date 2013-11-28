@@ -57,6 +57,11 @@
     <string name="lockscreen_battery_status_ring_color">Ring color</string>
     <string name="lockscreen_battery_status_ring_charging_color">Ring charging color</string>
 
+    <!-- Power menu settings -->
+    <string name="power_menu_title">Power menu</string>
+    <string name="power_menu_toggle_screenshot_title">Screenshot</string>
+    <string name="power_menu_toggle_screenshot_summary">Activate, to show screenshot option in Power Menu</string>
+
     <!-- Status bar settings -->
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_show_clock_title">Show clock</string>
