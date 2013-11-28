@@ -72,6 +72,8 @@
     <string name="status_bar_show_battery_bar_title">Show battery bar</string>
     <string name="status_bar_show_battery_bar_summary">Enable to show the battery bar</string>
     <string name="status_bar_battery_bar_style_title">Customize battery bar</string>
+    <string name="status_bar_show_activity_indicators_title">Show network activity indicator</string>
+    <string name="status_bar_show_activity_indicators_summary">Enable to show the network activity indicator</string>
     <string name="status_bar_enable_network_speed_indicator_title">Enable network speed indicator</string>
     <string name="status_bar_enable_network_speed_indicator_summary">Enable, to activate the network speed indicator</string>
     <string name="status_bar_network_speed_title">Customize network speed indicator</string>

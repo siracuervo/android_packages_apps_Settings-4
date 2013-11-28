@@ -33,12 +33,14 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private static final String KEY_STATUS_BAR_SHOW_CLOCK = "status_bar_show_clock";
     private static final String STATUS_BAR_SHOW_DATE = "status_bar_show_date";
     private static final String STATUS_BAR_SHOW_BATTERY_BAR = "status_bar_show_battery_bar";
+    private static final String STATUS_BAR_SHOW_NETWORK_ACTIVITY = "status_bar_show_network_activity";
     private static final String KEY_STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR = "status_bar_enable_network_speed_indicator";
     private static final String KEY_STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
 
     private CheckBoxPreference mShowClock;
     private CheckBoxPreference mShowDate;
     private CheckBoxPreference mShowBatteryBar;
+    private CheckBoxPreference mShowNetworkActivity;
     private CheckBoxPreference mShowNetworkSpeedIndicator;
     private CheckBoxPreference mNotifCount;
 
@@ -76,6 +78,11 @@ public class Statusbar extends SettingsPreferenceFragment implements
         mShowBatteryBar = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_BATTERY_BAR);
         mShowBatteryBar.setChecked(isBatteryBarEnabled);
         mShowBatteryBar.setOnPreferenceChangeListener(this);
+
+        mShowNetworkActivity = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_NETWORK_ACTIVITY);
+        mShowNetworkActivity.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_NETWORK_ACTIVITY, 0) == 1);
+        mShowNetworkActivity.setOnPreferenceChangeListener(this);
 
         mShowNetworkSpeedIndicator = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR);
         mShowNetworkSpeedIndicator.setChecked(isNetworkSpeedIndicatorEnabled);
@@ -121,9 +128,14 @@ public class Statusbar extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mShowBatteryBar) {
             boolean value = (Boolean) objValue;
-            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, value ? 1 : 0);
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, value ? 1 : 0);
             refreshSettings();
             return true;
+        } else if (preference == mShowNetworkActivity) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_NETWORK_ACTIVITY, value ? 1 : 0);
         } else if (preference == mShowNetworkSpeedIndicator) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(mResolver,

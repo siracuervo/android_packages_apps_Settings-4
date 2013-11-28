@@ -72,6 +72,8 @@
     <string name="status_bar_show_battery_bar_title">Die Akkuleiste anzeigen</string>
     <string name="status_bar_show_battery_bar_summary">Aktivieren um die Akkuleiste anzuzeigen</string>
     <string name="status_bar_battery_bar_style_title">Akkuleiste anpassen</string>
+    <string name="status_bar_show_activity_indicators_title">Netzwerkaktivität anzeigen</string>
+    <string name="status_bar_show_activity_indicators_summary">Aktivieren um die Netzwerkaktivität anzuzeigen</string>
     <string name="status_bar_enable_network_speed_indicator_title">Netzw.-Geschw.-Anz. aktivieren</string>
     <string name="status_bar_enable_network_speed_indicator_summary">Aktivieren, um die Netzwerk-Geschwindigkeits-Anzeige einzuschalten</string>
     <string name="status_bar_network_speed_title">Netzw.-Geschw. Anzeige anpassen</string>
