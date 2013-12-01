@@ -18,7 +18,7 @@
     <!-- Settings headers -->
     <string name="header_category_personalize">Personalize</string>
 
-    <!-- Global used strings  -->
+    <!-- Global used -->
     <string name="cat_options_title">Options</string>
     <string name="reset_android_default">Reset to Android default</string>
     <string name="reset_darkkat_default">Reset to Darkkat default</string>
@@ -51,7 +51,7 @@
     <!-- Interface settings -->
     <string name="interface_settings_title">Interface</string>
 
-    <!-- Lockscreen battery status ring style strings -->
+    <!-- Lockscreen battery status ring style -->
     <string name="lockscreen_battery_status_ring_dotted_title">Ring dotted</string>
     <string name="lockscreen_battery_status_ring_dotted_summary">Activate, to show the Ring dotted</string>
     <string name="lockscreen_battery_status_ring_color">Ring color</string>
@@ -69,6 +69,9 @@
     <string name="status_bar_show_date_title">Show date</string>
     <string name="status_bar_show_date_summary">Enable to show the date next to the clock in the status bar</string>
     <string name="status_bar_clock_date_style_title">Customize clock &amp; date</string>
+    <string name="status_bar_show_battery_status_title">Show battery status</string>
+    <string name="status_bar_show_battery_status_summary">Enable to show the battery status in the status bar</string>
+    <string name="status_bar_battery_status_style_title">Customize battery status</string>
     <string name="status_bar_show_battery_bar_title">Show battery bar</string>
     <string name="status_bar_show_battery_bar_summary">Enable to show the battery bar</string>
     <string name="status_bar_battery_bar_style_title">Customize battery bar</string>
@@ -101,7 +104,28 @@
     <string name="status_bar_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">Enter string</string>
 
-    <!-- Statusbar style battery bar style strings  -->
+    <!-- Statusbar style battery status -->
+    <string name="battery_status_style_title">Icon&#47;text</string>
+    <string name="battery_status_icon">Icon</string>
+    <string name="battery_status_percentage">Percentage text</string>
+    <string name="battery_status_circle">Circle</string>
+    <string name="battery_status_show_text_title">Show battery status text</string>
+    <string name="battery_status_show_text_summary">Activate, to show the battery status text</string>
+    <string name="battery_status_custom_frame_color_title">Custom frame color</string>
+    <string name="battery_status_custom_frame_color_summary">If disabled, the battery status color with a transparency of 80% will be used.</string>
+    <string name="battery_status_circle_dotted_title">Circle dotted</string>
+    <string name="battery_status_circle_dotted_summary">Activate, to show the battery circle dotted</string>
+    <string name="battery_status_color">Battery status color</string>
+    <string name="battery_frame_color">Battery frame color</string>
+    <string name="battery_text_color">Percentage text color</string>
+    <string name="battery_text_charging_color">Percentage text charging color</string>
+    <string name="circle_battery_animation_speed">Circle animation speed</string>
+    <string name="circle_battery_animation_speed_none">None</string>
+    <string name="circle_battery_animation_speed_slow">Slow</string>
+    <string name="circle_battery_animation_speed_stock">Normal</string>
+    <string name="circle_battery_animation_speed_fast">Fast</string>
+
+    <!-- Statusbar style battery bar style -->
     <string name="battery_bar_position_title">Position</string>
     <string name="battery_bar_center_summary">Display the battery bar center-mirrored</string>
     <string name="battery_bar_center_title">Center-mirrored</string>

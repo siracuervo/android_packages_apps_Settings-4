@@ -34,6 +34,16 @@
         android:title="@string/status_bar_clock_date_style_title" />
 
     <CheckBoxPreference
+        android:key="status_bar_show_battery_status"
+        android:title="@string/status_bar_show_battery_status_title"
+        android:summary="@string/status_bar_show_battery_status_summary" />
+
+    <PreferenceScreen
+        android:key="status_bar_battery_status_style"
+        android:fragment="com.android.settings.darkkat.StatusBarBatteryStatusStyle"
+        android:title="@string/status_bar_battery_status_style_title" />
+
+    <CheckBoxPreference
         android:key="status_bar_show_battery_bar"
         android:title="@string/status_bar_show_battery_bar_title"
         android:summary="@string/status_bar_show_battery_bar_summary" />

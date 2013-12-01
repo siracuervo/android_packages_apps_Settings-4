@@ -1583,6 +1583,7 @@
 		<activity android:name=".darkkat.InterfaceSettings" />
 		<activity android:name=".darkkat.Statusbar" />
 		<activity android:name=".darkkat.StatusBarClockDateStyle" />
+		<activity android:name=".darkkat.StatusBarBatteryStatusStyle" />
 		<activity android:name=".darkkat.StatusBarBatteryBarStyle" />
 		<activity android:name=".darkkat.StatusBarNetworkSpeedStyle" />
 
