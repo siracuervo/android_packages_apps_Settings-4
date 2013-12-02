@@ -17,6 +17,8 @@
 package com.android.settings.darkkat;
 
 import android.content.ContentResolver;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
@@ -32,6 +34,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
 
     private static final String KEY_LOCKSCREEN_SHOW_BATTERY_STATUS_RING = "lockscreen_show_battery_status_ring";
     private static final String KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS = "lockscreen_maximize_widgets";
+    private static final String KEY_LOCK_CLOCK = "lock_clock";
 
     private CheckBoxPreference mShowBatteryStatusRing;
     private CheckBoxPreference mMaximizeWidgets;
@@ -69,6 +72,11 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
         if (!isbatteryStatusRingEnabled) {
             removePreference("lockscreen_battery_status_ring_style");
         }
+
+        // Remove the lock clock preference if its not installed
+        if (!isPackageInstalled("com.cyanogenmod.lockclock")) {
+            removePreference(KEY_LOCK_CLOCK);
+        }
     }
 
     @Override
@@ -88,5 +96,17 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
         }
 
         return false;
+    }
+
+   private boolean isPackageInstalled(String packageName) {
+        PackageManager pm = getPackageManager();
+        boolean installed = false;
+        try {
+           pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+           installed = true;
+        } catch (PackageManager.NameNotFoundException e) {
+           installed = false;
+        }
+        return installed;
     }
 }

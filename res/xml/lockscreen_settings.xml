@@ -36,4 +36,15 @@
         android:persistent="false"
         android:defaultValue="false" />
 
+    <PreferenceScreen
+        android:key="lock_clock"
+        android:summary="@string/lock_clock_summary"
+        android:title="@string/lock_clock_title" >
+
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
+            android:targetPackage="com.cyanogenmod.lockclock" />
+    </PreferenceScreen>
+
 </PreferenceScreen>

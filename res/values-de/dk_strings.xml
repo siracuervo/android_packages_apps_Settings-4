@@ -47,6 +47,8 @@
     <string name="lockscreen_battery_status_ring_style_title">Akkustatus Ring anpassen</string>
     <string name="lockscreen_maximize_widgets_title">Widgets maximieren</string>
     <string name="lockscreen_maximize_widgets_summary">Beim Einschalten Widgets maximiert und Bildschirmsperre minimiert anzeigen</string>
+    <string name="lock_clock_title">Uhr-Widget</string>
+    <string name="lock_clock_summary">\"cLock-Widget\" konfigurieren</string>
 
     <!-- Interface settings -->
     <string name="interface_settings_title">Oberfläche</string>
