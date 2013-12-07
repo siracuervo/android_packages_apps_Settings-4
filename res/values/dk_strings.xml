@@ -59,12 +59,12 @@
     <string name="lockscreen_battery_status_ring_color">Ring color</string>
     <string name="lockscreen_battery_status_ring_charging_color">Ring charging color</string>
 
-    <!-- Power menu settings -->
+    <!-- Power menu -->
     <string name="power_menu_title">Power menu</string>
     <string name="power_menu_toggle_screenshot_title">Screenshot</string>
     <string name="power_menu_toggle_screenshot_summary">Activate, to show screenshot option in Power Menu</string>
 
-    <!-- Status bar settings -->
+    <!-- Status bar -->
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_show_clock_title">Show clock</string>
     <string name="status_bar_show_clock_summary">Enable to show the clock in the status bar</string>
@@ -77,15 +77,13 @@
     <string name="status_bar_show_battery_bar_title">Show battery bar</string>
     <string name="status_bar_show_battery_bar_summary">Enable to show the battery bar</string>
     <string name="status_bar_battery_bar_style_title">Customize battery bar</string>
-    <string name="status_bar_show_activity_indicators_title">Show network activity indicator</string>
-    <string name="status_bar_show_activity_indicators_summary">Enable to show the network activity indicator</string>
     <string name="status_bar_enable_network_speed_indicator_title">Enable network speed indicator</string>
     <string name="status_bar_enable_network_speed_indicator_summary">Enable, to activate the network speed indicator</string>
     <string name="status_bar_network_speed_title">Customize network speed indicator</string>
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
 
-    <!-- Statusbar style clock date style -->
+    <!-- Status bar clock date style -->
     <string name="status_bar_cat_clock_date_title">Clock &amp; date</string>
     <string name="status_bar_cat_clock_title">Clock</string>
     <string name="status_bar_cat_date_title">Date</string>
@@ -106,7 +104,7 @@
     <string name="status_bar_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">Enter string</string>
 
-    <!-- Statusbar style battery status -->
+    <!-- Status bar battery status style -->
     <string name="battery_status_style_title">Icon&#47;text</string>
     <string name="battery_status_icon">Icon</string>
     <string name="battery_status_percentage">Percentage text</string>
@@ -127,7 +125,7 @@
     <string name="circle_battery_animation_speed_stock">Normal</string>
     <string name="circle_battery_animation_speed_fast">Fast</string>
 
-    <!-- Statusbar style battery bar style -->
+    <!-- Status bar battery bar style -->
     <string name="battery_bar_position_title">Position</string>
     <string name="battery_bar_center_summary">Display the battery bar center-mirrored</string>
     <string name="battery_bar_center_title">Center-mirrored</string>
@@ -142,7 +140,19 @@
     <string name="battery_bar_thickness_3">3dp</string>
     <string name="battery_bar_thickness_4">4dp</string>
 
-    <!-- Network speed style -->
+    <!-- Status bar signal wifi icon style  -->
+    <string name="status_bar_signal_wifi_style_title">Customize network icons</string>
+    <string name="status_bar_cat_signal_strength_title">Mobile network strength icon</string>
+    <string name="status_bar_cat_signal_network_type_title">Mobile network type icon</string>
+    <string name="status_bar_cat_signal_activity_title">Mobile network activity icon</string>
+    <string name="status_bar_cat_wifi_strength_title">Wifi network strength icon</string>
+    <string name="status_bar_cat_wifi_activity_title">Wifi network activity icon</string>
+    <string name="color_normal_title">Color (Normal)</string>
+    <string name="color_connected_title">Color (Google connected)</string>
+    <string name="status_bar_show_activity_indicators_title">Show network activity indicator</string>
+    <string name="status_bar_show_activity_indicators_summary">Enable to show the network activity indicator</string>
+
+    <!-- Status bar Network speed style -->
     <string name="network_speed_download_title">Show download speed</string>
     <string name="network_speed_download_summary">Enable to show the download speed in the status bar</string>
     <string name="network_speed_upload_title">Show upload speed</string>

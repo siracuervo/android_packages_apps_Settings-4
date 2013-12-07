@@ -59,12 +59,12 @@
     <string name="lockscreen_battery_status_ring_color">Ring Farbe</string>
     <string name="lockscreen_battery_status_ring_charging_color">Ring Lade Farbe</string>
 
-    <!-- Power menu settings -->
+    <!-- Power menu -->
     <string name="power_menu_title">Ein-&#47;Aus Taste</string>
     <string name="power_menu_toggle_screenshot_title">Bildschirmfoto</string>
     <string name="power_menu_toggle_screenshot_summary">Aktivieren um die Bildschirmfoto Option im Ein-&#47;Aus Menü anzuzeigen</string>
 
-    <!-- Status bar settings -->
+    <!-- Status bar -->
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_show_clock_title">Die Uhr anzeigen</string>
     <string name="status_bar_show_clock_summary">Aktivieren um die Uhr in der Statusleiste anzuzeigen</string>
@@ -77,15 +77,13 @@
     <string name="status_bar_show_battery_bar_title">Die Akkuleiste anzeigen</string>
     <string name="status_bar_show_battery_bar_summary">Aktivieren um die Akkuleiste anzuzeigen</string>
     <string name="status_bar_battery_bar_style_title">Akkuleiste anpassen</string>
-    <string name="status_bar_show_activity_indicators_title">Netzwerkaktivität anzeigen</string>
-    <string name="status_bar_show_activity_indicators_summary">Aktivieren um die Netzwerkaktivität anzuzeigen</string>
     <string name="status_bar_enable_network_speed_indicator_title">Netzw.-Geschw.-Anz. aktivieren</string>
     <string name="status_bar_enable_network_speed_indicator_summary">Aktivieren, um die Netzwerk-Geschwindigkeits-Anzeige einzuschalten</string>
     <string name="status_bar_network_speed_title">Netzw.-Geschw. Anzeige anpassen</string>
     <string name="status_bar_notif_count_title">Benachrichtigungszähler</string>
     <string name="status_bar_notif_count_summary">Anzahl der ungelesenen Benachrichtigungen in der Statusleiste anzeigen</string>
 
-    <!-- Statusbar style clock date style  -->
+    <!-- Status bar clock date style  -->
     <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>
     <string name="status_bar_cat_clock_title">Uhr</string>
     <string name="status_bar_cat_date_title">Datum</string>
@@ -106,7 +104,7 @@
     <string name="status_bar_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">Zeichenfolge eingeben</string>
 
-    <!-- Statusbar style battery status -->
+    <!-- Status bar battery status style -->
     <string name="battery_status_style_title">Symbol&#47;Text</string>
     <string name="battery_status_icon">Symbol</string>
     <string name="battery_status_percentage">Prozent Text</string>
@@ -127,7 +125,7 @@
     <string name="circle_battery_animation_speed_stock">Normal</string>
     <string name="circle_battery_animation_speed_fast">Schnell</string> 
 
-    <!-- Statusbar style battery bar -->
+    <!-- Status bar battery bar style -->
     <string name="battery_bar_position_title">Position</string>
     <string name="battery_bar_center_summary">Die Akkuleiste mittig-gespiegelt darstellen</string>
     <string name="battery_bar_center_title">Mittig-gespiegelt</string>
@@ -142,7 +140,19 @@
     <string name="battery_bar_thickness_3">3dp</string>
     <string name="battery_bar_thickness_4">4dp</string>
 
-    <!-- Network speed style -->
+    <!-- Status bar signal wifi icon style  -->
+    <string name="status_bar_signal_wifi_style_title">Netzwerk Symbole anpassen</string>
+    <string name="status_bar_cat_signal_strength_title">Mobilnetzwerk-Stärke Symbol</string>
+    <string name="status_bar_cat_signal_network_type_title">Mobilnetzwerk-Typ Symbol</string>
+    <string name="status_bar_cat_signal_activity_title">Mobilnetzwerk-Aktivitäts Symbol</string>
+    <string name="status_bar_cat_wifi_strength_title">Wifinetzwerk-Stärke Symbol</string>
+    <string name="status_bar_cat_wifi_activity_title">Wifinetzwerk-Aktivitäts Symbol</string>
+    <string name="color_normal_title">Farbe (Normal)</string>
+    <string name="color_connected_title">Farbe (Mit Google verbunden)</string>
+    <string name="status_bar_show_activity_indicators_title">Netzwerkaktivität anzeigen</string>
+    <string name="status_bar_show_activity_indicators_summary">Aktivieren um die Netzwerkaktivität anzuzeigen</string>
+
+    <!--  Status bar Network speed style -->
     <string name="network_speed_download_title">Download Geschw. anzeigen</string>
     <string name="network_speed_download_summary">Aktivieren um die Download Geschwindigkeit in der Statusleiste anzuzeigen</string>
     <string name="network_speed_upload_title">Upload Geschw. anzeigen</string>
