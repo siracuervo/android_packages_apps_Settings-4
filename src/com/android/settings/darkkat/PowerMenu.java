@@ -31,8 +31,10 @@ public class PowerMenu extends SettingsPreferenceFragment implements
     private static final String TAG = "PowerMenu";
 
     private static final String KEY_POWER_MENU_SCREENSHOT = "power_menu_screenshot";
+    private static final String KEY_POWER_MENU_SCREEN_RECORD = "power_menu_screen_record";
 
     private CheckBoxPreference mShowScreenshot;
+    private CheckBoxPreference mShowScreenRecord;
 
     private ContentResolver mResolver;
 
@@ -48,6 +50,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements
         mShowScreenshot.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.SCREENSHOT_IN_POWER_MENU, 0) == 1);
         mShowScreenshot.setOnPreferenceChangeListener(this);
+
+        mShowScreenRecord = (CheckBoxPreference) findPreference(KEY_POWER_MENU_SCREEN_RECORD);
+        mShowScreenRecord.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.SCREENRECORD_IN_POWER_MENU, 0) == 1);
+        mShowScreenRecord.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -57,6 +64,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.System.putInt(mResolver,
                     Settings.System.SCREENSHOT_IN_POWER_MENU, value ? 1 : 0);
+            return true;
+        } else         if (preference == mShowScreenRecord) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.SCREENRECORD_IN_POWER_MENU, value ? 1 : 0);
             return true;
         }
 

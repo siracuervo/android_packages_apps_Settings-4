@@ -63,6 +63,8 @@
     <string name="power_menu_title">Power menu</string>
     <string name="power_menu_toggle_screenshot_title">Screenshot</string>
     <string name="power_menu_toggle_screenshot_summary">Activate, to show screenshot option in Power Menu</string>
+    <string name="power_menu_toggle_screen_record_title">Screen record</string>
+    <string name="power_menu_toggle_screen_record_summary">Activate, to show screen record option in Power Menu</string>
 
     <!-- Status bar -->
     <string name="status_bar_title">Status bar</string>

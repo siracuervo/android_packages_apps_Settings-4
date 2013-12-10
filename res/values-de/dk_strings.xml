@@ -63,6 +63,8 @@
     <string name="power_menu_title">Ein-&#47;Aus Taste</string>
     <string name="power_menu_toggle_screenshot_title">Bildschirmfoto</string>
     <string name="power_menu_toggle_screenshot_summary">Aktivieren um die Bildschirmfoto Option im Ein-&#47;Aus Menü anzuzeigen</string>
+    <string name="power_menu_toggle_screen_record_title">Bildschirm Aufnahme</string>
+    <string name="power_menu_toggle_screen_record_summary">Aktivieren um die Bildschirm Aufnahme Option im Ein-&#47;Aus Menü anzuzeigen</string>
 
     <!-- Status bar -->
     <string name="status_bar_title">Statusleiste</string>
