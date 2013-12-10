@@ -65,7 +65,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements
             Settings.System.putInt(mResolver,
                     Settings.System.SCREENSHOT_IN_POWER_MENU, value ? 1 : 0);
             return true;
-        } else         if (preference == mShowScreenRecord) {
+        } else if (preference == mShowScreenRecord) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(mResolver,
                     Settings.System.SCREENRECORD_IN_POWER_MENU, value ? 1 : 0);
