@@ -176,6 +176,21 @@
     <string name="color_download_title">Download Farbe</string>
     <string name="color_upload_title">Upload Farbe</string>
 
+    <!-- Display settings -->
+
+    <!-- Display rotation options -->
+    <string name="display_rotation_title">Bildschirmausrichtung</string>
+    <string name="display_rotation_disabled">Deaktiviert</string>
+    <string name="display_rotation_unit">Grad</string>
+    <string name="display_lockscreen_rotation_title">Bildschirmsperre drehen</string>
+    <string name="display_rotation_category_title">Bei Drehung um</string>
+    <string name="display_rotation_0_title">0 Grad</string>
+    <string name="display_rotation_90_title">90 Grad</string>
+    <string name="display_rotation_180_title">180 Grad</string>
+    <string name="display_rotation_270_title">270 Grad</string>
+    <string name="swap_volume_buttons_title">Lautstärketasten umkehren</string>
+    <string name="swap_volume_buttons_summary">Belegung der Lautstärketasten umkehren, wenn das Gerät gedreht wird</string>
+
     <!-- Development settings -->
 
     <!-- Advanced reboot options -->
