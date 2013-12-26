@@ -1578,14 +1578,22 @@
 
 		<activity android:name=".darkkat.LockscreenSettings" />
 		<activity android:name=".darkkat.LockscreenBatteryStatusRingStyle" />
-		<activity android:name=".darkkat.PowerMenu" />
+		<activity android:name=".darkkat.LockscreenCarrierLabelStyle" />
+		<activity android:name=".darkkat.LockscreenBatteryStatusStyle" />
 		<activity android:name=".darkkat.InterfaceSettings" />
+        <activity android:name=".darkkat.General" />
+		<activity android:name=".darkkat.PowerMenu" />
 		<activity android:name=".darkkat.Statusbar" />
 		<activity android:name=".darkkat.StatusBarClockDateStyle" />
 		<activity android:name=".darkkat.StatusBarBatteryStatusStyle" />
 		<activity android:name=".darkkat.StatusBarBatteryBarStyle" />
 		<activity android:name=".darkkat.StatusBarSignalWifiStyle" />
 		<activity android:name=".darkkat.StatusBarNetworkSpeedStyle" />
+		<activity android:name=".darkkat.StatusBarExpandedBackground" />
+		<activity android:name=".darkkat.StatusBarExpandedHeader" />
+        <activity android:name=".darkkat.StatusBarExpandedNotif" />
+		<activity android:name=".darkkat.StatusBarExpandedNotifLabelStyle" />
+        <activity android:name=".darkkat.StatusBarExpandedQs" />
 
         <!-- DarkKat activities End -->
 

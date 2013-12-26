@@ -30,6 +30,29 @@
         android:title="@string/lockscreen_battery_status_ring_style_title" />
 
     <CheckBoxPreference
+        android:key="lockscreen_show_custom_carrier_label"
+        android:title="@string/show_custom_carrier_label_title"
+        android:persistent="false"
+        android:defaultValue="false" />
+
+    <PreferenceScreen
+        android:key="lockscreen_carrier_label_style"
+        android:fragment="com.android.settings.darkkat.LockscreenCarrierLabelStyle"
+        android:title="@string/custom_carrier_label_title" />
+
+    <CheckBoxPreference
+        android:key="lockscreen_always_show_battery_status"
+        android:title="@string/lockscreen_always_show_battery_status_title"
+        android:summary="@string/lockscreen_always_show_battery_status_summary"
+        android:persistent="false"
+        android:defaultValue="false" />
+
+    <PreferenceScreen
+        android:key="lockscreen_battery_status_style"
+        android:fragment="com.android.settings.darkkat.LockscreenBatteryStatusStyle"
+        android:title="@string/lockscreen_battery_status_title" />
+
+    <CheckBoxPreference
         android:key="lockscreen_maximize_widgets"
         android:title="@string/lockscreen_maximize_widgets_title"
         android:summary="@string/lockscreen_maximize_widgets_summary"

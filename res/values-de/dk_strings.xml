@@ -26,6 +26,15 @@
     <string name="dot_length_title">Ring&#47;Kreis Punkt Länge</string>
     <string name="dot_interval_title">Ring&#47;Kreis Punkt Abstand</string>
     <string name="dot_offset_title">Ring&#47;Kreis Punkt Versatz</string>
+    <string name="custom_carrier_label_title">Netztbetreiber Name anpassen</string>
+    <string name="custom_carrier_label_notset">Kein angepasster Netzbetreiber Name gesetzt</string>
+    <string name="show_custom_carrier_label_title">Angepasster Netzbetreiber Name</string>
+    <string name="show_custom_carrier_label_enabled_summary">Aktivieren, um den angepassten Netztbetreiber Namen anzuzeigen</string>
+    <string name="cw_label_style_title">Netzbetr. und Wifi Netzw. Name</string>
+    <string name="show_wifi_ssid_title">Wifi Netzwerkname Name</string>
+    <string name="show_wifi_ssid_summary">Aktivieren, um den Wifi Netzwerknamen anzuzeigen</string>
+    <string name="ok">OK</string>
+    <string name="image_not_valid">Bild nicht vorhanden</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Farbauswahl</string>
@@ -43,15 +52,15 @@
     <!-- Lockscreen settings -->
     <string name="lock_screen_settings_title">Bildschirmsperre</string>
     <string name="lockscreen_show_battery_status_ring_title">Den Akkustatus Ring anzeigen</string>
-    <string name="lockscreen_show_battery_status_ring_summary">Aktivieren, um den Akkustatus Ring um den Sperr Ring herum anzeigen</string>
+    <string name="lockscreen_show_battery_status_ring_summary">Aktivieren, um den Akkustatus Ring um den Sperr Ring herum anzuzeigen</string>
     <string name="lockscreen_battery_status_ring_style_title">Akkustatus Ring anpassen</string>
+    <string name="lockscreen_always_show_battery_status_title">Den Akkustatus immer anzeigen</string>
+    <string name="lockscreen_always_show_battery_status_summary">Aktivieren, um den Akkustatus auch bei nicht angeschlossenem Ladegerät anzuzeigen</string>
+    <string name="lockscreen_battery_status_title">Akkustatus anpassen</string>
     <string name="lockscreen_maximize_widgets_title">Widgets maximieren</string>
     <string name="lockscreen_maximize_widgets_summary">Beim Einschalten Widgets maximiert und Bildschirmsperre minimiert anzeigen</string>
     <string name="lock_clock_title">Uhr-Widget</string>
     <string name="lock_clock_summary">\"cLock-Widget\" konfigurieren</string>
-
-    <!-- Interface settings -->
-    <string name="interface_settings_title">Oberfläche</string>
 
     <!-- Lockscreen battery status ring style -->
     <string name="lockscreen_battery_status_ring_dotted_title">Ring gepunktet</string>
@@ -59,8 +68,17 @@
     <string name="lockscreen_battery_status_ring_color">Ring Farbe</string>
     <string name="lockscreen_battery_status_ring_charging_color">Ring Lade Farbe</string>
 
+    <!-- Interface settings -->
+    <string name="interface_settings_title">Oberfläche</string>
+
+    <!-- General strings -->
+    <string name="general_title">Allgemein</string>
+
+    <!-- Custom carrier label strings -->
+    <string name="custom_carrier_label_explain">Gib bitte einen neuen Netzbetreiber Namen ein. Lass das Feld leer, um den originalen Netzbetreiber Namen wieder herzustellen.</string>
+
     <!-- Power menu -->
-    <string name="power_menu_title">Ein-&#47;Aus Taste</string>
+    <string name="power_menu_title">Ein-&#47;Aus Menü</string>
     <string name="power_menu_toggle_screenshot_title">Bildschirmfoto</string>
     <string name="power_menu_toggle_screenshot_summary">Aktivieren um die Bildschirmfoto Option im Ein-&#47;Aus Menü anzuzeigen</string>
     <string name="power_menu_toggle_screen_record_title">Bildschirm Aufnahme</string>
@@ -85,7 +103,7 @@
     <string name="status_bar_notif_count_title">Benachrichtigungszähler</string>
     <string name="status_bar_notif_count_summary">Anzahl der ungelesenen Benachrichtigungen in der Statusleiste anzeigen</string>
 
-    <!-- Status bar clock date style  -->
+    <!-- Status bar clock date style -->
     <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>
     <string name="status_bar_cat_clock_title">Uhr</string>
     <string name="status_bar_cat_date_title">Datum</string>
@@ -154,7 +172,7 @@
     <string name="status_bar_show_activity_indicators_title">Netzwerkaktivität anzeigen</string>
     <string name="status_bar_show_activity_indicators_summary">Aktivieren um die Netzwerkaktivität anzuzeigen</string>
 
-    <!--  Status bar Network speed style -->
+    <!-- Status bar Network speed style -->
     <string name="network_speed_download_title">Download Geschw. anzeigen</string>
     <string name="network_speed_download_summary">Aktivieren um die Download Geschwindigkeit in der Statusleiste anzuzeigen</string>
     <string name="network_speed_upload_title">Upload Geschw. anzeigen</string>
@@ -175,6 +193,38 @@
     <string name="network_speed_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
     <string name="color_download_title">Download Farbe</string>
     <string name="color_upload_title">Upload Farbe</string>
+
+    <!-- Statusbar expanded -->
+
+    <!-- Statusbar expanded -->
+    <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
+    <string name="status_bar_expanded_background_title">Hintergrund</string>
+    <string name="status_bar_expanded_header_title">Kopfzeile</string>
+    <string name="status_bar_expanded_notification_drawer_title">Benachrichtigungsanzeige</string>
+    <string name="status_bar_expanded_quick_settings_title">Schnelleinstellungen</string>
+
+    <!-- Statusbar expanded background -->
+    <string name="status_bar_expanded_bg_title">Art des Hintergrundes</string>
+    <string name="status_bar_expanded_bg_landscape_title">Anderer Hintergrund im Querformat</string>
+    <string name="status_bar_expanded_bg_color_fill">Farbfüllung</string>
+    <string name="status_bar_expanded_bg_custom_image">Eigenes Bild</string>
+    <string name="status_bar_expanded_bg_default_wallpaper">Standard Hintergrund</string>
+    <string name="status_bar_expanded_bg_custom_bg_dialog_title">Farbe wählen</string>
+    <string name="status_bar_expanded_bg_alpha_title">Hintergrund Transparenz</string>
+
+    <!-- Statusbar expanded header -->
+    <string name="status_bar_expanded_header_cat_clock_date_title">Uhr &amp; Datum</string>
+    <string name="status_bar_expanded_header_settings_btn_title">Einstellungen Schaltfläche</string>
+    <string name="status_bar_expanded_header_settings_btn_summary">Aktivieren, um den Einstellungen Schaltfläche immer anzuzeigen</string>
+
+    <!-- Statusbar expanded notification drawer -->
+    <string name="notif_alpha_title">Transparenz der Benachrichtigungen</string>
+
+    <!-- Statusbar expanded quick settings -->
+    <string name="status_bar_expanded_qs_quick_pulldown_title">Schnelles Öffnen</string>
+    <string name="qs_quick_pulldown_disabled">deaktiviert</string>
+    <string name="qs_quick_pulldown_right">von der rechten Seite</string>
+    <string name="qs_quick_pulldown_left">von der linken Seite</string>
 
     <!-- Display settings -->
 
