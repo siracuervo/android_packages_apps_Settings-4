@@ -16,9 +16,9 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/notif_drawer_cw_label_android_default"
+    <item android:id="@+id/status_bar_expanded_notif_cw_label_android_default"
           android:title="@string/reset_android_default" />
-    <item android:id="@+id/notif_drawer_cw_label_darkkat_default"
+    <item android:id="@+id/status_bar_expanded_notif_cw_label_darkkat_default"
           android:title="@string/reset_darkkat_default" />
 
 </menu>
