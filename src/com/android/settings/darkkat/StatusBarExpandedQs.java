@@ -16,59 +16,17 @@
 
 package com.android.settings.darkkat;
 
-import android.content.ContentResolver;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceScreen;
-import android.provider.Settings;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
-import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.R;
 
-public class StatusBarExpandedQs extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
-
-    private static final String TAG = "StatusBarExpandedQs";
-
-    private static final String PREF_QUICK_PULLDOWN = "qs_quick_pulldown";
-
-    private ListPreference mQuickPulldown;
-
-    private ContentResolver mResolver;
+public class StatusBarExpandedQs extends SettingsPreferenceFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.status_bar_expanded_qs);
-        mResolver = getActivity().getContentResolver();
-
-        mQuickPulldown = (ListPreference) findPreference(PREF_QUICK_PULLDOWN);
-        int quickPulldown = Settings.System.getInt(mResolver,
-                Settings.System.QS_QUICK_PULLDOWN, 0);
-        mQuickPulldown.setValue(String.valueOf(quickPulldown));
-        mQuickPulldown.setSummary(mQuickPulldown.getEntry());
-        mQuickPulldown.setOnPreferenceChangeListener(this);
-
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mQuickPulldown) {
-            int quickPulldown = Integer.valueOf((String) newValue);
-            int index = mQuickPulldown.findIndexOfValue((String) newValue);
-            Settings.System.putInt(mResolver, Settings.System.QS_QUICK_PULLDOWN, quickPulldown);
-            mQuickPulldown.setSummary(mQuickPulldown.getEntries()[index]);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
     }
 }

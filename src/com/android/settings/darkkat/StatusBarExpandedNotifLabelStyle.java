@@ -106,13 +106,13 @@ public class StatusBarExpandedNotifLabelStyle extends SettingsPreferenceFragment
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.notif_drawer_cw_label_android_default:
+            case R.id.status_bar_expanded_notif_cw_label_android_default:
                 Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_SHOW_CUSTOM_CARRIER_LABEL, 0);
                 Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0);
                 Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_CARRIER_WIFI_LABEL_COLOR, 0xff999999);
                 refreshSettings();
                 return true;
-            case R.id.notif_drawer_cw_label_darkkat_default:
+            case R.id.status_bar_expanded_notif_cw_label_darkkat_default:
                 Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_SHOW_CUSTOM_CARRIER_LABEL, 1);
                 Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 1);
                 Settings.System.putInt(mResolver, Settings.System.NOTIFICATION_CARRIER_WIFI_LABEL_COLOR, 0xffff0000);

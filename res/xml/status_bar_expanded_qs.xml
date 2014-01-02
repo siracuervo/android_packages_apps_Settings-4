@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 DarkKat
+<!-- Copyright (C) 2013 DarkKat
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -19,10 +19,22 @@
     android:title="@string/status_bar_expanded_quick_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-	<ListPreference
-		android:key="qs_quick_pulldown"
-		android:title="@string/status_bar_expanded_qs_quick_pulldown_title"
-		android:entries="@array/qs_quick_pulldown_entries"
-		android:entryValues="@array/qs_quick_pulldown_values" />
+    <PreferenceScreen
+        android:key="qs_color"
+        android:title="@string/quicksettings_color_title"
+        android:summary="@string/quicksettings_color_summary"
+        android:fragment="com.android.settings.darkkat.StatusBarExpandedQsColor" />
+
+    <PreferenceScreen
+        android:key="qs_options"
+        android:title="@string/quicksettings_options_title"
+        android:summary="@string/quicksettings_options_summary"
+        android:fragment="com.android.settings.darkkat.StatusBarExpandedQsOptions" />
+
+    <PreferenceScreen
+        android:key="qs_tile_picker"
+        android:title="@string/quicksettings_tile_picker_title"
+        android:summary="@string/quicksettings_tile_picker_summary"
+        android:fragment="com.android.settings.darkkat.StatusBarExpandedQsTiles" />
 
 </PreferenceScreen>

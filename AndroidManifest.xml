@@ -1585,7 +1585,6 @@
         <activity android:name=".darkkat.PowerMenu" />
         <activity android:name=".darkkat.Statusbar" />
         <activity android:name=".darkkat.StatusBarClockDateStyle" />
-        <activity android:name=".darkkat.StatusBarBatteryStatusStyle" />
         <activity android:name=".darkkat.StatusBarBatteryBarStyle" />
         <activity android:name=".darkkat.StatusBarSignalWifiStyle" />
         <activity android:name=".darkkat.StatusBarNetworkSpeedStyle" />
@@ -1593,7 +1592,35 @@
         <activity android:name=".darkkat.StatusBarExpandedHeader" />
         <activity android:name=".darkkat.StatusBarExpandedNotif" />
         <activity android:name=".darkkat.StatusBarExpandedNotifLabelStyle" />
-        <activity android:name=".darkkat.StatusBarExpandedQs" />
+        <activity android:name=".darkkat.StatusBarExpandedQsColor" />
+        <activity android:name=".darkkat.StatusBarExpandedQsOptions" />
+
+
+        <!-- Pseudo-activity used to provide an intent-filter entry point to battery icon settings -->
+        <activity android:name="Settings$BatteryStatusStyleSettingsActivity"
+                android:label="@string/status_bar_battery_status_style_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkkat.StatusBarBatteryStatusStyle" />
+        </activity>
+
+        <!-- Pseudo-activity used to provide an intent-filter entry point to rotation settings -->
+        <activity android:name="Settings$DisplayRotationSettingsActivity"
+                android:label="@string/display_rotation_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkkat.DisplayRotation" />
+        </activity>
 
         <!-- DarkKat activities End -->
 

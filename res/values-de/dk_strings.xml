@@ -20,12 +20,16 @@
 
     <!-- Global used -->
     <string name="cat_options_title">Optionen</string>
+    <string name="cat_signal_activity_title">Mobilnetzwerk-Aktivitäts Symbol</string>
+    <string name="cat_wifi_activity_title">Wifinetzwerk-Aktivitäts Symbol</string>
     <string name="reset_android_default">Auf Android Standard zurücksetzten</string>
     <string name="reset_darkkat_default">Auf DarkKat Standard zurücksetzten</string>
     <string name="color_title">Farbe</string>
     <string name="dot_length_title">Ring&#47;Kreis Punkt Länge</string>
     <string name="dot_interval_title">Ring&#47;Kreis Punkt Abstand</string>
     <string name="dot_offset_title">Ring&#47;Kreis Punkt Versatz</string>
+    <string name="color_normal_title">Farbe (Normal)</string>
+    <string name="color_connected_title">Farbe (Mit Google verbunden)</string>
     <string name="custom_carrier_label_title">Netztbetreiber Name anpassen</string>
     <string name="custom_carrier_label_notset">Kein angepasster Netzbetreiber Name gesetzt</string>
     <string name="show_custom_carrier_label_title">Angepasster Netzbetreiber Name</string>
@@ -34,7 +38,13 @@
     <string name="show_wifi_ssid_title">Wifi Netzwerkname Name</string>
     <string name="show_wifi_ssid_summary">Aktivieren, um den Wifi Netzwerknamen anzuzeigen</string>
     <string name="ok">OK</string>
+    <string name="reset">Zurücksetzen</string>
+    <string name="add">Hinzufügen</string>
     <string name="image_not_valid">Bild nicht vorhanden</string>
+    <string name="dialog_delete_title">Löschen</string>
+    <string name="dlg_qs_style_reset_message">Farb Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
+    <string name="dlg_reset_android">Android</string>
+    <string name="dlg_reset_darkkat">DarkKat</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Farbauswahl</string>
@@ -164,11 +174,7 @@
     <string name="status_bar_signal_wifi_style_title">Netzwerk Symbole anpassen</string>
     <string name="status_bar_cat_signal_strength_title">Mobilnetzwerk-Stärke Symbol</string>
     <string name="status_bar_cat_signal_network_type_title">Mobilnetzwerk-Typ Symbol</string>
-    <string name="status_bar_cat_signal_activity_title">Mobilnetzwerk-Aktivitäts Symbol</string>
     <string name="status_bar_cat_wifi_strength_title">Wifinetzwerk-Stärke Symbol</string>
-    <string name="status_bar_cat_wifi_activity_title">Wifinetzwerk-Aktivitäts Symbol</string>
-    <string name="color_normal_title">Farbe (Normal)</string>
-    <string name="color_connected_title">Farbe (Mit Google verbunden)</string>
     <string name="status_bar_show_activity_indicators_title">Netzwerkaktivität anzeigen</string>
     <string name="status_bar_show_activity_indicators_summary">Aktivieren um die Netzwerkaktivität anzuzeigen</string>
 
@@ -195,8 +201,6 @@
     <string name="color_upload_title">Upload Farbe</string>
 
     <!-- Statusbar expanded -->
-
-    <!-- Statusbar expanded -->
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
     <string name="status_bar_expanded_background_title">Hintergrund</string>
     <string name="status_bar_expanded_header_title">Kopfzeile</string>
@@ -221,10 +225,79 @@
     <string name="notif_alpha_title">Transparenz der Benachrichtigungen</string>
 
     <!-- Statusbar expanded quick settings -->
-    <string name="status_bar_expanded_qs_quick_pulldown_title">Schnelles Öffnen</string>
+    <string name="quicksettings_color_title">Farben &amp; Transparenz</string>
+    <string name="quicksettings_color_summary">Farben &amp; Transparenz anpassen</string>
+    <string name="quicksettings_options_title">Optionen</string>
+    <string name="quicksettings_options_summary">Optionen anpassen</string>
+    <string name="quicksettings_tile_picker_title">Kacheln und Anordnung</string>
+    <string name="quicksettings_tile_picker_summary">Kacheln anpassen</string>
+
+    <!-- Statusbar expanded quick settings colors -->
+    <string name="quick_tiles_cat_tiles">Kacheln</string>
+    <string name="quick_tiles_use_different_activity_color_title">Aktivitäts-Symbol Farben</string>
+    <string name="quick_tiles_use_different_activity_color_summary">Aktivieren, um eigene Netzwerk Aktivitäts Symbol Farben für die Mobil- und Wifi Kacheln zu erwenden</string>
+    <string name="quick_tiles_bg_color_title">Kachel Hintergrund Farbe</string>
+    <string name="quick_tiles_bg_pressed_color_title">Kachel Hintergrund Farbe gedrückt</string>
+    <string name="quick_tiles_text_color_title">Kachel Text Farbe</string>
+    <string name="quick_tiles_alpha_title">Kachel Hintergrund Transparenz</string>
+
+    <!-- Statusbar expanded quick settings options -->
+    <string name="qs_quick_pulldown_title">Schnelles Öffnen</string>
     <string name="qs_quick_pulldown_disabled">deaktiviert</string>
     <string name="qs_quick_pulldown_right">von der rechten Seite</string>
     <string name="qs_quick_pulldown_left">von der linken Seite</string>
+    <string name="tiles_per_row_title">Kacheln in einer Reihe</string>
+    <string name="tiles_per_row_duplicate_landscape_title">Kacheln im Querformat</string>
+    <string name="tiles_per_row_duplicate_landscape_summary">Aktivieren, um die Anzahl der Kacheln im Querformat verdoppelt wird</string>
+
+    <!-- Statusbar expanded quick settings tiles -->
+    <string name="tile_choose_title">Kacheln auswählen</string>
+    <string name="title_tile_airplane">Flugmodus</string>
+    <string name="title_tile_battery">Akku</string>
+    <string name="title_tile_bluetooth">Bluetooth</string>
+    <string name="title_tile_brightness">Helligkeit</string>
+    <string name="title_tile_sleep">Ruhezustand</string>
+    <string name="title_tile_location">Standort</string>
+    <string name="title_tile_torch">Taschenlampe</string>
+    <string name="title_tile_lockscreen">Bildschirmsperre</string>
+    <string name="title_tile_mobiledata">Mobile Datenverbindung</string>
+    <string name="title_tile_autorotate">Bildschirmausrichtung</string>
+    <string name="title_tile_settings">Einstellungen</string>
+    <string name="title_tile_sound">Ton-Modus</string>
+    <string name="title_tile_sync">Synchronisierung</string>
+    <string name="title_tile_wifiap">Wi-Fi AP</string>
+    <string name="title_tile_wifi">Wi-Fi</string>
+    <string name="title_tile_user">Benutzer-Wechsel</string>
+    <string name="title_tile_networkmode">Netzwerk Modus</string>
+    <string name="title_tile_nfc">NFC</string>
+    <string name="title_tile_screen_timeout">Beleuchtungsdauer</string>
+    <string name="title_tile_quick_record">Schnellaufnahme</string>
+    <string name="title_tile_volume">Lautstärke</string>
+    <string name="title_tile_music">Musik</string>
+    <string name="title_tile_reboot">Neustarten</string>
+    <string name="dynamic_tile_ime_switcher">Eingabemethode-Wechsel</string>
+    <string name="dynamic_tile_usb_tether">USB Tether</string>
+    <string name="dynamic_tile_alarm">Wecker</string>
+    <string name="dynamic_tile_bugreport">Fehlerbericht</string>
+    <string name="dynamic_tiles_title">Dynamische Kacheln</string>
+    <string name="tiles_reset_message">Kachel Anordnung auf Standard zurücksetzen?</string>
+    <string name="disable_qs">Schnelleinstellungen sind deaktiviert</string>
+    <string name="disable_qs_message">Keine kachel vorhanden. Schnelleinstellungen sind deaktiviert.\n\nZum Aktivieren, eine Kachel hinzufügen.</string>
+    <string name="help_qs_message">Um eine Kachel hinzuzufügen, die Hinzufügen Schaltfläche drücken, und nach belieben eine Kachel wählen. Um die Anordnung zu ändern, die Kachel gedrückt halten, und an die entsprechende Position verschieben. Um eine Kachel zu löschen, die entsprechende Kachel auf das Löschen-Symbol ziehen, welches erscheint, sobald die Kachel gedrückt gehalten wird.\n\nUm die dynamischen Kacheln anzupassen, auf das entsprechende Symbol oben rechts auf dem Bildschirm drücken.\n\nUm die Schnelleinstellungen zu entfernen, alle Kacheln löschen.</string>
+    <string name="pref_network_mode_title">Netzwerk Modus</string>
+    <string name="pref_screentimeout_mode_title">Bildschirm Ruhe Modi</string>
+    <string name="pref_ring_mode_title">Ton Modi</string>
+    <string name="pref_music_mode_title">Musik Modi</string>
+    <string name="screentimeout_mode1">15s | 1m | 5m | Nie</string>
+    <string name="screentimeout_mode2">30s | 2m | 5m | Nie</string>
+    <string name="sound_mode_silent">Lautlos</string>
+    <string name="sound_mode_vibrate">Vibration</string>
+    <string name="sound_mode_sound">Ton</string>
+    <string name="sound_mode_soundVibrate">Ton &amp; Vibration</string>
+    <string name="music_tile_mode_background">Album Cover anzeigen</string>
+    <string name="music_tile_mode_tracktitle">Song Name anzeigen</string>
+
+
 
     <!-- Display settings -->
 

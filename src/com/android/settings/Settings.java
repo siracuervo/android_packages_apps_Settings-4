@@ -71,6 +71,8 @@ import com.android.settings.applications.ManageApplications;
 import com.android.settings.applications.ProcessStatsUi;
 import com.android.settings.bluetooth.BluetoothEnabler;
 import com.android.settings.bluetooth.BluetoothSettings;
+import com.android.settings.darkkat.StatusBarBatteryStatusStyle;
+import com.android.settings.darkkat.DisplayRotation;
 import com.android.settings.deviceinfo.Memory;
 import com.android.settings.deviceinfo.UsbSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
@@ -350,7 +352,9 @@ public class Settings extends PreferenceActivity
         PrintJobSettingsFragment.class.getName(),
         TrustedCredentialsSettings.class.getName(),
         PaymentSettings.class.getName(),
-        KeyboardLayoutPickerFragment.class.getName()
+        KeyboardLayoutPickerFragment.class.getName(),
+        StatusBarBatteryStatusStyle.class.getName(),
+        DisplayRotation.class.getName()
     };
 
     @Override
@@ -1115,4 +1119,6 @@ public class Settings extends PreferenceActivity
     public static class PaymentSettingsActivity extends Settings { /* empty */ }
     public static class PrintSettingsActivity extends Settings { /* empty */ }
     public static class PrintJobSettingsActivity extends Settings { /* empty */ }
+    public static class BatteryStatusStyleSettingsActivity extends Settings { /* empty */ }
+    public static class DisplayRotationSettingsActivity extends Settings { /* empty */ }
 }

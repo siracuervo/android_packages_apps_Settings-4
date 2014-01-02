@@ -17,10 +17,8 @@
 package com.android.settings.darkkat;
 
 import android.os.Bundle;
-import android.preference.Preference;
 
 import com.android.settings.R;
-import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class StatusBarExpanded extends SettingsPreferenceFragment {
@@ -30,12 +28,5 @@ public class StatusBarExpanded extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.status_bar_expanded);
-
-        // Remove Quick settings preference screen on wifi only devices
-        // (at the moment only Quick settings quick pull down is available
-        // which is only supported on phones)
-        if (!Utils.isPhone(getActivity())) {
-            removePreference("quick_settings");
-        }
     }
 }
