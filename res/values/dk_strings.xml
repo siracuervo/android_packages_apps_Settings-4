@@ -30,6 +30,7 @@
     <string name="dot_offset_title">Ring&#47;Circle Dot offset</string>
     <string name="color_normal_title">Color (Normal)</string>
     <string name="color_connected_title">Color (Google connected)</string>
+    <string name="expanded_desktop_title">Expanded desktop</string>
     <string name="custom_carrier_label_title">Customize custom carrier label</string>
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
     <string name="show_custom_carrier_label_title">Custom carrier label</string>
@@ -81,11 +82,16 @@
     <!-- Interface settings -->
     <string name="interface_settings_title">Interface</string>
 
-    <!-- General strings -->
+    <!-- General -->
     <string name="general_title">General</string>
 
     <!-- Custom carrier label strings -->
     <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
+
+    <!-- Expanded desktop -->
+    <string name="expanded_desktop_disabled">Disabled</string>
+    <string name="expanded_desktop_status_bar">Status bar visible</string>
+    <string name="expanded_desktop_no_status_bar">Status bar hidden</string>
 
     <!-- Power menu -->
     <string name="power_menu_title">Power menu</string>
@@ -93,6 +99,7 @@
     <string name="power_menu_toggle_screenshot_summary">Activate, to show screenshot option in Power Menu</string>
     <string name="power_menu_toggle_screen_record_title">Screen record</string>
     <string name="power_menu_toggle_screen_record_summary">Activate, to show screen record option in Power Menu</string>
+    <string name="power_menu_toggle_expanded_desktop_summary">Activate, to show expanded desktop option in Power Menu</string>
 
     <!-- Status bar -->
     <string name="status_bar_title">Status bar</string>
@@ -269,6 +276,7 @@
     <string name="title_tile_wifi">Wi-Fi</string>
     <string name="title_tile_user">User switcher</string>
     <string name="title_tile_networkmode">Network mode</string>
+    <string name="title_tile_expanded_desktop">Expanded desktop</string>
     <string name="title_tile_nfc">NFC</string>
     <string name="title_tile_screen_timeout">Screen timeout</string>
     <string name="title_tile_quick_record">Quick Record</string>

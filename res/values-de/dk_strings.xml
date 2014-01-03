@@ -30,6 +30,7 @@
     <string name="dot_offset_title">Ring&#47;Kreis Punkt Versatz</string>
     <string name="color_normal_title">Farbe (Normal)</string>
     <string name="color_connected_title">Farbe (Mit Google verbunden)</string>
+    <string name="expanded_desktop_title">Erweiterter Desktop</string>
     <string name="custom_carrier_label_title">Netztbetreiber Name anpassen</string>
     <string name="custom_carrier_label_notset">Kein angepasster Netzbetreiber Name gesetzt</string>
     <string name="show_custom_carrier_label_title">Angepasster Netzbetreiber Name</string>
@@ -87,12 +88,18 @@
     <!-- Custom carrier label strings -->
     <string name="custom_carrier_label_explain">Gib bitte einen neuen Netzbetreiber Namen ein. Lass das Feld leer, um den originalen Netzbetreiber Namen wieder herzustellen.</string>
 
+    <!-- Expanded desktop -->
+    <string name="expanded_desktop_disabled">Deaktiviert</string>
+    <string name="expanded_desktop_status_bar">Statusleiste anzeigen</string>
+    <string name="expanded_desktop_no_status_bar">Statusleiste verbergen</string>
+
     <!-- Power menu -->
     <string name="power_menu_title">Ein-&#47;Aus Menü</string>
     <string name="power_menu_toggle_screenshot_title">Bildschirmfoto</string>
     <string name="power_menu_toggle_screenshot_summary">Aktivieren um die Bildschirmfoto Option im Ein-&#47;Aus Menü anzuzeigen</string>
     <string name="power_menu_toggle_screen_record_title">Bildschirm Aufnahme</string>
     <string name="power_menu_toggle_screen_record_summary">Aktivieren um die Bildschirm Aufnahme Option im Ein-&#47;Aus Menü anzuzeigen</string>
+    <string name="power_menu_toggle_expanded_desktop_summary">Aktivieren um die Erweiterter Desktop Option im Ein-&#47;Aus Menü anzuzeigen</string>
 
     <!-- Status bar -->
     <string name="status_bar_title">Statusleiste</string>
@@ -269,6 +276,7 @@
     <string name="title_tile_wifi">Wi-Fi</string>
     <string name="title_tile_user">Benutzer-Wechsel</string>
     <string name="title_tile_networkmode">Netzwerk Modus</string>
+    <string name="title_tile_expanded_desktop">Erweiterter desktop</string>
     <string name="title_tile_nfc">NFC</string>
     <string name="title_tile_screen_timeout">Beleuchtungsdauer</string>
     <string name="title_tile_quick_record">Schnellaufnahme</string>

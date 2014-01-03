@@ -32,9 +32,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements
 
     private static final String KEY_POWER_MENU_SCREENSHOT = "power_menu_screenshot";
     private static final String KEY_POWER_MENU_SCREEN_RECORD = "power_menu_screen_record";
+    private static final String KEY_POWER_MENU_EXPANDED_DESKTOP = "power_menu_expanded_desktop";
 
     private CheckBoxPreference mShowScreenshot;
     private CheckBoxPreference mShowScreenRecord;
+    private CheckBoxPreference mShowExpandedDesktop;
 
     private ContentResolver mResolver;
 
@@ -55,6 +57,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements
         mShowScreenRecord.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.SCREENRECORD_IN_POWER_MENU, 0) == 1);
         mShowScreenRecord.setOnPreferenceChangeListener(this);
+
+        mShowExpandedDesktop = (CheckBoxPreference) findPreference(KEY_POWER_MENU_EXPANDED_DESKTOP);
+        mShowExpandedDesktop.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.EXPANDED_DESKTOP_IN_POWER_MENU, 0) == 1);
+        mShowExpandedDesktop.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -69,6 +76,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.System.putInt(mResolver,
                     Settings.System.SCREENRECORD_IN_POWER_MENU, value ? 1 : 0);
+            return true;
+        } else if (preference == mShowExpandedDesktop) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.EXPANDED_DESKTOP_IN_POWER_MENU, value ? 1 : 0);
             return true;
         }
 

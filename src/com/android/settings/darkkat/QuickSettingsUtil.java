@@ -35,6 +35,7 @@ import static com.android.internal.util.darkkat.QSConstants.TILE_LOCKSCREEN;
 import static com.android.internal.util.darkkat.QSConstants.TILE_MOBILEDATA;
 import static com.android.internal.util.darkkat.QSConstants.TILE_MUSIC;
 import static com.android.internal.util.darkkat.QSConstants.TILE_NETWORKMODE;
+import static com.android.internal.util.darkkat.QSConstants.TILE_EXPANDEDDESKTOP;
 import static com.android.internal.util.darkkat.QSConstants.TILE_NFC;
 import static com.android.internal.util.darkkat.QSConstants.TILE_QUICKRECORD;
 import static com.android.internal.util.darkkat.QSConstants.TILE_RINGER;
@@ -103,6 +104,9 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_NETWORKMODE, R.string.title_tile_networkmode,
                 "com.android.systemui:drawable/ic_qs_2g3g_on"));
+        registerTile(new QuickSettingsUtil.TileInfo(
+                TILE_EXPANDEDDESKTOP, R.string.title_tile_expanded_desktop,
+                "com.android.systemui:drawable/ic_qs_expanded_desktop_on"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_NFC, R.string.title_tile_nfc,
                 "com.android.systemui:drawable/ic_qs_nfc_on"));
