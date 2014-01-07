@@ -1587,7 +1587,6 @@
         <activity android:name=".darkkat.StatusBarClockDateStyle" />
         <activity android:name=".darkkat.StatusBarBatteryBarStyle" />
         <activity android:name=".darkkat.StatusBarSignalWifiStyle" />
-        <activity android:name=".darkkat.StatusBarNetworkSpeedStyle" />
         <activity android:name=".darkkat.StatusBarExpandedBackground" />
         <activity android:name=".darkkat.StatusBarExpandedHeader" />
         <activity android:name=".darkkat.StatusBarExpandedNotif" />
@@ -1620,6 +1619,19 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.darkkat.StatusBarBatteryStatusStyle" />
+        </activity>
+
+        <!-- Pseudo-activity used to provide an intent-filter entry point to network speed indicator settings -->
+        <activity android:name="Settings$NetworkSpeedIndicatorSettingsActivity"
+                android:label="@string/status_bar_network_speed_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkkat.StatusBarNetworkSpeedStyle" />
         </activity>
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to rotation settings -->
