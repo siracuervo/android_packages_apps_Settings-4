@@ -75,6 +75,7 @@ import com.android.settings.darkkat.General;
 import com.android.settings.darkkat.StatusBarBatteryStatusStyle;
 import com.android.settings.darkkat.StatusBarNetworkSpeedStyle;
 import com.android.settings.darkkat.DisplayRotation;
+import com.android.settings.darkkat.QuietHours;
 import com.android.settings.deviceinfo.Memory;
 import com.android.settings.deviceinfo.UsbSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
@@ -358,7 +359,8 @@ public class Settings extends PreferenceActivity
         General.class.getName(),
         StatusBarBatteryStatusStyle.class.getName(),
         StatusBarNetworkSpeedStyle.class.getName(),
-        DisplayRotation.class.getName()
+        DisplayRotation.class.getName(),
+        QuietHours.class.getName()
     };
 
     @Override
@@ -1127,4 +1129,5 @@ public class Settings extends PreferenceActivity
     public static class BatteryStatusStyleSettingsActivity extends Settings { /* empty */ }
     public static class NetworkSpeedIndicatorSettingsActivity extends Settings { /* empty */ }
     public static class DisplayRotationSettingsActivity extends Settings { /* empty */ }
+    public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
 }

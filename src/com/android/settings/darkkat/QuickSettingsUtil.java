@@ -39,6 +39,7 @@ import static com.android.internal.util.darkkat.QSConstants.TILE_NETWORKSPEED;
 import static com.android.internal.util.darkkat.QSConstants.TILE_EXPANDEDDESKTOP;
 import static com.android.internal.util.darkkat.QSConstants.TILE_NFC;
 import static com.android.internal.util.darkkat.QSConstants.TILE_QUICKRECORD;
+import static com.android.internal.util.darkkat.QSConstants.TILE_QUIETHOURS;
 import static com.android.internal.util.darkkat.QSConstants.TILE_RINGER;
 import static com.android.internal.util.darkkat.QSConstants.TILE_SCREENTIMEOUT;
 import static com.android.internal.util.darkkat.QSConstants.TILE_SETTINGS;
@@ -153,6 +154,9 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_QUICKRECORD, R.string.title_tile_quick_record,
                 "com.android.systemui:drawable/ic_qs_quickrecord"));
+        registerTile(new QuickSettingsUtil.TileInfo(
+                TILE_QUIETHOURS, R.string.title_tile_quiet_hours,
+                "com.android.systemui:drawable/ic_qs_quiet_hours_on"));
     }
 
     private static void registerTile(QuickSettingsUtil.TileInfo info) {

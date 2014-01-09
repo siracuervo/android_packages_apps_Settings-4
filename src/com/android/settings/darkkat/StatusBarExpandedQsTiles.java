@@ -581,7 +581,7 @@ public class StatusBarExpandedQsTiles extends Fragment {
                             new Thread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    ArrayList<String> curr =
+                                   ArrayList<String> curr =
                                             QuickSettingsUtil.getTileListFromString(
                                                 QuickSettingsUtil.getCurrentTiles(getActivity()));
                                     curr.add(getOwner().mTileAdapter.getTileId(position));
