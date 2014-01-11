@@ -63,4 +63,16 @@
                 android:title="@string/wifi_display_settings_title"
                 android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
 
+        <PreferenceCategory
+            android:key="display_wake_category"
+            android:title="@string/display_wake_category_title">
+
+            <CheckBoxPreference
+                android:key="wake_when_plugged_or_unplugged"
+                android:title="@string/wake_when_plugged_or_unplugged_title"
+                android:summary="@string/wake_when_plugged_or_unplugged_summary"
+                android:defaultValue="true" />
+
+        </PreferenceCategory>
+
 </PreferenceScreen>

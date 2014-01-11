@@ -428,6 +428,11 @@
     <string name="swap_volume_buttons_title">Lautstärketasten umkehren</string>
     <string name="swap_volume_buttons_summary">Belegung der Lautstärketasten umkehren, wenn das Gerät gedreht wird</string>
 
+    <!-- Display wake up options -->
+    <string name="display_wake_category_title">Optionen für das Aufwecken</string>
+    <string name="wake_when_plugged_or_unplugged_title">Ladegerät</string>
+    <string name="wake_when_plugged_or_unplugged_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald ein Ladegerät angeschlossen oder entfernt wird</string>
+
     <!-- Development settings -->
 
     <!-- Advanced reboot options -->
