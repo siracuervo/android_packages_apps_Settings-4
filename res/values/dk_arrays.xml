@@ -65,6 +65,34 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="ram_bar_mode_entries">
+        <item>@string/ram_bar_none</item>
+        <item>@string/ram_bar_apps</item>
+        <item>@string/ram_bar_cache</item>
+        <item>@string/ram_bar_other</item>
+    </string-array>
+
+    <string-array name="ram_bar_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="recents_clear_all_button_position_entries" >
+        <item>@string/recents_clear_all_button_lt</item>
+        <item>@string/recents_clear_all_button_rt</item>
+        <item>@string/recents_clear_all_button_lb</item>
+        <item>@string/recents_clear_all_button_rb</item>
+    </string-array>
+
+    <string-array name="recents_clear_all_button_position_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
     <string-array name="status_bar_am_pm_entries">
         <item>@string/status_bar_am_pm_normal</item>
         <item>@string/status_bar_am_pm_small</item>

@@ -72,6 +72,7 @@ import com.android.settings.applications.ProcessStatsUi;
 import com.android.settings.bluetooth.BluetoothEnabler;
 import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.darkkat.General;
+import com.android.settings.darkkat.RamBar;
 import com.android.settings.darkkat.StatusBarBatteryStatusStyle;
 import com.android.settings.darkkat.StatusBarNetworkSpeedStyle;
 import com.android.settings.darkkat.DisplayRotation;
@@ -357,6 +358,7 @@ public class Settings extends PreferenceActivity
         PaymentSettings.class.getName(),
         KeyboardLayoutPickerFragment.class.getName(),
         General.class.getName(),
+        RamBar.class.getName(),
         StatusBarBatteryStatusStyle.class.getName(),
         StatusBarNetworkSpeedStyle.class.getName(),
         DisplayRotation.class.getName(),
@@ -1126,6 +1128,7 @@ public class Settings extends PreferenceActivity
     public static class PrintSettingsActivity extends Settings { /* empty */ }
     public static class PrintJobSettingsActivity extends Settings { /* empty */ }
     public static class GeneralSettingsActivity extends Settings { /* empty */ }
+    public static class RamBarSettingsActivity extends Settings { /* empty */ }
     public static class BatteryStatusStyleSettingsActivity extends Settings { /* empty */ }
     public static class NetworkSpeedIndicatorSettingsActivity extends Settings { /* empty */ }
     public static class DisplayRotationSettingsActivity extends Settings { /* empty */ }

@@ -23,6 +23,7 @@
     <string name="cat_signal_activity_title">Mobile network activity icon</string>
     <string name="cat_wifi_activity_title">Wifi network activity icon</string>
     <string name="reset_android_default">Reset to Android default</string>
+    <string name="reset_default">Reset to default</string>
     <string name="reset_darkkat_default">Reset to Darkkat default</string>
     <string name="color_title">Color</string>
     <string name="dot_length_title">Ring&#47;Circle Dot length</string>
@@ -107,6 +108,34 @@
     <string name="power_menu_toggle_screen_record_title">Screen record</string>
     <string name="power_menu_toggle_screen_record_summary">Activate, to show screen record option in Power Menu</string>
     <string name="power_menu_toggle_expanded_desktop_summary">Activate, to show expanded desktop option in Power Menu</string>
+
+    <!-- Recents apps strings -->
+    <string name="recents_apps_title">Recents Apps</string>
+
+    <!-- Ram bar strings -->
+    <string name="ram_bar">Recents RAM bar</string>
+    <string name="ram_bar_note_title">Note</string>
+    <string name="ram_bar_note_summary">This rambar shows how android is really using your available ram. Please note that having apps open in the background and cached helps for your device to open your apps faster.</string>
+    <string name="ram_bar_mode_title">Recents RAM bar mode</string>
+    <string name="ram_bar_mode_dialog_title">Show on recents RAM bar</string>
+    <string name="ram_bar_none">None</string>
+    <string name="ram_bar_apps">Applications</string>
+    <string name="ram_bar_cache">Applications and cache</string>
+    <string name="ram_bar_other">Applications, cache and other</string>
+    <string name="ram_bar_style_cat">Recents RAM bar style</string>
+    <string name="ram_bar_color_app_mem_color">Applications RAM color</string>
+    <string name="ram_bar_color_cache_mem_color">Cache RAM color</string>
+    <string name="ram_bar_color_total_mem_color">Other RAM color</string>
+    <string name="ram_bar_color_free_mem_color">Free RAM color</string>
+    <string name="ram_bar_color_enabled">Enabled</string>
+    <string name="ram_bar_color_disabled">Disabled</string>
+
+    <!-- Clear all button strings -->
+    <string name="recents_clear_all_button_position_title">Clear all button position</string>
+    <string name="recents_clear_all_button_lt">Top left</string>
+    <string name="recents_clear_all_button_rt">Top right</string>
+    <string name="recents_clear_all_button_lb">Bottom left</string>
+    <string name="recents_clear_all_button_rb">Bottom right</string>
 
     <!-- Status bar -->
     <string name="status_bar_title">Status bar</string>

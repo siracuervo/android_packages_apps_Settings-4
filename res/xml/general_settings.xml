@@ -39,4 +39,9 @@ limitations under the License.
         android:fragment="com.android.settings.darkkat.PowerMenu"
         android:title="@string/power_menu_title" />
 
+    <PreferenceScreen
+        android:key="recents_apps"
+        android:fragment="com.android.settings.darkkat.RecentsAppsSettings"
+        android:title="@string/recents_apps_title" />
+
 </PreferenceScreen>
