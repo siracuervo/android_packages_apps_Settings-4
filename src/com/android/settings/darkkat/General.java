@@ -47,10 +47,12 @@ public class General extends SettingsPreferenceFragment implements
     private static final String KEY_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String KEY_EXPANDED_DESKTOP = "expanded_desktop";
     private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
+    private static final String KEY_LOW_BATTERY_WARNING_POLICY = "low_battery_warning_policy";
 
     private Preference mCustomLabel;
     private ListPreference mExpandedDesktop;
     private CheckBoxPreference mExpandedDesktopNoNavbar;
+    private ListPreference mLowBatteryWarning;
 
     private ContentResolver mResolver;
     private String mCustomLabelText = null;
@@ -90,6 +92,13 @@ public class General extends SettingsPreferenceFragment implements
             Log.e(TAG, "Error getting navigation bar status");
         }
 
+        mLowBatteryWarning = (ListPreference) findPreference(KEY_LOW_BATTERY_WARNING_POLICY);
+        int lowBatteryWarning = Settings.System.getInt(mResolver,
+                Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, 0);
+        mLowBatteryWarning.setValue(String.valueOf(lowBatteryWarning));
+        mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
+        mLowBatteryWarning.setOnPreferenceChangeListener(this);
+
         updateCustomLabelTextSummary();
 
     }
@@ -102,6 +111,13 @@ public class General extends SettingsPreferenceFragment implements
         } else if (preference == mExpandedDesktopNoNavbar) {
             boolean value = (Boolean) objValue;
             updateExpandedDesktop(value ? 2 : 0);
+            return true;
+        } else if (preference == mLowBatteryWarning) {
+            int lowBatteryWarning = Integer.valueOf((String) objValue);
+            int index = mLowBatteryWarning.findIndexOfValue((String) objValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, lowBatteryWarning);
+            mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntries()[index]);
             return true;
         }
 

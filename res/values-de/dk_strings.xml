@@ -137,6 +137,16 @@
     <string name="recents_clear_all_button_lb">Unten links</string>
     <string name="recents_clear_all_button_rb">Unten rechts</string>
 
+    <!-- Low battery warning policy -->
+    <string name="low_battery_warning_policy_title">Warnung bei niedrigem Akkustand</string>
+    <string name="low_battery_warning_policy_dialog_title">Warnung bei niedrigem Akkustand mit</string>
+    <string name="low_battery_warning_policy_popup_sound">Pop-up und Ton</string>
+    <string name="low_battery_warning_policy_notif_sound">Benachrichtigung und Ton</string>
+    <string name="low_battery_warning_policy_popup">Nur Pop-up</string>
+    <string name="low_battery_warning_policy_notif">Nur Benachrichtigung</string>
+    <string name="low_battery_warning_policy_sound">Nur Ton</string>
+    <string name="low_battery_warning_policy_disabled">Deaktiviert</string>
+
     <!-- Status bar -->
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_show_clock_title">Die Uhr anzeigen</string>

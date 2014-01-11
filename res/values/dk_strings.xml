@@ -137,6 +137,16 @@
     <string name="recents_clear_all_button_lb">Bottom left</string>
     <string name="recents_clear_all_button_rb">Bottom right</string>
 
+    <!-- Low battery warning policy -->
+    <string name="low_battery_warning_policy_title">Low battery warning</string>
+    <string name="low_battery_warning_policy_dialog_title">Indicate low battery warning with</string>
+    <string name="low_battery_warning_policy_popup_sound">Pop-up and sound</string>
+    <string name="low_battery_warning_policy_notif_sound">Notification and sound</string>
+    <string name="low_battery_warning_policy_popup">Pop-up dialog only</string>
+    <string name="low_battery_warning_policy_notif">Notification only</string>
+    <string name="low_battery_warning_policy_sound">Sound only</string>
+    <string name="low_battery_warning_policy_disabled">Disabled</string>
+
     <!-- Status bar -->
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_show_clock_title">Show clock</string>

@@ -23,16 +23,16 @@ limitations under the License.
 	    android:title="@string/custom_carrier_label_title" />
 
     <ListPreference
-            android:key="expanded_desktop"
-            android:title="@string/expanded_desktop_title"
-            android:entries="@array/expanded_desktop_entries"
-            android:entryValues="@array/expanded_desktop_values"
-            android:persistent="false" />
+        android:key="expanded_desktop"
+        android:title="@string/expanded_desktop_title"
+        android:entries="@array/expanded_desktop_entries"
+        android:entryValues="@array/expanded_desktop_values"
+        android:persistent="false" />
 
     <CheckBoxPreference
-            android:key="expanded_desktop_no_navbar"
-            android:title="@string/expanded_desktop_title"
-            android:persistent="true" />
+        android:key="expanded_desktop_no_navbar"
+        android:title="@string/expanded_desktop_title"
+        android:persistent="true" />
 
     <PreferenceScreen
         android:key="power_menu"
@@ -43,5 +43,13 @@ limitations under the License.
         android:key="recents_apps"
         android:fragment="com.android.settings.darkkat.RecentsAppsSettings"
         android:title="@string/recents_apps_title" />
+
+    <ListPreference
+        android:key="low_battery_warning_policy"
+        android:title="@string/low_battery_warning_policy_title"
+        android:dialogTitle="@string/low_battery_warning_policy_dialog_title"
+        android:entries="@array/low_battery_warning_policy_entries"
+        android:entryValues="@array/low_battery_warning_policy_values"
+        android:defaultValue="0" />
 
 </PreferenceScreen>
