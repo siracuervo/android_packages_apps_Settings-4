@@ -61,6 +61,12 @@ public class StatusBarExpandedQsColor extends SettingsPreferenceFragment impleme
             "quick_tiles_alpha";
     private static final String PREF_QUICK_TILES_TEXT_COLOR =
             "quick_tiles_text_color";
+    private static final String PREF_QUICK_TILES_ICON_NORMAL_COLOR =
+            "quick_tiles_icon_normal_color";
+    private static final String PREF_QUICK_TILES_ICON_ENABLED_COLOR =
+            "quick_tiles_icon_enabled_color";
+    private static final String PREF_QUICK_TILES_ICON_DISABLED_COLOR =
+            "quick_tiles_icon_disabled_color";
     private static final String PREF_QUICK_TILES_SIGNAL_ACTIVITY_NORMAL_COLOR =
             "quick_tiles_signal_activity_normal_color";
     private static final String PREF_QUICK_TILES_SIGNAL_ACTIVITY_CONNECTED_COLOR =
@@ -73,6 +79,9 @@ public class StatusBarExpandedQsColor extends SettingsPreferenceFragment impleme
     private static final int DEFAULT_QUICK_TILES_TEXT_COLOR = 0xffcccccc;
     private static final int DEFAULT_QUICK_TILES_BG_COLOR = 0xff212121;
     private static final int DEFAULT_QUICK_TILES_BG_PRESSED_COLOR = 0xff161616;
+    private static final int DEFAULT_QUICK_TILES_ICON_NORMAL_COLOR = 0xffffffff;
+    private static final int DEFAULT_QUICK_TILES_ICON_ENABLED_COLOR = 0xffffffff;
+    private static final int DEFAULT_QUICK_TILES_ICON_DISABLED_COLOR = 0xff404040;
 
     private static final int MENU_RESET = Menu.FIRST;
 
@@ -83,6 +92,9 @@ public class StatusBarExpandedQsColor extends SettingsPreferenceFragment impleme
     private ColorPickerPreference mQuickTilesBgPressedColor;
     private ColorPickerPreference mQuickTilesTextColor;
     private SeekBarPreference mQsTileAlpha;
+    private ColorPickerPreference mQuickTilesIconNormalColor;
+    private ColorPickerPreference mQuickTilesIconEnabledColor;
+    private ColorPickerPreference mQuickTilesIconDisabledColor;
     private ColorPickerPreference mSignalActivityNormalColor;
     private ColorPickerPreference mSignalActivityConnectedColor;
     private ColorPickerPreference mWifiActivityNormalColor;
@@ -152,6 +164,28 @@ public class StatusBarExpandedQsColor extends SettingsPreferenceFragment impleme
         mQsTileAlpha.setInitValue((int) (transparency * 100));
         mQsTileAlpha.setProperty(Settings.System.QUICK_TILES_BG_ALPHA);
         mQsTileAlpha.setOnPreferenceChangeListener(this);
+
+        mQuickTilesIconNormalColor = (ColorPickerPreference) findPreference(PREF_QUICK_TILES_ICON_NORMAL_COLOR);
+        mQuickTilesIconNormalColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(mResolver, Settings.System.QUICK_TILES_ICON_NORMAL_COLOR, DEFAULT_QUICK_TILES_ICON_NORMAL_COLOR);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQuickTilesIconNormalColor.setSummary(hexColor);
+        mQuickTilesIconNormalColor.setNewPreviewColor(intColor);
+
+        mQuickTilesIconEnabledColor = (ColorPickerPreference) findPreference(PREF_QUICK_TILES_ICON_ENABLED_COLOR);
+        mQuickTilesIconEnabledColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(mResolver, Settings.System.QUICK_TILES_ICON_ENABLED_COLOR, DEFAULT_QUICK_TILES_ICON_ENABLED_COLOR);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQuickTilesIconEnabledColor.setSummary(hexColor);
+        mQuickTilesIconEnabledColor.setNewPreviewColor(intColor);
+
+        mQuickTilesIconDisabledColor = (ColorPickerPreference) findPreference(PREF_QUICK_TILES_ICON_DISABLED_COLOR);
+        mQuickTilesIconDisabledColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(mResolver, Settings.System.QUICK_TILES_ICON_DISABLED_COLOR, DEFAULT_QUICK_TILES_ICON_DISABLED_COLOR);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQuickTilesIconDisabledColor.setSummary(hexColor);
+        mQuickTilesIconDisabledColor.setNewPreviewColor(intColor);
+
 
         // Remove mobile network related preferences on Wifi only devices
         PreferenceCategory categorySignalActivity = (PreferenceCategory) findPreference(PREF_QUICK_TILES_CAT_SIGNAL_ACTIVITY);
@@ -264,6 +298,33 @@ public class StatusBarExpandedQsColor extends SettingsPreferenceFragment impleme
                     Settings.System.QUICK_TILES_TEXT_COLOR,
                     intHex);
             return true;
+        } else if (preference == mQuickTilesIconNormalColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.QUICK_TILES_ICON_NORMAL_COLOR,
+                    intHex);
+            return true;
+        } else if (preference == mQuickTilesIconEnabledColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.QUICK_TILES_ICON_ENABLED_COLOR,
+                    intHex);
+            return true;
+        } else if (preference == mQuickTilesIconDisabledColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.QUICK_TILES_ICON_DISABLED_COLOR,
+                    intHex);
+            return true;
         } else if (preference == mQsTileAlpha) {
             float valNav = Float.parseFloat((String) newValue);
             Settings.System.putFloat(getContentResolver(),
@@ -352,6 +413,12 @@ public class StatusBarExpandedQsColor extends SettingsPreferenceFragment impleme
                                     DEFAULT_QUICK_TILES_BG_PRESSED_COLOR);
                             Settings.System.putInt(getOwner().mResolver, Settings.System.QUICK_TILES_TEXT_COLOR,
                                     DEFAULT_QUICK_TILES_TEXT_COLOR);
+                            Settings.System.putInt(getOwner().mResolver, Settings.System.QUICK_TILES_ICON_NORMAL_COLOR,
+                                    DEFAULT_QUICK_TILES_ICON_NORMAL_COLOR);
+                            Settings.System.putInt(getOwner().mResolver, Settings.System.QUICK_TILES_ICON_ENABLED_COLOR,
+                                    DEFAULT_QUICK_TILES_ICON_ENABLED_COLOR);
+                            Settings.System.putInt(getOwner().mResolver, Settings.System.QUICK_TILES_ICON_DISABLED_COLOR,
+                                    DEFAULT_QUICK_TILES_ICON_DISABLED_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QUICK_TILES_SIGNAL_ACTIVITY_NORMAL_COLOR, 0xffff8800);
                             Settings.System.putInt(getOwner().mResolver,
@@ -372,6 +439,12 @@ public class StatusBarExpandedQsColor extends SettingsPreferenceFragment impleme
                                      Settings.System.QUICK_TILES_BG_PRESSED_COLOR, 0xff33b5e5);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QUICK_TILES_TEXT_COLOR, 0xffffffff);
+                            Settings.System.putInt(getOwner().mResolver, Settings.System.QUICK_TILES_ICON_NORMAL_COLOR,
+                                    0xff33b5e5);
+                            Settings.System.putInt(getOwner().mResolver, Settings.System.QUICK_TILES_ICON_ENABLED_COLOR,
+                                    0xff33b5e5);
+                            Settings.System.putInt(getOwner().mResolver, Settings.System.QUICK_TILES_ICON_DISABLED_COLOR,
+                                    DEFAULT_QUICK_TILES_ICON_NORMAL_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QUICK_TILES_SIGNAL_ACTIVITY_NORMAL_COLOR, 0xffff8800);
                             Settings.System.putInt(getOwner().mResolver,

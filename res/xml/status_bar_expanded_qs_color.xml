@@ -48,6 +48,25 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/quick_tiles_cat_icons">
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:key="quick_tiles_icon_normal_color"
+             android:title="@string/quick_tiles_icon_normal_color_title"
+             android:defaultValue="0xffffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:key="quick_tiles_icon_enabled_color"
+             android:title="@string/quick_tiles_icon_enabled_color_title"
+             android:defaultValue="0xffffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:key="quick_tiles_icon_disabled_color"
+             android:title="@string/quick_tiles_icon_disabled_color_title"
+             android:defaultValue="0xff404040" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="quick_tiles_cat_signal_activity"
         android:title="@string/cat_signal_activity_title">
 

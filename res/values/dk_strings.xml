@@ -287,12 +287,16 @@
 
     <!-- Statusbar expanded quick settings colors -->
     <string name="quick_tiles_cat_tiles">Tiles</string>
+    <string name="quick_tiles_cat_icons">Icons</string>
     <string name="quick_tiles_use_different_activity_color_title">Activity icon colors</string>
     <string name="quick_tiles_use_different_activity_color_summary">Enable, to use own network activity icon colors for mobile and wifi tiles</string>
     <string name="quick_tiles_bg_color_title">Tiles background color</string>
     <string name="quick_tiles_bg_pressed_color_title">Tiles pressed background color</string>
     <string name="quick_tiles_text_color_title">Tiles text color</string>
     <string name="quick_tiles_alpha_title">Tiles background transparency</string>
+    <string name="quick_tiles_icon_normal_color_title">Icons normal color</string>
+    <string name="quick_tiles_icon_enabled_color_title">Icons enabled color</string>
+    <string name="quick_tiles_icon_disabled_color_title">Icons disabled color</string>
 
     <!-- Statusbar expanded quick settings options -->
     <string name="qs_quick_pulldown_title">Quick pulldown</string>

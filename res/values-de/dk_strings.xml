@@ -287,12 +287,16 @@
 
     <!-- Statusbar expanded quick settings colors -->
     <string name="quick_tiles_cat_tiles">Kacheln</string>
+    <string name="quick_tiles_cat_icons">Symbol</string>
     <string name="quick_tiles_use_different_activity_color_title">Aktivitäts-Symbol Farben</string>
     <string name="quick_tiles_use_different_activity_color_summary">Aktivieren, um eigene Netzwerk Aktivitäts Symbol Farben für die Mobil- und Wifi Kacheln zu erwenden</string>
     <string name="quick_tiles_bg_color_title">Kachel Hintergrund Farbe</string>
     <string name="quick_tiles_bg_pressed_color_title">Kachel Hintergrund Farbe gedrückt</string>
     <string name="quick_tiles_text_color_title">Kachel Text Farbe</string>
     <string name="quick_tiles_alpha_title">Kachel Hintergrund Transparenz</string>
+    <string name="quick_tiles_icon_normal_color_title">Symbol normal Farbe</string>
+    <string name="quick_tiles_icon_enabled_color_title">Symbol aktiviert Farbe</string>
+    <string name="quick_tiles_icon_disabled_color_title">Symbol deaktiviert Farbe</string>
 
     <!-- Statusbar expanded quick settings options -->
     <string name="qs_quick_pulldown_title">Schnelles Öffnen</string>
