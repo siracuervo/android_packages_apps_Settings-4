@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2013 SlimRoms Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+        <PreferenceScreen
+                android:key="navbar_button_settings"
+                android:fragment="com.android.settings.darkkat.dslv.ButtonsListViewSettings"
+                android:title="@string/navbar_button_arrangement">
+            <extra android:name="buttonMode" android:value="0" />
+            <extra android:name="maxAllowedButtons" android:value="5" />
+            <extra android:name="disableDeleteLastEntry" android:value="true" />
+        </PreferenceScreen>
+
+        <PreferenceCategory
+                android:key="navbar_button_color_cat"
+                android:title="@string/color_title" >
+
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                 android:key="nav_button_color"
+                 android:title="@string/nav_button_icon_tint_title"
+                 android:defaultValue="0xffffffff" />
+
+             <net.margaritov.preference.colorpicker.ColorPickerPreference
+                 android:key="nav_button_glow_color"
+                 android:title="@string/nav_button_glow_tint_title"
+                 android:defaultValue="0xffffffff" />
+
+            <ListPreference
+                 android:entries="@array/icon_color_mode_entries"
+                 android:entryValues="@array/icon_color_mode_values"
+                 android:key="nav_button_color_mode"
+                 android:title="@string/nav_button_color_mode_title"
+                 android:dialogTitle="@string/nav_button_color_mode_dialog_title"
+                 android:summary="@string/nav_button_color_mode_summary" />
+
+        </PreferenceCategory>
+
+        <PreferenceCategory
+                android:key="navbar_button_menu_cat"
+                android:title="@string/navbar_button_menu_cat_title" >
+
+            <ListPreference
+                    android:key="pref_navbar_menu_display"
+                    android:entries="@array/pref_menu_display_entries"
+                    android:entryValues="@array/pref_menu_display_values"
+                    android:title="@string/title_pref_menu_display" />
+
+            <ListPreference
+                    android:key="pref_navbar_menu_location"
+                    android:entries="@array/pref_navigation_menu_entries"
+                    android:entryValues="@array/pref_navigation_menu_values"
+                    android:title="@string/title_pref_menu_location" />
+
+        </PreferenceCategory>
+
+</PreferenceScreen>

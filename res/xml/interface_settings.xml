@@ -34,4 +34,9 @@
         android:fragment="com.android.settings.darkkat.StatusBarExpanded"
         android:title="@string/status_bar_expanded_title" />
 
+    <PreferenceScreen
+        android:key="navigation_bar"
+        android:fragment="com.android.settings.darkkat.NavigationBar"
+        android:title="@string/navigation_bar_title" />
+
 </PreferenceScreen>
