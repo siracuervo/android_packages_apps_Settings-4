@@ -44,8 +44,7 @@
     <string name="add">Add</string>
     <string name="image_not_valid">image does not exist</string>
     <string name="dialog_delete_title">Delete</string>
-    <string name="dlg_qs_style_reset_message">Reset color values to\nAndroid- or DarkKat default?</string>
-    <string name="dlg_reset_color_values_message">Reset values to\nAndroid- or DarkKat default?</string>
+    <string name="dlg_reset_color_values_message">Reset color values to\nAndroid- or DarkKat default?</string>
     <string name="dlg_reset_values_message">Reset values to\nAndroid- or DarkKat default?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
@@ -390,8 +389,6 @@
     <string name="navigation_bar_size_0_dp">0 dp (off)</string>
 
     <string name="navbar_dimensions_reset_message">Reset all dimensions entries to default?</string>
-    <string name="navbar_button_style_reset_message">Reset all style entries to default?</string>
-
 
     <!-- Nav buttons -->
     <string name="navbar_button_menu_cat_title">Menu button</string>
