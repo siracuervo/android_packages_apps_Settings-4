@@ -16,7 +16,6 @@
 
 package com.android.settings.darkkat;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -55,7 +54,6 @@ public class NavbarStyleDimenSettings extends SettingsPreferenceFragment impleme
         "navbar_dimen";
 
     private static final int MENU_RESET = Menu.FIRST;
-
     private static final int DLG_RESET = 0;
 
     ListPreference mNavigationBarHeight;

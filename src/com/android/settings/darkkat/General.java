@@ -44,10 +44,14 @@ public class General extends SettingsPreferenceFragment implements
 
     private static final String TAG = "General";
 
-    private static final String KEY_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
-    private static final String KEY_EXPANDED_DESKTOP = "expanded_desktop";
-    private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
-    private static final String KEY_LOW_BATTERY_WARNING_POLICY = "low_battery_warning_policy";
+    private static final String KEY_CUSTOM_CARRIER_LABEL =
+        "custom_carrier_label";
+    private static final String KEY_EXPANDED_DESKTOP =
+        "expanded_desktop";
+    private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR =
+        "expanded_desktop_no_navbar";
+    private static final String KEY_LOW_BATTERY_WARNING_POLICY =
+        "low_battery_warning_policy";
 
     private Preference mCustomLabel;
     private ListPreference mExpandedDesktop;
@@ -75,7 +79,8 @@ public class General extends SettingsPreferenceFragment implements
                 Settings.System.EXPANDED_DESKTOP_STYLE, 0);
 
         try {
-            boolean hasNavBar = WindowManagerGlobal.getWindowManagerService().hasNavigationBar();
+            boolean hasNavBar =
+                    WindowManagerGlobal.getWindowManagerService().hasNavigationBar();
 
             if (hasNavBar) {
                 mExpandedDesktop.setOnPreferenceChangeListener(this);
@@ -92,7 +97,8 @@ public class General extends SettingsPreferenceFragment implements
             Log.e(TAG, "Error getting navigation bar status");
         }
 
-        mLowBatteryWarning = (ListPreference) findPreference(KEY_LOW_BATTERY_WARNING_POLICY);
+        mLowBatteryWarning =
+                (ListPreference) findPreference(KEY_LOW_BATTERY_WARNING_POLICY);
         int lowBatteryWarning = Settings.System.getInt(mResolver,
                 Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, 0);
         mLowBatteryWarning.setValue(String.valueOf(lowBatteryWarning));
@@ -116,7 +122,8 @@ public class General extends SettingsPreferenceFragment implements
             int lowBatteryWarning = Integer.valueOf((String) objValue);
             int index = mLowBatteryWarning.findIndexOfValue((String) objValue);
             Settings.System.putInt(mResolver,
-                    Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, lowBatteryWarning);
+                    Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY,
+                    lowBatteryWarning);
             mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntries()[index]);
             return true;
         }

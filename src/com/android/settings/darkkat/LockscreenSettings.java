@@ -31,12 +31,15 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class LockscreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-    private static final String TAG = "LockscreenSettings";
 
-    private static final String KEY_LOCKSCREEN_SHOW_BATTERY_STATUS_RING = "lockscreen_show_battery_status_ring";
-    private static final String KEY_LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL = "lockscreen_show_custom_carrier_label";
-    private static final String KEY_LOCKSCREEN_ALWAYS_SHOW_BATTERY_STATUS = "lockscreen_always_show_battery_status";
-    private static final String KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS = "lockscreen_maximize_widgets";
+    private static final String KEY_LOCKSCREEN_SHOW_BATTERY_STATUS_RING =
+            "lockscreen_show_battery_status_ring";
+    private static final String KEY_LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL =
+            "lockscreen_show_custom_carrier_label";
+    private static final String KEY_LOCKSCREEN_ALWAYS_SHOW_BATTERY_STATUS =
+            "lockscreen_always_show_battery_status";
+    private static final String KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS =
+            "lockscreen_maximize_widgets";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
 
     private CheckBoxPreference mShowBatteryStatusRing;
@@ -64,7 +67,8 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
 
         boolean isbatteryStatusRingEnabled = Settings.System.getInt(mResolver,
                Settings.System.LOCKSCREEN_SHOW_BATTERY_STATUS_RING, 0) == 1;
-        mShowBatteryStatusRing = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_SHOW_BATTERY_STATUS_RING);
+        mShowBatteryStatusRing =
+                (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_SHOW_BATTERY_STATUS_RING);
         mShowBatteryStatusRing.setChecked(isbatteryStatusRingEnabled);
         mShowBatteryStatusRing.setOnPreferenceChangeListener(this);
 
@@ -78,7 +82,8 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
             removePreference(KEY_LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL);
             removePreference("lockscreen_carrier_label_style");
         } else {
-            mShowCustomCarrierLabel = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL);
+            mShowCustomCarrierLabel =
+                (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL);
             mShowCustomCarrierLabel.setChecked(Settings.System.getInt(mResolver,
                     Settings.System.LOCKSCREEN_SHOW_CUSTOM_CARRIER_LABEL, 1) == 1);
             mShowCustomCarrierLabel.setOnPreferenceChangeListener(this);
@@ -89,12 +94,14 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
                 mShowCustomCarrierLabel.setSummary(R.string.custom_carrier_label_notset);
                 mShowCustomCarrierLabel.setEnabled(false);
             } else {
-                mShowCustomCarrierLabel.setSummary(R.string.show_custom_carrier_label_enabled_summary);
+                mShowCustomCarrierLabel.setSummary(
+                        R.string.show_custom_carrier_label_enabled_summary);
                 mShowCustomCarrierLabel.setEnabled(true);
             }
         }
 
-        mAlwaysShowBatteryStatus = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_ALWAYS_SHOW_BATTERY_STATUS);
+        mAlwaysShowBatteryStatus =
+                (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_ALWAYS_SHOW_BATTERY_STATUS);
         mAlwaysShowBatteryStatus.setChecked(Settings.System.getInt(mResolver,
                Settings.System.LOCKSCREEN_ALWAYS_SHOW_BATTERY_STATUS, 0) == 1);
         mAlwaysShowBatteryStatus.setOnPreferenceChangeListener(this);

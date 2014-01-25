@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 Slimroms
+ * Copyright (C) 2014 DarkKat
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,13 +31,16 @@ import com.android.settings.Utils;
 public class NavigationBar extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
-    private static final String TAG = "NavBar";
-
-    private static final String ENABLE_NAVIGATION_BAR = "enable_nav_bar";
-    private static final String PREF_NAVIGATION_BAR_CAN_MOVE = "navbar_can_move";
-    private static final String PREF_STYLE_DIMEN = "navbar_style_dimen_settings";
-    private static final String PREF_BUTTON = "navbar_buttons";
-    private static final String PREF_RING = "navbar_targets_settings";
+    private static final String ENABLE_NAVIGATION_BAR =
+            "enable_nav_bar";
+    private static final String PREF_NAVIGATION_BAR_CAN_MOVE =
+            "navbar_can_move";
+    private static final String PREF_STYLE_DIMEN =
+            "navbar_style_dimen_settings";
+    private static final String PREF_BUTTON =
+            "navbar_buttons";
+    private static final String PREF_RING =
+            "navbar_targets_settings";
 
     CheckBoxPreference mEnableNavigationBar;
     CheckBoxPreference mNavigationBarCanMove;
@@ -69,7 +72,8 @@ public class NavigationBar extends SettingsPreferenceFragment implements
         mEnableNavigationBar.setOnPreferenceChangeListener(this);
 
         if (enableNavigationBar) {
-            mNavigationBarCanMove = (CheckBoxPreference) findPreference(PREF_NAVIGATION_BAR_CAN_MOVE);
+            mNavigationBarCanMove =
+                    (CheckBoxPreference) findPreference(PREF_NAVIGATION_BAR_CAN_MOVE);
             mNavigationBarCanMove.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.NAVIGATION_BAR_CAN_MOVE,
                     Utils.isPhone(getActivity()) ? 1 : 0) == 0);

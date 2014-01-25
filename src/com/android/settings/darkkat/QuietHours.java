@@ -50,23 +50,38 @@ import com.android.settings.SettingsPreferenceFragment;
 public class QuietHours extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener  {
 
-    private static final String TAG = "QuietHours";
-    private static final String KEY_QUIET_HOURS_ENABLED = "quiet_hours_enabled";
-    private static final String KEY_QUIET_HOURS_RING = "quiet_hours_ring";
-    private static final String KEY_QUIET_HOURS_MUTE = "quiet_hours_mute";
-    private static final String KEY_QUIET_HOURS_STILL = "quiet_hours_still";
-    private static final String KEY_QUIET_HOURS_DIM = "quiet_hours_dim";
-    private static final String KEY_QUIET_HOURS_HAPTIC = "quiet_hours_haptic";
-    private static final String KEY_QUIET_HOURS_TIMERANGE = "quiet_hours_timerange";
-    private static final String KEY_LOOP_BYPASS_RINGTONE = "loop_bypass_ringtone";
-    private static final String KEY_AUTO_SMS = "auto_sms";
-    private static final String KEY_AUTO_SMS_CALL = "auto_sms_call";
-    private static final String KEY_AUTO_SMS_MESSAGE = "auto_sms_message";
-    private static final String KEY_CALL_BYPASS = "call_bypass";
-    private static final String KEY_SMS_BYPASS = "sms_bypass";
-    private static final String KEY_REQUIRED_CALLS = "required_calls";
-    private static final String KEY_SMS_BYPASS_CODE = "sms_bypass_code";
-    private static final String KEY_BYPASS_RINGTONE = "bypass_ringtone";
+    private static final String KEY_QUIET_HOURS_ENABLED =
+            "quiet_hours_enabled";
+    private static final String KEY_QUIET_HOURS_RING =
+            "quiet_hours_ring";
+    private static final String KEY_QUIET_HOURS_MUTE =
+            "quiet_hours_mute";
+    private static final String KEY_QUIET_HOURS_STILL =
+            "quiet_hours_still";
+    private static final String KEY_QUIET_HOURS_DIM =
+            "quiet_hours_dim";
+    private static final String KEY_QUIET_HOURS_HAPTIC =
+            "quiet_hours_haptic";
+    private static final String KEY_QUIET_HOURS_TIMERANGE =
+            "quiet_hours_timerange";
+    private static final String KEY_LOOP_BYPASS_RINGTONE =
+            "loop_bypass_ringtone";
+    private static final String KEY_AUTO_SMS =
+            "auto_sms";
+    private static final String KEY_AUTO_SMS_CALL =
+            "auto_sms_call";
+    private static final String KEY_AUTO_SMS_MESSAGE =
+            "auto_sms_message";
+    private static final String KEY_CALL_BYPASS =
+            "call_bypass";
+    private static final String KEY_SMS_BYPASS =
+            "sms_bypass";
+    private static final String KEY_REQUIRED_CALLS =
+            "required_calls";
+    private static final String KEY_SMS_BYPASS_CODE =
+            "sms_bypass_code";
+    private static final String KEY_BYPASS_RINGTONE =
+            "bypass_ringtone";
 
     private static final int DLG_AUTO_SMS_MESSAGE = 0;
     private static final int DLG_SMS_BYPASS_CODE = 1;

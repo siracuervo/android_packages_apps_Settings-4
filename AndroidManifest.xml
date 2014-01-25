@@ -1606,11 +1606,7 @@
         />
 
         <!-- DarkKat activities Start -->
-
         <activity android:name=".darkkat.LockscreenSettings" />
-        <activity android:name=".darkkat.LockscreenBatteryStatusRingStyle" />
-        <activity android:name=".darkkat.LockscreenCarrierLabelStyle" />
-        <activity android:name=".darkkat.LockscreenBatteryStatusStyle" />
         <activity android:name=".darkkat.InterfaceSettings" />
         <activity android:name=".darkkat.General" />
         <activity android:name=".darkkat.PowerMenu" />

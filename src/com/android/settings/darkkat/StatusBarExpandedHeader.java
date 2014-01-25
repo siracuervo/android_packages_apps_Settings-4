@@ -16,7 +16,11 @@
 
 package com.android.settings.darkkat;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
@@ -32,12 +36,16 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBarExpandedHeader extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class StatusBarExpandedHeader extends SettingsPreferenceFragment implements
+        OnPreferenceChangeListener {
 
-    private static final String TAG = "StatusBarExpandedHeader";
+    private static final String PREF_HEADER_SETTINGS_BUTTON =
+            "status_bar_expanded_header_settings_button";
+    private static final String PREF_HEADER_CLOCK_COLOR =
+            "status_bar_expanded_header_clock_date_color";
 
-    private static final String PREF_HEADER_SETTINGS_BUTTON = "status_bar_expanded_header_settings_button";
-    private static final String PREF_HEADER_CLOCK_COLOR = "status_bar_expanded_header_clock_date_color";
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DLG_RESET = 0;
 
     private CheckBoxPreference mHeaderSettingsButton;
     private ColorPickerPreference mHeaderClockDateColor;
@@ -59,12 +67,14 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
         addPreferencesFromResource(R.xml.status_bar_expanded_header);
         mResolver = getActivity().getContentResolver();
 
-        mHeaderSettingsButton = (CheckBoxPreference) findPreference(PREF_HEADER_SETTINGS_BUTTON);
+        mHeaderSettingsButton =
+                (CheckBoxPreference) findPreference(PREF_HEADER_SETTINGS_BUTTON);
         mHeaderSettingsButton.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, 0) == 1);
         mHeaderSettingsButton.setOnPreferenceChangeListener(this);
 
-        mHeaderClockDateColor = (ColorPickerPreference) findPreference(PREF_HEADER_CLOCK_COLOR);
+        mHeaderClockDateColor =
+                (ColorPickerPreference) findPreference(PREF_HEADER_CLOCK_COLOR);
         int color = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, 0xffffffff);
         mHeaderClockDateColor.setNewPreviewColor(color);
@@ -77,22 +87,16 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.status_bar_expanded_header, menu);
+        menu.add(0, MENU_RESET, 0, R.string.reset)
+                .setIcon(R.drawable.ic_settings_backup) // use the backup icon
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.status_bar_expanded_header_android_default:
-                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, 0);
-                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, 0xffffffff);
-                refreshSettings();
-                return true;
-            case R.id.status_bar_expanded_header_darkkat_default:
-                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, 1);
-                Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, 0xffff0000);
-                refreshSettings();
+            case MENU_RESET:
+                showDialogInner(DLG_RESET);
                 return true;
              default:
                 return super.onContextItemSelected(item);
@@ -102,15 +106,81 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mHeaderSettingsButton) {
             boolean value = (Boolean) newValue;
-            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, value ? 1 : 0);
+            Settings.System.putInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON,
+                value ? 1 : 0);
             return true;
         } else if (preference == mHeaderClockDateColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver, Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, intHex);
+            Settings.System.putInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         }
         return false;
+    }
+
+    private void showDialogInner(int id) {
+        DialogFragment newFragment = MyAlertDialogFragment.newInstance(id);
+        newFragment.setTargetFragment(this, 0);
+        newFragment.show(getFragmentManager(), "dialog " + id);
+    }
+
+    public static class MyAlertDialogFragment extends DialogFragment {
+
+        public static MyAlertDialogFragment newInstance(int id) {
+            MyAlertDialogFragment frag = new MyAlertDialogFragment();
+            Bundle args = new Bundle();
+            args.putInt("id", id);
+            frag.setArguments(args);
+            return frag;
+        }
+
+        StatusBarExpandedHeader getOwner() {
+            return (StatusBarExpandedHeader) getTargetFragment();
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            int id = getArguments().getInt("id");
+            switch (id) {
+                case DLG_RESET:
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.reset)
+                    .setMessage(R.string.dlg_reset_values_message)
+                    .setNegativeButton(R.string.cancel, null)
+                    .setNeutralButton(R.string.dlg_reset_android,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR,
+                                0xffffffff);
+                            getOwner().refreshSettings();
+                        }
+                    })
+                    .setPositiveButton(R.string.dlg_reset_darkkat,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR,
+                                0xffff0000);
+                            getOwner().refreshSettings();
+                        }
+                    })
+                    .create();
+            }
+            throw new IllegalArgumentException("unknown id " + id);
+        }
+
+        @Override
+        public void onCancel(DialogInterface dialog) {
+
+        }
     }
 }

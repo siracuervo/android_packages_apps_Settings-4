@@ -1,6 +1,8 @@
 /*
  * Copyright (C) 2012 Slimroms
  *
+ * Copyright (C) 2014 DarkKat
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,7 +18,6 @@
 
 package com.android.settings.darkkat;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -46,18 +47,25 @@ public class NavbarButtons extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String TAG = "NavbarButtons";
-    private static final String PREF_NAV_BUTTON_COLOR_CAT = "navbar_button_color_cat";
-    private static final String PREF_NAV_BUTTON_MENU_CAT = "navbar_button_menu_cat";
-    private static final String PREF_NAV_BUTTON_COLOR = "nav_button_color";
-    private static final String PREF_NAV_BUTTON_COLOR_MODE = "nav_button_color_mode";
-    private static final String PREF_NAV_GLOW_COLOR = "nav_button_glow_color";
-    private static final String PREF_MENU_LOCATION = "pref_navbar_menu_location";
-    private static final String PREF_NAVBAR_MENU_DISPLAY = "pref_navbar_menu_display";
+    private static final String PREF_NAV_BUTTON_COLOR_CAT =
+            "navbar_button_color_cat";
+    private static final String PREF_NAV_BUTTON_MENU_CAT =
+            "navbar_button_menu_cat";
+    private static final String PREF_NAV_BUTTON_COLOR =
+            "nav_button_color";
+    private static final String PREF_NAV_BUTTON_COLOR_MODE =
+            "nav_button_color_mode";
+    private static final String PREF_NAV_GLOW_COLOR =
+            "nav_button_glow_color";
+    private static final String PREF_MENU_LOCATION =
+            "pref_navbar_menu_location";
+    private static final String PREF_NAVBAR_MENU_DISPLAY =
+            "pref_navbar_menu_display";
 
-    private static final int MENU_RESET = Menu.FIRST;
     private static int DEFAULT_BUTTON_COLOR;
     private static int DEFAULT_BUTTON_GLOW_COLOR;
 
+    private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
     ColorPickerPreference mNavigationBarButtonColor;
@@ -103,23 +111,28 @@ public class NavbarButtons extends SettingsPreferenceFragment implements
 
         int navigationBarButtonColorMode = Settings.System.getInt(getContentResolver(),
                 Settings.System.NAVIGATION_BAR_BUTTON_TINT_MODE, 0);
-        PreferenceCategory navbarButtonColorCat = (PreferenceCategory) findPreference(PREF_NAV_BUTTON_COLOR_CAT);
-        mNavigationBarButtonColor = (ColorPickerPreference) findPreference(PREF_NAV_BUTTON_COLOR);
+        PreferenceCategory navbarButtonColorCat =
+                (PreferenceCategory) findPreference(PREF_NAV_BUTTON_COLOR_CAT);
+        mNavigationBarButtonColor =
+                (ColorPickerPreference) findPreference(PREF_NAV_BUTTON_COLOR);
         if (navigationBarButtonColorMode == 3) {
             navbarButtonColorCat.removePreference(mNavigationBarButtonColor);
         } else {
             mNavigationBarButtonColor.setOnPreferenceChangeListener(this);
             intColor = Settings.System.getInt(getContentResolver(),
-                        Settings.System.NAVIGATION_BAR_BUTTON_TINT, DEFAULT_BUTTON_COLOR);
+                        Settings.System.NAVIGATION_BAR_BUTTON_TINT,
+                        DEFAULT_BUTTON_COLOR);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mNavigationBarButtonColor.setSummary(hexColor);
             mNavigationBarButtonColor.setNewPreviewColor(intColor);
         }
 
-        mNavigationBarGlowColor = (ColorPickerPreference) findPreference(PREF_NAV_GLOW_COLOR);
+        mNavigationBarGlowColor =
+                (ColorPickerPreference) findPreference(PREF_NAV_GLOW_COLOR);
         mNavigationBarGlowColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.NAVIGATION_BAR_GLOW_TINT, DEFAULT_BUTTON_GLOW_COLOR);
+                    Settings.System.NAVIGATION_BAR_GLOW_TINT,
+                    DEFAULT_BUTTON_GLOW_COLOR);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mNavigationBarGlowColor.setSummary(hexColor);
         mNavigationBarGlowColor.setNewPreviewColor(intColor);
@@ -130,13 +143,16 @@ public class NavbarButtons extends SettingsPreferenceFragment implements
         mNavigationBarButtonColorMode.setSummary(mNavigationBarButtonColorMode.getEntry());
         mNavigationBarButtonColorMode.setOnPreferenceChangeListener(this);
 
-        mNavBarMenuDisplay = (ListPreference) findPreference(PREF_NAVBAR_MENU_DISPLAY);
-        int navBarMenuDisplay = Settings.System.getInt(mResolver, Settings.System.MENU_VISIBILITY, 2);
+        mNavBarMenuDisplay =
+                (ListPreference) findPreference(PREF_NAVBAR_MENU_DISPLAY);
+        int navBarMenuDisplay = Settings.System.getInt(mResolver,
+                Settings.System.MENU_VISIBILITY, 2);
         mNavBarMenuDisplay.setValue(String.valueOf(navBarMenuDisplay));
         mNavBarMenuDisplay.setSummary(mNavBarMenuDisplay.getEntry());
         mNavBarMenuDisplay.setOnPreferenceChangeListener(this);
 
-        PreferenceCategory navbarButtonMenuCat = (PreferenceCategory) findPreference(PREF_NAV_BUTTON_MENU_CAT);
+        PreferenceCategory navbarButtonMenuCat =
+                (PreferenceCategory) findPreference(PREF_NAV_BUTTON_MENU_CAT);
         mMenuDisplayLocation = (ListPreference) findPreference(PREF_MENU_LOCATION);
         if (navBarMenuDisplay == 1) {
             navbarButtonMenuCat.removePreference(mMenuDisplayLocation);
@@ -261,9 +277,11 @@ public class NavbarButtons extends SettingsPreferenceFragment implements
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getActivity().getContentResolver(),
-                                    Settings.System.NAVIGATION_BAR_BUTTON_TINT, DEFAULT_BUTTON_GLOW_COLOR);
+                                    Settings.System.NAVIGATION_BAR_BUTTON_TINT,
+                                    DEFAULT_BUTTON_GLOW_COLOR);
                             Settings.System.putInt(getActivity().getContentResolver(),
-                                    Settings.System.NAVIGATION_BAR_GLOW_TINT, DEFAULT_BUTTON_GLOW_COLOR);
+                                    Settings.System.NAVIGATION_BAR_GLOW_TINT,
+                                    DEFAULT_BUTTON_GLOW_COLOR);
                             Settings.System.putInt(getActivity().getContentResolver(),
                                    Settings.System.NAVIGATION_BAR_BUTTON_TINT_MODE, 0);
                             getOwner().refreshSettings();
@@ -291,5 +309,4 @@ public class NavbarButtons extends SettingsPreferenceFragment implements
 
         }
     }
-
 }

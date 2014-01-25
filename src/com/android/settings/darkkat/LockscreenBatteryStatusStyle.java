@@ -16,7 +16,11 @@
 
 package com.android.settings.darkkat;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -31,11 +35,14 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class LockscreenBatteryStatusStyle extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class LockscreenBatteryStatusStyle extends SettingsPreferenceFragment implements
+        OnPreferenceChangeListener {
 
-    private static final String TAG = "LockscreenBatteryStatusStyle";
+    private static final String PREF_LOCKSCREEN_STATUS_COLOR =
+            "lockscreen_status_color";
 
-    private static final String PREF_LOCKSCREEN_STATUS_COLOR = "lockscreen_status_color";
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DLG_RESET = 0;
 
     private ColorPickerPreference mLockscreenStatusColor;
 
@@ -56,7 +63,8 @@ public class LockscreenBatteryStatusStyle extends SettingsPreferenceFragment imp
         addPreferencesFromResource(R.xml.lockscreen_battery_status_style);
         mResolver = getActivity().getContentResolver();
 
-        mLockscreenStatusColor = (ColorPickerPreference) findPreference(PREF_LOCKSCREEN_STATUS_COLOR);
+        mLockscreenStatusColor =
+                (ColorPickerPreference) findPreference(PREF_LOCKSCREEN_STATUS_COLOR);
         int color = Settings.System.getInt(mResolver,
                 Settings.System.LOCKSCREEN_STATUS_COLOR, 0xffbebebe);
         mLockscreenStatusColor.setNewPreviewColor(color);
@@ -69,20 +77,16 @@ public class LockscreenBatteryStatusStyle extends SettingsPreferenceFragment imp
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.lockscreen_battery_status_style, menu);
+        menu.add(0, MENU_RESET, 0, R.string.reset)
+                .setIcon(R.drawable.ic_settings_backup) // use the backup icon
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.lockscreen_battery_status_android_default:
-                Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_STATUS_COLOR, 0xffbebebe);
-                refreshSettings();
-                return true;
-            case R.id.lockscreen_battery_status_darkkat_default:
-                Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_STATUS_COLOR, 0xff33b5e5);
-                refreshSettings();
+            case MENU_RESET:
+                showDialogInner(DLG_RESET);
                 return true;
              default:
                 return super.onContextItemSelected(item);
@@ -91,9 +95,11 @@ public class LockscreenBatteryStatusStyle extends SettingsPreferenceFragment imp
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mLockscreenStatusColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver, Settings.System.LOCKSCREEN_STATUS_COLOR, intHex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCKSCREEN_STATUS_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         }
@@ -103,5 +109,61 @@ public class LockscreenBatteryStatusStyle extends SettingsPreferenceFragment imp
     @Override
     public void onResume() {
         super.onResume();
+    }
+
+    private void showDialogInner(int id) {
+        DialogFragment newFragment = MyAlertDialogFragment.newInstance(id);
+        newFragment.setTargetFragment(this, 0);
+        newFragment.show(getFragmentManager(), "dialog " + id);
+    }
+
+    public static class MyAlertDialogFragment extends DialogFragment {
+
+        public static MyAlertDialogFragment newInstance(int id) {
+            MyAlertDialogFragment frag = new MyAlertDialogFragment();
+            Bundle args = new Bundle();
+            args.putInt("id", id);
+            frag.setArguments(args);
+            return frag;
+        }
+
+        LockscreenBatteryStatusStyle getOwner() {
+            return (LockscreenBatteryStatusStyle) getTargetFragment();
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            int id = getArguments().getInt("id");
+            switch (id) {
+                case DLG_RESET:
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.reset)
+                    .setMessage(R.string.dlg_reset_color_values_message)
+                    .setNegativeButton(R.string.cancel, null)
+                    .setNeutralButton(R.string.dlg_reset_android,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                            Settings.System.LOCKSCREEN_STATUS_COLOR, 0xffbebebe);
+                            getOwner().refreshSettings();
+                        }
+                    })
+                    .setPositiveButton(R.string.dlg_reset_darkkat,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                            Settings.System.LOCKSCREEN_STATUS_COLOR, 0xff33b5e5);
+                            getOwner().refreshSettings();
+                        }
+                    })
+                    .create();
+            }
+            throw new IllegalArgumentException("unknown id " + id);
+        }
+
+        @Override
+        public void onCancel(DialogInterface dialog) {
+
+        }
     }
 }

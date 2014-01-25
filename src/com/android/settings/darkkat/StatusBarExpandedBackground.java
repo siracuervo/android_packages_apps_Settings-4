@@ -53,9 +53,12 @@ public class StatusBarExpandedBackground extends SettingsPreferenceFragment impl
 
     private static final String TAG = "StatusBarExpandedBackground";
 
-    private static final String PREF_STAT_BAR_EXPANDED_BG = "status_bar_expanded_bg";
-    private static final String PREF_STAT_BAR_EXPANDED_BG_LANDSCAPE = "status_bar_expanded_bg_landscape";
-    private static final String PREF_STAT_BAR_EXPANDED_BG_ALPHA = "status_bar_expanded_bg_alpha";
+    private static final String PREF_STAT_BAR_EXPANDED_BG =
+            "status_bar_expanded_bg";
+    private static final String PREF_STAT_BAR_EXPANDED_BG_LANDSCAPE =
+            "status_bar_expanded_bg_landscape";
+    private static final String PREF_STAT_BAR_EXPANDED_BG_ALPHA =
+            "status_bar_expanded_bg_alpha";
 
     private static final int DLG_PICK_COLOR = 0;
 
@@ -82,10 +85,12 @@ public class StatusBarExpandedBackground extends SettingsPreferenceFragment impl
 
         mImageTmp = new File(getActivity().getFilesDir() + "/statbarexp_bg.tmp");
 
-        mBackground = (ListPreference) findPreference(PREF_STAT_BAR_EXPANDED_BG);
+        mBackground =
+                (ListPreference) findPreference(PREF_STAT_BAR_EXPANDED_BG);
         mBackground.setOnPreferenceChangeListener(this);
 
-        mBackgroundLandscape = (ListPreference) findPreference(PREF_STAT_BAR_EXPANDED_BG_LANDSCAPE);
+        mBackgroundLandscape =
+                (ListPreference) findPreference(PREF_STAT_BAR_EXPANDED_BG_LANDSCAPE);
         if (!Utils.isPhone(mActivity)) {
             prefSet.removePreference(mBackgroundLandscape);
         } else {
@@ -101,7 +106,8 @@ public class StatusBarExpandedBackground extends SettingsPreferenceFragment impl
             Settings.System.putFloat(getContentResolver(),
                     Settings.System.STATUS_BAR_EXPANDED_BG_ALPHA, 0.1f);
         }
-        mBackgroundAlpha = (SeekBarPreference) findPreference(PREF_STAT_BAR_EXPANDED_BG_ALPHA);
+        mBackgroundAlpha =
+                (SeekBarPreference) findPreference(PREF_STAT_BAR_EXPANDED_BG_ALPHA);
         mBackgroundAlpha.setInitValue((int) (backgroundTransparency * 100));
         mBackgroundAlpha.setProperty(Settings.System.STATUS_BAR_EXPANDED_BG_ALPHA);
         mBackgroundAlpha.setOnPreferenceChangeListener(this);

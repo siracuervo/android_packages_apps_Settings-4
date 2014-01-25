@@ -45,6 +45,7 @@
     <string name="image_not_valid">image does not exist</string>
     <string name="dialog_delete_title">Delete</string>
     <string name="dlg_qs_style_reset_message">Reset color values to\nAndroid- or DarkKat default?</string>
+    <string name="dlg_reset_color_values_message">Reset values to\nAndroid- or DarkKat default?</string>
     <string name="dlg_reset_values_message">Reset values to\nAndroid- or DarkKat default?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>

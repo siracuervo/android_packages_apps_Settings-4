@@ -28,9 +28,8 @@ import com.android.settings.widget.SeekBarPreference;
 public class StatusBarExpandedNotif extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
-    private static final String TAG = "StatusBarExpandedNotif";
-
-    private static final String PREF_NOTIFICATION_ALPHA = "notification_alpha";
+    private static final String PREF_NOTIFICATION_ALPHA =
+            "notification_alpha";
 
     SeekBarPreference mNotificationAlpha;
 
@@ -49,7 +48,8 @@ public class StatusBarExpandedNotif extends SettingsPreferenceFragment implement
             Settings.System.putFloat(getContentResolver(),
                     Settings.System.NOTIFICATION_ALPHA, 0.0f);
         }
-        mNotificationAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_ALPHA);
+        mNotificationAlpha =
+                (SeekBarPreference) findPreference(PREF_NOTIFICATION_ALPHA);
         mNotificationAlpha.setInitValue((int) (notifTransparency * 100));
         mNotificationAlpha.setProperty(Settings.System.NOTIFICATION_ALPHA);
         mNotificationAlpha.setOnPreferenceChangeListener(this);

@@ -22,7 +22,6 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class InterfaceSettings extends SettingsPreferenceFragment {
-    private static final String TAG = "InterfaceSettings";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

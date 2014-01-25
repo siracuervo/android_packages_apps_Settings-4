@@ -30,8 +30,10 @@ import com.android.settings.SettingsPreferenceFragment;
 public class RecentsAppsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar";
-    private static final String KEY_RECENTS_CLEAR_ALL_BTN_POS = "recents_clear_all_button_position";
+    private static final String KEY_RECENTS_RAM_BAR =
+            "recents_ram_bar";
+    private static final String KEY_RECENTS_CLEAR_ALL_BTN_POS =
+            "recents_clear_all_button_position";
 
     private Preference mRamBar;
     private ListPreference mClearAllBtnPosition;
@@ -47,7 +49,8 @@ public class RecentsAppsSettings extends SettingsPreferenceFragment implements
 
         mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
 
-        mClearAllBtnPosition = (ListPreference) findPreference(KEY_RECENTS_CLEAR_ALL_BTN_POS);
+        mClearAllBtnPosition =
+                (ListPreference) findPreference(KEY_RECENTS_CLEAR_ALL_BTN_POS);
         int clearAllBtnPosition = Settings.System.getInt(mResolver,
                 Settings.System.RECENTS_CLEAR_ALL_BTN_POS, 2);
         mClearAllBtnPosition.setValue(String.valueOf(clearAllBtnPosition));
