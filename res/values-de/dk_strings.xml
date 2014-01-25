@@ -49,6 +49,7 @@
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="default_string">Standard</string>
+    <string name="attention">Achtung</string>
     <string name="reset_message">Alle Einträge auf Standard zurück setzten?</string>
     <string name="start_time_title">Start</string>
     <string name="end_time_title">Ende</string>
@@ -600,6 +601,25 @@
     <string name="display_wake_category_title">Optionen für das Aufwecken</string>
     <string name="wake_when_plugged_or_unplugged_title">Ladegerät</string>
     <string name="wake_when_plugged_or_unplugged_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald ein Ladegerät angeschlossen oder entfernt wird</string>
+
+    <!-- Language and input settings -->
+    <string name="title_keyboard_input">Erweiterte Optionen</string>
+
+    <!-- Keyboard and Input ASS methods -->
+    <string name="disable_fullscreen_keyboard_title">Vollbild Tastatur deaktivieren</string>
+    <string name="disable_fullscreen_keyboard_summary">Aktivieren, damit die Tastatur im Querformat nicht den gesamten Bildschirm einnimmt</string>
+    <string name="volume_key_cursor_control_title">Den Cursor mit den Lautstärke Tasten verschieben</string>
+    <string name="volume_key_cursor_control_on">Lauter/leiser verschiebt den Cursor nach links/rechts</string>
+    <string name="volume_key_cursor_control_on_reverse">Lauter/leiser verschiebt den Cursor nach rechts/links</string>
+    <string name="keyboard_rotation_toggle_title">Automatische Tastatur Drehung</string>
+    <string name="keyboard_rotation_toggle_summary">Automatische Bildschirm Drehung erzwingen, wenn die Tastatus angezeigt wird</string>
+    <string name="keyboard_rotation_timeout_title">Timeout</string>
+    <string name="keyboard_rotation_timeout_summary">Deaktiviert die Automatische Bildschirm Drehung <xliff:g id="rotate_timeout">%1$s</xliff:g> Sekunden, nachdem die Tastatur nicht mehr angezeigt wird.</string>
+    <string name="keyboard_rotation_dialog">Diese Funktion erzwingt vorübergehend das aktivieren der Automatische Bildschirm Drehung.  Es hat keinen Effekt, wenn die Automatische Bildschirm Drehung bereits aktiviert ist.</string>
+    <string name="show_enter_key_title">Enter Schaltfläche anzeigen</string>
+    <string name="show_enter_key_summary">Aktivieren, damit die Enter- anstatt der Emoticon-Taste angezeigt</string>
+    <string name="ime_switcher_notify">Benachrichtigungs Wähl-Schalter</string>
+    <string name="ime_switcher_notify_summary">Aktivieren, damit der Tastatur Wähl-Schalter in der Benachrichtigungsanzeige angezeigt wird. </string>
 
     <!-- Development settings -->
 
