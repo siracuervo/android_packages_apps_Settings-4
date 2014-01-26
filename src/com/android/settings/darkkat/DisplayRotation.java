@@ -27,10 +27,10 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
+import com.android.internal.util.darkkat.DeviceUtils;
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
 public class DisplayRotation extends SettingsPreferenceFragment {
     private static final String TAG = "DisplayRotation";
@@ -157,7 +157,7 @@ public class DisplayRotation extends SettingsPreferenceFragment {
             return true;
         } else if (preference == mSwapVolumeButtons) {
             int value = mSwapVolumeButtons.isChecked()
-                    ? (Utils.isTablet(getActivity()) ? 2 : 1) : 0;
+                    ? (DeviceUtils.isTablet(getActivity()) ? 2 : 1) : 0;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SWAP_VOLUME_KEYS_ON_ROTATION, value);
             return true;

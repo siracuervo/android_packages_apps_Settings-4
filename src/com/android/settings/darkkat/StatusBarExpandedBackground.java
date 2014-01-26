@@ -39,9 +39,10 @@ import android.util.Log;
 import android.view.Display;
 import android.widget.Toast;
 
+import com.android.internal.util.darkkat.DeviceUtils;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 import com.android.settings.widget.SeekBarPreference;
 
 import java.io.File;
@@ -91,7 +92,7 @@ public class StatusBarExpandedBackground extends SettingsPreferenceFragment impl
 
         mBackgroundLandscape =
                 (ListPreference) findPreference(PREF_STAT_BAR_EXPANDED_BG_LANDSCAPE);
-        if (!Utils.isPhone(mActivity)) {
+        if (!DeviceUtils.isPhone(mActivity)) {
             prefSet.removePreference(mBackgroundLandscape);
         } else {
             mBackgroundLandscape.setOnPreferenceChangeListener(this);

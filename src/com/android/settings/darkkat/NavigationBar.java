@@ -24,9 +24,10 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
+import com.android.internal.util.darkkat.DeviceUtils;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
 public class NavigationBar extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
@@ -76,7 +77,7 @@ public class NavigationBar extends SettingsPreferenceFragment implements
                     (CheckBoxPreference) findPreference(PREF_NAVIGATION_BAR_CAN_MOVE);
             mNavigationBarCanMove.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.NAVIGATION_BAR_CAN_MOVE,
-                    Utils.isPhone(getActivity()) ? 1 : 0) == 0);
+                    DeviceUtils.isPhone(getActivity()) ? 1 : 0) == 0);
             mNavigationBarCanMove.setOnPreferenceChangeListener(this);
         } else {
             removePreference(PREF_NAVIGATION_BAR_CAN_MOVE);

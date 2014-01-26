@@ -35,9 +35,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.android.internal.util.darkkat.DeviceUtils;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
 public class NavbarStyleDimenSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
@@ -81,7 +82,7 @@ public class NavbarStyleDimenSettings extends SettingsPreferenceFragment impleme
 
         boolean navbarCanMove = Settings.System.getInt(getContentResolver(),
                 Settings.System.NAVIGATION_BAR_CAN_MOVE,
-                Utils.isPhone(getActivity()) ? 1 : 0) == 1;
+                DeviceUtils.isPhone(getActivity()) ? 1 : 0) == 1;
 
         mNavigationBarHeightLandscape.setEnabled(!navbarCanMove);
         mNavigationBarWidth.setEnabled(navbarCanMove);

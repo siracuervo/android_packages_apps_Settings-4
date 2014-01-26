@@ -25,6 +25,8 @@ import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 
+import com.android.internal.util.darkkat.DeviceUtils;
+
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
@@ -107,7 +109,7 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
         mAlwaysShowBatteryStatus.setOnPreferenceChangeListener(this);
 
         // Remove Maximize widgets checkbox on hybrid/tablet
-        if (!Utils.isPhone(getActivity())) {
+        if (!DeviceUtils.isPhone(getActivity())) {
             removePreference(KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS);
         } else {
             mMaximizeWidgets = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS);
