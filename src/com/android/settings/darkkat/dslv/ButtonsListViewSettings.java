@@ -56,9 +56,11 @@ import android.widget.Toast;
 import com.android.internal.util.darkkat.ButtonConfig;
 import com.android.internal.util.darkkat.ButtonsConstants;
 import com.android.internal.util.darkkat.ButtonsHelper;
-import com.android.internal.util.darkkat.ImageHelper;
 import com.android.internal.util.darkkat.DeviceUtils;
 import com.android.internal.util.darkkat.DeviceUtils.FilteredDeviceFeaturesArray;
+import com.android.internal.util.darkkat.ImageHelper;
+import com.android.internal.util.darkkat.PolicyHelper;
+
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
@@ -86,6 +88,7 @@ public class ButtonsListViewSettings extends ListFragment implements
 
     private static final int NAV_BAR               = 0;
     private static final int NAV_RING              = 1;
+    private static final int POWER_MENU            = 2;
 
     private static final int DEFAULT_MAX_BUTTON_NUMBER = 5;
 
@@ -472,6 +475,9 @@ public class ButtonsListViewSettings extends ListFragment implements
             case NAV_RING:
                 return ButtonsHelper.getNavRingConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
+            case POWER_MENU:
+                return PolicyHelper.getPowerMenuConfigWithDescription(
+                    mActivity, mActionValuesKey, mActionEntriesKey);
         }
         return null;
     }
@@ -483,6 +489,9 @@ public class ButtonsListViewSettings extends ListFragment implements
                 break;
             case NAV_RING:
                 ButtonsHelper.setNavRingConfig(mActivity, buttonConfigs, reset);
+                break;
+            case POWER_MENU:
+                PolicyHelper.setPowerMenuConfig(mActivity, buttonConfigs, reset);
                 break;
         }
     }
@@ -527,7 +536,12 @@ public class ButtonsListViewSettings extends ListFragment implements
                     getResources().getString(R.string.shortcut_action_longpress)
                     + " " + getItem(position).getLongpressActionDescription());
             }
-            if (mButtonMode == NAV_BAR || mButtonMode == NAV_RING) {
+            if (mButtonMode == POWER_MENU) {
+                holder.iconView.setImageDrawable(ImageHelper.resize(
+                        mActivity, PolicyHelper.getPowerMenuIconImage(mActivity,
+                        getItem(position).getClickAction(),
+                        getItem(position).getIcon(), false), 36));
+            } else {
                 holder.iconView.setImageDrawable(ImageHelper.resize(
                         mActivity, ButtonsHelper.getButtonIconImage(mActivity,
                         getItem(position).getClickAction(),
@@ -623,6 +637,9 @@ public class ButtonsListViewSettings extends ListFragment implements
                     String buttonMode;
                     String icon = "";
                     switch (getOwner().mButtonMode) {
+                        case POWER_MENU:
+                            buttonMode = res.getString(R.string.shortcut_action_help_shortcut);
+                            break;
                         case NAV_BAR:
                         case NAV_RING:
                         default:

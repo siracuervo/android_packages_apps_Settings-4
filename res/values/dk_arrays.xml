@@ -65,6 +65,28 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="shortcut_action_power_menu_entries">
+        <item>@string/shortcut_action_power_off</item>
+        <item>@string/shortcut_action_reboot</item>
+        <item>@string/shortcut_action_expanded_desktop</item>
+        <item>@string/shortcut_action_screenshot</item>
+        <item>@string/shortcut_action_screenrecord</item>
+        <item>@string/shortcut_action_airplane</item>
+        <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_sound</item>
+    </string-array>
+
+    <string-array name="shortcut_action_power_menu_values" translatable="false">
+        <item>**poweroff**</item>
+        <item>**reboot**</item>
+        <item>**expanded_desktop**</item>
+        <item>**screenshot**</item>
+        <item>**screenrecord**</item>
+        <item>**airplane**</item>
+        <item>**app**</item>
+        <item>**sound**</item>
+    </string-array>
+
     <string-array name="ram_bar_mode_entries">
         <item>@string/ram_bar_none</item>
         <item>@string/ram_bar_apps</item>

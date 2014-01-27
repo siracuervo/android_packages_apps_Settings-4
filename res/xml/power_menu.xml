@@ -19,22 +19,39 @@
     android:title="@string/power_menu_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <CheckBoxPreference
-            android:key="power_menu_screenshot"
-            android:title="@string/power_menu_toggle_screenshot_title"
-            android:summary="@string/power_menu_toggle_screenshot_summary"
-            android:defaultValue="false" />
+        <PreferenceScreen
+                android:key="power_menu_settings"
+                android:fragment="com.android.settings.darkkat.dslv.ButtonsListViewSettings"
+                android:title="@string/arrangement_title">
+            <extra android:name="buttonMode" android:value="2" />
+            <extra android:name="maxAllowedButtons" android:value="8" />
+            <extra android:name="disableDeleteLastEntry" android:value="true" />
+            <extra android:name="actionValues" android:value="shortcut_action_power_menu_values" />
+            <extra android:name="actionEntries" android:value="shortcut_action_power_menu_entries" />
+        </PreferenceScreen>
 
-    <CheckBoxPreference
-            android:key="power_menu_screen_record"
-            android:title="@string/power_menu_toggle_screen_record_title"
-            android:summary="@string/power_menu_toggle_screen_record_summary"
-            android:defaultValue="false" />
+        <PreferenceCategory
+                android:key="power_menu_color_cat"
+                android:title="@string/color_title" >
 
-    <CheckBoxPreference
-            android:key="power_menu_expanded_desktop"
-            android:title="@string/expanded_desktop_title"
-            android:summary="@string/power_menu_toggle_expanded_desktop_summary"
-            android:defaultValue="false" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                 android:key="power_menu_text_color"
+                 android:title="@string/text_title"
+                 android:defaultValue="0xffffffffff" />
+
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                 android:key="power_menu_icon_color"
+                 android:title="@string/button_icon_color_title"
+                 android:defaultValue="0xffffffff" />
+
+            <ListPreference
+                 android:entries="@array/icon_color_mode_entries"
+                 android:entryValues="@array/icon_color_mode_values"
+                 android:key="power_menu_icon_color_mode"
+                 android:title="@string/button_color_mode_title"
+                 android:dialogTitle="@string/button_color_mode_dialog_title"
+                 android:summary="@string/button_color_mode_summary" />
+
+        </PreferenceCategory>
 
 </PreferenceScreen>

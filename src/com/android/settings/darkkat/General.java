@@ -140,14 +140,11 @@ public class General extends SettingsPreferenceFragment implements
 
         if (value == 0) {
             // Expanded desktop deactivated
-            Settings.System.putInt(cr, Settings.System.EXPANDED_DESKTOP_IN_POWER_MENU, 0);
             Settings.System.putInt(cr, Settings.System.EXPANDED_DESKTOP_STATE, 0);
             summary = R.string.expanded_desktop_disabled;
         } else if (value == 1) {
-            Settings.System.putInt(cr, Settings.System.EXPANDED_DESKTOP_IN_POWER_MENU, 1);
             summary = R.string.expanded_desktop_status_bar;
         } else if (value == 2) {
-            Settings.System.putInt(cr, Settings.System.EXPANDED_DESKTOP_IN_POWER_MENU, 1);
             summary = R.string.expanded_desktop_no_status_bar;
         }
 
