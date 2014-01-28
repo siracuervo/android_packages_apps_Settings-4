@@ -61,7 +61,7 @@
              android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-             android:key="button_icon_disabled_color"
+             android:key="quick_tiles_icon_disabled_color"
              android:title="@string/button_icon_disabled_color_title"
              android:defaultValue="0xff404040" />
     </PreferenceCategory>
