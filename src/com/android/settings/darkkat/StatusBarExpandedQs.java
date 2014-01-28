@@ -18,6 +18,7 @@ package com.android.settings.darkkat;
 
 import android.os.Bundle;
 
+import com.android.settings.darkkat.QuickSettingsUtil;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 
@@ -28,5 +29,11 @@ public class StatusBarExpandedQs extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.status_bar_expanded_qs);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        QuickSettingsUtil.updateAvailableTiles(getActivity());
     }
 }
