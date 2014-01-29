@@ -25,6 +25,7 @@
                 android:title="@string/arrangement_title">
             <extra android:name="buttonMode" android:value="2" />
             <extra android:name="maxAllowedButtons" android:value="8" />
+            <extra android:name="disableLongpress" android:value="true" />
             <extra android:name="disableDeleteLastEntry" android:value="true" />
             <extra android:name="actionValues" android:value="shortcut_action_power_menu_values" />
             <extra android:name="actionEntries" android:value="shortcut_action_power_menu_entries" />
