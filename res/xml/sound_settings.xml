@@ -93,6 +93,18 @@
             android:entries="@array/emergency_tone_entries"
             android:entryValues="@array/emergency_tone_values" />
 
+    <PreferenceCategory
+        android:key="volume_button_category"
+        android:title="@string/volume_button_category_title">
+
+        <CheckBoxPreference
+            android:key="volume_button_music_controls"
+            android:title="@string/volume_button_music_controls_title"
+            android:summary="@string/volume_button_music_controls_summary"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
     <!-- Dock -->
     <PreferenceCategory
         android:key="dock_category"

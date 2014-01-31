@@ -608,6 +608,13 @@
     <string name="display_wake_category_title">Optionen für das Aufwecken</string>
     <string name="wake_when_plugged_or_unplugged_title">Ladegerät</string>
     <string name="wake_when_plugged_or_unplugged_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald ein Ladegerät angeschlossen oder entfernt wird</string>
+    <string name="volume_wake_title">Lautstärke Taste</string>
+    <string name="volume_wake_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald die Lauter/Leiser Taste gedrückt wird</string>
+
+    <!-- Sound settings -->
+    <string name="volume_button_category_title">Lautstärke Taste</string>
+    <string name="volume_button_music_controls_title">Lautstärke Tasten Musik Kontrolle</string>
+    <string name="volume_button_music_controls_summary">Wenn der Bildschirm aus ist, wechselt ein druck auf die Lauer/Leiser Taste den Musik Titel</string>
 
     <!-- Language and input settings -->
     <string name="title_keyboard_input">Erweiterte Optionen</string>

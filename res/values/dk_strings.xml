@@ -602,6 +602,13 @@
     <string name="display_wake_category_title">Wake up options</string>
     <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
     <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting the charger</string>
+    <string name="volume_wake_title">Volume button wake</string>
+    <string name="volume_wake_summary">Turn the screen on when pressing the volume button up/down</string>
+
+    <!-- Sound settings -->
+    <string name="volume_button_category_title">Volume button</string>
+    <string name="volume_button_music_controls_title">Volume buttons music controls</string>
+    <string name="volume_button_music_controls_summary">When screen off, long-pressing the volume buttons will switch music tracks</string>
 
     <!-- AppOps additions -->
     <string name="appops_settings">Apps permissions</string>
