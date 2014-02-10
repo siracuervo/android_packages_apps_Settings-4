@@ -87,6 +87,7 @@ public class StatusBarExpandedQsTiles extends Fragment {
     private LayoutInflater mInflater;
     private Resources mSystemUiResources;
     private TileAdapter mTileAdapter;
+    private static boolean mConfigRibbon = false;
 
     private int mTileTextSize;
     private int mTileTextPadding;
@@ -99,6 +100,12 @@ public class StatusBarExpandedQsTiles extends Fragment {
         mContainer.setClipChildren(false);
         mContainer.setClipToPadding(false);
         mInflater = inflater;
+
+        // We have both a panel and the ribbon config, see which one we are using
+        Bundle args = getArguments();
+        if (args != null) {
+            mConfigRibbon = args.getBoolean("config_ribbon");
+        }
 
         PackageManager pm = getActivity().getPackageManager();
         if (pm != null) {
@@ -161,7 +168,7 @@ public class StatusBarExpandedQsTiles extends Fragment {
     void genTiles() {
         mDragView.removeAllViews();
         ArrayList<String> tiles = QuickSettingsUtil.getTileListFromString(
-                QuickSettingsUtil.getCurrentTiles(getActivity()));
+                QuickSettingsUtil.getCurrentTiles(getActivity(), mConfigRibbon));
         for (String tileindex : tiles) {
             QuickSettingsUtil.TileInfo tile = QuickSettingsUtil.TILES.get(tileindex);
             if (tile != null) {
@@ -250,21 +257,21 @@ public class StatusBarExpandedQsTiles extends Fragment {
         mDragView.setOnRearrangeListener(new DraggableGridView.OnRearrangeListener() {
             public void onRearrange(int oldIndex, int newIndex) {
                 ArrayList<String> tiles = QuickSettingsUtil.getTileListFromString(
-                        QuickSettingsUtil.getCurrentTiles(getActivity()));
+                        QuickSettingsUtil.getCurrentTiles(getActivity(), mConfigRibbon));
                 String oldTile = tiles.get(oldIndex);
                 tiles.remove(oldIndex);
                 tiles.add(newIndex, oldTile);
                 QuickSettingsUtil.saveCurrentTiles(getActivity(),
-                        QuickSettingsUtil.getTileStringFromList(tiles));
+                        QuickSettingsUtil.getTileStringFromList(tiles), mConfigRibbon);
             }
             @Override
             public void onDelete(int index) {
                 ArrayList<String> tiles = QuickSettingsUtil.getTileListFromString(
-                        QuickSettingsUtil.getCurrentTiles(getActivity()));
+                        QuickSettingsUtil.getCurrentTiles(getActivity(), mConfigRibbon));
                 tiles.remove(index);
                 QuickSettingsUtil.saveCurrentTiles(getActivity(),
                         mDragView.getChildCount() == 1 ?
-                        "" : QuickSettingsUtil.getTileStringFromList(tiles));
+                        "" : QuickSettingsUtil.getTileStringFromList(tiles), mConfigRibbon);
                 if (mDragView.getChildCount() == 1) {
                     showDialogInner(DLG_DISABLED);
                 }
@@ -274,7 +281,7 @@ public class StatusBarExpandedQsTiles extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 ArrayList<String> tiles = QuickSettingsUtil.getTileListFromString(
-                        QuickSettingsUtil.getCurrentTiles(getActivity()));
+                        QuickSettingsUtil.getCurrentTiles(getActivity(), mConfigRibbon));
                 if (arg2 != mDragView.getChildCount() - 1) {
                     if (arg2 == -1) {
                         return;
@@ -323,9 +330,11 @@ public class StatusBarExpandedQsTiles extends Fragment {
         menu.add(0, MENU_RESET, 0, R.string.reset)
                 .setIcon(R.drawable.ic_settings_backup) // use the backup icon
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        menu.add(0, MENU_DYNAMICTILES, 0, R.string.dynamic_tiles_title)
-                .setIcon(R.drawable.ic_settings_dynamic_tiles)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        if (!mConfigRibbon) {
+            menu.add(0, MENU_DYNAMICTILES, 0, R.string.dynamic_tiles_title)
+                    .setIcon(R.drawable.ic_settings_dynamic_tiles)
+                    .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        }
         menu.add(0, MENU_HELP, 0, R.string.help_label)
                 .setIcon(R.drawable.ic_settings_about)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
@@ -393,7 +402,9 @@ public class StatusBarExpandedQsTiles extends Fragment {
                 case DLG_HELP:
                     return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.help_label)
-                    .setMessage(R.string.help_qs_message)
+                    .setMessage(mConfigRibbon
+                            ? R.string.help_qar_message
+                            : R.string.help_qs_message)
                     .setNegativeButton(R.string.dlg_ok,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -409,7 +420,7 @@ public class StatusBarExpandedQsTiles extends Fragment {
                     .setPositiveButton(R.string.dlg_ok,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            QuickSettingsUtil.resetTiles(getActivity());
+                            QuickSettingsUtil.resetTiles(getActivity(), mConfigRibbon);
                             getOwner().genTiles();
                         }
                     })
@@ -581,7 +592,7 @@ public class StatusBarExpandedQsTiles extends Fragment {
                             new Thread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    String tiles = QuickSettingsUtil.getCurrentTiles(getActivity());
+                                    String tiles = QuickSettingsUtil.getCurrentTiles(getActivity(), mConfigRibbon);
                                     ArrayList<String> curr = new ArrayList<String>();
                                     // A blank string indicates tiles are currently disabled
                                     // Avoid index being off by one when we add a new tile
@@ -590,7 +601,7 @@ public class StatusBarExpandedQsTiles extends Fragment {
                                     }
                                     curr.add(getOwner().mTileAdapter.getTileId(position));
                                     QuickSettingsUtil.saveCurrentTiles(getActivity(),
-                                            QuickSettingsUtil.getTileStringFromList(curr));
+                                            QuickSettingsUtil.getTileStringFromList(curr), mConfigRibbon);
                                 }
                             }).start();
                             TileInfo info =
@@ -734,7 +745,7 @@ public class StatusBarExpandedQsTiles extends Fragment {
         @Override
         public boolean isEnabled(int position) {
             String usedTiles = QuickSettingsUtil.getCurrentTiles(
-                    getContext());
+                    getContext(), mConfigRibbon);
             return !(usedTiles.contains(mTiles[position].tile.getId()));
         }
     }

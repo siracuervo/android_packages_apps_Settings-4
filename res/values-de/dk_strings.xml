@@ -409,6 +409,12 @@
     <string name="status_bar_expanded_header_settings_btn_summary">Aktivieren, um den Einstellungen Schaltfläche immer anzuzeigen</string>
 
     <!-- Statusbar expanded notification drawer -->
+    <string name="qar_cat_title">Schnellzugriffsleiste</string>
+    <string name="qar_show_tiles_title">Schnellzugriffsleiste anzeigen</string>
+    <string name="qar_show_tiles_summary">Aktivieren, um eine kleine Version der Schnelleinstellungen in der Benachrichtigungsanzeige anzuzeigen.</string>
+    <string name="qar_show_tiles_deactivated_summary">Schnelleinstellungen sind deaktiviert, aktiviere die Schnelleinstellungen, um die Schnellzugriffsleiste zu nutzen.</string>
+    <string name="qar_tiles_linked_title">Anordnung koppeln</string>
+    <string name="qar_tiles_linked_summary">Aktivieren, um die Kachelauswahl und -anordnung der Schnelleinstellungen zu verwenden</string>
     <string name="notif_alpha_title">Transparenz der Benachrichtigungen</string>
 
     <!-- Statusbar expanded quick settings -->
@@ -474,7 +480,8 @@
     <string name="tiles_reset_message">Kachel Anordnung auf Standard zurücksetzen?</string>
     <string name="disable_qs">Schnelleinstellungen sind deaktiviert</string>
     <string name="disable_qs_message">Keine kachel vorhanden. Schnelleinstellungen sind deaktiviert.\n\nZum Aktivieren, eine Kachel hinzufügen.</string>
-    <string name="help_qs_message">Um eine Kachel hinzuzufügen, die Hinzufügen Schaltfläche drücken, und nach belieben eine Kachel wählen. Um die Anordnung zu ändern, die Kachel gedrückt halten, und an die entsprechende Position verschieben. Um eine Kachel zu löschen, die entsprechende Kachel auf das Löschen-Symbol ziehen, welches erscheint, sobald die Kachel gedrückt gehalten wird.\n\nUm die dynamischen Kacheln anzupassen, auf das entsprechende Symbol oben rechts auf dem Bildschirm drücken.\n\nUm die Schnelleinstellungen zu entfernen, alle Kacheln löschen.</string>
+    <string name="help_qs_message">Um eine Kachel hinzuzufügen, die Hinzufügen Schaltfläche drücken, und nach belieben eine Kachel wählen. Um die Anordnung zu ändern, die Kachel gedrückt halten, und an die entsprechende Position verschieben. Um eine Kachel zu löschen, die entsprechende Kachel auf das Löschen-Symbol ziehen, welches erscheint, sobald die Kachel gedrückt gehalten wird.\n\nUm die dynamischen Kacheln anzupassen, auf das entsprechende Symbol oben rechts, (mittleres) auf dem Bildschirm drücken.\n\nUm die Schnelleinstellungen vollständig zu deaktivieren, alle Kacheln löschen.\n\nZum zurücksetzten oder löschen, auf das entsprechende Symbol oben rechts, (linkes) auf dem Bildschirm drücken.\n\nUm diesen Hilfe-Text erneut anzuzeigen, auf das entsprechende Symbol oben rechts, (rechtes) auf dem Bildschirm drücken</string>
+    <string name="help_qar_message">Um eine Kachel hinzuzufügen, die Hinzufügen Schaltfläche drücken, und nach belieben eine Kachel wählen. Um die Anordnung zu ändern, die Kachel gedrückt halten, und an die entsprechende Position verschieben. Um eine Kachel zu löschen, die entsprechende Kachel auf das Löschen-Symbol ziehen, welches erscheint, sobald die Kachel gedrückt gehalten wird.\n\nUm die Schnellzugriffsleiste vollständig zu deaktivieren, alle Kacheln löschen.\n\nZum zurücksetzten oder löschen, auf das entsprechende Symbol oben rechts, (linkes) auf dem Bildschirm drücken.\n\nUm diesen Hilfe-Text erneut anzuzeigen, auf das entsprechende Symbol oben rechts, (rechtes) auf dem Bildschirm drücken</string>
     <string name="pref_network_mode_title">Netzwerk Modus</string>
     <string name="pref_screentimeout_mode_title">Bildschirm Ruhe Modi</string>
     <string name="pref_ring_mode_title">Ton Modi</string>

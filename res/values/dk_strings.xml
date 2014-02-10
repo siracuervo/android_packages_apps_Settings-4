@@ -403,6 +403,12 @@
     <string name="status_bar_expanded_bg_alpha_title">Background transparency</string>
 
     <!-- Statusbar expanded notification drawer -->
+    <string name="qar_cat_title">Quick access ribbon</string>
+    <string name="qar_show_tiles_title">Show quick access ribbon</string>
+    <string name="qar_show_tiles_summary">Activate, to show a small version of the quick settings on the notification area</string>
+    <string name="qar_show_tiles_deactivated_summary">Quick settings deactivated, activate the quick settings to use the quick access ribbon</string>
+    <string name="qar_tiles_linked_title">Linked layout</string>
+    <string name="qar_tiles_linked_summary">Activate, to use the same tiles and layout as the Quick Settings panel</string>
     <string name="notif_alpha_title">Notification transparency</string>
 
     <!-- Statusbar expanded header -->
@@ -473,7 +479,8 @@
     <string name="tiles_reset_message">Reset displayed tiles and layout to default?</string>
     <string name="disable_qs">Quick settings are disabled</string>
     <string name="disable_qs_message">All tiles were removed. Quick settings are disabled.\n\nTo enable add a tile.</string>
-    <string name="help_qs_message">To add a quick settings tile, press the Add button and choose the tile you would like. To rearrange your tiles, longpress the tile and drag it into the position you want. If you want to delete a tile, drag it to the delete button which appears while dragging the tile.\n\nTo setup dynamic tiles press the respective icon on the top right of the screen\n\nTo disable quick settings, remove all tiles.</string>
+    <string name="help_qs_message">To add a quick settings tile, press the Add button and choose the tile you would like. To rearrange your tiles, longpress the tile and drag it into the position you want. If you want to delete a tile, drag it to the delete button which appears while dragging the tile.\n\nTo setup dynamic tiles press the respective icon on the top right of the screen\n\nTo disable quick settings completely, remove all tiles\n\nTo clear or reset to defaults, select the Reset icon.\n\nClick the info icon to show this help text again.</string>
+    <string name="help_qar_message">To add a tile, press the Add button and choose the tile you would like. To rearrange your tiles, longpress the tile and drag it into the position you want. If you want to delete a tile, drag it to the delete button which appears while dragging the tile.\n\nTo disable quick access ribbons completely, remove all tiles.\n\nTo clear or reset to defaults, select the Reset icon.\n\nClick the info icon to show this help text again</string>
     <string name="pref_network_mode_title">Network modes</string>
     <string name="pref_screentimeout_mode_title">Screen timeout modes</string>
     <string name="pref_ring_mode_title">Sound modes</string>

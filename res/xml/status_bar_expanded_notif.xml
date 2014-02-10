@@ -19,13 +19,37 @@
     android:title="@string/status_bar_expanded_notification_drawer_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-	<PreferenceScreen
-	    android:key="notification_drawer_cw_label_style"
-	    android:fragment="com.android.settings.darkkat.StatusBarExpandedNotifLabelStyle"
-	    android:title="@string/cw_label_style_title" />
+    <PreferenceCategory
+		android:key="qar_cat"
+        android:title="@string/qar_cat_title">
+
+	    <CheckBoxPreference
+		    android:key="qar_show_tiles"
+		    android:title="@string/qar_show_tiles_title"
+		    android:summary="@string/qar_show_tiles_summary" />
+
+	    <CheckBoxPreference
+		    android:key="qar_tiles_linked"
+		    android:title="@string/qar_tiles_linked_title"
+		    android:summary="@string/qar_tiles_linked_summary" />
+
+        <PreferenceScreen
+            android:key="qar_tile_picker"
+            android:title="@string/quicksettings_tile_picker_title"
+            android:summary="@string/quicksettings_tile_picker_summary"
+            android:fragment="com.android.settings.darkkat.StatusBarExpandedQsTiles" >
+            <extra android:name="config_ribbon" android:value="true" />
+        </PreferenceScreen>
+
+    </PreferenceCategory>
 
     <com.android.settings.widget.SeekBarPreference
          android:key="notification_alpha"
          android:title="@string/notif_alpha_title" />
+
+	<PreferenceScreen
+	    android:key="notification_drawer_cw_label_style"
+	    android:fragment="com.android.settings.darkkat.StatusBarExpandedNotifLabelStyle"
+	    android:title="@string/cw_label_style_title" />
 
 </PreferenceScreen>
