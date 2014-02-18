@@ -186,7 +186,7 @@ public class QuickSettingsUtil {
         if (!DeviceUtils.deviceSupportsMobileData(context)) {
             removeTile(TILE_MOBILEDATA);
             removeTile(TILE_WIFIAP);
-            removeTile(TILE_NETWORKMODE);
+            // removeTile(TILE_NETWORKMODE);
         }
 
         // Don't show the bluetooth options if not supported
@@ -202,6 +202,11 @@ public class QuickSettingsUtil {
         // Don't show the Torch tile if not supported
         if (!DeviceUtils.deviceSupportsTorch(context)) {
             removeTile(TILE_TORCH);
+        }
+
+        // remove network mode tile, as long as it doesn`t work at all
+        if (DeviceUtils.removeTileNetworkmode(context)) {
+            removeTile(TILE_NETWORKMODE);
         }
 
     }
