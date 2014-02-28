@@ -39,31 +39,28 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
-    private static final String PREF_NETWORK_SPEED_DOWNLOAD =
-            "network_speed_show_download";
-    private static final String PREF_NETWORK_SPEED_UPLOAD =
-            "network_speed_show_upload";
+    private static final String PREF_NETWORK_SPEED_SHOW_INDICATOR =
+            "network_speed_show_indicator";
     private static final String PREF_TRAFFIC_SUMMARY =
             "traffic_summary";
     private static final String PREF_NETWORK_SPEED_BIT_BYTE =
             "network_speed_bit_byte";
     private static final String PREF_NETWORK_SPEED_HIDE_TRAFFIC =
             "network_speed_hide_traffic";
-    private static final String PREF_NETWORK_SPEED_DOWNLOAD_COLOR =
-            "network_speed_download_color";
-    private static final String PREF_NETWORK_SPEED_UPLOAD_COLOR =
-            "network_speed_upload_color";
+    private static final String PREF_NETWORK_SPEED_TEXT_COLOR =
+            "network_speed_text_color";
+    private static final String PREF_NETWORK_SPEED_ICON_COLOR =
+            "network_speed_icon_color";
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private CheckBoxPreference mNetworkSpeedDl;
-    private CheckBoxPreference mNetworkSpeedUl;
+    private ListPreference mNetworkSpeedIndicator;
     private ListPreference mTrafficSummary; 
     private CheckBoxPreference mNetworkSpeedBitByte;
     private CheckBoxPreference mNetworkSpeedHide;
-    private ColorPickerPreference mNetworkSpeedDownColor;
-    private ColorPickerPreference mNetworkSpeedUpColor;
+    private ColorPickerPreference mNetworkSpeedTextColor;
+    private ColorPickerPreference mNetworkSpeedIconColor;
 
     private ContentResolver mResolver;
 
@@ -85,24 +82,17 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
         addPreferencesFromResource(R.xml.status_bar_network_speed);
         mResolver = getActivity().getContentResolver();
 
-        boolean showNetworkSpeedDl = Settings.System.getInt(mResolver,
-               Settings.System.STATUS_BAR_NETWORK_SPEED_SHOW_DOWNLOAD, 1) == 1;
-        boolean showNetworkSpeedUl = Settings.System.getInt(mResolver,
-               Settings.System.STATUS_BAR_NETWORK_SPEED_SHOW_UPLOAD, 1) == 1;
+        int networkSpeedIndicator = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_NETWORK_SPEED_INDICATOR, 2);
 
-        mNetworkSpeedDl =
-                (CheckBoxPreference) findPreference(PREF_NETWORK_SPEED_DOWNLOAD);
-        mNetworkSpeedDl.setChecked(showNetworkSpeedDl);
-        mNetworkSpeedDl.setOnPreferenceChangeListener(this);
-
-        mNetworkSpeedUl =
-                (CheckBoxPreference) findPreference(PREF_NETWORK_SPEED_UPLOAD);
-        mNetworkSpeedUl.setChecked(showNetworkSpeedUl);
-        mNetworkSpeedUl.setOnPreferenceChangeListener(this);
+        mNetworkSpeedIndicator =
+                (ListPreference) findPreference(PREF_NETWORK_SPEED_SHOW_INDICATOR);
+        mNetworkSpeedIndicator.setValue(String.valueOf(networkSpeedIndicator));
+        mNetworkSpeedIndicator.setSummary(mNetworkSpeedIndicator.getEntry());
+        mNetworkSpeedIndicator.setOnPreferenceChangeListener(this);
 
         mTrafficSummary =
                 (ListPreference) findPreference(PREF_TRAFFIC_SUMMARY);
-        mTrafficSummary.setOnPreferenceChangeListener(this);
         int trafficSummary = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_TRAFFIC_SUMMARY, 3000);
         mTrafficSummary.setValue(String.valueOf(trafficSummary));
@@ -122,31 +112,31 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
         mNetworkSpeedHide.setOnPreferenceChangeListener(this);
 
         // Remove uneeded preferences depending on enabled states
-        mNetworkSpeedDownColor =
-                (ColorPickerPreference) findPreference(PREF_NETWORK_SPEED_DOWNLOAD_COLOR);
-        if (showNetworkSpeedDl) {
+        mNetworkSpeedTextColor =
+                (ColorPickerPreference) findPreference(PREF_NETWORK_SPEED_TEXT_COLOR);
+        if (networkSpeedIndicator != 1) {
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_NETWORK_SPEED_DOWNLOAD_COLOR, 0xffffffff); 
-            mNetworkSpeedDownColor.setNewPreviewColor(intColor);
+                    Settings.System.STATUS_BAR_NETWORK_SPEED_TEXT_COLOR, 0xffffffff); 
+            mNetworkSpeedTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mNetworkSpeedDownColor.setSummary(hexColor);
-            mNetworkSpeedDownColor.setOnPreferenceChangeListener(this);
+            mNetworkSpeedTextColor.setSummary(hexColor);
+            mNetworkSpeedTextColor.setOnPreferenceChangeListener(this);
         } else {
-            removePreference(PREF_NETWORK_SPEED_DOWNLOAD_COLOR);
+            removePreference(PREF_NETWORK_SPEED_TEXT_COLOR);
         }
 
         // Remove uneeded preferences depending on enabled states
-        mNetworkSpeedUpColor =
-                (ColorPickerPreference) findPreference(PREF_NETWORK_SPEED_UPLOAD_COLOR);
-        if (showNetworkSpeedUl) {
+        mNetworkSpeedIconColor =
+                (ColorPickerPreference) findPreference(PREF_NETWORK_SPEED_ICON_COLOR);
+        if (networkSpeedIndicator != 0) {
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_NETWORK_SPEED_UPLOAD_COLOR, 0xffffffff); 
-            mNetworkSpeedUpColor.setNewPreviewColor(intColor);
+                    Settings.System.STATUS_BAR_NETWORK_SPEED_ICON_COLOR, 0xffffffff); 
+            mNetworkSpeedIconColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mNetworkSpeedUpColor.setSummary(hexColor);
-            mNetworkSpeedUpColor.setOnPreferenceChangeListener(this);
+            mNetworkSpeedIconColor.setSummary(hexColor);
+            mNetworkSpeedIconColor.setOnPreferenceChangeListener(this);
         } else {
-            removePreference(PREF_NETWORK_SPEED_UPLOAD_COLOR);
+            removePreference(PREF_NETWORK_SPEED_ICON_COLOR);
         }
 
         setHasOptionsMenu(true);
@@ -171,18 +161,12 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mNetworkSpeedDl) {
-            boolean value = (Boolean) newValue;
+        if (preference == mNetworkSpeedIndicator) {
+            int state = Integer.valueOf((String) newValue);
+            int index = mNetworkSpeedIndicator.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_NETWORK_SPEED_SHOW_DOWNLOAD,
-                value ? 1 : 0);
-            refreshSettings();
-            return true;
-        } else if (preference == mNetworkSpeedUl) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_NETWORK_SPEED_SHOW_UPLOAD,
-                value ? 1 : 0);
+                Settings.System.STATUS_BAR_NETWORK_SPEED_INDICATOR, state);
+            mNetworkSpeedIndicator.setSummary(mNetworkSpeedIndicator.getEntries()[index]);
             refreshSettings();
             return true;
         } else if (preference == mTrafficSummary) {
@@ -204,20 +188,20 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
                 Settings.System.STATUS_BAR_NETWORK_SPEED_HIDE_TRAFFIC,
                 value ? 1 : 0);
             return true;
-        } else if (preference == mNetworkSpeedDownColor) {
+        } else if (preference == mNetworkSpeedTextColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(
                     String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_NETWORK_SPEED_DOWNLOAD_COLOR, intHex);
+                Settings.System.STATUS_BAR_NETWORK_SPEED_TEXT_COLOR, intHex);
             preference.setSummary(hex);
             return true;
-        } else if (preference ==  mNetworkSpeedUpColor) {
+        } else if (preference ==  mNetworkSpeedIconColor) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_NETWORK_SPEED_UPLOAD_COLOR, intHex);
+                Settings.System.STATUS_BAR_NETWORK_SPEED_ICON_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         }
@@ -262,9 +246,7 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                Settings.System.STATUS_BAR_NETWORK_SPEED_SHOW_DOWNLOAD, 0);
-                            Settings.System.putInt(getOwner().mResolver,
-                                Settings.System.STATUS_BAR_NETWORK_SPEED_SHOW_UPLOAD, 0);
+                                Settings.System.STATUS_BAR_NETWORK_SPEED_INDICATOR, 2);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_TRAFFIC_SUMMARY, 3000);
                             Settings.System.putInt(getOwner().mResolver,
@@ -272,10 +254,10 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_SPEED_HIDE_TRAFFIC, 1);
                             Settings.System.putInt(getOwner().mResolver,
-                                Settings.System.STATUS_BAR_NETWORK_SPEED_DOWNLOAD_COLOR,
+                                Settings.System.STATUS_BAR_NETWORK_SPEED_TEXT_COLOR,
                                 0xffffffff);
                             Settings.System.putInt(getOwner().mResolver,
-                                Settings.System.STATUS_BAR_NETWORK_SPEED_UPLOAD_COLOR,
+                                Settings.System.STATUS_BAR_NETWORK_SPEED_ICON_COLOR,
                                 0xffffffff);
                             getOwner().refreshSettings();
                         }
@@ -284,9 +266,7 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                Settings.System.STATUS_BAR_NETWORK_SPEED_SHOW_DOWNLOAD, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                Settings.System.STATUS_BAR_NETWORK_SPEED_SHOW_UPLOAD, 1);
+                                Settings.System.STATUS_BAR_NETWORK_SPEED_INDICATOR, 2);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_TRAFFIC_SUMMARY, 3000);
                             Settings.System.putInt(getOwner().mResolver,
@@ -294,11 +274,11 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_SPEED_HIDE_TRAFFIC, 1);
                             Settings.System.putInt(getOwner().mResolver,
-                                Settings.System.STATUS_BAR_NETWORK_SPEED_DOWNLOAD_COLOR,
+                                Settings.System.STATUS_BAR_NETWORK_SPEED_TEXT_COLOR,
                                 0xffff0000);
                             Settings.System.putInt(getOwner().mResolver,
-                                Settings.System.STATUS_BAR_NETWORK_SPEED_UPLOAD_COLOR,
-                                0xffff0000);
+                                Settings.System.STATUS_BAR_NETWORK_SPEED_ICON_COLOR,
+                                0xff33b5e5);
                             getOwner().refreshSettings();
                         }
                     })

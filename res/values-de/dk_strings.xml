@@ -366,10 +366,10 @@
     <string name="status_bar_show_activity_indicators_summary">Aktivieren um die Netzwerkaktivität anzuzeigen</string>
 
     <!-- Status bar Network speed style -->
-    <string name="network_speed_download_title">Download Geschw. anzeigen</string>
-    <string name="network_speed_download_summary">Aktivieren um die Download Geschwindigkeit in der Statusleiste anzuzeigen</string>
-    <string name="network_speed_upload_title">Upload Geschw. anzeigen</string>
-    <string name="network_speed_upload_summary">Aktivieren um die Upload Geschwindigkeit in der Statusleiste anzuzeigen</string>
+    <string name="network_speed_show_indicator_title">Anzeige</string>
+    <string name="network_download">Download</string>
+    <string name="network_upload">Upload</string>
+    <string name="network_download_upload">Download&#47;Upload</string>
     <string name="traffic_summary">Datenmenge anzeigen</string>
     <string name="traffic_timeout_0s">Nicht anzeigen</string>
     <string name="traffic_timeout_1s">1 Sekunde</string>
@@ -384,8 +384,8 @@
     <string name="network_speed_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
     <string name="network_speed_hide_traffic_title">Anzeige verstecken</string>
     <string name="network_speed_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
-    <string name="color_download_title">Download Farbe</string>
-    <string name="color_upload_title">Upload Farbe</string>
+    <string name="network_speed_text_color_title">Text Farbe</string>
+    <string name="network_speed_text_icon_title">Symbol Farbe</string>
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>

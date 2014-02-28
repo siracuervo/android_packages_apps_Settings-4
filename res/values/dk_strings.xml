@@ -365,10 +365,10 @@
     <string name="status_bar_show_activity_indicators_summary">Enable to show the network activity indicator</string>
 
     <!-- Status bar Network speed style -->
-    <string name="network_speed_download_title">Show download speed</string>
-    <string name="network_speed_download_summary">Enable to show the download speed in the status bar</string>
-    <string name="network_speed_upload_title">Show upload speed</string>
-    <string name="network_speed_upload_summary">Enable to show the upload speed in the status bar</string>
+    <string name="network_speed_show_indicator_title">Indicator</string>
+    <string name="network_download">Download</string>
+    <string name="network_upload">Upload</string>
+    <string name="network_download_upload">Download&#47;Upload</string>
     <string name="traffic_summary">Show summary of traffic</string>
     <string name="traffic_timeout_0s">Don\'t show</string>
     <string name="traffic_timeout_1s">1 second</string>
@@ -383,8 +383,8 @@
     <string name="network_speed_bit_byte_summary">Enable to show the values in bit instead of byte</string>
     <string name="network_speed_hide_traffic_title">Hide the indicator</string>
     <string name="network_speed_hide_traffic_summary">Enable to hide the indicator if there is no traffic</string>
-    <string name="color_download_title">Download Color</string>
-    <string name="color_upload_title">Upload Color</string>
+    <string name="network_speed_text_color_title">Text color</string>
+    <string name="network_speed_icon_color_title">Icon color</string>
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_title">Status bar expanded</string>

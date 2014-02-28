@@ -18,15 +18,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_network_speed_title">
 
-    <CheckBoxPreference
-        android:key="network_speed_show_download"
-        android:title="@string/network_speed_download_title"
-        android:summary="@string/network_speed_download_summary" />
-
-    <CheckBoxPreference
-        android:key="network_speed_show_upload"
-        android:title="@string/network_speed_upload_title"
-        android:summary="@string/network_speed_upload_summary" />
+	<ListPreference
+        android:key="network_speed_show_indicator"
+        android:title="@string/network_speed_show_indicator_title"
+	    android:entries="@array/network_speed_show_indicator_entries"
+	    android:entryValues="@array/network_speed_show_indicator_values" />
 
     <ListPreference
         android:key="traffic_summary"
@@ -46,15 +42,13 @@
         android:summary="@string/network_speed_hide_traffic_summary" />
 
      <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="network_speed_download_color"
-        android:title="@string/color_download_title"
-        android:defaultValue="0xffffffff"
-        android:dependency="network_speed_show_download" />
+        android:key="network_speed_text_color"
+        android:title="@string/network_speed_text_color_title"
+        android:defaultValue="0xffffffff" />
 
      <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="network_speed_upload_color"
-        android:title="@string/color_upload_title"
-        android:defaultValue="0xffffffff"
-        android:dependency="network_speed_show_upload" />
+        android:key="network_speed_icon_color"
+        android:title="@string/network_speed_icon_color_title"
+        android:defaultValue="0xffffffff" />
 
 </PreferenceScreen>

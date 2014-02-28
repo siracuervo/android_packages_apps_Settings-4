@@ -111,7 +111,7 @@ public class QuickSettingsUtil {
                 "com.android.systemui:drawable/ic_qs_expanded_desktop_on"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_NETWORKSPEED, R.string.title_tile_networkspeed,
-                "com.android.systemui:drawable/ic_qs_signal_inout"));
+                "com.android.systemui:drawable/ic_qs_network_traffic_updown"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_NFC, R.string.title_tile_nfc,
                 "com.android.systemui:drawable/ic_qs_nfc_on"));
