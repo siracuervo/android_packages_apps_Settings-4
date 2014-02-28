@@ -369,7 +369,7 @@
     <string name="network_speed_show_indicator_title">Anzeige</string>
     <string name="network_download">Download</string>
     <string name="network_upload">Upload</string>
-    <string name="network_download_upload">Download&#47;Upload</string>
+    <string name="network_download_upload">Download &amp; Upload</string>
     <string name="traffic_summary">Datenmenge anzeigen</string>
     <string name="traffic_timeout_0s">Nicht anzeigen</string>
     <string name="traffic_timeout_1s">1 Sekunde</string>
