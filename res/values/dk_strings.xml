@@ -31,7 +31,7 @@
     <string name="dot_offset_title">Ring&#47;Circle Dot offset</string>
     <string name="color_normal_title">Color (Normal)</string>
     <string name="color_connected_title">Color (Google connected)</string>
-    <string name="expanded_desktop_title">Expanded desktop</string>
+    <string name="expanded_desktop_title">Immersive mode</string>
     <string name="custom_carrier_label_title">Customize custom carrier label</string>
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
     <string name="show_custom_carrier_label_title">Custom carrier label</string>
@@ -78,7 +78,7 @@
     <string name="shortcut_action_app">Custom app</string>
     <string name="shortcut_action_home">Home</string>
     <string name="shortcut_action_back">Back</string>
-    <string name="shortcut_action_expanded_desktop">Expanded desktop</string>
+    <string name="shortcut_action_expanded_desktop">Immersive mode</string>
     <string name="shortcut_action_recent">Recents</string>
     <string name="shortcut_action_lastapp">Last app</string>
     <string name="shortcut_action_assist">Search</string>
@@ -229,7 +229,7 @@
     <!-- Custom carrier label strings -->
     <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
 
-    <!-- Expanded desktop -->
+    <!-- Immersive mode -->
     <string name="expanded_desktop_disabled">Disabled</string>
     <string name="expanded_desktop_status_bar">Status bar visible</string>
     <string name="expanded_desktop_no_status_bar">Status bar hidden</string>
@@ -240,7 +240,7 @@
     <string name="power_menu_toggle_screenshot_summary">Activate, to show screenshot option in Power Menu</string>
     <string name="power_menu_toggle_screen_record_title">Screen record</string>
     <string name="power_menu_toggle_screen_record_summary">Activate, to show screen record option in Power Menu</string>
-    <string name="power_menu_toggle_expanded_desktop_summary">Activate, to show expanded desktop option in Power Menu</string>
+    <string name="power_menu_toggle_expanded_desktop_summary">Activate, to show immersive mode option in Power Menu</string>
 
     <!-- Recents apps strings -->
     <string name="recents_apps_title">Recents Apps</string>
@@ -463,7 +463,7 @@
     <string name="title_tile_user">User switcher</string>
     <string name="title_tile_networkmode">Network mode</string>
     <string name="title_tile_networkspeed">Network speed</string>
-    <string name="title_tile_expanded_desktop">Expanded desktop</string>
+    <string name="title_tile_expanded_desktop">Immersive mode</string>
     <string name="title_tile_nfc">NFC</string>
     <string name="title_tile_screen_timeout">Screen timeout</string>
     <string name="title_tile_quick_record">Quick Record</string>

@@ -32,7 +32,7 @@
     <string name="color_normal_title">Farbe (Normal)</string>
     <string name="color_connected_title">Farbe (Mit Google verbunden)</string>
     <string name="text_title">Text</string>
-    <string name="expanded_desktop_title">Erweiterter Desktop</string>
+    <string name="expanded_desktop_title">Immersive Mode</string>
     <string name="custom_carrier_label_title">Netztbetreiber Name anpassen</string>
     <string name="custom_carrier_label_notset">Kein angepasster Netzbetreiber Name gesetzt</string>
     <string name="show_custom_carrier_label_title">Angepasster Netzbetreiber Name</string>
@@ -79,7 +79,7 @@
     <string name="shortcut_action_app">Individuelle App</string>
     <string name="shortcut_action_home">Home</string>
     <string name="shortcut_action_back">Zurück</string>
-    <string name="shortcut_action_expanded_desktop">Erweiterter Desktop</string>
+    <string name="shortcut_action_expanded_desktop">Immersive Mode</string>
     <string name="shortcut_action_recent">Zuletzt verwendet</string>
     <string name="shortcut_action_lastapp">Letzte App</string>
     <string name="shortcut_action_assist">Suchen</string>
@@ -241,7 +241,7 @@
     <string name="power_menu_toggle_screenshot_summary">Aktivieren um die Bildschirmfoto Option im Ein-&#47;Aus Menü anzuzeigen</string>
     <string name="power_menu_toggle_screen_record_title">Bildschirm Aufnahme</string>
     <string name="power_menu_toggle_screen_record_summary">Aktivieren um die Bildschirm Aufnahme Option im Ein-&#47;Aus Menü anzuzeigen</string>
-    <string name="power_menu_toggle_expanded_desktop_summary">Aktivieren um die Erweiterter Desktop Option im Ein-&#47;Aus Menü anzuzeigen</string>
+    <string name="power_menu_toggle_expanded_desktop_summary">Aktivieren um die Immersive Mode Option im Ein-&#47;Aus Menü anzuzeigen</string>
 
     <!-- Recents apps strings -->
     <string name="recents_apps_title">Letzte Apps</string>
@@ -464,7 +464,7 @@
     <string name="title_tile_user">Benutzer-Wechsel</string>
     <string name="title_tile_networkmode">Netzwerk Modus</string>
     <string name="title_tile_networkspeed">Netzwerk Geschw.</string>
-    <string name="title_tile_expanded_desktop">Erweiterter desktop</string>
+    <string name="title_tile_expanded_desktop">Immersive Mode</string>
     <string name="title_tile_nfc">NFC</string>
     <string name="title_tile_screen_timeout">Beleuchtungsdauer</string>
     <string name="title_tile_quick_record">Schnellaufnahme</string>
