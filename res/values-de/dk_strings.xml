@@ -536,6 +536,33 @@
     <string name="title_pref_menu_location">Position</string>
     <string name="title_pref_menu_display">Sichtbarkeit</string>
 
+    <!-- AppOps additions -->
+    <string name="appops_settings">App Berechtigungen</string>
+    <string name="appops_sysapp_beware">Vorsicht!</string>
+    <string name="appops_sysapp_warning">"Das Ändern der Berechtigungen, von Android Kern Komponenten, kann zu unerwünschtem Verhalten führen. Die Änderungen hier geschehen auf eigene Gefahr!</string>
+
+    <!-- Display settings -->
+
+    <!-- Display rotation options -->
+    <string name="display_rotation_title">Bildschirmausrichtung</string>
+    <string name="display_rotation_disabled">Deaktiviert</string>
+    <string name="display_rotation_unit">Grad</string>
+    <string name="display_lockscreen_rotation_title">Bildschirmsperre drehen</string>
+    <string name="display_rotation_category_title">Bei Drehung um</string>
+    <string name="display_rotation_0_title">0 Grad</string>
+    <string name="display_rotation_90_title">90 Grad</string>
+    <string name="display_rotation_180_title">180 Grad</string>
+    <string name="display_rotation_270_title">270 Grad</string>
+    <string name="swap_volume_buttons_title">Lautstärketasten umkehren</string>
+    <string name="swap_volume_buttons_summary">Belegung der Lautstärketasten umkehren, wenn das Gerät gedreht wird</string>
+
+    <!-- Display wake up options -->
+    <string name="display_wake_category_title">Optionen für das Aufwecken</string>
+    <string name="wake_when_plugged_or_unplugged_title">Ladegerät</string>
+    <string name="wake_when_plugged_or_unplugged_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald ein Ladegerät angeschlossen oder entfernt wird</string>
+    <string name="volume_wake_title">Lautstärke Taste</string>
+    <string name="volume_wake_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald die Lauter/Leiser Taste gedrückt wird</string>
+
     <!-- Sound settings -->
 
     <!-- Quiet hours -->
@@ -591,34 +618,11 @@
     <string name="quiet_hours_alarm_dialog_title">RUHIGE STUNDEN UMGANGEN</string>
     <string name="quiet_hours_alarm_message">" erfüllt die Vorraussetzungen um die Ruhigen Stunden zu umgehen!"</string>
 
-    <!-- AppOps additions -->
-    <string name="appops_settings">App Berechtigungen</string>
-    <string name="appops_sysapp_beware">Vorsicht!</string>
-    <string name="appops_sysapp_warning">"Das Ändern der Berechtigungen, von Android Kern Komponenten, kann zu unerwünschtem Verhalten führen. Die Änderungen hier geschehen auf eigene Gefahr!</string>
+    <!-- Safe headset volume warning -->
+    <string name="safe_headset_volume_warning_title">Lautstärke Warnung</string>
+    <string name="safe_headset_volume_warning_summary">Aktivieren, um die Kopfhörer Lautstärke Warnung anzuzeigen</string>
 
-    <!-- Display settings -->
-
-    <!-- Display rotation options -->
-    <string name="display_rotation_title">Bildschirmausrichtung</string>
-    <string name="display_rotation_disabled">Deaktiviert</string>
-    <string name="display_rotation_unit">Grad</string>
-    <string name="display_lockscreen_rotation_title">Bildschirmsperre drehen</string>
-    <string name="display_rotation_category_title">Bei Drehung um</string>
-    <string name="display_rotation_0_title">0 Grad</string>
-    <string name="display_rotation_90_title">90 Grad</string>
-    <string name="display_rotation_180_title">180 Grad</string>
-    <string name="display_rotation_270_title">270 Grad</string>
-    <string name="swap_volume_buttons_title">Lautstärketasten umkehren</string>
-    <string name="swap_volume_buttons_summary">Belegung der Lautstärketasten umkehren, wenn das Gerät gedreht wird</string>
-
-    <!-- Display wake up options -->
-    <string name="display_wake_category_title">Optionen für das Aufwecken</string>
-    <string name="wake_when_plugged_or_unplugged_title">Ladegerät</string>
-    <string name="wake_when_plugged_or_unplugged_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald ein Ladegerät angeschlossen oder entfernt wird</string>
-    <string name="volume_wake_title">Lautstärke Taste</string>
-    <string name="volume_wake_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald die Lauter/Leiser Taste gedrückt wird</string>
-
-    <!-- Sound settings -->
+    <!-- Volume button music controls -->
     <string name="volume_button_category_title">Lautstärke Taste</string>
     <string name="volume_button_music_controls_title">Lautstärke Tasten Musik Kontrolle</string>
     <string name="volume_button_music_controls_summary">Wenn der Bildschirm aus ist, wechselt ein druck auf die Lauer/Leiser Taste den Musik Titel</string>
