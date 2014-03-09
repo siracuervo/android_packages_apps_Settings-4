@@ -105,6 +105,12 @@ public class General extends SettingsPreferenceFragment implements
         mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
         mLowBatteryWarning.setOnPreferenceChangeListener(this);
 
+        // Remove Recents apps screen, (temporary),
+        // as SlimRoms Recents apps replaces the AOSP one,
+        // there is no need for these settings.
+        // To do: remove the complete code
+        removePreference("recents_apps");
+
         updateCustomLabelTextSummary();
 
     }
