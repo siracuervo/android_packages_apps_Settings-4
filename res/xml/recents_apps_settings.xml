@@ -16,17 +16,11 @@ limitations under the License.
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/recents_apps_title">
+    android:title="@string/recents_screen_title">
 
-    <PreferenceScreen
-        android:key="recents_ram_bar"
-        android:fragment="com.android.settings.darkkat.RamBar"
-        android:title="@string/ram_bar" />
-
-    <ListPreference
-        android:key="recents_clear_all_button_position"
-        android:title="@string/recents_clear_all_button_position_title"
-        android:entries="@array/recents_clear_all_button_position_entries"
-        android:entryValues="@array/recents_clear_all_button_position_values" />
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="recents_screen_bg_color"
+        android:title="@string/recents_screen_bg_color_title"
+        android:defaultValue="0xff000000" />
 
 </PreferenceScreen>

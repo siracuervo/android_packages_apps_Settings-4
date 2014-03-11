@@ -16,81 +16,156 @@
 
 package com.android.settings.darkkat;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.res.Resources; 
 import android.os.Bundle;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.widget.SeekBarPreference;
+
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class RecentsAppsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String KEY_RECENTS_RAM_BAR =
-            "recents_ram_bar";
-    private static final String KEY_RECENTS_CLEAR_ALL_BTN_POS =
-            "recents_clear_all_button_position";
+    private static final String PREF_RECENTS_SCREEN_BG_COLOR =
+            "recents_screen_bg_color";
+    private static final String PREF_RECENTS_SCREEN_BG_ALPHA =
+            "recents_screen_bg_alpha";
 
-    private Preference mRamBar;
-    private ListPreference mClearAllBtnPosition;
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DLG_RESET = 0;
+
+    private ColorPickerPreference mBackgroundColor;
+    private SeekBarPreference mBackgroundAlpha;
 
     private ContentResolver mResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshSettings();
+    }
+
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
+
         mResolver = getActivity().getContentResolver();
 
         addPreferencesFromResource(R.xml.recents_apps_settings);
 
-        mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
+        mBackgroundColor =
+                (ColorPickerPreference) findPreference(PREF_RECENTS_SCREEN_BG_COLOR);
+        int color = Settings.System.getInt(mResolver,
+                Settings.System.RECENTS_SCREEN_BG_COLOR, 0xff181818);
+        mBackgroundColor.setNewPreviewColor(color);
+        String hexColor = String.format("#%08x", (0xffffffff & color));
+        mBackgroundColor.setSummary(hexColor);
+        mBackgroundColor.setAlphaSliderEnabled(true);
+        mBackgroundColor.setOnPreferenceChangeListener(this);
 
-        mClearAllBtnPosition =
-                (ListPreference) findPreference(KEY_RECENTS_CLEAR_ALL_BTN_POS);
-        int clearAllBtnPosition = Settings.System.getInt(mResolver,
-                Settings.System.RECENTS_CLEAR_ALL_BTN_POS, 2);
-        mClearAllBtnPosition.setValue(String.valueOf(clearAllBtnPosition));
-        mClearAllBtnPosition.setSummary(mClearAllBtnPosition.getEntry());
-        mClearAllBtnPosition.setOnPreferenceChangeListener(this);
+        setHasOptionsMenu(true);
+    }
 
-        updateRamBar();
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, MENU_RESET, 0, R.string.reset)
+                .setIcon(R.drawable.ic_settings_backup) // use the backup icon
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_RESET:
+                showDialogInner(DLG_RESET);
+                return true;
+             default:
+                return super.onContextItemSelected(item);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (preference == mClearAllBtnPosition) {
-            int clearAllBtnPosition = Integer.valueOf((String) objValue);
-            int index = mClearAllBtnPosition.findIndexOfValue((String) objValue);
+        if (preference == mBackgroundColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                    Settings.System.RECENTS_CLEAR_ALL_BTN_POS, clearAllBtnPosition);
-            mClearAllBtnPosition.setSummary(mClearAllBtnPosition.getEntries()[index]);
+                Settings.System.RECENTS_SCREEN_BG_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
         }
 
         return false;
     }
 
-    private void updateRamBar() {
-        int ramBarMode = Settings.System.getInt(mResolver,
-                Settings.System.RECENTS_RAM_BAR_MODE, 0);
-        if (ramBarMode != 0)
-            mRamBar.setSummary(getResources().getString(R.string.ram_bar_color_enabled));
-        else
-            mRamBar.setSummary(getResources().getString(R.string.ram_bar_color_disabled));
+    private void showDialogInner(int id) {
+        DialogFragment newFragment = MyAlertDialogFragment.newInstance(id);
+        newFragment.setTargetFragment(this, 0);
+        newFragment.show(getFragmentManager(), "dialog " + id);
     }
 
-     @Override
-     public void onResume() {
-         super.onResume();
-         updateRamBar();
-     }
- 
-     @Override
-     public void onPause() {
-         super.onResume();
-         updateRamBar();
-     } 
+    public static class MyAlertDialogFragment extends DialogFragment {
+
+        public static MyAlertDialogFragment newInstance(int id) {
+            MyAlertDialogFragment frag = new MyAlertDialogFragment();
+            Bundle args = new Bundle();
+            args.putInt("id", id);
+            frag.setArguments(args);
+            return frag;
+        }
+
+        RecentsAppsSettings getOwner() {
+            return (RecentsAppsSettings) getTargetFragment();
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            int id = getArguments().getInt("id");
+            switch (id) {
+                case DLG_RESET:
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.reset)
+                    .setMessage(R.string.dlg_reset_values_message)
+                    .setNegativeButton(R.string.cancel, null)
+                    .setNeutralButton(R.string.dlg_reset_android,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.RECENTS_SCREEN_BG_COLOR, 0xe6000000);
+                            getOwner().refreshSettings();
+                        }
+                    })
+                    .setPositiveButton(R.string.dlg_reset_darkkat,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.RECENTS_SCREEN_BG_COLOR, 0x99000000);
+                            getOwner().refreshSettings();
+                        }
+                    })
+                    .create();
+            }
+            throw new IllegalArgumentException("unknown id " + id);
+        }
+
+        @Override
+        public void onCancel(DialogInterface dialog) {
+
+        }
+    }
 }

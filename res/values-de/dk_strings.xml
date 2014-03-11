@@ -243,8 +243,11 @@
     <string name="power_menu_toggle_screen_record_summary">Aktivieren um die Bildschirm Aufnahme Option im Ein-&#47;Aus Menü anzuzeigen</string>
     <string name="power_menu_toggle_expanded_desktop_summary">Aktivieren um die Immersive Mode Option im Ein-&#47;Aus Menü anzuzeigen</string>
 
-    <!-- Recents apps strings -->
-    <string name="recents_apps_title">Letzte Apps</string>
+    <!-- Recents screen -->
+    <string name="recents_screen_title">Letzte Apps</string>
+
+    <!-- Background -->
+    <string name="recents_screen_bg_color_title">Hintergrund Farbe</string>
 
     <!-- Ram bar strings -->
     <string name="ram_bar">Recents RAM-Leiste</string>

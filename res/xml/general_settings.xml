@@ -40,9 +40,9 @@ limitations under the License.
         android:title="@string/power_menu_title" />
 
     <PreferenceScreen
-        android:key="recents_apps"
+        android:key="recents_screen"
         android:fragment="com.android.settings.darkkat.RecentsAppsSettings"
-        android:title="@string/recents_apps_title" />
+        android:title="@string/recents_screen_title" />
 
     <ListPreference
         android:key="low_battery_warning_policy"

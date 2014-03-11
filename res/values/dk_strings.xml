@@ -242,8 +242,11 @@
     <string name="power_menu_toggle_screen_record_summary">Activate, to show screen record option in Power Menu</string>
     <string name="power_menu_toggle_expanded_desktop_summary">Activate, to show immersive mode option in Power Menu</string>
 
-    <!-- Recents apps strings -->
-    <string name="recents_apps_title">Recents Apps</string>
+    <!-- Recents screen -->
+    <string name="recents_screen_title">Recents app screen</string>
+
+    <!-- Background -->
+    <string name="recents_screen_bg_color_title">Background color</string>
 
     <!-- Ram bar strings -->
     <string name="ram_bar">Recents RAM bar</string>
