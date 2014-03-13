@@ -40,13 +40,14 @@ public class RecentsAppsSettings extends SettingsPreferenceFragment implements
 
     private static final String PREF_RECENTS_SCREEN_BG_COLOR =
             "recents_screen_bg_color";
-    private static final String PREF_RECENTS_SCREEN_BG_ALPHA =
-            "recents_screen_bg_alpha";
+    private static final String PREF_RECENTS_SCREEN_EMPTY_ICON_COLOR =
+            "recents_screen_empty_icon_color";
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
     private ColorPickerPreference mBackgroundColor;
+    private ColorPickerPreference mIconColor;
 
     private ContentResolver mResolver;
 
@@ -66,15 +67,27 @@ public class RecentsAppsSettings extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.recents_apps_settings);
 
+        int color;
+        String hexColor;
+
         mBackgroundColor =
                 (ColorPickerPreference) findPreference(PREF_RECENTS_SCREEN_BG_COLOR);
-        int color = Settings.System.getInt(mResolver,
-                Settings.System.RECENTS_SCREEN_BG_COLOR, 0xff181818);
+        color = Settings.System.getInt(mResolver,
+                Settings.System.RECENTS_SCREEN_BG_COLOR, 0xe6000000);
         mBackgroundColor.setNewPreviewColor(color);
-        String hexColor = String.format("#%08x", (0xffffffff & color));
+        hexColor = String.format("#%08x", (0xffffffff & color));
         mBackgroundColor.setSummary(hexColor);
         mBackgroundColor.setAlphaSliderEnabled(true);
         mBackgroundColor.setOnPreferenceChangeListener(this);
+
+        mIconColor =
+                (ColorPickerPreference) findPreference(PREF_RECENTS_SCREEN_EMPTY_ICON_COLOR);
+        color = Settings.System.getInt(mResolver,
+                Settings.System.RECENTS_SCREEN_EMPTY_ICON_COLOR, 0xffcdcdcd);
+        mIconColor.setNewPreviewColor(color);
+        hexColor = String.format("#%08x", (0xffffffff & color));
+        mIconColor.setSummary(hexColor);
+        mIconColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
     }
@@ -98,12 +111,23 @@ public class RecentsAppsSettings extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+        String hex;
+        int intHex;
+
         if (preference == mBackgroundColor) {
-            String hex = ColorPickerPreference.convertToARGB(
+            hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
                 Settings.System.RECENTS_SCREEN_BG_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mIconColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.RECENTS_SCREEN_EMPTY_ICON_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         }
@@ -145,6 +169,8 @@ public class RecentsAppsSettings extends SettingsPreferenceFragment implements
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.RECENTS_SCREEN_BG_COLOR, 0xe6000000);
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.RECENTS_SCREEN_EMPTY_ICON_COLOR, 0xffcdcdcd);
                             getOwner().refreshSettings();
                         }
                     })
@@ -153,6 +179,8 @@ public class RecentsAppsSettings extends SettingsPreferenceFragment implements
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.RECENTS_SCREEN_BG_COLOR, 0x99000000);
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.RECENTS_SCREEN_EMPTY_ICON_COLOR, 0xff33b5e5);
                             getOwner().refreshSettings();
                         }
                     })

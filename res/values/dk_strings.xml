@@ -247,6 +247,7 @@
 
     <!-- Background -->
     <string name="recents_screen_bg_color_title">Background color</string>
+    <string name="recents_screen_empty_icon_color_title">Icon color on empty recents</string>
 
     <!-- Ram bar strings -->
     <string name="ram_bar">Recents RAM bar</string>

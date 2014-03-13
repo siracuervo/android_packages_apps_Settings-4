@@ -21,6 +21,11 @@ limitations under the License.
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="recents_screen_bg_color"
         android:title="@string/recents_screen_bg_color_title"
-        android:defaultValue="0xff000000" />
+        android:defaultValue="0xe6000000" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="recents_screen_empty_icon_color"
+        android:title="@string/recents_screen_empty_icon_color_title"
+        android:defaultValue="0xffcdcdcd" />
 
 </PreferenceScreen>
