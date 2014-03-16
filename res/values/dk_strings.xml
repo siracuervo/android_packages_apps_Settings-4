@@ -17,6 +17,7 @@
 
     <!-- Settings headers -->
     <string name="header_category_personalize">Personalize</string>
+    <string name="performance_settings">Performance</string>
 
     <!-- Global used -->
     <string name="cat_options_title">Options</string>

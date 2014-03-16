@@ -624,6 +624,10 @@ public class Settings extends PreferenceActivity
                 if (!supported) {
                     target.remove(i);
                 }
+            } else if (id == R.id.performance_controls) {
+                if (!showDev) {
+                    target.remove(i);
+                }
             }
 
             if (i < target.size() && target.get(i) == header
@@ -1146,4 +1150,5 @@ public class Settings extends PreferenceActivity
     public static class StatusBarExpandedQsSettingsActivity extends Settings { /* empty */ }
     public static class DisplayRotationSettingsActivity extends Settings { /* empty */ }
     public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
+    public static class PerformanceSettingsActivity extends Settings { /* empty */ }
 }

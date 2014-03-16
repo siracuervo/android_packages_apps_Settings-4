@@ -17,6 +17,7 @@
 
     <!-- Settings headers -->
     <string name="header_category_personalize">Personalisieren</string>
+    <string name="performance_settings">Leistung</string>
 
     <!-- Global used -->
     <string name="cat_options_title">Optionen</string>
