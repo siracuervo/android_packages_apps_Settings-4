@@ -247,7 +247,7 @@ public class WirelessSettings extends RestrictedSettingsFragment
 
     private boolean isSmsSupported() {
         // Some tablet has sim card but could not do telephony operations. Skip those.
-        return (mTm.getPhoneType() != TelephonyManager.PHONE_TYPE_NONE);
+        return mTm.isSmsCapable();
     }
 
     @Override
@@ -375,19 +375,21 @@ public class WirelessSettings extends RestrictedSettingsFragment
         }
         protectByRestrictions(KEY_TETHER_SETTINGS);
 
-        // Enable link to CMAS app settings depending on the value in config.xml.
-        boolean isCellBroadcastAppLinkEnabled = this.getResources().getBoolean(
-                com.android.internal.R.bool.config_cellBroadcastAppLinks);
-        try {
-            if (isCellBroadcastAppLinkEnabled) {
-                PackageManager pm = getPackageManager();
-                if (pm.getApplicationEnabledSetting("com.android.cellbroadcastreceiver")
-                        == PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
-                    isCellBroadcastAppLinkEnabled = false;  // CMAS app disabled
+        boolean isCellBroadcastAppLinkEnabled = false;
+        if (isSmsSupported()) {
+            isCellBroadcastAppLinkEnabled = this.getResources().getBoolean(
+                    com.android.internal.R.bool.config_cellBroadcastAppLinks);
+            try {
+                if (isCellBroadcastAppLinkEnabled) {
+                    PackageManager pm = getPackageManager();
+                    if (pm.getApplicationEnabledSetting("com.android.cellbroadcastreceiver")
+                            == PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
+                        isCellBroadcastAppLinkEnabled = false;  // CMAS app disabled
+                    }
                 }
+            } catch (IllegalArgumentException ignored) {
+                isCellBroadcastAppLinkEnabled = false;  // CMAS app not installed
             }
-        } catch (IllegalArgumentException ignored) {
-            isCellBroadcastAppLinkEnabled = false;  // CMAS app not installed
         }
         if (isSecondaryUser || !isCellBroadcastAppLinkEnabled) {
             PreferenceScreen root = getPreferenceScreen();
