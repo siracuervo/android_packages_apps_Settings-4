@@ -144,7 +144,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         mVolumeWake = (CheckBoxPreference) findPreference(KEY_VOLUME_WAKE);
         mVolumeWake.setChecked(Settings.System.getInt(resolver,
-                Settings.System.VOLUME_WAKE_SCREEN, 0) == 0);
+                Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
         mVolumeWake.setOnPreferenceChangeListener(this);
     }
 
