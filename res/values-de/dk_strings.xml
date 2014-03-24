@@ -213,6 +213,9 @@
     <string name="lockscreen_battery_status_title">Akkustatus anpassen</string>
     <string name="lockscreen_maximize_widgets_title">Widgets maximieren</string>
     <string name="lockscreen_maximize_widgets_summary">Beim Einschalten Widgets maximiert und Bildschirmsperre minimiert anzeigen</string>
+    <string name="lockscreen_see_through_title">Durchsichtig</string>
+    <string name="lockscreen_see_through_summary">Zeigt den Inhalt hinter dem Sperrbildschirm. Daten könnten für umstehende sichtbar sein.</string>
+    <string name="lockscreen_blur_radius_title">Intensität des Unschärfe Effects</string>
     <string name="lock_clock_title">Uhr-Widget</string>
     <string name="lock_clock_summary">\"cLock-Widget\" konfigurieren</string>
 

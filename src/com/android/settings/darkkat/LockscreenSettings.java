@@ -24,12 +24,14 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.util.Log;
 
 import com.android.internal.util.darkkat.DeviceUtils;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.widget.SeekBarPreference;
 
 public class LockscreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -42,13 +44,18 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
             "lockscreen_always_show_battery_status";
     private static final String KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS =
             "lockscreen_maximize_widgets";
+    private static final String KEY_LOCKSCREEN_SEE_THROUGH =
+            "lockscreen_see_through";
+    private static final String KEY_LOCKSCREEN_BLUR_RADIUS =
+            "lockscreen_blur_radius";
     private static final String KEY_LOCK_CLOCK = "lock_clock";
 
     private CheckBoxPreference mShowBatteryStatusRing;
     private CheckBoxPreference mShowCustomCarrierLabel;
     private CheckBoxPreference mAlwaysShowBatteryStatus;
     private CheckBoxPreference mMaximizeWidgets;
-
+    private CheckBoxPreference mSeeThrough;
+    private SeekBarPreference mBlurRadius;
     private ContentResolver mResolver;
 
     @Override
@@ -118,6 +125,27 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
             mMaximizeWidgets.setOnPreferenceChangeListener(this);
         }
 
+        boolean seeThroughEnabled = Settings.System.getInt(mResolver,
+               Settings.System.LOCKSCREEN_SEE_THROUGH, 0) == 1;
+
+        mSeeThrough =
+                (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_SEE_THROUGH);
+        mSeeThrough.setChecked(seeThroughEnabled);
+        mSeeThrough.setOnPreferenceChangeListener(this);
+
+        // Remove blur radius setting depending on enabled states
+        if (seeThroughEnabled) {
+            mBlurRadius =
+                    (SeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
+            mBlurRadius.setInitValue(Settings.System.getInt(mResolver,
+                    Settings.System.LOCKSCREEN_BLUR_RADIUS, 48));
+            mBlurRadius.setProperty(String.valueOf(Settings.System.getInt(mResolver,
+                    Settings.System.LOCKSCREEN_BLUR_RADIUS, 48) / 100));
+            mBlurRadius.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(KEY_LOCKSCREEN_BLUR_RADIUS);
+        }
+
         // Remove the lock clock preference if its not installed
         if (!isPackageInstalled("com.cyanogenmod.lockclock")) {
             removePreference(KEY_LOCK_CLOCK);
@@ -147,6 +175,17 @@ public class LockscreenSettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) objValue;
             Settings.System.putInt(mResolver,
                     Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, value ? 1 : 0);
+            return true;
+        } else if (preference == mSeeThrough) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCKSCREEN_SEE_THROUGH, value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mBlurRadius) {
+            int value = Integer.parseInt((String) objValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCKSCREEN_BLUR_RADIUS, value);
             return true;
         }
 

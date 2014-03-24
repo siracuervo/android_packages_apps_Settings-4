@@ -59,6 +59,17 @@
         android:persistent="false"
         android:defaultValue="false" />
 
+    <CheckBoxPreference
+        android:key="lockscreen_see_through"
+        android:title="@string/lockscreen_see_through_title"
+        android:summary="@string/lockscreen_see_through_summary"
+        android:persistent="false"
+        android:defaultValue="false" />
+
+    <com.android.settings.widget.SeekBarPreference
+         android:key="lockscreen_blur_radius"
+         android:title="@string/lockscreen_blur_radius_title" />
+
     <PreferenceScreen
         android:key="lock_clock"
         android:summary="@string/lock_clock_summary"
