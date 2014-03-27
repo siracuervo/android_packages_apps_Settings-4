@@ -44,6 +44,7 @@
     <string name="ok">OK</string>
     <string name="reset">Zurücksetzen</string>
     <string name="add">Hinzufügen</string>
+    <string name="enabled">Aktiviert</string>
     <string name="image_not_valid">Bild nicht vorhanden</string>
     <string name="dialog_delete_title">Löschen</string>
     <string name="dlg_reset_color_values_message">Farb Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
@@ -563,6 +564,51 @@
     <string name="display_rotation_270_title">270 Grad</string>
     <string name="swap_volume_buttons_title">Lautstärketasten umkehren</string>
     <string name="swap_volume_buttons_summary">Belegung der Lautstärketasten umkehren, wenn das Gerät gedreht wird</string>
+
+    <!-- Notification light settings -->
+    <string name="display_category_light_options_title">Licht</string>
+    <string name="notification_light_title">Benachrichtigungslicht</string>
+    <string name="notification_light_general_title">Allgemein</string>
+    <string name="notification_light_applist_title">Anwendungen</string>
+    <string name="notification_light_phonelist_title">Telefon</string>
+    <string name="notification_light_use_custom">Benutzerdefinierte Werte verwenden</string>
+    <string name="notification_light_missed_call_title">Verpasster Anruf</string>
+    <string name="notification_light_voicemail_title">Sprachnachricht</string>
+    <string name="notification_light_choose_app">Anwendung auswählen</string>
+    <string name="notification_light_add">Hinzufügen</string>
+
+    <!-- Notification light dialogs -->
+    <string name="edit_light_settings">Lichteinstellungen bearbeiten</string>
+    <string name="pulse_speed_title">Pulslänge und Geschwindigkeit</string>
+    <string name="picker_arrow">→</string>
+    <string name="default_time">Normal</string>
+    <string name="custom_time">Benutzerdefiniert</string>
+    <string name="dialog_test">Test</string>
+    <string name="dialog_delete_title">Löschen</string>
+    <string name="dialog_delete_message">Anpassung für diese App entfernen?</string>
+    <string name="dialog_test_message">Bildschirm abschalten, um diese Einstellung zu testen.</string>
+    <string name="dialog_test_button">Abbrechen</string>
+
+    <!-- Values for the notification light pulse spinners -->
+    <string name="pulse_length_always_on">Immer an</string>
+    <string name="pulse_length_very_short">Sehr kurz</string>
+    <string name="pulse_length_short">Kurz</string>
+    <string name="pulse_length_normal">Normal</string>
+    <string name="pulse_length_long">Lang</string>
+    <string name="pulse_length_very_long">Sehr lang</string>
+    <string name="pulse_speed_very_fast">Sehr schnell</string>
+    <string name="pulse_speed_fast">Schnell</string>
+    <string name="pulse_speed_normal">Normal</string>
+    <string name="pulse_speed_slow">Langsam</string>
+    <string name="pulse_speed_very_slow">Sehr langsam</string>
+
+    <!-- Battery light settings -->
+    <string name="battery_light_title">Akku LED</string>
+    <string name="battery_low_pulse_title">Bei schwachem Akku pulsieren</string>
+    <string name="battery_light_list_title">Farben</string>
+    <string name="battery_light_low_color_title">Akku schwach</string>
+    <string name="battery_light_medium_color_title">Laden</string>
+    <string name="battery_light_full_color_title">Aufgeladen</string>
 
     <!-- Display wake up options -->
     <string name="display_wake_category_title">Optionen für das Aufwecken</string>
