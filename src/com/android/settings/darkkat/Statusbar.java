@@ -22,6 +22,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -29,6 +30,8 @@ import com.android.settings.SettingsPreferenceFragment;
 public class Statusbar extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String STATUS_BAR_BRIGHTNESS_CONTROL =
+            "status_bar_brightness_control";
     private static final String KEY_STATUS_BAR_SHOW_CLOCK =
             "status_bar_show_clock";
     private static final String STATUS_BAR_SHOW_DATE =
@@ -42,6 +45,7 @@ public class Statusbar extends SettingsPreferenceFragment implements
     private static final String KEY_STATUS_BAR_NOTIF_COUNT =
             "status_bar_notif_count";
 
+    private CheckBoxPreference mBrightnessControl;
     private CheckBoxPreference mShowClock;
     private CheckBoxPreference mShowDate;
     private CheckBoxPreference mShowBatteryStatus;
@@ -77,6 +81,21 @@ public class Statusbar extends SettingsPreferenceFragment implements
                 Settings.System.STATUS_BAR_SHOW_BATTERY_BAR, 0) == 1;
         boolean isNetworkSpeedIndicatorEnabled = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR, 0) == 1;
+
+        mBrightnessControl =
+                (CheckBoxPreference) findPreference(STATUS_BAR_BRIGHTNESS_CONTROL);
+        mBrightnessControl.setChecked((Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
+        mBrightnessControl.setOnPreferenceChangeListener(this);
+
+        try {
+            if (Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.SCREEN_BRIGHTNESS_MODE) == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
+                mBrightnessControl.setEnabled(false);
+                mBrightnessControl.setSummary(R.string.status_bar_toggle_info);
+            }
+        } catch (SettingNotFoundException e) {
+        }
 
         mShowClock = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_SHOW_CLOCK);
         mShowClock.setChecked(isClockEnabled);
@@ -126,7 +145,11 @@ public class Statusbar extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (preference == mShowClock) {
+        if (preference == mBrightnessControl) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, value ? 1 : 0);
+        } else if (preference == mShowClock) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_SHOW_CLOCK, value ? 1 : 0);

@@ -292,6 +292,9 @@
 
     <!-- Status bar -->
     <string name="status_bar_title">Statusleiste</string>
+    <string name="status_bar_toggle_brightness_title">Helligkeitskontrolle</string>
+    <string name="status_bar_toggle_brightness_summary">Helligkeit per wischen über die Statusleiste einstellen</string>
+    <string name="status_bar_toggle_info">Automatische Helligkeit aktiv</string>
     <string name="status_bar_show_clock_title">Die Uhr anzeigen</string>
     <string name="status_bar_show_clock_summary">Aktivieren um die Uhr in der Statusleiste anzuzeigen</string>
     <string name="status_bar_show_date_title">Das Datum anzeigen</string>
