@@ -16,7 +16,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Settings headers -->
-    <string name="header_category_personalize">Personalize</string>
+    <string name="header_category_interface">Interface</string>
+    <string name="appops_settings">Apps permissions</string>
     <string name="performance_settings">Performance</string>
 
     <!-- Global used -->
@@ -201,10 +202,16 @@
     <string name="theme_default_color">Theme default</string>
     <string name="system_default_color">System default</string>
 
-    <!-- User Interface settings -->
+    <!-- Interface category -->
+    <string name="interface_lock_screen_title">Lock screen</string>
+    <string name="interface_bars_title">Bars</string>
+    <string name="interface_menus_title">Menus</string>
+    <string name="interface_more_title">More</string>
 
     <!-- Lockscreen settings -->
-    <string name="lock_screen_settings_title">Lockscreen</string>
+    <string name="lockscreen_category_info_area_title">Info area</string>
+    <string name="lockscreen_category_background_title">Background</string>
+    <string name="lockscreen_category_widgets_title">Widgets</string>
     <string name="lockscreen_show_battery_status_ring_title">Show the battery status ring</string>
     <string name="lockscreen_show_battery_status_ring_summary">Enable, to Show the battery status ring around lock ring</string>
     <string name="lockscreen_battery_status_ring_style_title">Customize battery status ring</string>
@@ -225,69 +232,7 @@
     <string name="lockscreen_battery_status_ring_color">Ring color</string>
     <string name="lockscreen_battery_status_ring_charging_color">Ring charging color</string>
 
-    <!-- Interface settings -->
-    <string name="interface_settings_title">Interface</string>
-
-    <!-- General -->
-    <string name="general_title">General</string>
-
-    <!-- Custom carrier label strings -->
-    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
-
-    <!-- Immersive mode -->
-    <string name="expanded_desktop_disabled">Disabled</string>
-    <string name="expanded_desktop_status_bar">Status bar visible</string>
-    <string name="expanded_desktop_no_status_bar">Status bar hidden</string>
-
-    <!-- Power menu -->
-    <string name="power_menu_title">Power menu</string>
-    <string name="power_menu_toggle_screenshot_title">Screenshot</string>
-    <string name="power_menu_toggle_screenshot_summary">Activate, to show screenshot option in Power Menu</string>
-    <string name="power_menu_toggle_screen_record_title">Screen record</string>
-    <string name="power_menu_toggle_screen_record_summary">Activate, to show screen record option in Power Menu</string>
-    <string name="power_menu_toggle_expanded_desktop_summary">Activate, to show immersive mode option in Power Menu</string>
-
-    <!-- Recents screen -->
-    <string name="recents_screen_title">Recents app screen</string>
-
-    <!-- Background -->
-    <string name="recents_screen_bg_color_title">Background color</string>
-    <string name="recents_screen_empty_icon_color_title">Icon color on empty recents</string>
-
-    <!-- Ram bar strings -->
-    <string name="ram_bar">Recents RAM bar</string>
-    <string name="ram_bar_note_title">Note</string>
-    <string name="ram_bar_note_summary">This rambar shows how android is really using your available ram. Please note that having apps open in the background and cached helps for your device to open your apps faster.</string>
-    <string name="ram_bar_mode_title">Recents RAM bar mode</string>
-    <string name="ram_bar_mode_dialog_title">Show on recents RAM bar</string>
-    <string name="ram_bar_none">None</string>
-    <string name="ram_bar_apps">Applications</string>
-    <string name="ram_bar_cache">Applications and cache</string>
-    <string name="ram_bar_other">Applications, cache and other</string>
-    <string name="ram_bar_style_cat">Recents RAM bar style</string>
-    <string name="ram_bar_color_app_mem_color">Applications RAM color</string>
-    <string name="ram_bar_color_cache_mem_color">Cache RAM color</string>
-    <string name="ram_bar_color_total_mem_color">Other RAM color</string>
-    <string name="ram_bar_color_free_mem_color">Free RAM color</string>
-    <string name="ram_bar_color_enabled">Enabled</string>
-    <string name="ram_bar_color_disabled">Disabled</string>
-
-    <!-- Clear all button strings -->
-    <string name="recents_clear_all_button_position_title">Clear all button position</string>
-    <string name="recents_clear_all_button_lt">Top left</string>
-    <string name="recents_clear_all_button_rt">Top right</string>
-    <string name="recents_clear_all_button_lb">Bottom left</string>
-    <string name="recents_clear_all_button_rb">Bottom right</string>
-
-    <!-- Low battery warning policy -->
-    <string name="low_battery_warning_policy_title">Low battery warning</string>
-    <string name="low_battery_warning_policy_dialog_title">Indicate low battery warning with</string>
-    <string name="low_battery_warning_policy_popup_sound">Pop-up and sound</string>
-    <string name="low_battery_warning_policy_notif_sound">Notification and sound</string>
-    <string name="low_battery_warning_policy_popup">Pop-up dialog only</string>
-    <string name="low_battery_warning_policy_notif">Notification only</string>
-    <string name="low_battery_warning_policy_sound">Sound only</string>
-    <string name="low_battery_warning_policy_disabled">Disabled</string>
+    <!-- Bars settings -->
 
     <!-- Status bar -->
     <string name="status_bar_title">Status bar</string>
@@ -547,6 +492,98 @@
     <string name="title_pref_menu_location">Location</string>
     <string name="title_pref_menu_display">Visibility</string>
 
+    <!-- Menus settings -->
+    <string name="power_menu_cat_title">Power menu</string>
+    <string name="recets_screen_cat_title">Recents app screen</string>
+
+    <!-- Power menu -->
+    <string name="power_menu_toggle_screenshot_title">Screenshot</string>
+    <string name="power_menu_toggle_screenshot_summary">Activate, to show screenshot option in Power Menu</string>
+    <string name="power_menu_toggle_screen_record_title">Screen record</string>
+    <string name="power_menu_toggle_screen_record_summary">Activate, to show screen record option in Power Menu</string>
+    <string name="power_menu_toggle_expanded_desktop_summary">Activate, to show immersive mode option in Power Menu</string>
+    <string name="power_menu_text_color_title">Text color</string>
+    <string name="power_menu_icon_color_mode_title">Icon color mode</string>
+    <string name="power_menu_icon_color_title">Icon color</string>
+
+    <!-- Recents screen -->
+    <string name="recents_screen_bg_color_title">Background color</string>
+    <string name="recents_screen_empty_icon_color_title">Icon color on empty recents</string>
+
+    <!-- (Interface category) More settings -->
+
+    <!-- Custom carrier label strings -->
+    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
+
+    <!-- Immersive mode -->
+    <string name="expanded_desktop_disabled">Disabled</string>
+    <string name="expanded_desktop_status_bar">Status bar visible</string>
+    <string name="expanded_desktop_no_status_bar">Status bar hidden</string>
+
+    <!-- Sound settings -->
+
+    <!-- Quiet hours -->
+    <string name="quiet_hours_title">Quiet hours</string>
+    <string name="quiet_hours_summary">Configure the hours the device should be quiet</string>
+    <string name="quiet_hours_enabled">Enable quiet hours</string>
+    <string name="quiet_hours_enabled_on">Quiet hours will be enforced</string>
+    <string name="quiet_hours_enabled_off">Notifications will function as normal</string>
+    <string name="quiet_hours_start">Start of quiet hours</string>
+    <string name="quiet_hours_start_summary">When to start enforcing quiet hours</string>
+    <string name="quiet_hours_end">End of quiet hours</string>
+    <string name="quiet_hours_end_summary">When to stop enforcing quiet hours</string>
+    <string name="quiet_hours_ringer_title">Mute phone ringer</string>
+    <string name="quiet_hours_ringer_on">No ringer will be played</string>
+    <string name="quiet_hours_ringer_off">Ringer will play like normal</string>
+    <string name="quiet_hours_mute">Mute notifications</string>
+    <string name="quiet_hours_mute_on">No sounds will be played</string>
+    <string name="quiet_hours_mute_off">Sounds will play like normal</string>
+    <string name="quiet_hours_still">Disable vibrations</string>
+    <string name="quiet_hours_still_on">Device will not vibrate</string>
+    <string name="quiet_hours_still_off">Device will vibrate normally</string>
+    <string name="quiet_hours_dim">Disable notification light</string>
+    <string name="quiet_hours_dim_on">Notification light will be disabled</string>
+    <string name="quiet_hours_dim_off">Notification light will function as normal</string>
+    <string name="quiet_hours_haptic">Disable haptic feedback</string>
+    <string name="quiet_hours_haptic_on">Haptic feedback will be disabled</string>
+    <string name="quiet_hours_haptic_off">Haptic feedback will function as normal</string>
+    <string name="quiet_hours_active_from">Active from</string>
+    <string name="quiet_hours_active_to">to</string>
+    <string name="quiet_hours_auto_sms_group">Automatic response</string>
+    <string name="quiet_hours_auto_sms_title">Incoming text messages</string>
+    <string name="quiet_hours_auto_sms_call_title">Incoming phone calls</string>
+    <string name="quiet_hours_auto_string_title">Customize automatic response</string>
+    <string name="quiet_hours_auto_string_explain">This message will be sent to anyone who contacts you while quiet hours are active</string>
+    <string name="quiet_hours_auto_sms_null">[Automated Message] I\'ll get back to you as soon as possible.</string>
+    <string name="quiet_hours_auto_disabled">Disabled</string>
+    <string name="quiet_hours_auto_enabled">All numbers</string>
+    <string name="quiet_hours_auto_contacts">Contacts only</string>
+    <string name="quiet_hours_bypass_group">Bypass quiet hours</string>
+    <string name="quiet_hours_sms_code_null">[Alarm]</string>
+    <string name="quiet_hours_sms_bypass_title">Text message bypass</string>
+    <string name="quiet_hours_sms_code_title">Text message key</string>
+    <string name="quiet_hours_sms_code_explain">If an incoming message contains this text your phone will sound an alarm</string>
+    <string name="quiet_hours_call_bypass_title">Incoming call bypass</string>
+    <string name="quiet_hours_calls_required_title">Number of calls in 30 minutes</string>
+    <string name="quiet_hours_calls_required_summary">" calls to bypass quiet hours"</string>
+    <string name="quiet_hours_bypass_ringtone_title">Ringtone to play</string>
+    <string name="quiet_hours_bypass_ringtone_loop_title">Ringtone loop</string>
+    <string name="quiet_hours_bypass_ringtone_loop_summary_on">Ringtone will loop until dismissed</string>
+    <string name="quiet_hours_bypass_ringtone_loop_summary_off">Ringtone will play only once</string>
+    <string name="quiet_hours_alarm_dismiss">Dismiss Alarm</string>
+    <string name="quiet_hours_alarm_and">" and "</string>
+    <string name="quiet_hours_alarm_dialog_title">QUIETHOURS BYPASSED</string>
+    <string name="quiet_hours_alarm_message">" met the requirements to bypass Quiet Hours!"</string>
+
+    <!-- Safe headset volume warning -->
+    <string name="safe_headset_volume_warning_title">Volume warning</string>
+    <string name="safe_headset_volume_warning_summary">Activate, to show safe headset volume warning</string>
+
+    <!-- Volume button music controls -->
+    <string name="volume_button_category_title">Volume button</string>
+    <string name="volume_button_music_controls_title">Volume buttons music controls</string>
+    <string name="volume_button_music_controls_summary">When screen off, long-pressing the volume buttons will switch music tracks</string>
+
     <!-- Display settings -->
 
     <!-- Display rotation options -->
@@ -614,72 +651,19 @@
     <string name="volume_wake_title">Volume button wake</string>
     <string name="volume_wake_summary">Turn the screen on when pressing the volume button up/down</string>
 
-    <!-- Sound settings -->
+    <!-- Battery settings -->
 
-    <!-- Quiet hours -->
-    <string name="quiet_hours_title">Quiet hours</string>
-    <string name="quiet_hours_summary">Configure the hours the device should be quiet</string>
-    <string name="quiet_hours_enabled">Enable quiet hours</string>
-    <string name="quiet_hours_enabled_on">Quiet hours will be enforced</string>
-    <string name="quiet_hours_enabled_off">Notifications will function as normal</string>
-    <string name="quiet_hours_start">Start of quiet hours</string>
-    <string name="quiet_hours_start_summary">When to start enforcing quiet hours</string>
-    <string name="quiet_hours_end">End of quiet hours</string>
-    <string name="quiet_hours_end_summary">When to stop enforcing quiet hours</string>
-    <string name="quiet_hours_ringer_title">Mute phone ringer</string>
-    <string name="quiet_hours_ringer_on">No ringer will be played</string>
-    <string name="quiet_hours_ringer_off">Ringer will play like normal</string>
-    <string name="quiet_hours_mute">Mute notifications</string>
-    <string name="quiet_hours_mute_on">No sounds will be played</string>
-    <string name="quiet_hours_mute_off">Sounds will play like normal</string>
-    <string name="quiet_hours_still">Disable vibrations</string>
-    <string name="quiet_hours_still_on">Device will not vibrate</string>
-    <string name="quiet_hours_still_off">Device will vibrate normally</string>
-    <string name="quiet_hours_dim">Disable notification light</string>
-    <string name="quiet_hours_dim_on">Notification light will be disabled</string>
-    <string name="quiet_hours_dim_off">Notification light will function as normal</string>
-    <string name="quiet_hours_haptic">Disable haptic feedback</string>
-    <string name="quiet_hours_haptic_on">Haptic feedback will be disabled</string>
-    <string name="quiet_hours_haptic_off">Haptic feedback will function as normal</string>
-    <string name="quiet_hours_active_from">Active from</string>
-    <string name="quiet_hours_active_to">to</string>
-    <string name="quiet_hours_auto_sms_group">Automatic response</string>
-    <string name="quiet_hours_auto_sms_title">Incoming text messages</string>
-    <string name="quiet_hours_auto_sms_call_title">Incoming phone calls</string>
-    <string name="quiet_hours_auto_string_title">Customize automatic response</string>
-    <string name="quiet_hours_auto_string_explain">This message will be sent to anyone who contacts you while quiet hours are active</string>
-    <string name="quiet_hours_auto_sms_null">[Automated Message] I\'ll get back to you as soon as possible.</string>
-    <string name="quiet_hours_auto_disabled">Disabled</string>
-    <string name="quiet_hours_auto_enabled">All numbers</string>
-    <string name="quiet_hours_auto_contacts">Contacts only</string>
-    <string name="quiet_hours_bypass_group">Bypass quiet hours</string>
-    <string name="quiet_hours_sms_code_null">[Alarm]</string>
-    <string name="quiet_hours_sms_bypass_title">Text message bypass</string>
-    <string name="quiet_hours_sms_code_title">Text message key</string>
-    <string name="quiet_hours_sms_code_explain">If an incoming message contains this text your phone will sound an alarm</string>
-    <string name="quiet_hours_call_bypass_title">Incoming call bypass</string>
-    <string name="quiet_hours_calls_required_title">Number of calls in 30 minutes</string>
-    <string name="quiet_hours_calls_required_summary">" calls to bypass quiet hours"</string>
-    <string name="quiet_hours_bypass_ringtone_title">Ringtone to play</string>
-    <string name="quiet_hours_bypass_ringtone_loop_title">Ringtone loop</string>
-    <string name="quiet_hours_bypass_ringtone_loop_summary_on">Ringtone will loop until dismissed</string>
-    <string name="quiet_hours_bypass_ringtone_loop_summary_off">Ringtone will play only once</string>
-    <string name="quiet_hours_alarm_dismiss">Dismiss Alarm</string>
-    <string name="quiet_hours_alarm_and">" and "</string>
-    <string name="quiet_hours_alarm_dialog_title">QUIETHOURS BYPASSED</string>
-    <string name="quiet_hours_alarm_message">" met the requirements to bypass Quiet Hours!"</string>
-
-    <!-- Safe headset volume warning -->
-    <string name="safe_headset_volume_warning_title">Volume warning</string>
-    <string name="safe_headset_volume_warning_summary">Activate, to show safe headset volume warning</string>
-
-    <!-- Volume button music controls -->
-    <string name="volume_button_category_title">Volume button</string>
-    <string name="volume_button_music_controls_title">Volume buttons music controls</string>
-    <string name="volume_button_music_controls_summary">When screen off, long-pressing the volume buttons will switch music tracks</string>
+    <!-- Low battery warning policy -->
+    <string name="low_battery_warning_policy_title">Low battery warning</string>
+    <string name="low_battery_warning_policy_dialog_title">Indicate low battery warning with</string>
+    <string name="low_battery_warning_policy_popup_sound">Pop-up and sound</string>
+    <string name="low_battery_warning_policy_notif_sound">Notification and sound</string>
+    <string name="low_battery_warning_policy_popup">Pop-up dialog only</string>
+    <string name="low_battery_warning_policy_notif">Notification only</string>
+    <string name="low_battery_warning_policy_sound">Sound only</string>
+    <string name="low_battery_warning_policy_disabled">Disabled</string>
 
     <!-- AppOps additions -->
-    <string name="appops_settings">Apps permissions</string>
     <string name="appops_sysapp_beware">Beware!</string>
     <string name="appops_sysapp_warning">"Changing permissions of core Android components might lead to undesired behavior. Change settings here at your own risk!</string>
 
@@ -716,5 +700,5 @@
     <string name="mem_info">Memory</string>
     <string name="mod_version">DarkKat version</string>
     <string name="build_date">Build date</string>
-</resources>
 
+</resources>

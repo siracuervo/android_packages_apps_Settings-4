@@ -16,7 +16,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Settings headers -->
-    <string name="header_category_personalize">Personalisieren</string>
+    <string name="header_category_interface">Oberfläche</string>
+    <string name="appops_settings">App Berechtigungen</string>
     <string name="performance_settings">Leistung</string>
 
     <!-- Global used -->
@@ -202,10 +203,16 @@
     <string name="theme_default_color">Design Standard</string>
     <string name="system_default_color">System Standard</string>
 
-    <!-- User Interface settings -->
+    <!-- Interface category -->
+    <string name="interface_lock_screen_title">Bildschirmsperre</string>
+    <string name="interface_bars_title">Leisten</string>
+    <string name="interface_menus_title">Menüs</string>
+    <string name="interface_more_title">Mehr</string>
 
     <!-- Lockscreen settings -->
-    <string name="lock_screen_settings_title">Bildschirmsperre</string>
+    <string name="lockscreen_category_info_area_title">Informationsbereich</string>
+    <string name="lockscreen_category_background_title">Hintergrund</string>
+    <string name="lockscreen_category_widgets_title">Widgets</string>
     <string name="lockscreen_show_battery_status_ring_title">Den Akkustatus Ring anzeigen</string>
     <string name="lockscreen_show_battery_status_ring_summary">Aktivieren, um den Akkustatus Ring um den Sperr Ring herum anzuzeigen</string>
     <string name="lockscreen_battery_status_ring_style_title">Akkustatus Ring anpassen</string>
@@ -226,69 +233,7 @@
     <string name="lockscreen_battery_status_ring_color">Ring Farbe</string>
     <string name="lockscreen_battery_status_ring_charging_color">Ring Lade Farbe</string>
 
-    <!-- Interface settings -->
-    <string name="interface_settings_title">Oberfläche</string>
-
-    <!-- General strings -->
-    <string name="general_title">Allgemein</string>
-
-    <!-- Custom carrier label strings -->
-    <string name="custom_carrier_label_explain">Gib bitte einen neuen Netzbetreiber Namen ein. Lass das Feld leer, um den originalen Netzbetreiber Namen wieder herzustellen.</string>
-
-    <!-- Expanded desktop -->
-    <string name="expanded_desktop_disabled">Deaktiviert</string>
-    <string name="expanded_desktop_status_bar">Statusleiste anzeigen</string>
-    <string name="expanded_desktop_no_status_bar">Statusleiste verbergen</string>
-
-    <!-- Power menu -->
-    <string name="power_menu_title">Ein-&#47;Aus Menü</string>
-    <string name="power_menu_toggle_screenshot_title">Bildschirmfoto</string>
-    <string name="power_menu_toggle_screenshot_summary">Aktivieren um die Bildschirmfoto Option im Ein-&#47;Aus Menü anzuzeigen</string>
-    <string name="power_menu_toggle_screen_record_title">Bildschirm Aufnahme</string>
-    <string name="power_menu_toggle_screen_record_summary">Aktivieren um die Bildschirm Aufnahme Option im Ein-&#47;Aus Menü anzuzeigen</string>
-    <string name="power_menu_toggle_expanded_desktop_summary">Aktivieren um die Immersive Mode Option im Ein-&#47;Aus Menü anzuzeigen</string>
-
-    <!-- Recents screen -->
-    <string name="recents_screen_title">Letzte Apps</string>
-
-    <!-- Background -->
-    <string name="recents_screen_bg_color_title">Hintergrund Farbe</string>
-    <string name="recents_screen_empty_icon_color_title">Symbol Farbe bei leerer Letzte Apps Leiste</string>
-
-    <!-- Ram bar strings -->
-    <string name="ram_bar">Recents RAM-Leiste</string>
-    <string name="ram_bar_note_title">Hinweis</string>
-    <string name="ram_bar_note_summary">Diese RAM-Leiste zeigt an, wie Android tatsächlich den verfügbaren RAM verwendet. Beachte bitte, das das Zwischengespeichern von Anwendungen im Hintergrund dabei hilft, diese Anwendungen schneller zu öffnen.</string>
-    <string name="ram_bar_mode_title">Recents RAM-Leisten Modus</string>
-    <string name="ram_bar_mode_dialog_title">Auf der Recents RAM-Leiste anzeigen</string>
-    <string name="ram_bar_none">Keine</string>
-    <string name="ram_bar_apps">Anwendungen</string>
-    <string name="ram_bar_cache">Anwendungen und Cache</string>
-    <string name="ram_bar_other">Anwendungen, Cache und Andere</string>
-    <string name="ram_bar_style_cat">Recents RAM-Leisten Style</string>
-    <string name="ram_bar_color_app_mem_color">Farbe des Anwendungen RAMs</string>
-    <string name="ram_bar_color_cache_mem_color">Farbe des Cache RAMs</string>
-    <string name="ram_bar_color_total_mem_color">Farbe des Anderen RAMs</string>
-    <string name="ram_bar_color_free_mem_color">Farbe des freien RAMs</string>
-    <string name="ram_bar_color_enabled">Aktiviert</string>
-    <string name="ram_bar_color_disabled">Deaktiviert</string>
-
-    <!-- Clear all button strings -->
-    <string name="recents_clear_all_button_position_title">Position der Alle beenden Schaltfläche</string>
-    <string name="recents_clear_all_button_lt">Oben links</string>
-    <string name="recents_clear_all_button_rt">Oben rechts</string>
-    <string name="recents_clear_all_button_lb">Unten links</string>
-    <string name="recents_clear_all_button_rb">Unten rechts</string>
-
-    <!-- Low battery warning policy -->
-    <string name="low_battery_warning_policy_title">Warnung bei niedrigem Akkustand</string>
-    <string name="low_battery_warning_policy_dialog_title">Warnung bei niedrigem Akkustand mit</string>
-    <string name="low_battery_warning_policy_popup_sound">Pop-up und Ton</string>
-    <string name="low_battery_warning_policy_notif_sound">Benachrichtigung und Ton</string>
-    <string name="low_battery_warning_policy_popup">Nur Pop-up</string>
-    <string name="low_battery_warning_policy_notif">Nur Benachrichtigung</string>
-    <string name="low_battery_warning_policy_sound">Nur Ton</string>
-    <string name="low_battery_warning_policy_disabled">Deaktiviert</string>
+    <!-- Bars settings -->
 
     <!-- Status bar -->
     <string name="status_bar_title">Statusleiste</string>
@@ -548,10 +493,98 @@
     <string name="title_pref_menu_location">Position</string>
     <string name="title_pref_menu_display">Sichtbarkeit</string>
 
-    <!-- AppOps additions -->
-    <string name="appops_settings">App Berechtigungen</string>
-    <string name="appops_sysapp_beware">Vorsicht!</string>
-    <string name="appops_sysapp_warning">"Das Ändern der Berechtigungen, von Android Kern Komponenten, kann zu unerwünschtem Verhalten führen. Die Änderungen hier geschehen auf eigene Gefahr!</string>
+    <!-- Menus settings -->
+    <string name="power_menu_cat_title">Ein-&#47;Aus Menü</string>
+    <string name="recets_screen_cat_title">Letzte Apps</string>
+
+    <!-- Power menu -->
+    <string name="power_menu_title">Ein-&#47;Aus Menü</string>
+    <string name="power_menu_toggle_screenshot_title">Bildschirmfoto</string>
+    <string name="power_menu_toggle_screenshot_summary">Aktivieren um die Bildschirmfoto Option im Ein-&#47;Aus Menü anzuzeigen</string>
+    <string name="power_menu_toggle_screen_record_title">Bildschirm Aufnahme</string>
+    <string name="power_menu_toggle_screen_record_summary">Aktivieren um die Bildschirm Aufnahme Option im Ein-&#47;Aus Menü anzuzeigen</string>
+    <string name="power_menu_toggle_expanded_desktop_summary">Aktivieren um die Immersive Mode Option im Ein-&#47;Aus Menü anzuzeigen</string>
+    <string name="power_menu_text_color_title">Text Farbe</string>
+    <string name="power_menu_icon_color_mode_title">Symbol Farbmodus</string>
+    <string name="power_menu_icon_color_title">Symbol Farbe</string>
+
+    <!-- Recents screen -->
+    <string name="recents_screen_bg_color_title">Hintergrund Farbe</string>
+    <string name="recents_screen_empty_icon_color_title">Symbol Farbe bei leerer Letzte Apps Leiste</string>
+
+    <!-- (Interface category) More settings -->
+
+    <!-- Custom carrier label strings -->
+    <string name="custom_carrier_label_explain">Gib bitte einen neuen Netzbetreiber Namen ein. Lass das Feld leer, um den originalen Netzbetreiber Namen wieder herzustellen.</string>
+
+    <!-- Immersive mode -->
+    <string name="expanded_desktop_disabled">Deaktiviert</string>
+    <string name="expanded_desktop_status_bar">Statusleiste anzeigen</string>
+    <string name="expanded_desktop_no_status_bar">Statusleiste verbergen</string>
+
+    <!-- Sound settings -->
+
+    <!-- Quiet hours -->
+    <string name="quiet_hours_title">Ruhige Stunden</string>
+    <string name="quiet_hours_summary">Konfiguration der Stunden, in denen das Gerät ruhig ist</string>
+    <string name="quiet_hours_enabled">Ruhige Stunden aktivieren</string>
+    <string name="quiet_hours_enabled_on">Ruhige Stunden werden erzwungen</string>
+    <string name="quiet_hours_enabled_off">Benachrichtigungen funktionieren normal</string>
+    <string name="quiet_hours_start">Start der Ruhige Stunden</string>
+    <string name="quiet_hours_start_summary">Ab wann sollen die Ruhige Stunden erzwungen werden</string>
+    <string name="quiet_hours_end">Ende der Ruhige Stunden</string>
+    <string name="quiet_hours_end_summary">Bis wann sollen die Ruhige Stunden erzwungen werden</string>
+    <string name="quiet_hours_ringer_title">Klingelton stumm schalten</string>
+    <string name="quiet_hours_ringer_on">Kein Klingelton</string>
+    <string name="quiet_hours_ringer_off">Klingelton normal</string>
+    <string name="quiet_hours_mute">Benachrichtigungen stumm schalten</string>
+    <string name="quiet_hours_mute_on">Kein Benachrichtigungston</string>
+    <string name="quiet_hours_mute_off">Benachrichtigungston normal</string>
+    <string name="quiet_hours_still">Vibration deaktivieren</string>
+    <string name="quiet_hours_still_on">Keine Vibration</string>
+    <string name="quiet_hours_still_off">Vibration normal</string>
+    <string name="quiet_hours_dim">Benachrichtigungslicht deaktivieren</string>
+    <string name="quiet_hours_dim_on">Benachrichtigungslicht deaktiviert</string>
+    <string name="quiet_hours_dim_off">Benachrichtigungslicht normal</string>
+    <string name="quiet_hours_haptic">Haptische Rückmeldung deaktivieren</string>
+    <string name="quiet_hours_haptic_on">Haptische Rückmeldung deaktiviert</string>
+    <string name="quiet_hours_haptic_off">Haptische Rückmeldung normal</string>
+    <string name="quiet_hours_active_from">Aktiv von</string>
+    <string name="quiet_hours_active_to">bis</string>
+    <string name="quiet_hours_auto_sms_group">Automatische Antwort</string>
+    <string name="quiet_hours_auto_sms_title">Eingehende Text Nachrichten</string>
+    <string name="quiet_hours_auto_sms_call_title">Eingehende Anrufe</string>
+    <string name="quiet_hours_auto_string_title">Automatische Antwort anpassen</string>
+    <string name="quiet_hours_auto_string_explain">Diese Nachricht wird an jeden versendet, der versucht Dich während der aktiven Ruhigewn Stunden zu kontaktieren </string>
+    <string name="quiet_hours_auto_sms_null">[Automatische Nachricht] Ich werde mich so schnell wie möglich, wieder melden.</string>
+    <string name="quiet_hours_auto_disabled">Deaktiviert</string>
+    <string name="quiet_hours_auto_enabled">Alle Nummern</string>
+    <string name="quiet_hours_auto_contacts">Nur Kontakte</string>
+    <string name="quiet_hours_bypass_group">Ruhige Stunden umgehen</string>
+    <string name="quiet_hours_sms_code_null">[Alarm]</string>
+    <string name="quiet_hours_sms_bypass_title">Text Nachrichten</string>
+    <string name="quiet_hours_sms_code_title">Text Nachrichten Schlüsseltext</string>
+    <string name="quiet_hours_sms_code_explain">Wenn eine eingehende Nachricht diesen Text enthält, wird eine Alarm ausgelöst</string>
+    <string name="quiet_hours_call_bypass_title">Eingehende Anrufe</string>
+    <string name="quiet_hours_calls_required_title">Anzahl der Anrufe in 30 Minuten</string>
+    <string name="quiet_hours_calls_required_summary">" Anrufe, um die Ruhigen Stunden zu umgehen"</string>
+    <string name="quiet_hours_bypass_ringtone_title">Klingelton</string>
+    <string name="quiet_hours_bypass_ringtone_loop_title">Klingelton wiederholen</string>
+    <string name="quiet_hours_bypass_ringtone_loop_summary_on">Klingelton wird gespielt, bis der Alarm abgebrochem wird</string>
+    <string name="quiet_hours_bypass_ringtone_loop_summary_off">Klingelton wird nur ein mal gespielt</string>
+    <string name="quiet_hours_alarm_dismiss">Alarm abbrechen</string>
+    <string name="quiet_hours_alarm_and">" und "</string>
+    <string name="quiet_hours_alarm_dialog_title">RUHIGE STUNDEN UMGANGEN</string>
+    <string name="quiet_hours_alarm_message">" erfüllt die Vorraussetzungen um die Ruhigen Stunden zu umgehen!"</string>
+
+    <!-- Safe headset volume warning -->
+    <string name="safe_headset_volume_warning_title">Lautstärke Warnung</string>
+    <string name="safe_headset_volume_warning_summary">Aktivieren, um die Kopfhörer Lautstärke Warnung anzuzeigen</string>
+
+    <!-- Volume button music controls -->
+    <string name="volume_button_category_title">Lautstärke Taste</string>
+    <string name="volume_button_music_controls_title">Lautstärke Tasten Musik Kontrolle</string>
+    <string name="volume_button_music_controls_summary">Wenn der Bildschirm aus ist, wechselt ein druck auf die Lauer/Leiser Taste den Musik Titel</string>
 
     <!-- Display settings -->
 
@@ -620,69 +653,21 @@
     <string name="volume_wake_title">Lautstärke Taste</string>
     <string name="volume_wake_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald die Lauter/Leiser Taste gedrückt wird</string>
 
-    <!-- Sound settings -->
+    <!-- Battery settings -->
 
-    <!-- Quiet hours -->
-    <string name="quiet_hours_title">Ruhige Stunden</string>
-    <string name="quiet_hours_summary">Konfiguration der Stunden, in denen das Gerät ruhig ist</string>
-    <string name="quiet_hours_enabled">Ruhige Stunden aktivieren</string>
-    <string name="quiet_hours_enabled_on">Ruhige Stunden werden erzwungen</string>
-    <string name="quiet_hours_enabled_off">Benachrichtigungen funktionieren normal</string>
-    <string name="quiet_hours_start">Start der Ruhige Stunden</string>
-    <string name="quiet_hours_start_summary">Ab wann sollen die Ruhige Stunden erzwungen werden</string>
-    <string name="quiet_hours_end">Ende der Ruhige Stunden</string>
-    <string name="quiet_hours_end_summary">Bis wann sollen die Ruhige Stunden erzwungen werden</string>
-    <string name="quiet_hours_ringer_title">Klingelton stumm schalten</string>
-    <string name="quiet_hours_ringer_on">Kein Klingelton</string>
-    <string name="quiet_hours_ringer_off">Klingelton normal</string>
-    <string name="quiet_hours_mute">Benachrichtigungen stumm schalten</string>
-    <string name="quiet_hours_mute_on">Kein Benachrichtigungston</string>
-    <string name="quiet_hours_mute_off">Benachrichtigungston normal</string>
-    <string name="quiet_hours_still">Vibration deaktivieren</string>
-    <string name="quiet_hours_still_on">Keine Vibration</string>
-    <string name="quiet_hours_still_off">Vibration normal</string>
-    <string name="quiet_hours_dim">Benachrichtigungslicht deaktivieren</string>
-    <string name="quiet_hours_dim_on">Benachrichtigungslicht deaktiviert</string>
-    <string name="quiet_hours_dim_off">Benachrichtigungslicht normal</string>
-    <string name="quiet_hours_haptic">Haptische Rückmeldung deaktivieren</string>
-    <string name="quiet_hours_haptic_on">Haptische Rückmeldung deaktiviert</string>
-    <string name="quiet_hours_haptic_off">Haptische Rückmeldung normal</string>
-    <string name="quiet_hours_active_from">Aktiv von</string>
-    <string name="quiet_hours_active_to">bis</string>
-    <string name="quiet_hours_auto_sms_group">Automatische Antwort</string>
-    <string name="quiet_hours_auto_sms_title">Eingehende Text Nachrichten</string>
-    <string name="quiet_hours_auto_sms_call_title">Eingehende Anrufe</string>
-    <string name="quiet_hours_auto_string_title">Automatische Antwort anpassen</string>
-    <string name="quiet_hours_auto_string_explain">Diese Nachricht wird an jeden versendet, der versucht Dich während der aktiven Ruhigewn Stunden zu kontaktieren </string>
-    <string name="quiet_hours_auto_sms_null">[Automatische Nachricht] Ich werde mich so schnell wie möglich, wieder melden.</string>
-    <string name="quiet_hours_auto_disabled">Deaktiviert</string>
-    <string name="quiet_hours_auto_enabled">Alle Nummern</string>
-    <string name="quiet_hours_auto_contacts">Nur Kontakte</string>
-    <string name="quiet_hours_bypass_group">Ruhige Stunden umgehen</string>
-    <string name="quiet_hours_sms_code_null">[Alarm]</string>
-    <string name="quiet_hours_sms_bypass_title">Text Nachrichten</string>
-    <string name="quiet_hours_sms_code_title">Text Nachrichten Schlüsseltext</string>
-    <string name="quiet_hours_sms_code_explain">Wenn eine eingehende Nachricht diesen Text enthält, wird eine Alarm ausgelöst</string>
-    <string name="quiet_hours_call_bypass_title">Eingehende Anrufe</string>
-    <string name="quiet_hours_calls_required_title">Anzahl der Anrufe in 30 Minuten</string>
-    <string name="quiet_hours_calls_required_summary">" Anrufe, um die Ruhigen Stunden zu umgehen"</string>
-    <string name="quiet_hours_bypass_ringtone_title">Klingelton</string>
-    <string name="quiet_hours_bypass_ringtone_loop_title">Klingelton wiederholen</string>
-    <string name="quiet_hours_bypass_ringtone_loop_summary_on">Klingelton wird gespielt, bis der Alarm abgebrochem wird</string>
-    <string name="quiet_hours_bypass_ringtone_loop_summary_off">Klingelton wird nur ein mal gespielt</string>
-    <string name="quiet_hours_alarm_dismiss">Alarm abbrechen</string>
-    <string name="quiet_hours_alarm_and">" und "</string>
-    <string name="quiet_hours_alarm_dialog_title">RUHIGE STUNDEN UMGANGEN</string>
-    <string name="quiet_hours_alarm_message">" erfüllt die Vorraussetzungen um die Ruhigen Stunden zu umgehen!"</string>
+    <!-- Low battery warning policy -->
+    <string name="low_battery_warning_policy_title">Warnung bei niedrigem Akkustand</string>
+    <string name="low_battery_warning_policy_dialog_title">Warnung bei niedrigem Akkustand mit</string>
+    <string name="low_battery_warning_policy_popup_sound">Pop-up und Ton</string>
+    <string name="low_battery_warning_policy_notif_sound">Benachrichtigung und Ton</string>
+    <string name="low_battery_warning_policy_popup">Nur Pop-up</string>
+    <string name="low_battery_warning_policy_notif">Nur Benachrichtigung</string>
+    <string name="low_battery_warning_policy_sound">Nur Ton</string>
+    <string name="low_battery_warning_policy_disabled">Deaktiviert</string>
 
-    <!-- Safe headset volume warning -->
-    <string name="safe_headset_volume_warning_title">Lautstärke Warnung</string>
-    <string name="safe_headset_volume_warning_summary">Aktivieren, um die Kopfhörer Lautstärke Warnung anzuzeigen</string>
-
-    <!-- Volume button music controls -->
-    <string name="volume_button_category_title">Lautstärke Taste</string>
-    <string name="volume_button_music_controls_title">Lautstärke Tasten Musik Kontrolle</string>
-    <string name="volume_button_music_controls_summary">Wenn der Bildschirm aus ist, wechselt ein druck auf die Lauer/Leiser Taste den Musik Titel</string>
+    <!-- AppOps additions -->
+    <string name="appops_sysapp_beware">Vorsicht!</string>
+    <string name="appops_sysapp_warning">"Das Ändern der Berechtigungen, von Android Kern Komponenten, kann zu unerwünschtem Verhalten führen. Die Änderungen hier geschehen auf eigene Gefahr!</string>
 
     <!-- Language and input settings -->
     <string name="title_keyboard_input">Erweiterte Optionen</string>

@@ -1,26 +1,28 @@
 /*
-* Copyright (C) 2013 DarkKat
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Copyright (C) 2014 DarkKat
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.android.settings.darkkat;
 
 import android.app.AlertDialog;
 import android.content.ContentResolver;
-import android.content.DialogInterface;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources; 
 import android.os.Bundle;
 import android.os.RemoteException;
@@ -39,24 +41,22 @@ import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class General extends SettingsPreferenceFragment implements
+public class InterfaceMoreSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-
-    private static final String TAG = "General";
+    private static final String TAG = "InterfaceMoreSettings";
 
     private static final String KEY_CUSTOM_CARRIER_LABEL =
-        "custom_carrier_label";
+            "custom_carrier_label";
     private static final String KEY_EXPANDED_DESKTOP =
-        "expanded_desktop";
+            "expanded_desktop";
     private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR =
-        "expanded_desktop_no_navbar";
-    private static final String KEY_LOW_BATTERY_WARNING_POLICY =
-        "low_battery_warning_policy";
+            "expanded_desktop_no_navbar";
+    private static final String KEY_LOCK_CLOCK =
+            "lock_clock";
 
     private Preference mCustomLabel;
     private ListPreference mExpandedDesktop;
     private CheckBoxPreference mExpandedDesktopNoNavbar;
-    private ListPreference mLowBatteryWarning;
 
     private ContentResolver mResolver;
     private String mCustomLabelText = null;
@@ -66,7 +66,7 @@ public class General extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         mResolver = getActivity().getContentResolver();
 
-        addPreferencesFromResource(R.xml.general_settings);
+        addPreferencesFromResource(R.xml.interface_more_settings);
 
         mCustomLabel = findPreference(KEY_CUSTOM_CARRIER_LABEL);
 
@@ -97,13 +97,10 @@ public class General extends SettingsPreferenceFragment implements
             Log.e(TAG, "Error getting navigation bar status");
         }
 
-        mLowBatteryWarning =
-                (ListPreference) findPreference(KEY_LOW_BATTERY_WARNING_POLICY);
-        int lowBatteryWarning = Settings.System.getInt(mResolver,
-                Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, 0);
-        mLowBatteryWarning.setValue(String.valueOf(lowBatteryWarning));
-        mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
-        mLowBatteryWarning.setOnPreferenceChangeListener(this);
+        // Remove the lock clock preference if its not installed
+        if (!isPackageInstalled("com.cyanogenmod.lockclock")) {
+            removePreference(KEY_LOCK_CLOCK);
+        }
 
         updateCustomLabelTextSummary();
 
@@ -117,14 +114,6 @@ public class General extends SettingsPreferenceFragment implements
         } else if (preference == mExpandedDesktopNoNavbar) {
             boolean value = (Boolean) objValue;
             updateExpandedDesktop(value ? 2 : 0);
-            return true;
-        } else if (preference == mLowBatteryWarning) {
-            int lowBatteryWarning = Integer.valueOf((String) objValue);
-            int index = mLowBatteryWarning.findIndexOfValue((String) objValue);
-            Settings.System.putInt(mResolver,
-                    Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY,
-                    lowBatteryWarning);
-            mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntries()[index]);
             return true;
         }
 
@@ -216,4 +205,16 @@ public class General extends SettingsPreferenceFragment implements
             updateCustomLabelTextSummary();
         }
      } 
+
+    private boolean isPackageInstalled(String packageName) {
+        PackageManager pm = getPackageManager();
+        boolean installed = false;
+        try {
+           pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+           installed = true;
+        } catch (PackageManager.NameNotFoundException e) {
+           installed = false;
+        }
+        return installed;
+    }
 }

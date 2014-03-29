@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 DarkKat
+ * Copyright (C) 2014 DarkKat
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,13 +21,13 @@ import android.os.Bundle;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class InterfaceSettings extends SettingsPreferenceFragment {
+public class InterfaceBarsSettings extends SettingsPreferenceFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.interface_settings);
+        addPreferencesFromResource(R.xml.interface_bars_settings);
     }
 
     @Override

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 DarkKat
+ * Copyright (C) 2014 DarkKat
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -39,28 +40,40 @@ import com.android.settings.widget.SeekBarPreference;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class PowerMenu extends SettingsPreferenceFragment implements
+public class InterfaceMenusSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "PowerMenu";
-    private static final String PREF_POWER_MENU_COLOR_CAT =
-            "power_menu_color_cat";
+    private static final String PREF_POWER_MENU_CAT =
+            "power_menu_cat";
     private static final String PREF_POWER_MENU_TEXT_COLOR =
             "power_menu_text_color";
-    private static final String PREF_POWER_MENU_ICON_COLOR =
-            "power_menu_icon_color";
     private static final String PREF_POWER_MENU_ICON_COLOR_MODE =
             "power_menu_icon_color_mode";
+    private static final String PREF_POWER_MENU_ICON_COLOR =
+            "power_menu_icon_color";
+    private static final String PREF_RECENTS_SCREEN_BG_COLOR =
+            "recents_screen_bg_color";
+    private static final String PREF_RECENTS_SCREEN_EMPTY_ICON_COLOR =
+            "recents_screen_empty_icon_color";
 
-    private static final int DEFAULT_POWER_MENU_TEXT_COLOR = 0xffffffff;
-    private static final int DEFAULT_POWER_MENU_ICON_COLOR = 0xffffffff;
+    private static final int DEFAULT_POWER_MENU_TEXT_COLOR =
+            0xffffffff;
+    private static final int DEFAULT_POWER_MENU_ICON_COLOR =
+            0xffffffff;
+    private static final int DEFAULT_RECENTS_SCREEN_BG_COLOR =
+            0xe6000000;
+    private static final int DEFAULT_RECENTS_SCREEN_EMPTY_ICON_COLOR =
+            0xffcdcdcd;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
     private ColorPickerPreference mPowerMenuTextColor;
-    private ColorPickerPreference mPowerMenuIconColor;
     private ListPreference mPowerMenuIconColorMode;
+    private ColorPickerPreference mPowerMenuIconColor;
+    private ColorPickerPreference mRecentsScreenBgColor;
+    private ColorPickerPreference mRecentsScreenIconColor;
 
     private ContentResolver mResolver;
 
@@ -79,7 +92,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements
         int intColor;
         String hexColor;
 
-        addPreferencesFromResource(R.xml.power_menu);
+        addPreferencesFromResource(R.xml.interface_menus_settings);
 
         mResolver = getActivity().getContentResolver();
 
@@ -92,10 +105,16 @@ public class PowerMenu extends SettingsPreferenceFragment implements
         mPowerMenuTextColor.setSummary(hexColor);
         mPowerMenuTextColor.setNewPreviewColor(intColor);
 
+        mPowerMenuIconColorMode =
+            (ListPreference) findPreference(PREF_POWER_MENU_ICON_COLOR_MODE);
         int powerMenuIconColorMode = Settings.System.getInt(getContentResolver(),
                 Settings.System.POWER_MENU_ICON_COLOR_MODE, 0);
-        PreferenceCategory powerMenuIconColorCat =
-                (PreferenceCategory) findPreference(PREF_POWER_MENU_COLOR_CAT);
+        mPowerMenuIconColorMode.setValue(String.valueOf(powerMenuIconColorMode));
+        mPowerMenuIconColorMode.setSummary(mPowerMenuIconColorMode.getEntry());
+        mPowerMenuIconColorMode.setOnPreferenceChangeListener(this);
+
+        PreferenceCategory powerMenuCat =
+                (PreferenceCategory) findPreference(PREF_POWER_MENU_CAT);
         mPowerMenuIconColor =
                 (ColorPickerPreference) findPreference(PREF_POWER_MENU_ICON_COLOR);
         // Remove color preferences if color mode is set do disabled
@@ -108,18 +127,32 @@ public class PowerMenu extends SettingsPreferenceFragment implements
             mPowerMenuIconColor.setSummary(hexColor);
             mPowerMenuIconColor.setNewPreviewColor(intColor);
         } else {
-            powerMenuIconColorCat.removePreference(mPowerMenuIconColor);
+            powerMenuCat.removePreference(mPowerMenuIconColor);
         }
 
-        mPowerMenuIconColorMode =
-            (ListPreference) findPreference(PREF_POWER_MENU_ICON_COLOR_MODE);
-        mPowerMenuIconColorMode.setValue(String.valueOf(powerMenuIconColorMode));
-        mPowerMenuIconColorMode.setSummary(mPowerMenuIconColorMode.getEntry());
-        mPowerMenuIconColorMode.setOnPreferenceChangeListener(this);
+        mRecentsScreenBgColor =
+                (ColorPickerPreference) findPreference(PREF_RECENTS_SCREEN_BG_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.RECENTS_SCREEN_BG_COLOR,
+                DEFAULT_RECENTS_SCREEN_BG_COLOR);
+        mRecentsScreenBgColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mRecentsScreenBgColor.setSummary(hexColor);
+        mRecentsScreenBgColor.setAlphaSliderEnabled(true);
+        mRecentsScreenBgColor.setOnPreferenceChangeListener(this);
+
+        mRecentsScreenIconColor =
+                (ColorPickerPreference) findPreference(PREF_RECENTS_SCREEN_EMPTY_ICON_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.RECENTS_SCREEN_EMPTY_ICON_COLOR,
+                DEFAULT_RECENTS_SCREEN_EMPTY_ICON_COLOR);
+        mRecentsScreenIconColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mRecentsScreenIconColor.setSummary(hexColor);
+        mRecentsScreenIconColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
     }
-
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -153,6 +186,15 @@ public class PowerMenu extends SettingsPreferenceFragment implements
                     Settings.System.POWER_MENU_TEXT_COLOR,
                     intHex);
             return true;
+        } else if (preference == mPowerMenuIconColorMode) {
+            int index = mPowerMenuIconColorMode.findIndexOfValue((String) objValue);
+            int value = Integer.valueOf((String) objValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.POWER_MENU_ICON_COLOR_MODE, value);
+            mPowerMenuIconColorMode.setSummary(
+                mPowerMenuIconColorMode.getEntries()[index]);
+            refreshSettings();
+            return true;
         } else if (preference == mPowerMenuIconColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
@@ -162,14 +204,21 @@ public class PowerMenu extends SettingsPreferenceFragment implements
                     Settings.System.POWER_MENU_ICON_COLOR,
                     intHex);
             return true;
-        } else if (preference == mPowerMenuIconColorMode) {
-            int index = mPowerMenuIconColorMode.findIndexOfValue((String) objValue);
-            int value = Integer.valueOf((String) objValue);
+        } else if (preference == mRecentsScreenBgColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                    Settings.System.POWER_MENU_ICON_COLOR_MODE, value);
-            mPowerMenuIconColorMode.setSummary(
-                mPowerMenuIconColorMode.getEntries()[index]);
-            refreshSettings();
+                Settings.System.RECENTS_SCREEN_BG_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mRecentsScreenIconColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.RECENTS_SCREEN_EMPTY_ICON_COLOR, intHex);
+            preference.setSummary(hex);
             return true;
         }
 
@@ -192,8 +241,8 @@ public class PowerMenu extends SettingsPreferenceFragment implements
             return frag;
         }
 
-        PowerMenu getOwner() {
-            return (PowerMenu) getTargetFragment();
+        InterfaceMenusSettings getOwner() {
+            return (InterfaceMenusSettings) getTargetFragment();
         }
 
         @Override
@@ -209,12 +258,19 @@ public class PowerMenu extends SettingsPreferenceFragment implements
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                            Settings.System.POWER_MENU_TEXT_COLOR,
+                                    Settings.System.POWER_MENU_TEXT_COLOR,
                                     DEFAULT_POWER_MENU_TEXT_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
-                            Settings.System.POWER_MENU_ICON_COLOR,
+                                    Settings.System.POWER_MENU_ICON_COLOR_MODE, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_ICON_COLOR,
                                     DEFAULT_POWER_MENU_ICON_COLOR);
-
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.RECENTS_SCREEN_BG_COLOR,
+                                    DEFAULT_RECENTS_SCREEN_BG_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.RECENTS_SCREEN_EMPTY_ICON_COLOR,
+                                    DEFAULT_RECENTS_SCREEN_EMPTY_ICON_COLOR);
                             getOwner().refreshSettings();
                         }
                     })
@@ -222,11 +278,19 @@ public class PowerMenu extends SettingsPreferenceFragment implements
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                            Settings.System.POWER_MENU_TEXT_COLOR,
+                                    Settings.System.POWER_MENU_TEXT_COLOR,
                                     DEFAULT_POWER_MENU_TEXT_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
-                            Settings.System.POWER_MENU_ICON_COLOR,
+                                    Settings.System.POWER_MENU_ICON_COLOR_MODE, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.POWER_MENU_ICON_COLOR,
                                     0xff33b5e5);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.RECENTS_SCREEN_BG_COLOR,
+                                    DEFAULT_RECENTS_SCREEN_BG_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.RECENTS_SCREEN_EMPTY_ICON_COLOR,
+                                    DEFAULT_RECENTS_SCREEN_EMPTY_ICON_COLOR);
                             getOwner().refreshSettings();
                         }
                     })

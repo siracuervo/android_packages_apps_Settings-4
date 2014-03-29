@@ -71,8 +71,7 @@ import com.android.settings.applications.ManageApplications;
 import com.android.settings.applications.ProcessStatsUi;
 import com.android.settings.bluetooth.BluetoothEnabler;
 import com.android.settings.bluetooth.BluetoothSettings;
-import com.android.settings.darkkat.General;
-import com.android.settings.darkkat.RamBar;
+import com.android.settings.darkkat.InterfaceMoreSettings;
 import com.android.settings.darkkat.StatusBarBatteryStatusStyle;
 import com.android.settings.darkkat.StatusBarNetworkSpeedStyle;
 import com.android.settings.darkkat.StatusBarExpandedQs;
@@ -358,8 +357,7 @@ public class Settings extends PreferenceActivity
         TrustedCredentialsSettings.class.getName(),
         PaymentSettings.class.getName(),
         KeyboardLayoutPickerFragment.class.getName(),
-        General.class.getName(),
-        RamBar.class.getName(),
+        InterfaceMoreSettings.class.getName(),
         StatusBarBatteryStatusStyle.class.getName(),
         StatusBarNetworkSpeedStyle.class.getName(),
         StatusBarExpandedQs.class.getName(),
@@ -1143,8 +1141,7 @@ public class Settings extends PreferenceActivity
     public static class PaymentSettingsActivity extends Settings { /* empty */ }
     public static class PrintSettingsActivity extends Settings { /* empty */ }
     public static class PrintJobSettingsActivity extends Settings { /* empty */ }
-    public static class GeneralSettingsActivity extends Settings { /* empty */ }
-    public static class RamBarSettingsActivity extends Settings { /* empty */ }
+    public static class InterfaceMoreSettingsActivity extends Settings { /* empty */ }
     public static class BatteryStatusStyleSettingsActivity extends Settings { /* empty */ }
     public static class NetworkSpeedIndicatorSettingsActivity extends Settings { /* empty */ }
     public static class StatusBarExpandedQsSettingsActivity extends Settings { /* empty */ }

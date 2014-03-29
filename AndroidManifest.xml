@@ -1606,12 +1606,14 @@
         />
 
         <!-- DarkKat activities Start -->
-        <activity android:name=".darkkat.LockscreenSettings" />
-        <activity android:name=".darkkat.InterfaceSettings" />
+        <activity android:name=".darkkat.InterfaceLockscreenSettings" />
+        <activity android:name=".darkkat.InterfaceBarsSettings" />
+        <activity android:name=".darkkat.InterfaceMenusSettings" />
+        <activity android:name=".darkkat.InterfaceMoreSettings" />
 
-        <!-- Pseudo-activity used to provide an intent-filter entry point to general settings -->
-        <activity android:name="Settings$GeneralSettingsActivity"
-                android:label="@string/general_title"
+        <!-- Pseudo-activity used to provide an intent-filter entry point to (Interface)More settings -->
+        <activity android:name="Settings$InterfaceMoreSettingsActivity"
+                android:label="@string/interface_more_title"
                 android:taskAffinity=""
                 android:excludeFromRecents="true">
             <intent-filter>
@@ -1619,20 +1621,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.General" />
-        </activity>
-
-        <!-- Pseudo-activity used to provide an intent-filter entry point to Recents ram bar settings -->
-        <activity android:name="Settings$RamBarSettingsActivity"
-                android:label="@string/ram_bar"
-                android:taskAffinity=""
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.RamBar" />
+                android:value="com.android.settings.darkkat.InterfaceMoreSettings" />
         </activity>
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to battery icon settings -->
