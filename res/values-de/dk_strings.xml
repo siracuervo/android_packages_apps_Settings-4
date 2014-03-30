@@ -511,6 +511,13 @@
     <!-- Recents screen -->
     <string name="recents_screen_bg_color_title">Hintergrund Farbe</string>
     <string name="recents_screen_empty_icon_color_title">Symbol Farbe bei leerer Letzte Apps Leiste</string>
+    <string name="recent_screen_scale_title">Größe</string>
+    <string name="recent_screen_scale_summary">Letzte Apps Größe in Prozent</string>
+    <string name="recent_screen_100">100% (Standard)</string>
+    <string name="recent_screen_85">85%</string>
+    <string name="recent_screen_70">70%</string>
+    <string name="recent_screen_lefty_mode_title">Am linken Rand anzeigen</string>
+    <string name="recent_screen_lefty_mode_summary">Letzte Apps am linken Rand anzeigen</string>
 
     <!-- (Interface category) More settings -->
 

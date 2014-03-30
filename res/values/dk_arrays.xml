@@ -635,6 +635,18 @@
         <item>**sound**</item>
     </string-array>
 
+    <string-array name="recent_screen_scale_entries">
+        <item>@string/recent_screen_100</item>
+        <item>@string/recent_screen_85</item>
+        <item>@string/recent_screen_70</item>
+    </string-array>
+
+    <string-array name="recent_screen_scale_values" translatable="false">
+        <item>100</item>
+        <item>85</item>
+        <item>70</item>
+    </string-array>
+
     <string-array name="expanded_desktop_entries" translatable="false">
         <item>@string/expanded_desktop_disabled</item>
         <item>@string/expanded_desktop_status_bar</item>

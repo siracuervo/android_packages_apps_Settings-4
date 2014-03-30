@@ -68,5 +68,19 @@ limitations under the License.
             android:title="@string/recents_screen_empty_icon_color_title"
             android:defaultValue="0xffcdcdcd" />
 
+    <CheckBoxPreference
+            android:key="recent_screen_lefty_mode"
+            android:title="@string/recent_screen_lefty_mode_title"
+            android:summary="@string/recent_screen_lefty_mode_summary"
+            android:persistent="false" />
+
+    <ListPreference
+            android:key="recent_screen_scale"
+            android:entries="@array/recent_screen_scale_entries"
+            android:entryValues="@array/recent_screen_scale_values"
+            android:title="@string/recent_screen_scale_title"
+            android:summary="@string/recent_screen_scale_summary"
+            android:persistent="false" />
+
     </PreferenceCategory>
 </PreferenceScreen>

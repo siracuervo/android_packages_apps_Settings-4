@@ -23,12 +23,14 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -56,6 +58,10 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             "recents_screen_bg_color";
     private static final String PREF_RECENTS_SCREEN_EMPTY_ICON_COLOR =
             "recents_screen_empty_icon_color";
+    private static final String PREF_RECENT_SCREEN_LEFTY_MODE =
+            "recent_screen_lefty_mode";
+    private static final String PREF_RECENT_SCREEN_SCALE =
+            "recent_screen_scale";
 
     private static final int DEFAULT_POWER_MENU_TEXT_COLOR =
             0xffffffff;
@@ -74,6 +80,8 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
     private ColorPickerPreference mPowerMenuIconColor;
     private ColorPickerPreference mRecentsScreenBgColor;
     private ColorPickerPreference mRecentsScreenIconColor;
+    private CheckBoxPreference mRecentScreenLeftyMode;
+    private ListPreference mRecentScreenScale;
 
     private ContentResolver mResolver;
 
@@ -151,6 +159,20 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
         mRecentsScreenIconColor.setSummary(hexColor);
         mRecentsScreenIconColor.setOnPreferenceChangeListener(this);
 
+        mRecentScreenLeftyMode =
+                (CheckBoxPreference) findPreference(PREF_RECENT_SCREEN_LEFTY_MODE);
+        final boolean recentLeftyMode = Settings.System.getInt(getContentResolver(),
+                Settings.System.RECENT_PANEL_GRAVITY, Gravity.RIGHT) == Gravity.LEFT;
+        mRecentScreenLeftyMode.setChecked(recentLeftyMode);
+        mRecentScreenLeftyMode.setOnPreferenceChangeListener(this);
+
+        mRecentScreenScale =
+                (ListPreference) findPreference(PREF_RECENT_SCREEN_SCALE);
+        final int recentScale = Settings.System.getInt(getContentResolver(),
+                Settings.System.RECENT_PANEL_SCALE_FACTOR, 100);
+        mRecentScreenScale.setValue(recentScale + "");
+        mRecentScreenScale.setOnPreferenceChangeListener(this);
+
         setHasOptionsMenu(true);
     }
 
@@ -219,6 +241,16 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             Settings.System.putInt(mResolver,
                 Settings.System.RECENTS_SCREEN_EMPTY_ICON_COLOR, intHex);
             preference.setSummary(hex);
+            return true;
+        } else if (preference == mRecentScreenScale) {
+            int value = Integer.parseInt((String) objValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.RECENT_PANEL_SCALE_FACTOR, value);
+            return true;
+        } else if (preference == mRecentScreenLeftyMode) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.RECENT_PANEL_GRAVITY,
+                    ((Boolean) objValue) ? Gravity.LEFT : Gravity.RIGHT);
             return true;
         }
 
