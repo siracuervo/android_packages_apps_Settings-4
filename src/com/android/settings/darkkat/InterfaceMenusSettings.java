@@ -54,22 +54,22 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             "power_menu_icon_color_mode";
     private static final String PREF_POWER_MENU_ICON_COLOR =
             "power_menu_icon_color";
-    private static final String PREF_RECENTS_SCREEN_BG_COLOR =
-            "recents_screen_bg_color";
-    private static final String PREF_RECENTS_SCREEN_EMPTY_ICON_COLOR =
-            "recents_screen_empty_icon_color";
-    private static final String PREF_RECENT_SCREEN_LEFTY_MODE =
-            "recent_screen_lefty_mode";
-    private static final String PREF_RECENT_SCREEN_SCALE =
-            "recent_screen_scale";
+    private static final String PREF_RECENT_PANEL_BG_COLOR =
+            "recent_panel_bg_color";
+    private static final String PREF_RECENT_PANEL_EMPTY_ICON_COLOR =
+            "recent_panel_empty_icon_color";
+    private static final String PREF_RECENT_PANEL_LEFTY_MODE =
+            "recent_panel_lefty_mode";
+    private static final String PREF_RECENT_PANEL_SCALE =
+            "recent_panel_scale";
 
     private static final int DEFAULT_POWER_MENU_TEXT_COLOR =
             0xffffffff;
     private static final int DEFAULT_POWER_MENU_ICON_COLOR =
             0xffffffff;
-    private static final int DEFAULT_RECENTS_SCREEN_BG_COLOR =
+    private static final int DEFAULT_RECENT_PANEL_BG_COLOR =
             0xe6000000;
-    private static final int DEFAULT_RECENTS_SCREEN_EMPTY_ICON_COLOR =
+    private static final int DEFAULT_RECENT_PANEL_EMPTY_ICON_COLOR =
             0xffcdcdcd;
 
     private static final int MENU_RESET = Menu.FIRST;
@@ -78,10 +78,10 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
     private ColorPickerPreference mPowerMenuTextColor;
     private ListPreference mPowerMenuIconColorMode;
     private ColorPickerPreference mPowerMenuIconColor;
-    private ColorPickerPreference mRecentsScreenBgColor;
-    private ColorPickerPreference mRecentsScreenIconColor;
-    private CheckBoxPreference mRecentScreenLeftyMode;
-    private ListPreference mRecentScreenScale;
+    private ColorPickerPreference mRecentPanelBgColor;
+    private ColorPickerPreference mRecentPanelIconColor;
+    private CheckBoxPreference mRecentPanelLeftyMode;
+    private ListPreference mRecentPanelScale;
 
     private ContentResolver mResolver;
 
@@ -138,40 +138,40 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             powerMenuCat.removePreference(mPowerMenuIconColor);
         }
 
-        mRecentsScreenBgColor =
-                (ColorPickerPreference) findPreference(PREF_RECENTS_SCREEN_BG_COLOR);
+        mRecentPanelBgColor =
+                (ColorPickerPreference) findPreference(PREF_RECENT_PANEL_BG_COLOR);
         intColor = Settings.System.getInt(mResolver,
-                Settings.System.RECENTS_SCREEN_BG_COLOR,
-                DEFAULT_RECENTS_SCREEN_BG_COLOR);
-        mRecentsScreenBgColor.setNewPreviewColor(intColor);
+                Settings.System.RECENT_PANEL_BG_COLOR,
+                DEFAULT_RECENT_PANEL_BG_COLOR);
+        mRecentPanelBgColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mRecentsScreenBgColor.setSummary(hexColor);
-        mRecentsScreenBgColor.setAlphaSliderEnabled(true);
-        mRecentsScreenBgColor.setOnPreferenceChangeListener(this);
+        mRecentPanelBgColor.setSummary(hexColor);
+        mRecentPanelBgColor.setAlphaSliderEnabled(true);
+        mRecentPanelBgColor.setOnPreferenceChangeListener(this);
 
-        mRecentsScreenIconColor =
-                (ColorPickerPreference) findPreference(PREF_RECENTS_SCREEN_EMPTY_ICON_COLOR);
+        mRecentPanelIconColor =
+                (ColorPickerPreference) findPreference(PREF_RECENT_PANEL_EMPTY_ICON_COLOR);
         intColor = Settings.System.getInt(mResolver,
-                Settings.System.RECENTS_SCREEN_EMPTY_ICON_COLOR,
-                DEFAULT_RECENTS_SCREEN_EMPTY_ICON_COLOR);
-        mRecentsScreenIconColor.setNewPreviewColor(intColor);
+                Settings.System.RECENT_PANEL_EMPTY_ICON_COLOR,
+                DEFAULT_RECENT_PANEL_EMPTY_ICON_COLOR);
+        mRecentPanelIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mRecentsScreenIconColor.setSummary(hexColor);
-        mRecentsScreenIconColor.setOnPreferenceChangeListener(this);
+        mRecentPanelIconColor.setSummary(hexColor);
+        mRecentPanelIconColor.setOnPreferenceChangeListener(this);
 
-        mRecentScreenLeftyMode =
-                (CheckBoxPreference) findPreference(PREF_RECENT_SCREEN_LEFTY_MODE);
+        mRecentPanelLeftyMode =
+                (CheckBoxPreference) findPreference(PREF_RECENT_PANEL_LEFTY_MODE);
         final boolean recentLeftyMode = Settings.System.getInt(getContentResolver(),
                 Settings.System.RECENT_PANEL_GRAVITY, Gravity.RIGHT) == Gravity.LEFT;
-        mRecentScreenLeftyMode.setChecked(recentLeftyMode);
-        mRecentScreenLeftyMode.setOnPreferenceChangeListener(this);
+        mRecentPanelLeftyMode.setChecked(recentLeftyMode);
+        mRecentPanelLeftyMode.setOnPreferenceChangeListener(this);
 
-        mRecentScreenScale =
-                (ListPreference) findPreference(PREF_RECENT_SCREEN_SCALE);
+        mRecentPanelScale =
+                (ListPreference) findPreference(PREF_RECENT_PANEL_SCALE);
         final int recentScale = Settings.System.getInt(getContentResolver(),
                 Settings.System.RECENT_PANEL_SCALE_FACTOR, 100);
-        mRecentScreenScale.setValue(recentScale + "");
-        mRecentScreenScale.setOnPreferenceChangeListener(this);
+        mRecentPanelScale.setValue(recentScale + "");
+        mRecentPanelScale.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
     }
@@ -226,28 +226,28 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                     Settings.System.POWER_MENU_ICON_COLOR,
                     intHex);
             return true;
-        } else if (preference == mRecentsScreenBgColor) {
+        } else if (preference == mRecentPanelBgColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.RECENTS_SCREEN_BG_COLOR, intHex);
+                Settings.System.RECENT_PANEL_BG_COLOR, intHex);
             preference.setSummary(hex);
             return true;
-        } else if (preference == mRecentsScreenIconColor) {
+        } else if (preference == mRecentPanelIconColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.RECENTS_SCREEN_EMPTY_ICON_COLOR, intHex);
+                Settings.System.RECENT_PANEL_EMPTY_ICON_COLOR, intHex);
             preference.setSummary(hex);
             return true;
-        } else if (preference == mRecentScreenScale) {
+        } else if (preference == mRecentPanelScale) {
             int value = Integer.parseInt((String) objValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.RECENT_PANEL_SCALE_FACTOR, value);
             return true;
-        } else if (preference == mRecentScreenLeftyMode) {
+        } else if (preference == mRecentPanelLeftyMode) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.RECENT_PANEL_GRAVITY,
                     ((Boolean) objValue) ? Gravity.LEFT : Gravity.RIGHT);
@@ -298,11 +298,11 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                                     Settings.System.POWER_MENU_ICON_COLOR,
                                     DEFAULT_POWER_MENU_ICON_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENTS_SCREEN_BG_COLOR,
-                                    DEFAULT_RECENTS_SCREEN_BG_COLOR);
+                                    Settings.System.RECENT_PANEL_BG_COLOR,
+                                    DEFAULT_RECENT_PANEL_BG_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENTS_SCREEN_EMPTY_ICON_COLOR,
-                                    DEFAULT_RECENTS_SCREEN_EMPTY_ICON_COLOR);
+                                    Settings.System.RECENT_PANEL_EMPTY_ICON_COLOR,
+                                    DEFAULT_RECENT_PANEL_EMPTY_ICON_COLOR);
                             getOwner().refreshSettings();
                         }
                     })
@@ -318,11 +318,11 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                                     Settings.System.POWER_MENU_ICON_COLOR,
                                     0xff33b5e5);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENTS_SCREEN_BG_COLOR,
-                                    DEFAULT_RECENTS_SCREEN_BG_COLOR);
+                                    Settings.System.RECENT_PANEL_BG_COLOR,
+                                    DEFAULT_RECENT_PANEL_BG_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENTS_SCREEN_EMPTY_ICON_COLOR,
-                                    DEFAULT_RECENTS_SCREEN_EMPTY_ICON_COLOR);
+                                    Settings.System.RECENT_PANEL_EMPTY_ICON_COLOR,
+                                    DEFAULT_RECENT_PANEL_EMPTY_ICON_COLOR);
                             getOwner().refreshSettings();
                         }
                     })

@@ -83,7 +83,7 @@
     <string name="shortcut_action_home">Home</string>
     <string name="shortcut_action_back">Zurück</string>
     <string name="shortcut_action_expanded_desktop">Immersive Mode</string>
-    <string name="shortcut_action_recent">Zuletzt verwendet</string>
+    <string name="shortcut_action_recent">Kürzlich verwendete Apps-Feld</string>
     <string name="shortcut_action_lastapp">Letzte App</string>
     <string name="shortcut_action_assist">Suchen</string>
     <string name="shortcut_action_search">In App Suche</string>
@@ -206,7 +206,7 @@
     <!-- Interface category -->
     <string name="interface_lock_screen_title">Bildschirmsperre</string>
     <string name="interface_bars_title">Leisten</string>
-    <string name="interface_menus_title">Menüs</string>
+    <string name="interface_menus_title">Menüs &amp; Felder</string>
     <string name="interface_more_title">Mehr</string>
 
     <!-- Lockscreen settings -->
@@ -495,7 +495,8 @@
 
     <!-- Menus settings -->
     <string name="power_menu_cat_title">Ein-&#47;Aus Menü</string>
-    <string name="recets_screen_cat_title">Letzte Apps</string>
+    <string name="recent_panel_color_cat_title">Kürzlich verwendete Apps-Feld Farbe</string>
+    <string name="recent_panel_option_cat_title">Kürzlich verwendete Apps-Feld Optionen</string>
 
     <!-- Power menu -->
     <string name="power_menu_title">Ein-&#47;Aus Menü</string>
@@ -508,16 +509,16 @@
     <string name="power_menu_icon_color_mode_title">Symbol Farbmodus</string>
     <string name="power_menu_icon_color_title">Symbol Farbe</string>
 
-    <!-- Recents screen -->
-    <string name="recents_screen_bg_color_title">Hintergrund Farbe</string>
-    <string name="recents_screen_empty_icon_color_title">Symbol Farbe bei leerer Letzte Apps Leiste</string>
-    <string name="recent_screen_scale_title">Größe</string>
-    <string name="recent_screen_scale_summary">Letzte Apps Größe in Prozent</string>
-    <string name="recent_screen_100">100% (Standard)</string>
-    <string name="recent_screen_85">85%</string>
-    <string name="recent_screen_70">70%</string>
-    <string name="recent_screen_lefty_mode_title">Am linken Rand anzeigen</string>
-    <string name="recent_screen_lefty_mode_summary">Letzte Apps am linken Rand anzeigen</string>
+    <!-- Slim Recent apps panel -->
+    <string name="recent_panel_bg_color_title">Hintergrund</string>
+    <string name="recent_panel_empty_icon_color_title">Leer-Symbol</string>
+    <string name="recent_panel_scale_title">Größe</string>
+    <string name="recent_panel_scale_summary">Kürzlich verwendete Apps-Feld Größe in Prozent</string>
+    <string name="recent_panel_100">100% (Standard)</string>
+    <string name="recent_panel_85">85%</string>
+    <string name="recent_panel_70">70%</string>
+    <string name="recent_panel_lefty_mode_title">Am linken Rand anzeigen</string>
+    <string name="recent_panel_lefty_mode_summary">Kürzlich verwendete Apps-Feld am linken Rand anzeigen</string>
 
     <!-- (Interface category) More settings -->
 

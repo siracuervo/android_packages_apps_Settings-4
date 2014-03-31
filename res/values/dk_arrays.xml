@@ -635,13 +635,13 @@
         <item>**sound**</item>
     </string-array>
 
-    <string-array name="recent_screen_scale_entries">
-        <item>@string/recent_screen_100</item>
-        <item>@string/recent_screen_85</item>
-        <item>@string/recent_screen_70</item>
+    <string-array name="recent_panel_scale_entries">
+        <item>@string/recent_panel_100</item>
+        <item>@string/recent_panel_85</item>
+        <item>@string/recent_panel_70</item>
     </string-array>
 
-    <string-array name="recent_screen_scale_values" translatable="false">
+    <string-array name="recent_panel_scale_values" translatable="false">
         <item>100</item>
         <item>85</item>
         <item>70</item>
