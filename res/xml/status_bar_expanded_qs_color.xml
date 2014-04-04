@@ -21,8 +21,7 @@
 
     <CheckBoxPreference
         android:key="quick_tiles_use_different_activity_color"
-        android:title="@string/quick_tiles_use_different_activity_color_title"
-        android:summary="@string/quick_tiles_use_different_activity_color_summary" />
+        android:title="@string/quick_tiles_use_different_activity_color_title" />
 
     <PreferenceCategory
         android:title="@string/quick_tiles_cat_tiles">

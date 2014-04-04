@@ -386,6 +386,7 @@
     <string name="quick_tiles_cat_icons">Icons</string>
     <string name="quick_tiles_use_different_activity_color_title">Activity icon colors</string>
     <string name="quick_tiles_use_different_activity_color_summary">Enable, to use own network activity icon colors for mobile and wifi tiles</string>
+    <string name="quick_tiles_use_different_wifi_activity_color_summary">Enable, to use own network activity icon colors for wifi tiles</string>
     <string name="quick_tiles_bg_color_title">Tiles background color</string>
     <string name="quick_tiles_bg_pressed_color_title">Tiles pressed background color</string>
     <string name="quick_tiles_text_color_title">Tiles text color</string>

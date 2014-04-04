@@ -126,6 +126,12 @@ public class StatusBarExpandedQsColor extends SettingsPreferenceFragment impleme
         mUseDifferentActivityColor =
                 (CheckBoxPreference) findPreference(PREF_USE_DIFFERENT_ACTIVITY_COLOR);
         mUseDifferentActivityColor.setChecked(useDifferentActivityColor);
+        if (!Utils.isWifiOnly(getActivity())) {
+            mUseDifferentActivityColor.setSummary(R.string.quick_tiles_use_different_activity_color_summary);
+        } else {
+            mUseDifferentActivityColor.setSummary(R.string.quick_tiles_use_different_wifi_activity_color_summary);
+        }
+
         mUseDifferentActivityColor.setOnPreferenceChangeListener(this);
 
         mQuickTilesBgColor =
