@@ -342,7 +342,7 @@
     <string name="network_speed_hide_traffic_title">Anzeige verstecken</string>
     <string name="network_speed_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
     <string name="network_speed_text_color_title">Text Farbe</string>
-    <string name="network_speed_text_icon_title">Symbol Farbe</string>
+    <string name="network_speed_icon_color_title">Symbol Farbe</string>
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
@@ -600,7 +600,7 @@
     <string name="display_rotation_title">Bildschirmausrichtung</string>
     <string name="display_rotation_disabled">Deaktiviert</string>
     <string name="display_rotation_unit">Grad</string>
-    <string name="display_lockscreen_rotation_title">Bildschirmsperre drehen</string>
+    <string name="display_lockscreen_rotation_title">Bildschirmsperre automatisch drehen</string>
     <string name="display_rotation_category_title">Bei Drehung um</string>
     <string name="display_rotation_0_title">0 Grad</string>
     <string name="display_rotation_90_title">90 Grad</string>
