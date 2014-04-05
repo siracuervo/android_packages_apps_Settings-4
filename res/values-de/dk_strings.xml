@@ -674,6 +674,39 @@
     <string name="low_battery_warning_policy_sound">Nur Ton</string>
     <string name="low_battery_warning_policy_disabled">Deaktiviert</string>
 
+    <!-- Security settings -->
+
+    <!-- Blacklist -->
+    <string name="blacklist_title">Blacklist</string>
+    <string name="blacklist_edit_dialog_title">Blacklist Eintrag bearbeiten</string>
+    <string name="blacklist_prefs">Einstellungen</string>
+    <string name="blacklist_button_delete">Löschen</string>
+    <string name="blacklist_empty_text">Die Blacklist enthält keine Nummern. Füge einen Eintrag durch einen Klick auf die (+) Schaltfläche hinzu.</string>
+    <string name="blacklist_disabled_empty_text">Die Blacklist aktivieren, um Anrufe und/oder Nachrichten von bestimmten Nummern abzuweisen.</string>
+    <string name="blacklist_summary_disabled">Deaktiviert</string>
+    <string name="blacklist_summary">Eingehende Anrufe und Nachrichten von Nummern auf der Blacklist werden abgewiesen</string>
+    <string name="blacklist_notify">Benachrichtigung anzeigen</string>
+    <string name="blacklist_notify_summary">Aktivieren, um Benachrichtigungen über abgewiesene Nummern in der Statusleiste anzuzeigen</string>
+    <string name="blacklist_private_numbers_title">Private Nummern</string>
+    <string name="blacklist_private_numbers_summary_disabled">Anrufe von privaten Nummern werden nicht abgewiesen</string>
+    <string name="blacklist_private_numbers_summary">Eingehende <xliff:g id="type">%s</xliff:g> von privaten Nummern werden abgewiesen</string>
+    <string name="blacklist_unknown_numbers_title">Unbekannte Nummern</string>
+    <string name="blacklist_unknown_numbers_summary_disabled">Anrufe oder Nachrichten von Nummern, die nicht in der Kontaktliste stehen, werden nicht abgewiesen</string>
+    <string name="blacklist_unknown_numbers_summary">Eingehende <xliff:g id="type">%s</xliff:g> von Nummern, die nicht in der Kontaktliste stehen, werden abgewiesen</string>
+    <string name="blacklist_summary_type_calls_only">Anrufe</string>
+    <string name="blacklist_summary_type_messages_only">Nachrichten</string>
+    <string name="blacklist_summary_type_calls_and_messages">Anrufe und Nachrichten</string>
+    <string name="blacklist_regex_title">Platzhalter verwenden</string>
+    <string name="blacklist_regex_summary">Benutze . als Platzhalter, und * für Wiederholung. z.B. 123.* blockt Nummern, die mit 123  and .*123.* blockt Nummern, die 123 enthalten</string>
+    <string name="blacklist_policy_block_calls">Eingehende Anrufe abweisen</string>
+    <string name="blacklist_policy_block_messages">Eingehende Nachrichten abweisen</string>
+
+    <!-- Blacklist management -->
+    <string name="add_blacklist_number">Nummer hinzufügen</string>
+    <string name="remove_blacklist_number_title">Nummer entfernen</string>
+    <string name="remove_blacklist_entry">Soll dieser Blacklist Eintrag entfernt werden?</string>
+    <string name="select_contact">Kontakt wählen</string>
+
     <!-- AppOps additions -->
     <string name="appops_sysapp_beware">Vorsicht!</string>
     <string name="appops_sysapp_warning">"Das Ändern der Berechtigungen, von Android Kern Komponenten, kann zu unerwünschtem Verhalten führen. Die Änderungen hier geschehen auf eigene Gefahr!</string>
