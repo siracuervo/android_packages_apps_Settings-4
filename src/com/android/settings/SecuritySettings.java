@@ -259,7 +259,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
         mAdvancedReboot = (CheckBoxPreference) root.findPreference(KEY_ADVANCED_REBOOT);
         if (mIsPrimary) {
             mAdvancedReboot.setChecked(Settings.Secure.getInt(getActivity().getContentResolver(),
-                    Settings.Global.ADVANCED_REBOOT, 0) != 0);
+                    Settings.Secure.ADVANCED_REBOOT, 0) != 0);
             mAdvancedReboot.setOnPreferenceChangeListener(this);
         } else {
             removePreference(KEY_ADVANCED_REBOOT);
@@ -566,7 +566,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
                     Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, isToggled(preference) ? 1 : 0);
         } else if (preference == mAdvancedReboot) {
             Settings.Secure.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.Global.ADVANCED_REBOOT, mAdvancedReboot.isChecked() ? 1 : 0);
+                    Settings.Secure.ADVANCED_REBOOT, mAdvancedReboot.isChecked() ? 1 : 0);
         } else if (preference == mShowPassword) {
             Settings.System.putInt(getContentResolver(), Settings.System.TEXT_SHOW_PASSWORD,
                     mShowPassword.isChecked() ? 1 : 0);
