@@ -70,6 +70,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private static final String KEY_OWNER_INFO_SETTINGS = "owner_info_settings";
     private static final String KEY_BLACKLIST = "blacklist";
     private static final String KEY_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
+    private static final String KEY_ADVANCED_REBOOT = "advanced_reboot";
 
     private static final int SET_OR_CHANGE_LOCK_METHOD_REQUEST = 123;
     private static final int CONFIRM_EXISTING_FOR_BIOMETRIC_WEAK_IMPROVE_REQUEST = 124;
@@ -110,6 +111,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
 
     private PreferenceScreen mBlacklist;
     private CheckBoxPreference mQuickUnlockScreen;
+    private CheckBoxPreference mAdvancedReboot;
 
     private Preference mNotificationAccess;
 
@@ -252,6 +254,15 @@ public class SecuritySettings extends RestrictedSettingsFragment
             mQuickUnlockScreen.setChecked(Settings.System.getInt(getContentResolver(), 
                     Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0) == 1);
             mQuickUnlockScreen.setOnPreferenceChangeListener(this);
+        }
+
+        mAdvancedReboot = (CheckBoxPreference) root.findPreference(KEY_ADVANCED_REBOOT);
+        if (mIsPrimary) {
+            mAdvancedReboot.setChecked(Settings.Secure.getInt(getActivity().getContentResolver(),
+                    Settings.Global.ADVANCED_REBOOT, 0) != 0);
+            mAdvancedReboot.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(KEY_ADVANCED_REBOOT);
         }
 
         // Show password
@@ -553,6 +564,9 @@ public class SecuritySettings extends RestrictedSettingsFragment
         } else if (preference == mQuickUnlockScreen) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, isToggled(preference) ? 1 : 0);
+        } else if (preference == mAdvancedReboot) {
+            Settings.Secure.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.Global.ADVANCED_REBOOT, mAdvancedReboot.isChecked() ? 1 : 0);
         } else if (preference == mShowPassword) {
             Settings.System.putInt(getContentResolver(), Settings.System.TEXT_SHOW_PASSWORD,
                     mShowPassword.isChecked() ? 1 : 0);

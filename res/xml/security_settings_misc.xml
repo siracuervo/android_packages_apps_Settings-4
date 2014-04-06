@@ -24,6 +24,11 @@
             android:key="blacklist"
             android:title="@string/blacklist_title"
             android:fragment="com.android.settings.darkkat.blacklist.BlacklistSettings" />
+
+        <CheckBoxPreference
+            android:key="advanced_reboot"
+            android:title="@string/advanced_reboot_title"
+            android:summary="@string/advanced_reboot_summary" />
     </PreferenceCategory>
 
     <PreferenceCategory android:key="sim_lock"

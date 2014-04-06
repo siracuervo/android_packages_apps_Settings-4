@@ -712,6 +712,10 @@
     <string name="remove_blacklist_entry">Soll dieser Blacklist Eintrag entfernt werden?</string>
     <string name="select_contact">Kontakt wählen</string>
 
+    <!-- Advanced reboot options -->
+    <string name="advanced_reboot_title">Erweitertes Neustartmenü</string>
+    <string name="advanced_reboot_summary">Bei entsperrtem Bildschirm dem Neustartmenü Optionen für Neustart in Recovery und Bootloader hinzufügen</string>
+
     <!-- AppOps additions -->
     <string name="appops_sysapp_beware">Vorsicht!</string>
     <string name="appops_sysapp_warning">"Das Ändern der Berechtigungen, von Android Kern Komponenten, kann zu unerwünschtem Verhalten führen. Die Änderungen hier geschehen auf eigene Gefahr!</string>
@@ -734,12 +738,6 @@
     <string name="show_enter_key_summary">Aktivieren, damit die Enter- anstatt der Emoticon-Taste angezeigt</string>
     <string name="ime_switcher_notify">Benachrichtigungs Wähl-Schalter</string>
     <string name="ime_switcher_notify_summary">Aktivieren, damit der Tastatur Wähl-Schalter in der Benachrichtigungsanzeige angezeigt wird. </string>
-
-    <!-- Development settings -->
-
-    <!-- Advanced reboot options -->
-    <string name="advanced_reboot_title">Erweitertes Neustartmenü</string>
-    <string name="advanced_reboot_summary">Bei entsperrtem Bildschirm dem Neustartmenü Optionen für Neustart in Recovery und Bootloader hinzufügen</string>
 
     <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
     <string name="supersu_title">SuperSU</string>
