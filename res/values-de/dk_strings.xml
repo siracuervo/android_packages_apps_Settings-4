@@ -675,6 +675,11 @@
     <string name="low_battery_warning_policy_disabled">Deaktiviert</string>
 
     <!-- Security settings -->
+    <string name="user_security_category_title">Benutzer Sicherheit</string>
+
+    <!-- Quick unlock-->
+    <string name="lockscreen_quick_unlock_control_title">Schnelles entsperren</string>
+    <string name="lockscreen_quick_unlock_control_summary">Automatisch entsperren, wenn der richtige PIN/das richtige Passwort eingegeben wurde</string>
 
     <!-- Blacklist -->
     <string name="blacklist_title">Blacklist</string>
