@@ -71,8 +71,31 @@ public class InputMethodsSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshSettings();
+    }
+
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
 
         addPreferencesFromResource(R.xml.input_methods_settings);
+
+        mKeyboardRotationToggle = (CheckBoxPreference) findPreference(KEYBOARD_ROTATION_TOGGLE);
+        mKeyboardRotationToggle.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.KEYBOARD_ROTATION_TIMEOUT, 0) > 0);
+        mKeyboardRotationToggle.setOnPreferenceChangeListener(this);
+
+        if (mKeyboardRotationToggle.isChecked()) {
+            mKeyboardRotationTimeout = (ListPreference) findPreference(KEYBOARD_ROTATION_TIMEOUT);
+            updateRotationTimeout(Settings.System.getInt(
+                    getContentResolver(), Settings.System.KEYBOARD_ROTATION_TIMEOUT,
+                    KEYBOARD_ROTATION_TIMEOUT_DEFAULT));
+            mKeyboardRotationTimeout.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(KEYBOARD_ROTATION_TIMEOUT);
+        }
 
         // Remove uneeded preferences on hybrid/tablets
         if (DeviceUtils.isPhone(getActivity())) {
@@ -96,25 +119,6 @@ public class InputMethodsSettings extends SettingsPreferenceFragment implements
             }
         }
 
-        mVolumeKeyCursorControl = (ListPreference) findPreference(VOLUME_KEY_CURSOR_CONTROL);
-        if (mVolumeKeyCursorControl != null) {
-            mVolumeKeyCursorControl.setValue(Integer.toString(Settings.System.getInt(
-                    getContentResolver(), Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0)));
-            mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntry());
-            mVolumeKeyCursorControl.setOnPreferenceChangeListener(this);
-        }
-
-        mKeyboardRotationToggle = (CheckBoxPreference) findPreference(KEYBOARD_ROTATION_TOGGLE);
-        mKeyboardRotationToggle.setChecked(Settings.System.getInt(getContentResolver(),
-                Settings.System.KEYBOARD_ROTATION_TIMEOUT, 0) > 0);
-        mKeyboardRotationToggle.setOnPreferenceChangeListener(this);
-
-        mKeyboardRotationTimeout = (ListPreference) findPreference(KEYBOARD_ROTATION_TIMEOUT);
-        mKeyboardRotationTimeout.setOnPreferenceChangeListener(this);
-        updateRotationTimeout(Settings.System.getInt(
-                getContentResolver(), Settings.System.KEYBOARD_ROTATION_TIMEOUT,
-                KEYBOARD_ROTATION_TIMEOUT_DEFAULT));
-
         // Remove uneeded preferences on hybrid/tablets
         if (DeviceUtils.isPhone(getActivity())) {
             mShowEnterKey = (CheckBoxPreference) findPreference(SHOW_ENTER_KEY);
@@ -123,6 +127,14 @@ public class InputMethodsSettings extends SettingsPreferenceFragment implements
             mShowEnterKey.setOnPreferenceChangeListener(this);
         } else {
             removePreference(SHOW_ENTER_KEY);
+        }
+
+        mVolumeKeyCursorControl = (ListPreference) findPreference(VOLUME_KEY_CURSOR_CONTROL);
+        if (mVolumeKeyCursorControl != null) {
+            mVolumeKeyCursorControl.setValue(Integer.toString(Settings.System.getInt(
+                    getContentResolver(), Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0)));
+            mVolumeKeyCursorControl.setSummary(mVolumeKeyCursorControl.getEntry());
+            mVolumeKeyCursorControl.setOnPreferenceChangeListener(this);
         }
     }
 
@@ -173,7 +185,7 @@ public class InputMethodsSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.KEYBOARD_ROTATION_TIMEOUT,
                     (Boolean) objValue ? KEYBOARD_ROTATION_TIMEOUT_DEFAULT : 0);
-            updateRotationTimeout(KEYBOARD_ROTATION_TIMEOUT_DEFAULT);
+            refreshSettings();
             return true;
         } else if (preference == mShowEnterKey) {
             Settings.System.putInt(getContentResolver(),

@@ -75,6 +75,7 @@ public class DisplayRotation extends SettingsPreferenceFragment {
         if (prefs != null) {
             prefs.removeAll();
         }
+
         addPreferencesFromResource(R.xml.display_rotation);
 
         PreferenceScreen prefSet = getPreferenceScreen();
