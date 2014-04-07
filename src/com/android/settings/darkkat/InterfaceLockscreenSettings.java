@@ -16,8 +16,15 @@
 
 package com.android.settings.darkkat;
 
+import android.app.ActivityManager;
+import android.app.ActivityManagerNative;
+import android.app.admin.DevicePolicyManager;
 import android.content.ContentResolver;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
@@ -36,6 +43,7 @@ import com.android.settings.widget.SeekBarPreference;
 public class InterfaceLockscreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String TAG = "InterfaceLockscreenSettings";
     private static final String KEY_LOCKSCREEN_CAT_INFO_AREA =
             "lockscreen_category_info_area";
     private static final String KEY_LOCKSCREEN_CAT_BACKGROUND =
@@ -52,10 +60,12 @@ public class InterfaceLockscreenSettings extends SettingsPreferenceFragment impl
             "lockscreen_see_through";
     private static final String KEY_LOCKSCREEN_BLUR_RADIUS =
             "lockscreen_blur_radius";
-    private static final String KEY_ENABLE_WIDGETS =
+    private static final String KEY_LOCKSCREEN_ENABLE_WIDGETS =
             "lockscreen_enable_widgets";
     private static final String KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS =
             "lockscreen_maximize_widgets";
+    private static final String KEY_LOCKSCREEN_ENABLE_CAMERA =
+            "lockscreen_enable_camera";
 
     private CheckBoxPreference mShowBatteryStatusRing;
     private CheckBoxPreference mShowCustomCarrierLabel;
@@ -64,6 +74,7 @@ public class InterfaceLockscreenSettings extends SettingsPreferenceFragment impl
     private SeekBarPreference  mBlurRadius;
     private CheckBoxPreference mEnableWidgets;
     private CheckBoxPreference mMaximizeWidgets;
+    private CheckBoxPreference mEnableCameraWidget;
 
     private ContentResolver mResolver;
 
@@ -152,7 +163,7 @@ public class InterfaceLockscreenSettings extends SettingsPreferenceFragment impl
             catBackground.removePreference(mBlurRadius);
         }
 
-        mEnableWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_WIDGETS);
+        mEnableWidgets = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_ENABLE_WIDGETS);
         final boolean enabled = new LockPatternUtils(getActivity()).getWidgetsEnabled();
         if (!enabled) {
             mEnableWidgets.setSummary(R.string.disabled);
@@ -174,6 +185,18 @@ public class InterfaceLockscreenSettings extends SettingsPreferenceFragment impl
             mMaximizeWidgets.setChecked(Settings.System.getInt(mResolver,
                    Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
             mMaximizeWidgets.setOnPreferenceChangeListener(this);
+        }
+
+        // Enable or disable camera widget settings based on device
+        mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_ENABLE_CAMERA);
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)
+                 || Camera.getNumberOfCameras() == 0
+                 || isCameraDisabledByDpm()  || !enabled) {
+            catWidgets.removePreference(mEnableCameraWidget);
+        } else {
+            mEnableCameraWidget.setChecked(Settings.System.getInt(mResolver,
+                    Settings.System.LOCKSCREEN_ENABLE_CAMERA, 1) == 1);
+            mEnableCameraWidget.setOnPreferenceChangeListener(this);
         }
     }
 
@@ -217,8 +240,30 @@ public class InterfaceLockscreenSettings extends SettingsPreferenceFragment impl
             Settings.System.putInt(mResolver,
                     Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, value ? 1 : 0);
             return true;
+        } else if (preference == mEnableCameraWidget) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCKSCREEN_ENABLE_CAMERA, value ? 1 : 0);
+            return true;
         }
 
+        return false;
+    }
+
+    private boolean isCameraDisabledByDpm() {
+        final DevicePolicyManager dpm =
+                (DevicePolicyManager) this.getSystemService(Context.DEVICE_POLICY_SERVICE);
+        if (dpm != null) {
+            try {
+                final int userId = ActivityManagerNative.getDefault().getCurrentUser().id;
+                final int disabledFlags = dpm.getKeyguardDisabledFeatures(null, userId);
+                final  boolean disabledBecauseKeyguardSecure =
+                        (disabledFlags & DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA) != 0;
+                return dpm.getCameraDisabled(null) || disabledBecauseKeyguardSecure;
+            } catch (RemoteException e) {
+                Log.e(TAG, "Can't get userId", e);
+            }
+        }
         return false;
     }
 }
