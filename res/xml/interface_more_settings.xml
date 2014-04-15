@@ -16,7 +16,7 @@ limitations under the License.
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/interface_more_title">
+    android:title="@string/interface_more_settings_title">
 
 	<PreferenceScreen
 	    android:key="custom_carrier_label"

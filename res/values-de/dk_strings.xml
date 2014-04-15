@@ -22,12 +22,14 @@
 
     <!-- Global used -->
     <string name="cat_options_title">Optionen</string>
+    <string name="cat_targets_title">Anwendungen</string>
+    <string name="cat_icon_title">Symbol</string>
     <string name="cat_signal_activity_title">Mobilnetzwerk-Aktivitäts Symbol</string>
     <string name="cat_wifi_activity_title">Wifinetzwerk-Aktivitäts Symbol</string>
     <string name="reset_android_default">Auf Android Standard zurücksetzten</string>
     <string name="reset_default">Auf Standard zurücksetzten</string>
     <string name="reset_darkkat_default">Auf DarkKat Standard zurücksetzten</string>
-    <string name="color_title">Farbe</string>
+    <string name="color_title">Farben</string>
     <string name="dot_length_title">Ring&#47;Kreis Punkt Länge</string>
     <string name="dot_interval_title">Ring&#47;Kreis Punkt Abstand</string>
     <string name="dot_offset_title">Ring&#47;Kreis Punkt Versatz</string>
@@ -38,10 +40,10 @@
     <string name="custom_carrier_label_title">Netztbetreiber Name anpassen</string>
     <string name="custom_carrier_label_notset">Kein angepasster Netzbetreiber Name gesetzt</string>
     <string name="show_custom_carrier_label_title">Angepasster Netzbetreiber Name</string>
-    <string name="show_custom_carrier_label_enabled_summary">Aktivieren, um den angepassten Netztbetreiber Namen anzuzeigen</string>
+    <string name="show_custom_carrier_label_enabled_summary">Aktivieren um den angepassten Netztbetreiber Namen anzuzeigen</string>
     <string name="cw_label_style_title">Netzbetr. und Wifi Netzw. Name</string>
     <string name="show_wifi_ssid_title">Wifi Netzwerkname Name</string>
-    <string name="show_wifi_ssid_summary">Aktivieren, um den Wifi Netzwerknamen anzuzeigen</string>
+    <string name="show_wifi_ssid_summary">Aktivieren um den Wifi Netzwerknamen anzuzeigen</string>
     <string name="ok">OK</string>
     <string name="reset">Zurücksetzen</string>
     <string name="add">Hinzufügen</string>
@@ -117,58 +119,59 @@
     <string name="shortcut_duplicate_entry">Die gewählte Aktion kann nicht zweimal zugeordnet werden</string>
 
     <!-- Button shorcut icon names -->
-    <string name="shortcuts_icon_picker_alarm">Wecker</string>
-    <string name="shortcuts_icon_picker_andy">Andy</string>
-    <string name="shortcuts_icon_picker_battery">Akku</string>
-    <string name="shortcuts_icon_picker_browser">Browser</string>
-    <string name="shortcuts_icon_picker_calendar">Kalender</string>
-    <string name="shortcuts_icon_picker_camera">Kamera</string>
-    <string name="shortcuts_icon_picker_cloud">Cloud</string>
-    <string name="shortcuts_icon_picker_contact">Kontakt</string>
-    <string name="shortcuts_icon_picker_directdial">Direkt Anruf</string>
-    <string name="shortcuts_icon_picker_directmessage">Direkt Nachricht</string>
-    <string name="shortcuts_icon_picker_drive">Drive</string>
-    <string name="shortcuts_icon_picker_dropbox">Dropbox</string>
-    <string name="shortcuts_icon_picker_email">Email</string>
-    <string name="shortcuts_icon_picker_email2">Email Alternative</string>
-    <string name="shortcuts_icon_picker_evernote">Evernote</string>
-    <string name="shortcuts_icon_picker_facebook">Facebook</string>
-    <string name="shortcuts_icon_picker_favorite">Favoriten</string>
-    <string name="shortcuts_icon_picker_file_browser">Datei Browser</string>
-    <string name="shortcuts_icon_picker_file_browser2">Datei Browser Alternative</string>
-    <string name="shortcuts_icon_picker_fitness">Fitness</string>
-    <string name="shortcuts_icon_picker_gallery">Gallerie</string>
-    <string name="shortcuts_icon_picker_gears">Gears</string>
-    <string name="shortcuts_icon_picker_google_small">Google</string>
-    <string name="shortcuts_icon_picker_gplus">Google Plus</string>
-    <string name="shortcuts_icon_picker_gtalk">Hangouts</string>
-    <string name="shortcuts_icon_picker_help">Hilfe</string>
-    <string name="shortcuts_icon_picker_joystick">Joystick</string>
-    <string name="shortcuts_icon_picker_key">Keys/Accounts</string>
-    <string name="shortcuts_icon_picker_laptop">Laptop</string>
-    <string name="shortcuts_icon_picker_notes">Notizen</string>
-    <string name="shortcuts_icon_picker_luggage">Travel</string>
-    <string name="shortcuts_icon_picker_maps">Maps</string>
-    <string name="shortcuts_icon_picker_market">Market</string>
-    <string name="shortcuts_icon_picker_movie">Filme</string>
-    <string name="shortcuts_icon_picker_music">Musik</string>
-    <string name="shortcuts_icon_picker_nav">Navigation</string>
-    <string name="shortcuts_icon_picker_phone">Phone</string>
-    <string name="shortcuts_icon_picker_package">Package</string>
-    <string name="shortcuts_icon_picker_pinterest">Pinterest</string>
-    <string name="shortcuts_icon_picker_play">Play</string>
-    <string name="shortcuts_icon_picker_pocket">Pocket</string>
-    <string name="shortcuts_icon_picker_quicksettings">Schelleinstellungen</string>
-    <string name="shortcuts_icon_picker_rss">RSS Feed</string>
-    <string name="shortcuts_icon_picker_sdcard">SDCard</string>
-    <string name="shortcuts_icon_picker_search">Suche</string>
-    <string name="shortcuts_icon_picker_sms">Messaging</string>
-    <string name="shortcuts_icon_picker_tasks">Tasks</string>
-    <string name="shortcuts_icon_picker_terminal">Terminal</string>
-    <string name="shortcuts_icon_picker_transit">Transit</string>
-    <string name="shortcuts_icon_picker_tv">TV</string>
-    <string name="shortcuts_icon_picker_twitter">Twitter</string>
-    <string name="shortcuts_icon_picker_unlock">Entsperren</string>
+    <string name="icon_picker_alarm">Wecker</string>
+    <string name="icon_picker_andy">Andy</string>
+    <string name="icon_picker_battery">Akku</string>
+    <string name="icon_picker_browser">Browser</string>
+    <string name="icon_picker_calendar">Kalender</string>
+    <string name="icon_picker_camera">Kamera</string>
+    <string name="icon_picker_cloud">Cloud</string>
+    <string name="icon_picker_contact">Kontakt</string>
+    <string name="icon_picker_directdial">Direkt Anruf</string>
+    <string name="icon_picker_directmessage">Direkt Nachricht</string>
+    <string name="icon_picker_drive">Drive</string>
+    <string name="icon_picker_dropbox">Dropbox</string>
+    <string name="icon_picker_email">Email</string>
+    <string name="icon_picker_email2">Email Alternative</string>
+    <string name="icon_picker_evernote">Evernote</string>
+    <string name="icon_picker_facebook">Facebook</string>
+    <string name="icon_picker_favorite">Favoriten</string>
+    <string name="icon_picker_file_browser">Datei Browser</string>
+    <string name="icon_picker_file_browser2">Datei Browser Alternative</string>
+    <string name="icon_picker_fitness">Fitness</string>
+    <string name="icon_picker_gallery">Gallerie</string>
+    <string name="icon_picker_gears">Gears</string>
+    <string name="icon_picker_google_small">Google</string>
+    <string name="icon_picker_gplus">Google Plus</string>
+    <string name="icon_picker_gtalk">Hangouts</string>
+    <string name="icon_picker_help">Hilfe</string>
+    <string name="icon_picker_joystick">Joystick</string>
+    <string name="icon_picker_key">Keys/Accounts</string>
+    <string name="icon_picker_laptop">Laptop</string>
+    <string name="icon_picker_notes">Notizen</string>
+    <string name="icon_picker_luggage">Travel</string>
+    <string name="icon_picker_maps">Maps</string>
+    <string name="icon_picker_market">Market</string>
+    <string name="icon_picker_movie">Filme</string>
+    <string name="icon_picker_music">Musik</string>
+    <string name="icon_picker_nav">Navigation</string>
+    <string name="icon_picker_phone">Phone</string>
+    <string name="icon_picker_package">Package</string>
+    <string name="icon_picker_pinterest">Pinterest</string>
+    <string name="icon_picker_play">Play</string>
+    <string name="icon_picker_pocket">Pocket</string>
+    <string name="icon_picker_podcast">Podcast</string>
+    <string name="icon_picker_quicksettings">Schelleinstellungen</string>
+    <string name="icon_picker_rss">RSS Feed</string>
+    <string name="icon_picker_sdcard">SDCard</string>
+    <string name="icon_picker_search">Suche</string>
+    <string name="icon_picker_sms">Messaging</string>
+    <string name="icon_picker_tasks">Tasks</string>
+    <string name="icon_picker_terminal">Terminal</string>
+    <string name="icon_picker_transit">Transit</string>
+    <string name="icon_picker_tv">TV</string>
+    <string name="icon_picker_twitter">Twitter</string>
+    <string name="icon_picker_unlock">Entsperren</string>
 
     <!-- Buttons style -->
     <string name="button_icon_color_title">Symbole</string>
@@ -204,36 +207,95 @@
     <string name="system_default_color">System Standard</string>
 
     <!-- Interface category -->
-    <string name="interface_lock_screen_title">Bildschirmsperre</string>
-    <string name="interface_bars_title">Leisten</string>
-    <string name="interface_menus_title">Menüs &amp; Felder</string>
-    <string name="interface_more_title">Mehr</string>
+    <string name="interface_lockscreen_settings_title">Sperrbildschirm</string>
+    <string name="interface_bars_settings_title">Leisten</string>
+    <string name="interface_menus_settings_title">Menüs &amp; Felder</string>
+    <string name="interface_more_settings_title">Mehr</string>
 
     <!-- Lockscreen settings -->
-    <string name="lockscreen_category_info_area_title">Informationsbereich</string>
-    <string name="lockscreen_category_background_title">Hintergrund</string>
-    <string name="lockscreen_category_widgets_title">Widgets</string>
-    <string name="lockscreen_show_battery_status_ring_title">Den Akkustatus Ring anzeigen</string>
-    <string name="lockscreen_show_battery_status_ring_summary">Aktivieren, um den Akkustatus Ring um den Sperr Ring herum anzuzeigen</string>
-    <string name="lockscreen_battery_status_ring_style_title">Akkustatus Ring anpassen</string>
-    <string name="lockscreen_always_show_battery_status_title">Den Akkustatus immer anzeigen</string>
-    <string name="lockscreen_always_show_battery_status_summary">Aktivieren, um den Akkustatus auch bei nicht angeschlossenem Ladegerät anzuzeigen</string>
-    <string name="lockscreen_battery_status_title">Akkustatus anpassen</string>
+    <string name="lockscreen_background_settings_title">Hintergrund</string>
+    <string name="lockscreen_background_settings_summary">Den Sperrbildschirm Hintergrund anpassen</string>
+    <string name="lockscreen_lock_ring_settings_title">Entsperr-Ring</string>
+    <string name="lockscreen_lock_ring_settings_summary">Den Entsperr-Ring anpassen</string>
+    <string name="lockscreen_battery_status_ring_settings_title">Akkustatus-Ring</string>
+    <string name="lockscreen_battery_status_ring_settings_summary">Den Akkustatus-Ring anpassen</string>
+    <string name="lockscreen_shortcut_settings_title">Verknüpfungen</string>
+    <string name="lockscreen_shortcut_settings_summary">Die Sperrbildschirm Verknüpfungen anpassen</string>
+    <string name="lockscreen_shortcut_settings_disabled_summary">Acht Entsperr-Ring Anwendungen sind aktiviert</string>
+    <string name="lockscreen_widgets_settings_title">Widgets</string>
+    <string name="lockscreen_widgets_settings_summary">Die Sperrbildschirm Widgets anpassen</string>
+    <string name="lockscreen_misk_settings_title">Sonstige Einstellungen</string>
+    <string name="lockscreen_misk_settings_summary">Netzbetreiber Name und Akkustatus</string>
+    <string name="lockscreen_misk_settings_wifi_only_summary">Akkustatus</string>
+
+    <!-- Lockscreen background -->
     <string name="lockscreen_see_through_title">Durchsichtig</string>
     <string name="lockscreen_see_through_summary">Zeigt den Inhalt hinter dem Sperrbildschirm. Daten könnten für umstehende sichtbar sein.</string>
     <string name="lockscreen_blur_radius_title">Intensität des Unschärfe Effects</string>
-    <string name="lockscreen_maximize_widgets_title">Widgets maximieren</string>
+
+    <!-- Lockscreen lock ring -->
+    <string name="lockscreen_lock_before_unlock_title">Vor der Sicherheitssperre</string>
+    <string name="lockscreen_lock_before_unlock_summary">Aktivieren um den Entsperr-Ring vor der Sicherheitssperre anzuzeigen</string>
+    <string name="lockscreen_lock_before_unlock_disabled_summary">Es wird eine unsichere Entsperrmethode benutzt</string>
+    <string name="lockscreen_targets_title">Anordnung</string>
+    <string name="lockscreen_targets_summary">Entsperr-Ring Anwendungen anzeigen oder verändern</string>
+    <string name="lockscreen_eight_targets_title">Acht Anwendungen</string>
+    <string name="lockscreen_eight_targets_summary">Aktivieren für acht Entsperr-Ring Anwendungen</string>
+    <string name="lockscreen_enable_eight_targets_dialog">Das Ändern dieser Option, setzt die aktuelle Entsperr-Ring Anwendungs-Konfiguration zurück.</string>
+    <string name="lockscreen_enable_eight_targets_enabled_dialog">\n\nMit acht aktivierten Entsperr-Ring Anwendungen, können die Sperrbildschirm Verknüpfungen nicht gleichzeitig genutzt werden.</string>
+    <string name="lockscreen_colorize_targets_icon_title">Anwendungen Symbol einfärben</string>
+    <string name="lockscreen_colorize_targets_icon_summary">Aktivieren um die Anwendungen Symbole einzufärben</string>
+    <string name="lockscreen_icon_title">Art</string>
+    <string name="lockscreen_icon_dk">Darkkat</string>
+    <string name="lockscreen_colorize_custom_lock_icon_title">Angepasstes Symbol einfärben</string>
+    <string name="lockscreen_colorize_custom_lock_icon_summary">Aktivieren um ein angepasstes Entsperr-Ring Symbol ebenfalls einzufärben</string>
+    <string name="lockscreen_glowpad_torch_title">Taschenlampe</string>
+    <string name="lockscreen_glowpad_torch_summary">Auf den Entsperr-Ring Doppel-Tippen und halten, um die Taschenlampe zu benutzen</string>
+    <string name="lockscreen_targets_color_title">Anwendungen</string>
+    <string name="lockscreen_targets_ring_color_title">Anwendungen Ring</string>
+    <string name="lockscreen_lock_icon_color_title">Symbol</string>
+    <string name="lockscreen_dots_color_title">Punkte</string>
+
+    <!-- Lockscreen targets -->
+    <string name="lockscreen_target_info">Ziehe den Entsperr-Ring auf die gewünschte Position, um eine neue Anwendung oder Aktion hinzuzufügen</string>
+    <string name="lockscreen_target_reset">Entsperr-Ring Anwendungen auf Standard zurück setzten</string>
+    <string name="lockscreen_target_reset_message">Alle Entsperr-Ring Anwendungen löschen, und auf Standard zurück setzten?</string>
+    <string name="lockscreen_target_empty">Leer</string>
+    <string name="lockscreen_target_edit_title">Anwendung und Symbol anpassen</string>
+    <string name="lockscreen_target_edit_msg">Wähle oder ändere die gewünschte Anwendung oder Aktivität, und das zugehörige Symbol</string>
+
+    <!-- Lockscreen battery status ring -->
+    <string name="lockscreen_show_battery_status_ring_title">Anzeigen</string>
+    <string name="lockscreen_show_battery_status_ring_summary">Aktivieren um den Akkustatus-Ring um den Entsperr-Ring herum anzuzeigen</string>
+    <string name="lockscreen_battery_status_ring_dotted_title">Gepunktet anzeigen</string>
+    <string name="lockscreen_battery_status_ring_dotted_summary">Aktivieren um den Akkustatus-Ring gepunktet anzuzeigen</string>
+    <string name="lockscreen_battery_status_ring_color">Normal</string>
+    <string name="lockscreen_battery_status_ring_charging_color">Während des Ladevorgangs</string>
+
+    <!-- Locscreen shortcuts -->
+    <string name="lockscreen_shortcuts_title">Anzeigen oder verändern</string>
+    <string name="lockscreen_shortcuts_summary">Sperrbildschirm Verknüpfungen anzeigen oder verändern</string>
+    <string name="lockscreen_shorcuts_longpress_title">Langklick</string>
+    <string name="lockscreen_shorcuts_longpress_summary">Aktivieren um individuelle Verknüpfungen mit einem Langklick zu öffnen </string>
+
+    <!-- Lockscreen widgets -->
+    <string name="lockscreen_enable_widgets_title">Zusätzliche verfügbare Widgets</string>
+    <string name="lockscreen_enable_widgets_summary">Aktivieren um zusätzlich verfügbare Widgets anstatt den Standard Widget zu benutzen</string>
+    <string name="lockscreen_maximize_widgets_title">Maximieren</string>
     <string name="lockscreen_maximize_widgets_summary">Beim Einschalten Widgets maximiert und Bildschirmsperre minimiert anzeigen</string>
     <string name="lockscreen_enable_camera_title">Kamera</string>
     <string name="lockscreen_enable_camera_summary">Kamera Widget zeigen</string>
-    <string name="lock_clock_title">Uhr-Widget</string>
-    <string name="lock_clock_summary">\"cLock-Widget\" konfigurieren</string>
+    <string name="lockscreen_use_widget_container_carousel_title">Karussell</string>
+    <string name="lockscreen_use_widget_container_carousel_summary">Aktivieren um das Widget Karussell anzuzeigen</string>
+    <string name="lockscreen_disable_widget_frame_title">Rahmen</string>
+    <string name="lockscreen_disable_widget_frame_summary">Aktivieren um den Widgethintergrund Rahmen zu verstecken</string>
+    <string name="lockscreen_frame_color_title">Rahmen Farbe</string>
 
-    <!-- Lockscreen battery status ring style -->
-    <string name="lockscreen_battery_status_ring_dotted_title">Ring gepunktet</string>
-    <string name="lockscreen_battery_status_ring_dotted_summary">Aktivieren, um den Ring gepunktet anzuzeigen</string>
-    <string name="lockscreen_battery_status_ring_color">Ring Farbe</string>
-    <string name="lockscreen_battery_status_ring_charging_color">Ring Lade Farbe</string>
+    <!-- Lockscreen Misk -->
+    <string name="lockscreen_always_show_battery_status_title">Den Akkustatus immer anzeigen</string>
+    <string name="lockscreen_always_show_battery_status_summary">Aktivieren um den Akkustatus auch bei nicht angeschlossenem Ladegerät anzuzeigen</string>
+    <string name="lockscreen_text_color_title">Text</string>
+    <string name="lockscreen_pattern_fail_color_title">Entsperr-Muster Ringe (Fehleingabe)</string>
 
     <!-- Bars settings -->
 
@@ -254,7 +316,7 @@
     <string name="status_bar_show_battery_bar_summary">Aktivieren um die Akkuleiste anzuzeigen</string>
     <string name="status_bar_battery_bar_style_title">Akkuleiste anpassen</string>
     <string name="status_bar_enable_network_speed_indicator_title">Netzw.-Geschw.-Anz. aktivieren</string>
-    <string name="status_bar_enable_network_speed_indicator_summary">Aktivieren, um die Netzwerk-Geschwindigkeits-Anzeige einzuschalten</string>
+    <string name="status_bar_enable_network_speed_indicator_summary">Aktivieren um die Netzwerk-Geschwindigkeits-Anzeige einzuschalten</string>
     <string name="status_bar_network_speed_title">Netzw.-Geschw. Anzeige anpassen</string>
     <string name="status_bar_notif_count_title">Benachrichtigungszähler</string>
     <string name="status_bar_notif_count_summary">Anzahl der ungelesenen Benachrichtigungen in der Statusleiste anzeigen</string>
@@ -286,11 +348,11 @@
     <string name="battery_status_percentage">Prozent Text</string>
 	<string name="battery_status_circle">Kreis</string>
     <string name="battery_status_show_text_title">Akkustatus Text anzeigen</string>
-    <string name="battery_status_show_text_summary">Aktivieren, um den Akkustatus Text anzuzeigen</string>
+    <string name="battery_status_show_text_summary">Aktivieren um den Akkustatus Text anzuzeigen</string>
     <string name="battery_status_custom_frame_color_title">Rahmen Farbe anpassen</string>
     <string name="battery_status_custom_frame_color_summary">Wenn deaktiviert, wird die Akkustatus Farbe mit einer Transparenz von 80% benutzt.</string>
     <string name="battery_status_circle_dotted_title">Kreis gepunktet</string>
-    <string name="battery_status_circle_dotted_summary">Aktivieren, um den Kreis gepunktet anzuzeigen</string>
+    <string name="battery_status_circle_dotted_summary">Aktivieren um den Kreis gepunktet anzuzeigen</string>
     <string name="battery_status_color">Akkustatus Farbe</string>
     <string name="battery_frame_color">Rahmen Farbe</string>
     <string name="battery_text_color">Prozent Text Farbe</string>
@@ -365,15 +427,15 @@
     <!-- Statusbar expanded header -->
     <string name="status_bar_expanded_header_cat_clock_date_title">Uhr &amp; Datum</string>
     <string name="status_bar_expanded_header_settings_btn_title">Einstellungen Schaltfläche</string>
-    <string name="status_bar_expanded_header_settings_btn_summary">Aktivieren, um den Einstellungen Schaltfläche immer anzuzeigen</string>
+    <string name="status_bar_expanded_header_settings_btn_summary">Aktivieren um den Einstellungen Schaltfläche immer anzuzeigen</string>
 
     <!-- Statusbar expanded notification drawer -->
     <string name="qar_cat_title">Schnellzugriffsleiste</string>
     <string name="qar_show_tiles_title">Schnellzugriffsleiste anzeigen</string>
-    <string name="qar_show_tiles_summary">Aktivieren, um eine kleine Version der Schnelleinstellungen in der Benachrichtigungsanzeige anzuzeigen.</string>
+    <string name="qar_show_tiles_summary">Aktivieren um eine kleine Version der Schnelleinstellungen in der Benachrichtigungsanzeige anzuzeigen.</string>
     <string name="qar_show_tiles_deactivated_summary">Schnelleinstellungen sind deaktiviert, aktiviere die Schnelleinstellungen, um die Schnellzugriffsleiste zu nutzen.</string>
     <string name="qar_tiles_linked_title">Anordnung koppeln</string>
-    <string name="qar_tiles_linked_summary">Aktivieren, um die Kachelauswahl und -anordnung der Schnelleinstellungen zu verwenden</string>
+    <string name="qar_tiles_linked_summary">Aktivieren um die Kachelauswahl und -anordnung der Schnelleinstellungen zu verwenden</string>
     <string name="notif_alpha_title">Transparenz der Benachrichtigungen</string>
 
     <!-- Statusbar expanded quick settings -->
@@ -388,8 +450,8 @@
     <string name="quick_tiles_cat_tiles">Kacheln</string>
     <string name="quick_tiles_cat_icons">Symbol</string>
     <string name="quick_tiles_use_different_activity_color_title">Aktivitäts-Symbol Farben</string>
-    <string name="quick_tiles_use_different_activity_color_summary">Aktivieren, um eigene Netzwerk Aktivitäts Symbol Farben für die Mobil- und Wifi Kacheln zu verwenden</string>
-    <string name="quick_tiles_use_different_wifi_activity_color_summary">Aktivieren, um eigene Netzwerk Aktivitäts Symbol Farben für die Wifi Kachel zu verwenden</string>
+    <string name="quick_tiles_use_different_activity_color_summary">Aktivieren um eigene Netzwerk Aktivitäts Symbol Farben für die Mobil- und Wifi Kacheln zu verwenden</string>
+    <string name="quick_tiles_use_different_wifi_activity_color_summary">Aktivieren um eigene Netzwerk Aktivitäts Symbol Farben für die Wifi Kachel zu verwenden</string>
     <string name="quick_tiles_bg_color_title">Kachel Hintergrund Farbe</string>
     <string name="quick_tiles_bg_pressed_color_title">Kachel Hintergrund Farbe gedrückt</string>
     <string name="quick_tiles_text_color_title">Kachel Text Farbe</string>
@@ -402,7 +464,7 @@
     <string name="qs_quick_pulldown_left">von der linken Seite</string>
     <string name="tiles_per_row_title">Kacheln in einer Reihe</string>
     <string name="tiles_per_row_duplicate_landscape_title">Kacheln im Querformat</string>
-    <string name="tiles_per_row_duplicate_landscape_summary">Aktivieren, um die Anzahl der Kacheln im Querformat verdoppelt wird</string>
+    <string name="tiles_per_row_duplicate_landscape_summary">Aktivieren um die Anzahl der Kacheln im Querformat verdoppelt wird</string>
 
     <!-- Statusbar expanded quick settings tiles -->
     <string name="tile_choose_title">Kacheln auswählen</string>
@@ -458,7 +520,7 @@
     <!-- Navigation bar -->
     <string name="navigation_bar_title">Navigationsleiste</string>
     <string name="navbar_enable_bar">Navigationsleiste aktivieren</string>
-    <string name="navbar_enable_bar_summary">Aktivieren, um die Navigationsleiste anzuzeigen</string>
+    <string name="navbar_enable_bar_summary">Aktivieren um die Navigationsleiste anzuzeigen</string>
     <string name="navbar_style_dimen_title">Größe</string>
     <string name="navbar_can_move">Querformat</string>
     <string name="navbar_can_move_summary">Aktivieren, damit die Navigationsleiste im Querformat unten angezeigt wird</string>
@@ -533,6 +595,10 @@
     <string name="expanded_desktop_status_bar">Statusleiste anzeigen</string>
     <string name="expanded_desktop_no_status_bar">Statusleiste verbergen</string>
 
+    <!-- Lock clock -->
+    <string name="lock_clock_title">Uhr-Widget</string>
+    <string name="lock_clock_summary">\"cLock-Widget\" konfigurieren</string>
+
     <!-- Sound settings -->
 
     <!-- Quiet hours -->
@@ -590,7 +656,7 @@
 
     <!-- Safe headset volume warning -->
     <string name="safe_headset_volume_warning_title">Lautstärke Warnung</string>
-    <string name="safe_headset_volume_warning_summary">Aktivieren, um die Kopfhörer Lautstärke Warnung anzuzeigen</string>
+    <string name="safe_headset_volume_warning_summary">Aktivieren um die Kopfhörer Lautstärke Warnung anzuzeigen</string>
 
     <!-- Volume button music controls -->
     <string name="volume_button_category_title">Lautstärke Taste</string>
@@ -689,11 +755,11 @@
     <string name="blacklist_prefs">Einstellungen</string>
     <string name="blacklist_button_delete">Löschen</string>
     <string name="blacklist_empty_text">Die Blacklist enthält keine Nummern. Füge einen Eintrag durch einen Klick auf die (+) Schaltfläche hinzu.</string>
-    <string name="blacklist_disabled_empty_text">Die Blacklist aktivieren, um Anrufe und/oder Nachrichten von bestimmten Nummern abzuweisen.</string>
+    <string name="blacklist_disabled_empty_text">Die Blacklist Aktivieren um Anrufe und/oder Nachrichten von bestimmten Nummern abzuweisen.</string>
     <string name="blacklist_summary_disabled">Deaktiviert</string>
     <string name="blacklist_summary">Eingehende Anrufe und Nachrichten von Nummern auf der Blacklist werden abgewiesen</string>
     <string name="blacklist_notify">Benachrichtigung anzeigen</string>
-    <string name="blacklist_notify_summary">Aktivieren, um Benachrichtigungen über abgewiesene Nummern in der Statusleiste anzuzeigen</string>
+    <string name="blacklist_notify_summary">Aktivieren um Benachrichtigungen über abgewiesene Nummern in der Statusleiste anzuzeigen</string>
     <string name="blacklist_private_numbers_title">Private Nummern</string>
     <string name="blacklist_private_numbers_summary_disabled">Anrufe von privaten Nummern werden nicht abgewiesen</string>
     <string name="blacklist_private_numbers_summary">Eingehende <xliff:g id="type">%s</xliff:g> von privaten Nummern werden abgewiesen</string>

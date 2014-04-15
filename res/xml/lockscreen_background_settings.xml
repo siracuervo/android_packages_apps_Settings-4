@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 DarkKat
+<!-- Copyright (C) 2014 DarkKat
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,14 +13,17 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/lockscreen_background_settings_title" >
 
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/custom_carrier_label_title">
+    <CheckBoxPreference
+        android:key="lockscreen_see_through"
+        android:title="@string/lockscreen_see_through_title"
+        android:summary="@string/lockscreen_see_through_summary" />
 
-	<net.margaritov.preference.colorpicker.ColorPickerPreference
-	    android:key="lockscreen_carrier_label_color"
-	    android:title="@string/color_title"
-	    android:defaultValue="0xffbebebe" />
+    <com.android.settings.widget.SeekBarPreference
+         android:key="lockscreen_blur_radius"
+         android:title="@string/lockscreen_blur_radius_title" />
 
 </PreferenceScreen>

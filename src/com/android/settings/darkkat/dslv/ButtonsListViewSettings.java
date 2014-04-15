@@ -89,6 +89,7 @@ public class ButtonsListViewSettings extends ListFragment implements
     private static final int NAV_BAR               = 0;
     private static final int NAV_RING              = 1;
     private static final int POWER_MENU            = 2;
+    private static final int LOCKSCREEN_SHORTCUT   = 3;
 
     private static final int DEFAULT_MAX_BUTTON_NUMBER = 5;
 
@@ -478,6 +479,8 @@ public class ButtonsListViewSettings extends ListFragment implements
             case POWER_MENU:
                 return PolicyHelper.getPowerMenuConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
+            case LOCKSCREEN_SHORTCUT:
+                return ButtonsHelper.getLockscreenShortcutConfig(mActivity);
         }
         return null;
     }
@@ -492,6 +495,9 @@ public class ButtonsListViewSettings extends ListFragment implements
                 break;
             case POWER_MENU:
                 PolicyHelper.setPowerMenuConfig(mActivity, buttonConfigs, reset);
+                break;
+            case LOCKSCREEN_SHORTCUT:
+                ButtonsHelper.setLockscreenShortcutConfig(mActivity, buttonConfigs, reset);
                 break;
         }
     }
@@ -642,6 +648,7 @@ public class ButtonsListViewSettings extends ListFragment implements
                             break;
                         case NAV_BAR:
                         case NAV_RING:
+                        case LOCKSCREEN_SHORTCUT:
                         default:
                             buttonMode = res.getString(R.string.shortcut_action_help_button);
                             break;

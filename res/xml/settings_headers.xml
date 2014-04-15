@@ -64,31 +64,31 @@
 
     <!-- Lock screen -->
     <header
-        android:id="@+id/lock_screen_settings"
+        android:id="@+id/interface_lockscreen_settings"
+        android:title="@string/interface_lockscreen_settings_title"
         android:fragment="com.android.settings.darkkat.InterfaceLockscreenSettings"
-        android:title="@string/interface_lock_screen_title"
         android:icon="@drawable/ic_settings_lockscreen" />
 
 
     <!-- Bars -->
     <header
-        android:id="@+id/bars_settings"
-        android:title="@string/interface_bars_title"
+        android:id="@+id/interface_bars_settings"
+        android:title="@string/interface_bars_settings_title"
         android:fragment="com.android.settings.darkkat.InterfaceBarsSettings"
         android:icon="@drawable/ic_bars" />
 
     <!-- Menus -->
     <header
-        android:id="@+id/menus_settings"
-        android:title="@string/interface_menus_title"
+        android:id="@+id/interface_menus_settings"
+        android:title="@string/interface_menus_settings_title"
         android:fragment="com.android.settings.darkkat.InterfaceMenusSettings"
         android:icon="@drawable/ic_menus" />
 
     <!-- More -->
     <header
         android:id="@+id/interface_more_settings"
+        android:title="@string/interface_more_settings_title"
         android:fragment="com.android.settings.darkkat.InterfaceMoreSettings"
-        android:title="@string/interface_more_title"
         android:icon="@drawable/empty_icon" />
 
 

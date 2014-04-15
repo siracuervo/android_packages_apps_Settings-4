@@ -22,12 +22,14 @@
 
     <!-- Global used -->
     <string name="cat_options_title">Options</string>
+    <string name="cat_targets_title">Targets</string>
+    <string name="cat_icon_title">Icon</string>
     <string name="cat_signal_activity_title">Mobile network activity icon</string>
     <string name="cat_wifi_activity_title">Wifi network activity icon</string>
     <string name="reset_android_default">Reset to Android default</string>
     <string name="reset_default">Reset to default</string>
     <string name="reset_darkkat_default">Reset to Darkkat default</string>
-    <string name="color_title">Color</string>
+    <string name="color_title">Colors</string>
     <string name="dot_length_title">Ring&#47;Circle Dot length</string>
     <string name="dot_interval_title">Ring&#47;Circle Dot interval</string>
     <string name="dot_offset_title">Ring&#47;Circle Dot offset</string>
@@ -116,58 +118,59 @@
     <string name="shortcut_duplicate_entry">The chosen action cannot be added twice</string>
 
     <!-- Button shorcut icon names -->
-    <string name="shortcuts_icon_picker_alarm">Alarm</string>
-    <string name="shortcuts_icon_picker_andy">Andy</string>
-    <string name="shortcuts_icon_picker_battery">Battery</string>
-    <string name="shortcuts_icon_picker_browser">Browser</string>
-    <string name="shortcuts_icon_picker_calendar">Calendar</string>
-    <string name="shortcuts_icon_picker_camera">Camera</string>
-    <string name="shortcuts_icon_picker_cloud">Cloud</string>
-    <string name="shortcuts_icon_picker_contact">Contact</string>
-    <string name="shortcuts_icon_picker_directdial">Direct Dial</string>
-    <string name="shortcuts_icon_picker_directmessage">Direct Message</string>
-    <string name="shortcuts_icon_picker_drive">Drive</string>
-    <string name="shortcuts_icon_picker_dropbox">Dropbox</string>
-    <string name="shortcuts_icon_picker_email">Email</string>
-    <string name="shortcuts_icon_picker_email2">Email Alternate</string>
-    <string name="shortcuts_icon_picker_evernote">Evernote</string>
-    <string name="shortcuts_icon_picker_facebook">Facebook</string>
-    <string name="shortcuts_icon_picker_favorite">Favorite</string>
-    <string name="shortcuts_icon_picker_file_browser">File Browser</string>
-    <string name="shortcuts_icon_picker_file_browser2">File Browser Alternate</string>
-    <string name="shortcuts_icon_picker_fitness">Fitness</string>
-    <string name="shortcuts_icon_picker_gallery">Gallery</string>
-    <string name="shortcuts_icon_picker_gears">Gears</string>
-    <string name="shortcuts_icon_picker_google_small">Google</string>
-    <string name="shortcuts_icon_picker_gplus">Google Plus</string>
-    <string name="shortcuts_icon_picker_gtalk">Hangouts</string>
-    <string name="shortcuts_icon_picker_help">Help</string>
-    <string name="shortcuts_icon_picker_joystick">Joystick</string>
-    <string name="shortcuts_icon_picker_key">Keys/Accounts</string>
-    <string name="shortcuts_icon_picker_laptop">Laptop</string>
-    <string name="shortcuts_icon_picker_notes">Notes</string>
-    <string name="shortcuts_icon_picker_luggage">Travel</string>
-    <string name="shortcuts_icon_picker_maps">Maps</string>
-    <string name="shortcuts_icon_picker_market">Market</string>
-    <string name="shortcuts_icon_picker_movie">Movies</string>
-    <string name="shortcuts_icon_picker_music">Music</string>
-    <string name="shortcuts_icon_picker_nav">Navigation</string>
-    <string name="shortcuts_icon_picker_phone">Phone</string>
-    <string name="shortcuts_icon_picker_package">Package</string>
-    <string name="shortcuts_icon_picker_pinterest">Pinterest</string>
-    <string name="shortcuts_icon_picker_play">Play</string>
-    <string name="shortcuts_icon_picker_pocket">Pocket</string>
-    <string name="shortcuts_icon_picker_quicksettings">Quick Settings</string>
-    <string name="shortcuts_icon_picker_rss">RSS Feed</string>
-    <string name="shortcuts_icon_picker_sdcard">SDCard</string>
-    <string name="shortcuts_icon_picker_search">Search</string>
-    <string name="shortcuts_icon_picker_sms">Messaging</string>
-    <string name="shortcuts_icon_picker_tasks">Tasks</string>
-    <string name="shortcuts_icon_picker_terminal">Terminal</string>
-    <string name="shortcuts_icon_picker_transit">Transit</string>
-    <string name="shortcuts_icon_picker_tv">TV</string>
-    <string name="shortcuts_icon_picker_twitter">Twitter</string>
-    <string name="shortcuts_icon_picker_unlock">Unlock</string>
+    <string name="icon_picker_alarm">Alarm</string>
+    <string name="icon_picker_andy">Andy</string>
+    <string name="icon_picker_battery">Battery</string>
+    <string name="icon_picker_browser">Browser</string>
+    <string name="icon_picker_calendar">Calendar</string>
+    <string name="icon_picker_camera">Camera</string>
+    <string name="icon_picker_cloud">Cloud</string>
+    <string name="icon_picker_contact">Contact</string>
+    <string name="icon_picker_directdial">Direct Dial</string>
+    <string name="icon_picker_directmessage">Direct Message</string>
+    <string name="icon_picker_drive">Drive</string>
+    <string name="icon_picker_dropbox">Dropbox</string>
+    <string name="icon_picker_email">Email</string>
+    <string name="icon_picker_email2">Email Alternate</string>
+    <string name="icon_picker_evernote">Evernote</string>
+    <string name="icon_picker_facebook">Facebook</string>
+    <string name="icon_picker_favorite">Favorite</string>
+    <string name="icon_picker_file_browser">File Browser</string>
+    <string name="icon_picker_file_browser2">File Browser Alternate</string>
+    <string name="icon_picker_fitness">Fitness</string>
+    <string name="icon_picker_gallery">Gallery</string>
+    <string name="icon_picker_gears">Gears</string>
+    <string name="icon_picker_google_small">Google</string>
+    <string name="icon_picker_gplus">Google Plus</string>
+    <string name="icon_picker_gtalk">Hangouts</string>
+    <string name="icon_picker_help">Help</string>
+    <string name="icon_picker_joystick">Joystick</string>
+    <string name="icon_picker_key">Keys/Accounts</string>
+    <string name="icon_picker_laptop">Laptop</string>
+    <string name="icon_picker_notes">Notes</string>
+    <string name="icon_picker_luggage">Travel</string>
+    <string name="icon_picker_maps">Maps</string>
+    <string name="icon_picker_market">Market</string>
+    <string name="icon_picker_movie">Movies</string>
+    <string name="icon_picker_music">Music</string>
+    <string name="icon_picker_nav">Navigation</string>
+    <string name="icon_picker_phone">Phone</string>
+    <string name="icon_picker_package">Package</string>
+    <string name="icon_picker_pinterest">Pinterest</string>
+    <string name="icon_picker_play">Play</string>
+    <string name="icon_picker_pocket">Pocket</string>
+    <string name="icon_picker_podcast">Podcast</string>
+    <string name="icon_picker_quicksettings">Quick Settings</string>
+    <string name="icon_picker_rss">RSS Feed</string>
+    <string name="icon_picker_sdcard">SDCard</string>
+    <string name="icon_picker_search">Search</string>
+    <string name="icon_picker_sms">Messaging</string>
+    <string name="icon_picker_tasks">Tasks</string>
+    <string name="icon_picker_terminal">Terminal</string>
+    <string name="icon_picker_transit">Transit</string>
+    <string name="icon_picker_tv">TV</string>
+    <string name="icon_picker_twitter">Twitter</string>
+    <string name="icon_picker_unlock">Unlock</string>
 
     <!-- Buttons style -->
     <string name="button_icon_color_title">Icons</string>
@@ -203,36 +206,95 @@
     <string name="system_default_color">System default</string>
 
     <!-- Interface category -->
-    <string name="interface_lock_screen_title">Lock screen</string>
-    <string name="interface_bars_title">Bars</string>
-    <string name="interface_menus_title">Menus &amp; panels</string>
-    <string name="interface_more_title">More</string>
+    <string name="interface_lockscreen_settings_title">Lock screen</string>
+    <string name="interface_bars_settings_title">Bars</string>
+    <string name="interface_menus_settings_title">Menus &amp; panels</string>
+    <string name="interface_more_settings_title">More</string>
 
     <!-- Lockscreen settings -->
-    <string name="lockscreen_category_info_area_title">Info area</string>
-    <string name="lockscreen_category_background_title">Background</string>
-    <string name="lockscreen_category_widgets_title">Widgets</string>
-    <string name="lockscreen_show_battery_status_ring_title">Show the battery status ring</string>
-    <string name="lockscreen_show_battery_status_ring_summary">Enable, to Show the battery status ring around lock ring</string>
-    <string name="lockscreen_battery_status_ring_style_title">Customize battery status ring</string>
-    <string name="lockscreen_always_show_battery_status_title">Always show the battery status</string>
-    <string name="lockscreen_always_show_battery_status_summary">Enable, to show the battery status when the charger is unplugged, too</string>
-    <string name="lockscreen_battery_status_title">Customize battery status</string>
+    <string name="lockscreen_background_settings_title">Background</string>
+    <string name="lockscreen_background_settings_summary">Customize the lock screen background</string>
+    <string name="lockscreen_lock_ring_settings_title">Lock ring</string>
+    <string name="lockscreen_lock_ring_settings_summary">Customize the lock ring</string>
+    <string name="lockscreen_battery_status_ring_settings_title">Battery status ring</string>
+    <string name="lockscreen_battery_status_ring_settings_summary">Customize the battery status ring</string>
+    <string name="lockscreen_shortcut_settings_title">Shortcuts</string>
+    <string name="lockscreen_shortcut_settings_summary">Customize the lock screen shortcuts</string>
+    <string name="lockscreen_shortcut_settings_disabled_summary">Eight slider targets enabled</string>
+    <string name="lockscreen_widgets_settings_title">Widgets</string>
+    <string name="lockscreen_widgets_settings_summary">Customize the lock screen widgets</string>
+    <string name="lockscreen_misk_settings_title">Misk settings</string>
+    <string name="lockscreen_misk_settings_summary">Carrier label and battery status</string>
+    <string name="lockscreen_misk_settings_wifi_only_summary">Batter status</string>
+
+    <!-- Lockscreen background -->
     <string name="lockscreen_see_through_title">See through</string>
     <string name="lockscreen_see_through_summary">Your data may be visible to those around you</string>
     <string name="lockscreen_blur_radius_title">Intensity for the blur effect</string>
-    <string name="lockscreen_maximize_widgets_title">Maximize widgets</string>
+
+    <!-- Lockscreen lock ring -->
+    <string name="lockscreen_lock_before_unlock_title">Show slider before secure unlock</string>
+    <string name="lockscreen_lock_before_unlock_summary">Show slider lockscreen before secure unlock mechanism</string>
+    <string name="lockscreen_lock_before_unlock_disabled_summary">You are using an unsecure method to unlock</string>
+    <string name="lockscreen_targets_title">Arrangement</string>
+    <string name="lockscreen_targets_summary">View or change the slider targets</string>
+    <string name="lockscreen_eight_targets_title">Eight targets</string>
+    <string name="lockscreen_eight_targets_summary">Enable eight custom lock screen targets.</string>
+    <string name="lockscreen_enable_eight_targets_dialog">Changing this option resets your current lockscreen targets setup to default.</string>
+    <string name="lockscreen_enable_eight_targets_enabled_dialog">\n\nWith eight lockscreen targets enabled you cannot use your lockscreen shortcuts at the same time.</string>
+    <string name="lockscreen_colorize_targets_icon_title">Colorize targets icons</string>
+    <string name="lockscreen_colorize_targets_icon_summary">Enable, to colorize the targets icons</string>
+    <string name="lockscreen_icon_title">Type</string>
+    <string name="lockscreen_icon_dk">Darkkat</string>
+    <string name="lockscreen_colorize_custom_lock_icon_title">Colorize custom icon</string>
+    <string name="lockscreen_colorize_custom_lock_icon_summary">Enable, to colorize a custom lock icon, too</string>
+    <string name="lockscreen_glowpad_torch_title">Torch</string>
+    <string name="lockscreen_glowpad_torch_summary">Double-tap and hold the slider to start torch</string>
+    <string name="lockscreen_targets_color_title">Targets</string>
+    <string name="lockscreen_targets_ring_color_title">Targets ring</string>
+    <string name="lockscreen_lock_icon_color_title">Icon</string>
+    <string name="lockscreen_dots_color_title">Dots color</string>
+
+    <!-- Lockscreen targets -->
+    <string name="lockscreen_target_info">Drag the slider to targets to assign applications</string>
+    <string name="lockscreen_target_reset">Lock screen targets reset to default</string>
+    <string name="lockscreen_target_reset_message">Delete all user created lock screen targets and restore to default?</string>
+    <string name="lockscreen_target_empty">None</string>
+    <string name="lockscreen_target_edit_title">Edit target and icon</string>
+    <string name="lockscreen_target_edit_msg">Select or change the desired application or activity and the associated icon</string>
+
+    <!-- Lockscreen battery status ring -->
+    <string name="lockscreen_show_battery_status_ring_title">Show</string>
+    <string name="lockscreen_show_battery_status_ring_summary">Enable, to Show the battery status ring around lock ring</string>
+    <string name="lockscreen_battery_status_ring_dotted_title">Dotted</string>
+    <string name="lockscreen_battery_status_ring_dotted_summary">Enable, to show the battery status ring dotted</string>
+    <string name="lockscreen_battery_status_ring_color">Normal</string>
+    <string name="lockscreen_battery_status_ring_charging_color">While charging</string>
+
+    <!-- Locscreen shortcuts -->
+    <string name="lockscreen_shortcuts_title">View or change</string>
+    <string name="lockscreen_shortcuts_summary">View or change custom lock screen shortcuts</string>
+    <string name="lockscreen_shorcuts_longpress_title">Longpress</string>
+    <string name="lockscreen_shorcuts_longpress_summary">Open custom lock screen shortcuts on longpress</string>
+
+    <!-- Lockscreen widgets -->
+    <string name="lockscreen_enable_widgets_title">Additional available widgets</string>
+    <string name="lockscreen_enable_widgets_summary">Enable, to use additional available widgets instead of the default one</string>
+    <string name="lockscreen_maximize_widgets_title">Maximize</string>
     <string name="lockscreen_maximize_widgets_summary">Show widgets maximized and the unlock minimized when the screen is turned on</string>
     <string name="lockscreen_enable_camera_title">Camera</string>
     <string name="lockscreen_enable_camera_summary">Show camera widget</string>
-    <string name="lock_clock_title">Clock widget</string>
-    <string name="lock_clock_summary">View or change how the \'cLock\' Home and Lock screen widgets will display</string>
+    <string name="lockscreen_use_widget_container_carousel_title">Carousel</string>
+    <string name="lockscreen_use_widget_container_carousel_summary">Enable, to show the widgets carousel</string>
+    <string name="lockscreen_disable_widget_frame_title">Frame</string>
+    <string name="lockscreen_disable_widget_frame_summary">Enable, to hide the widgets background frame</string>
+    <string name="lockscreen_frame_color_title">Frame color</string>
 
-    <!-- Lockscreen battery status ring style -->
-    <string name="lockscreen_battery_status_ring_dotted_title">Ring dotted</string>
-    <string name="lockscreen_battery_status_ring_dotted_summary">Activate, to show the Ring dotted</string>
-    <string name="lockscreen_battery_status_ring_color">Ring color</string>
-    <string name="lockscreen_battery_status_ring_charging_color">Ring charging color</string>
+    <!-- Lockscreen Misk -->
+    <string name="lockscreen_always_show_battery_status_title">Always show the battery status</string>
+    <string name="lockscreen_always_show_battery_status_summary">Enable, to show the battery status when the charger is unplugged, too</string>
+    <string name="lockscreen_text_color_title">Text color</string>
+    <string name="lockscreen_pattern_fail_color_title">lock pattern rings (fail)</string>
 
     <!-- Bars settings -->
 
@@ -532,6 +594,10 @@
     <string name="expanded_desktop_disabled">Disabled</string>
     <string name="expanded_desktop_status_bar">Status bar visible</string>
     <string name="expanded_desktop_no_status_bar">Status bar hidden</string>
+
+    <!-- Clock widget -->
+    <string name="lock_clock_title">Clock widget</string>
+    <string name="lock_clock_summary">View or change how the \'cLock\' Home and Lock screen widgets will display</string>
 
     <!-- Sound settings -->
 

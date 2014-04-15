@@ -16,7 +16,7 @@ limitations under the License.
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/interface_menus_title">
+    android:title="@string/interface_menus_settings_title">
 
     <PreferenceCategory
             android:key="power_menu_cat"

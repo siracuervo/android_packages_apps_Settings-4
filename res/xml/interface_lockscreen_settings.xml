@@ -15,84 +15,40 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/interface_lock_screen_title" >
+    android:title="@string/interface_lockscreen_settings_title" >
 
-    <PreferenceCategory
-        android:key="lockscreen_category_info_area"
-        android:title="@string/lockscreen_category_info_area_title">
+    <PreferenceScreen
+        android:key="lockscreen_background_settings"
+        android:title="@string/lockscreen_background_settings_title"
+		android:summary="@string/lockscreen_background_settings_summary"
+        android:fragment="com.android.settings.darkkat.LockscreenBackgroundSettings" />
 
-        <CheckBoxPreference
-            android:key="lockscreen_show_battery_status_ring"
-            android:title="@string/lockscreen_show_battery_status_ring_title"
-	        android:summary="@string/lockscreen_show_battery_status_ring_summary"
-            android:persistent="false"
-            android:defaultValue="false" />
+    <PreferenceScreen
+        android:key="lockscreen_lock_ring_settings"
+        android:title="@string/lockscreen_lock_ring_settings_title"
+		android:summary="@string/lockscreen_lock_ring_settings_summary"
+        android:fragment="com.android.settings.darkkat.LockscreenLockRingSettings" />
 
-        <PreferenceScreen
-            android:key="lockscreen_battery_status_ring_style"
-            android:fragment="com.android.settings.darkkat.LockscreenBatteryStatusRingStyle"
-            android:title="@string/lockscreen_battery_status_ring_style_title" />
+    <PreferenceScreen
+        android:key="lockscreen_battery_status_ring_settings"
+        android:title="@string/lockscreen_battery_status_ring_settings_title"
+		android:summary="@string/lockscreen_battery_status_ring_settings_summary"
+        android:fragment="com.android.settings.darkkat.LockscreenBatteryStatusRingSettings" />
 
-        <CheckBoxPreference
-            android:key="lockscreen_show_custom_carrier_label"
-            android:title="@string/show_custom_carrier_label_title"
-            android:persistent="false"
-            android:defaultValue="false" />
+    <PreferenceScreen
+        android:key="lockscreen_shortcut_settings"
+        android:title="@string/lockscreen_shortcut_settings_title"
+        android:fragment="com.android.settings.darkkat.LockscreenShortcutSettings" />
 
-        <PreferenceScreen
-            android:key="lockscreen_carrier_label_style"
-            android:fragment="com.android.settings.darkkat.LockscreenCarrierLabelStyle"
-            android:title="@string/custom_carrier_label_title" />
+    <PreferenceScreen
+        android:key="lockscreen_widgets_settings"
+        android:title="@string/lockscreen_widgets_settings_title"
+		android:summary="@string/lockscreen_widgets_settings_summary"
+        android:fragment="com.android.settings.darkkat.LockscreenWidgetsSettings" />
 
-        <CheckBoxPreference
-            android:key="lockscreen_always_show_battery_status"
-            android:title="@string/lockscreen_always_show_battery_status_title"
-            android:summary="@string/lockscreen_always_show_battery_status_summary"
-            android:persistent="false"
-            android:defaultValue="false" />
+    <PreferenceScreen
+        android:key="lockscreen_misk_settings"
+        android:title="@string/lockscreen_misk_settings_title"
+        android:fragment="com.android.settings.darkkat.LockscreenMiskSettings" />
 
-        <PreferenceScreen
-            android:key="lockscreen_battery_status_style"
-            android:fragment="com.android.settings.darkkat.LockscreenBatteryStatusStyle"
-            android:title="@string/lockscreen_battery_status_title" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="lockscreen_category_background"
-        android:title="@string/lockscreen_category_background_title">
-
-        <CheckBoxPreference
-            android:key="lockscreen_see_through"
-            android:title="@string/lockscreen_see_through_title"
-            android:summary="@string/lockscreen_see_through_summary"
-            android:persistent="false"
-            android:defaultValue="false" />
-
-        <com.android.settings.widget.SeekBarPreference
-             android:key="lockscreen_blur_radius"
-             android:title="@string/lockscreen_blur_radius_title" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="lockscreen_category_widgets"
-        android:title="@string/lockscreen_category_widgets_title">
-
-        <CheckBoxPreference
-            android:key="lockscreen_enable_widgets"
-            android:title="@string/security_enable_widgets_title"/>
-
-        <CheckBoxPreference
-            android:key="lockscreen_maximize_widgets"
-            android:title="@string/lockscreen_maximize_widgets_title"
-            android:summary="@string/lockscreen_maximize_widgets_summary"
-            android:persistent="false"
-            android:defaultValue="false" />
-
-        <CheckBoxPreference
-            android:key="lockscreen_enable_camera"
-            android:title="@string/lockscreen_enable_camera_title"
-            android:summary="@string/lockscreen_enable_camera_summary"
-            android:persistent="false"
-            android:defaultValue="true" />
-    </PreferenceCategory>
 </PreferenceScreen>
