@@ -707,6 +707,18 @@
         <item>70</item>
     </string-array>
 
+    <string-array name="recent_panel_expanded_mode_entries">
+        <item>@string/recent_panel_expanded_mode_auto</item>
+        <item>@string/recent_panel_expanded_mode_always</item>
+        <item>@string/recent_panel_expanded_mode_never</item>
+    </string-array>
+
+    <string-array name="recent_panel_expanded_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <string-array name="expanded_desktop_entries" translatable="false">
         <item>@string/expanded_desktop_disabled</item>
         <item>@string/expanded_desktop_status_bar</item>

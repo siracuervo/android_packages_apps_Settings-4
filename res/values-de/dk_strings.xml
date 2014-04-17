@@ -191,7 +191,7 @@
     <string name="icon_picker_choose_icon_title">Symbol wählen</string>
     <string name="icon_color_mode_all_icons">Alle Symbole</string>
     <string name="icon_color_mode_system_icons">System Symbole</string>
-    <string name="icon_color_mode_system_custom_icons">System und individuelle symbole</string>
+    <string name="icon_color_mode_system_custom_icons">System und individuelle Symbole</string>
     <string name="group_applications">Anwendungen</string>
     <string name="select_custom_app_title">Wähle eine individuelle Anwendung</string>
 
@@ -210,7 +210,7 @@
     <string name="interface_lockscreen_settings_title">Sperrbildschirm</string>
     <string name="interface_bars_settings_title">Leisten</string>
     <string name="interface_menus_settings_title">Menüs &amp; Felder</string>
-    <string name="interface_more_settings_title">Mehr</string>
+    <string name="interface_more_settings_title">Mehr...</string>
 
     <!-- Lockscreen settings -->
     <string name="lockscreen_background_settings_title">Hintergrund</string>
@@ -559,9 +559,10 @@
     <string name="title_pref_menu_display">Sichtbarkeit</string>
 
     <!-- Menus settings -->
-    <string name="power_menu_cat_title">Ein-&#47;Aus Menü</string>
-    <string name="recent_panel_color_cat_title">Kürzlich verwendete Apps-Feld Farbe</string>
-    <string name="recent_panel_option_cat_title">Kürzlich verwendete Apps-Feld Optionen</string>
+    <string name="power_menu_cat_options_title">Ein-&#47;Aus Menü Optionen</string>
+    <string name="power_menu_cat_colors_title">Ein-&#47;Aus Menü Farben</string>
+    <string name="recent_panel_cat_colors_title">Kürzlich verwendete Apps-Feld Farben</string>
+    <string name="recent_panel_cat_options_title">Kürzlich verwendete Apps-Feld Optionen</string>
 
     <!-- Power menu -->
     <string name="power_menu_title">Ein-&#47;Aus Menü</string>
@@ -570,18 +571,21 @@
     <string name="power_menu_toggle_screen_record_title">Bildschirm Aufnahme</string>
     <string name="power_menu_toggle_screen_record_summary">Aktivieren um die Bildschirm Aufnahme Option im Ein-&#47;Aus Menü anzuzeigen</string>
     <string name="power_menu_toggle_expanded_desktop_summary">Aktivieren um die Immersive Mode Option im Ein-&#47;Aus Menü anzuzeigen</string>
-    <string name="power_menu_text_color_title">Text Farbe</string>
     <string name="power_menu_icon_color_mode_title">Symbol Farbmodus</string>
     <string name="power_menu_icon_color_title">Symbol Farbe</string>
+    <string name="power_menu_text_color_title">Text Farbe</string>
 
     <!-- Slim Recent apps panel -->
     <string name="recent_panel_bg_color_title">Hintergrund</string>
     <string name="recent_panel_empty_icon_color_title">Leer-Symbol</string>
-    <string name="recent_panel_scale_title">Größe</string>
-    <string name="recent_panel_scale_summary">Kürzlich verwendete Apps-Feld Größe in Prozent</string>
-    <string name="recent_panel_100">100% (Standard)</string>
-    <string name="recent_panel_85">85%</string>
-    <string name="recent_panel_70">70%</string>
+    <string name="recent_panel_scale_title">Größe in Prozent</string>
+    <string name="recent_panel_100">100 (Standard)</string>
+    <string name="recent_panel_85">85</string>
+    <string name="recent_panel_70">70</string>
+    <string name="recent_panel_expanded_mode_title">Apps erweitert anzeigen</string>
+    <string name="recent_panel_expanded_mode_auto">Auto (Standard)</string>
+    <string name="recent_panel_expanded_mode_always">Immer</string>
+    <string name="recent_panel_expanded_mode_never">Nie</string>
     <string name="recent_panel_lefty_mode_title">Am linken Rand anzeigen</string>
     <string name="recent_panel_lefty_mode_summary">Kürzlich verwendete Apps-Feld am linken Rand anzeigen</string>
 

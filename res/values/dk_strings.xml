@@ -209,7 +209,7 @@
     <string name="interface_lockscreen_settings_title">Lock screen</string>
     <string name="interface_bars_settings_title">Bars</string>
     <string name="interface_menus_settings_title">Menus &amp; panels</string>
-    <string name="interface_more_settings_title">More</string>
+    <string name="interface_more_settings_title">More...</string>
 
     <!-- Lockscreen settings -->
     <string name="lockscreen_background_settings_title">Background</string>
@@ -558,9 +558,10 @@
     <string name="title_pref_menu_display">Visibility</string>
 
     <!-- Menus settings -->
-    <string name="power_menu_cat_title">Power menu</string>
-    <string name="recent_panel_color_cat_title">Recent apps panel color</string>
-    <string name="recent_panel_option_cat_title">Recent apps panel options</string>
+    <string name="power_menu_cat_options_title">Power menu options</string>
+    <string name="power_menu_cat_colors_title">Power menu colors</string>
+    <string name="recent_panel_cat_colors_title">Recent apps panel color</string>
+    <string name="recent_panel_cat_options_title">Recent apps panel options</string>
 
     <!-- Power menu -->
     <string name="power_menu_toggle_screenshot_title">Screenshot</string>
@@ -568,18 +569,21 @@
     <string name="power_menu_toggle_screen_record_title">Screen record</string>
     <string name="power_menu_toggle_screen_record_summary">Activate, to show screen record option in Power Menu</string>
     <string name="power_menu_toggle_expanded_desktop_summary">Activate, to show immersive mode option in Power Menu</string>
-    <string name="power_menu_text_color_title">Text color</string>
     <string name="power_menu_icon_color_mode_title">Icon color mode</string>
     <string name="power_menu_icon_color_title">Icon color</string>
+    <string name="power_menu_text_color_title">Text color</string>
 
     <!-- Slim Recent apps panel -->
     <string name="recent_panel_bg_color_title">Background</string>
     <string name="recent_panel_empty_icon_color_title">Empty icon</string>
-    <string name="recent_panel_scale_title">Size</string>
-    <string name="recent_panel_scale_summary">Recent apps panel size in percent</string>
-    <string name="recent_panel_100">100% (default)</string>
-    <string name="recent_panel_85">85%</string>
-    <string name="recent_panel_70">70%</string>
+    <string name="recent_panel_scale_title">Size in percent</string>
+    <string name="recent_panel_100">100 (default)</string>
+    <string name="recent_panel_85">85</string>
+    <string name="recent_panel_70">70</string>
+    <string name="recent_panel_expanded_mode_title">Expanded mode</string>
+    <string name="recent_panel_expanded_mode_auto">Auto (default)</string>
+    <string name="recent_panel_expanded_mode_always">Always</string>
+    <string name="recent_panel_expanded_mode_never">Never</string>
 
     <!-- ATTENTION: RTL languages need to replace left with right -->
     <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
