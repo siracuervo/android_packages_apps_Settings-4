@@ -527,12 +527,11 @@
     <string name="navbar_targets_title">Ring targets</string>
 
     <!-- Navigation bar dimensions -->
-    <string name="navigation_bar_height_title">Navigation bar height</string>
-    <string name="navigation_bar_height_summary">Navigation bar height while in portrait.</string>
-    <string name="navigation_bar_height_landscape_title">Navigation bar height landscape</string>
-    <string name="navigation_bar_height_landscape_summary">Navigation bar height while in landscape.</string>
-    <string name="navigation_bar_width_title">Navigation bar width</string>
-    <string name="navigation_bar_width_summary">Navigation bar height if the bar is along a side.</string>
+    <string name="navigation_bar_height_title">Height (portrait)</string>
+    <string name="navigation_bar_height_landscape_title">Height (landscape)</string>
+    <string name="navigation_bar_height_landscape_disabled_summary">Navigation bar is placed along a side</string>
+    <string name="navigation_bar_width_title">Width (landscape)</string>
+    <string name="navigation_bar_width_disabled_summary">Navigation bar is placed on the bottom</string>
     <string name="navigation_bar_size_42_dp_default">42 dp (default)</string>
     <string name="navigation_bar_size_36_dp">36 dp</string>
     <string name="navigation_bar_size_30_dp">30 dp</string>

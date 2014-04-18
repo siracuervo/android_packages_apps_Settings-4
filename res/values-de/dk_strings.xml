@@ -528,12 +528,11 @@
     <string name="navbar_targets_title">Ring Ziele</string>
 
     <!-- Navigation bar dimensions -->
-    <string name="navigation_bar_height_title">Höhe der Navigationsleiste</string>
-    <string name="navigation_bar_height_summary">Höhe der Navigationsleiste im Hochformat.</string>
-    <string name="navigation_bar_height_landscape_title">Höhe der Navigationsleiste Querformat</string>
-    <string name="navigation_bar_height_landscape_summary">Höhe der Navigationsleiste im Querformat.</string>
-    <string name="navigation_bar_width_title">Breite der Navigationsleiste</string>
-    <string name="navigation_bar_width_summary">Breite der Navigationsleiste, wenn sie an der seite angezeigt wird.</string>
+    <string name="navigation_bar_height_title">Höhe (Hochformat)</string>
+    <string name="navigation_bar_height_landscape_title">Höhe (Querformat)</string>
+    <string name="navigation_bar_height_landscape_disabled_summary">Navigationsleiste wird im Querformat an der Seite angezeigt</string>
+    <string name="navigation_bar_width_title">Breite (Querformat)</string>
+    <string name="navigation_bar_width_disabled_summary">Navigationsleiste wird im Querformat unten angezeigt</string>
     <string name="navigation_bar_size_42_dp_default">42 dp (Standard)</string>
     <string name="navigation_bar_size_36_dp">36 dp</string>
     <string name="navigation_bar_size_30_dp">30 dp</string>

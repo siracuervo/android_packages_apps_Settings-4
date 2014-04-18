@@ -43,8 +43,6 @@ import com.android.settings.SettingsPreferenceFragment;
 public class NavbarStyleDimenSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
-    private static final String TAG =
-        "NavBarStyleDimen";
     private static final String PREF_NAVIGATION_BAR_HEIGHT =
         "navigation_bar_height";
     private static final String PREF_NAVIGATION_BAR_HEIGHT_LANDSCAPE =
@@ -70,21 +68,38 @@ public class NavbarStyleDimenSettings extends SettingsPreferenceFragment impleme
 
         mNavigationBarHeight =
             (ListPreference) findPreference(PREF_NAVIGATION_BAR_HEIGHT);
+        mNavigationBarHeight.setSummary(
+                mNavigationBarHeight.getEntry());
         mNavigationBarHeight.setOnPreferenceChangeListener(this);
-
-        mNavigationBarHeightLandscape =
-            (ListPreference) findPreference(PREF_NAVIGATION_BAR_HEIGHT_LANDSCAPE);
-        mNavigationBarHeightLandscape.setOnPreferenceChangeListener(this);
-
-        mNavigationBarWidth =
-            (ListPreference) findPreference(PREF_NAVIGATION_BAR_WIDTH);
-        mNavigationBarWidth.setOnPreferenceChangeListener(this);
 
         boolean navbarCanMove = Settings.System.getInt(getContentResolver(),
                 Settings.System.NAVIGATION_BAR_CAN_MOVE,
                 DeviceUtils.isPhone(getActivity()) ? 1 : 0) == 1;
 
+        mNavigationBarHeightLandscape =
+            (ListPreference) findPreference(PREF_NAVIGATION_BAR_HEIGHT_LANDSCAPE);
+        if (!navbarCanMove) {
+            mNavigationBarHeightLandscape.setSummary(
+                    mNavigationBarHeightLandscape.getEntry());
+            mNavigationBarHeightLandscape.setOnPreferenceChangeListener(this);
+        } else {
+            mNavigationBarHeightLandscape.setSummary(
+                    getResources().getString(R.string
+                    .navigation_bar_height_landscape_disabled_summary));
+        }
         mNavigationBarHeightLandscape.setEnabled(!navbarCanMove);
+
+        mNavigationBarWidth =
+            (ListPreference) findPreference(PREF_NAVIGATION_BAR_WIDTH);
+        if (navbarCanMove) {
+            mNavigationBarWidth.setSummary(
+                    mNavigationBarWidth.getEntry());
+            mNavigationBarWidth.setOnPreferenceChangeListener(this);
+        } else {
+            mNavigationBarWidth.setSummary(
+                    getResources().getString(R.string
+                    .navigation_bar_width_disabled_summary));
+        }
         mNavigationBarWidth.setEnabled(navbarCanMove);
 
         setHasOptionsMenu(true);
@@ -110,27 +125,43 @@ public class NavbarStyleDimenSettings extends SettingsPreferenceFragment impleme
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mNavigationBarWidth) {
-            String newVal = (String) newValue;
-            int dp = Integer.parseInt(newVal);
-            int width = mapChosenDpToPixels(dp);
-            Settings.System.putInt(getContentResolver(), Settings.System.NAVIGATION_BAR_WIDTH,
-                    width);
+        int index;
+        String newVal;
+        int dp;
+        int value;
+
+        if (preference == mNavigationBarHeight) {
+            index = mNavigationBarHeight.findIndexOfValue(
+                    (String) newValue);
+            newVal = (String) newValue;
+            dp = Integer.parseInt(newVal);
+            value = mapChosenDpToPixels(dp);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_HEIGHT, value);
+            mNavigationBarHeight.setSummary(
+                mNavigationBarHeight.getEntries()[index]);
             return true;
-        } else if (preference == mNavigationBarHeight) {
-            String newVal = (String) newValue;
-            int dp = Integer.parseInt(newVal);
-            int height = mapChosenDpToPixels(dp);
-            Settings.System.putInt(getContentResolver(), Settings.System.NAVIGATION_BAR_HEIGHT,
-                    height);
+        } else if (preference == mNavigationBarWidth) {
+            index = mNavigationBarWidth.findIndexOfValue(
+                    (String) newValue);
+            newVal = (String) newValue;
+            dp = Integer.parseInt(newVal);
+            value = mapChosenDpToPixels(dp);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_WIDTH, value);
+            mNavigationBarWidth.setSummary(
+                mNavigationBarWidth.getEntries()[index]);
             return true;
         } else if (preference == mNavigationBarHeightLandscape) {
-            String newVal = (String) newValue;
-            int dp = Integer.parseInt(newVal);
-            int height = mapChosenDpToPixels(dp);
+            index = mNavigationBarHeightLandscape.findIndexOfValue(
+                    (String) newValue);
+            newVal = (String) newValue;
+            dp = Integer.parseInt(newVal);
+            value = mapChosenDpToPixels(dp);
             Settings.System.putInt(getContentResolver(),
-                    Settings.System.NAVIGATION_BAR_HEIGHT_LANDSCAPE,
-                    height);
+                    Settings.System.NAVIGATION_BAR_HEIGHT_LANDSCAPE, value);
+            mNavigationBarHeightLandscape.setSummary(
+                mNavigationBarHeightLandscape.getEntries()[index]);
             return true;
         }
         return false;
@@ -221,5 +252,4 @@ public class NavbarStyleDimenSettings extends SettingsPreferenceFragment impleme
 
         }
     }
-
 }
