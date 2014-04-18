@@ -519,8 +519,6 @@
 
     <!-- Navigation bar -->
     <string name="navigation_bar_title">Navigationsleiste</string>
-    <string name="navbar_enable_bar">Navigationsleiste aktivieren</string>
-    <string name="navbar_enable_bar_summary">Aktivieren um die Navigationsleiste anzuzeigen</string>
     <string name="navbar_style_dimen_title">Größe</string>
     <string name="navbar_can_move">Querformat</string>
     <string name="navbar_can_move_summary">Aktivieren, damit die Navigationsleiste im Querformat unten angezeigt wird</string>

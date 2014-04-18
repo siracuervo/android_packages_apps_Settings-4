@@ -518,8 +518,6 @@
 
     <!-- Navigation bar -->
     <string name="navigation_bar_title">Navigation bar</string>
-    <string name="navbar_enable_bar">Enable navigation bar</string>
-    <string name="navbar_enable_bar_summary">Enable the navigation bar</string>
     <string name="navbar_style_dimen_title">Dimensions</string>
     <string name="navbar_can_move">Show landscape</string>
     <string name="navbar_can_move_summary">Shows navigation bar in lanscape on the bottom</string>
