@@ -105,11 +105,11 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
         addPreferencesFromResource(R.xml.status_bar_signal_wifi_style);
         mResolver = getActivity().getContentResolver();
 
-        int intColor;
-        String hexColor;
-
         boolean isNetworkActivityEnabled = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_NETWORK_ACTIVITY, 0) == 1;
+
+        int intColor;
+        String hexColor;
 
         mShowNetworkActivity =
                 (CheckBoxPreference) findPreference(

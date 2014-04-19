@@ -18,6 +18,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_network_speed_title">
 
+    <CheckBoxPreference
+        android:key="status_bar_enable_network_speed_indicator"
+        android:title="@string/status_bar_enable_network_speed_indicator_title"
+        android:summary="@string/status_bar_enable_network_speed_indicator_summary"
+        android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:key="status_bar_network_speed_cat_options"
+        android:title="@string/cat_options_title">
+
 	<ListPreference
         android:key="network_speed_show_indicator"
         android:title="@string/network_speed_show_indicator_title"
@@ -25,11 +35,11 @@
 	    android:entryValues="@array/network_speed_show_indicator_values" />
 
     <ListPreference
-        android:key="traffic_summary"
-        android:dialogTitle="@string/traffic_summary"
-        android:title="@string/traffic_summary"
-        android:entries="@array/traffic_summary_entries"
-        android:entryValues="@array/traffic_summary_values" />
+        android:key="network_speed_traffic_summary"
+        android:dialogTitle="@string/network_speed_traffic_summary"
+        android:title="@string/network_speed_traffic_summary"
+        android:entries="@array/network_speed_traffic_summary_entries"
+        android:entryValues="@array/network_speed_traffic_summary_values" />
 
     <CheckBoxPreference
         android:key="network_speed_bit_byte"
@@ -41,6 +51,12 @@
         android:title="@string/network_speed_hide_traffic_title"
         android:summary="@string/network_speed_hide_traffic_summary" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="status_bar_network_speed_cat_colors"
+        android:title="@string/color_title">
+
      <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="network_speed_text_color"
         android:title="@string/network_speed_text_color_title"
@@ -51,4 +67,5 @@
         android:title="@string/network_speed_icon_color_title"
         android:defaultValue="0xffffffff" />
 
+    </PreferenceCategory>
 </PreferenceScreen>

@@ -304,20 +304,16 @@
     <string name="status_bar_toggle_brightness_title">Helligkeitskontrolle</string>
     <string name="status_bar_toggle_brightness_summary">Helligkeit per wischen über die Statusleiste einstellen</string>
     <string name="status_bar_toggle_info">Automatische Helligkeit aktiv</string>
-    <string name="status_bar_show_clock_title">Die Uhr anzeigen</string>
-    <string name="status_bar_show_clock_summary">Aktivieren um die Uhr in der Statusleiste anzuzeigen</string>
-    <string name="status_bar_show_date_title">Das Datum anzeigen</string>
-    <string name="status_bar_show_date_summary">Aktivieren um das Datum neben der Uhr in der Statusleiste anzuzeigen</string>
-    <string name="status_bar_clock_date_style_title">Uhr &amp; Datum anpassen</string>
-    <string name="status_bar_show_battery_status_title">Den Akkustatus anzeigen</string>
-    <string name="status_bar_show_battery_status_summary">Aktivieren um den Akkustatus in der Statusleiste anzuzeigen</string>
-    <string name="status_bar_battery_status_style_title">Akkustatus anpassen</string>
-    <string name="status_bar_show_battery_bar_title">Die Akkuleiste anzeigen</string>
-    <string name="status_bar_show_battery_bar_summary">Aktivieren um die Akkuleiste anzuzeigen</string>
-    <string name="status_bar_battery_bar_style_title">Akkuleiste anpassen</string>
-    <string name="status_bar_enable_network_speed_indicator_title">Netzw.-Geschw.-Anz. aktivieren</string>
-    <string name="status_bar_enable_network_speed_indicator_summary">Aktivieren um die Netzwerk-Geschwindigkeits-Anzeige einzuschalten</string>
-    <string name="status_bar_network_speed_title">Netzw.-Geschw. Anzeige anpassen</string>
+    <string name="status_bar_clock_date_style_title">Uhr &amp; Datum</string>
+    <string name="status_bar_clock_date_style_summary">Die Uhr &amp; das Datum anpassen</string>
+    <string name="status_bar_battery_status_style_title">Akkustatus</string>
+    <string name="status_bar_battery_status_style_summary">Den Akkustatus anpassen</string>
+    <string name="status_bar_battery_bar_style_title">Akkuleiste</string>
+    <string name="status_bar_battery_bar_style_summary">Die Akkuleiste anpassen</string>
+    <string name="status_bar_signal_wifi_style_title">Netzwerk Symbole</string>
+    <string name="status_bar_signal_wifi_style_summary">Die Netzwerk Symbole anpassen</string>
+    <string name="status_bar_network_speed_title">Netzw.-Geschw. Anzeige</string>
+    <string name="status_bar_network_speed_summary">Die Netzw.-Geschw. Anzeige anpassen</string>
     <string name="status_bar_notif_count_title">Benachrichtigungszähler</string>
     <string name="status_bar_notif_count_summary">Anzahl der ungelesenen Benachrichtigungen in der Statusleiste anzeigen</string>
 
@@ -325,9 +321,14 @@
     <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>
     <string name="status_bar_cat_clock_title">Uhr</string>
     <string name="status_bar_cat_date_title">Datum</string>
+    <string name="status_bar_show_clock_title">Die Uhr anzeigen</string>
+    <string name="status_bar_show_clock_summary">Aktivieren um die Uhr in der Statusleiste anzuzeigen</string>
+    <string name="status_bar_show_date_title">Das Datum anzeigen</string>
+    <string name="status_bar_show_date_summary">Aktivieren um das Datum neben der Uhr in der Statusleiste anzuzeigen</string>
     <string name="status_bar_clock_date_position_title">Position</string>
     <string name="status_bar_clock_date_position_summary">Aktivieren um Uhr (&amp; Datum) in der Statusleiste zentriert anzuzeigen</string>
     <string name="status_bar_am_pm_title">AM&#47;PM Style</string>
+    <string name="status_bar_am_pm_disabled_summary">24-Stunden-Format ist aktiviert</string>
     <string name="status_bar_am_pm_normal">Normal</string>
     <string name="status_bar_am_pm_small">Klein</string>
     <string name="status_bar_am_pm_none">Verborgen</string>
@@ -343,27 +344,32 @@
     <string name="status_bar_date_string_edittext_summary">Zeichenfolge eingeben</string>
 
     <!-- Status bar battery status style -->
+    <string name="status_bar_show_battery_status_title">Anzeigen</string>
+    <string name="status_bar_show_battery_status_summary">Aktivieren um den Akkustatus in der Statusleiste anzuzeigen</string>
     <string name="battery_status_style_title">Symbol&#47;Text</string>
     <string name="battery_status_icon">Symbol</string>
     <string name="battery_status_percentage">Prozent Text</string>
 	<string name="battery_status_circle">Kreis</string>
-    <string name="battery_status_show_text_title">Akkustatus Text anzeigen</string>
+    <string name="battery_status_show_text_title">Text anzeigen</string>
     <string name="battery_status_show_text_summary">Aktivieren um den Akkustatus Text anzuzeigen</string>
     <string name="battery_status_custom_frame_color_title">Rahmen Farbe anpassen</string>
     <string name="battery_status_custom_frame_color_summary">Wenn deaktiviert, wird die Akkustatus Farbe mit einer Transparenz von 80% benutzt.</string>
     <string name="battery_status_circle_dotted_title">Kreis gepunktet</string>
     <string name="battery_status_circle_dotted_summary">Aktivieren um den Kreis gepunktet anzuzeigen</string>
-    <string name="battery_status_color">Akkustatus Farbe</string>
-    <string name="battery_frame_color">Rahmen Farbe</string>
-    <string name="battery_text_color">Prozent Text Farbe</string>
-    <string name="battery_text_charging_color">Prozent Text Lade Farbe</string>
     <string name="circle_battery_animation_speed">Kreis Animations Geschwindigkeit</string>
     <string name="circle_battery_animation_speed_none">Keine</string>
     <string name="circle_battery_animation_speed_slow">Langsam</string>
     <string name="circle_battery_animation_speed_stock">Normal</string>
-    <string name="circle_battery_animation_speed_fast">Schnell</string> 
+    <string name="circle_battery_animation_speed_fast">Schnell</string>
+    <string name="battery_status_color">Füllung</string>
+    <string name="battery_frame_color">Rahmen</string>
+    <string name="battery_text_color">Text normal</string>
+    <string name="battery_text_charging_color">Text während des Ladevorgangs</string>
+
 
     <!-- Status bar battery bar style -->
+    <string name="status_bar_show_battery_bar_title">Anzeigen</string>
+    <string name="status_bar_show_battery_bar_summary">Aktivieren um die Akkuleiste anzuzeigen</string>
     <string name="battery_bar_position_title">Position</string>
     <string name="battery_bar_center_summary">Die Akkuleiste mittig-gespiegelt darstellen</string>
     <string name="battery_bar_center_title">Mittig-gespiegelt</string>
@@ -379,7 +385,6 @@
     <string name="battery_bar_thickness_4">4dp</string>
 
     <!-- Status bar signal wifi icon style  -->
-    <string name="status_bar_signal_wifi_style_title">Netzwerk Symbole anpassen</string>
     <string name="status_bar_cat_signal_strength_title">Mobilnetzwerk-Stärke Symbol</string>
     <string name="status_bar_cat_signal_network_type_title">Mobilnetzwerk-Typ Symbol</string>
     <string name="status_bar_cat_wifi_strength_title">Wifinetzwerk-Stärke Symbol</string>
@@ -387,11 +392,13 @@
     <string name="status_bar_show_activity_indicators_summary">Aktivieren um die Netzwerkaktivität anzuzeigen</string>
 
     <!-- Status bar Network speed style -->
+    <string name="status_bar_enable_network_speed_indicator_title">Aktivieren</string>
+    <string name="status_bar_enable_network_speed_indicator_summary">Aktivieren um die Netzwerk-Geschwindigkeits-Anzeige einzuschalten</string>
     <string name="network_speed_show_indicator_title">Anzeige</string>
     <string name="network_download">Download</string>
     <string name="network_upload">Upload</string>
     <string name="network_download_upload">Download &amp; Upload</string>
-    <string name="traffic_summary">Datenmenge anzeigen</string>
+    <string name="network_speed_traffic_summary">Datenmenge anzeigen</string>
     <string name="traffic_timeout_0s">Nicht anzeigen</string>
     <string name="traffic_timeout_1s">1 Sekunde</string>
     <string name="traffic_timeout_2s">2 Sekunden</string>
@@ -405,8 +412,8 @@
     <string name="network_speed_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
     <string name="network_speed_hide_traffic_title">Anzeige verstecken</string>
     <string name="network_speed_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
-    <string name="network_speed_text_color_title">Text Farbe</string>
-    <string name="network_speed_icon_color_title">Symbol Farbe</string>
+    <string name="network_speed_text_color_title">Text</string>
+    <string name="network_speed_icon_color_title">Symbol</string>
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
@@ -430,13 +437,13 @@
     <string name="status_bar_expanded_header_settings_btn_summary">Aktivieren um den Einstellungen Schaltfläche immer anzuzeigen</string>
 
     <!-- Statusbar expanded notification drawer -->
+    <string name="notif_alpha_title">Transparenz der Benachrichtigungen</string>
     <string name="qar_cat_title">Schnellzugriffsleiste</string>
     <string name="qar_show_tiles_title">Schnellzugriffsleiste anzeigen</string>
     <string name="qar_show_tiles_summary">Aktivieren um eine kleine Version der Schnelleinstellungen in der Benachrichtigungsanzeige anzuzeigen.</string>
     <string name="qar_show_tiles_deactivated_summary">Schnelleinstellungen sind deaktiviert, aktiviere die Schnelleinstellungen, um die Schnellzugriffsleiste zu nutzen.</string>
     <string name="qar_tiles_linked_title">Anordnung koppeln</string>
     <string name="qar_tiles_linked_summary">Aktivieren um die Kachelauswahl und -anordnung der Schnelleinstellungen zu verwenden</string>
-    <string name="notif_alpha_title">Transparenz der Benachrichtigungen</string>
 
     <!-- Statusbar expanded quick settings -->
     <string name="quicksettings_color_title">Farben &amp; Transparenz</string>

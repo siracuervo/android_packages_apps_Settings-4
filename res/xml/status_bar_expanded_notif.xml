@@ -19,6 +19,15 @@
     android:title="@string/status_bar_expanded_notification_drawer_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <com.android.settings.widget.SeekBarPreference
+         android:key="notification_alpha"
+         android:title="@string/notif_alpha_title" />
+
+	<PreferenceScreen
+	    android:key="notification_drawer_cw_label_style"
+	    android:fragment="com.android.settings.darkkat.StatusBarExpandedNotifLabelStyle"
+	    android:title="@string/cw_label_style_title" />
+
     <PreferenceCategory
 		android:key="qar_cat"
         android:title="@string/qar_cat_title">
@@ -42,14 +51,4 @@
         </PreferenceScreen>
 
     </PreferenceCategory>
-
-    <com.android.settings.widget.SeekBarPreference
-         android:key="notification_alpha"
-         android:title="@string/notif_alpha_title" />
-
-	<PreferenceScreen
-	    android:key="notification_drawer_cw_label_style"
-	    android:fragment="com.android.settings.darkkat.StatusBarExpandedNotifLabelStyle"
-	    android:title="@string/cw_label_style_title" />
-
 </PreferenceScreen>

@@ -34,18 +34,18 @@ public class StatusBarExpandedNotif extends SettingsPreferenceFragment implement
 
     private static final String PREF_QAR_CAT =
             "qar_cat";
+    private static final String PREF_NOTIFICATION_ALPHA =
+            "notification_alpha";
     private static final String PREF_QAR_SHOW_TILES =
             "qar_show_tiles";
     private static final String PREF_QAR_TILES_LINKED =
             "qar_tiles_linked";
     private static final String PREF_QAR_TILE_PICKER =
             "qar_tile_picker";
-    private static final String PREF_NOTIFICATION_ALPHA =
-            "notification_alpha";
 
+    private SeekBarPreference mNotificationAlpha;
     private CheckBoxPreference mQarShowTiles;
     private CheckBoxPreference mQarTilesLinked;
-    private SeekBarPreference mNotificationAlpha;
 
     private ContentResolver mResolver;
 
@@ -67,6 +67,21 @@ public class StatusBarExpandedNotif extends SettingsPreferenceFragment implement
         addPreferencesFromResource(R.xml.status_bar_expanded_notif);
         mResolver = getActivity().getContentResolver();
 
+        float notifTransparency;
+        try{
+            notifTransparency = Settings.System.getFloat(getContentResolver(),
+                    Settings.System.NOTIFICATION_ALPHA);
+        } catch (Exception e) {
+            notifTransparency = 0;
+            Settings.System.putFloat(getContentResolver(),
+                    Settings.System.NOTIFICATION_ALPHA, 0.0f);
+        }
+        mNotificationAlpha =
+                (SeekBarPreference) findPreference(PREF_NOTIFICATION_ALPHA);
+        mNotificationAlpha.setInitValue((int) (notifTransparency * 100));
+        mNotificationAlpha.setProperty(Settings.System.NOTIFICATION_ALPHA);
+        mNotificationAlpha.setOnPreferenceChangeListener(this);
+
         mQarHideTiles = Settings.System.getInt(mResolver,
                 Settings.System.QAR_SHOW_TILES, 1) == 0;
 
@@ -82,21 +97,6 @@ public class StatusBarExpandedNotif extends SettingsPreferenceFragment implement
                 (CheckBoxPreference) findPreference(PREF_QAR_TILES_LINKED);
         mQarTilesLinked.setChecked(!mQarTilesNotLinked);
         mQarTilesLinked.setOnPreferenceChangeListener(this);
-
-        float notifTransparency;
-        try{
-            notifTransparency = Settings.System.getFloat(getContentResolver(),
-                    Settings.System.NOTIFICATION_ALPHA);
-        } catch (Exception e) {
-            notifTransparency = 0;
-            Settings.System.putFloat(getContentResolver(),
-                    Settings.System.NOTIFICATION_ALPHA, 0.0f);
-        }
-        mNotificationAlpha =
-                (SeekBarPreference) findPreference(PREF_NOTIFICATION_ALPHA);
-        mNotificationAlpha.setInitValue((int) (notifTransparency * 100));
-        mNotificationAlpha.setProperty(Settings.System.NOTIFICATION_ALPHA);
-        mNotificationAlpha.setOnPreferenceChangeListener(this);
 
         updateQuarPreferences();
     }

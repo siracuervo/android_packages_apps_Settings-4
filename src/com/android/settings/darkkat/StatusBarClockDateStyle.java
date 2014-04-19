@@ -46,10 +46,16 @@ import java.util.Date;
 public class StatusBarClockDateStyle extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener { 
 
+    private static final String PREF_STAT_BAR_CAT_CLOCK_DATE =
+            "status_bar_cat_clock_date";
     private static final String PREF_STAT_BAR_CAT_CLOCK =
             "status_bar_cat_clock";
     private static final String PREF_STAT_BAR_CAT_DATE =
             "status_bar_cat_date";
+    private static final String KEY_STATUS_BAR_SHOW_CLOCK =
+            "status_bar_show_clock";
+    private static final String STATUS_BAR_SHOW_DATE =
+            "status_bar_show_date";
     private static final String PREF_STAT_BAR_CLOCK_DATE_POSITION =
             "status_bar_clock_date_position";
     private static final String PREF_STAT_BAR_CLOCK_DATE_COLOR =
@@ -70,6 +76,8 @@ public class StatusBarClockDateStyle extends SettingsPreferenceFragment implemen
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
+    private CheckBoxPreference mShowClock;
+    private CheckBoxPreference mShowDate;
     private CheckBoxPreference mClockDatePosition;
     private ColorPickerPreference mClockDateColor;
     private ListPreference mClockAmPm;
@@ -95,49 +103,72 @@ public class StatusBarClockDateStyle extends SettingsPreferenceFragment implemen
 
         mResolver = getActivity().getContentResolver();
 
+        boolean isClockEnabled = Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_SHOW_CLOCK, 1) == 1;
         boolean isDateEnabled = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_SHOW_DATE, 0) == 1;
 
-        mClockDatePosition =
-                (CheckBoxPreference) findPreference(PREF_STAT_BAR_CLOCK_DATE_POSITION);
-        mClockDatePosition.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_CLOCK_POSITION, 0) == 1);
-        mClockDatePosition.setOnPreferenceChangeListener(this);
+        mShowClock = (CheckBoxPreference) findPreference(KEY_STATUS_BAR_SHOW_CLOCK);
+        mShowClock.setChecked(isClockEnabled);
+        mShowClock.setOnPreferenceChangeListener(this);
 
-        mClockDateColor =
-                (ColorPickerPreference) findPreference(PREF_STAT_BAR_CLOCK_DATE_COLOR);
-        int intColor = Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_CLOCK_DATE_COLOR, 0xffffffff); 
-        mClockDateColor.setNewPreviewColor(intColor);
-        String hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mClockDateColor.setSummary(hexColor);
-        mClockDateColor.setOnPreferenceChangeListener(this);
-
+        // Remove uneeded preferences depending on enabled states
+        PreferenceCategory statusBarCatClockDate =
+                (PreferenceCategory) findPreference(PREF_STAT_BAR_CAT_CLOCK_DATE);
         PreferenceCategory statusBarCatClock =
                 (PreferenceCategory) findPreference(PREF_STAT_BAR_CAT_CLOCK);
-
-        // Remove "AM/PM Style" if 24 hour mode is enabled
-        mClockAmPm = (ListPreference) findPreference(PREF_STAT_BAR_AM_PM);
-        if (DateFormat.is24HourFormat(getActivity())) {
-            statusBarCatClock.removePreference(mClockAmPm);
-            removePreference(PREF_STAT_BAR_CAT_CLOCK);
-        } else {
-            mClockAmPm = (ListPreference) findPreference(PREF_STAT_BAR_AM_PM);
-            int clockAmPm = Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_AM_PM, 2);
-            mClockAmPm.setValue(String.valueOf(clockAmPm));
-            mClockAmPm.setSummary(mClockAmPm.getEntry());
-            mClockAmPm.setOnPreferenceChangeListener(this);
-        }
-
         PreferenceCategory statusBarDateCategory =
                 (PreferenceCategory) findPreference(PREF_STAT_BAR_CAT_DATE);
+        mClockAmPm = (ListPreference) findPreference(PREF_STAT_BAR_AM_PM);
+        mClockDatePosition =
+                (CheckBoxPreference) findPreference(PREF_STAT_BAR_CLOCK_DATE_POSITION);
+        mClockDateColor =
+                (ColorPickerPreference) findPreference(PREF_STAT_BAR_CLOCK_DATE_COLOR);
+        mClockAmPm = (ListPreference) findPreference(PREF_STAT_BAR_AM_PM);
+        if (isClockEnabled) {
+            mShowDate = (CheckBoxPreference) findPreference(STATUS_BAR_SHOW_DATE);
+            mShowDate.setChecked(isDateEnabled);
+            mShowDate.setOnPreferenceChangeListener(this);
+
+            mClockDatePosition.setChecked(Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_CLOCK_POSITION, 0) == 1);
+            mClockDatePosition.setOnPreferenceChangeListener(this);
+
+            int intColor = Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_CLOCK_DATE_COLOR, 0xffffffff); 
+            mClockDateColor.setNewPreviewColor(intColor);
+            String hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mClockDateColor.setSummary(hexColor);
+            mClockDateColor.setOnPreferenceChangeListener(this);
+
+            // Remove "AM/PM Style" if 24 hour mode is enabled
+            if (!DateFormat.is24HourFormat(getActivity())) {
+                int clockAmPm = Settings.System.getInt(mResolver,
+                        Settings.System.STATUS_BAR_AM_PM, 2);
+                mClockAmPm.setEnabled(true);
+                mClockAmPm.setValue(String.valueOf(clockAmPm));
+                mClockAmPm.setSummary(mClockAmPm.getEntry());
+                mClockAmPm.setOnPreferenceChangeListener(this);
+            } else {
+                mClockAmPm.setSummary(
+                        getResources().getString(R.string
+                        .status_bar_am_pm_disabled_summary));
+                mClockAmPm.setEnabled(false);
+            }
+        } else {
+            removePreference(STATUS_BAR_SHOW_DATE);
+            statusBarCatClockDate.removePreference(mClockDatePosition);
+            statusBarCatClockDate.removePreference(mClockDateColor);
+            statusBarCatClock.removePreference(mClockAmPm);
+            removePreference(PREF_STAT_BAR_CAT_CLOCK_DATE);
+            removePreference(PREF_STAT_BAR_CAT_CLOCK);
+        }
 
         // Remove uneeded preferences depending on enabled states
         mDateSize = (CheckBoxPreference) findPreference(PREF_STAT_BAR_DATE_SIZE);
         mDateStyle = (ListPreference) findPreference(PREF_STAT_BAR_DATE_STYLE);
         mDateFormat = (ListPreference) findPreference(PREF_STAT_BAR_DATE_FORMAT);
-        if (isDateEnabled) {
+        if (isClockEnabled && isDateEnabled) {
             mDateSize.setChecked(Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_DATE_SIZE, 0) == 1);
             mDateSize.setOnPreferenceChangeListener(this);
@@ -186,7 +217,19 @@ public class StatusBarClockDateStyle extends SettingsPreferenceFragment implemen
 
         AlertDialog dialog;
 
-        if (preference == mClockDatePosition) {
+        if (preference == mShowClock) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_SHOW_CLOCK, value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mShowDate) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_SHOW_DATE, value ? 1 : 0);
+            refreshSettings();
+            return true;
+        } else if (preference == mClockDatePosition) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_CLOCK_POSITION, value ? 1 : 0);
@@ -204,7 +247,7 @@ public class StatusBarClockDateStyle extends SettingsPreferenceFragment implemen
             int index = mClockAmPm.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_AM_PM, clockAmPm);
-            mClockAmPm.setSummary(mClockAmPm.getEntries()[index]);
+            preference.setSummary(mClockAmPm.getEntries()[index]);
             return true;
         } else if (preference == mDateSize) {
             boolean value = (Boolean) newValue;
@@ -216,7 +259,7 @@ public class StatusBarClockDateStyle extends SettingsPreferenceFragment implemen
             int index = mDateStyle.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_DATE_STYLE, dateStyle);
-            mDateStyle.setSummary(mDateStyle.getEntries()[index]);
+            preference.setSummary(mDateStyle.getEntries()[index]);
             return true;
         }  else if (preference == mDateFormat) {
             int index = mDateFormat.findIndexOfValue((String) newValue);
