@@ -34,4 +34,10 @@ limitations under the License.
         android:entryValues="@array/listview_interpolator_values"
         android:defaultValue="0" />
 
+    <com.android.settings.darkkat.AppMultiSelectListPreference
+        android:key="listview_blacklist"
+        android:title="@string/listview_blacklist_title"
+        android:summary="@string/listview_blacklist_summary"
+        android:persistent="false" />
+
 </PreferenceScreen>

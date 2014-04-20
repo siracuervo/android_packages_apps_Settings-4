@@ -595,7 +595,7 @@
 
     <!-- (Interface category) More settings -->
     <string name="listview_settings_title">Listenansicht</string>
-    <string name="listview_settings_summary">Animation und Interpolation anpassen</string>
+    <string name="listview_settings_summary">Animation anpassen</string>
 
     <!-- Custom carrier label strings -->
     <string name="custom_carrier_label_explain">Gib bitte einen neuen Netzbetreiber Namen ein. Lass das Feld leer, um den originalen Netzbetreiber Namen wieder herzustellen.</string>
@@ -609,8 +609,14 @@
     <string name="lock_clock_title">Uhr-Widget</string>
     <string name="lock_clock_summary">\"cLock-Widget\" konfigurieren</string>
 
-    <!-- ListView animation -->
+    <!-- ListView settings -->
+    <string name="dlg_reset_blacklist_message">Liste der auszuschließenden Anwendungen löschen?</string>
     <string name="listview_animation_title">Animation</string>
+    <string name="listview_interpolator_title">Interpolator</string>
+    <string name="listview_blacklist_title">Anwendungen ausschließen</string>
+    <string name="listview_blacklist_summary">Verhindern das Anwendungen die angepasste Animation verwenden</string>
+
+    <!-- ListView animation -->
     <string name="listview_off">Standard</string>
     <string name="listview_wave_left">Welle (links)</string>
     <string name="listview_wave_right">Welle (rechts)</string>
@@ -624,7 +630,6 @@
     <string name="listview_translate_right">Übersetzung (rechts)</string>
 
     <!-- ListView interpolator -->
-    <string name="listview_interpolator_title">Interpolator</string>
     <string name="listview_accelerate_interpolator">Beschleunigen</string>
     <string name="listview_decelerate_interpolator">Verlangsamen</string>
     <string name="listview_accelerate_decelerate_interpolator">Beschleunigen und verlangsamen</string>
