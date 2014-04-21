@@ -719,6 +719,34 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="ram_bar_mode_entries">
+        <item>@string/ram_bar_none</item>
+        <item>@string/ram_bar_apps</item>
+        <item>@string/ram_bar_cache</item>
+        <item>@string/ram_bar_other</item>
+    </string-array>
+
+    <string-array name="ram_bar_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="recent_clear_all_button_position_entries" >
+        <item>@string/recent_clear_all_button_lt</item>
+        <item>@string/recent_clear_all_button_rt</item>
+        <item>@string/recent_clear_all_button_lb</item>
+        <item>@string/recent_clear_all_button_rb</item>
+    </string-array>
+
+    <string-array name="recent_clear_all_button_position_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
     <string-array name="expanded_desktop_entries" translatable="false">
         <item>@string/expanded_desktop_disabled</item>
         <item>@string/expanded_desktop_status_bar</item>

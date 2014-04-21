@@ -563,8 +563,11 @@
     <!-- Menus settings -->
     <string name="power_menu_cat_options_title">Power menu options</string>
     <string name="power_menu_cat_colors_title">Power menu colors</string>
-    <string name="recent_panel_cat_colors_title">Recent apps panel color</string>
-    <string name="recent_panel_cat_options_title">Recent apps panel options</string>
+    <string name="slim_recent_panel_cat_options_title">Recent apps panel options</string>
+    <string name="slim_recent_panel_cat_colors_title">Recent apps panel color</string>
+    <string name="recent_apps_type_title">Recent App type</string>
+    <string name="recent_apps_type_summary">Enable for Slim Recents,\ndisable for Android Recents</string>
+    <string name="default_recent_cat_options_title">Recent apps screen options</string>
 
     <!-- Power menu -->
     <string name="power_menu_toggle_screenshot_title">Screenshot</string>
@@ -591,6 +594,56 @@
     <!-- ATTENTION: RTL languages need to replace left with right -->
     <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
     <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge</string>
+
+    <!-- Ram bar strings -->
+    <string name="ram_bar_enabled">Enabled</string>
+    <string name="ram_bar_disabled">Disabled</string>
+    <string name="ram_bar">Recents RAM bar</string>
+    <string name="ram_bar_note_title">Note</string>
+    <string name="ram_bar_note_summary">This rambar shows how android is really using your available ram. Please note that having apps open in the background and cached helps for your device to open your apps faster.</string>
+    <string name="ram_bar_mode_title">Recents RAM bar mode</string>
+    <string name="ram_bar_mode_dialog_title">Show on recents RAM bar</string>
+    <string name="ram_bar_none">None</string>
+    <string name="ram_bar_apps">Applications</string>
+    <string name="ram_bar_cache">Applications and cache</string>
+    <string name="ram_bar_other">Applications, cache and other</string>
+    <string name="ram_bar_style_cat">Recents RAM bar style</string>
+    <string name="ram_bar_color_app_mem_color">Applications RAM color</string>
+    <string name="ram_bar_color_cache_mem_color">Cache RAM color</string>
+    <string name="ram_bar_color_total_mem_color">Other RAM color</string>
+    <string name="ram_bar_color_free_mem_color">Free RAM color</string>
+
+    <!-- Clear all button strings -->
+    <string name="recentS_clear_all_button_position_title">Clear all button position</string>
+    <string name="recents_clear_all_button_lt">Top left</string>
+    <string name="recents_clear_all_button_rt">Top right</string>
+    <string name="recents_clear_all_button_lb">Bottom left</string>
+    <string name="recents_clear_all_button_rb">Bottom right</string>
+
+    <!-- Ram bar strings -->
+    <string name="ram_bar">Recents RAM bar</string>
+    <string name="ram_bar_note_title">Note</string>
+    <string name="ram_bar_note_summary">This rambar shows how android is really using your available ram. Please note that having apps open in the background and cached helps for your device to open your apps faster.</string>
+    <string name="ram_bar_mode_title">Recents RAM bar mode</string>
+    <string name="ram_bar_mode_dialog_title">Show on recents RAM bar</string>
+    <string name="ram_bar_none">None</string>
+    <string name="ram_bar_apps">Applications</string>
+    <string name="ram_bar_cache">Applications and cache</string>
+    <string name="ram_bar_other">Applications, cache and other</string>
+    <string name="ram_bar_style_cat">Recents RAM bar style</string>
+    <string name="ram_bar_color_app_mem_color">Applications RAM color</string>
+    <string name="ram_bar_color_cache_mem_color">Cache RAM color</string>
+    <string name="ram_bar_color_total_mem_color">Other RAM color</string>
+    <string name="ram_bar_color_free_mem_color">Free RAM color</string>
+    <string name="ram_bar_color_enabled">Enabled</string>
+    <string name="ram_bar_color_disabled">Disabled</string>
+
+    <!-- Clear all button strings -->
+    <string name="recent_clear_all_button_position_title">Clear all button position</string>
+    <string name="recent_clear_all_button_lt">Top left</string>
+    <string name="recent_clear_all_button_rt">Top right</string>
+    <string name="recent_clear_all_button_lb">Bottom left</string>
+    <string name="recent_clear_all_button_rb">Bottom right</string>
 
     <!-- (Interface category) More settings -->
     <string name="listview_settings_title">List view</string>

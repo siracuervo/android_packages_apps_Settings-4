@@ -76,6 +76,7 @@ import com.android.settings.darkkat.InterfaceMoreSettings;
 import com.android.settings.darkkat.StatusBarBatteryStatusStyle;
 import com.android.settings.darkkat.StatusBarNetworkSpeedStyle;
 import com.android.settings.darkkat.StatusBarExpandedQs;
+import com.android.settings.darkkat.RamBar;
 import com.android.settings.darkkat.DisplayRotation;
 import com.android.settings.darkkat.QuietHours;
 import com.android.settings.deviceinfo.Memory;
@@ -362,6 +363,7 @@ public class Settings extends PreferenceActivity
         StatusBarBatteryStatusStyle.class.getName(),
         StatusBarNetworkSpeedStyle.class.getName(),
         StatusBarExpandedQs.class.getName(),
+        RamBar.class.getName(),
         DisplayRotation.class.getName(),
         QuietHours.class.getName(),
         BlacklistSettings.class.getName()
@@ -1148,6 +1150,7 @@ public class Settings extends PreferenceActivity
     public static class BatteryStatusStyleSettingsActivity extends Settings { /* empty */ }
     public static class NetworkSpeedIndicatorSettingsActivity extends Settings { /* empty */ }
     public static class StatusBarExpandedQsSettingsActivity extends Settings { /* empty */ }
+    public static class RamBarSettingsActivity extends Settings { /* empty */ }
     public static class DisplayRotationSettingsActivity extends Settings { /* empty */ }
     public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
     public static class BlacklistSettingsActivity extends Settings { /* empty */ }
