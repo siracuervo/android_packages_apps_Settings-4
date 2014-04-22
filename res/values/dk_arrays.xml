@@ -673,6 +673,42 @@
         <item>**null**</item>
     </string-array>
 
+    <string-array name="shortcut_action_launcher_entries">
+        <item>@string/shortcut_action_expanded_desktop</item>
+        <item>@string/shortcut_action_kill</item>
+        <item>@string/shortcut_action_lastapp</item>
+        <item>@string/shortcut_action_notifications</item>
+        <item>@string/shortcut_action_ime</item>
+        <item>@string/shortcut_action_power_menu</item>
+        <item>@string/shortcut_action_qs</item>
+        <item>@string/shortcut_action_recent</item>
+        <item>@string/shortcut_action_ring_silent</item>
+        <item>@string/shortcut_action_ring_vib</item>
+        <item>@string/shortcut_action_ring_vib_silent</item>
+        <item>@string/shortcut_action_power</item>
+        <item>@string/shortcut_action_screenshot</item>
+        <item>@string/shortcut_action_assist</item>
+        <item>@string/shortcut_action_torch</item>
+    </string-array>
+
+    <string-array name="shortcut_action_launcher_values" translatable="false">
+        <item>**expanded_desktop**</item>
+        <item>**kill**</item>
+        <item>**lastapp**</item>
+        <item>**notifications**</item>
+        <item>**ime**</item>
+        <item>**power_menu**</item>
+        <item>**quicksettings**</item>
+        <item>**recents**</item>
+        <item>**ring_silent**</item>
+        <item>**ring_vib**</item>
+        <item>**ring_vib_silent**</item>
+        <item>**power**</item>
+        <item>**screenshot**</item>
+        <item>**assist**</item>
+        <item>**torch**</item>
+    </string-array>
+
     <string-array name="shortcut_action_power_menu_entries">
         <item>@string/shortcut_action_power_off</item>
         <item>@string/shortcut_action_reboot</item>

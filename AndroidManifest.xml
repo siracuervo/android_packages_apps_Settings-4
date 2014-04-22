@@ -97,11 +97,37 @@
                 android:parentActivityName="Settings">
         </activity>
 
-        <activity android:name="CreateShortcut" android:label="@string/settings_shortcut"
+        <activity
+            android:name="CreateShortcut"
+            android:label="@string/settings_shortcut"
             android:theme="@style/Theme.CreateShortCut">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="CreateDkShortcut"
+            android:label="@string/dk_shortcut_picker"
+            android:icon="@drawable/dk"
+            android:theme="@android:style/Theme.Holo.Dialog.NoActionBar"
+            android:excludeFromRecents="true"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".darkkat.DkActionShortcut"
+            android:icon="@drawable/dk"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
 

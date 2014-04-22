@@ -74,6 +74,9 @@
     <string name="shortcut_action_help_main">To add a %1$s, select the Add icon.  Once a %1$s is added, selecting the row will change the target%2$s To add a longclick action, hold the row.\n\nTo remove a %1$s, swipe the row horizontally left or right.  Re-order a %1$s in the list by vertically dragging the anchor on the left.\n\nTo clear or reset to defaults, select the Reset icon.\n\nClick the info icon to show this help text again</string>
     <string name="shortcut_action_help_delete_last_entry">Removing every %1$s in the list will disable the feature entirely.</string>
 
+   <!-- DK Shortcuts -->
+    <string name="dk_shortcut_picker">DK Actions</string>
+
     <!-- Button shorcut actions -->
     <string name="shortcut_action_airplane">Airplane mode</string>
     <string name="shortcut_action_power_off">Power off</string>
@@ -84,7 +87,7 @@
     <string name="shortcut_action_home">Home</string>
     <string name="shortcut_action_back">Back</string>
     <string name="shortcut_action_expanded_desktop">Immersive mode</string>
-    <string name="shortcut_action_recent">Recent apps panel</string>
+    <string name="shortcut_action_recent">Recent apps</string>
     <string name="shortcut_action_lastapp">Last app</string>
     <string name="shortcut_action_assist">Search</string>
     <string name="shortcut_action_search">Search in app</string>

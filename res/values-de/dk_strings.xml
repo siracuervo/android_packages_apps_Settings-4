@@ -75,6 +75,9 @@
     <string name="shortcut_action_help_main">Um eine %1$s hinzuzufügen, Klick auf das mittlere der 3 Symbole oben rechts.  Ein Klick auf eine vorhandene %1$s, bewirkt ein Ändern des Zieles%2$s Um eine Langklick Aktion hinzuzufügen, halte die entsprechende Reihe gedrückt.\n\nUm eine %1$s zu entfernen, streiche horizontal nach links oder rechts.  Zum neu Anordnen einer %1$s halte das Anker-Symbol auf der linken Seite der Reihe, und verschiebe es.\n\nZum zurücksetzten oder löschen, klicke auf das linke der 3 Symbole oben rechts.\n\nUm diesen Hilfe-Text erneut anzuzeigen, klicke auf das rechte der 3 Symbole oben rechts</string>
     <string name="shortcut_action_help_delete_last_entry">Das entfernen aller %1$s in der Liste deaktiviert die Funktion komplett.</string>
 
+   <!-- DK Shortcuts -->
+    <string name="dk_shortcut_picker">DK Aktionen</string>
+
     <!-- Button shorcut actions -->
     <string name="shortcut_action_airplane">Flugzeug Modus</string>
     <string name="shortcut_action_power_off">Ausschalten</string>
@@ -85,7 +88,7 @@
     <string name="shortcut_action_home">Home</string>
     <string name="shortcut_action_back">Zurück</string>
     <string name="shortcut_action_expanded_desktop">Immersive Mode</string>
-    <string name="shortcut_action_recent">Kürzlich verwendete Apps-Feld</string>
+    <string name="shortcut_action_recent">Kürzlich verwendete Apps</string>
     <string name="shortcut_action_lastapp">Letzte App</string>
     <string name="shortcut_action_assist">Suchen</string>
     <string name="shortcut_action_search">In App Suche</string>
