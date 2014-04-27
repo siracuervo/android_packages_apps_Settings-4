@@ -303,8 +303,6 @@
     <string name="lockscreen_pattern_fail_color_title">Entsperr-Muster Ringe (Fehleingabe)</string>
 
     <!-- Bars settings -->
-    <string name="system_bars_bg_title">Systemleisten</string>
-    <string name="system_bars_bg_summary">Hintergrund der Status- &amp; Navigationsleiste anpassen</string>
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_summary">Statusleiste anpassen</string>
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
