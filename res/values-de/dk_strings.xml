@@ -30,6 +30,8 @@
     <string name="reset_default">Auf Standard zurücksetzten</string>
     <string name="reset_darkkat_default">Auf DarkKat Standard zurücksetzten</string>
     <string name="color_title">Farben</string>
+    <string name="bg_title">Hintergrund</string>
+    <string name="bg_colors_summary">Die Hintergrund Farben anpassen</string>
     <string name="dot_length_title">Ring&#47;Kreis Punkt Länge</string>
     <string name="dot_interval_title">Ring&#47;Kreis Punkt Abstand</string>
     <string name="dot_offset_title">Ring&#47;Kreis Punkt Versatz</string>
@@ -301,9 +303,16 @@
     <string name="lockscreen_pattern_fail_color_title">Entsperr-Muster Ringe (Fehleingabe)</string>
 
     <!-- Bars settings -->
+    <string name="system_bars_bg_title">Systemleisten</string>
+    <string name="system_bars_bg_summary">Hintergrund der Status- &amp; Navigationsleiste anpassen</string>
+    <string name="status_bar_title">Statusleiste</string>
+    <string name="status_bar_summary">Statusleiste anpassen</string>
+    <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
+    <string name="status_bar_expanded_summary">Erweiterte Statusleiste  anpassen</string>
+    <string name="navigation_bar_title">Navigationsleiste</string>
+    <string name="navigation_bar_summary">Navigationsleiste  anpassen</string>
 
     <!-- Status bar -->
-    <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_toggle_brightness_title">Helligkeitskontrolle</string>
     <string name="status_bar_toggle_brightness_summary">Helligkeit per wischen über die Statusleiste einstellen</string>
     <string name="status_bar_toggle_info">Automatische Helligkeit aktiv</string>
@@ -319,6 +328,11 @@
     <string name="status_bar_network_speed_summary">Die Netzw.-Geschw. Anzeige anpassen</string>
     <string name="status_bar_notif_count_title">Benachrichtigungszähler</string>
     <string name="status_bar_notif_count_summary">Anzahl der ungelesenen Benachrichtigungen in der Statusleiste anzeigen</string>
+
+    <!-- Status bar background -->
+    <string name="status_bar_opaque_color_title">Undurchsichtig</string>
+    <string name="status_bar_semi_trans_color_title">Halbtransparent</string>
+    <string name="status_bar_gradient_color_title">Schatten</string>
 
     <!-- Status bar clock date style -->
     <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>
@@ -369,7 +383,6 @@
     <string name="battery_text_color">Text normal</string>
     <string name="battery_text_charging_color">Text während des Ladevorgangs</string>
 
-
     <!-- Status bar battery bar style -->
     <string name="status_bar_show_battery_bar_title">Anzeigen</string>
     <string name="status_bar_show_battery_bar_summary">Aktivieren um die Akkuleiste anzuzeigen</string>
@@ -419,7 +432,6 @@
     <string name="network_speed_icon_color_title">Symbol</string>
 
     <!-- Statusbar expanded -->
-    <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
     <string name="status_bar_expanded_background_title">Hintergrund</string>
     <string name="status_bar_expanded_header_title">Kopfzeile</string>
     <string name="status_bar_expanded_notification_drawer_title">Benachrichtigungsanzeige</string>
@@ -528,12 +540,16 @@
     <string name="music_tile_mode_tracktitle">Song Name anzeigen</string>
 
     <!-- Navigation bar -->
-    <string name="navigation_bar_title">Navigationsleiste</string>
     <string name="navbar_style_dimen_title">Größe</string>
     <string name="navbar_can_move">Querformat</string>
     <string name="navbar_can_move_summary">Aktivieren, damit die Navigationsleiste im Querformat unten angezeigt wird</string>
     <string name="navbar_button_title">Schaltflächen</string>
     <string name="navbar_targets_title">Ring Ziele</string>
+
+    <!-- Status bar background -->
+    <string name="navbar_opaque_color_title">Undurchsichtig</string>
+    <string name="navbar_semi_trans_color_title">Halbtransparent</string>
+    <string name="navbar_gradient_color_title">Schatten</string>
 
     <!-- Navigation bar dimensions -->
     <string name="navigation_bar_height_title">Höhe (Hochformat)</string>

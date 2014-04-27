@@ -17,29 +17,35 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <CheckBoxPreference
-                android:key="navbar_can_move"
-                android:title="@string/navbar_can_move"
-                android:summary="@string/navbar_can_move_summary" />
+    <CheckBoxPreference
+            android:key="navbar_can_move"
+            android:title="@string/navbar_can_move"
+            android:summary="@string/navbar_can_move_summary" />
 
-        <PreferenceScreen
-            android:key="navbar_style_dimen_settings"
-            android:fragment="com.android.settings.darkkat.NavbarStyleDimenSettings"
-            android:title="@string/navbar_style_dimen_title" />
+    <PreferenceScreen
+        android:key="navbar_bg"
+        android:title="@string/bg_title"
+        android:summary="@string/bg_colors_summary"
+        android:fragment="com.android.settings.darkkat.NavbarBg" />
 
-        <PreferenceScreen
-            android:key="navbar_buttons"
-            android:fragment="com.android.settings.darkkat.NavbarButtons"
-            android:title="@string/navbar_button_title" />
+    <PreferenceScreen
+        android:key="navbar_style_dimen_settings"
+        android:fragment="com.android.settings.darkkat.NavbarStyleDimenSettings"
+        android:title="@string/navbar_style_dimen_title" />
 
-        <PreferenceScreen
-                android:key="navbar_targets_settings"
-                android:fragment="com.android.settings.darkkat.dslv.ButtonsListViewSettings"
-                android:title="@string/navbar_targets_title">
-            <extra android:name="buttonMode" android:value="1" />
-            <extra android:name="maxAllowedButtons" android:value="5" />
-            <extra android:name="actionValues" android:value="shortcut_action_navring_values" />
-            <extra android:name="actionEntries" android:value="shortcut_action_navring_entries" />
-        </PreferenceScreen>
+    <PreferenceScreen
+        android:key="navbar_buttons"
+        android:fragment="com.android.settings.darkkat.NavbarButtons"
+        android:title="@string/navbar_button_title" />
+
+    <PreferenceScreen
+            android:key="navbar_targets_settings"
+            android:fragment="com.android.settings.darkkat.dslv.ButtonsListViewSettings"
+            android:title="@string/navbar_targets_title">
+        <extra android:name="buttonMode" android:value="1" />
+        <extra android:name="maxAllowedButtons" android:value="5" />
+        <extra android:name="actionValues" android:value="shortcut_action_navring_values" />
+        <extra android:name="actionEntries" android:value="shortcut_action_navring_entries" />
+    </PreferenceScreen>
 
 </PreferenceScreen>
