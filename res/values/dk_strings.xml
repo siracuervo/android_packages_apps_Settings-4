@@ -538,10 +538,11 @@
 
     <!-- Navigation bar -->
     <string name="navbar_style_dimen_title">Dimensions</string>
-    <string name="navbar_can_move">Show landscape</string>
-    <string name="navbar_can_move_summary">Shows navigation bar in lanscape on the bottom</string>
+    <string name="navbar_style_dimen_summary">Customize dimensions</string>
     <string name="navbar_button_title">Buttons</string>
+    <string name="navbar_button_summary">Customize buttons</string>
     <string name="navbar_targets_title">Ring targets</string>
+    <string name="navbar_targets_summary">Customize ring targets</string>
 
     <!-- Navigation bar background -->
     <string name="navbar_opaque_color_title">Opaque</string>
@@ -549,11 +550,12 @@
     <string name="navbar_gradient_color_title">Shadow</string>
 
     <!-- Navigation bar dimensions -->
-    <string name="navigation_bar_height_title">Height (portrait)</string>
-    <string name="navigation_bar_height_landscape_title">Height (landscape)</string>
-    <string name="navigation_bar_height_landscape_disabled_summary">Navigation bar is placed along a side</string>
-    <string name="navigation_bar_width_title">Width (landscape)</string>
-    <string name="navigation_bar_width_disabled_summary">Navigation bar is placed on the bottom</string>
+    <string name="navigation_bar_cat_portrait">Portrait</string>
+    <string name="navigation_bar_cat_landscape">Landscape</string>
+    <string name="navigation_bar_height_title">Height</string>
+    <string name="navigation_bar_can_move">Show on the bottom</string>
+    <string name="navigation_bar_can_move_summary">Enable to show the navigation bar on the bottom</string>
+    <string name="navigation_bar_width_title">Width</string>
     <string name="navigation_bar_size_42_dp_default">42 dp (default)</string>
     <string name="navigation_bar_size_36_dp">36 dp</string>
     <string name="navigation_bar_size_30_dp">30 dp</string>

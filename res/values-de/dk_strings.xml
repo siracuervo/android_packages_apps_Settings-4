@@ -539,10 +539,11 @@
 
     <!-- Navigation bar -->
     <string name="navbar_style_dimen_title">Größe</string>
-    <string name="navbar_can_move">Querformat</string>
-    <string name="navbar_can_move_summary">Aktivieren, damit die Navigationsleiste im Querformat unten angezeigt wird</string>
+    <string name="navbar_style_dimen_summary">Größe anpassen</string>
     <string name="navbar_button_title">Schaltflächen</string>
+    <string name="navbar_button_summary">Schaltflächen anpassen</string>
     <string name="navbar_targets_title">Ring Ziele</string>
+    <string name="navbar_targets_summary">Ring Ziele anpassen</string>
 
     <!-- Status bar background -->
     <string name="navbar_opaque_color_title">Undurchsichtig</string>
@@ -550,11 +551,12 @@
     <string name="navbar_gradient_color_title">Schatten</string>
 
     <!-- Navigation bar dimensions -->
-    <string name="navigation_bar_height_title">Höhe (Hochformat)</string>
-    <string name="navigation_bar_height_landscape_title">Höhe (Querformat)</string>
-    <string name="navigation_bar_height_landscape_disabled_summary">Navigationsleiste wird im Querformat an der Seite angezeigt</string>
-    <string name="navigation_bar_width_title">Breite (Querformat)</string>
-    <string name="navigation_bar_width_disabled_summary">Navigationsleiste wird im Querformat unten angezeigt</string>
+    <string name="navigation_bar_cat_portrait">Hochformat</string>
+    <string name="navigation_bar_cat_landscape">Querformat</string>
+    <string name="navigation_bar_height_title">Höhe</string>
+    <string name="navigation_bar_can_move">Unten angezeigt</string>
+    <string name="navigation_bar_can_move_summary">Aktivieren, damit die Navigationsleiste unten angezeigt wird</string>
+    <string name="navigation_bar_width_title">Breite</string>
     <string name="navigation_bar_size_42_dp_default">42 dp (Standard)</string>
     <string name="navigation_bar_size_36_dp">36 dp</string>
     <string name="navigation_bar_size_30_dp">30 dp</string>

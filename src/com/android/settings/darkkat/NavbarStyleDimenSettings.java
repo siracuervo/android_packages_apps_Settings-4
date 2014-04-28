@@ -43,27 +43,37 @@ import com.android.settings.SettingsPreferenceFragment;
 public class NavbarStyleDimenSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String PREF_CAT_LANDSCAPE =
+            "navigation_bar_cat_landscape";
     private static final String PREF_NAVIGATION_BAR_HEIGHT =
-        "navigation_bar_height";
+            "navigation_bar_height";
+    private static final String PREF_NAVIGATION_BAR_CAN_MOVE =
+            "navigation_bar_can_move";
     private static final String PREF_NAVIGATION_BAR_HEIGHT_LANDSCAPE =
-        "navigation_bar_height_landscape";
+            "navigation_bar_height_landscape";
     private static final String PREF_NAVIGATION_BAR_WIDTH =
-        "navigation_bar_width";
-    private static final String KEY_DIMEN_OPTIONS =
-        "navbar_dimen";
+            "navigation_bar_width";
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
     ListPreference mNavigationBarHeight;
+    CheckBoxPreference mNavigationBarCanMove;
     ListPreference mNavigationBarHeightLandscape;
     ListPreference mNavigationBarWidth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshSettings();
+    }
 
-        // Load the preferences from an XML resource
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
+
         addPreferencesFromResource(R.xml.navbar_style_dimen_settings);
 
         mNavigationBarHeight =
@@ -76,31 +86,28 @@ public class NavbarStyleDimenSettings extends SettingsPreferenceFragment impleme
                 Settings.System.NAVIGATION_BAR_CAN_MOVE,
                 DeviceUtils.isPhone(getActivity()) ? 1 : 0) == 1;
 
+        mNavigationBarCanMove =
+                (CheckBoxPreference) findPreference(PREF_NAVIGATION_BAR_CAN_MOVE);
+        mNavigationBarCanMove.setChecked(!navbarCanMove);
+        mNavigationBarCanMove.setOnPreferenceChangeListener(this);
+
+        PreferenceCategory catLandscape =
+                (PreferenceCategory) findPreference(PREF_CAT_LANDSCAPE);
         mNavigationBarHeightLandscape =
             (ListPreference) findPreference(PREF_NAVIGATION_BAR_HEIGHT_LANDSCAPE);
+        mNavigationBarWidth =
+            (ListPreference) findPreference(PREF_NAVIGATION_BAR_WIDTH);
         if (!navbarCanMove) {
             mNavigationBarHeightLandscape.setSummary(
                     mNavigationBarHeightLandscape.getEntry());
             mNavigationBarHeightLandscape.setOnPreferenceChangeListener(this);
+            catLandscape.removePreference(mNavigationBarWidth);
         } else {
-            mNavigationBarHeightLandscape.setSummary(
-                    getResources().getString(R.string
-                    .navigation_bar_height_landscape_disabled_summary));
-        }
-        mNavigationBarHeightLandscape.setEnabled(!navbarCanMove);
-
-        mNavigationBarWidth =
-            (ListPreference) findPreference(PREF_NAVIGATION_BAR_WIDTH);
-        if (navbarCanMove) {
             mNavigationBarWidth.setSummary(
                     mNavigationBarWidth.getEntry());
             mNavigationBarWidth.setOnPreferenceChangeListener(this);
-        } else {
-            mNavigationBarWidth.setSummary(
-                    getResources().getString(R.string
-                    .navigation_bar_width_disabled_summary));
+            catLandscape.removePreference(mNavigationBarHeightLandscape);
         }
-        mNavigationBarWidth.setEnabled(navbarCanMove);
 
         setHasOptionsMenu(true);
     }
@@ -140,6 +147,12 @@ public class NavbarStyleDimenSettings extends SettingsPreferenceFragment impleme
                     Settings.System.NAVIGATION_BAR_HEIGHT, value);
             mNavigationBarHeight.setSummary(
                 mNavigationBarHeight.getEntries()[index]);
+            return true;
+        } else if (preference == mNavigationBarCanMove) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_CAN_MOVE,
+                    ((Boolean) newValue) ? 0 : 1);
+            refreshSettings();
             return true;
         } else if (preference == mNavigationBarWidth) {
             index = mNavigationBarWidth.findIndexOfValue(
