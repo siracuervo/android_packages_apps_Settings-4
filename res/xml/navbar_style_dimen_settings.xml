@@ -33,9 +33,9 @@
         android:title="@string/navigation_bar_cat_landscape">
 
         <CheckBoxPreference
-                android:key="navigation_bar_can_move"
-                android:title="@string/navigation_bar_can_move"
-                android:summary="@string/navigation_bar_can_move_summary" />
+            android:key="navigation_bar_position"
+            android:title="@string/navigation_bar_position_title"
+            android:summary="@string/navigation_bar_position_summary" />
 
         <ListPreference
             android:key="navigation_bar_height_landscape"

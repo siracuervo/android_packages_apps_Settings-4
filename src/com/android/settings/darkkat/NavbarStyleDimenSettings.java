@@ -47,8 +47,8 @@ public class NavbarStyleDimenSettings extends SettingsPreferenceFragment impleme
             "navigation_bar_cat_landscape";
     private static final String PREF_NAVIGATION_BAR_HEIGHT =
             "navigation_bar_height";
-    private static final String PREF_NAVIGATION_BAR_CAN_MOVE =
-            "navigation_bar_can_move";
+    private static final String PREF_NAVIGATION_BAR_POSITION =
+            "navigation_bar_position";
     private static final String PREF_NAVIGATION_BAR_HEIGHT_LANDSCAPE =
             "navigation_bar_height_landscape";
     private static final String PREF_NAVIGATION_BAR_WIDTH =
@@ -58,7 +58,7 @@ public class NavbarStyleDimenSettings extends SettingsPreferenceFragment impleme
     private static final int DLG_RESET = 0;
 
     ListPreference mNavigationBarHeight;
-    CheckBoxPreference mNavigationBarCanMove;
+    CheckBoxPreference mNavigationBarPosition;
     ListPreference mNavigationBarHeightLandscape;
     ListPreference mNavigationBarWidth;
 
@@ -82,22 +82,30 @@ public class NavbarStyleDimenSettings extends SettingsPreferenceFragment impleme
                 mNavigationBarHeight.getEntry());
         mNavigationBarHeight.setOnPreferenceChangeListener(this);
 
-        boolean navbarCanMove = Settings.System.getInt(getContentResolver(),
+        boolean navbarShowBottom = Settings.System.getInt(getContentResolver(),
                 Settings.System.NAVIGATION_BAR_CAN_MOVE,
-                DeviceUtils.isPhone(getActivity()) ? 1 : 0) == 1;
-
-        mNavigationBarCanMove =
-                (CheckBoxPreference) findPreference(PREF_NAVIGATION_BAR_CAN_MOVE);
-        mNavigationBarCanMove.setChecked(!navbarCanMove);
-        mNavigationBarCanMove.setOnPreferenceChangeListener(this);
+                DeviceUtils.isPhone(getActivity()) ? 1 : 0) == 0;
 
         PreferenceCategory catLandscape =
                 (PreferenceCategory) findPreference(PREF_CAT_LANDSCAPE);
+        mNavigationBarPosition =
+                (CheckBoxPreference) findPreference(PREF_NAVIGATION_BAR_POSITION);
+        if (DeviceUtils.isPhone(getActivity())) {
+            mNavigationBarPosition.setChecked(navbarShowBottom);
+            mNavigationBarPosition.setOnPreferenceChangeListener(this);
+        } else {
+            catLandscape.removePreference(mNavigationBarPosition);
+            if (!navbarShowBottom) {
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.NAVIGATION_BAR_CAN_MOVE, 0);
+            }
+        }
+
         mNavigationBarHeightLandscape =
             (ListPreference) findPreference(PREF_NAVIGATION_BAR_HEIGHT_LANDSCAPE);
         mNavigationBarWidth =
             (ListPreference) findPreference(PREF_NAVIGATION_BAR_WIDTH);
-        if (!navbarCanMove) {
+        if (navbarShowBottom) {
             mNavigationBarHeightLandscape.setSummary(
                     mNavigationBarHeightLandscape.getEntry());
             mNavigationBarHeightLandscape.setOnPreferenceChangeListener(this);
@@ -148,7 +156,7 @@ public class NavbarStyleDimenSettings extends SettingsPreferenceFragment impleme
             mNavigationBarHeight.setSummary(
                 mNavigationBarHeight.getEntries()[index]);
             return true;
-        } else if (preference == mNavigationBarCanMove) {
+        } else if (preference == mNavigationBarPosition) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NAVIGATION_BAR_CAN_MOVE,
                     ((Boolean) newValue) ? 0 : 1);

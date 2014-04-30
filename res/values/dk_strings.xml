@@ -553,8 +553,8 @@
     <string name="navigation_bar_cat_portrait">Portrait</string>
     <string name="navigation_bar_cat_landscape">Landscape</string>
     <string name="navigation_bar_height_title">Height</string>
-    <string name="navigation_bar_can_move">Show on the bottom</string>
-    <string name="navigation_bar_can_move_summary">Enable to show the navigation bar on the bottom</string>
+    <string name="navigation_bar_position_title">Position</string>
+    <string name="navigation_bar_position_summary">Enable to show the navigation bar on the bottom,\ndisable to show the navigation bar on the on the right side</string>
     <string name="navigation_bar_width_title">Width</string>
     <string name="navigation_bar_size_42_dp_default">42 dp (default)</string>
     <string name="navigation_bar_size_36_dp">36 dp</string>
