@@ -18,8 +18,8 @@ limitations under the License.
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-            android:key="slim_recent_panel_cat_options"
-            android:title="@string/slim_recent_panel_cat_options_title" >
+            android:key="slim_recents_panel_cat_options"
+            android:title="@string/slim_recents_panel_cat_options_title" >
 
     <CheckBoxPreference
             android:key="recent_apps_type"
@@ -28,39 +28,39 @@ limitations under the License.
             android:persistent="false" />
 
         <ListPreference
-                android:key="recent_panel_scale"
-                android:entries="@array/recent_panel_scale_entries"
-                android:entryValues="@array/recent_panel_scale_values"
-                android:title="@string/recent_panel_scale_title"
+                android:key="recents_panel_scale"
+                android:entries="@array/recents_panel_scale_entries"
+                android:entryValues="@array/recents_panel_scale_values"
+                android:title="@string/recents_panel_scale_title"
                 android:persistent="false" />
 
         <ListPreference
-                android:key="recent_panel_expanded_mode"
-                android:entries="@array/recent_panel_expanded_mode_entries"
-                android:entryValues="@array/recent_panel_expanded_mode_values"
-                android:title="@string/recent_panel_expanded_mode_title"
+                android:key="recents_panel_expanded_mode"
+                android:entries="@array/recents_panel_expanded_mode_entries"
+                android:entryValues="@array/recents_panel_expanded_mode_values"
+                android:title="@string/recents_panel_expanded_mode_title"
                 android:persistent="false" />
 
         <CheckBoxPreference
-                android:key="recent_panel_lefty_mode"
-                android:title="@string/recent_panel_lefty_mode_title"
-                android:summary="@string/recent_panel_lefty_mode_summary"
+                android:key="recents_panel_lefty_mode"
+                android:title="@string/recents_panel_lefty_mode_title"
+                android:summary="@string/recents_panel_lefty_mode_summary"
                 android:persistent="false" />
 
     </PreferenceCategory>
 
     <PreferenceCategory
-            android:key="slim_recent_panel_cat_colors"
-            android:title="@string/slim_recent_panel_cat_colors_title" >
+            android:key="slim_recents_panel_cat_colors"
+            android:title="@string/slim_recents_panel_cat_colors_title" >
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:key="recent_panel_bg_color"
-                android:title="@string/recent_panel_bg_color_title"
+                android:key="recents_panel_bg_color"
+                android:title="@string/recents_panel_bg_color_title"
                 android:defaultValue="0xe6000000" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:key="recent_panel_empty_icon_color"
-                android:title="@string/recent_panel_empty_icon_color_title"
+                android:key="recents_panel_empty_icon_color"
+                android:title="@string/recents_panel_empty_icon_color_title"
                 android:defaultValue="0xffcdcdcd" />
 
     </PreferenceCategory>

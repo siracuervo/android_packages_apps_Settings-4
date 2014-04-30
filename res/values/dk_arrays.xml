@@ -731,25 +731,25 @@
         <item>**sound**</item>
     </string-array>
 
-    <string-array name="recent_panel_scale_entries">
-        <item>@string/recent_panel_100</item>
-        <item>@string/recent_panel_85</item>
-        <item>@string/recent_panel_70</item>
+    <string-array name="recents_panel_scale_entries">
+        <item>@string/recents_panel_100</item>
+        <item>@string/recents_panel_85</item>
+        <item>@string/recents_panel_70</item>
     </string-array>
 
-    <string-array name="recent_panel_scale_values" translatable="false">
+    <string-array name="recents_panel_scale_values" translatable="false">
         <item>100</item>
         <item>85</item>
         <item>70</item>
     </string-array>
 
-    <string-array name="recent_panel_expanded_mode_entries">
-        <item>@string/recent_panel_expanded_mode_auto</item>
-        <item>@string/recent_panel_expanded_mode_always</item>
-        <item>@string/recent_panel_expanded_mode_never</item>
+    <string-array name="recents_panel_expanded_mode_entries">
+        <item>@string/recents_panel_expanded_mode_auto</item>
+        <item>@string/recents_panel_expanded_mode_always</item>
+        <item>@string/recents_panel_expanded_mode_never</item>
     </string-array>
 
-    <string-array name="recent_panel_expanded_mode_values" translatable="false">
+    <string-array name="recents_panel_expanded_mode_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
@@ -769,18 +769,20 @@
         <item>3</item>
     </string-array>
 
-    <string-array name="recent_clear_all_button_position_entries" >
-        <item>@string/recent_clear_all_button_lt</item>
-        <item>@string/recent_clear_all_button_rt</item>
-        <item>@string/recent_clear_all_button_lb</item>
-        <item>@string/recent_clear_all_button_rb</item>
+    <string-array name="recents_clear_all_button_position_entries" >
+        <item>@string/recents_clear_all_button_lt</item>
+        <item>@string/recents_clear_all_button_rt</item>
+        <item>@string/recents_clear_all_button_lb</item>
+        <item>@string/recents_clear_all_button_rb</item>
+        <item>@string/recents_clear_all_button_disabled</item>
     </string-array>
 
-    <string-array name="recent_clear_all_button_position_values" translatable="false">
+    <string-array name="recents_clear_all_button_position_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
     </string-array>
 
     <string-array name="expanded_desktop_entries" translatable="false">

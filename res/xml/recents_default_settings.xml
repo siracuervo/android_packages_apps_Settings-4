@@ -18,8 +18,8 @@ limitations under the License.
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-            android:key="default_recent_cat_options"
-            android:title="@string/default_recent_cat_options_title" >
+            android:key="default_recents_cat_options"
+            android:title="@string/default_recents_cat_options_title" >
 
     <CheckBoxPreference
             android:key="recent_apps_type"
@@ -28,15 +28,15 @@ limitations under the License.
             android:persistent="false" />
 
     <PreferenceScreen
-        android:key="recent_ram_bar"
-        android:fragment="com.android.settings.darkkat.RamBar"
-        android:title="@string/ram_bar" />
+        android:key="recents_ram_bar"
+        android:title="@string/ram_bar"
+        android:fragment="com.android.settings.darkkat.RamBar" />
 
     <ListPreference
-        android:key="recent_clear_all_button_position"
-        android:title="@string/recent_clear_all_button_position_title"
-        android:entries="@array/recent_clear_all_button_position_entries"
-        android:entryValues="@array/recent_clear_all_button_position_values" />
+        android:key="recents_clear_all_button_position"
+        android:title="@string/recents_clear_all_button_position_title"
+        android:entries="@array/recents_clear_all_button_position_entries"
+        android:entryValues="@array/recents_clear_all_button_position_values" />
 
     </PreferenceCategory>
 </PreferenceScreen>

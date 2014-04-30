@@ -584,11 +584,11 @@
     <!-- Menus settings -->
     <string name="power_menu_cat_options_title">Ein-&#47;Aus Menü Optionen</string>
     <string name="power_menu_cat_colors_title">Ein-&#47;Aus Menü Farben</string>
-    <string name="slim_recent_panel_cat_options_title">Kürzlich verwendete Apps-Feld Optionen</string>
-    <string name="slim_recent_panel_cat_colors_title">Kürzlich verwendete Apps-Feld Farben</string>
+    <string name="slim_recents_panel_cat_options_title">Kürzlich verwendete Apps-Feld Optionen</string>
+    <string name="slim_recents_panel_cat_colors_title">Kürzlich verwendete Apps-Feld Farben</string>
     <string name="recent_apps_type_title">Kürzlich verwendete Apps Typ</string>
     <string name="recent_apps_type_summary">Aktivieren für Slim-Recents,\ndeaktivieren für Android-Recents</string>
-    <string name="default_recent_cat_options_title">Kürzlich verwendete Apps Optionen</string>
+    <string name="default_recents_cat_options_title">Kürzlich verwendete Apps Optionen</string>
 
     <!-- Power menu -->
     <string name="power_menu_title">Ein-&#47;Aus Menü</string>
@@ -602,18 +602,18 @@
     <string name="power_menu_text_color_title">Text Farbe</string>
 
     <!-- Slim Recent apps panel -->
-    <string name="recent_panel_bg_color_title">Hintergrund</string>
-    <string name="recent_panel_empty_icon_color_title">Leer-Symbol</string>
-    <string name="recent_panel_scale_title">Größe in Prozent</string>
-    <string name="recent_panel_100">100 (Standard)</string>
-    <string name="recent_panel_85">85</string>
-    <string name="recent_panel_70">70</string>
-    <string name="recent_panel_expanded_mode_title">Apps erweitert anzeigen</string>
-    <string name="recent_panel_expanded_mode_auto">Auto (Standard)</string>
-    <string name="recent_panel_expanded_mode_always">Immer</string>
-    <string name="recent_panel_expanded_mode_never">Nie</string>
-    <string name="recent_panel_lefty_mode_title">Am linken Rand anzeigen</string>
-    <string name="recent_panel_lefty_mode_summary">Kürzlich verwendete Apps-Feld am linken Rand anzeigen</string>
+    <string name="recents_panel_bg_color_title">Hintergrund</string>
+    <string name="recents_panel_empty_icon_color_title">Leer-Symbol</string>
+    <string name="recents_panel_scale_title">Größe in Prozent</string>
+    <string name="recents_panel_100">100 (Standard)</string>
+    <string name="recents_panel_85">85</string>
+    <string name="recents_panel_70">70</string>
+    <string name="recents_panel_expanded_mode_title">Apps erweitert anzeigen</string>
+    <string name="recents_panel_expanded_mode_auto">Auto (Standard)</string>
+    <string name="recents_panel_expanded_mode_always">Immer</string>
+    <string name="recents_panel_expanded_mode_never">Nie</string>
+    <string name="recents_panel_lefty_mode_title">Am linken Rand anzeigen</string>
+    <string name="recents_panel_lefty_mode_summary">Kürzlich verwendete Apps-Feld am linken Rand anzeigen</string>
 
     <!-- Ram bar strings -->
     <string name="ram_bar">Recents RAM-Leiste</string>
@@ -634,11 +634,12 @@
     <string name="ram_bar_color_free_mem_color">Farbe des freien RAMs</string>
 
     <!-- Clear all button strings -->
-    <string name="recent_clear_all_button_position_title">Position der Alle beenden Schaltfläche</string>
-    <string name="recent_clear_all_button_lt">Oben links</string>
-    <string name="recent_clear_all_button_rt">Oben rechts</string>
-    <string name="recent_clear_all_button_lb">Unten links</string>
-    <string name="recent_clear_all_button_rb">Unten rechts</string>
+    <string name="recents_clear_all_button_position_title">Position der Alle beenden Schaltfläche</string>
+    <string name="recents_clear_all_button_lt">Oben links</string>
+    <string name="recents_clear_all_button_rt">Oben rechts</string>
+    <string name="recents_clear_all_button_lb">Unten links</string>
+    <string name="recents_clear_all_button_rb">Unten rechts</string>
+    <string name="recents_clear_all_button_disabled">Deaktiviert</string>
 
     <!-- (Interface category) More settings -->
     <string name="listview_settings_title">Listenansicht</string>

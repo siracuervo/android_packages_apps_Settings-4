@@ -583,11 +583,11 @@
     <!-- Menus settings -->
     <string name="power_menu_cat_options_title">Power menu options</string>
     <string name="power_menu_cat_colors_title">Power menu colors</string>
-    <string name="slim_recent_panel_cat_options_title">Recent apps panel options</string>
-    <string name="slim_recent_panel_cat_colors_title">Recent apps panel color</string>
+    <string name="slim_recents_panel_cat_options_title">Recent apps panel options</string>
+    <string name="slim_recents_panel_cat_colors_title">Recent apps panel color</string>
     <string name="recent_apps_type_title">Recent App type</string>
     <string name="recent_apps_type_summary">Enable for Slim Recents,\ndisable for Android Recents</string>
-    <string name="default_recent_cat_options_title">Recent apps screen options</string>
+    <string name="default_recents_cat_options_title">Recent apps screen options</string>
 
     <!-- Power menu -->
     <string name="power_menu_toggle_screenshot_title">Screenshot</string>
@@ -600,20 +600,20 @@
     <string name="power_menu_text_color_title">Text color</string>
 
     <!-- Slim Recent apps panel -->
-    <string name="recent_panel_bg_color_title">Background</string>
-    <string name="recent_panel_empty_icon_color_title">Empty icon</string>
-    <string name="recent_panel_scale_title">Size in percent</string>
-    <string name="recent_panel_100">100 (default)</string>
-    <string name="recent_panel_85">85</string>
-    <string name="recent_panel_70">70</string>
-    <string name="recent_panel_expanded_mode_title">Expanded mode</string>
-    <string name="recent_panel_expanded_mode_auto">Auto (default)</string>
-    <string name="recent_panel_expanded_mode_always">Always</string>
-    <string name="recent_panel_expanded_mode_never">Never</string>
+    <string name="recents_panel_bg_color_title">Background</string>
+    <string name="recents_panel_empty_icon_color_title">Empty icon</string>
+    <string name="recents_panel_scale_title">Size in percent</string>
+    <string name="recents_panel_100">100 (default)</string>
+    <string name="recents_panel_85">85</string>
+    <string name="recents_panel_70">70</string>
+    <string name="recents_panel_expanded_mode_title">Expanded mode</string>
+    <string name="recents_panel_expanded_mode_auto">Auto (default)</string>
+    <string name="recents_panel_expanded_mode_always">Always</string>
+    <string name="recents_panel_expanded_mode_never">Never</string>
 
     <!-- ATTENTION: RTL languages need to replace left with right -->
-    <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
-    <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge</string>
+    <string name="recents_panel_lefty_mode_title">Show on the left edge</string>
+    <string name="recents_panel_lefty_mode_summary">Show recent apps panel on the left edge</string>
 
     <!-- Ram bar strings -->
     <string name="ram_bar_enabled">Enabled</string>
@@ -632,13 +632,6 @@
     <string name="ram_bar_color_cache_mem_color">Cache RAM color</string>
     <string name="ram_bar_color_total_mem_color">Other RAM color</string>
     <string name="ram_bar_color_free_mem_color">Free RAM color</string>
-
-    <!-- Clear all button strings -->
-    <string name="recentS_clear_all_button_position_title">Clear all button position</string>
-    <string name="recents_clear_all_button_lt">Top left</string>
-    <string name="recents_clear_all_button_rt">Top right</string>
-    <string name="recents_clear_all_button_lb">Bottom left</string>
-    <string name="recents_clear_all_button_rb">Bottom right</string>
 
     <!-- Ram bar strings -->
     <string name="ram_bar">Recents RAM bar</string>
@@ -659,11 +652,12 @@
     <string name="ram_bar_color_disabled">Disabled</string>
 
     <!-- Clear all button strings -->
-    <string name="recent_clear_all_button_position_title">Clear all button position</string>
-    <string name="recent_clear_all_button_lt">Top left</string>
-    <string name="recent_clear_all_button_rt">Top right</string>
-    <string name="recent_clear_all_button_lb">Bottom left</string>
-    <string name="recent_clear_all_button_rb">Bottom right</string>
+    <string name="recents_clear_all_button_position_title">Clear all button position</string>
+    <string name="recents_clear_all_button_lt">Top left</string>
+    <string name="recents_clear_all_button_rt">Top right</string>
+    <string name="recents_clear_all_button_lb">Bottom left</string>
+    <string name="recents_clear_all_button_rb">Bottom right</string>
+    <string name="recents_clear_all_button_disabled">Disabled</string>
 
     <!-- (Interface category) More settings -->
     <string name="listview_settings_title">List view</string>
