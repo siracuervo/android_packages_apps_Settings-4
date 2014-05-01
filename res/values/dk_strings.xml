@@ -615,10 +615,14 @@
     <string name="recents_panel_lefty_mode_title">Show on the left edge</string>
     <string name="recents_panel_lefty_mode_summary">Show recent apps panel on the left edge</string>
 
+    <!-- Android recent apps screen -->
+    <string name="ram_bar">Recents RAM bar</string>
+    <string name="recents_clear_all_button_position_title">Clear all button position</string>
+    <string name="recents_bg_color_title">Background</string>
+
     <!-- Ram bar strings -->
     <string name="ram_bar_enabled">Enabled</string>
     <string name="ram_bar_disabled">Disabled</string>
-    <string name="ram_bar">Recents RAM bar</string>
     <string name="ram_bar_note_title">Note</string>
     <string name="ram_bar_note_summary">This rambar shows how android is really using your available ram. Please note that having apps open in the background and cached helps for your device to open your apps faster.</string>
     <string name="ram_bar_mode_title">Recents RAM bar mode</string>
@@ -634,7 +638,6 @@
     <string name="ram_bar_color_free_mem_color">Free RAM color</string>
 
     <!-- Ram bar strings -->
-    <string name="ram_bar">Recents RAM bar</string>
     <string name="ram_bar_note_title">Note</string>
     <string name="ram_bar_note_summary">This rambar shows how android is really using your available ram. Please note that having apps open in the background and cached helps for your device to open your apps faster.</string>
     <string name="ram_bar_mode_title">Recents RAM bar mode</string>
@@ -652,7 +655,6 @@
     <string name="ram_bar_color_disabled">Disabled</string>
 
     <!-- Clear all button strings -->
-    <string name="recents_clear_all_button_position_title">Clear all button position</string>
     <string name="recents_clear_all_button_lt">Top left</string>
     <string name="recents_clear_all_button_rt">Top right</string>
     <string name="recents_clear_all_button_lb">Bottom left</string>

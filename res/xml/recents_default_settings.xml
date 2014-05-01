@@ -18,25 +18,36 @@ limitations under the License.
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-            android:key="default_recents_cat_options"
-            android:title="@string/default_recents_cat_options_title" >
+        android:key="default_recents_cat_options"
+        android:title="@string/default_recents_cat_options_title" >
 
-    <CheckBoxPreference
+        <CheckBoxPreference
             android:key="recent_apps_type"
             android:title="@string/recent_apps_type_title"
             android:summary="@string/recent_apps_type_summary"
             android:persistent="false" />
 
-    <PreferenceScreen
-        android:key="recents_ram_bar"
-        android:title="@string/ram_bar"
-        android:fragment="com.android.settings.darkkat.RamBar" />
+        <PreferenceScreen
+            android:key="recents_ram_bar"
+            android:title="@string/ram_bar"
+            android:fragment="com.android.settings.darkkat.RamBar" />
 
-    <ListPreference
-        android:key="recents_clear_all_button_position"
-        android:title="@string/recents_clear_all_button_position_title"
-        android:entries="@array/recents_clear_all_button_position_entries"
-        android:entryValues="@array/recents_clear_all_button_position_values" />
+        <ListPreference
+            android:key="recents_clear_all_button_position"
+            android:title="@string/recents_clear_all_button_position_title"
+            android:entries="@array/recents_clear_all_button_position_entries"
+            android:entryValues="@array/recents_clear_all_button_position_values" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="default_recents_cat_colors"
+        android:title="@string/color_title">
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="recents_bg_color"
+            android:title="@string/recents_bg_color_title"
+            android:defaultValue="0xe0000000" />
 
     </PreferenceCategory>
 </PreferenceScreen>

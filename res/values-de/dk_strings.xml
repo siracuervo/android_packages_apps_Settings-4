@@ -615,8 +615,12 @@
     <string name="recents_panel_lefty_mode_title">Am linken Rand anzeigen</string>
     <string name="recents_panel_lefty_mode_summary">Kürzlich verwendete Apps-Feld am linken Rand anzeigen</string>
 
-    <!-- Ram bar strings -->
+    <!-- Android recent apps screen -->
     <string name="ram_bar">Recents RAM-Leiste</string>
+    <string name="recents_clear_all_button_position_title">Position der Alle beenden Schaltfläche</string>
+    <string name="recents_bg_color_title">Hintergrund</string>
+
+    <!-- Ram bar strings -->
     <string name="ram_bar_enabled">Aktiviert</string>
     <string name="ram_bar_disabled">Deaktiviert</string>
     <string name="ram_bar_note_title">Hinweis</string>
@@ -634,7 +638,6 @@
     <string name="ram_bar_color_free_mem_color">Farbe des freien RAMs</string>
 
     <!-- Clear all button strings -->
-    <string name="recents_clear_all_button_position_title">Position der Alle beenden Schaltfläche</string>
     <string name="recents_clear_all_button_lt">Oben links</string>
     <string name="recents_clear_all_button_rt">Oben rechts</string>
     <string name="recents_clear_all_button_lb">Unten links</string>
