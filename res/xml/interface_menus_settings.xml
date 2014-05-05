@@ -49,12 +49,12 @@ limitations under the License.
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
              android:key="power_menu_icon_color"
-             android:title="@string/power_menu_icon_color_title"
+             android:title="@string/icon_title"
              android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
              android:key="power_menu_text_color"
-             android:title="@string/power_menu_text_color_title"
+             android:title="@string/text_title"
              android:defaultValue="0xffffffffff" />
 
     </PreferenceCategory>

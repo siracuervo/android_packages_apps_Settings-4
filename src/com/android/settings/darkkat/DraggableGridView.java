@@ -280,7 +280,7 @@ public class DraggableGridView extends ViewGroup implements
         int stringid = R.string.add;
         if (delete) {
             resid = R.drawable.ic_menu_delete_holo_dark;
-            stringid = R.string.dialog_delete_title;
+            stringid = R.string.delete_title;
         }
         final TextView name =
             ((TextView) getChildAt(getChildCount() - 1).findViewById(R.id.text));

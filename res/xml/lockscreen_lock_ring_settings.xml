@@ -20,7 +20,7 @@
 
     <PreferenceCategory
         android:key="lockscreen_lock_ring_cat_options"
-        android:title="@string/cat_options_title">
+        android:title="@string/options_title">
 
         <CheckBoxPreference
             android:key="lockscreen_lock_before_unlock"
@@ -40,7 +40,7 @@
 
         <PreferenceScreen
             android:key="lockscreen_targets"
-            android:title="@string/lockscreen_targets_title"
+            android:title="@string/arrangement_title"
             android:summary="@string/lockscreen_targets_summary"
             android:fragment="com.android.settings.darkkat.LockscreenTargets" />
 
@@ -58,11 +58,11 @@
 
     <PreferenceCategory
         android:key="lockscreen_lock_ring_cat_icon"
-        android:title="@string/cat_icon_title">
+        android:title="@string/icon_title">
 
         <ListPreference
             android:key="lockscreen_lock_icon"
-            android:title="@string/lockscreen_icon_title"
+            android:title="@string/type_title"
             android:entries="@array/lock_icon_entries"
             android:entryValues="@array/lock_icon_values"/>
 
@@ -75,7 +75,7 @@
 
     <PreferenceCategory
         android:key="lockscreen_lock_ring_cat_colors"
-        android:title="@string/color_title">
+        android:title="@string/colors_title">
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="lockscreen_targets_color"
@@ -89,7 +89,7 @@
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="lockscreen_lock_icon_color"
-            android:title="@string/lockscreen_lock_icon_color_title"
+            android:title="@string/icon_title"
             android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference

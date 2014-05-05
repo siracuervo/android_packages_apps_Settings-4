@@ -17,34 +17,45 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/lockscreen_widgets_settings_title" >
 
-    <CheckBoxPreference
-        android:key="lockscreen_enable_widgets"
-        android:title="@string/lockscreen_enable_widgets_title"
-        android:summary="@string/lockscreen_enable_widgets_summary" />
+    <PreferenceCategory
+        android:key="lockscreen_widgets_cat_options"
+        android:title="@string/options_title">
 
-    <CheckBoxPreference
-        android:key="lockscreen_maximize_widgets"
-        android:title="@string/lockscreen_maximize_widgets_title"
-        android:summary="@string/lockscreen_maximize_widgets_summary" />
+        <CheckBoxPreference
+            android:key="lockscreen_enable_widgets"
+            android:title="@string/lockscreen_enable_widgets_title"
+            android:summary="@string/lockscreen_enable_widgets_summary" />
 
-    <CheckBoxPreference
-        android:key="lockscreen_enable_camera"
-        android:title="@string/lockscreen_enable_camera_title"
-        android:summary="@string/lockscreen_enable_camera_summary" />
+        <CheckBoxPreference
+            android:key="lockscreen_maximize_widgets"
+            android:title="@string/lockscreen_maximize_widgets_title"
+            android:summary="@string/lockscreen_maximize_widgets_summary" />
 
-    <CheckBoxPreference
-        android:key="lockscreen_use_widget_container_carousel"
-        android:title="@string/lockscreen_use_widget_container_carousel_title"
-        android:summary="@string/lockscreen_use_widget_container_carousel_summary" />
+        <CheckBoxPreference
+            android:key="lockscreen_enable_camera"
+            android:title="@string/lockscreen_enable_camera_title"
+            android:summary="@string/lockscreen_enable_camera_summary" />
 
-    <CheckBoxPreference
-        android:key="lockscreen_disable_widget_frame"
-        android:title="@string/lockscreen_disable_widget_frame_title"
-        android:summary="@string/lockscreen_disable_widget_frame_summary" />
+        <CheckBoxPreference
+            android:key="lockscreen_use_widget_container_carousel"
+            android:title="@string/lockscreen_use_widget_container_carousel_title"
+            android:summary="@string/lockscreen_use_widget_container_carousel_summary" />
 
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="lockscreen_frame_color"
-        android:title="@string/lockscreen_frame_color_title"
-        android:defaultValue="0xffffff" />
+        <CheckBoxPreference
+            android:key="lockscreen_disable_widget_frame"
+            android:title="@string/frame_title"
+            android:summary="@string/lockscreen_disable_widget_frame_summary" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lockscreen_widgets_cat_color"
+        android:title="@string/color_title">
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="lockscreen_frame_color"
+            android:title="@string/frame_title"
+            android:defaultValue="0xffffff" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

@@ -19,7 +19,7 @@
 
     <PreferenceCategory
         android:key="lockscreen_misk_cat_options"
-        android:title="@string/cat_options_title">
+        android:title="@string/options_title">
 
         <CheckBoxPreference
             android:key="lockscreen_show_custom_carrier_label"
@@ -34,11 +34,11 @@
 
     <PreferenceCategory
         android:key="lockscreen_misk_cat_colors"
-        android:title="@string/color_title">
+        android:title="@string/colors_title">
 
      <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="lockscreen_text_color"
-        android:title="@string/lockscreen_text_color_title"
+        android:title="@string/text_title"
         android:defaultValue="0xffffff" />
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference

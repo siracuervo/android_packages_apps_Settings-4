@@ -16,7 +16,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string-array name="lock_icon_entries">
-        <item>@string/icon_default</item>
+        <item>@string/default_title</item>
         <item>@string/lockscreen_icon_dk</item>
         <item>@string/icon_custom</item>
     </string-array>
@@ -182,9 +182,9 @@
     </string-array>
 
     <string-array name="battery_status_style_entries" >
-        <item>@string/battery_status_icon</item>
-        <item>@string/battery_status_percentage</item>
-        <item>@string/battery_status_circle</item>
+        <item>@string/icon_title</item>
+        <item>@string/text_title</item>
+        <item>@string/ring_title</item>
     </string-array>
 
     <string-array name="battery_status_style_values" translatable="false">
@@ -297,13 +297,13 @@
         <item>25000</item>
     </string-array>
 
-    <string-array name="status_bar_expanded_bg_entries">
+    <string-array name="status_bar_expanded_bg_type_entries">
         <item>@string/status_bar_expanded_bg_color_fill</item>
         <item>@string/status_bar_expanded_bg_custom_image</item>
         <item>@string/status_bar_expanded_bg_default_wallpaper</item>
     </string-array>
 
-    <string-array name="status_bar_expanded_bg_values" translatable="false">
+    <string-array name="status_bar_expanded_bg_type_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
@@ -368,7 +368,7 @@
     </string-array>
 
     <string-array name="qs_quick_pulldown_entries" >
-        <item>@string/qs_quick_pulldown_disabled</item>
+        <item>@string/disabled</item>
         <item>@string/qs_quick_pulldown_right</item>
         <item>@string/qs_quick_pulldown_left</item>
     </string-array>
@@ -504,7 +504,7 @@
     </string-array>
 
     <string-array name="icon_types">
-        <item>@string/icon_default</item>
+        <item>@string/default_title</item>
         <item>@string/icon_presets</item>
         <item>@string/icon_custom</item>
     </string-array>
@@ -774,7 +774,7 @@
         <item>@string/recents_clear_all_button_rt</item>
         <item>@string/recents_clear_all_button_lb</item>
         <item>@string/recents_clear_all_button_rb</item>
-        <item>@string/recents_clear_all_button_disabled</item>
+        <item>@string/disabled</item>
     </string-array>
 
     <string-array name="recents_clear_all_button_position_values" translatable="false">
@@ -786,7 +786,7 @@
     </string-array>
 
     <string-array name="expanded_desktop_entries" translatable="false">
-        <item>@string/expanded_desktop_disabled</item>
+        <item>@string/disabled</item>
         <item>@string/expanded_desktop_status_bar</item>
         <item>@string/expanded_desktop_no_status_bar</item>
     </string-array>
@@ -798,11 +798,11 @@
     </string-array>
 
     <string-array name="listview_animation_entries">
-        <item>@string/listview_off</item>
+        <item>@string/default_title</item>
         <item>@string/listview_wave_left</item>
         <item>@string/listview_wave_right</item>
         <item>@string/listview_scale</item>
-        <item>@string/listview_alpha</item>
+        <item>@string/alpha_title</item>
         <item>@string/listview_stack_top</item>
         <item>@string/listview_stack_bottom</item>
         <item>@string/listview_unfold</item>
@@ -827,7 +827,7 @@
 
     <!-- Listview Interpolator -->
     <string-array name="listview_interpolator_entries">
-        <item>@string/listview_off</item>
+        <item>@string/default_title</item>
         <item>@string/listview_accelerate_interpolator</item>
         <item>@string/listview_decelerate_interpolator</item>
         <item>@string/listview_accelerate_decelerate_interpolator</item>
@@ -849,7 +849,7 @@
     </string-array>
 
     <string-array name="incoming_contact_entries">
-        <item>@string/quiet_hours_auto_disabled</item>
+        <item>@string/disabled</item>
         <item>@string/quiet_hours_auto_enabled</item>
         <item>@string/quiet_hours_auto_contacts</item>
     </string-array>
@@ -916,7 +916,7 @@
         <item>@string/low_battery_warning_policy_popup</item>
         <item>@string/low_battery_warning_policy_notif</item>
         <item>@string/low_battery_warning_policy_sound</item>
-        <item>@string/low_battery_warning_policy_disabled</item>
+        <item>@string/disabled</item>
     </string-array>
 
     <string-array name="low_battery_warning_policy_values" translatable="false">

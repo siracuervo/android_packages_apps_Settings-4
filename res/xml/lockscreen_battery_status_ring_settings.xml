@@ -20,17 +20,17 @@
 
     <PreferenceCategory
         android:key="lockscreen_battery_status_ring_cat_options"
-        android:title="@string/cat_options_title">
+        android:title="@string/options_title">
 
         <CheckBoxPreference
             android:key="lockscreen_show_battery_status_ring"
-            android:title="@string/lockscreen_show_battery_status_ring_title"
+            android:title="@string/show_title"
             android:summary="@string/lockscreen_show_battery_status_ring_summary" />
 
 	    <CheckBoxPreference
 		    android:key="lockscreen_battery_status_ring_dotted"
-		    android:title="@string/lockscreen_battery_status_ring_dotted_title"
-		    android:summary="@string/lockscreen_battery_status_ring_dotted_summary" />
+		    android:title="@string/dotted_title"
+		    android:summary="@string/dotted_summary" />
 
         <ListPreference
             android:key="lockscreen_battery_status_ring_dot_length"
@@ -57,16 +57,16 @@
 
     <PreferenceCategory
         android:key="lockscreen_battery_status_ring_cat_colors"
-        android:title="@string/color_title">
+        android:title="@string/colors_title">
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="lockscreen_battery_status_ring_color"
-            android:title="@string/lockscreen_battery_status_ring_color"
+            android:title="@string/normal_title"
             android:defaultValue="0xff0099cc" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="lockscreen_battery_status_ring_charging_color"
-            android:title="@string/lockscreen_battery_status_ring_charging_color"
+            android:title="@string/while_charging_title"
             android:defaultValue="0xff00ff00" />
 
     </PreferenceCategory>

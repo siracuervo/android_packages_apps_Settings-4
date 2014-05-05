@@ -20,7 +20,7 @@
 
     <CheckBoxPreference
         android:key="status_bar_show_battery_bar"
-        android:title="@string/status_bar_show_battery_bar_title"
+        android:title="@string/show_title"
         android:summary="@string/status_bar_show_battery_bar_summary" />
 
 	<ListPreference

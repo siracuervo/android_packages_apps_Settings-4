@@ -42,11 +42,11 @@ limitations under the License.
 
     <PreferenceCategory
         android:key="default_recents_cat_colors"
-        android:title="@string/color_title">
+        android:title="@string/default_recents_cat_colors_title">
 
          <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="recents_bg_color"
-            android:title="@string/recents_bg_color_title"
+            android:title="@string/bg_title"
             android:defaultValue="0xe0000000" />
 
     </PreferenceCategory>

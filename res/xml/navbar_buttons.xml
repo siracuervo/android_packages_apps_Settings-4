@@ -33,7 +33,7 @@
 
             <net.margaritov.preference.colorpicker.ColorPickerPreference
                  android:key="nav_button_color"
-                 android:title="@string/nav_button_icon_tint_title"
+                 android:title="@string/icon_title"
                  android:defaultValue="0xffffffff" />
 
              <net.margaritov.preference.colorpicker.ColorPickerPreference

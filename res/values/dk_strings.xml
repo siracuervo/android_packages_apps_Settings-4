@@ -21,22 +21,35 @@
     <string name="performance_settings">Performance</string>
 
     <!-- Global used -->
-    <string name="cat_options_title">Options</string>
     <string name="cat_targets_title">Targets</string>
-    <string name="cat_icon_title">Icon</string>
     <string name="cat_signal_activity_title">Mobile network activity icon</string>
     <string name="cat_wifi_activity_title">Wifi network activity icon</string>
+    <string name="options_title">Options</string>
+    <string name="options_summary">Customize options</string>
+    <string name="ok">OK</string>
+    <string name="add">Add</string>
+    <string name="enabled">Enabled</string>
+    <string name="disabled">Disabled</string>
+    <string name="delete_title">Delete</string>
+    <string name="default_title">Default</string>
+    <string name="normal_title">Normal</string>
+    <string name="reset">Reset</string>
+    <string name="reset_message">Reset all entries to default?</string>
+    <string name="dlg_reset_color_values_message">Reset color values to\nAndroid- or DarkKat default?</string>
+    <string name="dlg_reset_values_message">Reset values to\nAndroid- or DarkKat default?</string>
+    <string name="dlg_reset_android">Android</string>
+    <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="reset_android_default">Reset to Android default</string>
     <string name="reset_default">Reset to default</string>
     <string name="reset_darkkat_default">Reset to Darkkat default</string>
-    <string name="color_title">Colors</string>
+    <string name="icon_title">Icon</string>
+    <string name="ring_title">Ring</string>
+    <string name="arrangement_title">Arrangement</string>
+    <string name="show_title">Show</string>
+    <string name="alpha_title">Transparency</string>
+    <string name="type_title">Type</string>
     <string name="bg_title">Background</string>
-    <string name="bg_colors_summary">Customize the background colors</string>
-    <string name="dot_length_title">Ring&#47;Circle Dot length</string>
-    <string name="dot_interval_title">Ring&#47;Circle Dot interval</string>
-    <string name="dot_offset_title">Ring&#47;Circle Dot offset</string>
-    <string name="color_normal_title">Color (Normal)</string>
-    <string name="color_connected_title">Color (Google connected)</string>
+    <string name="frame_title">Frame</string>
     <string name="expanded_desktop_title">Immersive mode</string>
     <string name="custom_carrier_label_title">Customize custom carrier label</string>
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
@@ -45,19 +58,23 @@
     <string name="cw_label_style_title">Carrier and Wifi network name</string>
     <string name="show_wifi_ssid_title">Wifi network name</string>
     <string name="show_wifi_ssid_summary">Enable, to show the Wifi network name</string>
-    <string name="ok">OK</string>
-    <string name="reset">Reset</string>
-    <string name="add">Add</string>
-    <string name="enabled">Enabled</string>
+    <string name="dotted_title">Dotted</string>
+    <string name="dotted_summary">Enable, to show the battery status ring dotted</string>
+    <string name="dot_length_title">Ring Dot length</string>
+    <string name="dot_interval_title">Ring Dot interval</string>
+    <string name="dot_offset_title">Ring Dot offset</string>
+    <string name="text_title">Text</string>
+    <string name="while_charging_title">While charging</string>
+    <string name="color_title">Color</string>
+    <string name="colors_title">Colors</string>
+    <string name="bg_colors_summary">Customize the background colors</string>
+    <string name="color_normal_title">Color (Normal)</string>
+    <string name="color_connected_title">Color (Google connected)</string>
+    <string name="opaque_color_title">Opaque</string>
+    <string name="semi_trans_color_title">Semi transparent</string>
+    <string name="gradient_color_title">Shadow</string>
     <string name="image_not_valid">image does not exist</string>
-    <string name="dialog_delete_title">Delete</string>
-    <string name="dlg_reset_color_values_message">Reset color values to\nAndroid- or DarkKat default?</string>
-    <string name="dlg_reset_values_message">Reset values to\nAndroid- or DarkKat default?</string>
-    <string name="dlg_reset_android">Android</string>
-    <string name="dlg_reset_darkkat">DarkKat</string>
-    <string name="default_string">Default</string>
     <string name="attention">Attention</string>
-    <string name="reset_message">Reset all entries to default?</string>
     <string name="start_time_title">Start</string>
     <string name="end_time_title">End</string>
     <string name="two">Two</string>
@@ -65,7 +82,6 @@
     <string name="four">Four</string>
     <string name="five">Five</string>
     <string name="six">Six</string>
-    <string name="arrangement_title">Arrangement</string>
 
     <!-- Button and shortcuts (global used) -->
 
@@ -188,7 +204,6 @@
 
     <!-- Icon picker -->
     <string name="icon_picker_type">Select icon type:</string>
-    <string name="icon_default">Default</string>
     <string name="icon_presets">System icons</string>
     <string name="icon_custom">Gallery</string>
     <string name="icon_pack">Icon pack</string>
@@ -207,8 +222,6 @@
     <string name="hex">Hex:</string>
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
-    <string name="theme_default_color">Theme default</string>
-    <string name="system_default_color">System default</string>
 
     <!-- Interface category -->
     <string name="interface_lockscreen_settings_title">Lock screen</string>
@@ -217,7 +230,6 @@
     <string name="interface_more_settings_title">More...</string>
 
     <!-- Lockscreen settings -->
-    <string name="lockscreen_background_settings_title">Background</string>
     <string name="lockscreen_background_settings_summary">Customize the lock screen background</string>
     <string name="lockscreen_lock_ring_settings_title">Lock ring</string>
     <string name="lockscreen_lock_ring_settings_summary">Customize the lock ring</string>
@@ -233,15 +245,13 @@
     <string name="lockscreen_misk_settings_wifi_only_summary">Batter status</string>
 
     <!-- Lockscreen background -->
-    <string name="lockscreen_see_through_title">See through</string>
-    <string name="lockscreen_see_through_summary">Your data may be visible to those around you</string>
+    <string name="lockscreen_see_through_summary">Enable to show the content behind the lock screen. Your data may be visible to those around you</string>
     <string name="lockscreen_blur_radius_title">Intensity for the blur effect</string>
 
     <!-- Lockscreen lock ring -->
     <string name="lockscreen_lock_before_unlock_title">Show slider before secure unlock</string>
     <string name="lockscreen_lock_before_unlock_summary">Show slider lockscreen before secure unlock mechanism</string>
     <string name="lockscreen_lock_before_unlock_disabled_summary">You are using an unsecure method to unlock</string>
-    <string name="lockscreen_targets_title">Arrangement</string>
     <string name="lockscreen_targets_summary">View or change the slider targets</string>
     <string name="lockscreen_eight_targets_title">Eight targets</string>
     <string name="lockscreen_eight_targets_summary">Enable eight custom lock screen targets.</string>
@@ -249,7 +259,6 @@
     <string name="lockscreen_enable_eight_targets_enabled_dialog">\n\nWith eight lockscreen targets enabled you cannot use your lockscreen shortcuts at the same time.</string>
     <string name="lockscreen_colorize_targets_icon_title">Colorize targets icons</string>
     <string name="lockscreen_colorize_targets_icon_summary">Enable, to colorize the targets icons</string>
-    <string name="lockscreen_icon_title">Type</string>
     <string name="lockscreen_icon_dk">Darkkat</string>
     <string name="lockscreen_colorize_custom_lock_icon_title">Colorize custom icon</string>
     <string name="lockscreen_colorize_custom_lock_icon_summary">Enable, to colorize a custom lock icon, too</string>
@@ -257,7 +266,6 @@
     <string name="lockscreen_glowpad_torch_summary">Double-tap and hold the slider to start torch</string>
     <string name="lockscreen_targets_color_title">Targets</string>
     <string name="lockscreen_targets_ring_color_title">Targets ring</string>
-    <string name="lockscreen_lock_icon_color_title">Icon</string>
     <string name="lockscreen_dots_color_title">Dots color</string>
 
     <!-- Lockscreen targets -->
@@ -269,12 +277,7 @@
     <string name="lockscreen_target_edit_msg">Select or change the desired application or activity and the associated icon</string>
 
     <!-- Lockscreen battery status ring -->
-    <string name="lockscreen_show_battery_status_ring_title">Show</string>
     <string name="lockscreen_show_battery_status_ring_summary">Enable, to Show the battery status ring around lock ring</string>
-    <string name="lockscreen_battery_status_ring_dotted_title">Dotted</string>
-    <string name="lockscreen_battery_status_ring_dotted_summary">Enable, to show the battery status ring dotted</string>
-    <string name="lockscreen_battery_status_ring_color">Normal</string>
-    <string name="lockscreen_battery_status_ring_charging_color">While charging</string>
 
     <!-- Locscreen shortcuts -->
     <string name="lockscreen_shortcuts_title">View or change</string>
@@ -291,14 +294,11 @@
     <string name="lockscreen_enable_camera_summary">Show camera widget</string>
     <string name="lockscreen_use_widget_container_carousel_title">Carousel</string>
     <string name="lockscreen_use_widget_container_carousel_summary">Enable, to show the widgets carousel</string>
-    <string name="lockscreen_disable_widget_frame_title">Frame</string>
     <string name="lockscreen_disable_widget_frame_summary">Enable, to hide the widgets background frame</string>
-    <string name="lockscreen_frame_color_title">Frame color</string>
 
     <!-- Lockscreen Misk -->
     <string name="lockscreen_always_show_battery_status_title">Always show the battery status</string>
     <string name="lockscreen_always_show_battery_status_summary">Enable, to show the battery status when the charger is unplugged, too</string>
-    <string name="lockscreen_text_color_title">Text color</string>
     <string name="lockscreen_pattern_fail_color_title">lock pattern rings (fail)</string>
 
     <!-- Bars settings -->
@@ -325,11 +325,6 @@
     <string name="status_bar_network_speed_summary">Customize the network speed indicator</string>
     <string name="status_bar_notif_count_title">Show notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
-
-    <!-- Status bar background -->
-    <string name="status_bar_opaque_color_title">Opaque</string>
-    <string name="status_bar_semi_trans_color_title">Semi transparent</string>
-    <string name="status_bar_gradient_color_title">Shadow</string>
 
     <!-- Status bar clock date style -->
     <string name="status_bar_cat_clock_date_title">Clock &amp; date</string>
@@ -358,30 +353,21 @@
     <string name="status_bar_date_string_edittext_summary">Enter string</string>
 
     <!-- Status bar battery status style -->
-    <string name="status_bar_show_battery_status_title">Show</string>
     <string name="status_bar_show_battery_status_summary">Enable to show the battery status in the status bar</string>
-    <string name="battery_status_style_title">Icon&#47;text</string>
-    <string name="battery_status_icon">Icon</string>
-    <string name="battery_status_percentage">Percentage text</string>
-    <string name="battery_status_circle">Circle</string>
     <string name="battery_status_show_text_title">Show text</string>
     <string name="battery_status_show_text_summary">Activate, to show the battery status text</string>
     <string name="battery_status_custom_frame_color_title">Custom frame color</string>
     <string name="battery_status_custom_frame_color_summary">If disabled, the battery status color with a transparency of 80% will be used.</string>
-    <string name="battery_status_circle_dotted_title">Circle dotted</string>
-    <string name="battery_status_circle_dotted_summary">Activate, to show the battery circle dotted</string>
-    <string name="circle_battery_animation_speed">Circle animation speed</string>
+    <string name="circle_battery_animation_speed">Ring animation speed</string>
     <string name="circle_battery_animation_speed_none">None</string>
     <string name="circle_battery_animation_speed_slow">Slow</string>
     <string name="circle_battery_animation_speed_stock">Normal</string>
     <string name="circle_battery_animation_speed_fast">Fast</string>
     <string name="battery_status_color">Fill</string>
-    <string name="battery_frame_color">Frame</string>
     <string name="battery_text_color">Text normal</string>
     <string name="battery_text_charging_color">Text while charging</string>
 
     <!-- Status bar battery bar style -->
-    <string name="status_bar_show_battery_bar_title">Show</string>
     <string name="status_bar_show_battery_bar_summary">Enable to show the battery bar</string>
     <string name="battery_bar_position_title">Position</string>
     <string name="battery_bar_center_summary">Display the battery bar center-mirrored</string>
@@ -425,60 +411,53 @@
     <string name="network_speed_bit_byte_summary">Enable to show the values in bit instead of byte</string>
     <string name="network_speed_hide_traffic_title">Hide the indicator</string>
     <string name="network_speed_hide_traffic_summary">Enable to hide the indicator if there is no traffic</string>
-    <string name="network_speed_text_color_title">Text</string>
-    <string name="network_speed_icon_color_title">Icon</string>
 
     <!-- Statusbar expanded -->
-    <string name="status_bar_expanded_background_title">Background</string>
     <string name="status_bar_expanded_header_title">Header</string>
     <string name="status_bar_expanded_notification_drawer_title">Notification drawer</string>
     <string name="status_bar_expanded_quick_settings_title">Quick settings</string>
 
     <!-- Statusbar expanded background -->
-    <string name="status_bar_expanded_bg_title">Background type</string>
     <string name="status_bar_expanded_bg_landscape_title">Different landscape background</string>
     <string name="status_bar_expanded_bg_color_fill">Color fill</string>
     <string name="status_bar_expanded_bg_custom_image">Custom image</string>
     <string name="status_bar_expanded_bg_default_wallpaper">Default background</string>
     <string name="status_bar_expanded_bg_custom_bg_dialog_title">Choose color</string>
-    <string name="status_bar_expanded_bg_alpha_title">Background transparency</string>
-
-    <!-- Statusbar expanded notification drawer -->
-    <string name="qar_cat_title">Quick access ribbon</string>
-    <string name="notif_alpha_title">Notification transparency</string>
-    <string name="qar_show_tiles_title">Show quick access ribbon</string>
-    <string name="qar_show_tiles_summary">Activate, to show a small version of the quick settings on the notification area</string>
-    <string name="qar_show_tiles_deactivated_summary">Quick settings deactivated, activate the quick settings to use the quick access ribbon</string>
-    <string name="qar_tiles_linked_title">Linked layout</string>
-    <string name="qar_tiles_linked_summary">Activate, to use the same tiles and layout as the Quick Settings panel</string>
 
     <!-- Statusbar expanded header -->
     <string name="status_bar_expanded_header_cat_clock_date_title">Clock &amp; date</string>
     <string name="status_bar_expanded_header_settings_btn_title">Settings button</string>
     <string name="status_bar_expanded_header_settings_btn_summary">Enable, to always show the settings button</string>
 
+    <!-- Statusbar expanded notification drawer -->
+    <string name="qar_cat_title">Quick access ribbon</string>
+    <string name="notif_alpha_title">Notification transparency</string>
+    <string name="qar_show_tiles_summary">Activate, to show a small version of the quick settings on the notification area</string>
+    <string name="qar_show_tiles_deactivated_summary">Quick settings deactivated, activate the quick settings to use the quick access ribbon</string>
+    <string name="qar_tiles_linked_title">Linked layout</string>
+    <string name="qar_tiles_linked_summary">Activate, to use the same tiles and layout as the Quick Settings panel</string>
+
     <!-- Statusbar expanded quick settings -->
     <string name="quicksettings_color_title">Colors &amp; transparency</string>
     <string name="quicksettings_color_summary">Customize colors &amp; transparency</string>
-    <string name="quicksettings_options_title">Options</string>
-    <string name="quicksettings_options_summary">Customize options</string>
     <string name="quicksettings_tile_picker_title">Tiles and layout</string>
     <string name="quicksettings_tile_picker_summary">Customize tiles</string>
 
     <!-- Statusbar expanded quick settings colors -->
-    <string name="quick_tiles_cat_tiles">Tiles</string>
-    <string name="quick_tiles_cat_icons">Icons</string>
+    <string name="quick_tiles_cat_tiles">Tile</string>
     <string name="quick_tiles_use_different_activity_color_title">Activity icon colors</string>
     <string name="quick_tiles_use_different_activity_color_summary">Enable, to use own network activity icon colors for mobile and wifi tiles</string>
     <string name="quick_tiles_use_different_wifi_activity_color_summary">Enable, to use own network activity icon colors for wifi tiles</string>
-    <string name="quick_tiles_bg_color_title">Tiles background color</string>
-    <string name="quick_tiles_bg_pressed_color_title">Tiles pressed background color</string>
-    <string name="quick_tiles_text_color_title">Tiles text color</string>
-    <string name="quick_tiles_alpha_title">Tiles background transparency</string>
+    <string name="quick_tiles_bg_color_title">Background</string>
+    <string name="quick_tiles_bg_pressed_color_title">Pressed background</string>
+    <string name="quick_tiles_alpha_title">Background transparency</string>
+    <string name="quick_tiles_text_color_title">Text</string>
+    <string name="quick_tiles_icon_normal_color_title">Normal</string>
+    <string name="quick_tiles_icon_enabled_color_title">Enabled</string>
+    <string name="quick_tiles_icon_disabled_color_title">Disabled</string>
 
     <!-- Statusbar expanded quick settings options -->
     <string name="qs_quick_pulldown_title">Quick pulldown</string>
-    <string name="qs_quick_pulldown_disabled">disabled</string>
     <string name="qs_quick_pulldown_right">from right side</string>
     <string name="qs_quick_pulldown_left">from left side</string>
     <string name="tiles_per_row_title">Tiles per row</string>
@@ -544,11 +523,6 @@
     <string name="navbar_targets_title">Ring targets</string>
     <string name="navbar_targets_summary">Customize ring targets</string>
 
-    <!-- Navigation bar background -->
-    <string name="navbar_opaque_color_title">Opaque</string>
-    <string name="navbar_semi_trans_color_title">Semi transparent</string>
-    <string name="navbar_gradient_color_title">Shadow</string>
-
     <!-- Navigation bar dimensions -->
     <string name="navigation_bar_cat_portrait">Portrait</string>
     <string name="navigation_bar_cat_landscape">Landscape</string>
@@ -569,7 +543,6 @@
 
     <!-- Nav buttons -->
     <string name="navbar_button_menu_cat_title">Menu button</string>
-    <string name="nav_button_icon_tint_title">Icon</string>
     <string name="nav_button_glow_tint_title">Pressed clow effect</string>
     <string name="navigation_menu_right">Right</string>
     <string name="navigation_menu_left">Left</string>
@@ -585,9 +558,10 @@
     <string name="power_menu_cat_colors_title">Power menu colors</string>
     <string name="slim_recents_panel_cat_options_title">Recent apps panel options</string>
     <string name="slim_recents_panel_cat_colors_title">Recent apps panel color</string>
+    <string name="default_recents_cat_options_title">Recent apps screen options</string>
+    <string name="default_recents_cat_colors_title">Recent apps screen color</string>
     <string name="recent_apps_type_title">Recent App type</string>
     <string name="recent_apps_type_summary">Enable for Slim Recents,\ndisable for Android Recents</string>
-    <string name="default_recents_cat_options_title">Recent apps screen options</string>
 
     <!-- Power menu -->
     <string name="power_menu_toggle_screenshot_title">Screenshot</string>
@@ -596,12 +570,8 @@
     <string name="power_menu_toggle_screen_record_summary">Activate, to show screen record option in Power Menu</string>
     <string name="power_menu_toggle_expanded_desktop_summary">Activate, to show immersive mode option in Power Menu</string>
     <string name="power_menu_icon_color_mode_title">Icon color mode</string>
-    <string name="power_menu_icon_color_title">Icon color</string>
-    <string name="power_menu_text_color_title">Text color</string>
 
     <!-- Slim Recent apps panel -->
-    <string name="recents_panel_bg_color_title">Background</string>
-    <string name="recents_panel_empty_icon_color_title">Empty icon</string>
     <string name="recents_panel_scale_title">Size in percent</string>
     <string name="recents_panel_100">100 (default)</string>
     <string name="recents_panel_85">85</string>
@@ -610,6 +580,7 @@
     <string name="recents_panel_expanded_mode_auto">Auto (default)</string>
     <string name="recents_panel_expanded_mode_always">Always</string>
     <string name="recents_panel_expanded_mode_never">Never</string>
+    <string name="recents_panel_empty_icon_color_title">Empty icon</string>
 
     <!-- ATTENTION: RTL languages need to replace left with right -->
     <string name="recents_panel_lefty_mode_title">Show on the left edge</string>
@@ -618,11 +589,8 @@
     <!-- Android recent apps screen -->
     <string name="ram_bar">Recents RAM bar</string>
     <string name="recents_clear_all_button_position_title">Clear all button position</string>
-    <string name="recents_bg_color_title">Background</string>
 
-    <!-- Ram bar strings -->
-    <string name="ram_bar_enabled">Enabled</string>
-    <string name="ram_bar_disabled">Disabled</string>
+    <!-- Ram bar -->
     <string name="ram_bar_note_title">Note</string>
     <string name="ram_bar_note_summary">This rambar shows how android is really using your available ram. Please note that having apps open in the background and cached helps for your device to open your apps faster.</string>
     <string name="ram_bar_mode_title">Recents RAM bar mode</string>
@@ -637,43 +605,24 @@
     <string name="ram_bar_color_total_mem_color">Other RAM color</string>
     <string name="ram_bar_color_free_mem_color">Free RAM color</string>
 
-    <!-- Ram bar strings -->
-    <string name="ram_bar_note_title">Note</string>
-    <string name="ram_bar_note_summary">This rambar shows how android is really using your available ram. Please note that having apps open in the background and cached helps for your device to open your apps faster.</string>
-    <string name="ram_bar_mode_title">Recents RAM bar mode</string>
-    <string name="ram_bar_mode_dialog_title">Show on recents RAM bar</string>
-    <string name="ram_bar_none">None</string>
-    <string name="ram_bar_apps">Applications</string>
-    <string name="ram_bar_cache">Applications and cache</string>
-    <string name="ram_bar_other">Applications, cache and other</string>
-    <string name="ram_bar_style_cat">Recents RAM bar style</string>
-    <string name="ram_bar_color_app_mem_color">Applications RAM color</string>
-    <string name="ram_bar_color_cache_mem_color">Cache RAM color</string>
-    <string name="ram_bar_color_total_mem_color">Other RAM color</string>
-    <string name="ram_bar_color_free_mem_color">Free RAM color</string>
-    <string name="ram_bar_color_enabled">Enabled</string>
-    <string name="ram_bar_color_disabled">Disabled</string>
-
-    <!-- Clear all button strings -->
+    <!-- Clear all button -->
     <string name="recents_clear_all_button_lt">Top left</string>
     <string name="recents_clear_all_button_rt">Top right</string>
     <string name="recents_clear_all_button_lb">Bottom left</string>
     <string name="recents_clear_all_button_rb">Bottom right</string>
-    <string name="recents_clear_all_button_disabled">Disabled</string>
 
     <!-- (Interface category) More settings -->
     <string name="listview_settings_title">List view</string>
     <string name="listview_settings_summary">Customize the animation</string>
 
-    <!-- Custom carrier label strings -->
+    <!-- Custom carrier label -->
     <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
 
     <!-- Immersive mode -->
-    <string name="expanded_desktop_disabled">Disabled</string>
     <string name="expanded_desktop_status_bar">Status bar visible</string>
     <string name="expanded_desktop_no_status_bar">Status bar hidden</string>
 
-    <!-- Clock widget -->
+    <!-- Lock clock -->
     <string name="lock_clock_title">Clock widget</string>
     <string name="lock_clock_summary">View or change how the \'cLock\' Home and Lock screen widgets will display</string>
 
@@ -685,10 +634,8 @@
     <string name="listview_blacklist_summary">Prevent Apps from custom animating</string>
 
     <!-- ListView animation -->
-    <string name="listview_off">Default</string>
     <string name="listview_wave_left">Wave (left)</string>
     <string name="listview_wave_right">Wave (right)</string>
-    <string name="listview_alpha">Alpha</string>
     <string name="listview_scale">Scale</string>
     <string name="listview_stack_top">Stack (top)</string>
     <string name="listview_stack_bottom">Stack (bottom)</string>
@@ -741,7 +688,6 @@
     <string name="quiet_hours_auto_string_title">Customize automatic response</string>
     <string name="quiet_hours_auto_string_explain">This message will be sent to anyone who contacts you while quiet hours are active</string>
     <string name="quiet_hours_auto_sms_null">[Automated Message] I\'ll get back to you as soon as possible.</string>
-    <string name="quiet_hours_auto_disabled">Disabled</string>
     <string name="quiet_hours_auto_enabled">All numbers</string>
     <string name="quiet_hours_auto_contacts">Contacts only</string>
     <string name="quiet_hours_bypass_group">Bypass quiet hours</string>
@@ -774,7 +720,6 @@
 
     <!-- Display rotation options -->
     <string name="display_rotation_title">Rotation</string>
-    <string name="display_rotation_disabled">Disabled</string>
     <string name="display_rotation_unit">degrees</string>
     <string name="display_lockscreen_rotation_title">Auto-rotate lock screen</string>
     <string name="display_rotation_category_title">Rotation modes</string>
@@ -804,7 +749,6 @@
     <string name="default_time">Normal</string>
     <string name="custom_time">Custom</string>
     <string name="dialog_test">Test</string>
-    <string name="dialog_delete_title">Delete</string>
     <string name="dialog_delete_message">Remove selected item?</string>
     <string name="dialog_test_message">Turn the screen off to see the selected notification in action or dismiss this dialog to stop the test</string>
     <string name="dialog_test_button">Dismiss</string>
@@ -847,7 +791,6 @@
     <string name="low_battery_warning_policy_popup">Pop-up dialog only</string>
     <string name="low_battery_warning_policy_notif">Notification only</string>
     <string name="low_battery_warning_policy_sound">Sound only</string>
-    <string name="low_battery_warning_policy_disabled">Disabled</string>
 
     <!-- Security settings -->
     <string name="user_security_category_title">User security</string>
@@ -860,10 +803,8 @@
     <string name="blacklist_title">Blacklist</string>
     <string name="blacklist_edit_dialog_title">Edit blacklist entry</string>
     <string name="blacklist_prefs">Settings</string>
-    <string name="blacklist_button_delete">Delete</string>
     <string name="blacklist_empty_text">You don\'t have any blacklisted numbers. Add an entry by touching the Add (+) button.</string>
     <string name="blacklist_disabled_empty_text">To blacklist calls and/or messages from certain numbers, enable the blacklist.</string>
-    <string name="blacklist_summary_disabled">Disabled</string>
     <string name="blacklist_summary">Incoming calls and messages from phone numbers in the blacklist will be blocked</string>
     <string name="blacklist_notify">Show notification</string>
     <string name="blacklist_notify_summary">Enable, to show notifications about blocked numbers on the statusbar</string>
@@ -922,5 +863,4 @@
     <string name="mem_info">Memory</string>
     <string name="mod_version">DarkKat version</string>
     <string name="build_date">Build date</string>
-
 </resources>

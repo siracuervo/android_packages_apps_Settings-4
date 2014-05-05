@@ -15,11 +15,11 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/lockscreen_background_settings_title" >
+    android:title="@string/bg_title" >
 
     <CheckBoxPreference
         android:key="lockscreen_see_through"
-        android:title="@string/lockscreen_see_through_title"
+        android:title="@string/alpha_title"
         android:summary="@string/lockscreen_see_through_summary" />
 
     <com.android.settings.widget.SeekBarPreference

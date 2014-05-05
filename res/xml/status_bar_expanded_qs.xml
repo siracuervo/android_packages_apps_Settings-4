@@ -27,8 +27,8 @@
 
     <PreferenceScreen
         android:key="qs_options"
-        android:title="@string/quicksettings_options_title"
-        android:summary="@string/quicksettings_options_summary"
+        android:title="@string/options_title"
+        android:summary="@string/options_summary"
         android:fragment="com.android.settings.darkkat.StatusBarExpandedQsOptions" />
 
     <PreferenceScreen

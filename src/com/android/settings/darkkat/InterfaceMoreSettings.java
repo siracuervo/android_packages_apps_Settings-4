@@ -130,7 +130,7 @@ public class InterfaceMoreSettings extends SettingsPreferenceFragment implements
         if (value == 0) {
             // Expanded desktop deactivated
             Settings.System.putInt(cr, Settings.System.EXPANDED_DESKTOP_STATE, 0);
-            summary = R.string.expanded_desktop_disabled;
+            summary = R.string.disabled;
         } else if (value == 1) {
             summary = R.string.expanded_desktop_status_bar;
         } else if (value == 2) {

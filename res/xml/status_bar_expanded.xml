@@ -21,7 +21,7 @@
     <PreferenceScreen
         android:key="status_bar_expanded_background"
         android:fragment="com.android.settings.darkkat.StatusBarExpandedBackground"
-        android:title="@string/status_bar_expanded_background_title" />
+        android:title="@string/bg_title" />
 
     <PreferenceScreen
         android:key="status_bar_expanded_header"

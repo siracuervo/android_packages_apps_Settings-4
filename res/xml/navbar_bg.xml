@@ -20,17 +20,17 @@
 
 	<net.margaritov.preference.colorpicker.ColorPickerPreference
 		android:key="navbar_opaque_color"
-		android:title="@string/navbar_opaque_color_title"
+		android:title="@string/opaque_color_title"
 		android:defaultValue="0xff000000" />
 
 	<net.margaritov.preference.colorpicker.ColorPickerPreference
 		android:key="navbar_semi_trans_color"
-		android:title="@string/navbar_semi_trans_color_title"
+		android:title="@string/semi_trans_color_title"
 		android:defaultValue="0x66000000" />
 
 	<net.margaritov.preference.colorpicker.ColorPickerPreference
 		android:key="navbar_gradient_color"
-		android:title="@string/navbar_gradient_color_title"
+		android:title="@string/gradient_color_title"
 		android:defaultValue="0xff000000" />
 
 </PreferenceScreen>

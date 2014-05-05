@@ -16,15 +16,15 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/status_bar_expanded_background_title">
+    android:title="@string/bg_title">
 
     <ListPreference
         android:key="status_bar_expanded_bg"
         android:persistent="false"
-        android:dialogTitle="@string/status_bar_expanded_bg_title"
-        android:title="@string/status_bar_expanded_bg_title"
-        android:entries="@array/status_bar_expanded_bg_entries"
-        android:entryValues="@array/status_bar_expanded_bg_values"/>
+        android:dialogTitle="@string/type_title"
+        android:title="@string/type_title"
+        android:entries="@array/status_bar_expanded_bg_type_entries"
+        android:entryValues="@array/status_bar_expanded_bg_type_values"/>
 
     <ListPreference
         android:key="status_bar_expanded_bg_landscape"
@@ -36,6 +36,6 @@
 
     <com.android.settings.widget.SeekBarPreference
          android:key="status_bar_expanded_bg_alpha"
-         android:title="@string/status_bar_expanded_bg_alpha_title" />
+         android:title="@string/alpha_title" />
 
 </PreferenceScreen>

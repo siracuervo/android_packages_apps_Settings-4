@@ -97,7 +97,7 @@ public class EntryEditDialogFragment extends DialogFragment
                 .setView(createDialogView(id, dialogState));
 
         if (id >= 0) {
-            builder.setNeutralButton(R.string.blacklist_button_delete, this);
+            builder.setNeutralButton(R.string.delete_title, this);
         }
 
         return builder.create();

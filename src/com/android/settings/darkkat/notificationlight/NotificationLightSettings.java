@@ -384,7 +384,7 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
-                .setTitle(R.string.dialog_delete_title)
+                .setTitle(R.string.delete_title)
                 .setMessage(R.string.dialog_delete_message)
                 .setIconAttribute(android.R.attr.alertDialogIcon)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

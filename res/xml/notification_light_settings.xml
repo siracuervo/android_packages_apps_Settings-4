@@ -27,7 +27,7 @@
 
         <com.android.settings.darkkat.notificationlight.ApplicationLightPreference
             android:key="default"
-            android:title="@string/default_string"
+            android:title="@string/default_title"
             android:persistent="false" />
 
         <CheckBoxPreference

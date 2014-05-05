@@ -562,7 +562,7 @@ public class LockscreenLockRingSettings extends SettingsPreferenceFragment imple
             mLockIcon.setValueIndex(1);
         } else {
             if (value == null) {
-                resId = R.string.icon_default;
+                resId = R.string.default_title;
                 mLockIcon.setValueIndex(0);
             } else {
                 resId = R.string.icon_custom;

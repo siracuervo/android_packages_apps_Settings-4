@@ -34,7 +34,7 @@
 
 	    <CheckBoxPreference
 		    android:key="qar_show_tiles"
-		    android:title="@string/qar_show_tiles_title"
+		    android:title="@string/show_title"
 		    android:summary="@string/qar_show_tiles_summary" />
 
 	    <CheckBoxPreference

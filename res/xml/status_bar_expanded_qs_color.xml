@@ -36,32 +36,33 @@
              android:title="@string/quick_tiles_bg_pressed_color_title"
              android:defaultValue="0xff212121" />
 
+        <com.android.settings.widget.SeekBarPreference
+             android:key="quick_tiles_alpha"
+             android:title="@string/quick_tiles_alpha_title" />
+
         <net.margaritov.preference.colorpicker.ColorPickerPreference
              android:key="quick_tiles_text_color"
              android:title="@string/quick_tiles_text_color_title"
              android:defaultValue="0xffcccccc" />
 
-        <com.android.settings.widget.SeekBarPreference
-             android:key="quick_tiles_alpha"
-             android:title="@string/quick_tiles_alpha_title" />
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/quick_tiles_cat_icons">
+        android:title="@string/icon_title">
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
              android:key="quick_tiles_icon_normal_color"
-             android:title="@string/button_icon_normal_color_title"
+             android:title="@string/quick_tiles_icon_normal_color_title"
              android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
              android:key="quick_tiles_icon_enabled_color"
-             android:title="@string/button_icon_enabled_color_title"
+             android:title="@string/quick_tiles_icon_enabled_color_title"
              android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
              android:key="quick_tiles_icon_disabled_color"
-             android:title="@string/button_icon_disabled_color_title"
+             android:title="@string/quick_tiles_icon_disabled_color_title"
              android:defaultValue="0xff404040" />
     </PreferenceCategory>
 

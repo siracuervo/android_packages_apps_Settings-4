@@ -32,6 +32,7 @@ import android.os.RemoteException;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.view.Menu;
@@ -52,17 +53,21 @@ public class LockscreenWidgetsSettings extends SettingsPreferenceFragment implem
 
     private static final String TAG = "LockscreenWidgetsSettings";
 
-    private static final String KEY_LOCKSCREEN_ENABLE_WIDGETS =
+    private static final String PREF_LOCKSCREEN_WIDGETS_CAT_OPTIONS =
+            "lockscreen_widgets_cat_options";
+    private static final String PREF_LOCKSCREEN_WIDGETS_CAT_COLOR =
+            "lockscreen_widgets_cat_color";
+    private static final String PREF_LOCKSCREEN_ENABLE_WIDGETS =
             "lockscreen_enable_widgets";
-    private static final String KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS =
+    private static final String PREF_LOCKSCREEN_MAXIMIMIZE_WIDGETS =
             "lockscreen_maximize_widgets";
-    private static final String KEY_LOCKSCREEN_ENABLE_CAMERA =
+    private static final String PREF_LOCKSCREEN_ENABLE_CAMERA =
             "lockscreen_enable_camera";
-    private static final String KEY_LOCKSCREEN_USE_WIDGET_CAROUSEL =
+    private static final String PREF_LOCKSCREEN_USE_WIDGET_CAROUSEL =
             "lockscreen_use_widget_container_carousel";
-    private static final String KEY_LOCKSCREEN_DISABLE_WIDGET_FRAME =
+    private static final String PREF_LOCKSCREEN_DISABLE_WIDGET_FRAME =
             "lockscreen_disable_widget_frame";
-    private static final String KEY_LOCKSCREEN_FRAME_COLOR =
+    private static final String PREF_LOCKSCREEN_FRAME_COLOR =
             "lockscreen_frame_color";
 
     private static final int DEFAULT_FRAME_COLOR = 0xffffffff;
@@ -98,55 +103,61 @@ public class LockscreenWidgetsSettings extends SettingsPreferenceFragment implem
                 new LockPatternUtils(getActivity()).getWidgetsEnabled();
 
         mEnableWidgets =
-                (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_ENABLE_WIDGETS);
+                (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_ENABLE_WIDGETS);
         mEnableWidgets.setChecked(widgetsEnabled);
         mEnableWidgets.setOnPreferenceChangeListener(this);
 
         // Remove Maximize widgets checkbox on hybrid/tablet
+        PreferenceCategory catOptions =
+                (PreferenceCategory) findPreference(PREF_LOCKSCREEN_WIDGETS_CAT_OPTIONS);
+        mMaximizeWidgets =
+                (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_MAXIMIMIZE_WIDGETS);
         if (DeviceUtils.isPhone(getActivity())) {
-            mMaximizeWidgets =
-                    (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS);
             mMaximizeWidgets.setChecked(Settings.System.getInt(mResolver,
                    Settings.System.LOCKSCREEN_MAXIMIZE_WIDGETS, 0) == 1);
             mMaximizeWidgets.setOnPreferenceChangeListener(this);
         } else {
-            removePreference(KEY_LOCKSCREEN_MAXIMIMIZE_WIDGETS);
+            catOptions.removePreference(mMaximizeWidgets);
         }
 
-        // Show or hide camera widget settings based on device
+        // Show or hide camera widget settings based on device and
+        // on widget enabled/disabled state
+        mEnableCameraWidget =
+                (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_ENABLE_CAMERA);
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)
                  || Camera.getNumberOfCameras() == 0
                  || isCameraDisabledByDpm()  || !widgetsEnabled) {
-            removePreference(KEY_LOCKSCREEN_ENABLE_CAMERA);
+            catOptions.removePreference(mEnableCameraWidget);
         } else {
-            mEnableCameraWidget =
-                    (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_ENABLE_CAMERA);
             mEnableCameraWidget.setChecked(Settings.System.getInt(mResolver,
                     Settings.System.LOCKSCREEN_ENABLE_CAMERA, 1) == 1);
             mEnableCameraWidget.setOnPreferenceChangeListener(this);
         }
 
+        // Show or hide widget carousel settings based on widget enabled/disabled state
+        mUseWidgetCarousel =
+                (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_USE_WIDGET_CAROUSEL);
         if (widgetsEnabled) {
-            mUseWidgetCarousel =
-                    (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_USE_WIDGET_CAROUSEL);
             mUseWidgetCarousel.setChecked(Settings.System.getInt(getContentResolver(),
                     Settings.System.LOCKSCREEN_USE_WIDGET_CONTAINER_CAROUSEL, 0) == 1);
             mUseWidgetCarousel.setOnPreferenceChangeListener(this);
         } else {
-            removePreference(KEY_LOCKSCREEN_USE_WIDGET_CAROUSEL);
+            catOptions.removePreference(mUseWidgetCarousel);
         }
 
         boolean widgetFrameDisabled = Settings.System.getInt(mResolver,
                Settings.System.LOCKSCREEN_WIDGET_FRAME_ENABLED, 0) == 1;
         mDisableWidgetFrame =
-                (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_DISABLE_WIDGET_FRAME);
+                (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_DISABLE_WIDGET_FRAME);
         mDisableWidgetFrame.setChecked(widgetFrameDisabled);
         mDisableWidgetFrame.setOnPreferenceChangeListener(this);
 
         // Show or hide Frame color settings based on widget frame enabled/disabled state
+        PreferenceCategory catColor =
+                (PreferenceCategory) findPreference(PREF_LOCKSCREEN_WIDGETS_CAT_COLOR);
+        mFrameColor =
+                (ColorPickerPreference) findPreference(PREF_LOCKSCREEN_FRAME_COLOR);
         if (!widgetFrameDisabled) {
-            mFrameColor =
-                    (ColorPickerPreference) findPreference(KEY_LOCKSCREEN_FRAME_COLOR);
             int color = Settings.System.getInt(mResolver,
                     Settings.System.LOCKSCREEN_FRAME_COLOR, DEFAULT_FRAME_COLOR);
             mFrameColor.setNewPreviewColor(color);
@@ -154,7 +165,7 @@ public class LockscreenWidgetsSettings extends SettingsPreferenceFragment implem
             mFrameColor.setSummary(hexColor);
             mFrameColor.setOnPreferenceChangeListener(this);
         } else {
-            removePreference(KEY_LOCKSCREEN_FRAME_COLOR);
+            catColor.removePreference(mFrameColor);
         }
 
         setHasOptionsMenu(true);

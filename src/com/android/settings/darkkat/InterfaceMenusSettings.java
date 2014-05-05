@@ -471,9 +471,9 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
         int ramBarMode = Settings.System.getInt(mResolver,
                 Settings.System.RECENTS_RAM_BAR_MODE, 0);
         if (ramBarMode != 0)
-            mRamBar.setSummary(getResources().getString(R.string.ram_bar_enabled));
+            mRamBar.setSummary(getResources().getString(R.string.enabled));
         else
-            mRamBar.setSummary(getResources().getString(R.string.ram_bar_disabled));
+            mRamBar.setSummary(getResources().getString(R.string.disabled));
     }
 
     public static void restartSystemUI() {

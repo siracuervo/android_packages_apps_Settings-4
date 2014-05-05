@@ -19,7 +19,7 @@
 
     <PreferenceScreen
         android:key="lockscreen_background_settings"
-        android:title="@string/lockscreen_background_settings_title"
+        android:title="@string/bg_title"
 		android:summary="@string/lockscreen_background_settings_summary"
         android:fragment="com.android.settings.darkkat.LockscreenBackgroundSettings" />
 

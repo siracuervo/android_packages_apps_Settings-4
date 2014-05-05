@@ -19,21 +19,21 @@ limitations under the License.
     android:title="@string/ram_bar">
 
     <Preference
-        style="?android:preferenceInformationStyle"
         android:title="@string/ram_bar_note_title"
         android:summary="@string/ram_bar_note_summary"
-        android:selectable="false" />
+        android:selectable="false"
+        style="?android:preferenceInformationStyle" />
 
     <PreferenceCategory
         android:key="ram_bar_mode_cat"
         android:title="@string/ram_bar_mode_title">
 
-    <ListPreference
-        android:key="ram_bar_mode"
-        android:dialogTitle="@string/ram_bar_mode_dialog_title"
-        android:title="@string/ram_bar_mode_title"
-        android:entries="@array/ram_bar_mode_entries"
-        android:entryValues="@array/ram_bar_mode_values" />
+        <ListPreference
+            android:key="ram_bar_mode"
+            android:dialogTitle="@string/ram_bar_mode_dialog_title"
+            android:title="@string/ram_bar_mode_title"
+            android:entries="@array/ram_bar_mode_entries"
+            android:entryValues="@array/ram_bar_mode_values" />
 
     </PreferenceCategory>
 
