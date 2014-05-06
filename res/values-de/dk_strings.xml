@@ -356,6 +356,8 @@
     <string name="status_bar_show_battery_status_summary">Aktivieren um den Akkustatus in der Statusleiste anzuzeigen</string>
     <string name="battery_status_show_text_title">Text anzeigen</string>
     <string name="battery_status_show_text_summary">Aktivieren um den Akkustatus Text anzuzeigen</string>
+    <string name="battery_status_show_percentage_sign_title">Prozentzeichen anzeigen</string>
+    <string name="battery_status_show_percentage_sign_summary">Aktivieren um das Akkustatus Prozentzeichen anzuzeigen</string>
     <string name="battery_status_custom_frame_color_title">Rahmen Farbe anpassen</string>
     <string name="battery_status_custom_frame_color_summary">Wenn deaktiviert, wird die Akkustatus Farbe mit einer Transparenz von 80% benutzt.</string>
     <string name="circle_battery_animation_speed">Ring Animations Geschwindigkeit</string>

@@ -50,6 +50,8 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
             "battery_status_style";
     private static final String PREF_BATT_STAT_SHOW_TEXT =
             "battery_status_show_text";
+    private static final String PREF_BATT_STAT_SHOW_PERCENTAGE_SIGN =
+            "battery_status_show_percentage_sign";
     private static final String PREF_BATT_STAT_CUSTOM_FRAME_COLOR =
             "battery_status_custom_frame_color";
     private static final String PREF_BATT_STAT_CIRCLE_DOTTED =
@@ -77,6 +79,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
     private CheckBoxPreference mShowBatteryStatus;
     private ListPreference mBatteryStatusStyle;
     private CheckBoxPreference mShowText;
+    private CheckBoxPreference mShowPercentageSign;
     private CheckBoxPreference mCustomFrameColor;
     private CheckBoxPreference mCircleDotted;
     private ListPreference mCircleDotLength;
@@ -200,6 +203,14 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
                 }
             }
 
+            if (batteryStatus == 1) {
+                mShowPercentageSign =
+                        (CheckBoxPreference) findPreference(PREF_BATT_STAT_SHOW_PERCENTAGE_SIGN);
+                mShowPercentageSign.setChecked(Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_BATTERY_SHOW_PERCENTAGE_SIGN, 1) == 1);
+                mShowPercentageSign.setOnPreferenceChangeListener(this);
+            }
+
             if (batteryStatus == 2) {
                 mCircleDotted =
                         (CheckBoxPreference) findPreference(PREF_BATT_STAT_CIRCLE_DOTTED);
@@ -299,6 +310,12 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
                     Settings.System.STATUS_BAR_BATTERY_STATUS_SHOW_TEXT,
                     value ? 1 : 0);
             refreshSettings();
+            return true;
+        } else if (preference == mShowPercentageSign) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_BATTERY_SHOW_PERCENTAGE_SIGN,
+                    value ? 1 : 0);
             return true;
         } else if (preference == mCustomFrameColor) {
             value = (Boolean) newValue;

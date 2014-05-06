@@ -28,6 +28,11 @@
 	        android:entries="@array/battery_status_style_entries"
 	        android:entryValues="@array/battery_status_style_values" />
 
+	    <CheckBoxPreference
+		    android:key="battery_status_show_percentage_sign"
+		    android:title="@string/battery_status_show_percentage_sign_title"
+		    android:summary="@string/battery_status_show_percentage_sign_summary" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
