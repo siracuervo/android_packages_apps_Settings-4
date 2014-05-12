@@ -859,7 +859,7 @@
 
     <!-- Development settings -->
     <string name="adb_over_network">ADB über Netzwerk</string>
-    <string name="adb_over_network_summary">Aktivieren um TCP/IP Debugging über Netzwerkschnittstellen (Wi-Fi, USB Netzwerk) zu erlauben. Diese Einstellung wird nach einem neustart zurückgesetzt</string>
+    <string name="adb_over_network_summary">Aktivieren um TCP/IP Debugging über Netzwerkschnittstellen (Wi-Fi, USB Netzwerk) zu erlauben. Diese Einstellung wird nach einem Neustart zurückgesetzt</string>
     <string name="adb_over_network_warning">WARNUNG: Wenn ADB über Netzwerk aktiviert ist, ist das Gerät für Eingriffe über alle verbundenen Netzwerke offen, einschließlich GSM Daten Netzwerk!\n\nBenutze diese Funktion ausschließlich bei Verbindungen zu vertrauenswürdigen Netzwerken.\n\nSoll diese Funktion wirklich aktiviert werden?</string>
 
 
