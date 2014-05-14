@@ -137,7 +137,7 @@ public class StatusBarExpandedBackground extends SettingsPreferenceFragment impl
             mBackground.setValueIndex(0);
             mBackgroundLandscape.setEnabled(false);
         } else {
-            resId = R.string.status_bar_expanded_bg_custom_image;
+            resId = R.string.custom_image;
             mBackground.setValueIndex(1);
             mBackgroundLandscape.setEnabled(true);
         }
@@ -149,7 +149,7 @@ public class StatusBarExpandedBackground extends SettingsPreferenceFragment impl
             resId = R.string.status_bar_expanded_bg_default_wallpaper;
             mBackgroundLandscape.setValueIndex(1);
         } else {
-            resId = R.string.status_bar_expanded_bg_custom_image;
+            resId = R.string.custom_image;
             mBackgroundLandscape.setValueIndex(0);
         }
         mBackgroundLandscape.setSummary(getResources().getString(resId));

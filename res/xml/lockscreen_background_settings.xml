@@ -17,13 +17,43 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/bg_title" >
 
-    <CheckBoxPreference
-        android:key="lockscreen_see_through"
-        android:title="@string/alpha_title"
-        android:summary="@string/lockscreen_see_through_summary" />
+    <PreferenceCategory
+        android:key="lockscreen_bg_cat_options"
+        android:title="@string/options_title">
 
-    <com.android.settings.widget.SeekBarPreference
-         android:key="lockscreen_blur_radius"
-         android:title="@string/lockscreen_blur_radius_title" />
+        <CheckBoxPreference
+            android:key="lockscreen_see_through"
+            android:title="@string/alpha_title"
+            android:summary="@string/lockscreen_see_through_summary" />
 
+        <Preference
+            android:key="lockscreen_custom_image"
+            android:title="@string/lockscreen_custom_image_title"
+            android:persistent="false">
+            <intent
+                android:targetPackage="com.android.wallpapercropper"
+                android:targetClass="com.android.wallpapercropper.LockscreenWallpaper"/>
+        </Preference>
+
+        <com.android.settings.widget.SeekBarPreference
+             android:key="lockscreen_blur_radius"
+             android:title="@string/lockscreen_blur_radius_title" />
+
+        <CheckBoxPreference
+            android:key="lockscreen_colorize_background"
+            android:title="@string/lockscreen_colorize_background_title"
+            android:summary="@string/lockscreen_colorize_background_summary" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="lockscreen_bg_cat_colors"
+        android:title="@string/color_title">
+
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="lockscreen_background_color"
+            android:title="@string/lockscreen_background_color_title"
+            android:defaultValue="0x70000000" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

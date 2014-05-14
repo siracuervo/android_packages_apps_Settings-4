@@ -299,7 +299,7 @@
 
     <string-array name="status_bar_expanded_bg_type_entries">
         <item>@string/status_bar_expanded_bg_color_fill</item>
-        <item>@string/status_bar_expanded_bg_custom_image</item>
+        <item>@string/custom_image</item>
         <item>@string/status_bar_expanded_bg_default_wallpaper</item>
     </string-array>
 
@@ -310,7 +310,7 @@
     </string-array>
 
     <string-array name="status_bar_expanded_bg_landscape_entries">
-        <item>@string/status_bar_expanded_bg_custom_image</item>
+        <item>@string/custom_image</item>
         <item>@string/status_bar_expanded_bg_default_wallpaper</item>
     </string-array>
 

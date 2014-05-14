@@ -65,6 +65,7 @@
     <string name="dot_offset_title">Ring Punkt Versatz</string>
     <string name="text_title">Text</string>
     <string name="while_charging_title">Während des Ladevorgangs</string>
+    <string name="custom_image">Eigenes Bild</string>
     <string name="color_title">Farbe</string>
     <string name="colors_title">Farben</string>
     <string name="bg_colors_summary">Die Hintergrund Farben anpassen</string>
@@ -246,7 +247,12 @@
 
     <!-- Lockscreen background -->
     <string name="lockscreen_see_through_summary">Aktivieren damit der Inhalt hinter dem Sperrbildschirm angezeigt wird. Daten könnten für Umstehende sichtbar sein.</string>
-    <string name="lockscreen_blur_radius_title">Intensität des Unschärfe Effects</string>
+    <string name="lockscreen_custom_image_disabled">Transparenz muß deaktiviert werden</string>
+    <string name="lockscreen_blur_radius_title">Intensität des Unschärfe Effekts</string>
+    <string name="lockscreen_custom_image_title">Eigenes Hintergrundbild</string>
+    <string name="lockscreen_colorize_background_title">Einfärben</string>
+    <string name="lockscreen_colorize_background_summary">Aktivieren um den Hintergrund einzufärben</string>
+    <string name="lockscreen_background_color_title">Hintergrund</string>
 
     <!-- Lockscreen lock ring -->
     <string name="lockscreen_lock_before_unlock_title">Vor der Sicherheitssperre</string>
@@ -422,7 +428,6 @@
     <!-- Statusbar expanded background -->
     <string name="status_bar_expanded_bg_landscape_title">Anderer Hintergrund im Querformat</string>
     <string name="status_bar_expanded_bg_color_fill">Farbfüllung</string>
-    <string name="status_bar_expanded_bg_custom_image">Eigenes Bild</string>
     <string name="status_bar_expanded_bg_default_wallpaper">Standard Hintergrund</string>
     <string name="status_bar_expanded_bg_custom_bg_dialog_title">Farbe wählen</string>
 

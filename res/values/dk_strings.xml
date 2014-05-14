@@ -65,6 +65,7 @@
     <string name="dot_offset_title">Ring Dot offset</string>
     <string name="text_title">Text</string>
     <string name="while_charging_title">While charging</string>
+    <string name="custom_image">Custom image</string>
     <string name="color_title">Color</string>
     <string name="colors_title">Colors</string>
     <string name="bg_colors_summary">Customize the background colors</string>
@@ -246,7 +247,12 @@
 
     <!-- Lockscreen background -->
     <string name="lockscreen_see_through_summary">Enable to show the content behind the lock screen. Your data may be visible to those around you</string>
+    <string name="lockscreen_custom_image_disabled">See through needs to be disabled</string>
     <string name="lockscreen_blur_radius_title">Intensity for the blur effect</string>
+    <string name="lockscreen_custom_image_title">Custom wallpaper</string>
+    <string name="lockscreen_colorize_background_title">Colorize</string>
+    <string name="lockscreen_colorize_background_summary">Enable to colorize the background</string>
+    <string name="lockscreen_background_color_title">Background</string>
 
     <!-- Lockscreen lock ring -->
     <string name="lockscreen_lock_before_unlock_title">Show slider before secure unlock</string>
@@ -422,7 +428,6 @@
     <!-- Statusbar expanded background -->
     <string name="status_bar_expanded_bg_landscape_title">Different landscape background</string>
     <string name="status_bar_expanded_bg_color_fill">Color fill</string>
-    <string name="status_bar_expanded_bg_custom_image">Custom image</string>
     <string name="status_bar_expanded_bg_default_wallpaper">Default background</string>
     <string name="status_bar_expanded_bg_custom_bg_dialog_title">Choose color</string>
 
