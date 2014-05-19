@@ -24,6 +24,10 @@
     <string name="cat_targets_title">Targets</string>
     <string name="cat_signal_activity_title">Mobile network activity icon</string>
     <string name="cat_wifi_activity_title">Wifi network activity icon</string>
+    <string name="cat_options_general_title">Options general</string>
+    <string name="cat_options_color_title">Options color</string>
+    <string name="cat_colors_title">Customize colors</string>
+    <string name="cat_color_title">Customize color</string>
     <string name="options_title">Options</string>
     <string name="options_summary">Customize options</string>
     <string name="ok">OK</string>
@@ -359,13 +363,18 @@
     <string name="status_bar_date_string_edittext_summary">Enter string</string>
 
     <!-- Status bar battery status style -->
+    <string name="battery_status_show_text_title">Show text</string>
     <string name="status_bar_show_battery_status_summary">Enable to show the battery status in the status bar</string>
     <string name="battery_status_show_text_title">Show text</string>
     <string name="battery_status_show_text_summary">Activate, to show the battery status text</string>
+    <string name="battery_status_show_mini_icon_title">Show mini icon</string>
+    <string name="battery_status_show_mini_icon_summary">Enable to show a mini icon instead of the default Android big icon</string>
     <string name="battery_status_show_percentage_sign_title">Show percentage sign</string>
     <string name="battery_status_show_percentage_sign_summary">Activate, to show the battery status percentage sign</string>
     <string name="battery_status_custom_frame_color_title">Custom frame color</string>
     <string name="battery_status_custom_frame_color_summary">If disabled, the battery status color with a transparency of 80% will be used.</string>
+    <string name="battery_status_custom_text_hight_color_title">High level</string>
+    <string name="battery_status_custom_text_hight_color_summary">Enable to use a custom text color for the battery status at 90 percent or more. Disable to use green color.</string>
     <string name="circle_battery_animation_speed">Ring animation speed</string>
     <string name="circle_battery_animation_speed_none">None</string>
     <string name="circle_battery_animation_speed_slow">Slow</string>
@@ -373,6 +382,7 @@
     <string name="circle_battery_animation_speed_fast">Fast</string>
     <string name="battery_status_color">Fill</string>
     <string name="battery_text_color">Text normal</string>
+    <string name="battery_text_hight_color">Text normal (High level)</string>
     <string name="battery_text_charging_color">Text while charging</string>
 
     <!-- Status bar battery bar style -->
