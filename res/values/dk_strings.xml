@@ -363,7 +363,6 @@
     <string name="status_bar_date_string_edittext_summary">Enter string</string>
 
     <!-- Status bar battery status style -->
-    <string name="battery_status_show_text_title">Show text</string>
     <string name="status_bar_show_battery_status_summary">Enable to show the battery status in the status bar</string>
     <string name="battery_status_show_text_title">Show text</string>
     <string name="battery_status_show_text_summary">Activate, to show the battery status text</string>
