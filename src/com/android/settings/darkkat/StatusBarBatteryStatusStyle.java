@@ -162,10 +162,18 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
             mBatteryStatusStyle.setSummary(mBatteryStatusStyle.getEntry());
             mBatteryStatusStyle.setOnPreferenceChangeListener(this);
 
+            PreferenceCategory catOptionColor =
+                    (PreferenceCategory) findPreference(PREF_CAT_OPTIONS_COLOR);
             mCustomHightColor =
                     (CheckBoxPreference) findPreference(PREF_BATT_STAT_CUSTOM_HIGHT_COLOR);
-            mCustomHightColor.setChecked(customHightColor);
-            mCustomHightColor.setOnPreferenceChangeListener(this);
+            if (showtext || batteryStatus == 1) {
+                mCustomHightColor.setChecked(customHightColor);
+                mCustomHightColor.setOnPreferenceChangeListener(this);
+            } else {
+                // Remove the custom text hight color preference
+                // if battery style is not text and text is disabled
+                catOptionColor.removePreference(mCustomHightColor);
+            }
 
             mTextColor =
                     (ColorPickerPreference) findPreference(PREF_BATT_STAT_TEXT_COLOR);
