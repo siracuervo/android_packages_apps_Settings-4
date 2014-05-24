@@ -441,9 +441,11 @@
     <string name="status_bar_expanded_bg_custom_bg_dialog_title">Farbe wählen</string>
 
     <!-- Statusbar expanded header -->
-    <string name="status_bar_expanded_header_cat_clock_date_title">Uhr &amp; Datum</string>
     <string name="status_bar_expanded_header_settings_btn_title">Einstellungen Schaltfläche</string>
     <string name="status_bar_expanded_header_settings_btn_summary">Aktivieren um den Einstellungen Schaltfläche immer anzuzeigen</string>
+    <string name="status_bar_expanded_header_background_title">Hintergrund</string>
+    <string name="status_bar_expanded_header_clock_date_title">Uhr &amp; Datum</string>
+    <string name="status_bar_expanded_header_buttons_title">Schaltflächen</string>
 
     <!-- Statusbar expanded notification drawer -->
     <string name="qar_cat_title">Schnellzugriffsleiste</string>

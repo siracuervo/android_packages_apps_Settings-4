@@ -41,14 +41,24 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
 
     private static final String PREF_HEADER_SETTINGS_BUTTON =
             "status_bar_expanded_header_settings_button";
+    private static final String PREF_HEADER_BACKGROUND_COLOR =
+            "status_bar_expanded_header_background_color";
     private static final String PREF_HEADER_CLOCK_COLOR =
             "status_bar_expanded_header_clock_date_color";
+    private static final String PREF_HEADER_BUTTONS_COLOR =
+            "status_bar_expanded_header_buttons_color";
+
+    private static final int DEFAULT_BACKGROUND_COLOR = 0xff000000;
+    private static final int DEFAULT_CLOCK_COLOR = 0xffffffff;
+    private static final int DEFAULT_BUTTONS_COLOR = 0xffffffff;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
     private CheckBoxPreference mHeaderSettingsButton;
+    private ColorPickerPreference mHeaderBackgroundColor;
     private ColorPickerPreference mHeaderClockDateColor;
+    private ColorPickerPreference mHeaderButtonsColor;
 
     private ContentResolver mResolver;
 
@@ -64,6 +74,9 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
             prefs.removeAll();
         }
 
+        int color;
+        String hexColor;
+
         addPreferencesFromResource(R.xml.status_bar_expanded_header);
         mResolver = getActivity().getContentResolver();
 
@@ -73,14 +86,35 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
                 Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, 0) == 1);
         mHeaderSettingsButton.setOnPreferenceChangeListener(this);
 
+        mHeaderBackgroundColor =
+                (ColorPickerPreference) findPreference(PREF_HEADER_BACKGROUND_COLOR);
+        color = Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_HEADER_BACKGROUND_COLOR,
+                DEFAULT_BACKGROUND_COLOR);
+        mHeaderBackgroundColor.setNewPreviewColor(color);
+        hexColor = String.format("#%08x", (0xffffffff & color));
+        mHeaderBackgroundColor.setSummary(hexColor);
+        mHeaderBackgroundColor.setOnPreferenceChangeListener(this);
+
         mHeaderClockDateColor =
                 (ColorPickerPreference) findPreference(PREF_HEADER_CLOCK_COLOR);
-        int color = Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, 0xffffffff);
+        color = Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, 
+                DEFAULT_CLOCK_COLOR);
         mHeaderClockDateColor.setNewPreviewColor(color);
-        String hexColor = String.format("#%08x", (0xffffffff & color));
+        hexColor = String.format("#%08x", (0xffffffff & color));
         mHeaderClockDateColor.setSummary(hexColor);
         mHeaderClockDateColor.setOnPreferenceChangeListener(this);
+
+        mHeaderButtonsColor =
+                (ColorPickerPreference) findPreference(PREF_HEADER_BUTTONS_COLOR);
+        color = Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_HEADER_BUTTONS_COLOR, 
+                DEFAULT_BUTTONS_COLOR);
+        mHeaderButtonsColor.setNewPreviewColor(color);
+        hexColor = String.format("#%08x", (0xffffffff & color));
+        mHeaderButtonsColor.setSummary(hexColor);
+        mHeaderButtonsColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
     }
@@ -104,18 +138,37 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        String hex;
+        int intHex;
+
         if (preference == mHeaderSettingsButton) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON,
                 value ? 1 : 0);
             return true;
-        } else if (preference == mHeaderClockDateColor) {
-            String hex = ColorPickerPreference.convertToARGB(
+        } else if (preference == mHeaderBackgroundColor) {
+            hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_HEADER_BACKGROUND_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mHeaderClockDateColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mHeaderButtonsColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_HEADER_BUTTONS_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         }
@@ -157,8 +210,14 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, 0);
                             Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_EXPANDED_HEADER_BACKGROUND_COLOR,
+                                DEFAULT_BACKGROUND_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR,
-                                0xffffffff);
+                                DEFAULT_CLOCK_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_EXPANDED_HEADER_BUTTONS_COLOR,
+                                DEFAULT_BUTTONS_COLOR);
                             getOwner().refreshSettings();
                         }
                     })
@@ -168,8 +227,14 @@ public class StatusBarExpandedHeader extends SettingsPreferenceFragment implemen
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_EXPANDED_SETTINGS_BUTTON, 1);
                             Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_EXPANDED_HEADER_BACKGROUND_COLOR,
+                                DEFAULT_BACKGROUND_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_EXPANDED_CLOCK_DATE_COLOR,
                                 0xffff0000);
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_EXPANDED_HEADER_BUTTONS_COLOR,
+                                0xff33b5e5);
                             getOwner().refreshSettings();
                         }
                     })
