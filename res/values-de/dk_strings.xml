@@ -28,6 +28,7 @@
     <string name="cat_options_color_title">Optionen Farben</string>
     <string name="cat_colors_title">Farben anpassen</string>
     <string name="cat_color_title">Farbe anpassen</string>
+    <string name="cat_color_alpha_title">Colors &amp; transparency</string>
     <string name="options_title">Optionen</string>
     <string name="options_summary">Optionen anpassen</string>
     <string name="ok">OK</string>
@@ -433,6 +434,7 @@
     <string name="status_bar_expanded_header_title">Kopfzeile</string>
     <string name="status_bar_expanded_notification_drawer_title">Benachrichtigungsanzeige</string>
     <string name="status_bar_expanded_quick_settings_title">Schnelleinstellungen</string>
+    <string name="status_bar_expanded_close_handle_title">Schließgriff</string>
 
     <!-- Statusbar expanded background -->
     <string name="status_bar_expanded_bg_landscape_title">Anderer Hintergrund im Querformat</string>
@@ -532,6 +534,10 @@
     <string name="sound_mode_soundVibrate">Ton &amp; Vibration</string>
     <string name="music_tile_mode_background">Album Cover anzeigen</string>
     <string name="music_tile_mode_tracktitle">Song Name anzeigen</string>
+
+    <!-- Statusbar expanded close handle -->
+    <string name="status_bar_expanded_close_handle_bar_color_title">Leiste</string>
+    <string name="status_bar_expanded_close_handle_background_alpha_title">Hintergrund Transparenz</string>
 
     <!-- Navigation bar -->
     <string name="navbar_style_dimen_title">Größe</string>

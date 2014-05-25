@@ -38,4 +38,9 @@
         android:fragment="com.android.settings.darkkat.StatusBarExpandedQs"
         android:title="@string/status_bar_expanded_quick_settings_title" />
 
+    <PreferenceScreen
+        android:key="close_handle"
+        android:fragment="com.android.settings.darkkat.StatusBarExpandedCloseHandle"
+        android:title="@string/status_bar_expanded_close_handle_title" />
+
 </PreferenceScreen>

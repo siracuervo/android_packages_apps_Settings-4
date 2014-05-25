@@ -28,6 +28,7 @@
     <string name="cat_options_color_title">Options color</string>
     <string name="cat_colors_title">Customize colors</string>
     <string name="cat_color_title">Customize color</string>
+    <string name="cat_color_alpha_title">Colors &amp; transparency</string>
     <string name="options_title">Options</string>
     <string name="options_summary">Customize options</string>
     <string name="ok">OK</string>
@@ -433,6 +434,7 @@
     <string name="status_bar_expanded_header_title">Header</string>
     <string name="status_bar_expanded_notification_drawer_title">Notification drawer</string>
     <string name="status_bar_expanded_quick_settings_title">Quick settings</string>
+    <string name="status_bar_expanded_close_handle_title">Closing handle</string>
 
     <!-- Statusbar expanded background -->
     <string name="status_bar_expanded_bg_landscape_title">Different landscape background</string>
@@ -533,6 +535,10 @@
     <string name="sound_mode_soundVibrate">Sound &amp; Vibrate</string>
     <string name="music_tile_mode_background">Show album artwork</string>
     <string name="music_tile_mode_tracktitle">Show track title</string>
+
+    <!-- Statusbar expanded close handle -->
+    <string name="status_bar_expanded_close_handle_bar_color_title">Bar</string>
+    <string name="status_bar_expanded_close_handle_background_alpha_title">Background transparency</string>
 
     <!-- Navigation bar -->
     <string name="navbar_style_dimen_title">Dimensions</string>
