@@ -60,10 +60,10 @@
         android:summary="@string/status_bar_network_speed_summary"
         android:fragment="com.android.settings.darkkat.StatusBarNetworkSpeedStyle" />
 
-    <CheckBoxPreference
+    <PreferenceScreen
         android:key="status_bar_notif_count"
         android:title="@string/status_bar_notif_count_title"
         android:summary="@string/status_bar_notif_count_summary"
-        android:defaultValue="false" />
+        android:fragment="com.android.settings.darkkat.StatusBarNotifCount" />
 
 </PreferenceScreen>

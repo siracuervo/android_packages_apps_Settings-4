@@ -334,8 +334,8 @@
     <string name="status_bar_signal_wifi_style_summary">Customize the network icons</string>
     <string name="status_bar_network_speed_title">Network speed indicator</string>
     <string name="status_bar_network_speed_summary">Customize the network speed indicator</string>
-    <string name="status_bar_notif_count_title">Show notification count</string>
-    <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
+    <string name="status_bar_notif_count_title">Notification count</string>
+    <string name="status_bar_notif_count_summary">Customize the notification count</string>
 
     <!-- Status bar clock date style -->
     <string name="status_bar_cat_clock_date_title">Clock &amp; date</string>
@@ -429,6 +429,12 @@
     <string name="network_speed_bit_byte_summary">Enable to show the values in bit instead of byte</string>
     <string name="network_speed_hide_traffic_title">Hide the indicator</string>
     <string name="network_speed_hide_traffic_summary">Enable to hide the indicator if there is no traffic</string>
+
+    <!-- Status bar notif count -->
+    <string name="status_bar_show_notif_count_title">Show notification count</string>
+    <string name="status_bar_show_notif_count_summary">Display the number of pending notifications</string>
+    <string name="status_bar_notif_count_icon_color_title">Icon</string>
+    <string name="status_bar_notif_count_text_color_title">Text</string>
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_title">Header</string>

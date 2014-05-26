@@ -335,7 +335,7 @@
     <string name="status_bar_network_speed_title">Netzw.-Geschw. Anzeige</string>
     <string name="status_bar_network_speed_summary">Die Netzw.-Geschw. Anzeige anpassen</string>
     <string name="status_bar_notif_count_title">Benachrichtigungszähler</string>
-    <string name="status_bar_notif_count_summary">Anzahl der ungelesenen Benachrichtigungen in der Statusleiste anzeigen</string>
+    <string name="status_bar_notif_count_summary">Den Benachrichtigungszähler anpassen</string>
 
     <!-- Status bar clock date style -->
     <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>
@@ -429,6 +429,13 @@
     <string name="network_speed_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
     <string name="network_speed_hide_traffic_title">Anzeige verstecken</string>
     <string name="network_speed_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
+
+    <!-- Status bar notif count -->
+    <string name="status_bar_show_notif_count_title">Benachrichtigungszähler</string>
+    <string name="status_bar_show_notif_count_summary">Anzahl der ungelesenen Benachrichtigungen in der Statusleiste anzeigen</string>
+    <string name="status_bar_notif_count_icon_color_title">Symbol</string>
+    <string name="status_bar_notif_count_text_color_title">Text</string>
+
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_title">Kopfzeile</string>

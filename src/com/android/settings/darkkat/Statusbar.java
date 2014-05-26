@@ -31,11 +31,8 @@ public class Statusbar extends SettingsPreferenceFragment implements
 
     private static final String PREF_STATUS_BAR_BRIGHTNESS_CONTROL =
             "status_bar_brightness_control";
-    private static final String PREF_STATUS_BAR_NOTIF_COUNT =
-            "status_bar_notif_count";
 
     private CheckBoxPreference mBrightnessControl;
-    private CheckBoxPreference mNotifCount;
 
     private ContentResolver mResolver;
 
@@ -61,13 +58,6 @@ public class Statusbar extends SettingsPreferenceFragment implements
             }
         } catch (SettingNotFoundException e) {
         }
-
-        mNotifCount =
-                (CheckBoxPreference) findPreference(PREF_STATUS_BAR_NOTIF_COUNT);
-        mNotifCount.setChecked(Settings.System.getInt(mResolver,
-               Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1);
-        mNotifCount.setOnPreferenceChangeListener(this);
-
     }
 
     @Override
@@ -79,18 +69,8 @@ public class Statusbar extends SettingsPreferenceFragment implements
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, value ? 1 : 0);
             return true;
-        } else if (preference == mNotifCount) {
-            value = (Boolean) objValue;
-            Settings.System.putInt(mResolver,
-                    Settings.System.STATUS_BAR_NOTIF_COUNT, value ? 1 : 0);
-            return true;
         }
 
         return false;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
     }
 }
