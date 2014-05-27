@@ -335,7 +335,7 @@
     <string name="status_bar_network_speed_title">Netzw.-Geschw. Anzeige</string>
     <string name="status_bar_network_speed_summary">Die Netzw.-Geschw. Anzeige anpassen</string>
     <string name="status_bar_notif_system_icons_title">Benachrichtigungs- &amp; System Symbole</string>
-    <string name="status_bar_notif_system_icons_summary">Den Benachrichtigungs- &amp; System Symbole anpassen</string>
+    <string name="status_bar_notif_system_icons_summary">Die Benachrichtigungs- &amp; System Symbole anpassen</string>
 
     <!-- Status bar clock date style -->
     <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>
