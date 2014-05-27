@@ -334,8 +334,8 @@
     <string name="status_bar_signal_wifi_style_summary">Customize the network icons</string>
     <string name="status_bar_network_speed_title">Network speed indicator</string>
     <string name="status_bar_network_speed_summary">Customize the network speed indicator</string>
-    <string name="status_bar_notif_count_title">Notification count</string>
-    <string name="status_bar_notif_count_summary">Customize the notification count</string>
+    <string name="status_bar_notif_system_icons_title">Notification- &amp; system icons</string>
+    <string name="status_bar_notif_system_icons_summary">Customize the notification- &amp; system icons</string>
 
     <!-- Status bar clock date style -->
     <string name="status_bar_cat_clock_date_title">Clock &amp; date</string>
@@ -431,10 +431,12 @@
     <string name="network_speed_hide_traffic_summary">Enable to hide the indicator if there is no traffic</string>
 
     <!-- Status bar notif count -->
-    <string name="status_bar_show_notif_count_title">Show notification count</string>
+    <string name="status_bar_notif_count_title">Notification count</string>
     <string name="status_bar_show_notif_count_summary">Display the number of pending notifications</string>
-    <string name="status_bar_notif_count_icon_color_title">Icon</string>
-    <string name="status_bar_notif_count_text_color_title">Text</string>
+    <string name="status_bar_colorize_notif_icons_title">Notification icon color</string>
+    <string name="status_bar_colorize_notif_icons_summary">Enable to colorize the notification icons color</string>
+    <string name="status_bar_notif_system_icon_color_title">Icons</string>
+    <string name="status_bar_notif_count_text_color_title">Notification count Text</string>
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_title">Header</string>

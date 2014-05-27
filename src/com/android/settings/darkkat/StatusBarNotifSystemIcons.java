@@ -35,27 +35,35 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBarNotifCount extends SettingsPreferenceFragment implements
+public class StatusBarNotifSystemIcons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String PREF_CAT_COLORS =
-            "status_bar_notif_count_cat_colors";
+            "status_bar_notif_system_icons_cat_colors";
+    private static final String PREF_STATUS_BAR_COLORIZE_NOTIF_ICONS =
+            "status_bar_colorize_notif_icons";
     private static final String PREF_STATUS_BAR_SHOW_NOTIF_COUNT =
             "status_bar_show_notif_count";
-    private static final String PREF_STATUS_BAR_NOTIF_COUNT_ICON_COLOR =
+    private static final String PREF_STATUS_BAR_NOTIF_SYSTEM_ICON_COLOR =
+            "status_bar_notif_system_icon_color";
+   private static final String PREF_STATUS_BAR_NOTIF_COUNT_ICON_COLOR =
             "status_bar_notif_count_icon_color";
     private static final String PREF_STATUS_BAR_NOTIF_COUNT_TEXT_COLOR =
             "status_bar_notif_count_text_color";
 
-    private static final int DEFAULT_ICON_COLOR = 0xffE5350D;
-    private static final int DEFAULT_TEXT_COLOR = 0xffffffff;
+    private static final int DEFAULT_ICON_COLOR = 0xffffffff;
+    private static final int DEFAULT_COUNT_COLOR = 0xffE5350D;
+    private static final int DEFAULT_COUNT_TEXT_COLOR = 0xffffffff;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
+    private CheckBoxPreference mColorizeNotifIcons;
     private CheckBoxPreference mShowNotifCount;
     private ColorPickerPreference mIconColor;
-    private ColorPickerPreference mTextColor;
+    private ColorPickerPreference mCountColor;
+    private ColorPickerPreference mCountTextColor;
+    private ColorPickerPreference mSystemColor;
 
     private ContentResolver mResolver;
 
@@ -71,47 +79,62 @@ public class StatusBarNotifCount extends SettingsPreferenceFragment implements
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.status_bar_notif_count);
+        addPreferencesFromResource(R.xml.status_bar_notif_system_icons);
 
         mResolver = getActivity().getContentResolver();
         int intColor = 0xffffffff;
         String hexColor = String.format("#%08x", (0xffffffff & intColor));
 
-        boolean showNotifCount = Settings.System.getInt(mResolver,
+        boolean showCount = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_SHOW_NOTIF_COUNT, 0) == 1;
+
+        mColorizeNotifIcons =
+                (CheckBoxPreference) findPreference(PREF_STATUS_BAR_COLORIZE_NOTIF_ICONS);
+        mColorizeNotifIcons.setChecked(Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_COLORIZE_NOTIF_ICONS, 0) == 1);
+        mColorizeNotifIcons.setOnPreferenceChangeListener(this);
 
         mShowNotifCount =
                 (CheckBoxPreference) findPreference(PREF_STATUS_BAR_SHOW_NOTIF_COUNT);
-        mShowNotifCount.setChecked(showNotifCount);
+        mShowNotifCount.setChecked(showCount);
         mShowNotifCount.setOnPreferenceChangeListener(this);
 
         PreferenceCategory catColors =
                 (PreferenceCategory) findPreference(PREF_CAT_COLORS);
         mIconColor =
+                (ColorPickerPreference) findPreference(PREF_STATUS_BAR_NOTIF_SYSTEM_ICON_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_NOTIF_SYSTEM_ICON_COLOR,
+                DEFAULT_ICON_COLOR); 
+        mIconColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mIconColor.setSummary(hexColor);
+        mIconColor.setOnPreferenceChangeListener(this);
+
+        mCountColor =
                 (ColorPickerPreference) findPreference(PREF_STATUS_BAR_NOTIF_COUNT_ICON_COLOR);
-        mTextColor =
+        mCountTextColor =
                 (ColorPickerPreference) findPreference(PREF_STATUS_BAR_NOTIF_COUNT_TEXT_COLOR);
-        if (showNotifCount) {
+        if (showCount) {
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NOTIF_COUNT_ICON_COLOR,
-                    DEFAULT_ICON_COLOR); 
-            mIconColor.setNewPreviewColor(intColor);
+                    DEFAULT_COUNT_COLOR); 
+            mCountColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mIconColor.setSummary(hexColor);
-            mIconColor.setOnPreferenceChangeListener(this);
+            mCountColor.setSummary(hexColor);
+            mCountColor.setOnPreferenceChangeListener(this);
 
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NOTIF_COUNT_TEXT_COLOR,
-                    DEFAULT_TEXT_COLOR); 
-            mTextColor.setNewPreviewColor(intColor);
+                    DEFAULT_COUNT_TEXT_COLOR); 
+            mCountTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mTextColor.setSummary(hexColor);
-            mTextColor.setOnPreferenceChangeListener(this);
+            mCountTextColor.setSummary(hexColor);
+            mCountTextColor.setOnPreferenceChangeListener(this);
         } else {
-            // Remove uneeded preferences if indicator is disabled
-            catColors.removePreference(mIconColor);
-            catColors.removePreference(mTextColor);
-            removePreference(PREF_CAT_COLORS);
+            // Remove uneeded preferences if notification count is disabled
+            catColors.removePreference(mCountColor);
+            catColors.removePreference(mCountTextColor);
         }
 
         setHasOptionsMenu(true);
@@ -140,7 +163,13 @@ public class StatusBarNotifCount extends SettingsPreferenceFragment implements
         int intHex;
         String hex;
 
-        if (preference == mShowNotifCount) {
+        if (preference == mColorizeNotifIcons) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_COLORIZE_NOTIF_ICONS,
+                    value ? 1 : 0);
+            return true;
+        } else if (preference == mShowNotifCount) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_SHOW_NOTIF_COUNT, value ? 1 : 0);
@@ -151,10 +180,18 @@ public class StatusBarNotifCount extends SettingsPreferenceFragment implements
                     Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_NOTIF_SYSTEM_ICON_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mCountColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_NOTIF_COUNT_ICON_COLOR, intHex);
             preference.setSummary(hex);
             return true;
-        } else if (preference == mTextColor) {
+        } else if (preference == mCountTextColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
@@ -183,8 +220,8 @@ public class StatusBarNotifCount extends SettingsPreferenceFragment implements
             return frag;
         }
 
-        StatusBarNotifCount getOwner() {
-            return (StatusBarNotifCount) getTargetFragment();
+        StatusBarNotifSystemIcons getOwner() {
+            return (StatusBarNotifSystemIcons) getTargetFragment();
         }
 
         @Override
@@ -200,13 +237,18 @@ public class StatusBarNotifCount extends SettingsPreferenceFragment implements
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_COLORIZE_NOTIF_ICONS, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_SHOW_NOTIF_COUNT, 0);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_NOTIF_COUNT_ICON_COLOR,
+                                    Settings.System.STATUS_BAR_NOTIF_SYSTEM_ICON_COLOR,
                                     DEFAULT_ICON_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NOTIF_COUNT_ICON_COLOR,
+                                    DEFAULT_COUNT_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIF_COUNT_TEXT_COLOR,
-                                    DEFAULT_TEXT_COLOR);
+                                    DEFAULT_COUNT_TEXT_COLOR);
                             getOwner().refreshSettings();
                         }
                     })
@@ -214,13 +256,18 @@ public class StatusBarNotifCount extends SettingsPreferenceFragment implements
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_COLORIZE_NOTIF_ICONS, 1);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_SHOW_NOTIF_COUNT, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_NOTIF_SYSTEM_ICON_COLOR,
+                                    0xff33b5e5);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIF_COUNT_ICON_COLOR,
                                     0xff33b5e5);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIF_COUNT_TEXT_COLOR,
-                                    DEFAULT_TEXT_COLOR);
+                                    DEFAULT_COUNT_TEXT_COLOR);
                             getOwner().refreshSettings();
                         }
                     })

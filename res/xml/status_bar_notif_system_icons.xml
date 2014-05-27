@@ -16,27 +16,38 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/status_bar_notif_count_title">
+    android:title="@string/status_bar_notif_system_icons_title">
 
     <PreferenceCategory
-        android:key="status_bar_notif_count_cat_options"
+        android:key="status_bar_notif_system_icons_cat_options"
         android:title="@string/options_title">
 
         <CheckBoxPreference
+            android:key="status_bar_colorize_notif_icons"
+            android:title="@string/status_bar_colorize_notif_icons_title"
+            android:summary="@string/status_bar_colorize_notif_icons_summary"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
             android:key="status_bar_show_notif_count"
-            android:title="@string/status_bar_show_notif_count_title"
+            android:title="@string/status_bar_notif_count_title"
             android:summary="@string/status_bar_show_notif_count_summary"
             android:defaultValue="false" />
 
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="status_bar_notif_count_cat_colors"
+        android:key="status_bar_notif_system_icons_cat_colors"
         android:title="@string/cat_colors_title">
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="status_bar_notif_system_icon_color"
+            android:title="@string/status_bar_notif_system_icon_color_title"
+            android:defaultValue="0xffffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="status_bar_notif_count_icon_color"
-            android:title="@string/status_bar_notif_count_icon_color_title"
+            android:title="@string/status_bar_notif_count_title"
             android:defaultValue="0xffE5350D" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
