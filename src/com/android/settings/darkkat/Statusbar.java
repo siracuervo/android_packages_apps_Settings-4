@@ -20,8 +20,11 @@ import android.content.ContentResolver;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+
+import com.android.internal.util.darkkat.DeviceUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -57,6 +60,12 @@ public class Statusbar extends SettingsPreferenceFragment implements
                 mBrightnessControl.setSummary(R.string.status_bar_toggle_info);
             }
         } catch (SettingNotFoundException e) {
+        }
+
+        if (DeviceUtils.isPhone(getActivity())) {
+            PreferenceScreen notifSystemIcons =
+                    (PreferenceScreen) findPreference("status_bar_notif_system_icons");
+            notifSystemIcons.setTitle(R.string.status_bar_notif_system_icons_title_phone);
         }
     }
 
