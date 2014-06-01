@@ -59,6 +59,7 @@ import com.android.internal.util.darkkat.ButtonsHelper;
 import com.android.internal.util.darkkat.DeviceUtils;
 import com.android.internal.util.darkkat.DeviceUtils.FilteredDeviceFeaturesArray;
 import com.android.internal.util.darkkat.ImageHelper;
+import com.android.internal.util.darkkat.LockscreenShortcutHelper;
 import com.android.internal.util.darkkat.PolicyHelper;
 
 
@@ -480,7 +481,7 @@ public class ButtonsListViewSettings extends ListFragment implements
                 return PolicyHelper.getPowerMenuConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
             case LOCKSCREEN_SHORTCUT:
-                return ButtonsHelper.getLockscreenShortcutConfig(mActivity);
+                return LockscreenShortcutHelper.getLockscreenShortcutConfig(mActivity);
         }
         return null;
     }
@@ -497,7 +498,7 @@ public class ButtonsListViewSettings extends ListFragment implements
                 PolicyHelper.setPowerMenuConfig(mActivity, buttonConfigs, reset);
                 break;
             case LOCKSCREEN_SHORTCUT:
-                ButtonsHelper.setLockscreenShortcutConfig(mActivity, buttonConfigs, reset);
+                LockscreenShortcutHelper.setLockscreenShortcutConfig(mActivity, buttonConfigs, reset);
                 break;
         }
     }

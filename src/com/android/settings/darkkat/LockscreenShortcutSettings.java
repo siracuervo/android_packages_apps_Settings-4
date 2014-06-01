@@ -16,42 +16,121 @@
 
 package com.android.settings.darkkat;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 public class LockscreenShortcutSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String PREF_LOCKSCREEN_SHORTCUTS_CAT_COLOR =
+            "lockscreen_shortcuts_cat_color";
     private static final String PREF_LOCKSCREEN_SHORTCUTS =
             "lockscreen_shortcuts";
-    private static final String PREF_LOCKSCREEN_SHORTCUT_LONGPRESS =
+    private static final String PREF_LOCKSCREEN_SHORTCUTS_LONGPRESS =
             "lockscreen_shortcuts_longpress";
+    private static final String PREF_LOCKSCREEN_SHORTCUTS_ICON_COLOR_MODE =
+            "lockscreen_shortcuts_icon_color_mode";
+    private static final String PREF_LOCKSCREEN_SHORTCUTS_ICON_COLOR =
+            "lockscreen_shortcuts_icon_color";
+
+    private static final int DEFAULT_ICON_COLOR =
+            0xffffffff;
+
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DLG_RESET = 0;
 
     private Preference mShortcuts;
     private CheckBoxPreference mShortcutsLongpress;
+    private ListPreference mShortcutsIconColorMode;
+    private ColorPickerPreference mShortcutsIconColor;
 
     private ContentResolver mResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshSettings();
+    }
 
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
         addPreferencesFromResource(R.xml.lockscreen_shortcut_settings);
 
         mResolver = getActivity().getContentResolver();
 
         mShortcutsLongpress =
-                (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_SHORTCUT_LONGPRESS);
+                (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_SHORTCUTS_LONGPRESS);
         mShortcutsLongpress.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.LOCKSCREEN_SHORTCUTS_LONGPRESS, 1) == 1);
         mShortcutsLongpress.setOnPreferenceChangeListener(this);
+
+        mShortcutsIconColorMode =
+            (ListPreference) findPreference(PREF_LOCKSCREEN_SHORTCUTS_ICON_COLOR_MODE);
+        int shortcutsIconColorMode = Settings.System.getInt(getContentResolver(),
+                Settings.System.LOCKSCREEN_SHORTCUTS_ICON_COLOR_MODE, 3);
+        mShortcutsIconColorMode.setValue(String.valueOf(shortcutsIconColorMode));
+        mShortcutsIconColorMode.setSummary(mShortcutsIconColorMode.getEntry());
+        mShortcutsIconColorMode.setOnPreferenceChangeListener(this);
+
+        PreferenceCategory catColors =
+                (PreferenceCategory) findPreference(PREF_LOCKSCREEN_SHORTCUTS_CAT_COLOR);
+        mShortcutsIconColor =
+                (ColorPickerPreference) findPreference(PREF_LOCKSCREEN_SHORTCUTS_ICON_COLOR);
+        if (shortcutsIconColorMode != 3) {
+            int intColor = Settings.System.getInt(mResolver,
+                    Settings.System.LOCKSCREEN_SHORTCUTS_ICON_COLOR,
+                    DEFAULT_ICON_COLOR);
+            String hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mShortcutsIconColor.setSummary(hexColor);
+            mShortcutsIconColor.setNewPreviewColor(intColor);
+            mShortcutsIconColor.setOnPreferenceChangeListener(this);
+        } else {
+            // Remove color preferences if color mode is set do disabled
+            catColors.removePreference(mShortcutsIconColor);
+            removePreference(PREF_LOCKSCREEN_SHORTCUTS_CAT_COLOR);
+        }
+
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, MENU_RESET, 0, R.string.reset)
+                .setIcon(R.drawable.ic_settings_backup) // use the backup icon
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_RESET:
+                showDialogInner(DLG_RESET);
+                return true;
+             default:
+                return super.onContextItemSelected(item);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -60,7 +139,87 @@ public class LockscreenShortcutSettings extends SettingsPreferenceFragment imple
             Settings.System.putInt(mResolver,
                 Settings.System.LOCKSCREEN_SHORTCUTS_LONGPRESS, value ? 1 : 0);
             return true;
+        } else if (preference == mShortcutsIconColorMode) {
+            int index = mShortcutsIconColorMode.findIndexOfValue((String) newValue);
+            int value = Integer.valueOf((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCKSCREEN_SHORTCUTS_ICON_COLOR_MODE, value);
+            mShortcutsIconColorMode.setSummary(
+                mShortcutsIconColorMode.getEntries()[index]);
+            refreshSettings();
+            return true;
+        } else if (preference == mShortcutsIconColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_SHORTCUTS_ICON_COLOR,
+                    intHex);
+            return true;
         }
         return false;
+    }
+
+    private void showDialogInner(int id) {
+        DialogFragment newFragment = MyAlertDialogFragment.newInstance(id);
+        newFragment.setTargetFragment(this, 0);
+        newFragment.show(getFragmentManager(), "dialog " + id);
+    }
+
+    public static class MyAlertDialogFragment extends DialogFragment {
+
+        public static MyAlertDialogFragment newInstance(int id) {
+            MyAlertDialogFragment frag = new MyAlertDialogFragment();
+            Bundle args = new Bundle();
+            args.putInt("id", id);
+            frag.setArguments(args);
+            return frag;
+        }
+
+        LockscreenShortcutSettings getOwner() {
+            return (LockscreenShortcutSettings) getTargetFragment();
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            int id = getArguments().getInt("id");
+            switch (id) {
+                case DLG_RESET:
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.reset)
+                    .setMessage(R.string.dlg_reset_values_message)
+                    .setNegativeButton(R.string.cancel, null)
+                    .setNeutralButton(R.string.dlg_reset_android,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCKSCREEN_SHORTCUTS_ICON_COLOR_MODE, 3);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCKSCREEN_SHORTCUTS_ICON_COLOR,
+                                    DEFAULT_ICON_COLOR);
+                            getOwner().refreshSettings();
+                        }
+                    })
+                    .setPositiveButton(R.string.dlg_reset_darkkat,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCKSCREEN_SHORTCUTS_ICON_COLOR_MODE, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.LOCKSCREEN_SHORTCUTS_ICON_COLOR,
+                                    0xff33b5e5);
+                            getOwner().refreshSettings();
+                        }
+                    })
+                    .create();
+            }
+            throw new IllegalArgumentException("unknown id " + id);
+        }
+
+        @Override
+        public void onCancel(DialogInterface dialog) {
+
+        }
     }
 }

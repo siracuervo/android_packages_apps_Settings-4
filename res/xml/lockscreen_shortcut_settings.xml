@@ -18,20 +18,44 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/lockscreen_shortcut_settings_title">
 
-    <PreferenceScreen
-             android:key="lockscreen_shortcuts"
-             android:title="@string/lockscreen_shortcuts_title"
-             android:summary="@string/lockscreen_shortcuts_summary"
-             android:fragment="com.android.settings.darkkat.dslv.ButtonsListViewSettings">
-         <extra android:name="buttonMode" android:value="3" />
-         <extra android:name="maxAllowedButtons" android:value="5" />
-         <extra android:name="disableLongpress" android:value="true" />
-         <extra android:name="useAppPickerOnly" android:value="true" />
-     </PreferenceScreen>
+    <PreferenceCategory
+            android:key="lockscreen_shortcuts_cat_options"
+            android:title="@string/options_title" >
 
-    <CheckBoxPreference
-        android:key="lockscreen_shortcuts_longpress"
-        android:title="@string/lockscreen_shorcuts_longpress_title"
-        android:summary="@string/lockscreen_shorcuts_longpress_summary" />
+        <PreferenceScreen
+                 android:key="lockscreen_shortcuts"
+                 android:title="@string/lockscreen_shortcuts_title"
+                 android:summary="@string/lockscreen_shortcuts_summary"
+                 android:fragment="com.android.settings.darkkat.dslv.ButtonsListViewSettings">
+             <extra android:name="buttonMode" android:value="3" />
+             <extra android:name="maxAllowedButtons" android:value="5" />
+             <extra android:name="disableLongpress" android:value="true" />
+             <extra android:name="useAppPickerOnly" android:value="true" />
+         </PreferenceScreen>
+
+        <CheckBoxPreference
+            android:key="lockscreen_shortcuts_longpress"
+            android:title="@string/lockscreen_shorcuts_longpress_title"
+            android:summary="@string/lockscreen_shorcuts_longpress_summary" />
+
+        <ListPreference
+             android:key="lockscreen_shortcuts_icon_color_mode"
+             android:title="@string/button_color_mode_title"
+             android:entries="@array/icon_color_mode_entries"
+             android:entryValues="@array/icon_color_mode_values"
+             android:dialogTitle="@string/button_color_mode_dialog_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:key="lockscreen_shortcuts_cat_color"
+            android:title="@string/cat_color_title" >
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+             android:key="lockscreen_shortcuts_icon_color"
+             android:title="@string/icon_title"
+             android:defaultValue="0xffffffff" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
