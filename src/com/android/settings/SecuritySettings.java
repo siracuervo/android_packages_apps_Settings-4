@@ -43,7 +43,7 @@ import android.security.KeyStore;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import com.android.internal.telephony.util.BlacklistUtils;
+// import com.android.internal.telephony.util.BlacklistUtils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.R;
 
@@ -68,7 +68,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private static final String KEY_DEVICE_ADMIN_CATEGORY = "device_admin_category";
     private static final String KEY_LOCK_AFTER_TIMEOUT = "lock_after_timeout";
     private static final String KEY_OWNER_INFO_SETTINGS = "owner_info_settings";
-    private static final String KEY_BLACKLIST = "blacklist";
+    // private static final String KEY_BLACKLIST = "blacklist";
     private static final String KEY_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
     private static final String KEY_ADVANCED_REBOOT = "advanced_reboot";
 
@@ -109,7 +109,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private CheckBoxPreference mToggleVerifyApps;
     private CheckBoxPreference mPowerButtonInstantlyLocks;
 
-    private PreferenceScreen mBlacklist;
+    // private PreferenceScreen mBlacklist;
     private CheckBoxPreference mQuickUnlockScreen;
     private CheckBoxPreference mAdvancedReboot;
 
@@ -311,13 +311,13 @@ public class SecuritySettings extends RestrictedSettingsFragment
             }
         }
 
-        mBlacklist = (PreferenceScreen) root.findPreference(KEY_BLACKLIST);
+        // mBlacklist = (PreferenceScreen) root.findPreference(KEY_BLACKLIST);
 
         // Determine options based on device telephony support
-        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
-            // No telephony, remove dependent options
-            root.removePreference(mBlacklist);
-        }
+        // if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
+        //     // No telephony, remove dependent options
+        //     root.removePreference(mBlacklist);
+        // }
 
         mNotificationAccess = findPreference(KEY_NOTIFICATION_ACCESS);
         if (mNotificationAccess != null) {
@@ -510,7 +510,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
             mResetCredentials.setEnabled(!mKeyStore.isEmpty());
         }
 
-        updateBlacklistSummary();
+        // updateBlacklistSummary();
     }
 
     @Override
@@ -640,13 +640,13 @@ public class SecuritySettings extends RestrictedSettingsFragment
         startActivity(intent);
     }
 
-    private void updateBlacklistSummary() {
-        if (mBlacklist != null) {
-            if (BlacklistUtils.isBlacklistEnabled(getActivity())) {
-                mBlacklist.setSummary(R.string.blacklist_summary);
-            } else {
-                mBlacklist.setSummary(R.string.disabled);
-            }
-        }
-    }
+    // private void updateBlacklistSummary() {
+    //     if (mBlacklist != null) {
+    //         if (BlacklistUtils.isBlacklistEnabled(getActivity())) {
+    //             mBlacklist.setSummary(R.string.blacklist_summary);
+    //         } else {
+    //             mBlacklist.setSummary(R.string.disabled);
+    //         }
+    //     }
+    // }
 }

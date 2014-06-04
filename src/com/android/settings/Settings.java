@@ -71,14 +71,14 @@ import com.android.settings.applications.ManageApplications;
 import com.android.settings.applications.ProcessStatsUi;
 import com.android.settings.bluetooth.BluetoothEnabler;
 import com.android.settings.bluetooth.BluetoothSettings;
-import com.android.settings.darkkat.blacklist.BlacklistSettings;
+// import com.android.settings.darkkat.blacklist.BlacklistSettings;
 import com.android.settings.darkkat.InterfaceMoreSettings;
 import com.android.settings.darkkat.StatusBarBatteryStatusStyle;
 import com.android.settings.darkkat.StatusBarNetworkSpeedStyle;
 import com.android.settings.darkkat.StatusBarExpandedQs;
 import com.android.settings.darkkat.RamBar;
 import com.android.settings.darkkat.DisplayRotation;
-import com.android.settings.darkkat.QuietHours;
+// import com.android.settings.darkkat.QuietHours;
 import com.android.settings.deviceinfo.Memory;
 import com.android.settings.deviceinfo.UsbSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
@@ -364,9 +364,9 @@ public class Settings extends PreferenceActivity
         StatusBarNetworkSpeedStyle.class.getName(),
         StatusBarExpandedQs.class.getName(),
         RamBar.class.getName(),
-        DisplayRotation.class.getName(),
-        QuietHours.class.getName(),
-        BlacklistSettings.class.getName()
+        DisplayRotation.class.getName()
+        // QuietHours.class.getName(),
+        // BlacklistSettings.class.getName()
     };
 
     @Override
@@ -521,7 +521,7 @@ public class Settings extends PreferenceActivity
         // uiOptions for fragments also defined as activities in manifest.
         if (WifiSettings.class.getName().equals(fragmentName) ||
                 WifiP2pSettings.class.getName().equals(fragmentName) ||
-                BlacklistSettings.class.getName().equals(fragmentName) ||
+                // BlacklistSettings.class.getName().equals(fragmentName) ||
                 BluetoothSettings.class.getName().equals(fragmentName) ||
                 DreamSettings.class.getName().equals(fragmentName) ||
                 LocationSettings.class.getName().equals(fragmentName) ||
@@ -1152,7 +1152,7 @@ public class Settings extends PreferenceActivity
     public static class StatusBarExpandedQsSettingsActivity extends Settings { /* empty */ }
     public static class RamBarSettingsActivity extends Settings { /* empty */ }
     public static class DisplayRotationSettingsActivity extends Settings { /* empty */ }
-    public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
-    public static class BlacklistSettingsActivity extends Settings { /* empty */ }
+    // public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
+    // public static class BlacklistSettingsActivity extends Settings { /* empty */ }
     public static class PerformanceSettingsActivity extends Settings { /* empty */ }
 }

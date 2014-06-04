@@ -67,8 +67,8 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" /> -->
 
     <application android:label="@string/settings_label"
             android:icon="@mipmap/ic_launcher_settings"
@@ -131,7 +131,7 @@
             </intent-filter>
         </activity>
 
-        <!-- QuietHours SmsCall Service -->
+        <!-- QuietHours SmsCall Service Disabled (temporally)
 
         <service android:name=".darkkat.service.SmsCallService"/>
         <service android:name=".darkkat.service.AlarmService"/>
@@ -160,9 +160,11 @@
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:taskAffinity="com.android.settings.darkkat.service.BypassAlarm"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" /> -->
 
-        <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->
+
+        <!-- "Blacklist settings" UI, used only on voice-capable phone devices.
+             Disabled (temporally)
         <activity android:name="Settings$BlacklistSettingsActivity"
                 android:theme="@android:style/Theme.Holo.DialogWhenLarge"
                 android:uiOptions="splitActionBarWhenNarrow"
@@ -177,7 +179,7 @@
                 android:value="com.android.settings.darkkat.blacklist.BlacklistSettings" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/security_settings" />
-        </activity>
+        </activity>  -->
 
         <!-- Wireless Controls -->
 
@@ -1712,10 +1714,10 @@
                 android:value="com.android.settings.darkkat.RamBar" />
         </activity>
 
-        <!-- Pseudo-activity used to provide an intent-filter entry point to rotation settings -->
+        <!-- Pseudo-activity used to provide an intent-filter entry point to Quiet hours settings
         <activity android:name="Settings$QuietHoursSettingsActivity"
-                android:label="@string/display_rotation_title"
-                android:taskAffinity=""
+                android:label="@string/"
+                android:taskAffinity="quiet_hours_title"
                 android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1723,11 +1725,11 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.darkkat.QuietHours" />
-        </activity>
+        </activity> -->
 
-        <!-- Pseudo-activity used to provide an intent-filter entry point to Quiet hours settings -->
+        <!-- Pseudo-activity used to provide an intent-filter entry point to rotation settings -->
         <activity android:name="Settings$DisplayRotationSettingsActivity"
-                android:label="@string/quiet_hours_title"
+                android:label="@string/display_rotation_title"
                 android:taskAffinity=""
                 android:excludeFromRecents="true">
             <intent-filter>
