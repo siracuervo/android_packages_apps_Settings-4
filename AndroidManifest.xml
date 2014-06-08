@@ -131,7 +131,7 @@
             </intent-filter>
         </activity>
 
-        <!-- QuietHours SmsCall Service Disabled (temporally)
+        <!-- QuietHours SmsCall Service  -->
 
         <service android:name=".darkkat.service.SmsCallService"/>
         <service android:name=".darkkat.service.AlarmService"/>
@@ -160,7 +160,7 @@
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:taskAffinity="com.android.settings.darkkat.service.BypassAlarm"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" /> -->
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
 
         <!-- "Blacklist settings" UI, used only on voice-capable phone devices.
@@ -1714,10 +1714,10 @@
                 android:value="com.android.settings.darkkat.RamBar" />
         </activity>
 
-        <!-- Pseudo-activity used to provide an intent-filter entry point to Quiet hours settings
+        <!-- Pseudo-activity used to provide an intent-filter entry point to Quiet hours settings -->
         <activity android:name="Settings$QuietHoursSettingsActivity"
-                android:label="@string/"
-                android:taskAffinity="quiet_hours_title"
+                android:label="@string/quiet_hours_title"
+                android:taskAffinity=""
                 android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1725,7 +1725,7 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.darkkat.QuietHours" />
-        </activity> -->
+        </activity>
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to rotation settings -->
         <activity android:name="Settings$DisplayRotationSettingsActivity"
