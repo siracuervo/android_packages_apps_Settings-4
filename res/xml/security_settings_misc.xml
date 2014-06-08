@@ -20,11 +20,10 @@
         android:key="user_security_category"
         android:title="@string/user_security_category_title">
 
-        <!-- Disabled (temporally)
         <PreferenceScreen
             android:key="blacklist"
             android:title="@string/blacklist_title"
-            android:fragment="com.android.settings.darkkat.blacklist.BlacklistSettings" /> -->
+            android:fragment="com.android.settings.darkkat.blacklist.BlacklistSettings" />
 
         <CheckBoxPreference
             android:key="advanced_reboot"
