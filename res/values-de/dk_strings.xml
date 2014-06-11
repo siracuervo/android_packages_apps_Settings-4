@@ -513,6 +513,7 @@
     <string name="title_tile_wifiap">Wi-Fi AP</string>
     <string name="title_tile_wifi">Wi-Fi</string>
     <string name="title_tile_user">Benutzer-Wechsel</string>
+    <string name="title_tile_lte">LTE</string>
     <string name="title_tile_networkmode">Netzwerk Modus</string>
     <string name="title_tile_networkspeed">Netzwerk Geschw.</string>
     <string name="title_tile_expanded_desktop">Immersive Mode</string>

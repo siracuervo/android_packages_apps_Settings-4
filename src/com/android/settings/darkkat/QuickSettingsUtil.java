@@ -32,6 +32,7 @@ import static com.android.internal.util.darkkat.QSConstants.TILE_DELIMITER;
 import static com.android.internal.util.darkkat.QSConstants.TILE_IMESWITCHER;
 import static com.android.internal.util.darkkat.QSConstants.TILE_LOCATION;
 import static com.android.internal.util.darkkat.QSConstants.TILE_LOCKSCREEN;
+import static com.android.internal.util.darkkat.QSConstants.TILE_LTE;
 import static com.android.internal.util.darkkat.QSConstants.TILE_MOBILEDATA;
 import static com.android.internal.util.darkkat.QSConstants.TILE_MUSIC;
 import static com.android.internal.util.darkkat.QSConstants.TILE_NETWORKMODE;
@@ -100,6 +101,9 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_LOCKSCREEN, R.string.title_tile_lockscreen,
                 "com.android.systemui:drawable/ic_qs_lock_screen_on"));
+        registerTile(new QuickSettingsUtil.TileInfo(
+                TILE_LTE, R.string.title_tile_lte,
+                "com.android.systemui:drawable/ic_qs_lte_on"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_MOBILEDATA, R.string.title_tile_mobiledata,
                 "com.android.systemui:drawable/ic_qs_signal_full_4"));
@@ -197,6 +201,11 @@ public class QuickSettingsUtil {
         // Don't show the NFC tile if not supported
         if (!DeviceUtils.deviceSupportsNfc(context)) {
             removeTile(TILE_NFC);
+        }
+
+        // Don't show the LTE tile if not supported
+        if (!DeviceUtils.deviceSupportsLte(context)) {
+            removeTile(TILE_LTE);
         }
 
         // Don't show the Torch tile if not supported
