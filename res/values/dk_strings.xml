@@ -647,6 +647,7 @@
     <string name="recents_clear_all_button_rt">Top right</string>
     <string name="recents_clear_all_button_lb">Bottom left</string>
     <string name="recents_clear_all_button_rb">Bottom right</string>
+    <string name="recents_clear_all_button_color_title">Clear all button</string>
 
     <!-- (Interface category) More settings -->
     <string name="listview_settings_title">List view</string>

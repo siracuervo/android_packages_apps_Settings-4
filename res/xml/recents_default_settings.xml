@@ -49,5 +49,10 @@ limitations under the License.
             android:title="@string/bg_title"
             android:defaultValue="0xe0000000" />
 
+         <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="recents_clear_all_button_color"
+            android:title="@string/recents_clear_all_button_color_title"
+            android:defaultValue="0xffffffff" />
+
     </PreferenceCategory>
 </PreferenceScreen>

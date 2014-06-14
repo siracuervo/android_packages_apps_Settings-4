@@ -72,6 +72,8 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             "recents_clear_all_button_position";
     private static final String PREF_RECENTS_BG_COLOR =
             "recents_bg_color";
+    private static final String PREF_RECENTS_CLEAR_ALL_BTN_COLOR =
+            "recents_clear_all_button_color";
 
     private static final int DEFAULT_POWER_MENU_ICON_COLOR =
             0xffffffff;
@@ -83,6 +85,8 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             0xffcdcdcd;
     private static final int DEFAULT_RECENTS_BG_COLOR =
             0xe0000000;
+    private static final int DEFAULT_RECENTS_CLEAR_ALL_BTN_COLOR =
+            0xffffffff;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -99,6 +103,7 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
     private Preference mRamBar;
     private ListPreference mClearAllBtnPosition;
     private ColorPickerPreference mRecentsBgColor;
+    private ColorPickerPreference mRecentsClearAllBtnColor;
 
     private ContentResolver mResolver;
 
@@ -232,6 +237,16 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             mRecentsBgColor.setAlphaSliderEnabled(true);
             mRecentsBgColor.setOnPreferenceChangeListener(this);
 
+            mRecentsClearAllBtnColor =
+                    (ColorPickerPreference) findPreference(PREF_RECENTS_CLEAR_ALL_BTN_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.RECENT_CLEAR_ALL_BTN_COLOR,
+                    DEFAULT_RECENTS_CLEAR_ALL_BTN_COLOR);
+            mRecentsClearAllBtnColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mRecentsClearAllBtnColor.setSummary(hexColor);
+            mRecentsClearAllBtnColor.setOnPreferenceChangeListener(this);
+
             updateRamBar();
         }
 
@@ -354,6 +369,14 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                 Settings.System.RECENT_BG_COLOR, intHex);
             preference.setSummary(hex);
             return true;
+        } else if (preference == mRecentsClearAllBtnColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.RECENT_CLEAR_ALL_BTN_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
         }
 
         return false;
@@ -426,6 +449,9 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                                 Settings.System.putInt(getOwner().mResolver,
                                         Settings.System.RECENT_BG_COLOR,
                                         DEFAULT_RECENTS_BG_COLOR);
+                                Settings.System.putInt(getOwner().mResolver,
+                                        Settings.System.RECENT_CLEAR_ALL_BTN_COLOR,
+                                        DEFAULT_RECENTS_CLEAR_ALL_BTN_COLOR);
                             }
                             getOwner().refreshSettings();
                         }
@@ -452,6 +478,9 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                                 Settings.System.putInt(getOwner().mResolver,
                                         Settings.System.RECENT_BG_COLOR,
                                         DEFAULT_RECENTS_BG_COLOR);
+                                Settings.System.putInt(getOwner().mResolver,
+                                        Settings.System.RECENT_CLEAR_ALL_BTN_COLOR,
+                                        0xff33b5e5);
                             }
                             getOwner().refreshSettings();
                         }
