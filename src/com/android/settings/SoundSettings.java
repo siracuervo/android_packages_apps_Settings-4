@@ -47,6 +47,7 @@ import android.provider.MediaStore;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.VolumePanel;
 
 import java.util.List;
 
@@ -66,6 +67,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String KEY_DTMF_TONE = "dtmf_tone";
     private static final String KEY_SOUND_EFFECTS = "sound_effects";
     private static final String KEY_HAPTIC_FEEDBACK = "haptic_feedback";
+    private static final String KEY_VOLUME_OVERLAY = "volume_overlay";
     private static final String KEY_EMERGENCY_TONE = "emergency_tone";
     private static final String KEY_SOUND_SETTINGS = "sound_settings";
     private static final String KEY_LOCK_SOUNDS = "lock_sounds";
@@ -91,6 +93,8 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mDtmfTone;
     private CheckBoxPreference mSoundEffects;
     private CheckBoxPreference mHapticFeedback;
+    private ListPreference mVolumeOverlay;
+    private ListPreference mEmergencyTonePreference;
     private Preference mMusicFx;
     private CheckBoxPreference mLockSounds;
     private Preference mRingtonePreference;
@@ -176,6 +180,12 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         mHapticFeedback.setPersistent(false);
         mHapticFeedback.setChecked(Settings.System.getInt(resolver,
                 Settings.System.HAPTIC_FEEDBACK_ENABLED, 1) != 0);
+        mVolumeOverlay = (ListPreference) findPreference(KEY_VOLUME_OVERLAY);
+        mVolumeOverlay.setOnPreferenceChangeListener(this);
+        int volumeOverlay = Settings.System.getInt(resolver,
+                Settings.System.MODE_VOLUME_OVERLAY, VolumePanel.VOLUME_OVERLAY_EXPANDABLE);
+        mVolumeOverlay.setValue(Integer.toString(volumeOverlay));
+        mVolumeOverlay.setSummary(mVolumeOverlay.getEntry());
         mLockSounds = (CheckBoxPreference) findPreference(KEY_LOCK_SOUNDS);
         mLockSounds.setPersistent(false);
         mLockSounds.setChecked(Settings.System.getInt(resolver,
@@ -196,11 +206,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         }
 
         if (TelephonyManager.PHONE_TYPE_CDMA == activePhoneType) {
-            ListPreference emergencyTonePreference =
+            mEmergencyTonePreference =
                 (ListPreference) findPreference(KEY_EMERGENCY_TONE);
-            emergencyTonePreference.setValue(String.valueOf(Settings.Global.getInt(
+            mEmergencyTonePreference.setValue(String.valueOf(Settings.Global.getInt(
                 resolver, Settings.Global.EMERGENCY_TONE, FALLBACK_EMERGENCY_TONE_VALUE)));
-            emergencyTonePreference.setOnPreferenceChangeListener(this);
+            mEmergencyTonePreference.setOnPreferenceChangeListener(this);
         }
 
         mSoundSettings = (PreferenceGroup) findPreference(KEY_SOUND_SETTINGS);
@@ -359,8 +369,13 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        final String key = preference.getKey();
-        if (KEY_EMERGENCY_TONE.equals(key)) {
+        if (preference == mVolumeOverlay) {
+            int value = Integer.valueOf((String) objValue);
+            int index = mVolumeOverlay.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.MODE_VOLUME_OVERLAY, value);
+            mVolumeOverlay.setSummary(mVolumeOverlay.getEntries()[index]);
+        } else if (preference == mEmergencyTonePreference) {
             try {
                 int value = Integer.parseInt((String) objValue);
                 Settings.Global.putInt(getContentResolver(),

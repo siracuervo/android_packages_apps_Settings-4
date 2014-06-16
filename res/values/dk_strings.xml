@@ -745,6 +745,13 @@
     <string name="quiet_hours_alarm_dialog_title">QUIETHOURS BYPASSED</string>
     <string name="quiet_hours_alarm_message">" met the requirements to bypass Quiet Hours!"</string>
 
+    <!-- Volume Overlay -->
+    <string name="volume_overlay_title">Volume panel style</string>
+    <string name="volume_overlay_single">Single</string>
+    <string name="volume_overlay_expandable">Expandable</string>
+    <string name="volume_overlay_expanded">Expanded</string>
+    <string name="volume_overlay_disable">Disable</string>
+
     <!-- Safe headset volume warning -->
     <string name="safe_headset_volume_warning_title">Volume warning</string>
     <string name="safe_headset_volume_warning_summary">Activate, to show safe headset volume warning</string>

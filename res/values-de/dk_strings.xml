@@ -744,6 +744,13 @@
     <string name="quiet_hours_alarm_dialog_title">RUHIGE STUNDEN UMGANGEN</string>
     <string name="quiet_hours_alarm_message">" erfüllt die Vorraussetzungen um die Ruhigen Stunden zu umgehen!"</string>
 
+    <!-- Volume Overlay -->
+    <string name="volume_overlay_title">Lautstärke-Feld</string>
+    <string name="volume_overlay_single">Einzeln</string>
+    <string name="volume_overlay_expandable">Erweiterbar</string>
+    <string name="volume_overlay_expanded">Erweitert</string>
+    <string name="volume_overlay_disable">Deaktiviert</string>
+
     <!-- Safe headset volume warning -->
     <string name="safe_headset_volume_warning_title">Lautstärke Warnung</string>
     <string name="safe_headset_volume_warning_summary">Aktivieren um die Kopfhörer Lautstärke Warnung anzuzeigen</string>
