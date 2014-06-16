@@ -379,6 +379,20 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="qs_smart_pulldown_entries" translatable="false">
+        <item>@string/qs_smart_pulldown_off</item>
+        <item>@string/qs_smart_pulldown_dismissable</item>
+        <item>@string/qs_smart_pulldown_persistent</item>
+        <item>@string/qs_smart_pulldown_all</item>
+    </string-array>
+
+    <string-array name="qs_smart_pulldown_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
     <string-array name="pref_navigation_menu_entries">
         <item>@string/navigation_menu_right</item>
         <item>@string/navigation_menu_left</item>
@@ -474,6 +488,7 @@
         <item>@string/shortcut_action_ime</item>
         <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_qs</item>
+        <item>@string/shortcut_action_smart</item>
         <item>@string/shortcut_action_ring_silent</item>
         <item>@string/shortcut_action_ring_vib</item>
         <item>@string/shortcut_action_ring_vib_silent</item>
@@ -493,6 +508,7 @@
         <item>**ime**</item>
         <item>**power_menu**</item>
         <item>**quicksettings**</item>
+        <item>**smart_pulldown**</item>
         <item>**ring_silent**</item>
         <item>**ring_vib**</item>
         <item>**ring_vib_silent**</item>
@@ -645,6 +661,7 @@
         <item>@string/shortcut_action_ime</item>
         <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_qs</item>
+        <item>@string/shortcut_action_smart</item>
         <item>@string/shortcut_action_recent</item>
         <item>@string/shortcut_action_power</item>
         <item>@string/shortcut_action_screenshot</item>
@@ -665,6 +682,7 @@
         <item>**ime**</item>
         <item>**power_menu**</item>
         <item>**quicksettings**</item>
+        <item>**smart_pulldown**</item>
         <item>**recents**</item>
         <item>**power**</item>
         <item>**screenshot**</item>
@@ -681,6 +699,7 @@
         <item>@string/shortcut_action_ime</item>
         <item>@string/shortcut_action_power_menu</item>
         <item>@string/shortcut_action_qs</item>
+        <item>@string/shortcut_action_smart</item>
         <item>@string/shortcut_action_recent</item>
         <item>@string/shortcut_action_ring_silent</item>
         <item>@string/shortcut_action_ring_vib</item>
@@ -699,6 +718,7 @@
         <item>**ime**</item>
         <item>**power_menu**</item>
         <item>**quicksettings**</item>
+        <item>**smart_pulldown**</item>
         <item>**recents**</item>
         <item>**ring_silent**</item>
         <item>**ring_vib**</item>

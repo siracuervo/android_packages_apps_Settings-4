@@ -17,6 +17,7 @@
 package com.android.settings.darkkat;
 
 import android.content.ContentResolver;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -34,11 +35,17 @@ public class StatusBarExpandedQsOptions extends SettingsPreferenceFragment imple
 
     private static final String TAG = "StatusBarExpandedQsOptions";
 
-    private static final String PREF_QUICK_PULLDOWN = "qs_quick_pulldown";
-    private static final String PREF_TILES_PER_ROW = "tiles_per_row";
-    private static final String PREF_TILES_PER_ROW_DUPLICATE_LANDSCAPE = "tiles_per_row_duplicate_landscape";
+    private static final String PREF_QUICK_PULLDOWN =
+            "qs_quick_pulldown";
+    private static final String PREF_SMART_PULLDOWN =
+            "qs_smart_pulldown";
+    private static final String PREF_TILES_PER_ROW =
+            "tiles_per_row";
+    private static final String PREF_TILES_PER_ROW_DUPLICATE_LANDSCAPE =
+            "tiles_per_row_duplicate_landscape";
 
     private ListPreference mQuickPulldown;
+    private ListPreference mSmartPulldown;
     private ListPreference mTilesPerRow;
     private CheckBoxPreference mDuplicateColumnsLandscape;
 
@@ -61,6 +68,13 @@ public class StatusBarExpandedQsOptions extends SettingsPreferenceFragment imple
             mQuickPulldown.setSummary(mQuickPulldown.getEntry());
             mQuickPulldown.setOnPreferenceChangeListener(this);
 
+            mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
+            int smartPulldown = Settings.System.getInt(mResolver,
+                    Settings.System.QS_SMART_PULLDOWN, 0);
+            mSmartPulldown.setValue(String.valueOf(smartPulldown));
+            updateSmartPulldownSummary(smartPulldown);
+            mSmartPulldown.setOnPreferenceChangeListener(this);
+
             mDuplicateColumnsLandscape =
                 (CheckBoxPreference) findPreference(PREF_TILES_PER_ROW_DUPLICATE_LANDSCAPE);
             mDuplicateColumnsLandscape.setChecked(Settings.System.getInt(mResolver,
@@ -68,6 +82,7 @@ public class StatusBarExpandedQsOptions extends SettingsPreferenceFragment imple
             mDuplicateColumnsLandscape.setOnPreferenceChangeListener(this);
         } else {
             removePreference(PREF_QUICK_PULLDOWN);
+            removePreference(PREF_SMART_PULLDOWN);
             removePreference(PREF_TILES_PER_ROW_DUPLICATE_LANDSCAPE);
         }
 
@@ -84,20 +99,55 @@ public class StatusBarExpandedQsOptions extends SettingsPreferenceFragment imple
         if (preference == mQuickPulldown) {
             int quickPulldown = Integer.valueOf((String) newValue);
             int index = mQuickPulldown.findIndexOfValue((String) newValue);
-            Settings.System.putInt(mResolver, Settings.System.QS_QUICK_PULLDOWN, quickPulldown);
+            Settings.System.putInt(mResolver,
+                    Settings.System.QS_QUICK_PULLDOWN, quickPulldown);
             mQuickPulldown.setSummary(mQuickPulldown.getEntries()[index]);
+            return true;
+        } else if (preference == mSmartPulldown) {
+            int smartPulldown = Integer.valueOf((String) newValue);
+            int index = mSmartPulldown.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.QS_SMART_PULLDOWN, smartPulldown);
+            updateSmartPulldownSummary(smartPulldown);
             return true;
         } else if (preference == mTilesPerRow) {
             int index = mTilesPerRow.findIndexOfValue((String) newValue);
             int value = Integer.valueOf((String) newValue);
-            Settings.System.putInt(mResolver, Settings.System.QUICK_TILES_PER_ROW, value);
+            Settings.System.putInt(mResolver,
+                    Settings.System.QUICK_TILES_PER_ROW, value);
             mTilesPerRow.setSummary(mTilesPerRow.getEntries()[index]);
             return true;
         } else if (preference == mDuplicateColumnsLandscape) {
-            Settings.System.putInt(mResolver, Settings.System.QUICK_TILES_PER_ROW_DUPLICATE_LANDSCAPE,
+            Settings.System.putInt(mResolver,
+                    Settings.System.QUICK_TILES_PER_ROW_DUPLICATE_LANDSCAPE,
                     (Boolean) newValue ? 1 : 0);
             return true;
         }
         return false;
+    }
+
+    private void updateSmartPulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // Smart pulldown deactivated
+            mSmartPulldown.setSummary(res.getString(R.string.qs_smart_pulldown_off));
+        } else {
+            String type = null;
+            switch (value) {
+                case 1:
+                    type = res.getString(R.string.qs_smart_pulldown_dismissable);
+                    break;
+                case 2:
+                    type = res.getString(R.string.qs_smart_pulldown_persistent);
+                    break;
+                default:
+                    type = res.getString(R.string.qs_smart_pulldown_all);
+                    break;
+            }
+            // Remove title capitalized formatting
+            type = type.toLowerCase();
+            mSmartPulldown.setSummary(res.getString(R.string.qs_smart_pulldown_summary, type));
+        }
     }
 }

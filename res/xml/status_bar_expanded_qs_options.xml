@@ -25,6 +25,12 @@
 		android:entries="@array/qs_quick_pulldown_entries"
 		android:entryValues="@array/qs_quick_pulldown_values" />
 
+        <ListPreference
+            android:key="qs_smart_pulldown"
+            android:title="@string/qs_smart_pulldown_title"
+            android:entries="@array/qs_smart_pulldown_entries"
+            android:entryValues="@array/qs_smart_pulldown_values" />
+
     <ListPreference
         android:key="tiles_per_row"
         android:entries="@array/tiles_per_row_entries"

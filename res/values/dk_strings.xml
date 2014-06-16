@@ -124,6 +124,7 @@
     <string name="shortcut_action_notifications">Notifications</string>
     <string name="shortcut_action_menu_big">Menu</string>
     <string name="shortcut_action_qs">Quicksettings panel</string>
+    <string name="shortcut_action_smart">Smart pulldown</string>
     <string name="shortcut_action_none">None</string>
     <string name="shortcut_action_power_menu">Power menu</string>
     <string name="shortcut_action_torch">Torch</string>
@@ -492,6 +493,12 @@
     <string name="qs_quick_pulldown_title">Quick pulldown</string>
     <string name="qs_quick_pulldown_right">from right side</string>
     <string name="qs_quick_pulldown_left">from left side</string>
+    <string name="qs_smart_pulldown_title">Smart pulldown</string>
+    <string name="qs_smart_pulldown_summary">Open Quick Settings when there are %1$s notifications present</string>
+    <string name="qs_smart_pulldown_off">Off</string>
+    <string name="qs_smart_pulldown_dismissable">No dismissable</string>
+    <string name="qs_smart_pulldown_persistent">No persistent</string>
+    <string name="qs_smart_pulldown_all">No dismissable or persistent</string>
     <string name="tiles_per_row_title">Tiles per row</string>
     <string name="tiles_per_row_duplicate_landscape_title">Scale landscape quantity</string>
     <string name="tiles_per_row_duplicate_landscape_summary">Landscape view doubles tiles per row quantity</string>

@@ -124,6 +124,7 @@
     <string name="shortcut_action_notifications">Benachrichtigungen</string>
     <string name="shortcut_action_menu_big">Menü</string>
     <string name="shortcut_action_qs">Schnelleinstellungen</string>
+    <string name="shortcut_action_smart">Intelligentes Öffnen</string>
     <string name="shortcut_action_none">Keine</string>
     <string name="shortcut_action_power_menu">Ein-&#47;Aus Menü</string>
     <string name="shortcut_action_torch">Taschenlampe</string>
@@ -491,6 +492,12 @@
     <string name="qs_quick_pulldown_title">Schnelles Öffnen</string>
     <string name="qs_quick_pulldown_right">von der rechten Seite</string>
     <string name="qs_quick_pulldown_left">von der linken Seite</string>
+    <string name="qs_smart_pulldown_title">Intelligentes Öffnen</string>
+    <string name="qs_smart_pulldown_summary">Schnelleinstellungen öffnen wenn %1$s Benachrichtigungen vorhanden sind</string>
+    <string name="qs_smart_pulldown_off">Deaktiviert</string>
+    <string name="qs_smart_pulldown_dismissable">Keine verwerfbaren</string>
+    <string name="qs_smart_pulldown_persistent">Keine anhaltenden</string>
+    <string name="qs_smart_pulldown_all">Keine verwerfbaren oder anhaltenden</string>
     <string name="tiles_per_row_title">Kacheln in einer Reihe</string>
     <string name="tiles_per_row_duplicate_landscape_title">Kacheln im Querformat</string>
     <string name="tiles_per_row_duplicate_landscape_summary">Aktivieren um die Anzahl der Kacheln im Querformat verdoppelt wird</string>
