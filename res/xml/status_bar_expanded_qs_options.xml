@@ -19,11 +19,11 @@
     android:title="@string/options_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-	<ListPreference
-		android:key="qs_quick_pulldown"
-		android:title="@string/qs_quick_pulldown_title"
-		android:entries="@array/qs_quick_pulldown_entries"
-		android:entryValues="@array/qs_quick_pulldown_values" />
+    <ListPreference
+	    android:key="qs_quick_pulldown"
+	    android:title="@string/qs_quick_pulldown_title"
+	    android:entries="@array/qs_quick_pulldown_entries"
+	    android:entryValues="@array/qs_quick_pulldown_values" />
 
     <ListPreference
         android:key="qs_smart_pulldown"
