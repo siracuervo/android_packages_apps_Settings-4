@@ -758,6 +758,20 @@
     <string name="volume_overlay_expanded">Erweitert</string>
     <string name="volume_overlay_disable">Deaktiviert</string>
 
+    <!-- Increasing ringtone volume -->
+    <string name="checkbox_increasing_ring">Aktiviert</string>
+    <string name="increasing_ring_title">Ansteigender Klingelton</string>
+    <string name="increasing_ring_min_volume_title">Anfangs Lautstärke</string>
+    <string name="increasing_ring_volume_notice">Hinweis:\nDa die Anfangs Lautstärke höher als die Klingelton Lautstärke gewählt wurde, wird die Klingelton Lautstärke benutzt.</string>
+    <string name="increasing_ring_interval_title">Intervall der Erhöhung</string>
+    <string name="increasing_ring_interval_eachring">Bei jedem Klingeln</string>
+    <string name="increasing_ring_interval_half_second">0.5 Sekunden</string>
+    <string name="increasing_ring_interval_1second">1 Sekunde</string>
+    <string name="increasing_ring_interval_2seconds">2 Sekunden</string>
+    <string name="increasing_ring_interval_3seconds">3 Sekunden</string>
+    <string name="increasing_ring_interval_5seconds">5 Sekunden</string>
+    <string name="increasing_ring_interval_10seconds">10 Sekunden</string>
+
     <!-- Safe headset volume warning -->
     <string name="safe_headset_volume_warning_title">Lautstärke Warnung</string>
     <string name="safe_headset_volume_warning_summary">Aktivieren um die Kopfhörer Lautstärke Warnung anzuzeigen</string>

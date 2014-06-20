@@ -70,6 +70,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String KEY_VOLUME_OVERLAY = "volume_overlay";
     private static final String KEY_EMERGENCY_TONE = "emergency_tone";
     private static final String KEY_SOUND_SETTINGS = "sound_settings";
+    private static final String KEY_INCREASING_RING = "increasing_ring";
     private static final String KEY_LOCK_SOUNDS = "lock_sounds";
     private static final String KEY_RINGTONE = "ringtone";
     private static final String KEY_NOTIFICATION_SOUND = "notification_sound";
@@ -82,7 +83,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements
 
     private static final String[] NEED_VOICE_CAPABILITY = {
             KEY_RINGTONE, KEY_DTMF_TONE, KEY_CATEGORY_CALLS,
-            KEY_EMERGENCY_TONE, KEY_VIBRATE
+            KEY_EMERGENCY_TONE, KEY_VIBRATE, KEY_INCREASING_RING
     };
 
     private static final int MSG_UPDATE_RINGTONE_SUMMARY = 1;
