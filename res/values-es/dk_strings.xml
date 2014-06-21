@@ -252,7 +252,7 @@
     <string name="lockscreen_misk_settings_wifi_only_summary">Estado de la batería</string>
 
     <!-- Lockscreen background -->
-    <string name="lockscreen_see_through_summary">Hablita mostrar el contenido detrás de la pantalla de bloqueo. Tus datos pueden ser visibles para otras personas </string>
+    <string name="lockscreen_see_through_summary">Habilita mostrar el contenido detrás de la pantalla de bloqueo. Tus datos pueden ser visibles para otras personas </string>
     <string name="lockscreen_custom_image_disabled">Ver a través necesita ser deshabilitado</string>
     <string name="lockscreen_blur_radius_title">Intensidad del efecto de desenfoque</string>
     <string name="lockscreen_custom_image_title">Fondo de pantalla personalizado</string>
@@ -277,7 +277,7 @@
     <string name="lockscreen_glowpad_torch_title">Linterna</string>
     <string name="lockscreen_glowpad_torch_summary">Tocar dos veces y mantener para encender la linterna</string>
     <string name="lockscreen_targets_color_title">Accesos directos</string>
-    <string name="lockscreen_targets_ring_color_title">Accesos directos del anillo</string>
+    <string name="lockscreen_targets_ring_color_title">Atajos deslizantes del anillo</string>
     <string name="lockscreen_dots_color_title">Color de los puntos</string>
 
     <!-- Lockscreen targets -->
@@ -310,7 +310,7 @@
 
     <!-- Lockscreen Misk -->
     <string name="lockscreen_always_show_battery_status_title">Mostrar siempre el estado de la batería</string>
-    <string name="lockscreen_always_show_battery_status_summary">Mostrar siempre el estado de la batería cuando el cargador está desenchufado</string>
+    <string name="lockscreen_always_show_battery_status_summary">Muestra siempre el estado de la batería cuando el cargador está desenchufado</string>
     <string name="lockscreen_pattern_fail_color_title">Bloquear anillos de patrón (fallo)</string>
 
     <!-- Bars settings -->
