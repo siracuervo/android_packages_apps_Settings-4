@@ -124,6 +124,7 @@
     <string name="shortcut_action_notifications">Notificaciones</string>
     <string name="shortcut_action_menu_big">Menú</string>
     <string name="shortcut_action_qs">Panel de ajustes rápidos</string>
+    <string name="shortcut_action_smart">Desplegable inteligente</string>
     <string name="shortcut_action_none">Ninguno</string>
     <string name="shortcut_action_power_menu">Menú de Encendido</string>
     <string name="shortcut_action_torch">Linterna</string>
@@ -492,6 +493,12 @@
     <string name="qs_quick_pulldown_title">Despliegue rápido</string>
     <string name="qs_quick_pulldown_right">Derecha</string>
     <string name="qs_quick_pulldown_left">Izquierda</string>
+    <string name="qs_smart_pulldown_title">Desplegable inteligente</string>
+    <string name="qs_smart_pulldown_summary">Abrir configuración rápida cuando no haya %1$s notificationes presentes</string>
+    <string name="qs_smart_pulldown_off">Apagado</string>
+    <string name="qs_smart_pulldown_dismissable">Descartable</string>
+    <string name="qs_smart_pulldown_persistent">Persistente</string>
+    <string name="qs_smart_pulldown_all">No descartable o persistente</string>
     <string name="tiles_per_row_title">Botones por fila</string>
     <string name="tiles_per_row_duplicate_landscape_title">Cantidad en modo apaisado</string>
     <string name="tiles_per_row_duplicate_landscape_summary">Botones dobles de la vista apaisada por cantidad de filas</string>
@@ -744,6 +751,27 @@
     <string name="quiet_hours_alarm_and">" y "</string>
     <string name="quiet_hours_alarm_dialog_title">HORAS DE SILENCIO OMITIDAS</string>
     <string name="quiet_hours_alarm_message">" cumplido con los requisitos para omitir Horas de silencio!"</string>
+
+    <!-- Volume Overlay -->
+    <string name="volume_overlay_title">Estilo del panel de volume</string>
+    <string name="volume_overlay_single">Simple</string>
+    <string name="volume_overlay_expandable">Expandible</string>
+    <string name="volume_overlay_expanded">Expandido</string>
+    <string name="volume_overlay_disable">Nada</string>
+
+    <!-- Increasing ringtone volume -->
+    <string name="checkbox_increasing_ring">Habilitar</string>
+    <string name="increasing_ring_title">Tono de llamada ascendente</string>
+    <string name="increasing_ring_min_volume_title">Volumen inicial</string>
+    <string name="increasing_ring_volume_notice">Nota:\nSi el volumen inicial es más alto que el de la llamada, el volumen del tono empezará con el asignado en la llamada.</string>
+    <string name="increasing_ring_interval_title">Intervalo de incremento</string>
+    <string name="increasing_ring_interval_eachring">En cada tono</string>
+    <string name="increasing_ring_interval_half_second">0.5 segundos</string>
+    <string name="increasing_ring_interval_1second">1 segundo</string>
+    <string name="increasing_ring_interval_2seconds">2 segundos</string>
+    <string name="increasing_ring_interval_3seconds">3 segundos</string>
+    <string name="increasing_ring_interval_5seconds">5 segundos</string>
+    <string name="increasing_ring_interval_10seconds">10 segundos</string>
 
     <!-- Safe headset volume warning -->
     <string name="safe_headset_volume_warning_title">Volumen de seguridad de los auriculares</string>
