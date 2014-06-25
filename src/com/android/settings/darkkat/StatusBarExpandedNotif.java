@@ -17,6 +17,7 @@
 package com.android.settings.darkkat;
 
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.content.ContentResolver;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -43,6 +44,7 @@ public class StatusBarExpandedNotif extends SettingsPreferenceFragment implement
     private static final String PREF_QAR_TILE_PICKER =
             "qar_tile_picker";
 
+    private Preference mHeadsUp;
     private SeekBarPreference mNotificationAlpha;
     private CheckBoxPreference mQarShowTiles;
     private CheckBoxPreference mQarTilesLinked;
@@ -66,6 +68,8 @@ public class StatusBarExpandedNotif extends SettingsPreferenceFragment implement
 
         addPreferencesFromResource(R.xml.status_bar_expanded_notif);
         mResolver = getActivity().getContentResolver();
+
+        mHeadsUp = findPreference(Settings.System.HEADS_UP_NOTIFICATION);
 
         float notifTransparency;
         try{
@@ -145,5 +149,14 @@ public class StatusBarExpandedNotif extends SettingsPreferenceFragment implement
             categoryQar.removePreference(qarTilePicker);
         }
         mQarShowTiles.setEnabled(!removeQuarPreferences);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+       boolean headsUpEnabled = Settings.System.getInt(
+                getContentResolver(), Settings.System.HEADS_UP_NOTIFICATION, 0) == 1;
+        mHeadsUp.setSummary(headsUpEnabled
+                ? R.string.summary_heads_up_enabled : R.string.summary_heads_up_disabled);
     }
 }

@@ -19,6 +19,11 @@
     android:title="@string/status_bar_expanded_notification_drawer_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <Preference
+        android:key="heads_up_enabled"
+        android:title="@string/category_heads_up"
+        android:fragment="com.android.settings.darkkat.headsup.HeadsUpSettings" />
+
     <com.android.settings.widget.SeekBarPreference
          android:key="notification_alpha"
          android:title="@string/notif_alpha_title" />
