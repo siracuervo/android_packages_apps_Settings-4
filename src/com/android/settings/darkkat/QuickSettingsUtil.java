@@ -29,6 +29,7 @@ import static com.android.internal.util.darkkat.QSConstants.TILE_BLUETOOTH;
 import static com.android.internal.util.darkkat.QSConstants.TILE_BRIGHTNESS;
 import static com.android.internal.util.darkkat.QSConstants.TILE_BUGREPORT;
 import static com.android.internal.util.darkkat.QSConstants.TILE_DELIMITER;
+import static com.android.internal.util.darkkat.QSConstants.TILE_HEADS_UP;
 import static com.android.internal.util.darkkat.QSConstants.TILE_IMESWITCHER;
 import static com.android.internal.util.darkkat.QSConstants.TILE_LOCATION;
 import static com.android.internal.util.darkkat.QSConstants.TILE_LOCKSCREEN;
@@ -92,6 +93,9 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_BRIGHTNESS, R.string.title_tile_brightness,
                 "com.android.systemui:drawable/ic_qs_brightness_auto_off"));
+        registerTile(new QuickSettingsUtil.TileInfo(
+                TILE_HEADS_UP, R.string.title_tile_heads_up,
+                "com.android.systemui:drawable/ic_qs_heads_up_on"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_SLEEP, R.string.title_tile_sleep,
                 "com.android.systemui:drawable/ic_qs_sleep"));

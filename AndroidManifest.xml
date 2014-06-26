@@ -1688,6 +1688,19 @@
                 android:value="com.android.settings.darkkat.StatusBarNetworkSpeedStyle" />
         </activity>
 
+        <!-- Pseudo-activity used to provide an intent-filter entry point to heads up settings -->
+        <activity android:name="Settings$HeadsUpSettingsActivity"
+                android:label="@string/category_heads_up"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkkat.headsup.HeadsUpSettings" />
+        </activity>
+
         <!-- Pseudo-activity used to provide an intent-filter entry point to quick settings -->
         <activity android:name="Settings$StatusBarExpandedQsSettingsActivity"
                 android:label="@string/status_bar_expanded_quick_settings_title"
