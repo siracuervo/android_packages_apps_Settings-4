@@ -55,6 +55,7 @@ public class InterfaceMoreSettings extends SettingsPreferenceFragment implements
             "lock_clock";
 
     private Preference mCustomLabel;
+    private Preference mHeadsUp;
     private ListPreference mExpandedDesktop;
     private CheckBoxPreference mExpandedDesktopNoNavbar;
 
@@ -69,6 +70,8 @@ public class InterfaceMoreSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.interface_more_settings);
 
         mCustomLabel = findPreference(KEY_CUSTOM_CARRIER_LABEL);
+
+        mHeadsUp = findPreference(Settings.System.HEADS_UP_NOTIFICATION);
 
         // Expanded desktop
         mExpandedDesktop = (ListPreference) findPreference(KEY_EXPANDED_DESKTOP);
@@ -196,6 +199,11 @@ public class InterfaceMoreSettings extends SettingsPreferenceFragment implements
          if (!Utils.isWifiOnly(getActivity())) {
             updateCustomLabelTextSummary();
         }
+
+        boolean headsUpEnabled = Settings.System.getInt(
+                getContentResolver(), Settings.System.HEADS_UP_NOTIFICATION, 0) == 1;
+        mHeadsUp.setSummary(headsUpEnabled
+                ? R.string.heads_up_enabled_summary : R.string.heads_up_disabled_summary);
      }
  
      @Override

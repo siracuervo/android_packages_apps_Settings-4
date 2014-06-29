@@ -22,6 +22,11 @@ limitations under the License.
 	    android:key="custom_carrier_label"
 	    android:title="@string/custom_carrier_label_title" />
 
+    <Preference
+        android:key="heads_up_enabled"
+        android:title="@string/heads_up_title"
+        android:fragment="com.android.settings.darkkat.headsup.HeadsUpSettings" />
+
     <ListPreference
         android:key="expanded_desktop"
         android:title="@string/expanded_desktop_title"

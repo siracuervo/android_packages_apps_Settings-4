@@ -107,7 +107,7 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Get launch-able applications
-        addPreferencesFromResource(R.xml.status_bar_expanded_notif_heads_up);
+        addPreferencesFromResource(R.xml.heads_up);
         mResolver = getActivity().getContentResolver();
         mPackageManager = getPackageManager();
         mPackageAdapter = new PackageAdapter();
