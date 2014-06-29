@@ -20,6 +20,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -32,6 +33,8 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.ListPreference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
@@ -59,12 +62,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 
-public class HeadsUpSettings extends SettingsPreferenceFragment
-        implements AdapterView.OnItemLongClickListener, Preference.OnPreferenceClickListener {
+public class HeadsUpSettings extends SettingsPreferenceFragment implements
+        AdapterView.OnItemLongClickListener,
+        Preference.OnPreferenceClickListener,
+        OnPreferenceChangeListener {
+
+    private static final String PREF_HEADS_UP_TIMEOUT =
+            "heads_up_timeout";
+    private static final String PREF_HEADS_UP_TIMEOUT_FS =
+            "heads_up_timeout_fs";
 
     private static final int DIALOG_DND_APPS = 0;
     private static final int DIALOG_BLACKLIST_APPS = 1;
 
+    private ListPreference mTimeout;
+    private ListPreference mTimeoutFs;
     private PackageAdapter mPackageAdapter;
     private PackageManager mPackageManager;
     private PreferenceGroup mDndPrefList;
@@ -80,6 +92,7 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
     private Switch mActionBarSwitch;
     private HeadsUpEnabler mHeadsUpEnabler;
 
+    private ContentResolver mResolver;
     private ViewGroup mPrefsContainer;
     private View mDisabledText;
 
@@ -95,8 +108,25 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
         super.onCreate(savedInstanceState);
         // Get launch-able applications
         addPreferencesFromResource(R.xml.status_bar_expanded_notif_heads_up);
+        mResolver = getActivity().getContentResolver();
         mPackageManager = getPackageManager();
         mPackageAdapter = new PackageAdapter();
+
+        mTimeout =
+                (ListPreference) findPreference(PREF_HEADS_UP_TIMEOUT);
+        int timeout = Settings.System.getInt(mResolver,
+                Settings.System.HEADS_UP_TIMEOUT, 3700);
+        mTimeout.setValue(String.valueOf(timeout));
+        mTimeout.setSummary(mTimeout.getEntry());
+        mTimeout.setOnPreferenceChangeListener(this);
+
+        mTimeoutFs =
+                (ListPreference) findPreference(PREF_HEADS_UP_TIMEOUT_FS);
+        int timeoutFs = Settings.System.getInt(mResolver,
+                Settings.System.HEADS_UP_TIMEOUT_FS, 700);
+        mTimeoutFs.setValue(String.valueOf(timeoutFs));
+        mTimeoutFs.setSummary(mTimeoutFs.getEntry());
+        mTimeoutFs.setOnPreferenceChangeListener(this);
 
         mDndPrefList = (PreferenceGroup) findPreference("dnd_applications_list");
         mDndPrefList.setOrderingAsAdded(false);
@@ -447,6 +477,27 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
         return true;
     }
 
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        int index;
+
+        if (preference == mTimeout) {
+            int timeout = Integer.valueOf((String) newValue);
+            index = mTimeout.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.HEADS_UP_TIMEOUT, timeout);
+            mTimeout.setSummary(mTimeout.getEntries()[index]);
+            return true;
+        } else if (preference == mTimeoutFs) {
+            int timeoutFs = Integer.valueOf((String) newValue);
+            index = mTimeoutFs.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.HEADS_UP_TIMEOUT_FS, timeoutFs);
+            mTimeoutFs.setSummary(mTimeoutFs.getEntries()[index]);
+            return true;
+        }
+        return false;
+    }
+
     private void addCustomApplicationPref(String packageName, Map<String,Package> map) {
         Package pkg = map.get(packageName);
         if (pkg == null) {
@@ -545,8 +596,6 @@ public class HeadsUpSettings extends SettingsPreferenceFragment
         mPrefsContainer.setVisibility(enabled ? View.VISIBLE : View.GONE);
         mDisabledText.setVisibility(enabled ? View.GONE : View.VISIBLE);
     }
-
-
 
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {

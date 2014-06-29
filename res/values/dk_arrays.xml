@@ -319,6 +319,34 @@
         <item>1</item>
     </string-array>
 
+
+    <string-array name="heads_up_timeout_entries">
+        <item>@string/heads_up_timeout_0_7_seconds</item>
+        <item>@string/heads_up_timeout_2_seconds</item>
+        <item>@string/heads_up_timeout_3_7_seconds</item>
+        <item>@string/heads_up_timeout_5_seconds</item>
+        <item>@string/heads_up_timeout_10_seconds</item>
+        <item>@string/heads_up_timeout_30_seconds</item>
+    </string-array>
+
+    <string-array name="heads_up_timeout_values" translatable="false">
+        <item>700</item>
+        <item>2000</item>
+        <item>3700</item>
+        <item>5000</item>
+        <item>10000</item>
+        <item>30000</item>
+    </string-array>
+
+    <string-array name="heads_up_timeout_fs_entries">
+        <item>@string/heads_up_timeout_fs_0_7_seconds</item>
+        <item>@string/heads_up_timeout_2_seconds</item>
+        <item>@string/heads_up_timeout_fs_3_7_seconds</item>
+        <item>@string/heads_up_timeout_5_seconds</item>
+        <item>@string/heads_up_timeout_10_seconds</item>
+        <item>@string/heads_up_timeout_30_seconds</item>
+    </string-array>
+
     <string-array name="tiles_per_row_entries" translatable="false">
         <item>3</item>
         <item>4</item>

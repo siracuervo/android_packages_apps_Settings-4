@@ -463,15 +463,26 @@
     <string name="status_bar_expanded_header_buttons_title">Schaltflächen</string>
 
     <!-- Statusbar expanded notification drawer -->
-    <string name="category_heads_up">Heads-Up</string>
-    <string name="summary_heads_up_enabled">Pop-Up Benachrichtigungen sind aktiviert</string>
-    <string name="summary_heads_up_disabled">Pop-Up Benachrichtigungen sind deaktiviert</string>
-    <string name="add_heads_up_package">App hinzufügen</string>
-    <string name="add_heads_up_dnd_summary">In diesen Applikationen keine Pop-Up Benachrichtigungen anzeigen</string>
-    <string name="add_heads_up_blacklist_summary">Von diesen Applikationen keine Pop-Up Benachrichtigungen anzeigen</string>
-    <string name="heads_up_dnd_title">Bitte nicht stören</string>
-    <string name="heads_up_blacklist_title">Blacklist</string>
+    <string name="heads_up_title">Heads-Up</string>
+    <string name="heads_up_cat_timeout_title">Time out</string>
+    <string name="heads_up_enabled_summary">Pop-Up Benachrichtigungen sind aktiviert</string>
+    <string name="heads_up_disabled_summary">Pop-Up Benachrichtigungen sind deaktiviert</string>
+    <string name="heads_up_timeout_title">Normal &amp; Immersive mode</string>
+    <string name="heads_up_timeout_fs_title">Vollbild</string>
+    <string name="heads_up_timeout_0_7_seconds">0,7 Sekunden</string>
+    <string name="heads_up_timeout_fs_0_7_seconds">0,7 Sekunden (Standard)</string>
+    <string name="heads_up_timeout_2_seconds">2 Sekunden</string>
+    <string name="heads_up_timeout_3_7_seconds">3,7 Sekunden (Standard)</string>
+    <string name="heads_up_timeout_fs_3_7_seconds">3,7 Sekunden</string>
+    <string name="heads_up_timeout_5_seconds">5 Sekunden</string>
+    <string name="heads_up_timeout_10_seconds">10 Sekunden</string>
+    <string name="heads_up_timeout_30_seconds">30 Sekunden</string>
     <string name="heads_up_disabled_notice">Um Applikationen zu erlauben interaktive Benachrichtigungen in einem Pop-Up Fenster auf dem Bildschirm anzuzeigen, Heads-Up aktivieren.</string>
+    <string name="heads_up_dnd_title">Bitte nicht stören</string>
+    <string name="heads_up_add_package">App hinzufügen</string>
+    <string name="heads_up_add_dnd_summary">In diesen Applikationen keine Pop-Up Benachrichtigungen anzeigen</string>
+    <string name="heads_up_blacklist_title">Blacklist</string>
+    <string name="heads_up_add_blacklist_summary">Von diesen Applikationen keine Pop-Up Benachrichtigungen anzeigen</string>
     <string name="qar_cat_title">Schnellzugriffsleiste</string>
     <string name="notif_alpha_title">Transparenz der Benachrichtigungen</string>
     <string name="qar_show_tiles_summary">Aktivieren um eine kleine Version der Schnelleinstellungen in der Benachrichtigungsanzeige anzuzeigen.</string>

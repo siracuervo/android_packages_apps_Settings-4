@@ -13,26 +13,47 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/heads_up_title">
 
     <PreferenceCategory
-            android:title="@string/heads_up_dnd_title"
-            android:key="dnd_applications_list">
-        <Preference
-            android:key="add_dnd_packages"
-            android:icon="@drawable/ic_menu_add_dark"
-            android:title="@string/add_heads_up_package"
-            android:summary="@string/add_heads_up_dnd_summary"/>
+            android:key="heads_up_cat_timeout"
+            android:title="@string/heads_up_cat_timeout_title">
+
+        <ListPreference
+                android:key="heads_up_timeout"
+                android:title="@string/heads_up_timeout_title"
+                android:entries="@array/heads_up_timeout_entries"
+                android:entryValues="@array/heads_up_timeout_values"/>
+
+        <ListPreference
+                android:key="heads_up_timeout_fs"
+                android:title="@string/heads_up_timeout_fs_title"
+                android:entries="@array/heads_up_timeout_fs_entries"
+                android:entryValues="@array/heads_up_timeout_values"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
-            android:title="@string/heads_up_blacklist_title"
-            android:key="blacklist_applications">
+            android:key="dnd_applications_list"
+            android:title="@string/heads_up_dnd_title">
+        <Preference
+            android:key="add_dnd_packages"
+            android:title="@string/heads_up_add_package"
+            android:icon="@drawable/ic_menu_add_dark"
+            android:summary="@string/heads_up_add_dnd_summary"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:key="blacklist_applications"
+            android:title="@string/heads_up_blacklist_title">
         <Preference
             android:key="add_blacklist_packages"
+            android:title="@string/heads_up_add_package"
             android:icon="@drawable/ic_menu_add_dark"
-            android:title="@string/add_heads_up_package"
-            android:summary="@string/add_heads_up_blacklist_summary"/>
+            android:summary="@string/heads_up_add_blacklist_summary"/>
     </PreferenceCategory>
 
 </PreferenceScreen>
