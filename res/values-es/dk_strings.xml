@@ -55,6 +55,7 @@
     <string name="type_title">Tipo</string>
     <string name="bg_title">Fondo</string>
     <string name="frame_title">Marco</string>
+    <string name="choose_app">Escoja aplicación</string>
     <string name="expanded_desktop_title">Modo Escritorio extendido</string>
     <string name="custom_carrier_label_title">Personalizar el nombre del operador</string>
     <string name="custom_carrier_label_notset">El nombre del operador actualmente está en blanco </string>
@@ -509,6 +510,7 @@
     <string name="title_tile_battery">Batería</string>
     <string name="title_tile_bluetooth">Bluetooth</string>
     <string name="title_tile_brightness">Brillo</string>
+    <string name="title_tile_heads_up">Notificaciones interactivas</string>
     <string name="title_tile_sleep">Modo descanso</string>
     <string name="title_tile_location">Localización</string>
     <string name="title_tile_torch">Linterna</string>
@@ -657,11 +659,33 @@
     <string name="recents_clear_all_button_color_title">Abajo a la derecha</string>
 
     <!-- (Interface category) More settings -->
+    <string name="heads_up_title">Notificaciones interactivas</string>
+    <string name="heads_up_enabled_summary">Notificaciones interactivas habilitadas</string>
+    <string name="heads_up_disabled_summary">Notificaciones interactivas deshabilitadas</string>
     <string name="listview_settings_title">List view</string>
     <string name="listview_settings_summary">Personalizar la animación</string>
 
     <!-- Custom carrier label -->
     <string name="custom_carrier_label_explain">Por favor introduzca un nuevo nombre. Dejar en blanco para volver al valor por defecto.</string>
+
+    <!-- Heads up -->
+    <string name="heads_up_cat_timeout_title">Sin conexión</string>
+    <string name="heads_up_timeout_title">Modo Normal &amp; Escritorio Expandido</string>
+    <string name="heads_up_timeout_fs_title">Pantalla completa</string>
+    <string name="heads_up_timeout_0_7_seconds">0.7 segundos</string>
+    <string name="heads_up_timeout_fs_0_7_seconds">0.7 segundos (predeterminado)</string>
+    <string name="heads_up_timeout_2_seconds">2 segundos</string>
+    <string name="heads_up_timeout_3_7_seconds">3.7 segundos (predeterminado)</string>
+    <string name="heads_up_timeout_fs_3_7_seconds">3.7 segundos</string>
+    <string name="heads_up_timeout_5_seconds">5 segundos</string>
+    <string name="heads_up_timeout_10_seconds">10 segundos</string>
+    <string name="heads_up_timeout_30_seconds">30 segundos</string>
+    <string name="heads_up_disabled_notice">Permite que las aplicaciones muestren notificaciones interactivas en una ventana emergente.</string>
+    <string name="heads_up_dnd_title">No molesten</string>
+    <string name="heads_up_add_package">Añadir aplicación</string>
+    <string name="heads_up_add_dnd_summary">No mostrar notificaciones interactivas de estas aplicaciones</string>
+    <string name="heads_up_blacklist_title">Lista negra</string>
+    <string name="heads_up_add_blacklist_summary">No mostrar notificaciones interactivas de estas aplicaciones</string>
 
     <!-- Immersive mode -->
     <string name="expanded_desktop_status_bar">Barra de estado visible</string>
