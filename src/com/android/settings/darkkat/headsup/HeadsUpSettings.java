@@ -188,6 +188,12 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
+    public void onDestroyView() {
+        getActivity().getActionBar().setCustomView(null);
+        super.onDestroyView();
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         if (mHeadsUpEnabler != null) {
