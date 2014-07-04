@@ -34,6 +34,12 @@
 	        android:entries="@array/network_speed_show_indicator_entries"
 	        android:entryValues="@array/network_speed_show_indicator_values" />
 
+        <CheckBoxPreference
+            android:key="network_speed_show_icon"
+            android:title="@string/network_speed_show_icon_title"
+            android:summary="@string/network_speed_show_icon_summary"
+            android:defaultValue="true" />
+
         <ListPreference
             android:key="network_speed_traffic_summary"
             android:dialogTitle="@string/network_speed_traffic_summary"

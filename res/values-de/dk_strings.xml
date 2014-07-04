@@ -418,6 +418,8 @@
     <string name="network_download">Download</string>
     <string name="network_upload">Upload</string>
     <string name="network_download_upload">Download &amp; Upload</string>
+    <string name="network_speed_show_icon_title">Symbol</string>
+    <string name="network_speed_show_icon_summary">Aktivieren um das Symbol anzuzeigen</string>
     <string name="network_speed_traffic_summary">Datenmenge anzeigen</string>
     <string name="traffic_timeout_0s">Nicht anzeigen</string>
     <string name="traffic_timeout_1s">1 Sekunde</string>
