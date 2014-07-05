@@ -417,6 +417,8 @@
     <string name="network_download">Descargas</string>
     <string name="network_upload">Envíos</string>
     <string name="network_download_upload">Bajada &amp; Subida</string>
+    <string name="network_speed_show_icon_title">Icono</string>
+    <string name="network_speed_show_icon_summary">Mostrar un icono indicador </string>
     <string name="network_speed_traffic_summary_title">Mostrar resumen de tráfico</string>
     <string name="traffic_timeout_0s">No mostrar</string>
     <string name="traffic_timeout_1s">1 segundo</string>
