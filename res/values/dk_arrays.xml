@@ -261,13 +261,13 @@
         <item>4</item>
     </string-array>
 
-    <string-array name="network_speed_show_indicator_entries" >
+    <string-array name="network_speed_indicator_type_entries" >
         <item>@string/network_download</item>
         <item>@string/network_upload</item>
         <item>@string/network_download_upload</item> 
     </string-array>
 
-    <string-array name="network_speed_show_indicator_values" translatable="false">
+    <string-array name="network_speed_indicator_type_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>

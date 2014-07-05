@@ -52,7 +52,7 @@
     <string name="arrangement_title">Anordnung</string>
     <string name="show_title">Anzeigen</string>
     <string name="alpha_title">Transparenz</string>
-    <string name="type_title">Art</string>
+    <string name="type_title">Typ</string>
     <string name="bg_title">Hintergrund</string>
     <string name="frame_title">Rahmen</string>
     <string name="choose_app">App auswählen</string>
@@ -412,15 +412,14 @@
     <string name="status_bar_show_activity_indicators_summary">Aktivieren um die Netzwerkaktivität anzuzeigen</string>
 
     <!-- Status bar Network speed style -->
-    <string name="status_bar_enable_network_speed_indicator_title">Aktivieren</string>
-    <string name="status_bar_enable_network_speed_indicator_summary">Aktivieren um die Netzwerk-Geschwindigkeits-Anzeige einzuschalten</string>
-    <string name="network_speed_show_indicator_title">Anzeige</string>
+    <string name="network_speed_enable_indicator_title">Aktivieren</string>
+    <string name="network_speed_enable_indicator_summary">Aktivieren um die Netzwerk-Geschwindigkeits-Anzeige einzuschalten</string>
     <string name="network_download">Download</string>
     <string name="network_upload">Upload</string>
     <string name="network_download_upload">Download &amp; Upload</string>
     <string name="network_speed_show_icon_title">Symbol</string>
     <string name="network_speed_show_icon_summary">Aktivieren um das Symbol anzuzeigen</string>
-    <string name="network_speed_traffic_summary">Datenmenge anzeigen</string>
+    <string name="network_speed_traffic_summary_title">Datenmenge anzeigen</string>
     <string name="traffic_timeout_0s">Nicht anzeigen</string>
     <string name="traffic_timeout_1s">1 Sekunde</string>
     <string name="traffic_timeout_2s">2 Sekunden</string>
@@ -432,8 +431,8 @@
     <string name="traffic_timeout_25s">25 Sekunden</string>
     <string name="network_speed_bit_byte_title">Bit-Werte anzeigen</string>
     <string name="network_speed_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
-    <string name="network_speed_hide_traffic_title">Anzeige verstecken</string>
-    <string name="network_speed_hide_traffic_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
+    <string name="network_speed_hide_indicator_title">Anzeige verstecken</string>
+    <string name="network_speed_hide_indicator_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
 
     <!-- Status bar notifications and system icons -->
     <string name="status_bar_colorize_notif_icons_title">Benachrichtigungs-Symbol Farbe</string>

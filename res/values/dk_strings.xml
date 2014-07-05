@@ -412,15 +412,14 @@
     <string name="status_bar_show_activity_indicators_summary">Enable to show the network activity indicator</string>
 
     <!-- Status bar Network speed style -->
-    <string name="status_bar_enable_network_speed_indicator_title">Activate</string>
-    <string name="status_bar_enable_network_speed_indicator_summary">Enable, to activate the network speed indicator</string>
-    <string name="network_speed_show_indicator_title">Indicator</string>
+    <string name="network_speed_enable_indicator_title">Activate</string>
+    <string name="network_speed_enable_indicator_summary">Enable, to activate the network speed indicator</string>
     <string name="network_download">Download</string>
     <string name="network_upload">Upload</string>
     <string name="network_download_upload">Download &amp; Upload</string>
     <string name="network_speed_show_icon_title">Icon</string>
     <string name="network_speed_show_icon_summary">Enable, to show an indicator icon</string>
-    <string name="network_speed_traffic_summary">Show summary of traffic</string>
+    <string name="network_speed_traffic_summary_title">Show summary of traffic</string>
     <string name="traffic_timeout_0s">Don\'t show</string>
     <string name="traffic_timeout_1s">1 second</string>
     <string name="traffic_timeout_2s">2 seconds</string>
@@ -432,8 +431,8 @@
     <string name="traffic_timeout_25s">25 seconds</string>
     <string name="network_speed_bit_byte_title">Show bit values</string>
     <string name="network_speed_bit_byte_summary">Enable to show the values in bit instead of byte</string>
-    <string name="network_speed_hide_traffic_title">Hide the indicator</string>
-    <string name="network_speed_hide_traffic_summary">Enable to hide the indicator if there is no traffic</string>
+    <string name="network_speed_hide_indicator_title">Hide the indicator</string>
+    <string name="network_speed_hide_indicator_summary">Enable to hide the indicator if there is no traffic</string>
 
     <!-- Status bar notifications and system icons -->
     <string name="status_bar_colorize_notif_icons_title">Colorize notification icons</string>

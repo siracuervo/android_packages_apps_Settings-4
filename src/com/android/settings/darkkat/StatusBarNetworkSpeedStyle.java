@@ -41,37 +41,37 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
         OnPreferenceChangeListener {
 
     private static final String PREF_CAT_OPTIONS =
-            "status_bar_network_speed_cat_options";
+            "network_speed_cat_options";
     private static final String PREF_CAT_COLORS =
-            "status_bar_network_speed_cat_colors";
-    private static final String PREF_ENABLE_NETWORK_SPEED_INDICATOR =
-            "status_bar_enable_network_speed_indicator";
-    private static final String PREF_NETWORK_SPEED_SHOW_INDICATOR =
-            "network_speed_show_indicator";
-    private static final String PREF_NETWORK_SPEED_SHOW_ICON =
+            "network_speed_cat_colors";
+    private static final String PREF_ENABLE_INDICATOR =
+            "network_speed_enable_indicator";
+    private static final String PREF_INDICATOR_TYPE =
+            "network_speed_indicator_type";
+    private static final String PREF_SHOW_ICON =
             "network_speed_show_icon";
-    private static final String PREF_NETWORK_SPEED_TRAFFIC_SUMMARY =
+    private static final String PREF_TRAFFIC_SUMMARY =
             "network_speed_traffic_summary";
-    private static final String PREF_NETWORK_SPEED_BIT_BYTE =
+    private static final String PREF_BIT_BYTE =
             "network_speed_bit_byte";
-    private static final String PREF_NETWORK_SPEED_HIDE_TRAFFIC =
-            "network_speed_hide_traffic";
-    private static final String PREF_NETWORK_SPEED_TEXT_COLOR =
+    private static final String PREF_HIDE_INDICATOR =
+            "network_speed_hide_indicator";
+    private static final String PREF_TEXT_COLOR =
             "network_speed_text_color";
-    private static final String PREF_NETWORK_SPEED_ICON_COLOR =
+    private static final String PREF_ICON_COLOR =
             "network_speed_icon_color";
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private CheckBoxPreference mEnableNetworkSpeedIndicator;
-    private ListPreference mNetworkSpeedIndicator;
-    private CheckBoxPreference mNetworkSpeedShowIcon;
+    private CheckBoxPreference mEnableIndicator;
+    private ListPreference mIndicatorType;
+    private CheckBoxPreference mShowIcon;
     private ListPreference mTrafficSummary; 
-    private CheckBoxPreference mNetworkSpeedBitByte;
-    private CheckBoxPreference mNetworkSpeedHide;
-    private ColorPickerPreference mNetworkSpeedTextColor;
-    private ColorPickerPreference mNetworkSpeedIconColor;
+    private CheckBoxPreference mBitByte;
+    private CheckBoxPreference mHideIndicator;
+    private ColorPickerPreference mTextColor;
+    private ColorPickerPreference mIconColor;
 
     private ContentResolver mResolver;
 
@@ -99,38 +99,38 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
         boolean showIcon = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_NETWORK_SPEED_SHOW_ICON, 1) == 1;
 
-        mEnableNetworkSpeedIndicator =
-                (CheckBoxPreference) findPreference(PREF_ENABLE_NETWORK_SPEED_INDICATOR);
-        mEnableNetworkSpeedIndicator.setChecked(isIndicatorEnabled);
-        mEnableNetworkSpeedIndicator.setOnPreferenceChangeListener(this);
+        mEnableIndicator =
+                (CheckBoxPreference) findPreference(PREF_ENABLE_INDICATOR);
+        mEnableIndicator.setChecked(isIndicatorEnabled);
+        mEnableIndicator.setOnPreferenceChangeListener(this);
 
         PreferenceCategory catOptions =
                 (PreferenceCategory) findPreference(PREF_CAT_OPTIONS);
         PreferenceCategory catColor =
                 (PreferenceCategory) findPreference(PREF_CAT_COLORS);
-        mNetworkSpeedIndicator =
-                (ListPreference) findPreference(PREF_NETWORK_SPEED_SHOW_INDICATOR);
-        mNetworkSpeedShowIcon =
-                (CheckBoxPreference) findPreference(PREF_NETWORK_SPEED_SHOW_ICON);
+        mIndicatorType =
+                (ListPreference) findPreference(PREF_INDICATOR_TYPE);
+        mShowIcon =
+                (CheckBoxPreference) findPreference(PREF_SHOW_ICON);
         mTrafficSummary =
-                (ListPreference) findPreference(PREF_NETWORK_SPEED_TRAFFIC_SUMMARY);
-        mNetworkSpeedBitByte =
-                (CheckBoxPreference) findPreference(PREF_NETWORK_SPEED_BIT_BYTE);
-        mNetworkSpeedHide =
-                (CheckBoxPreference) findPreference(PREF_NETWORK_SPEED_HIDE_TRAFFIC);
-        mNetworkSpeedTextColor =
-                (ColorPickerPreference) findPreference(PREF_NETWORK_SPEED_TEXT_COLOR);
-        mNetworkSpeedIconColor =
-                (ColorPickerPreference) findPreference(PREF_NETWORK_SPEED_ICON_COLOR);
+                (ListPreference) findPreference(PREF_TRAFFIC_SUMMARY);
+        mBitByte =
+                (CheckBoxPreference) findPreference(PREF_BIT_BYTE);
+        mHideIndicator =
+                (CheckBoxPreference) findPreference(PREF_HIDE_INDICATOR);
+        mTextColor =
+                (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
+        mIconColor =
+                (ColorPickerPreference) findPreference(PREF_ICON_COLOR);
         if (isIndicatorEnabled) {
             int networkSpeedIndicator = Settings.System.getInt(mResolver,
                    Settings.System.STATUS_BAR_NETWORK_SPEED_INDICATOR, 2);
-            mNetworkSpeedIndicator.setValue(String.valueOf(networkSpeedIndicator));
-            mNetworkSpeedIndicator.setSummary(mNetworkSpeedIndicator.getEntry());
-            mNetworkSpeedIndicator.setOnPreferenceChangeListener(this);
+            mIndicatorType.setValue(String.valueOf(networkSpeedIndicator));
+            mIndicatorType.setSummary(mIndicatorType.getEntry());
+            mIndicatorType.setOnPreferenceChangeListener(this);
 
-            mNetworkSpeedShowIcon.setChecked(showIcon);
-            mNetworkSpeedShowIcon.setOnPreferenceChangeListener(this);
+            mShowIcon.setChecked(showIcon);
+            mShowIcon.setOnPreferenceChangeListener(this);
 
             int trafficSummary = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_TRAFFIC_SUMMARY, 3000);
@@ -138,41 +138,41 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
             mTrafficSummary.setSummary(mTrafficSummary.getEntry());
             mTrafficSummary.setOnPreferenceChangeListener(this);
 
-            mNetworkSpeedBitByte.setChecked((Settings.System.getInt(mResolver,
+            mBitByte.setChecked((Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NETWORK_SPEED_BIT_BYTE, 0) == 1));
-            mNetworkSpeedBitByte.setOnPreferenceChangeListener(this);
+            mBitByte.setOnPreferenceChangeListener(this);
 
-            mNetworkSpeedHide.setChecked((Settings.System.getInt(mResolver,
+            mHideIndicator.setChecked((Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NETWORK_SPEED_HIDE_TRAFFIC, 1) == 1));
-            mNetworkSpeedHide.setOnPreferenceChangeListener(this);
+            mHideIndicator.setOnPreferenceChangeListener(this);
 
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NETWORK_SPEED_TEXT_COLOR, 0xffffffff); 
-            mNetworkSpeedTextColor.setNewPreviewColor(intColor);
+            mTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mNetworkSpeedTextColor.setSummary(hexColor);
-            mNetworkSpeedTextColor.setOnPreferenceChangeListener(this);
+            mTextColor.setSummary(hexColor);
+            mTextColor.setOnPreferenceChangeListener(this);
 
             if (showIcon) {
                 intColor = Settings.System.getInt(mResolver,
                         Settings.System.STATUS_BAR_NETWORK_SPEED_ICON_COLOR, 0xffffffff); 
-                mNetworkSpeedIconColor.setNewPreviewColor(intColor);
+                mIconColor.setNewPreviewColor(intColor);
                 hexColor = String.format("#%08x", (0xffffffff & intColor));
-                mNetworkSpeedIconColor.setSummary(hexColor);
-                mNetworkSpeedIconColor.setOnPreferenceChangeListener(this);
+                mIconColor.setSummary(hexColor);
+                mIconColor.setOnPreferenceChangeListener(this);
             } else {
-                catColor.removePreference(mNetworkSpeedIconColor);
+                catColor.removePreference(mIconColor);
             }
         } else {
             // Remove uneeded preferences if indicator is disabled
-            catOptions.removePreference(mNetworkSpeedIndicator);
-            catOptions.removePreference(mNetworkSpeedShowIcon);
+            catOptions.removePreference(mIndicatorType);
+            catOptions.removePreference(mShowIcon);
             catOptions.removePreference(mTrafficSummary);
-            catOptions.removePreference(mNetworkSpeedBitByte);
-            catOptions.removePreference(mNetworkSpeedHide);
-            catColor.removePreference(mNetworkSpeedTextColor);
-            if (mNetworkSpeedIconColor != null) {
-                catColor.removePreference(mNetworkSpeedIconColor);
+            catOptions.removePreference(mBitByte);
+            catOptions.removePreference(mHideIndicator);
+            catColor.removePreference(mTextColor);
+            if (mIconColor != null) {
+                catColor.removePreference(mIconColor);
             }
             removePreference(PREF_CAT_OPTIONS);
             removePreference(PREF_CAT_COLORS);
@@ -206,21 +206,21 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
         int intHex;
         String hex;
 
-        if (preference == mEnableNetworkSpeedIndicator) {
+        if (preference == mEnableIndicator) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_ENABLE_NETWORK_SPEED_INDICATOR,
                     value ? 1 : 0);
             refreshSettings();
             return true;
-        } else if (preference == mNetworkSpeedIndicator) {
+        } else if (preference == mIndicatorType) {
             intValue = Integer.valueOf((String) newValue);
-            index = mNetworkSpeedIndicator.findIndexOfValue((String) newValue);
+            index = mIndicatorType.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_NETWORK_SPEED_INDICATOR, intValue);
-            mNetworkSpeedIndicator.setSummary(mNetworkSpeedIndicator.getEntries()[index]);
+            mIndicatorType.setSummary(mIndicatorType.getEntries()[index]);
             return true;
-        } else if (preference == mNetworkSpeedShowIcon) {
+        } else if (preference == mShowIcon) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_NETWORK_SPEED_SHOW_ICON,
@@ -234,19 +234,19 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
                 Settings.System.STATUS_BAR_TRAFFIC_SUMMARY, intValue);
             mTrafficSummary.setSummary(mTrafficSummary.getEntries()[index]);
             return true;
-        } else if (preference == mNetworkSpeedBitByte) {
+        } else if (preference == mBitByte) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_NETWORK_SPEED_BIT_BYTE,
                 value ? 1 : 0);
             return true;
-        } else if (preference == mNetworkSpeedHide) {
+        } else if (preference == mHideIndicator) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_NETWORK_SPEED_HIDE_TRAFFIC,
                 value ? 1 : 0);
             return true;
-        } else if (preference == mNetworkSpeedTextColor) {
+        } else if (preference == mTextColor) {
             hex = ColorPickerPreference.convertToARGB(Integer.valueOf(
                     String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
@@ -254,7 +254,7 @@ public class StatusBarNetworkSpeedStyle extends SettingsPreferenceFragment imple
                 Settings.System.STATUS_BAR_NETWORK_SPEED_TEXT_COLOR, intHex);
             preference.setSummary(hex);
             return true;
-        } else if (preference ==  mNetworkSpeedIconColor) {
+        } else if (preference ==  mIconColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
