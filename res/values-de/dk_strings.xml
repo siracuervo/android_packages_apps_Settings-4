@@ -669,7 +669,7 @@
     <string name="custom_carrier_label_explain">Gib bitte einen neuen Netzbetreiber Namen ein. Lass das Feld leer, um den originalen Netzbetreiber Namen wieder herzustellen.</string>
 
     <!-- Heads up -->
-    <string name="heads_up_cat_timeout_title">Time out</string>
+    <string name="heads_up_cat_timeout_title">Zeitlimit</string>
     <string name="heads_up_timeout_title">Normal &amp; Immersive mode</string>
     <string name="heads_up_timeout_fs_title">Vollbild</string>
     <string name="heads_up_timeout_0_7_seconds">0,7 Sekunden</string>
