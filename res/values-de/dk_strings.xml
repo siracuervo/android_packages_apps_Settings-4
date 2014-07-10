@@ -464,8 +464,10 @@
     <string name="status_bar_expanded_header_buttons_title">Schaltflächen</string>
 
     <!-- Statusbar expanded notification drawer -->
-    <string name="qar_cat_title">Schnellzugriffsleiste</string>
-    <string name="notif_alpha_title">Transparenz der Benachrichtigungen</string>
+    <string name="cat_notifications_title">Benachrichtigungen</string>
+    <string name="status_bar_expanded_notification_drawer_qar_title">Schnellzugriffsleiste</string>
+
+    <!-- Statusbar expanded notification drawer quick access ribbons -->
     <string name="qar_show_tiles_summary">Aktivieren um eine kleine Version der Schnelleinstellungen in der Benachrichtigungsanzeige anzuzeigen.</string>
     <string name="qar_show_tiles_deactivated_summary">Schnelleinstellungen sind deaktiviert, aktiviere die Schnelleinstellungen, um die Schnellzugriffsleiste zu nutzen.</string>
     <string name="qar_tiles_linked_title">Anordnung koppeln</string>

@@ -30,7 +30,7 @@
 
     <PreferenceScreen
         android:key="notification_drawer"
-        android:fragment="com.android.settings.darkkat.StatusBarExpandedNotif"
+        android:fragment="com.android.settings.darkkat.StatusBarExpandedNotificationDrawer"
         android:title="@string/status_bar_expanded_notification_drawer_title" />
 
     <PreferenceScreen

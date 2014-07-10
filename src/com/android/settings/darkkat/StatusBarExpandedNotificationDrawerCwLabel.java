@@ -37,22 +37,25 @@ import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBarExpandedNotifLabelStyle extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+public class StatusBarExpandedNotificationDrawerCwLabel
+        extends SettingsPreferenceFragment
+        implements OnPreferenceChangeListener {
 
-    private static final String PREF_NOTIFICATION_SHOW_CUSTOM_CARRIER_LABEL =
-        "notification_show_custom_carrier_label";
-    private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID =
-        "notification_show_wifi_ssid";
-    private static final String PREF_NOTIFICATION_CW_LABEL_COLOR =
-        "notification_carrier_wifi_label_color";
+    private static final String PREF_CW_LABEL_SHOW_CUSTOM_CARRIER_LABEL =
+        "cw_label_show_custom_carrier_label";
+    private static final String PREF_CW_LABEL_SHOW_WIFI_SSID =
+        "cw_label_show_wifi_ssid";
+    private static final String PREF_CW_LABEL_COLOR =
+        "cw_label_color";
+
+    private static final int DEFAULT_CW_LABEL_COLOR = 0xff999999;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private CheckBoxPreference mNotificationShowCustomCarrierLabel;
-    private CheckBoxPreference mNotificationShowWifiSsid;
-    private ColorPickerPreference mNotificationCwLabelColor;
+    private CheckBoxPreference mCwLabelShowCustomCarrierLabel;
+    private CheckBoxPreference mCwLabelShowWifiSsid;
+    private ColorPickerPreference mCwLabelColor;
 
     private ContentResolver mResolver;
 
@@ -68,45 +71,46 @@ public class StatusBarExpandedNotifLabelStyle extends SettingsPreferenceFragment
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.status_bar_expanded_notif_label_style);
+        addPreferencesFromResource(R.xml.status_bar_expanded_notification_drawer_cw_label);
         mResolver = getActivity().getContentResolver();
 
-        mNotificationShowCustomCarrierLabel =
-                (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_CUSTOM_CARRIER_LABEL);
-        mNotificationShowCustomCarrierLabel.setChecked(Settings.System.getInt(mResolver,
+        mCwLabelShowCustomCarrierLabel =
+                (CheckBoxPreference) findPreference(PREF_CW_LABEL_SHOW_CUSTOM_CARRIER_LABEL);
+        mCwLabelShowCustomCarrierLabel.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.NOTIFICATION_SHOW_CUSTOM_CARRIER_LABEL, 1) == 1);
         String customLabelText = Settings.System.getString(mResolver,
                 Settings.System.CUSTOM_CARRIER_LABEL);
         if (customLabelText == null || customLabelText.length() == 0) {
-            mNotificationShowCustomCarrierLabel.setSummary(
+            mCwLabelShowCustomCarrierLabel.setSummary(
                     R.string.custom_carrier_label_notset);
-            mNotificationShowCustomCarrierLabel.setEnabled(false);
+            mCwLabelShowCustomCarrierLabel.setEnabled(false);
         } else {
-            mNotificationShowCustomCarrierLabel.setSummary(
+            mCwLabelShowCustomCarrierLabel.setSummary(
                     R.string.show_custom_carrier_label_enabled_summary);
-            mNotificationShowCustomCarrierLabel.setEnabled(true);
+            mCwLabelShowCustomCarrierLabel.setEnabled(true);
         }
-        mNotificationShowCustomCarrierLabel.setOnPreferenceChangeListener(this);
+        mCwLabelShowCustomCarrierLabel.setOnPreferenceChangeListener(this);
 
         // Remove show wifi ssid preferences on wifi only devices
         if (Utils.isWifiOnly(getActivity())) {
-            removePreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
+            removePreference(PREF_CW_LABEL_SHOW_WIFI_SSID);
         } else {
-            mNotificationShowWifiSsid =
-                    (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
-            mNotificationShowWifiSsid.setChecked(Settings.System.getInt(mResolver,
+            mCwLabelShowWifiSsid =
+                    (CheckBoxPreference) findPreference(PREF_CW_LABEL_SHOW_WIFI_SSID);
+            mCwLabelShowWifiSsid.setChecked(Settings.System.getInt(mResolver,
                     Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
-            mNotificationShowWifiSsid.setOnPreferenceChangeListener(this);
+            mCwLabelShowWifiSsid.setOnPreferenceChangeListener(this);
         }
 
-        mNotificationCwLabelColor =
-                (ColorPickerPreference) findPreference(PREF_NOTIFICATION_CW_LABEL_COLOR);
-        int intColor = Settings.System.getInt(mResolver,
-                Settings.System.NOTIFICATION_CARRIER_WIFI_LABEL_COLOR, 0xff999999);
-        mNotificationCwLabelColor.setNewPreviewColor(intColor);
-        String hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mNotificationCwLabelColor.setSummary(hexColor);
-        mNotificationCwLabelColor.setOnPreferenceChangeListener(this);
+        mCwLabelColor =
+                (ColorPickerPreference) findPreference(PREF_CW_LABEL_COLOR);
+        int cwLabelColor = Settings.System.getInt(mResolver,
+                Settings.System.NOTIFICATION_CARRIER_WIFI_LABEL_COLOR,
+                DEFAULT_CW_LABEL_COLOR);
+        mCwLabelColor.setNewPreviewColor(cwLabelColor);
+        String cwLabelHexColor = String.format("#%08x", (0xffffffff & cwLabelColor));
+        mCwLabelColor.setSummary(cwLabelHexColor);
+        mCwLabelColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
     }
@@ -130,7 +134,7 @@ public class StatusBarExpandedNotifLabelStyle extends SettingsPreferenceFragment
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mNotificationShowCustomCarrierLabel) {
+        if (preference == mCwLabelShowCustomCarrierLabel) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.NOTIFICATION_SHOW_CUSTOM_CARRIER_LABEL,
@@ -139,7 +143,7 @@ public class StatusBarExpandedNotifLabelStyle extends SettingsPreferenceFragment
             i.setAction("com.android.settings.LABEL_VISIBILITY_CHANGED");
             getActivity().sendBroadcast(i);
             return true;
-        } else if (preference == mNotificationShowWifiSsid) {
+        } else if (preference == mCwLabelShowWifiSsid) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.NOTIFICATION_SHOW_WIFI_SSID,
@@ -148,7 +152,7 @@ public class StatusBarExpandedNotifLabelStyle extends SettingsPreferenceFragment
             i.setAction("com.android.settings.LABEL_VISIBILITY_CHANGED");
             getActivity().sendBroadcast(i);
             return true;
-        } else if (preference == mNotificationCwLabelColor) {
+        } else if (preference == mCwLabelColor) {
             String hex = ColorPickerPreference.convertToARGB(
                 Integer.valueOf(String.valueOf(newValue)));
             int intHex = ColorPickerPreference.convertToColorInt(hex);
@@ -182,8 +186,8 @@ public class StatusBarExpandedNotifLabelStyle extends SettingsPreferenceFragment
             return frag;
         }
 
-        StatusBarExpandedNotifLabelStyle getOwner() {
-            return (StatusBarExpandedNotifLabelStyle) getTargetFragment();
+        StatusBarExpandedNotificationDrawerCwLabel getOwner() {
+            return (StatusBarExpandedNotificationDrawerCwLabel) getTargetFragment();
         }
 
         @Override
@@ -204,7 +208,7 @@ public class StatusBarExpandedNotifLabelStyle extends SettingsPreferenceFragment
                                 Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.NOTIFICATION_CARRIER_WIFI_LABEL_COLOR,
-                                0xff999999);
+                                DEFAULT_CW_LABEL_COLOR);
                             getOwner().refreshSettings();
                         }
                     })

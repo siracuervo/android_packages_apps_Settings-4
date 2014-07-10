@@ -463,10 +463,11 @@
     <string name="status_bar_expanded_header_clock_date_title">Clock &amp; date</string>
     <string name="status_bar_expanded_header_buttons_title">Buttons</string>
 
-
     <!-- Statusbar expanded notification drawer -->
-    <string name="qar_cat_title">Quick access ribbon</string>
-    <string name="notif_alpha_title">Notification transparency</string>
+    <string name="cat_notifications_title">Notifications</string>
+    <string name="status_bar_expanded_notification_drawer_qar_title">Quick access ribbons</string>
+
+    <!-- Statusbar expanded notification drawer quick access ribbons -->
     <string name="qar_show_tiles_summary">Activate, to show a small version of the quick settings on the notification area</string>
     <string name="qar_show_tiles_deactivated_summary">Quick settings deactivated, activate the quick settings to use the quick access ribbon</string>
     <string name="qar_tiles_linked_title">Linked layout</string>
