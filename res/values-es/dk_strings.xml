@@ -671,7 +671,7 @@
     <string name="heads_up_cat_timeout_title">Sin conexión</string>
     <string name="heads_up_timeout_title">Modo Normal &amp; Escritorio Expandido</string>
     <string name="heads_up_timeout_2_seconds">2 segundos</string>
-    <string name="heads_up_timeout_4_seconds">4 segundos (predeterminado)</string>
+    <string name="heads_up_timeout_4_seconds">4 segundos</string>
     <string name="heads_up_timeout_6_seconds">6 segundos</string>
     <string name="heads_up_timeout_8_seconds">8 segundos</string>
     <string name="heads_up_timeout_10_seconds">10 segundos</string>
