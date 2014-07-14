@@ -72,6 +72,12 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
             "status_bar_wifi_activity_normal_color";
     private static final String PREF_STAT_BAR_WIFI_ACTIVITY_CONNECTED_COLOR =
             "status_bar_wifi_activity_connected_color";
+    private static final String PREF_STAT_BAR_AIRPLANE_MODE_COLOR =
+            "status_bar_airplane_mode_color";
+
+    private static final int DEFAULT_NORMAL_COLOR = 0xffff8800;
+    private static final int DEFAULT_CONNECTED_COLOR = 0xffffffff;
+    private static final int DEFAULT_ACTIVITY_COLOR = 0xff000000;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -87,6 +93,7 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
     private ColorPickerPreference mWifiIconConnectedColor;
     private ColorPickerPreference mWifiActivityNormalColor;
     private ColorPickerPreference mWifiActivityConnectedColor;
+    private ColorPickerPreference mAirplaneModeColor;
 
     private ContentResolver mResolver;
 
@@ -149,7 +156,7 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
         if (!Utils.isWifiOnly(getActivity())) {
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_SIGNAL_NORMAL_COLOR,
-                    0xffff8800); 
+                    DEFAULT_NORMAL_COLOR); 
             mSignalNormalColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mSignalNormalColor.setSummary(hexColor);
@@ -157,7 +164,7 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
 
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_SIGNAL_CONNECTED_COLOR,
-                    0xffffffff); 
+                    DEFAULT_CONNECTED_COLOR); 
             mSignalConnectedColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mSignalConnectedColor.setSummary(hexColor);
@@ -165,7 +172,7 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
 
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NETWORK_TYPE_NORMAL_COLOR,
-                    0xffff8800); 
+                    DEFAULT_NORMAL_COLOR); 
             mNetworkTypeNormalColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mNetworkTypeNormalColor.setSummary(hexColor);
@@ -173,7 +180,7 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
 
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NETWORK_TYPE_CONNECTED_COLOR,
-                    0xfffffff); 
+                    DEFAULT_CONNECTED_COLOR); 
             mNetworkTypeConnectedColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mNetworkTypeConnectedColor.setSummary(hexColor);
@@ -183,7 +190,7 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
             if (isNetworkActivityEnabled) {
                 intColor = Settings.System.getInt(mResolver,
                         Settings.System.STATUS_BAR_SIGNAL_ACTIVITY_NORMAL_COLOR,
-                    0xff000000); 
+                    DEFAULT_ACTIVITY_COLOR); 
                 mSignalActivityNormalColor.setNewPreviewColor(intColor);
                 hexColor = String.format("#%08x", (0xffffffff & intColor));
                 mSignalActivityNormalColor.setSummary(hexColor);
@@ -191,7 +198,7 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
 
                 intColor = Settings.System.getInt(mResolver,
                         Settings.System.STATUS_BAR_SIGNAL_ACTIVITY_CONNECTED_COLOR,
-                    0xff000000); 
+                    DEFAULT_ACTIVITY_COLOR); 
                 mSignalActivityConnectedColor.setNewPreviewColor(intColor);
                 hexColor = String.format("#%08x", (0xffffffff & intColor));
                 mSignalActivityConnectedColor.setSummary(hexColor);
@@ -219,7 +226,7 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
                 PREF_STAT_BAR_WIFI_ICON_NORMAL_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_WIFI_ICON_NORMAL_COLOR,
-                0xffff8800); 
+                DEFAULT_NORMAL_COLOR); 
         mWifiIconNormalColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mWifiIconNormalColor.setSummary(hexColor);
@@ -229,7 +236,7 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
                 PREF_STAT_BAR_WIFI_ICON_CONNECTED_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_WIFI_ICON_CONNECTED_COLOR,
-                0xffffffff); 
+                DEFAULT_CONNECTED_COLOR); 
         mWifiIconConnectedColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mWifiIconConnectedColor.setSummary(hexColor);
@@ -248,7 +255,7 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
         if (isNetworkActivityEnabled) {
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_WIFI_ACTIVITY_NORMAL_COLOR,
-                    0xff000000); 
+                    DEFAULT_ACTIVITY_COLOR); 
             mWifiActivityNormalColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mWifiActivityNormalColor.setSummary(hexColor);
@@ -256,7 +263,7 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
 
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_WIFI_ACTIVITY_CONNECTED_COLOR,
-                    0xff000000); 
+                    DEFAULT_ACTIVITY_COLOR); 
             mWifiActivityConnectedColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mWifiActivityConnectedColor.setSummary(hexColor);
@@ -266,6 +273,17 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
             categoryWifiActivity.removePreference(mWifiActivityConnectedColor);
             removePreference(PREF_STAT_BAR_CAT_WIFI_ACTIVITY);
         }
+
+        mAirplaneModeColor =
+                (ColorPickerPreference) findPreference(
+                    PREF_STAT_BAR_AIRPLANE_MODE_COLOR);
+        intColor = Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_AIRPLANE_MODE_COLOR,
+                DEFAULT_CONNECTED_COLOR); 
+        mAirplaneModeColor.setNewPreviewColor(intColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mAirplaneModeColor.setSummary(hexColor);
+        mAirplaneModeColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
     }
@@ -387,6 +405,15 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
                 intHex);
             preference.setSummary(hex);
             return true;
+        } else if (preference == mAirplaneModeColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.STATUS_BAR_AIRPLANE_MODE_COLOR,
+                intHex);
+            preference.setSummary(hex);
+            return true;
         } 
         return false;
     }
@@ -432,34 +459,37 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
                                 Settings.System.STATUS_BAR_NETWORK_ACTIVITY, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_SIGNAL_NORMAL_COLOR,
-                                0xffff8800);
+                                DEFAULT_NORMAL_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_SIGNAL_CONNECTED_COLOR,
-                                0xffffffff);
+                                DEFAULT_CONNECTED_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_TYPE_NORMAL_COLOR,
-                                0xffff8800);
+                                DEFAULT_NORMAL_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_TYPE_CONNECTED_COLOR,
-                                0xffffffff);
+                                DEFAULT_CONNECTED_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_SIGNAL_ACTIVITY_NORMAL_COLOR,
-                                0xff000000);
+                                DEFAULT_ACTIVITY_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_SIGNAL_ACTIVITY_CONNECTED_COLOR,
-                                0xff000000);
+                                DEFAULT_ACTIVITY_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_WIFI_ICON_NORMAL_COLOR,
-                                0xffff8800);
+                                DEFAULT_NORMAL_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_WIFI_ICON_CONNECTED_COLOR,
-                                0xffffffff);
+                                DEFAULT_CONNECTED_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_WIFI_ACTIVITY_NORMAL_COLOR,
-                                0xff000000);
+                                DEFAULT_ACTIVITY_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_WIFI_ACTIVITY_CONNECTED_COLOR,
-                                0xff000000);
+                                DEFAULT_ACTIVITY_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_AIRPLANE_MODE_COLOR,
+                                DEFAULT_CONNECTED_COLOR);
                             getOwner().refreshSettings();
                         }
                     })
@@ -470,34 +500,37 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
                                 Settings.System.STATUS_BAR_NETWORK_ACTIVITY, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_SIGNAL_NORMAL_COLOR,
-                                0xffff8800);
+                                DEFAULT_NORMAL_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_SIGNAL_CONNECTED_COLOR,
                                 0xff33b5e5);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_TYPE_NORMAL_COLOR,
-                                0xffff8800);
+                                DEFAULT_NORMAL_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_TYPE_CONNECTED_COLOR,
                                 0xff33b5e5);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_SIGNAL_ACTIVITY_NORMAL_COLOR,
-                                0xff000000);
+                                DEFAULT_ACTIVITY_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_SIGNAL_ACTIVITY_CONNECTED_COLOR,
-                                0xff000000);
+                                DEFAULT_ACTIVITY_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_WIFI_ICON_NORMAL_COLOR,
-                                0xffff8800);
+                                DEFAULT_NORMAL_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_WIFI_ICON_CONNECTED_COLOR,
                                 0xff33b5e5);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_WIFI_ACTIVITY_NORMAL_COLOR,
-                                0xff000000);
+                                DEFAULT_ACTIVITY_COLOR);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_WIFI_ACTIVITY_CONNECTED_COLOR,
-                                0xff000000);
+                                DEFAULT_ACTIVITY_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_AIRPLANE_MODE_COLOR,
+                                0xffff0000);
                             getOwner().refreshSettings();
                         }
                     })

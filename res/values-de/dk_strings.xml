@@ -408,6 +408,7 @@
     <string name="status_bar_cat_signal_strength_title">Mobilnetzwerk-Stärke Symbol</string>
     <string name="status_bar_cat_signal_network_type_title">Mobilnetzwerk-Art Symbol</string>
     <string name="status_bar_cat_wifi_strength_title">Wifinetzwerk-Stärke Symbol</string>
+    <string name="status_bar_cat_airplane_mode_title">Flugzeugmodus Symbol</string>
     <string name="status_bar_show_activity_indicators_title">Netzwerkaktivität anzeigen</string>
     <string name="status_bar_show_activity_indicators_summary">Aktivieren um die Netzwerkaktivität anzuzeigen</string>
 

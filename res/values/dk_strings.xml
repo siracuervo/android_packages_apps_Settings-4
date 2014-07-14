@@ -408,6 +408,7 @@
     <string name="status_bar_cat_signal_strength_title">Mobile network strength icon</string>
     <string name="status_bar_cat_signal_network_type_title">Mobile network type icon</string>
     <string name="status_bar_cat_wifi_strength_title">Wifi network strength icon</string>
+    <string name="status_bar_cat_airplane_mode_title">Airplane mode icon</string>
     <string name="status_bar_show_activity_indicators_title">Show network activity indicator</string>
     <string name="status_bar_show_activity_indicators_summary">Enable to show the network activity indicator</string>
 
