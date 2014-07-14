@@ -23,7 +23,7 @@ limitations under the License.
 	    android:title="@string/custom_carrier_label_title" />
 
     <Preference
-        android:key="heads_up_enabled"
+        android:key="heads_up"
         android:title="@string/heads_up_title"
         android:fragment="com.android.settings.darkkat.headsup.HeadsUpSettings" />
 

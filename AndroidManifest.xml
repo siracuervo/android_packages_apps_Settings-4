@@ -69,6 +69,7 @@
     <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CHANGE_HEADS_UP_STATE" />
 
     <application android:label="@string/settings_label"
             android:icon="@mipmap/ic_launcher_settings"
@@ -1686,19 +1687,6 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.darkkat.StatusBarNetworkSpeedStyle" />
-        </activity>
-
-        <!-- Pseudo-activity used to provide an intent-filter entry point to heads up settings -->
-        <activity android:name="Settings$HeadsUpSettingsActivity"
-                android:label="@string/heads_up_title"
-                android:taskAffinity=""
-                android:excludeFromRecents="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.headsup.HeadsUpSettings" />
         </activity>
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to quick settings -->

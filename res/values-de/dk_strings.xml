@@ -512,7 +512,6 @@
     <string name="title_tile_battery">Akku</string>
     <string name="title_tile_bluetooth">Bluetooth</string>
     <string name="title_tile_brightness">Helligkeit</string>
-    <string name="title_tile_heads_up">Heads up</string>
     <string name="title_tile_sleep">Ruhezustand</string>
     <string name="title_tile_location">Standort</string>
     <string name="title_tile_torch">Taschenlampe</string>
@@ -662,8 +661,6 @@
 
     <!-- (Interface category) More settings -->
     <string name="heads_up_title">Heads-Up Benachrichtigungen</string>
-    <string name="heads_up_enabled_summary">Heads-Up Benachrichtigungen sind aktiviert</string>
-    <string name="heads_up_disabled_summary">Heads-Up Benachrichtigungen sind deaktiviert</string>
     <string name="listview_settings_title">Listenansicht</string>
     <string name="listview_settings_summary">Animation anpassen</string>
 
@@ -672,22 +669,31 @@
 
     <!-- Heads up -->
     <string name="heads_up_cat_timeout_title">Zeitlimit</string>
-    <string name="heads_up_timeout_title">Normal &amp; Immersive mode</string>
-    <string name="heads_up_timeout_fs_title">Vollbild</string>
-    <string name="heads_up_timeout_0_7_seconds">0,7 Sekunden</string>
-    <string name="heads_up_timeout_fs_0_7_seconds">0,7 Sekunden (Standard)</string>
+    <string name="heads_up_expanded_title">Erweitert</string>
+    <string name="heads_up_expanded_summary">Aktivieren um die Heads-Up Benachrichtigungen immer erweitert anzuzeigen</string>
+    <string name="heads_up_show_updates_title">Aktuallisierungen</string>
+    <string name="heads_up_show_updates_summary">Aktivieren um anstehende Benachrichtigungen im Hintergrund als Heads-Up anzuzeigen</string>
+    <string name="heads_up_snooze_title">Schlummern</string>
+    <string name="heads_up_snooze_summary">Wenn die Schlummern Schaltfläche gedrückt wird, Heads-Up für <xliff:g id="number">%d</xliff:g> Minuten deaktivieren.</string>
+    <string name="heads_up_snooze_disabled_summary">Schlummern Timer ist deaktiviert.</string>
+    <string name="heads_up_snooze_3min">3 Minuten</string>
+    <string name="heads_up_snooze_5min">5 Minuten</string>
+    <string name="heads_up_snooze_10min">10 Minuten</string>
+    <string name="heads_up_snooze_15min">15 Minuten</string>
+    <string name="heads_up_snooze_20min">20 Minuten</string>
+    <string name="heads_up_timeout_title">Normal &amp; Immersive Mode</string>
+    <string name="heads_up_timeout_summary">Heads-Up Benachrichtigungen werden für <xliff:g id="number">%d</xliff:g> Sekunden angezeigt.</string>
+    <string name="heads_up_timeout_never_summary">Heads-Up Benachrichtigungen werden angezeigt bis Sie verworfen werden.</string>
     <string name="heads_up_timeout_2_seconds">2 Sekunden</string>
-    <string name="heads_up_timeout_3_7_seconds">3,7 Sekunden (Standard)</string>
-    <string name="heads_up_timeout_fs_3_7_seconds">3,7 Sekunden</string>
-    <string name="heads_up_timeout_5_seconds">5 Sekunden</string>
+    <string name="heads_up_timeout_4_seconds">4 Sekunden</string>
+    <string name="heads_up_timeout_6_seconds">6 Sekunden</string>
+    <string name="heads_up_timeout_8_seconds">8 Sekunden</string>
     <string name="heads_up_timeout_10_seconds">10 Sekunden</string>
-    <string name="heads_up_timeout_30_seconds">30 Sekunden</string>
-    <string name="heads_up_disabled_notice">Um Applikationen zu erlauben interaktive Benachrichtigungen in einem Pop-Up Fenster auf dem Bildschirm anzuzeigen, Heads-Up aktivieren.</string>
-    <string name="heads_up_dnd_title">Bitte nicht stören</string>
-    <string name="heads_up_add_package">App hinzufügen</string>
-    <string name="heads_up_add_dnd_summary">In diesen Applikationen keine Pop-Up Benachrichtigungen anzeigen</string>
-    <string name="heads_up_blacklist_title">Blacklist</string>
-    <string name="heads_up_add_blacklist_summary">Von diesen Applikationen keine Pop-Up Benachrichtigungen anzeigen</string>
+    <string name="heads_up_timeout_20_seconds">20 Sekunden</string>
+    <string name="heads_up_timeout_40_seconds">40 Sekunden</string>
+    <string name="heads_up_timeout_never">Nie</string>
+    <string name="heads_up_use_custom_timeout_fs_title">Vollbild</string>
+    <string name="heads_up_use_custom_timeout_fs_summary">Aktivieren um auch im Vollbild das angepasste Zeitlimit zu benutzen</string>
 
     <!-- Immersive mode -->
     <string name="expanded_desktop_status_bar">Statusleiste anzeigen</string>
@@ -883,6 +889,9 @@
     <string name="low_battery_warning_policy_popup">Nur Pop-up</string>
     <string name="low_battery_warning_policy_notif">Nur Benachrichtigung</string>
     <string name="low_battery_warning_policy_sound">Nur Ton</string>
+
+    <!-- Apps -->
+    <string name="heads_up_switch_label">Heads-Up Benachrichtigungen aktivieren</string>
 
     <!-- Security settings -->
     <string name="user_security_category_title">Benutzer Sicherheit</string>

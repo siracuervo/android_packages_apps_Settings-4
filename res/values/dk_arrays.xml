@@ -806,30 +806,43 @@
     </string-array>
 
     <string-array name="heads_up_timeout_entries">
-        <item>@string/heads_up_timeout_0_7_seconds</item>
+        <item>@string/heads_up_timeout_never</item>
         <item>@string/heads_up_timeout_2_seconds</item>
-        <item>@string/heads_up_timeout_3_7_seconds</item>
-        <item>@string/heads_up_timeout_5_seconds</item>
+        <item>@string/heads_up_timeout_4_seconds</item>
+        <item>@string/heads_up_timeout_6_seconds</item>
+        <item>@string/heads_up_timeout_8_seconds</item>
         <item>@string/heads_up_timeout_10_seconds</item>
-        <item>@string/heads_up_timeout_30_seconds</item>
+        <item>@string/heads_up_timeout_20_seconds</item>
+        <item>@string/heads_up_timeout_40_seconds</item>
     </string-array>
 
     <string-array name="heads_up_timeout_values" translatable="false">
-        <item>700</item>
+        <item>0</item>
         <item>2000</item>
-        <item>3700</item>
-        <item>5000</item>
+        <item>4000</item>
+        <item>6000</item>
+        <item>8000</item>
         <item>10000</item>
-        <item>30000</item>
+        <item>20000</item>
+        <item>40000</item>
     </string-array>
 
-    <string-array name="heads_up_timeout_fs_entries">
-        <item>@string/heads_up_timeout_fs_0_7_seconds</item>
-        <item>@string/heads_up_timeout_2_seconds</item>
-        <item>@string/heads_up_timeout_fs_3_7_seconds</item>
-        <item>@string/heads_up_timeout_5_seconds</item>
-        <item>@string/heads_up_timeout_10_seconds</item>
-        <item>@string/heads_up_timeout_30_seconds</item>
+    <string-array name="heads_up_snooze_entries">
+        <item>@string/disabled</item>
+        <item>@string/heads_up_snooze_3min</item>
+        <item>@string/heads_up_snooze_5min</item>
+        <item>@string/heads_up_snooze_10min</item>
+        <item>@string/heads_up_snooze_15min</item>
+        <item>@string/heads_up_snooze_20min</item>
+    </string-array>
+
+    <string-array name="heads_up_snooze_values" translatable="false">
+        <item>0</item>
+        <item>180000</item>
+        <item>300000</item>
+        <item>600000</item>
+        <item>900000</item>
+        <item>1200000</item>
     </string-array>
 
     <string-array name="expanded_desktop_entries" translatable="false">
