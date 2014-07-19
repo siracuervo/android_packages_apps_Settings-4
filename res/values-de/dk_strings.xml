@@ -447,6 +447,7 @@
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_title">Kopfzeile</string>
+    <string name="status_bar_expanded_weather_title">Wetter</string>
     <string name="status_bar_expanded_notification_drawer_title">Benachrichtigungsanzeige</string>
     <string name="status_bar_expanded_quick_settings_title">Schnelleinstellungen</string>
     <string name="status_bar_expanded_close_handle_title">Schließgriff</string>
@@ -463,6 +464,109 @@
     <string name="status_bar_expanded_header_background_title">Hintergrund</string>
     <string name="status_bar_expanded_header_clock_date_title">Uhr &amp; Datum</string>
     <string name="status_bar_expanded_header_buttons_title">Schaltflächen</string>
+
+    <!-- weather -->
+    <string name="weather_update_title">Wetter Feld aktuallisieren</string>
+    <string name="weather_refreshing">Wetter-Update wird angefordert!</string>
+    <string name="weather_loc_warning_title">Standort kann nicht empfangen werden!</string>
+    <string name="weather_loc_warning_msg">"Die Netzwerk-Lokalisierung ist derzeit deaktiviert. Dies verhindert den Empfang von aktuellen Wetter-Informatione für den derzeitigen Standort. Setze bitte einen Benutzerdefinierter Standort, oder aktiviere die Netzwerk-Lokalisierung."</string>
+    <string name="weather_loc_warning_positive">"Netzwerk-Lokalisierung aktiviert"</string>
+    <string name="weather_loc_warning_negative">"Netzwerk-Lokalisierung deaktiviert"</string>
+    <string name="weather_enable_title">Aktivieren</string>
+    <string name="weather_enable_summary">Aktivieren um Wetterinformationen anzuzeigen.</string>
+    <string name="weather_style_title">Wetter Style</string>
+    <string name="weather_panel">Feld unter der Kopfzeile</string>
+    <string name="weather_above_carrier_text">Text über dem Netzbetreiber Namen</string>
+    <string name="weather_icon_style_title">Wetter Symbole</string>
+    <string name="weather_icon_monochrome">Einfarbig</string>
+    <string name="weather_icon_color">Farbig</string>
+    <string name="weather_icon_vclouds">VClouds</string>
+    <string name="weather_use_custom_location_title">Benutzerdefinierter Standort</string>
+    <string name="weather_use_custom_location_summary">Ein Benutzerdefinierter Standort kann Akku sparen. Andernfalls wird die GPS-/Netzwerk-Lokalisierung verwendet.</string>
+    <string name="weather_custom_location_dialog_title">Standort eingeben</string>
+    <string name="weather_custom_location_dialog_message">Beachte die Beispiele! Ein falscher Standort führt evtl. zu unerwarteten Problemen, und es können keine Wetter Informatione empfangen werden.\n\nBeispiele: New York, NY // London, England // Berlin, Deutschland</string>
+    <string name="weather_custom_location_title">Standort</string>
+    <string name="weather_location_unavailable">Standort Informationen für Wetter Aktuallisierungen können nicht empfangrn werden</string>
+    <string name="weather_refresh_interval_title">Aktualisierungsintervall</string>
+    <string name="weather_refresh_interval_minutes">" Minuten"</string>
+    <string name="weather_refresh_disabled">Automatische aktuallisierung deaktiviert</string>
+    <string name="weather_refresh_1_minute">1 Minute</string>
+    <string name="weather_refresh_5_minutes">5 Minuten</string>
+    <string name="weather_refresh_10_minutes">10 Minuten</string>
+    <string name="weather_refresh_30_minutes">30 Minuten</string>
+    <string name="weather_refresh_45_minutes">45 Minuten</string>
+    <string name="weather_refresh_60_minutes">60 Minuten</string>
+    <string name="weather_refresh_2_hours">2 Stunden</string>
+    <string name="weather_refresh_3_hours">3 Stunden</string>
+    <string name="weather_refresh_4_hours">4 Stunden</string>
+    <string name="weather_refresh_6_hours">6 Stunden</string>
+    <string name="weather_refresh_8_hours">8 Stunden</string>
+    <string name="weather_show_location_title">Standort anzeigen</string>
+    <string name="weather_show_location_summary">Aktivieren um den Standort anzuzeigen</string>
+    <string name="weather_use_celcius_title">Metrische Einheiten</string>
+    <string name="weather_use_celcius_summary">Aktivieren um metrische Einheiten zu verwenden.</string>
+    <string name="weather_panel_background_color_title">Hintergrund</string>
+    <string name="weather_panel_background_color_title">Hintergrund gedrückt</string>
+    <string name="weather_direction_north">N</string>
+    <string name="weather_direction_north_east">NO</string>
+    <string name="weather_direction_east">O</string>
+    <string name="weather_direction_south_east">SO</string>
+    <string name="weather_direction_south">S</string>
+    <string name="weather_direction_south_west">SW</string>
+    <string name="weather_direction_west">W</string>
+    <string name="weather_direction_north_west">NW</string>
+
+    <!-- Weather Codes -->
+  <string name="weather_0">Tornado</string>
+  <string name="weather_1">Tropensturm</string>
+  <string name="weather_2">Hurrikan</string>
+  <string name="weather_3">Heftige Gewitter</string>
+  <string name="weather_4">Gewitter</string>
+  <string name="weather_5">Wechselnd Regen und Schnee</string>
+  <string name="weather_6">Wechselnd Regen und Schneeregen</string>
+  <string name="weather_7">Wechselnd Schnee und Schneeregen</string>
+  <string name="weather_8">Gefrierender Niesel</string>
+  <string name="weather_9">Niesel</string>
+  <string name="weather_10">Gefrierender Regen</string>
+  <string name="weather_11">Schauer</string>
+  <string name="weather_12">Schauer</string>
+  <string name="weather_13">Schneegestöber</string>
+  <string name="weather_14">Leichte Schneeschauer</string>
+  <string name="weather_15">Schneesturm</string>
+  <string name="weather_16">Schnee</string>
+  <string name="weather_17">Hagel</string>
+  <string name="weather_18">Schneeregen</string>
+  <string name="weather_19">Staubig</string>
+  <string name="weather_20">Neblig</string>
+  <string name="weather_21">Dunst</string>
+  <string name="weather_22">Rauch</string>
+  <string name="weather_23">Stürmisch</string>
+  <string name="weather_24">Windig</string>
+  <string name="weather_25">Kalt</string>
+  <string name="weather_26">Bedeckt</string>
+  <string name="weather_27">Stark bewölkt</string>
+  <string name="weather_28">Stark bewölkt</string>
+  <string name="weather_29">Teilweise bewölkt</string>
+  <string name="weather_30">Teilweise bewölkt</string>
+  <string name="weather_31">Klar</string>
+  <string name="weather_32">Sonnig</string>
+  <string name="weather_33">Heiter</string>
+  <string name="weather_34">Heiter</string>
+  <string name="weather_35">Wechselnd Regen und Hagel</string>
+  <string name="weather_36">Heiß</string>
+  <string name="weather_37">Örtliche Gewitter</string>
+  <string name="weather_38">Einzelne Gewitter</string>
+  <string name="weather_39">Einzelne Gewitter</string>
+  <string name="weather_40">Einzelne Schauer</string>
+  <string name="weather_41">Heftiger Schneefall</string>
+  <string name="weather_42">Einzelne Schneeschauer</string>
+  <string name="weather_43">Heftiger Schneefall</string>
+  <string name="weather_44">Teilweise bewölkt</string>
+  <string name="weather_45">Gewitterschauer</string>
+  <string name="weather_46">Schneeschauer</string>
+  <string name="weather_47">Örtliche Gewitterschauer</string>
+    <!-- Forecase unavailable -->
+    <string name="weather_3200"></string>
 
     <!-- Statusbar expanded notification drawer -->
     <string name="cat_notifications_title">Benachrichtigungen</string>

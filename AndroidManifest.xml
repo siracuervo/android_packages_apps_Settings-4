@@ -37,6 +37,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
     <uses-permission android:name="android.permission.ACCESS_CHECKIN_PROPERTIES"/>
     <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
@@ -67,6 +68,7 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.CHANGE_HEADS_UP_STATE" />
@@ -131,6 +133,20 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+
+        <!-- Weather Service  -->
+
+        <receiver
+            android:name=".darkkat.service.WeatherReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.android.settings.INTENT_WEATHER_REQUEST" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".darkkat.service.BootService"/>
+        <service android:name=".darkkat.service.WeatherRefreshService" />
+        <service android:name=".darkkat.service.WeatherService" />
 
         <!-- QuietHours SmsCall Service  -->
 
@@ -1687,6 +1703,19 @@
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.darkkat.StatusBarNetworkSpeedStyle" />
+        </activity>
+
+        <!-- Pseudo-activity used to provide an intent-filter entry point to weather settings -->
+        <activity android:name="Settings$StatusBarExpandedWeatherSettingsActivity"
+                android:label="@string/status_bar_expanded_weather_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkkat.StatusBarExpandedWeather" />
         </activity>
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to quick settings -->

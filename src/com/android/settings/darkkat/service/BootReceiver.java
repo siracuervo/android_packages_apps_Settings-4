@@ -25,6 +25,9 @@ public class BootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         SmsCallHelper.scheduleService(context);
+
+        Intent service = new Intent(context, BootService.class);
+        context.startService(service);
     }
 }
 
