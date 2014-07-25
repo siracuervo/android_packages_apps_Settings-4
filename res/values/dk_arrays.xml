@@ -321,7 +321,7 @@
 
     <string-array name="weather_style_entries">
         <item>@string/weather_panel</item>
-        <item>@string/weather_above_carrier_text</item>
+        <item>@string/weather_bar</item>
     </string-array>
 
     <string-array name="weather_style_values" translatable="false">

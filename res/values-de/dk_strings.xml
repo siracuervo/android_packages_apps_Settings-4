@@ -466,6 +466,12 @@
     <string name="status_bar_expanded_header_buttons_title">Schaltflächen</string>
 
     <!-- weather -->
+    <string name="status_bar_expanded_weather_options_title">Optionen anpassen</string>
+    <string name="status_bar_expanded_weather_colors_title">Farben anpassen</string>
+    <string name="weather_enabled_summary">Wetter aktiviert</string>
+    <string name="weather_disabled_summary">Wetter deaktiviert</string>
+    <string name="weather_cat_options_general_title">Allgemein</string>
+    <string name="weather_cat_options_additionals_title">Zusätzliche Informationen</string>
     <string name="weather_update_title">Wetter Feld aktuallisieren</string>
     <string name="weather_refreshing">Wetter-Update wird angefordert!</string>
     <string name="weather_loc_warning_title">Standort kann nicht empfangen werden!</string>
@@ -475,12 +481,14 @@
     <string name="weather_enable_title">Aktivieren</string>
     <string name="weather_enable_summary">Aktivieren um Wetterinformationen anzuzeigen.</string>
     <string name="weather_style_title">Wetter Style</string>
-    <string name="weather_panel">Feld unter der Kopfzeile</string>
-    <string name="weather_above_carrier_text">Text über dem Netzbetreiber Namen</string>
+    <string name="weather_panel">Erweitertes Wetter Feld</string>
+    <string name="weather_bar">Wettertext Leiste</string>
     <string name="weather_icon_style_title">Wetter Symbole</string>
     <string name="weather_icon_monochrome">Einfarbig</string>
     <string name="weather_icon_color">Farbig</string>
     <string name="weather_icon_vclouds">VClouds</string>
+    <string name="weather_use_celcius_title">Metrische Einheiten</string>
+    <string name="weather_use_celcius_summary">Aktivieren um metrische Einheiten zu verwenden.</string>
     <string name="weather_use_custom_location_title">Benutzerdefinierter Standort</string>
     <string name="weather_use_custom_location_summary">Ein Benutzerdefinierter Standort kann Akku sparen. Andernfalls wird die GPS-/Netzwerk-Lokalisierung verwendet.</string>
     <string name="weather_custom_location_dialog_title">Standort eingeben</string>
@@ -501,12 +509,19 @@
     <string name="weather_refresh_4_hours">4 Stunden</string>
     <string name="weather_refresh_6_hours">6 Stunden</string>
     <string name="weather_refresh_8_hours">8 Stunden</string>
-    <string name="weather_show_location_title">Standort anzeigen</string>
+    <string name="weather_show_location_title">Standort</string>
     <string name="weather_show_location_summary">Aktivieren um den Standort anzuzeigen</string>
-    <string name="weather_use_celcius_title">Metrische Einheiten</string>
-    <string name="weather_use_celcius_summary">Aktivieren um metrische Einheiten zu verwenden.</string>
+    <string name="weather_show_wind_title">Wind</string>
+    <string name="weather_show_wind_summary">Aktiviern um Wind Informationen anzuzeigen</string>
+    <string name="weather_show_humidity_title">Luftfeuchtigkeit</string>
+    <string name="weather_show_humidity_summary">Aktiviern um Luftfeuchtigkeits Informationen anzuzeigen</string>
+    <string name="weather_show_timestamp_title">Aktuallisierungs Zeitpunkt</string>
+    <string name="weather_show_timestamp_summary">Aktiviern um den Aktuallisierungs Zeitpunkt anzuzeigen</string>
     <string name="weather_panel_background_color_title">Hintergrund</string>
-    <string name="weather_panel_background_color_title">Hintergrund gedrückt</string>
+    <string name="weather_panel_background_pressed_color_title">Hintergrund gedrückt</string>
+    <string name="weather_button_icon_title">Schaltflächen Symbol</string>
+
+    <!-- Weather directions -->
     <string name="weather_direction_north">N</string>
     <string name="weather_direction_north_east">NO</string>
     <string name="weather_direction_east">O</string>

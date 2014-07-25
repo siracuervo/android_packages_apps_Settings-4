@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/cat_color_title">
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="weather_panel_background_color"
+        android:title="@string/weather_panel_background_color_title"
+        android:defaultValue="0xff191919" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="weather_panel_background_pressed_color"
+        android:title="@string/weather_panel_background_pressed_color_title"
+        android:defaultValue="0xff323232" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="weather_icon_color"
+        android:title="@string/icon_title"
+        android:defaultValue="0xffffffff" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="weather_button_icon_color"
+        android:title="@string/weather_button_icon_title"
+        android:defaultValue="0xffffffff" />
+
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="weather_text_color"
+        android:title="@string/text_title"
+        android:defaultValue="0xffffffff" />
+</PreferenceScreen>

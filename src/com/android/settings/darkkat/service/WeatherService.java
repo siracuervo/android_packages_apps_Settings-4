@@ -40,7 +40,7 @@ public class WeatherService extends IntentService {
     public static final String EXTRA_CITY = "city";
     public static final String EXTRA_FORECAST_DATE = "forecast_date";
     public static final String EXTRA_CONDITION = "condition";
-    public static final String EXTRA_LAST_UPDATE = "datestamp";
+    public static final String EXTRA_LAST_UPDATE = "timestamp";
     public static final String EXTRA_CONDITION_CODE = "condition_code";
     public static final String EXTRA_TEMP = "temp";
     public static final String EXTRA_HUMIDITY = "humidity";

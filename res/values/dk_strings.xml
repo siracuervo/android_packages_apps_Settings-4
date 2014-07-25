@@ -466,6 +466,12 @@
     <string name="status_bar_expanded_header_buttons_title">Buttons</string>
 
     <!-- weather -->
+    <string name="status_bar_expanded_weather_options_title">Customize options</string>
+    <string name="status_bar_expanded_weather_colors_title">Customize colors</string>
+    <string name="weather_enabled_summary">Weather enabled</string>
+    <string name="weather_disabled_summary">Weather disabled</string>
+    <string name="weather_cat_options_general_title">General</string>
+    <string name="weather_cat_options_additionals_title">Additional informations</string>
     <string name="weather_update_title">Update weather panel</string>
     <string name="weather_refreshing">Requesting weather update!</string>
     <string name="weather_loc_warning_title">Cannot retrieve location!</string>
@@ -474,12 +480,14 @@
     <string name="weather_loc_warning_negative">"Don't enable."</string>
     <string name="enable_weather_title">Enable weather</string>
     <string name="enable_weather_summary">Whether to pull weather information and display it throughout the ROM.</string>
-    <string name="weather_panel">Panel under the header</string>
-    <string name="weather_above_carrier_text">Text above the carrier text</string>
+    <string name="weather_panel">Expanded weather panel</string>
+    <string name="weather_bar">Weather text bar</string>
     <string name="weather_icon_style_title">Weather style</string>
     <string name="weather_icon_monochrome">Monochrome</string>
     <string name="weather_icon_color">Colored</string>
     <string name="weather_icon_vclouds">VClouds</string>
+    <string name="weather_use_celcius_title">Metric units</string>
+    <string name="weather_use_celcius_summary">Enable to show metric units.</string>
     <string name="weather_use_custom_location_title">Use custom location</string>
     <string name="weather_use_custom_location_summary">Setting a custom location can save some battery. Otherwise GPS-/network-location is used to determine your location.</string>
     <string name="weather_custom_location_dialog_title">Set your location</string>
@@ -500,12 +508,19 @@
     <string name="weather_refresh_4_hours">4 hours</string>
     <string name="weather_refresh_6_hours">6 hours</string>
     <string name="weather_refresh_8_hours">8 hours</string>
-    <string name="weather_show_location_title">Show location</string>
-    <string name="weather_show_location_summary">Show your location.</string>
-    <string name="weather_use_celcius_title">Metric units</string>
-    <string name="weather_use_celcius_summary">Enabling this will display weather temperature in Celsius rather than Fahrenheit and windspeed in km/h rather than mph.</string>
+    <string name="weather_show_location_title">Location</string>
+    <string name="weather_show_location_summary">Enable to show your location.</string>
+    <string name="weather_show_wind_title">Wind</string>
+    <string name="weather_show_wind_summary">Enable to show winds information</string>
+    <string name="weather_show_humidity_title">Humidity</string>
+    <string name="weather_show_humidity_summary">Enable to show humidity information</string>
+    <string name="weather_show_timestamp_title">Refresh timestamp</string>
+    <string name="weather_show_timestamp_summary">Enable to show the refresh timestamp</string>
     <string name="weather_panel_background_color_title">Background</string>
     <string name="weather_panel_background_pressed_color_title">Background pressed</string>
+    <string name="weather_button_icon_title">Button icon</string>
+
+    <!-- Weather directions -->
     <string name="weather_direction_north">N</string>
     <string name="weather_direction_north_east">NE</string>
     <string name="weather_direction_east">E</string>
