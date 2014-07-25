@@ -53,6 +53,7 @@ import static com.android.internal.util.darkkat.QSConstants.TILE_VOLUME;
 import static com.android.internal.util.darkkat.QSConstants.TILE_WIFI;
 import static com.android.internal.util.darkkat.QSConstants.TILE_WIFIAP;
 import static com.android.internal.util.darkkat.QSConstants.TILE_REBOOT;
+import static com.android.internal.util.darkkat.QSConstants.TILE_REMOTEDISPLAY;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -223,6 +224,10 @@ public class QuickSettingsUtil {
         if (!DeviceUtils.deviceSupportsUsbTether(context)) {
             DYNAMIC_TILES_DEFAULT.remove(TILE_USBTETHER);
         }
+        // Don't show the remote display tile if not supported
+        if (!DeviceUtils.deviceSupportsRemoteDisplay(context)) {
+            DYNAMIC_TILES_DEFAULT.remove(TILE_REMOTEDISPLAY);
+        }
         return DYNAMIC_TILES_DEFAULT;
     }
 
@@ -235,6 +240,8 @@ public class QuickSettingsUtil {
             return context.getResources().getString(R.string.dynamic_tile_alarm);
         } else if (tile.equals(TILE_BUGREPORT)) {
             return context.getResources().getString(R.string.dynamic_tile_bugreport);
+        } else if (tile.equals(TILE_REMOTEDISPLAY)) {
+            return context.getResources().getString(R.string.dynamic_tile_remote_display);
         }
         return null;
     }

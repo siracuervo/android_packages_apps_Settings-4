@@ -656,6 +656,7 @@
     <string name="title_tile_music">Musik</string>
     <string name="title_tile_reboot">Neustarten</string>
     <string name="dynamic_tile_ime_switcher">Eingabemethode-Wechsel</string>
+    <string name="dynamic_tile_remote_display">Bildschirmübertragung</string>
     <string name="dynamic_tile_usb_tether">USB Tether</string>
     <string name="dynamic_tile_alarm">Wecker</string>
     <string name="dynamic_tile_bugreport">Fehlerbericht</string>
