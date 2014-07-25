@@ -478,11 +478,12 @@
     <string name="weather_loc_warning_msg">"Obtaining location from network is currently disabled. This breaks the ability to get the current weather in your current location. Please set a custom location or enable obtaining your location from your network."</string>
     <string name="weather_loc_warning_positive">"Enable network location"</string>
     <string name="weather_loc_warning_negative">"Don't enable."</string>
-    <string name="enable_weather_title">Enable weather</string>
-    <string name="enable_weather_summary">Whether to pull weather information and display it throughout the ROM.</string>
+    <string name="weather_enable_title">Enable weather</string>
+    <string name="weather_enable_summary">Whether to pull weather information and display it throughout the ROM.</string>
+    <string name="weather_style_title">Weather style</string>
     <string name="weather_panel">Expanded weather panel</string>
     <string name="weather_bar">Weather text bar</string>
-    <string name="weather_icon_style_title">Weather style</string>
+    <string name="weather_icon_style_title">Weather icons</string>
     <string name="weather_icon_monochrome">Monochrome</string>
     <string name="weather_icon_color">Colored</string>
     <string name="weather_icon_vclouds">VClouds</string>

@@ -778,7 +778,7 @@
     <string name="recents_clear_all_button_rt">Oben rechts</string>
     <string name="recents_clear_all_button_lb">Unten links</string>
     <string name="recents_clear_all_button_rb">Unten rechts</string>
-    <string name="recents_clear_all_button_color_titl">Alle beenden Schaltfläche</string>
+    <string name="recents_clear_all_button_color_title">Alle beenden Schaltfläche</string>
 
     <!-- (Interface category) More settings -->
     <string name="heads_up_title">Heads-Up Benachrichtigungen</string>
