@@ -74,6 +74,7 @@
     <string name="custom_image">Custom image</string>
     <string name="color_title">Color</string>
     <string name="colors_title">Colors</string>
+    <string name="colors_summary">Customize colors</string>
     <string name="bg_colors_summary">Customize the background colors</string>
     <string name="color_normal_title">Color (Normal)</string>
     <string name="color_connected_title">Color (Google connected)</string>
@@ -466,13 +467,15 @@
     <string name="status_bar_expanded_header_buttons_title">Buttons</string>
 
     <!-- weather -->
-    <string name="status_bar_expanded_weather_options_title">Customize options</string>
-    <string name="status_bar_expanded_weather_colors_title">Customize colors</string>
-    <string name="weather_enabled_summary">Weather enabled</string>
+    <string name="status_bar_expanded_weather_click_actions_title">Click actions</string>
+    <string name="weather_click_actions_summary">Customize click actions</string>
+    <string name="weather_style_bar_summary">Using weather text bar</string>
+
+    <!-- Weather options -->
     <string name="weather_disabled_summary">Weather disabled</string>
     <string name="weather_cat_options_general_title">General</string>
     <string name="weather_cat_options_additionals_title">Additional informations</string>
-    <string name="weather_update_title">Update weather panel</string>
+    <string name="weather_cat_click_actions_title">Click actions</string>
     <string name="weather_refreshing">Requesting weather update!</string>
     <string name="weather_loc_warning_title">Cannot retrieve location!</string>
     <string name="weather_loc_warning_msg">"Obtaining location from network is currently disabled. This breaks the ability to get the current weather in your current location. Please set a custom location or enable obtaining your location from your network."</string>
@@ -517,6 +520,22 @@
     <string name="weather_show_humidity_summary">Enable to show humidity information</string>
     <string name="weather_show_timestamp_title">Refresh timestamp</string>
     <string name="weather_show_timestamp_summary">Enable to show the refresh timestamp</string>
+
+    <!-- Weather click actions -->
+    <string name="weather_click_top_bar_settings_title">Settings button</string>
+    <string name="weather_click_left_panel_title">Left panel</string>
+    <string name="weather_long_click_left_panel_title">Left panel (long)</string>
+    <string name="weather_click_image_title">Condition image</string>
+    <string name="weather_long_click_image_title">Condition image (long)</string>
+    <string name="weather_click_right_panel_title">Right panel</string>
+    <string name="weather_long_click_right_panel_title">Right panel (long)</string>
+    <string name="weather_refresh_title">Update weather</string>
+    <string name="weather_settings_title">Weather settings</string>
+    <string name="weather_settings_options_title">Weather settings:\nOptions</string>
+    <string name="weather_settings_click_actions_title">Weather settings:\nClick actions</string>
+    <string name="weather_settings_colors_title">Weather settings:\nColors</string>
+
+    <!-- Weather colors -->
     <string name="weather_panel_background_color_title">Background</string>
     <string name="weather_panel_background_pressed_color_title">Background pressed</string>
     <string name="weather_button_icon_title">Button icon</string>

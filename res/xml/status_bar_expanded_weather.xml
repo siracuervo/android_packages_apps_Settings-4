@@ -5,11 +5,16 @@
 
     <PreferenceScreen
         android:key="status_bar_expanded_weather_options"
-        android:title="@string/status_bar_expanded_weather_options_title"
+        android:title="@string/options_title"
         android:fragment="com.android.settings.darkkat.StatusBarExpandedWeatherOptions" />
 
     <PreferenceScreen
+        android:key="status_bar_expanded_weather_click_actions"
+        android:title="@string/status_bar_expanded_weather_click_actions_title"
+        android:fragment="com.android.settings.darkkat.StatusBarExpandedWeatherClickActions" />
+
+    <PreferenceScreen
         android:key="status_bar_expanded_weather_colors"
-        android:title="@string/status_bar_expanded_weather_colors_title"
+        android:title="@string/colors_title"
         android:fragment="com.android.settings.darkkat.StatusBarExpandedWeatherColors" />
 </PreferenceScreen>

@@ -1718,6 +1718,45 @@
                 android:value="com.android.settings.darkkat.StatusBarExpandedWeather" />
         </activity>
 
+        <!-- Pseudo-activity used to provide an intent-filter entry point to weather options settings -->
+        <activity android:name="Settings$StatusBarExpandedWeatherSettingsOptionsActivity"
+                android:label="@string/options_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkkat.StatusBarExpandedWeatherOptions" />
+        </activity>
+
+        <!-- Pseudo-activity used to provide an intent-filter entry point to weather click actions settings -->
+        <activity android:name="Settings$StatusBarExpandedWeatherSettingsClickActionsActivity"
+                android:label="@string/status_bar_expanded_weather_click_actions_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkkat.StatusBarExpandedWeatherClickActions" />
+        </activity>
+
+        <!-- Pseudo-activity used to provide an intent-filter entry point to weather color settings -->
+        <activity android:name="Settings$StatusBarExpandedWeatherSettingsColorsActivity"
+                android:label="@string/colors_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkkat.StatusBarExpandedWeatherColors" />
+        </activity>
+
         <!-- Pseudo-activity used to provide an intent-filter entry point to quick settings -->
         <activity android:name="Settings$StatusBarExpandedQsSettingsActivity"
                 android:label="@string/status_bar_expanded_quick_settings_title"

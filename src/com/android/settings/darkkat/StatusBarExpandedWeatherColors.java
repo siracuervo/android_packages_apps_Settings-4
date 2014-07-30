@@ -21,7 +21,9 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
+import android.database.ContentObserver;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
@@ -71,6 +73,13 @@ public class StatusBarExpandedWeatherColors extends SettingsPreferenceFragment i
 
     private ContentResolver mResolver;
 
+    private ContentObserver mWeatherStyleObserver = new ContentObserver(new Handler()) {
+        @Override
+        public void onChange(boolean selfChange) {
+            updatePreferences();
+        }
+    };
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,11 +94,6 @@ public class StatusBarExpandedWeatherColors extends SettingsPreferenceFragment i
 
         addPreferencesFromResource(R.xml.status_bar_expanded_weather_colors);
         mResolver = getActivity().getContentResolver();
-
-        boolean usePanel = Settings.System.getInt(mResolver,
-               Settings.System.STATUS_BAR_EXPANDED_WEATHER_STYLE, 0) == 0;
-        boolean isStyleMonochrome = Settings.System.getInt(mResolver,
-               Settings.System.STATUS_BAR_EXPANDED_WEATHER_ICON, 0) == 0;
 
         int intColor = 0xffffffff;
         String hexColor = String.format("#%08x", (0xffffffff & 0xffffffff));
@@ -124,7 +128,6 @@ public class StatusBarExpandedWeatherColors extends SettingsPreferenceFragment i
         mIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColor.setSummary(hexColor);
-        mIconColor.setEnabled(usePanel && isStyleMonochrome);
         mIconColor.setOnPreferenceChangeListener(this);
 
         mButtonIconColor =
@@ -135,7 +138,6 @@ public class StatusBarExpandedWeatherColors extends SettingsPreferenceFragment i
         mButtonIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mButtonIconColor.setSummary(hexColor);
-        mButtonIconColor.setEnabled(usePanel);
         mButtonIconColor.setOnPreferenceChangeListener(this);
 
         mTextColor =
@@ -148,6 +150,7 @@ public class StatusBarExpandedWeatherColors extends SettingsPreferenceFragment i
         mTextColor.setSummary(hexColor);
         mTextColor.setOnPreferenceChangeListener(this);
 
+        updatePreferences();
         setHasOptionsMenu(true);
     }
 
@@ -167,6 +170,24 @@ public class StatusBarExpandedWeatherColors extends SettingsPreferenceFragment i
             default:
                 return false;
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getContentResolver().registerContentObserver(
+                Settings.System.getUriFor(Settings.System.STATUS_BAR_EXPANDED_WEATHER_STYLE), true,
+                mWeatherStyleObserver);
+        getContentResolver().registerContentObserver(
+                Settings.System.getUriFor(Settings.System.STATUS_BAR_EXPANDED_WEATHER_ICON), true,
+                mWeatherStyleObserver);
+        updatePreferences();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        getContentResolver().unregisterContentObserver(mWeatherStyleObserver);
     }
 
     @Override
@@ -302,5 +323,15 @@ public class StatusBarExpandedWeatherColors extends SettingsPreferenceFragment i
         public void onCancel(DialogInterface dialog) {
 
         }
+    }
+
+    private void updatePreferences() {
+        boolean usePanel = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_EXPANDED_WEATHER_STYLE, 0) == 0;
+        boolean isStyleMonochrome = Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_EXPANDED_WEATHER_ICON, 0) == 0;
+
+        mIconColor.setEnabled(usePanel && isStyleMonochrome);
+        mButtonIconColor.setEnabled(usePanel);
     }
 }

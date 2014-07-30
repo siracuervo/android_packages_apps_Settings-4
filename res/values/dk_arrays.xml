@@ -341,6 +341,40 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="weather_click_top_bar_settings_entries">
+        <item>@string/weather_settings_title</item>
+        <item>@string/weather_settings_options_title</item>
+        <item>@string/weather_settings_click_actions_title</item>
+        <item>@string/weather_settings_colors_title</item>
+    </string-array>
+
+    <string-array name="weather_click_top_bar_settings_values" translatable="false">
+        <item>**settings_weather**</item>
+        <item>**options_weather**</item>
+        <item>**click_actions_weather**</item>
+        <item>**colors_weather**</item>
+    </string-array>
+
+    <string-array name="weather_click_entries">
+        <item>@string/shortcut_action_app</item>
+        <item>@string/weather_refresh_title</item>
+        <item>@string/weather_settings_title</item>
+        <item>@string/weather_settings_options_title</item>
+        <item>@string/weather_settings_click_actions_title</item>
+        <item>@string/weather_settings_colors_title</item>
+        <item>@string/shortcut_action_none</item>
+    </string-array>
+
+    <string-array name="weather_click_values" translatable="false">
+        <item>**app**</item>
+        <item>**refresh_weather**</item>
+        <item>**settings_weather**</item>
+        <item>**options_weather**</item>
+        <item>**click_actions_weather**</item>
+        <item>**colors_weather**</item>
+        <item>**null**</item>
+    </string-array>
+
     <string-array name="weather_refresh_interval_entries">
         <item>@string/weather_refresh_disabled</item>
         <item>@string/weather_refresh_1_minute</item>

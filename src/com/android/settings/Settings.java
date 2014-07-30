@@ -77,6 +77,9 @@ import com.android.settings.darkkat.StatusBarBatteryStatusStyle;
 import com.android.settings.darkkat.StatusBarNetworkSpeedStyle;
 import com.android.settings.darkkat.StatusBarExpandedQs;
 import com.android.settings.darkkat.StatusBarExpandedWeather;
+import com.android.settings.darkkat.StatusBarExpandedWeatherOptions;
+import com.android.settings.darkkat.StatusBarExpandedWeatherClickActions;
+import com.android.settings.darkkat.StatusBarExpandedWeatherColors;
 import com.android.settings.darkkat.RamBar;
 import com.android.settings.darkkat.DisplayRotation;
 import com.android.settings.darkkat.QuietHours;
@@ -366,6 +369,9 @@ public class Settings extends PreferenceActivity
         StatusBarNetworkSpeedStyle.class.getName(),
         StatusBarExpandedQs.class.getName(),
         StatusBarExpandedWeather.class.getName(),
+        StatusBarExpandedWeatherOptions.class.getName(),
+        StatusBarExpandedWeatherClickActions.class.getName(),
+        StatusBarExpandedWeatherColors.class.getName(),
         RamBar.class.getName(),
         DisplayRotation.class.getName(),
         QuietHours.class.getName(),
@@ -1167,6 +1173,9 @@ public class Settings extends PreferenceActivity
     public static class NetworkSpeedIndicatorSettingsActivity extends Settings { /* empty */ }
     public static class StatusBarExpandedQsSettingsActivity extends Settings { /* empty */ }
     public static class StatusBarExpandedWeatherSettingsActivity extends Settings { /* empty */ }
+    public static class StatusBarExpandedWeatherSettingsOptionsActivity extends Settings { /* empty */ }
+    public static class StatusBarExpandedWeatherSettingsClickActionsActivity extends Settings { /* empty */ }
+    public static class StatusBarExpandedWeatherSettingsColorsActivity extends Settings { /* empty */ }
     public static class RamBarSettingsActivity extends Settings { /* empty */ }
     public static class DisplayRotationSettingsActivity extends Settings { /* empty */ }
     public static class QuietHoursSettingsActivity extends Settings { /* empty */ }

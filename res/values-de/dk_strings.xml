@@ -74,6 +74,7 @@
     <string name="custom_image">Eigenes Bild</string>
     <string name="color_title">Farbe</string>
     <string name="colors_title">Farben</string>
+    <string name="colors_summary">Farben anpassen</string>
     <string name="bg_colors_summary">Die Hintergrund Farben anpassen</string>
     <string name="color_normal_title">Farbe (Normal)</string>
     <string name="color_connected_title">Farbe (Mit Google verbunden)</string>
@@ -465,14 +466,16 @@
     <string name="status_bar_expanded_header_clock_date_title">Uhr &amp; Datum</string>
     <string name="status_bar_expanded_header_buttons_title">Schaltflächen</string>
 
-    <!-- weather -->
-    <string name="status_bar_expanded_weather_options_title">Optionen anpassen</string>
-    <string name="status_bar_expanded_weather_colors_title">Farben anpassen</string>
-    <string name="weather_enabled_summary">Wetter aktiviert</string>
+    <!-- Weather -->
+    <string name="status_bar_expanded_weather_click_actions_title">Klickaktionen</string>
+    <string name="status_bar_expanded_weather_click_actions_summary">Klickaktionen anpassen</string>
+    <string name="weather_style_bar_summary">Wettertext Leiste wird benutzt</string>
+
+    <!-- Weather options -->
     <string name="weather_disabled_summary">Wetter deaktiviert</string>
     <string name="weather_cat_options_general_title">Allgemein</string>
     <string name="weather_cat_options_additionals_title">Zusätzliche Informationen</string>
-    <string name="weather_update_title">Wetter Feld aktuallisieren</string>
+    <string name="weather_cat_click_actions_title">Klick Aktionen</string>
     <string name="weather_refreshing">Wetter-Update wird angefordert!</string>
     <string name="weather_loc_warning_title">Standort kann nicht empfangen werden!</string>
     <string name="weather_loc_warning_msg">"Die Netzwerk-Lokalisierung ist derzeit deaktiviert. Dies verhindert den Empfang von aktuellen Wetter-Informatione für den derzeitigen Standort. Setze bitte einen Benutzerdefinierter Standort, oder aktiviere die Netzwerk-Lokalisierung."</string>
@@ -517,6 +520,22 @@
     <string name="weather_show_humidity_summary">Aktiviern um Luftfeuchtigkeits Informationen anzuzeigen</string>
     <string name="weather_show_timestamp_title">Aktuallisierungs Zeitpunkt</string>
     <string name="weather_show_timestamp_summary">Aktiviern um den Aktuallisierungs Zeitpunkt anzuzeigen</string>
+
+    <!-- Weather click actions -->
+    <string name="weather_click_top_bar_settings_title">Einstellungen-Schaltfläche</string>
+    <string name="weather_click_left_panel_title">Linkes Feld</string>
+    <string name="weather_long_click_left_panel_title">Linkes Feld (lang)</string>
+    <string name="weather_click_image_title">Wetter Symbol</string>
+    <string name="weather_long_click_image_title">Wetter Symbol (lang)</string>
+    <string name="weather_click_right_panel_title">Rechtes Feld</string>
+    <string name="weather_long_click_right_panel_title">Rechtes Feld (lang)</string>
+    <string name="weather_refresh_title">Wetter aktuallisieren</string>
+    <string name="weather_settings_title">Wetter-Einstellungen</string>
+    <string name="weather_settings_options_title">Wetter-Einstellungen:\nOptionen</string>
+    <string name="weather_settings_click_actions_title">Wetter-Einstellungen:\nKlickaktionen</string>
+    <string name="weather_settings_colors_title">Wetter-Einstellungen:\nFarben</string>
+
+    <!-- Weather colors -->
     <string name="weather_panel_background_color_title">Hintergrund</string>
     <string name="weather_panel_background_pressed_color_title">Hintergrund gedrückt</string>
     <string name="weather_button_icon_title">Schaltflächen Symbol</string>
