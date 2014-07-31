@@ -78,14 +78,6 @@ public class StatusBarExpandedWeatherOptions extends SettingsPreferenceFragment 
             "weather_show_wind";
     private static final String PREF_WEATHER_SHOW_TIMESTAMP =
             "weather_show_timestamp";
-    private static final String PREF_WEATHER_CLICK_BACKROUND =
-            "weather_click_background";
-    private static final String PREF_WEATHER_LONG_CLICK_BACKROUND =
-            "weather_long_click_background";
-    private static final String PREF_WEATHER_CLICK_IMAGE =
-            "weather_click_image";
-    private static final String PREF_WEATHER_LONG_CLICK_IMAGE =
-            "weather_long_click_image";
 
     private static final int MENU_REFRESH = Menu.FIRST;
     private static final int DLG_LOC_WARNING = 1;
