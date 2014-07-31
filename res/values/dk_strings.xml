@@ -302,6 +302,8 @@
     <!-- Lockscreen widgets -->
     <string name="lockscreen_enable_widgets_title">Additional available widgets</string>
     <string name="lockscreen_enable_widgets_summary">Enable, to use additional available widgets instead of the default one</string>
+    <string name="lockscreen_enable_all_widgets_title">Use all widgets</string>
+    <string name="lockscreen_enable_all_widgets_summary">Enable, to use home screen widgets on the lockscreen, too</string>
     <string name="lockscreen_maximize_widgets_title">Maximize</string>
     <string name="lockscreen_maximize_widgets_summary">Show widgets maximized and the unlock minimized when the screen is turned on</string>
     <string name="lockscreen_enable_camera_title">Camera</string>

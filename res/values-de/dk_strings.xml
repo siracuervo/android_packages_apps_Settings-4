@@ -302,6 +302,8 @@
     <!-- Lockscreen widgets -->
     <string name="lockscreen_enable_widgets_title">Zusätzliche verfügbare Widgets</string>
     <string name="lockscreen_enable_widgets_summary">Aktivieren um zusätzlich verfügbare Widgets anstatt den Standard Widget zu benutzen</string>
+    <string name="lockscreen_enable_all_widgets_title">Alle Widgets benutzen</string>
+    <string name="lockscreen_enable_all_widgets_summary">Aktivieren um Homescreen Widgets ebenfalls auf dem Sperrbildschirm zu benutzen</string>
     <string name="lockscreen_maximize_widgets_title">Maximieren</string>
     <string name="lockscreen_maximize_widgets_summary">Beim Einschalten Widgets maximiert und Bildschirmsperre minimiert anzeigen</string>
     <string name="lockscreen_enable_camera_title">Kamera</string>

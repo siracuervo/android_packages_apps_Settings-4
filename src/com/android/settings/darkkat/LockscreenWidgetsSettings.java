@@ -59,6 +59,8 @@ public class LockscreenWidgetsSettings extends SettingsPreferenceFragment implem
             "lockscreen_widgets_cat_color";
     private static final String PREF_LOCKSCREEN_ENABLE_WIDGETS =
             "lockscreen_enable_widgets";
+    private static final String PREF_LOCKSCREEN_ENABLE_ALL_WIDGETS =
+            "lockscreen_enable_all_widgets";
     private static final String PREF_LOCKSCREEN_MAXIMIMIZE_WIDGETS =
             "lockscreen_maximize_widgets";
     private static final String PREF_LOCKSCREEN_ENABLE_CAMERA =
@@ -76,6 +78,7 @@ public class LockscreenWidgetsSettings extends SettingsPreferenceFragment implem
     private static final int DLG_RESET = 0;
 
     private CheckBoxPreference mEnableWidgets;
+    private CheckBoxPreference mEnableAllWidgets;
     private CheckBoxPreference mMaximizeWidgets;
     private CheckBoxPreference mEnableCameraWidget;
     private CheckBoxPreference mUseWidgetCarousel;
@@ -107,9 +110,20 @@ public class LockscreenWidgetsSettings extends SettingsPreferenceFragment implem
         mEnableWidgets.setChecked(widgetsEnabled);
         mEnableWidgets.setOnPreferenceChangeListener(this);
 
-        // Remove Maximize widgets checkbox on hybrid/tablet
+        // Remove Enable all widgets preference if widgets are disabled
         PreferenceCategory catOptions =
                 (PreferenceCategory) findPreference(PREF_LOCKSCREEN_WIDGETS_CAT_OPTIONS);
+        mEnableAllWidgets =
+                (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_ENABLE_ALL_WIDGETS);
+        if (widgetsEnabled) {
+            mEnableAllWidgets.setChecked(Settings.System.getInt(mResolver,
+                       Settings.System.LOCKSCREEN_ENABLE_ALL_WIDGETS, 0) == 1);
+            mEnableAllWidgets.setOnPreferenceChangeListener(this);
+        } else {
+            catOptions.removePreference(mEnableAllWidgets);
+        }
+
+        // Remove Maximize widgets checkbox on hybrid/tablet
         mMaximizeWidgets =
                 (CheckBoxPreference) findPreference(PREF_LOCKSCREEN_MAXIMIMIZE_WIDGETS);
         if (DeviceUtils.isPhone(getActivity())) {
@@ -198,6 +212,12 @@ public class LockscreenWidgetsSettings extends SettingsPreferenceFragment implem
             mEnableWidgets.setSummary((Boolean) newValue ?
                     R.string.enabled : R.string.disabled);
             refreshSettings();
+            return true;
+        } else if (preference == mEnableAllWidgets) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.LOCKSCREEN_ENABLE_ALL_WIDGETS,
+                    value ? 1 : 0);
             return true;
         } else if (preference == mMaximizeWidgets) {
             value = (Boolean) newValue;
