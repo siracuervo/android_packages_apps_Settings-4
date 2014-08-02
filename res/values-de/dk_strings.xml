@@ -370,7 +370,7 @@
     <string name="status_bar_date_string_edittext_summary">Zeichenfolge eingeben</string>
 
     <!-- Status bar battery status style -->
-    <string name="status_bar_show_battery_status_summary">Aktivieren um den Akkustatus in der Statusleiste anzuzeigen</string>
+    <string name="battery_status_enable_summary">Aktivieren um den Akkustatus in der Statusleiste anzuzeigen</string>
     <string name="battery_status_show_mini_icon_title">Kleines Symbol anzeigen</string>
     <string name="battery_status_show_mini_icon_summary">Aktivieren um ein kleines Symbol, anstatt dem großen Standard Android Symbol, anzuzeigen</string>
     <string name="battery_status_show_text_title">Text anzeigen</string>
@@ -381,11 +381,11 @@
     <string name="battery_status_custom_frame_color_summary">Wenn deaktiviert, wird die Akkustatus Farbe mit einer Transparenz von 80% benutzt.</string>
     <string name="battery_status_custom_text_hight_color_title">Hoher Akkustand</string>
     <string name="battery_status_custom_text_hight_color_summary">Aktivieren um die Text Farbe für einen Akkustand ab 90 Prozent anzupassen. Deaktivieren um grün zu benutzen.</string>
-    <string name="circle_battery_animation_speed">Ring Animations Geschwindigkeit</string>
-    <string name="circle_battery_animation_speed_none">Keine</string>
-    <string name="circle_battery_animation_speed_slow">Langsam</string>
-    <string name="circle_battery_animation_speed_stock">Normal</string>
-    <string name="circle_battery_animation_speed_fast">Schnell</string>
+    <string name="battery_status_animation_speed">Lade-Animations Geschwindigkeit</string>
+    <string name="battery_status_animation_speed_none">Keine Animation</string>
+    <string name="battery_status_animation_speed_slow">Langsam</string>
+    <string name="battery_status_animation_speed_stock">Normal</string>
+    <string name="battery_status_animation_speed_fast">Schnell</string>
     <string name="battery_status_color">Füllung</string>
     <string name="battery_text_color">Text normal</string>
     <string name="battery_text_hight_color">Text normal (Hoher Akkustand)</string>

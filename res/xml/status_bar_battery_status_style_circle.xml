@@ -29,11 +29,6 @@
 	        android:entryValues="@array/battery_status_style_values" />
 
 	    <CheckBoxPreference
-		    android:key="battery_status_show_text"
-		    android:title="@string/battery_status_show_text_title"
-		    android:summary="@string/battery_status_show_text_summary" />
-
-	    <CheckBoxPreference
 		    android:key="battery_circle_dotted"
 		    android:title="@string/dotted_title"
 		    android:summary="@string/dotted_summary" />
@@ -62,11 +57,16 @@
             android:persistent="false"
             android:defaultValue="0" />
 
+	    <CheckBoxPreference
+		    android:key="battery_status_show_text"
+		    android:title="@string/battery_status_show_text_title"
+		    android:summary="@string/battery_status_show_text_summary" />
+
         <ListPreference
-            android:key="circle_battery_animation_speed"
-            android:title="@string/circle_battery_animation_speed"
-            android:entries="@array/circle_battery_animation_speed_entries"
-            android:entryValues="@array/circle_battery_animation_speed_values" />
+            android:key="battery_status_animation_speed"
+            android:title="@string/battery_status_animation_speed"
+            android:entries="@array/battery_status_animation_speed_entries"
+            android:entryValues="@array/battery_status_animation_speed_values" />
 
     </PreferenceCategory>
 

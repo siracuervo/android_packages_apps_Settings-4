@@ -38,6 +38,12 @@
 		    android:title="@string/battery_status_show_text_title"
 		    android:summary="@string/battery_status_show_text_summary" />
 
+        <ListPreference
+            android:key="battery_status_animation_speed"
+            android:title="@string/battery_status_animation_speed"
+            android:entries="@array/battery_status_animation_speed_entries"
+            android:entryValues="@array/battery_status_animation_speed_values" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

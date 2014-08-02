@@ -21,6 +21,6 @@
     <CheckBoxPreference
         android:key="status_bar_show_battery_status"
         android:title="@string/show_title"
-        android:summary="@string/status_bar_show_battery_status_summary" />
+        android:summary="@string/battery_status_enable_summary" />
 
 </PreferenceScreen>
