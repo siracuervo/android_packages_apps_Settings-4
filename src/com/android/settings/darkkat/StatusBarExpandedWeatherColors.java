@@ -54,7 +54,7 @@ public class StatusBarExpandedWeatherColors extends SettingsPreferenceFragment i
     private static final int DEFAULT_BACKGROUND_COLOR =
             0xff191919;
     private static final int DEFAULT_BACKGROUND_PRESSED_COLOR =
-            0xff323232;
+            0xffffffff;
     private static final int DEFAULT_ICON_COLOR =
             0xffffffff;
     private static final int DEFAULT_BUTTON_ICON_COLOR =

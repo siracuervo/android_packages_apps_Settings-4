@@ -11,7 +11,7 @@
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="weather_panel_background_pressed_color"
         android:title="@string/weather_panel_background_pressed_color_title"
-        android:defaultValue="0xff323232" />
+        android:defaultValue="0xffffffff" />
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="weather_icon_color"
