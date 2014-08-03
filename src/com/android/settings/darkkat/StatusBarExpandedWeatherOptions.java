@@ -200,7 +200,7 @@ public class StatusBarExpandedWeatherOptions extends SettingsPreferenceFragment 
             mRefreshInterval.setOnPreferenceChangeListener(this);
 
             mShowLoc.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_EXPANDED_WEATHER_SHOW_LOCATION, 1) == 1);
+                    Settings.System.STATUS_BAR_EXPANDED_WEATHER_SHOW_LOCATION, 0) == 1);
             mShowLoc.setOnPreferenceChangeListener(this);
 
             if (usePanel) {
