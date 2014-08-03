@@ -367,7 +367,7 @@
     <string name="status_bar_date_string_edittext_summary">Introducir cadena</string>
 
     <!-- Status bar battery status style -->
-    <string name="status_bar_show_battery_status_summary">Muestra el estado de la batería en la barra de estado</string>
+    <string name="battery_status_enable_summary">Muestra el estado de la batería en la barra de estado</string>
     <string name="battery_status_show_text_title">Mostrar texto</string>
     <string name="battery_status_show_text_summary">Muestra el texto del estado de la batería</string>
     <string name="battery_status_show_mini_icon_title">Mostrar mini icono</string>
@@ -378,11 +378,11 @@
     <string name="battery_status_custom_frame_color_summary">Si se deshabilita, se utilizará un color del estado de la batería con una transparencia del 80%.</string>
     <string name="battery_status_custom_text_hight_color_title">Nivel alto</string>
     <string name="battery_status_custom_text_hight_color_summary">Utilizar un color de texto personalizado para el estado de la batería al 90 por ciento. Si se deshabilita se utilizará el color verde.</string>
-    <string name="circle_battery_animation_speed">Velocidad de la animación del círculo</string>
-    <string name="circle_battery_animation_speed_none">Ninguna</string>
-    <string name="circle_battery_animation_speed_slow">Lenta</string>
-    <string name="circle_battery_animation_speed_stock">Normal</string>
-    <string name="circle_battery_animation_speed_fast">Rápida</string>
+    <!-- <string name="battery_status_animation_speed">Velocidad de la animación del círculo</string> -->
+    <string name="battery_status_animation_speed_none">Ninguna</string>
+    <string name="battery_status_animation_speed_slow">Lenta</string>
+    <string name="battery_status_animation_speed_stock">Normal</string>
+    <string name="battery_status_animation_speed_fast">Rápida</string>
     <string name="battery_status_color">Llenar</string>
     <string name="battery_text_color">Texto normal</string>
     <string name="battery_text_hight_color">Texto normal (Nivel alto)</string>
@@ -462,6 +462,87 @@
     <string name="status_bar_expanded_header_background_title">Fondo</string>
     <string name="status_bar_expanded_header_clock_date_title">Hora &amp; fecha</string>
     <string name="status_bar_expanded_header_buttons_title">Botones</string>
+
+    <!-- weather -->
+    <string name="weather_icon_monochrome">Monocromo</string>
+    <string name="weather_icon_color">Coloreado</string>
+    <string name="weather_icon_vclouds">VClouds</string>
+    <string name="weather_refresh_1_minute">1 minute</string>
+    <string name="weather_refresh_5_minutes">5 minutos</string>
+    <string name="weather_refresh_10_minutes">10 minutos</string>
+    <string name="weather_refresh_30_minutes">30 minutos</string>
+    <string name="weather_refresh_45_minutes">45 minutos</string>
+    <string name="weather_refresh_60_minutes">60 minutos</string>
+    <string name="weather_refresh_2_hours">2 horas</string>
+    <string name="weather_refresh_3_hours">3 horas</string>
+    <string name="weather_refresh_4_hours">4 horas</string>
+    <string name="weather_refresh_6_hours">6 horas</string>
+    <string name="weather_refresh_8_hours">8 horas</string>
+
+    <!-- Weather colors -->
+    <string name="weather_panel_background_color_title">Fondo</string>
+
+    <!-- Weather directions -->
+    <string name="weather_N">N</string>
+    <string name="weather_NE">NE</string>
+    <string name="weather_E">E</string>
+    <string name="weather_SE">SE</string>
+    <string name="weather_S">S</string>
+    <string name="weather_SW">SO</string>
+    <string name="weather_W">O</string>
+    <string name="weather_NW">NO</string>
+
+    <!-- Weather Codes -->
+    <string name="weather_0">Tornado</string>
+    <string name="weather_1">Torm. tropical</string>
+    <string name="weather_2">Huracán</string>
+    <string name="weather_3">Torm. severas</string>
+    <string name="weather_4">Tormentas</string>
+    <string name="weather_5">Agua y nieve</string>
+    <string name="weather_6">Agua y aguanieve</string>
+    <string name="weather_7">Nieve y aguanieve</string>
+    <string name="weather_8">Llovizna helada</string>
+    <string name="weather_9">Llovizna</string>
+    <string name="weather_10">Lluvia helada</string>
+    <string name="weather_11">Lluvias</string>
+    <string name="weather_12">Lluvias</string>
+    <string name="weather_13">Copos de nieve</string>
+    <string name="weather_14">Nevadas ligeras</string>
+    <string name="weather_15">Chub. de nieve</string>
+    <string name="weather_16">Nieve</string>
+    <string name="weather_17">Granizo</string>
+    <string name="weather_18">Aguanieve</string>
+    <string name="weather_19">Polvo</string>
+    <string name="weather_20">Niebla</string>
+    <string name="weather_21">Neblina</string>
+    <string name="weather_22">Humo</string>
+    <string name="weather_23">Borrascoso</string>
+    <string name="weather_24">Ventoso</string>
+    <string name="weather_25">Frío</string>
+    <string name="weather_26">Nublado</string>
+    <string name="weather_27">Mayorm. nublado</string>
+    <string name="weather_28">Mayorm. nublado</string>
+    <string name="weather_29">Parc. nublado</string>
+    <string name="weather_30">Parc. nublado</string>
+    <string name="weather_31">Despejado</string>
+    <string name="weather_32">Soleado</string>
+    <string name="weather_33">Despejado</string>
+    <string name="weather_34">Despejado</string>
+    <string name="weather_35">Lluvia y granizo</string>
+    <string name="weather_36">Caluroso</string>
+    <string name="weather_37">Torm. eléctricas</string>
+    <string name="weather_38">Torm. eléc. aisladas</string>
+    <string name="weather_39">Torm. eléc. aisladas</string>
+    <string name="weather_40">Parc. Nublado</string>
+    <string name="weather_41">Fuertes Nevadas</string>
+    <string name="weather_42">Chub. de nieve</string>
+    <string name="weather_43">Fuertes nevadas</string>
+    <string name="weather_44">Parc. nublado</string>
+    <string name="weather_45">Chaparrones</string>
+    <string name="weather_46">Nieve</string>
+    <string name="weather_47">Chap. aislados</string>
+    <!-- Forecase unavailable -->
+    <string name="weather_3200"></string>
 
     <!-- Statusbar expanded notification drawer -->
     <string name="cat_notifications_title">Notificaciones</string>
