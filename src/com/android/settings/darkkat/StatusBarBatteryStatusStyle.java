@@ -229,15 +229,6 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
                     // Remove the frame color preference if custom frame color is disabled
                     catColor.removePreference(mFrameColor);
                 }
-
-                if (!showtext) {
-                    // Remove text color preferences if the battery text is hidden
-                    catColor.removePreference(mTextColor);
-                    if (mTextHightColor != null) {
-                        catColor.removePreference(mTextHightColor);
-                    }
-                    catColor.removePreference(mTextChargingColor);
-                }
             }
 
             if (batteryStatus == 2) {
@@ -322,6 +313,16 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mTextChargingColor.setSummary(hexColor);
             mTextChargingColor.setOnPreferenceChangeListener(this);
+
+            if (!showtext && batteryStatus != 1) {
+                // Remove text color preferences if the battery text is hidden
+                // and battery style is not text
+                catColor.removePreference(mTextColor);
+                if (mTextHightColor != null) {
+                    catColor.removePreference(mTextHightColor);
+                }
+                catColor.removePreference(mTextChargingColor);
+            }
         }
 
         setHasOptionsMenu(true);
