@@ -63,5 +63,10 @@ limitations under the License.
                 android:title="@string/recents_panel_empty_icon_color_title"
                 android:defaultValue="0xffcdcdcd" />
 
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+                android:key="recents_panel_header_text_color"
+                android:title="@string/recents_panel_header_text_color_title"
+                android:defaultValue="0xffffffff" />
+
     </PreferenceCategory>
 </PreferenceScreen>

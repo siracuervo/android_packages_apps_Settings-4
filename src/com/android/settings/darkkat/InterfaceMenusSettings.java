@@ -66,6 +66,8 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             "recents_panel_bg_color";
     private static final String PREF_RECENTS_PANEL_EMPTY_ICON_COLOR =
             "recents_panel_empty_icon_color";
+    private static final String PREF_RECENTS_PANEL_HEADER_TEXT_COLOR =
+            "recents_panel_header_text_color";
     private static final String PREF_RECENTS_RAM_BAR =
             "recents_ram_bar";
     private static final String PREF_RECENTS_CLEAR_ALL_BTN_POS =
@@ -83,6 +85,8 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             0xe6000000;
     private static final int DEFAULT_RECENTS_PANEL_EMPTY_ICON_COLOR =
             0xffcdcdcd;
+    private static final int DEFAULT_RECENTS_PANEL_HEADER_TEXT_COLOR =
+            0xffffffff;
     private static final int DEFAULT_RECENTS_BG_COLOR =
             0xe0000000;
     private static final int DEFAULT_RECENTS_CLEAR_ALL_BTN_COLOR =
@@ -100,6 +104,7 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
     private CheckBoxPreference mRecentsPanelLeftyMode;
     private ColorPickerPreference mRecentsPanelBgColor;
     private ColorPickerPreference mRecentsPanelIconColor;
+    private ColorPickerPreference mRecentsPanelHeaderTextColor;
     private Preference mRamBar;
     private ListPreference mClearAllBtnPosition;
     private ColorPickerPreference mRecentsBgColor;
@@ -212,6 +217,16 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mRecentsPanelIconColor.setSummary(hexColor);
             mRecentsPanelIconColor.setOnPreferenceChangeListener(this);
+
+            mRecentsPanelHeaderTextColor =
+                    (ColorPickerPreference) findPreference(PREF_RECENTS_PANEL_HEADER_TEXT_COLOR);
+            intColor = Settings.System.getInt(mResolver,
+                    Settings.System.RECENT_PANEL_HEADER_TEXT_COLOR,
+                    DEFAULT_RECENTS_PANEL_HEADER_TEXT_COLOR);
+            mRecentsPanelHeaderTextColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mRecentsPanelHeaderTextColor.setSummary(hexColor);
+            mRecentsPanelHeaderTextColor.setOnPreferenceChangeListener(this);
         } else {
             // Default recents enabled, append needed settings
             addPreferencesFromResource(R.xml.recents_default_settings);
@@ -289,7 +304,7 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             Settings.System.putInt(mResolver,
                     Settings.System.POWER_MENU_ICON_COLOR_MODE, value);
             mPowerMenuIconColorMode.setSummary(
-                mPowerMenuIconColorMode.getEntries()[index]);
+                    mPowerMenuIconColorMode.getEntries()[index]);
             refreshSettings();
             return true;
         } else if (preference == mPowerMenuIconColor) {
@@ -323,7 +338,7 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             Settings.System.putInt(getContentResolver(),
                     Settings.System.RECENT_PANEL_SCALE_FACTOR, value);
             mRecentsPanelScale.setSummary(
-                mRecentsPanelScale.getEntries()[index]);
+                    mRecentsPanelScale.getEntries()[index]);
             return true;
         } else if (preference == mRecentsPanelExpandedMode) {
             index = mRecentsPanelExpandedMode.findIndexOfValue((String) objValue);
@@ -331,7 +346,7 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             Settings.System.putInt(getContentResolver(),
                     Settings.System.RECENT_PANEL_EXPANDED_MODE, value);
             mRecentsPanelExpandedMode.setSummary(
-                mRecentsPanelExpandedMode.getEntries()[index]);
+                    mRecentsPanelExpandedMode.getEntries()[index]);
             return true;
         } else if (preference == mRecentsPanelLeftyMode) {
             Settings.System.putInt(getContentResolver(),
@@ -343,7 +358,7 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                     Integer.valueOf(String.valueOf(objValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.RECENT_PANEL_BG_COLOR, intHex);
+                    Settings.System.RECENT_PANEL_BG_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         } else if (preference == mRecentsPanelIconColor) {
@@ -351,7 +366,15 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                     Integer.valueOf(String.valueOf(objValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.RECENT_PANEL_EMPTY_ICON_COLOR, intHex);
+                    Settings.System.RECENT_PANEL_EMPTY_ICON_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mRecentsPanelHeaderTextColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.RECENT_PANEL_HEADER_TEXT_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         } else if (preference == mClearAllBtnPosition) {
@@ -366,7 +389,7 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                     Integer.valueOf(String.valueOf(objValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.RECENT_BG_COLOR, intHex);
+                    Settings.System.RECENT_BG_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         } else if (preference == mRecentsClearAllBtnColor) {
@@ -374,7 +397,7 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                     Integer.valueOf(String.valueOf(objValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                Settings.System.RECENT_CLEAR_ALL_BTN_COLOR, intHex);
+                    Settings.System.RECENT_CLEAR_ALL_BTN_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         }
@@ -445,6 +468,9 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                                 Settings.System.putInt(getOwner().mResolver,
                                         Settings.System.RECENT_PANEL_EMPTY_ICON_COLOR,
                                         DEFAULT_RECENTS_PANEL_EMPTY_ICON_COLOR);
+                                Settings.System.putInt(getOwner().mResolver,
+                                        Settings.System.RECENT_PANEL_HEADER_TEXT_COLOR,
+                                        DEFAULT_RECENTS_PANEL_HEADER_TEXT_COLOR);
                             } else {
                                 Settings.System.putInt(getOwner().mResolver,
                                         Settings.System.RECENT_BG_COLOR,
@@ -474,6 +500,9 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                                 Settings.System.putInt(getOwner().mResolver,
                                         Settings.System.RECENT_PANEL_EMPTY_ICON_COLOR,
                                         DEFAULT_RECENTS_PANEL_EMPTY_ICON_COLOR);
+                                Settings.System.putInt(getOwner().mResolver,
+                                        Settings.System.RECENT_PANEL_HEADER_TEXT_COLOR,
+                                        0xffff0000);
                             } else {
                                 Settings.System.putInt(getOwner().mResolver,
                                         Settings.System.RECENT_BG_COLOR,
