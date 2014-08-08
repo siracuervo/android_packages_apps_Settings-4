@@ -24,6 +24,11 @@
         android:fragment="com.android.settings.darkkat.StatusBarExpandedNotificationDrawerQar" />
 
     <PreferenceScreen
+        android:key="status_bar_expanded_notification_drawer_weather"
+        android:title="@string/status_bar_expanded_notification_drawer_weather_title"
+        android:fragment="com.android.settings.darkkat.StatusBarExpandedNotificationDrawerWeather" />
+
+    <PreferenceScreen
         android:key="status_bar_expanded_notification_drawer_cw_label_title"
         android:title="@string/cw_label_style_title"
         android:fragment="com.android.settings.darkkat.StatusBarExpandedNotificationDrawerCwLabel" />

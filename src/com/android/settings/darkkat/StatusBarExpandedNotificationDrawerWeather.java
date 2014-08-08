@@ -26,14 +26,14 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class StatusBarExpandedWeather extends SettingsPreferenceFragment {
+public class StatusBarExpandedNotificationDrawerWeather extends SettingsPreferenceFragment {
 
     private static final String PREF_WEATHER_OPTIONS =
-            "status_bar_expanded_weather_options";
+            "weather_options";
     private static final String PREF_WEATHER_CLICK_ACTIONS =
-            "status_bar_expanded_weather_click_actions";
+            "weather_click_actions";
     private static final String PREF_WEATHER_COLORS =
-            "status_bar_expanded_weather_colors";
+            "weather_colors";
 
     private PreferenceScreen mWeatherOptions;
     private PreferenceScreen mWeatherClickActions;
@@ -52,7 +52,7 @@ public class StatusBarExpandedWeather extends SettingsPreferenceFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.status_bar_expanded_weather);
+        addPreferencesFromResource(R.xml.status_bar_expanded_notification_drawer_weather);
 
         mResolver = getActivity().getContentResolver();
 
@@ -95,7 +95,7 @@ public class StatusBarExpandedWeather extends SettingsPreferenceFragment {
                 summary = getResources().getString(R.string.weather_style_bar_summary);
             } else {
                 summary = getResources().getString(
-                        R.string.status_bar_expanded_weather_click_actions_summary);
+                        R.string.weather_click_actions_summary);
             }
             mWeatherClickActions.setSummary(summary);
             summary = getResources().getString(R.string.colors_summary);

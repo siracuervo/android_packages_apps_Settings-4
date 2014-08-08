@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/status_bar_expanded_weather_click_actions_title">
+    android:title="@string/weather_click_actions_title">
 
     <ListPreference
         android:key="weather_click_top_bar_settings"

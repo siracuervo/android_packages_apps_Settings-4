@@ -36,7 +36,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.darkkat.util.ShortcutPickerHelper;
 
-public class StatusBarExpandedWeatherClickActions extends SettingsPreferenceFragment implements
+public class WeatherClickActions extends SettingsPreferenceFragment implements
         ShortcutPickerHelper.OnPickListener, Preference.OnPreferenceChangeListener {
 
     private static final String PREF_WEATHER_CLICK_TOP_BAR_SETTINGS =
@@ -73,7 +73,7 @@ public class StatusBarExpandedWeatherClickActions extends SettingsPreferenceFrag
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.status_bar_expanded_weather_click_actions);
+        addPreferencesFromResource(R.xml.weather_click_actions);
 
         mActivity = getActivity();
         mPm = mActivity.getPackageManager();

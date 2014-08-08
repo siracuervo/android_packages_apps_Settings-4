@@ -29,11 +29,6 @@
         android:title="@string/status_bar_expanded_header_title" />
 
     <PreferenceScreen
-        android:key="status_bar_expanded_weather"
-        android:title="@string/status_bar_expanded_weather_title"
-        android:fragment="com.android.settings.darkkat.StatusBarExpandedWeather" />
-
-    <PreferenceScreen
         android:key="notification_drawer"
         android:title="@string/status_bar_expanded_notification_drawer_title"
         android:fragment="com.android.settings.darkkat.StatusBarExpandedNotificationDrawer" />

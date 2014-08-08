@@ -74,15 +74,15 @@ import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.darkkat.blacklist.BlacklistSettings;
 import com.android.settings.darkkat.InterfaceMoreSettings;
 import com.android.settings.darkkat.StatusBarBatteryStatusStyle;
-import com.android.settings.darkkat.StatusBarNetworkSpeedStyle;
 import com.android.settings.darkkat.StatusBarExpandedQs;
-import com.android.settings.darkkat.StatusBarExpandedWeather;
-import com.android.settings.darkkat.StatusBarExpandedWeatherOptions;
-import com.android.settings.darkkat.StatusBarExpandedWeatherClickActions;
-import com.android.settings.darkkat.StatusBarExpandedWeatherColors;
+import com.android.settings.darkkat.StatusBarExpandedNotificationDrawerWeather;
+import com.android.settings.darkkat.StatusBarNetworkSpeedStyle;
 import com.android.settings.darkkat.RamBar;
 import com.android.settings.darkkat.DisplayRotation;
 import com.android.settings.darkkat.QuietHours;
+import com.android.settings.darkkat.WeatherOptions;
+import com.android.settings.darkkat.WeatherClickActions;
+import com.android.settings.darkkat.WeatherColors;
 import com.android.settings.deviceinfo.Memory;
 import com.android.settings.deviceinfo.UsbSettings;
 import com.android.settings.fuelgauge.PowerUsageSummary;
@@ -368,10 +368,10 @@ public class Settings extends PreferenceActivity
         StatusBarBatteryStatusStyle.class.getName(),
         StatusBarNetworkSpeedStyle.class.getName(),
         StatusBarExpandedQs.class.getName(),
-        StatusBarExpandedWeather.class.getName(),
-        StatusBarExpandedWeatherOptions.class.getName(),
-        StatusBarExpandedWeatherClickActions.class.getName(),
-        StatusBarExpandedWeatherColors.class.getName(),
+        StatusBarExpandedNotificationDrawerWeather.class.getName(),
+        WeatherOptions.class.getName(),
+        WeatherClickActions.class.getName(),
+        WeatherColors.class.getName(),
         RamBar.class.getName(),
         DisplayRotation.class.getName(),
         QuietHours.class.getName(),
@@ -1172,10 +1172,10 @@ public class Settings extends PreferenceActivity
     public static class BatteryStatusStyleSettingsActivity extends Settings { /* empty */ }
     public static class NetworkSpeedIndicatorSettingsActivity extends Settings { /* empty */ }
     public static class StatusBarExpandedQsSettingsActivity extends Settings { /* empty */ }
-    public static class StatusBarExpandedWeatherSettingsActivity extends Settings { /* empty */ }
-    public static class StatusBarExpandedWeatherSettingsOptionsActivity extends Settings { /* empty */ }
-    public static class StatusBarExpandedWeatherSettingsClickActionsActivity extends Settings { /* empty */ }
-    public static class StatusBarExpandedWeatherSettingsColorsActivity extends Settings { /* empty */ }
+    public static class WeatherSettingsActivity extends Settings { /* empty */ }
+    public static class WeatherSettingsOptionsActivity extends Settings { /* empty */ }
+    public static class WeatherSettingsClickActionsActivity extends Settings { /* empty */ }
+    public static class WeatherSettingsColorsActivity extends Settings { /* empty */ }
     public static class RamBarSettingsActivity extends Settings { /* empty */ }
     public static class DisplayRotationSettingsActivity extends Settings { /* empty */ }
     public static class QuietHoursSettingsActivity extends Settings { /* empty */ }

@@ -49,7 +49,7 @@ import com.android.settings.darkkat.service.WeatherService;
 import com.android.settings.darkkat.util.Helpers;
 import com.android.settings.darkkat.weather.WeatherPrefs;
 
-public class StatusBarExpandedWeatherOptions extends SettingsPreferenceFragment implements
+public class WeatherOptions extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String PREF_CAT_GENERAL =
@@ -117,7 +117,7 @@ public class StatusBarExpandedWeatherOptions extends SettingsPreferenceFragment 
             prefScreen.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.status_bar_expanded_weather_options);
+        addPreferencesFromResource(R.xml.weather_options);
 
         mResolver = getActivity().getContentResolver();
         prefs = getActivity().getSharedPreferences(
@@ -404,8 +404,8 @@ public class StatusBarExpandedWeatherOptions extends SettingsPreferenceFragment 
             return frag;
         }
 
-        StatusBarExpandedWeatherOptions getOwner() {
-            return (StatusBarExpandedWeatherOptions) getTargetFragment();
+        WeatherOptions getOwner() {
+            return (WeatherOptions) getTargetFragment();
         }
 
         @Override

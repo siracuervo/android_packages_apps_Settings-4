@@ -450,7 +450,6 @@
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_title">Kopfzeile</string>
-    <string name="status_bar_expanded_weather_title">Wetter</string>
     <string name="status_bar_expanded_notification_drawer_title">Benachrichtigungsanzeige</string>
     <string name="status_bar_expanded_quick_settings_title">Schnelleinstellungen</string>
     <string name="status_bar_expanded_close_handle_title">Schließgriff</string>
@@ -468,9 +467,20 @@
     <string name="status_bar_expanded_header_clock_date_title">Uhr &amp; Datum</string>
     <string name="status_bar_expanded_header_buttons_title">Schaltflächen</string>
 
+    <!-- Statusbar expanded notification drawer -->
+    <string name="cat_notifications_title">Benachrichtigungen</string>
+    <string name="status_bar_expanded_notification_drawer_qar_title">Schnellzugriffsleiste</string>
+    <string name="status_bar_expanded_notification_drawer_weather_title">Wetter</string>
+
+    <!-- Statusbar expanded notification drawer quick access ribbons -->
+    <string name="qar_show_tiles_summary">Aktivieren um eine kleine Version der Schnelleinstellungen in der Benachrichtigungsanzeige anzuzeigen.</string>
+    <string name="qar_show_tiles_deactivated_summary">Schnelleinstellungen sind deaktiviert, aktiviere die Schnelleinstellungen, um die Schnellzugriffsleiste zu nutzen.</string>
+    <string name="qar_tiles_linked_title">Anordnung koppeln</string>
+    <string name="qar_tiles_linked_summary">Aktivieren um die Kachelauswahl und -anordnung der Schnelleinstellungen zu verwenden</string>
+
     <!-- Weather -->
-    <string name="status_bar_expanded_weather_click_actions_title">Klickaktionen</string>
-    <string name="status_bar_expanded_weather_click_actions_summary">Klickaktionen anpassen</string>
+    <string name="weather_click_actions_title">Klickaktionen</string>
+    <string name="weather_click_actions_summary">Klickaktionen anpassen</string>
     <string name="weather_style_bar_summary">Wettertext Leiste wird benutzt</string>
 
     <!-- Weather options -->
@@ -603,16 +613,6 @@
   <string name="weather_47">Örtliche Gewitterschauer</string>
     <!-- Forecase unavailable -->
     <string name="weather_3200"></string>
-
-    <!-- Statusbar expanded notification drawer -->
-    <string name="cat_notifications_title">Benachrichtigungen</string>
-    <string name="status_bar_expanded_notification_drawer_qar_title">Schnellzugriffsleiste</string>
-
-    <!-- Statusbar expanded notification drawer quick access ribbons -->
-    <string name="qar_show_tiles_summary">Aktivieren um eine kleine Version der Schnelleinstellungen in der Benachrichtigungsanzeige anzuzeigen.</string>
-    <string name="qar_show_tiles_deactivated_summary">Schnelleinstellungen sind deaktiviert, aktiviere die Schnelleinstellungen, um die Schnellzugriffsleiste zu nutzen.</string>
-    <string name="qar_tiles_linked_title">Anordnung koppeln</string>
-    <string name="qar_tiles_linked_summary">Aktivieren um die Kachelauswahl und -anordnung der Schnelleinstellungen zu verwenden</string>
 
     <!-- Statusbar expanded quick settings -->
     <string name="quicksettings_color_title">Farben &amp; Transparenz</string>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/status_bar_expanded_notification_drawer_weather_title">
+
+    <PreferenceScreen
+        android:key="weather_options"
+        android:title="@string/options_title"
+        android:fragment="com.android.settings.darkkat.WeatherOptions" />
+
+    <PreferenceScreen
+        android:key="weather_click_actions"
+        android:title="@string/weather_click_actions_title"
+        android:fragment="com.android.settings.darkkat.WeatherClickActions" />
+
+    <PreferenceScreen
+        android:key="weather_colors"
+        android:title="@string/colors_title"
+        android:fragment="com.android.settings.darkkat.WeatherColors" />
+</PreferenceScreen>

@@ -37,7 +37,7 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBarExpandedWeatherColors extends SettingsPreferenceFragment implements
+public class WeatherColors extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String PREF_WEATHER_PANEL_BACKGROUND_COLOR =
@@ -92,7 +92,7 @@ public class StatusBarExpandedWeatherColors extends SettingsPreferenceFragment i
             prefScreen.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.status_bar_expanded_weather_colors);
+        addPreferencesFromResource(R.xml.weather_colors);
         mResolver = getActivity().getContentResolver();
 
         int intColor = 0xffffffff;
@@ -258,8 +258,8 @@ public class StatusBarExpandedWeatherColors extends SettingsPreferenceFragment i
             return frag;
         }
 
-        StatusBarExpandedWeatherColors getOwner() {
-            return (StatusBarExpandedWeatherColors) getTargetFragment();
+        WeatherColors getOwner() {
+            return (WeatherColors) getTargetFragment();
         }
 
         @Override
