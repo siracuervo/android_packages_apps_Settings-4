@@ -74,6 +74,7 @@
     <string name="custom_image">Imagen personalizada</string>
     <string name="color_title">Color</string>
     <string name="colors_title">Colores</string>
+    <string name="colors_summary">Personalizar colores</string>
     <string name="bg_colors_summary">Personalizar los colores del fonodo</string>
     <string name="color_normal_title">Color (Normal)</string>
     <string name="color_connected_title">Color (Conectado a Google)</string>
@@ -301,6 +302,8 @@
     <!-- Lockscreen widgets -->
     <string name="lockscreen_enable_widgets_title">Widgets adicionales</string>
     <string name="lockscreen_enable_widgets_summary">Utilizar widgets adicionales en vez de los genéricos</string>
+    <string name="lockscreen_enable_all_widgets_title">Utilizar todos los widgets</string>
+    <string name="lockscreen_enable_all_widgets_summary">Usar los widgets del escritorio en la pantalla de bloqueo también</string>
     <string name="lockscreen_maximize_widgets_title">Maximizar</string>
     <string name="lockscreen_maximize_widgets_summary">Mostrar los widgets maximizados y el desbloqueo minimizado cuando la pantalla está encendida</string>
     <string name="lockscreen_enable_camera_title">Cámara</string>
@@ -378,7 +381,7 @@
     <string name="battery_status_custom_frame_color_summary">Si se deshabilita, se utilizará un color del estado de la batería con una transparencia del 80%.</string>
     <string name="battery_status_custom_text_hight_color_title">Nivel alto</string>
     <string name="battery_status_custom_text_hight_color_summary">Utilizar un color de texto personalizado para el estado de la batería al 90 por ciento. Si se deshabilita se utilizará el color verde.</string>
-    <!-- <string name="battery_status_animation_speed">Velocidad de la animación del círculo</string> -->
+    <string name="battery_status_animation_speed">Cargar velocidad de animación</string>
     <string name="battery_status_animation_speed_none">Ninguna</string>
     <string name="battery_status_animation_speed_slow">Lenta</string>
     <string name="battery_status_animation_speed_stock">Normal</string>
@@ -408,6 +411,7 @@
     <string name="status_bar_cat_signal_strength_title">Intensidad de la señal</string>
     <string name="status_bar_cat_signal_network_type_title">Tipo de red móvil</string>
     <string name="status_bar_cat_wifi_strength_title">Icono de potencia de la red wifi</string>
+    <string name="status_bar_cat_airplane_mode_title">Icono de modo avión</string>
     <string name="status_bar_show_activity_indicators_title">Indicador de actividad de red</string>
     <string name="status_bar_show_activity_indicators_summary">Muestra el indicador de actividad de red</string>
 
@@ -463,10 +467,52 @@
     <string name="status_bar_expanded_header_clock_date_title">Hora &amp; fecha</string>
     <string name="status_bar_expanded_header_buttons_title">Botones</string>
 
+    <!-- Statusbar expanded notification drawer -->
+    <string name="cat_notifications_title">Notificaciones</string>
+    <string name="status_bar_expanded_notification_drawer_qar_title">Cinta de acceso rápido</string>
+    <string name="status_bar_expanded_notification_drawer_weather_title">Tiempo</string>
+
+    <!-- Statusbar expanded notification drawer quick access ribbons -->
+    <string name="qar_show_tiles_summary">Mostrar una pequeña versión de la configuración rápida en el área de notificación</string>
+    <string name="qar_show_tiles_deactivated_summary">Configuración rápida desactivada, activa la configuración rápida para utilizar la cinta de acceso rápido</string>
+    <string name="qar_tiles_linked_title">Diseño enlazado</string>
+    <string name="qar_tiles_linked_summary">Utilizar el mismo diseño que el panel Configuraciones rápidas</string>
+
     <!-- weather -->
+    <string name="weather_click_actions_title">Acciones al pulsar</string>
+    <string name="weather_click_actions_summary">Personalizar acciones al pulsar</string>
+    <string name="weather_style_bar_summary">Utilizando la barra de texto del tiempo</string>
+
+    <!-- Weather options -->
+    <string name="weather_disabled_summary">Tiempo deshabilitado</string>
+    <string name="weather_cat_options_general_title">General</string>
+    <string name="weather_cat_options_additionals_title">Información adicional</string>
+    <string name="weather_cat_click_actions_title">Acciones al pulsar</string>
+    <string name="weather_refreshing">Solicitando actualización de tiempo!</string>
+    <string name="weather_loc_warning_title">No se puede recibir la ubicación!</string>
+    <string name="weather_loc_warning_msg">"Está deshabilitada la ubicación desde la red. Esto impide obener el tiempo actual en tu  localización actual. Por favors elecciona una ubicación personalizada o habilita tu localización desde la red."</string>
+    <string name="weather_loc_warning_positive">"Habilitar localización de red"</string>
+    <string name="weather_loc_warning_negative">"No habilitar."</string>
+    <string name="weather_enable_title">Habilitar el tiempo</string>
+    <string name="weather_enable_summary">Tirar de la información meteorológica y mostrarla en  la ROM.</string>
+    <string name="weather_style_title">Estilo del tiempo</string>
+    <string name="weather_panel">Expandir el panel del tiempo</string>
+    <string name="weather_bar">Barra de texto del tiempo</string>
+    <string name="weather_icon_style_title">Iconos del tiempo</string>
     <string name="weather_icon_monochrome">Monocromo</string>
     <string name="weather_icon_color">Coloreado</string>
     <string name="weather_icon_vclouds">VClouds</string>
+    <string name="weather_use_celcius_title">Unidades métricas</string>
+    <string name="weather_use_celcius_summary">Mostrar unidades métricas.</string>
+    <string name="weather_use_custom_location_title">Utilizar ubicación personalizada</string>
+    <string name="weather_use_custom_location_summary">Utilizar una ubicación personalizada puede ahorrar batería. Por otro lado, la localización GPS-/network se utiliza para determinar tu ubicación.</string>
+    <string name="weather_custom_location_dialog_title">Seleccionar tu ubicación</string>
+    <string name="weather_custom_location_dialog_message">Asegúrate de seguir los ejemplos! seleccionar una ubicación no válida no te permitirá otener actualizaciones del tiempo y puede causar comportamientos erróneos.\n\nEjemplos: New York,NY // New York, NY // 10033 // London, England</string>
+    <string name="weather_custom_location_title">Ubicación</string>
+    <string name="weather_location_unavailable">No ha sido posible recibir información de la ubicación para actualizar el tiempo</string>
+    <string name="weather_refresh_interval_title">Intervalo de refresco</string>
+    <string name="weather_refresh_interval_minutes">" minutos"</string>
+    <string name="weather_refresh_disabled">Refresco automático deshabilitado</string>
     <string name="weather_refresh_1_minute">1 minute</string>
     <string name="weather_refresh_5_minutes">5 minutos</string>
     <string name="weather_refresh_10_minutes">10 minutos</string>
@@ -478,19 +524,43 @@
     <string name="weather_refresh_4_hours">4 horas</string>
     <string name="weather_refresh_6_hours">6 horas</string>
     <string name="weather_refresh_8_hours">8 horas</string>
+    <string name="weather_show_location_title">Ubicación</string>
+    <string name="weather_show_location_summary">Muestra tu ubicación.</string>
+    <string name="weather_show_wind_title">Viento</string>
+    <string name="weather_show_wind_summary">Muestra información del tiempo</string>
+    <string name="weather_show_humidity_title">Humedad</string>
+    <string name="weather_show_humidity_summary">Muestra información de la humedad</string>
+    <string name="weather_show_timestamp_title">Refrescar timestamp</string>
+    <string name="weather_show_timestamp_summary">Muestra el timestamp actualizado</string>
+
+    <!-- Weather click actions -->
+    <string name="weather_click_top_bar_settings_title">Botón de ajustes</string>
+    <string name="weather_click_left_panel_title">Panel izquierdo</string>
+    <string name="weather_long_click_left_panel_title">Panel izquierdo (largo)</string>
+    <string name="weather_click_image_title">Imagen de estado</string>
+    <string name="weather_long_click_image_title">Imagen de estado (largo)</string>
+    <string name="weather_click_right_panel_title">Panel derecho</string>
+    <string name="weather_long_click_right_panel_title">Panel derecho (largo)</string>
+    <string name="weather_refresh_title">Actualizar el tiempo</string>
+    <string name="weather_settings_title">Ajustes del tiempo</string>
+    <string name="weather_settings_options_title">Ajustes del tiempo:\nOpciones</string>
+    <string name="weather_settings_click_actions_title">Ajustes del tiempo:\nAcciones al pulsar</string>
+    <string name="weather_settings_colors_title">Ajustes del tiempo:\nColores</string>
 
     <!-- Weather colors -->
     <string name="weather_panel_background_color_title">Fondo</string>
+    <string name="weather_panel_background_pressed_color_title">Notificaciones en segundo plano</string>
+    <string name="weather_button_icon_title">Icono del botón</string>
 
     <!-- Weather directions -->
-    <string name="weather_N">N</string>
-    <string name="weather_NE">NE</string>
-    <string name="weather_E">E</string>
-    <string name="weather_SE">SE</string>
-    <string name="weather_S">S</string>
-    <string name="weather_SW">SO</string>
-    <string name="weather_W">O</string>
-    <string name="weather_NW">NO</string>
+    <string name="weather_direction_north">N</string>
+    <string name="weather_direction_north_east">NE</string>
+    <string name="weather_direction_east">E</string>
+    <string name="weather_direction_south_east">SE</string>
+    <string name="weather_direction_south">S</string>
+    <string name="weather_direction_south_west">SO</string>
+    <string name="weather_direction_west">O</string>
+    <string name="weather_direction_north_west">NO</string>
 
     <!-- Weather Codes -->
     <string name="weather_0">Tornado</string>
@@ -543,16 +613,6 @@
     <string name="weather_47">Chap. aislados</string>
     <!-- Forecase unavailable -->
     <string name="weather_3200"></string>
-
-    <!-- Statusbar expanded notification drawer -->
-    <string name="cat_notifications_title">Notificaciones</string>
-    <string name="status_bar_expanded_notification_drawer_qar_title">Cinta de acceso rápido</string>
-
-    <!-- Statusbar expanded notification drawer quick access ribbons -->
-    <string name="qar_show_tiles_summary">Mostrar una pequeña versión de la configuración rápida en el área de notificación</string>
-    <string name="qar_show_tiles_deactivated_summary">Configuración rápida desactivada, activa la configuración rápida para utilizar la cinta de acceso rápido</string>
-    <string name="qar_tiles_linked_title">Diseño enlazado</string>
-    <string name="qar_tiles_linked_summary">Utilizar el mismo diseño que el panel Configuraciones rápidas</string>
 
     <!-- Statusbar expanded quick settings -->
     <string name="quicksettings_color_title">Colores &amp; transparencia</string>
@@ -617,6 +677,7 @@
     <string name="title_tile_music">Música</string>
     <string name="title_tile_reboot">Reiniciar</string>
     <string name="dynamic_tile_ime_switcher">Método de entrada</string>
+    <string name="dynamic_tile_remote_display">Escritorio remoto</string>
     <string name="dynamic_tile_usb_tether">Módem USB</string>
     <string name="dynamic_tile_alarm">Alarma</string>
     <string name="dynamic_tile_bugreport">Informe de error</string>
@@ -750,7 +811,21 @@
 
     <!-- Heads up -->
     <string name="heads_up_cat_timeout_title">Sin conexión</string>
+    <string name="heads_up_expanded_title">Expandido</string>
+    <string name="heads_up_expanded_summary">Mostrar notificaciones heads up siempre expandidas</string>
+    <string name="heads_up_show_updates_title">Actualizaciones</string>
+    <string name="heads_up_show_updates_summary">Mostrar actualizaciones de notificaciones pendientes en segundo plano como heads up</string>
+    <string name="heads_up_snooze_title">Snooze timer</string>
+    <string name="heads_up_snooze_summary">Si el botón snooze se presiona, se deshabilitará heads up durante <xliff:g id="number">%d</xliff:g> minutos.</string>
+    <string name="heads_up_snooze_disabled_summary">Snooze timer está deshabilitado.</string>
+    <string name="heads_up_snooze_3min">3 minutos</string>
+    <string name="heads_up_snooze_5min">5 minutos</string>
+    <string name="heads_up_snooze_10min">10 minutos</string>
+    <string name="heads_up_snooze_15min">15 minutos</string>
+    <string name="heads_up_snooze_20min">20 minutos</string>
     <string name="heads_up_timeout_title">Modo Normal &amp; Escritorio Expandido</string>
+    <string name="heads_up_timeout_summary">Las notificaciones Heads up se mostrarán durante <xliff:g id="number">%d</xliff:g> segundos.</string>
+    <string name="heads_up_timeout_never_summary">Las notificaciones Heads up notification se mostrarán hasta  que se descarten.</string>
     <string name="heads_up_timeout_2_seconds">2 segundos</string>
     <string name="heads_up_timeout_4_seconds">4 segundos</string>
     <string name="heads_up_timeout_6_seconds">6 segundos</string>
@@ -758,7 +833,9 @@
     <string name="heads_up_timeout_10_seconds">10 segundos</string>
     <string name="heads_up_timeout_20_seconds">20 segundos</string>
     <string name="heads_up_timeout_40_seconds">40 segundos</string>
+    <string name="heads_up_timeout_never">Nunca</string>
     <string name="heads_up_use_custom_timeout_fs_title">Pantalla completa</string>
+    <string name="heads_up_use_custom_timeout_fs_summary">Usar un Timeout personalizado en pantalla completa también</string>
 
     <!-- Immersive mode -->
     <string name="expanded_desktop_status_bar">Barra de estado visible</string>
@@ -954,6 +1031,9 @@
     <string name="low_battery_warning_policy_popup">Sólo ventana emergente</string>
     <string name="low_battery_warning_policy_notif">Sólo notificación</string>
     <string name="low_battery_warning_policy_sound">Sólo sonido</string>
+
+    <!-- Apps -->
+    <string name="heads_up_switch_label">Habilitar notificaciones heads up</string>
 
     <!-- Security settings -->
     <string name="user_security_category_title">Seguridad</string>
