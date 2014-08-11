@@ -770,6 +770,7 @@
     <string name="recents_panel_expanded_mode_always">Siempre</string>
     <string name="recents_panel_expanded_mode_never">Nunca</string>
     <string name="recents_panel_empty_icon_color_title">Icono vacío</string>
+    <string name="recents_panel_header_text_color_title">Header text color</string>
 
     <!-- ATTENTION: RTL languages need to replace left with right -->
     <string name="recents_panel_lefty_mode_title">Mostrar en el borde izquierdo</string>
