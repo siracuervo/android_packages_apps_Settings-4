@@ -233,10 +233,17 @@
     <string name="set">Setzen</string>
 
     <!-- Interface category -->
+    <string name="interface_settings_title">Einstellungen</string>
     <string name="interface_lockscreen_settings_title">Sperrbildschirm</string>
     <string name="interface_bars_settings_title">Leisten</string>
     <string name="interface_menus_settings_title">Menüs &amp; Felder</string>
     <string name="interface_more_settings_title">Mehr...</string>
+
+    <!-- Settings root list settings -->
+    <string name="settings_root_list_title">Stamm-Liste</string>
+    <string name="settings_root_list_summary">Stamm-Liste der Einstellungen anpassen</string>
+    <string name="settings_root_list_colorize_account_icons_title">Konto symbole</string>
+    <string name="settings_root_list_colorize_account_icons_summary">Aktivieren um die Konto Symbole ebenfalls einzufärben.</string>
 
     <!-- Lockscreen settings -->
     <string name="lockscreen_background_settings_summary">Den Sperrbildschirm Hintergrund anpassen</string>

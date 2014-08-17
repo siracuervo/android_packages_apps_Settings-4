@@ -1660,6 +1660,7 @@
         />
 
         <!-- DarkKat activities Start -->
+        <activity android:name=".darkkat.InterfaceSettings" />
         <activity android:name=".darkkat.InterfaceLockscreenSettings" />
         <activity android:name=".darkkat.InterfaceBarsSettings" />
         <activity android:name=".darkkat.InterfaceMenusSettings" />

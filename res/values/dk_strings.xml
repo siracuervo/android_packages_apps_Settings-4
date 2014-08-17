@@ -233,10 +233,17 @@
     <string name="set">Set</string>
 
     <!-- Interface category -->
+    <string name="interface_settings_title">Settings</string>
     <string name="interface_lockscreen_settings_title">Lock screen</string>
     <string name="interface_bars_settings_title">Bars</string>
     <string name="interface_menus_settings_title">Menus &amp; panels</string>
     <string name="interface_more_settings_title">More...</string>
+
+    <!-- Settings root list settings -->
+    <string name="settings_root_list_title">Root list</string>
+    <string name="settings_root_list_summary">Customize the root list of the settings</string>
+    <string name="settings_root_list_colorize_account_icons_title">Account icons</string>
+    <string name="settings_root_list_colorize_account_icons_summary">Enable to colorize the account icons, too.</string>
 
     <!-- Lockscreen settings -->
     <string name="lockscreen_background_settings_summary">Customize the lock screen background</string>

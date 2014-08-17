@@ -72,13 +72,19 @@
     <header android:id="@+id/interface_category"
         android:title="@string/header_category_interface" />
 
+    <!-- Settings -->
+    <header
+        android:id="@+id/interface_settings"
+        android:title="@string/interface_settings_title"
+        android:fragment="com.android.settings.darkkat.InterfaceSettings"
+        android:icon="@drawable/ic_settings" />
+
     <!-- Lock screen -->
     <header
         android:id="@+id/interface_lockscreen_settings"
         android:title="@string/interface_lockscreen_settings_title"
         android:fragment="com.android.settings.darkkat.InterfaceLockscreenSettings"
         android:icon="@drawable/ic_settings_lockscreen" />
-
 
     <!-- Bars -->
     <header
