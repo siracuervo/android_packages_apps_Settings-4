@@ -813,6 +813,25 @@
     <string name="heads_up_title">Heads-Up Benachrichtigungen</string>
     <string name="listview_settings_title">Listenansicht</string>
     <string name="listview_settings_summary">Animation anpassen</string>
+    <string name="bootanimation_settings_title">Bootanimation</string>
+    <string name="bootanimation_settings_summary">Bootanimation anpassen</string>
+
+    <!-- Bootanimation -->
+    <string name="custom_bootanimation_title">Eigene Bootanimation</string>
+    <string name="custom_bootanimation_summary">Wähle eine Bootanimations Zip von der SD-Karte.</string>
+    <string name="install_file_manager_error">Es wurde keine App gefunden um die Zip datei zu wählen. Bitte einen Datei-Manager installieren.</string>
+    <string name="bootanimation_preview">Bootanimation Vorschau</string>
+    <string name="apply">Anwenden</string>
+    <string name="creating_preview">Erstelle Vorschau...</string>
+    <string name="error_reading_zip_file">Fehler beim lesen der Zip Datei</string>
+    <string name="error_creating_preview">Fehler beim Erstellen der Vorschau</string>
+    <string name="bootanimation_preview_loop_title">Vorschau wiederholen</string>
+    <string name="bootanimation_preview_loop_summary">Aktivieren um die Vorschau in einer Schleife anzuzeigen</string>
+    <string name="dlg_bootanimation_help_message">Die Rom enthält keine zusätzlichen Bootanimationen, eine Bootanimation muß selber auf die SD-Karte kopiert werden.\n\nDie Bootanimation muß als Bootanimations Zip vorliegen, (NICHT als flashbare Zip!)\n\nBei jeder Bootanimations Installation wird die aktuelle Bootanimation gesichert, diese letzte Bootanimation kann jederzeit wiederhergestellt werden.\nBei jeder erneuten Bootanimations Installation wird diese Sicherung überschrieben.\n\nZusätzlich wird bei der ersten Bootanimations Installation die Bootanimation seperat gesichert, diese originale Bootanimation kann zu jeder Zeit wiederhergestellt werden.\n\nDie Sicherungen gehen bei einem Rom Update nicht verloren, solange KEIN Full-Wipe durchgeführt wird.\n\nEs wird mit der Rom ein Sicherungs-Sript installiert, das die aktuelle Bootanimation nach einem Rom Update wiederherstellt.</string>
+    <string name="dlg_bootanimation_restore_title">Wiederherstellen</string>
+    <string name="dlg_bootanimation_restore_message">Klicke auf Abrechen um nichts zu ändern.\nKlicke auf Original um die originale Bootanimation wiederherzustellen.\nKlicke auf Letzte um die letzte Bootanimation wiederherzustellen.</string>
+    <string name="dlg_bootanimation_restore_original">Original</string>
+    <string name="dlg_bootanimation_restore_last">Letzte</string>
 
     <!-- Custom carrier label -->
     <string name="custom_carrier_label_explain">Gib bitte einen neuen Netzbetreiber Namen ein. Lass das Feld leer, um den originalen Netzbetreiber Namen wieder herzustellen.</string>

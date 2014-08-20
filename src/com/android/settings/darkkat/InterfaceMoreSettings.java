@@ -18,12 +18,11 @@ package com.android.settings.darkkat;
 
 import android.app.AlertDialog;
 import android.content.ContentResolver;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.res.Resources; 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.preference.CheckBoxPreference;
@@ -116,7 +115,6 @@ public class InterfaceMoreSettings extends SettingsPreferenceFragment implements
             updateExpandedDesktop(value ? 2 : 0);
             return true;
         }
-
         return false;
     }
 
@@ -142,9 +140,24 @@ public class InterfaceMoreSettings extends SettingsPreferenceFragment implements
         }
     }
 
+     @Override
+     public void onResume() {
+         super.onResume();
+         if (!Utils.isWifiOnly(getActivity())) {
+            updateCustomLabelTextSummary();
+        }
+     }
+ 
+     @Override
+     public void onPause() {
+         super.onResume();
+         if (!Utils.isWifiOnly(getActivity())) {
+            updateCustomLabelTextSummary();
+        }
+     }
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-
         if (preference == mCustomLabel) {
             AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
             alert.setTitle(R.string.custom_carrier_label_title);
@@ -175,7 +188,6 @@ public class InterfaceMoreSettings extends SettingsPreferenceFragment implements
             });
 
             alert.show();
-
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -189,22 +201,6 @@ public class InterfaceMoreSettings extends SettingsPreferenceFragment implements
             mCustomLabel.setSummary(mCustomLabelText);
         }
     }
-
-     @Override
-     public void onResume() {
-         super.onResume();
-         if (!Utils.isWifiOnly(getActivity())) {
-            updateCustomLabelTextSummary();
-        }
-     }
- 
-     @Override
-     public void onPause() {
-         super.onResume();
-         if (!Utils.isWifiOnly(getActivity())) {
-            updateCustomLabelTextSummary();
-        }
-     } 
 
     private boolean isPackageInstalled(String packageName) {
         PackageManager pm = getPackageManager();

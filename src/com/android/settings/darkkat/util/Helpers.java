@@ -8,6 +8,10 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Date;
 
 public class Helpers {
@@ -38,6 +42,48 @@ public class Helpers {
             }
         }
         return state;
+    }
+
+    public static String[] getMounts(final String path)
+    {
+        try
+        {
+            BufferedReader br = new BufferedReader(new FileReader("/proc/mounts"), 256);
+            String line = null;
+            while ((line = br.readLine()) != null)
+            {
+                if (line.contains(path))
+                {
+                    return line.split(" ");
+                }
+            }
+            br.close();
+        } catch (FileNotFoundException e) {
+            Log.d(TAG, "/proc/mounts does not exist");
+        } catch (IOException e) {
+            Log.d(TAG, "Error reading /proc/mounts");
+        }
+        return null;
+    }
+
+    public static boolean getMount(final String mount)
+    {
+        final CMDProcessor cmd = new CMDProcessor();
+        final String mounts[] = getMounts("/system");
+        if (mounts != null
+                && mounts.length >= 3)
+        {
+            final String device = mounts[0];
+            final String path = mounts[1];
+            final String point = mounts[2];
+            if (cmd.su.runWaitFor(
+                    "mount -o " + mount + ",remount -t " + point + " " + device + " " + path)
+                    .success())
+            {
+                return true;
+            }
+        }
+        return (cmd.su.runWaitFor("busybox mount -o remount," + mount + " /system").success());
     }
 
     /**

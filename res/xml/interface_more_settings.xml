@@ -55,4 +55,10 @@ limitations under the License.
 		android:summary="@string/listview_settings_summary"
         android:fragment="com.android.settings.darkkat.ListViewSettings" />
 
+    <PreferenceScreen
+        android:key="bootanimation_settings"
+        android:title="@string/bootanimation_settings_title"
+        android:summary="@string/bootanimation_settings_summary"
+        android:fragment="com.android.settings.darkkat.BootanimationSettings" />
+
 </PreferenceScreen>
