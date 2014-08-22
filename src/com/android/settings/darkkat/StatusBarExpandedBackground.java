@@ -47,7 +47,7 @@ import com.android.settings.widget.SeekBarPreference;
 
 import java.io.File;
 
-import net.margaritov.preference.colorpicker.ColorPickerView;
+import net.margaritov.preference.colorpicker.ColorPickerDialog;
 
 public class StatusBarExpandedBackground extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
@@ -123,7 +123,6 @@ public class StatusBarExpandedBackground extends SettingsPreferenceFragment impl
         updateCustomBackgroundSummary();
     }
 
-
     private void updateCustomBackgroundSummary() {
         int resId;
         String value = Settings.System.getString(getContentResolver(),
@@ -132,16 +131,21 @@ public class StatusBarExpandedBackground extends SettingsPreferenceFragment impl
             resId = R.string.status_bar_expanded_bg_default_wallpaper;
             mBackground.setValueIndex(2);
             mBackgroundLandscape.setEnabled(false);
+            mBackground.setSummary(getResources().getString(resId));
         } else if (value.startsWith("color=")) {
+            int intColor = Color.parseColor(value.substring("color=".length()));
+            String hexColor = String.format("#%08x", (0xffffffff & intColor));
             resId = R.string.status_bar_expanded_bg_color_fill;
             mBackground.setValueIndex(0);
             mBackgroundLandscape.setEnabled(false);
+            mBackground.setSummary(getResources().getString(resId) + ": " + hexColor);
         } else {
             resId = R.string.custom_image;
             mBackground.setValueIndex(1);
             mBackgroundLandscape.setEnabled(true);
+            mBackground.setSummary(getResources().getString(resId));
         }
-        mBackground.setSummary(getResources().getString(resId));
+
 
         value = Settings.System.getString(getContentResolver(),
                 Settings.System.STATUS_BAR_EXPANDED_BG_LANDSCAPE);
@@ -253,7 +257,28 @@ public class StatusBarExpandedBackground extends SettingsPreferenceFragment impl
             switch (indexOf) {
                 //Displays color dialog when user has chosen color fill
                 case 0:
-                    showDialogInner(DLG_PICK_COLOR);
+                    String currentColor = Settings.System.getString(getContentResolver(),
+                            Settings.System.STATUS_BAR_EXPANDED_BG);
+                    int color;
+                    if (currentColor != null && currentColor.startsWith("color=")) {
+                        color = Color.parseColor(currentColor.substring("color=".length()));
+                    } else {
+                        color = 0xff000000;
+                    }
+                    final ColorPickerDialog colorPickerDialog = new ColorPickerDialog(mActivity, color);
+                    colorPickerDialog.setAlphaSliderVisible(false);
+                    colorPickerDialog.setOnColorChangedListener(
+                            new ColorPickerDialog.OnColorChangedListener() {
+                        @Override
+                        public void onColorChanged(int color) {
+                            Settings.System.putString(getContentResolver(),
+                                Settings.System.STATUS_BAR_EXPANDED_BG,
+                                "color=" + String.format("#%06X",
+                                (0xFFFFFF & colorPickerDialog.getColor())));
+                            updateCustomBackgroundSummary();
+                        }
+                    });
+                    colorPickerDialog.show();
                     break;
                 //Launches intent for user to select an image/crop it to set as background
                 case 1:
@@ -291,68 +316,4 @@ public class StatusBarExpandedBackground extends SettingsPreferenceFragment impl
         }
         return false;
     }
-
-    private void showDialogInner(int id) {
-        DialogFragment newFragment = MyAlertDialogFragment.newInstance(id);
-        newFragment.setTargetFragment(this, 0);
-        newFragment.show(getFragmentManager(), "dialog " + id);
-    }
-
-    public static class MyAlertDialogFragment extends DialogFragment {
-
-        public static MyAlertDialogFragment newInstance(int id) {
-            MyAlertDialogFragment frag = new MyAlertDialogFragment();
-            Bundle args = new Bundle();
-            args.putInt("id", id);
-            frag.setArguments(args);
-            return frag;
-        }
-
-        StatusBarExpandedBackground getOwner() {
-            return (StatusBarExpandedBackground) getTargetFragment();
-        }
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            int id = getArguments().getInt("id");
-            switch (id) {
-                case DLG_PICK_COLOR:
-                    final ColorPickerView colorView = new ColorPickerView(getOwner().mActivity);
-                    String currentColor = Settings.System.getString(
-                            getOwner().getContentResolver(),
-                            Settings.System.STATUS_BAR_EXPANDED_BG);
-                    if (currentColor != null && currentColor.startsWith("color=")) {
-                        int color = Color.parseColor(currentColor.substring("color=".length()));
-                        colorView.setColor(color);
-                    }
-                    colorView.setAlphaSliderVisible(false);
-
-                    return new AlertDialog.Builder(getActivity())
-                    .setTitle(R.string.status_bar_expanded_bg_custom_bg_dialog_title)
-                    .setView(colorView)
-                    .setNegativeButton(R.string.cancel, null)
-                    .setPositiveButton(R.string.dlg_ok,
-                        new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            getOwner().deleteWallpaper(false);
-                            getOwner().deleteWallpaper(true);
-                            Settings.System.putString(
-                                getOwner().getContentResolver(),
-                                Settings.System.STATUS_BAR_EXPANDED_BG,
-                                "color=" + String.format("#%06X",
-                                (0xFFFFFF & colorView.getColor())));
-                            getOwner().updateCustomBackgroundSummary();
-                        }
-                    })
-                    .create();
-            }
-            throw new IllegalArgumentException("unknown id " + id);
-        }
-
-        @Override
-        public void onCancel(DialogInterface dialog) {
-
-        }
-    }
-
 }
