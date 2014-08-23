@@ -31,7 +31,17 @@
 
     <PreferenceCategory
         android:key="settings_root_list_cat_color"
-        android:title="@string/color_title">
+        android:title="@string/colors_title">
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="settings_root_list_category_text_color"
+            android:title="@string/settings_root_list_category_text_color_title"
+            android:defaultValue="0xffbebebe" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="settings_root_list_title_text_color"
+            android:title="@string/settings_root_list_title_text_color_title"
+            android:defaultValue="0xfff3f3f3" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="settings_root_list_icon_color"

@@ -244,6 +244,8 @@
     <string name="settings_root_list_summary">Customize the root list of the settings</string>
     <string name="settings_root_list_colorize_account_icons_title">Account icons</string>
     <string name="settings_root_list_colorize_account_icons_summary">Enable to colorize the account icons, too.</string>
+    <string name="settings_root_list_category_text_color_title">Category text</string>
+    <string name="settings_root_list_title_text_color_title">Title text</string>
 
     <!-- Lockscreen settings -->
     <string name="lockscreen_background_settings_summary">Customize the lock screen background</string>

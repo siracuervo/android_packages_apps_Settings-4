@@ -244,6 +244,8 @@
     <string name="settings_root_list_summary">Stamm-Liste der Einstellungen anpassen</string>
     <string name="settings_root_list_colorize_account_icons_title">Konto symbole</string>
     <string name="settings_root_list_colorize_account_icons_summary">Aktivieren um die Konto Symbole ebenfalls einzufärben.</string>
+    <string name="settings_root_list_category_text_color_title">Kategorie Text</string>
+    <string name="settings_root_list_title_text_color_title">Titel Text</string>
 
     <!-- Lockscreen settings -->
     <string name="lockscreen_background_settings_summary">Den Sperrbildschirm Hintergrund anpassen</string>
