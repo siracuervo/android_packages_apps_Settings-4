@@ -557,6 +557,8 @@
     <string name="weather_settings_colors_title">Weather settings:\nColors</string>
 
     <!-- Weather colors -->
+    <string name="weather_colorize_all_icons_title">Colorize all icons</string>
+    <string name="weather_colorize_all_icons_summary">Disable to colorize the monochrome icons only</string>
     <string name="weather_panel_background_color_title">Background</string>
     <string name="weather_panel_background_pressed_color_title">Background pressed</string>
     <string name="weather_button_icon_title">Button icon</string>

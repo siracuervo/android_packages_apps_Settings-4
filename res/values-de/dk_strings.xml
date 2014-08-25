@@ -557,6 +557,8 @@
     <string name="weather_settings_colors_title">Wetter-Einstellungen:\nFarben</string>
 
     <!-- Weather colors -->
+    <string name="weather_colorize_all_icons_title">Alle Symbole einfärben</string>
+    <string name="weather_colorize_all_icons_summary">Deaktivieren um nur die einfarbigen Symbole einzufärben</string>
     <string name="weather_panel_background_color_title">Hintergrund</string>
     <string name="weather_panel_background_pressed_color_title">Hintergrund gedrückt</string>
     <string name="weather_button_icon_title">Schaltflächen Symbol</string>

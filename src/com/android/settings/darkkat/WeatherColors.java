@@ -24,6 +24,7 @@ import android.content.DialogInterface;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
@@ -40,6 +41,8 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class WeatherColors extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String PREF_WEATHER_COLORRIZE_ALL_ICONS =
+            "weather_colorize_all_icons";
     private static final String PREF_WEATHER_PANEL_BACKGROUND_COLOR =
             "weather_panel_background_color";
     private static final String PREF_WEATHER_PANEL_BACKGROUND_PRESSED_COLOR =
@@ -65,6 +68,7 @@ public class WeatherColors extends SettingsPreferenceFragment implements
     private static final int MENU_RESET   = Menu.FIRST;
     private static final int DLG_RESET       = 0;
 
+    private CheckBoxPreference mColorizeAllIcons;
     private ColorPickerPreference mBackgroundColor;
     private ColorPickerPreference mBackgroundPressedColor;
     private ColorPickerPreference mIconColor;
@@ -97,6 +101,12 @@ public class WeatherColors extends SettingsPreferenceFragment implements
 
         int intColor = 0xffffffff;
         String hexColor = String.format("#%08x", (0xffffffff & 0xffffffff));
+
+        mColorizeAllIcons =
+                (CheckBoxPreference) findPreference(PREF_WEATHER_COLORRIZE_ALL_ICONS);
+        mColorizeAllIcons.setChecked(Settings.System.getInt(mResolver,
+               Settings.System.STATUS_BAR_EXPANDED_WEATHER_COLORRIZE_ALL_ICONS, 0) == 1);
+        mColorizeAllIcons.setOnPreferenceChangeListener(this);
 
         mBackgroundColor =
                 (ColorPickerPreference) findPreference(PREF_WEATHER_PANEL_BACKGROUND_COLOR);
@@ -178,9 +188,6 @@ public class WeatherColors extends SettingsPreferenceFragment implements
         getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(Settings.System.STATUS_BAR_EXPANDED_WEATHER_STYLE), true,
                 mWeatherStyleObserver);
-        getContentResolver().registerContentObserver(
-                Settings.System.getUriFor(Settings.System.STATUS_BAR_EXPANDED_WEATHER_ICON), true,
-                mWeatherStyleObserver);
         updatePreferences();
     }
 
@@ -195,7 +202,12 @@ public class WeatherColors extends SettingsPreferenceFragment implements
         int intHex;
         String hex;
 
-        if (preference == mBackgroundColor) {
+        if (preference == mColorizeAllIcons) {
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_EXPANDED_WEATHER_COLORRIZE_ALL_ICONS,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mBackgroundColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
@@ -270,11 +282,13 @@ public class WeatherColors extends SettingsPreferenceFragment implements
                 case DLG_RESET:
                     return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.reset)
-                    .setMessage(R.string.dlg_reset_color_values_message)
+                    .setMessage(R.string.dlg_reset_values_message)
                     .setNegativeButton(R.string.cancel, null)
                     .setNeutralButton(R.string.dlg_reset_android,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_EXPANDED_WEATHER_COLORRIZE_ALL_ICONS, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_EXPANDED_WEATHER_BACKGROUND_COLOR,
                                 DEFAULT_BACKGROUND_COLOR);
@@ -296,6 +310,8 @@ public class WeatherColors extends SettingsPreferenceFragment implements
                     .setPositiveButton(R.string.dlg_reset_darkkat,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_EXPANDED_WEATHER_COLORRIZE_ALL_ICONS, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_EXPANDED_WEATHER_BACKGROUND_COLOR,
                                 DEFAULT_BACKGROUND_COLOR);
@@ -328,10 +344,8 @@ public class WeatherColors extends SettingsPreferenceFragment implements
     private void updatePreferences() {
         boolean usePanel = Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_EXPANDED_WEATHER_STYLE, 0) == 0;
-        boolean isStyleMonochrome = Settings.System.getInt(mResolver,
-               Settings.System.STATUS_BAR_EXPANDED_WEATHER_ICON, 0) == 0;
 
-        mIconColor.setEnabled(usePanel && isStyleMonochrome);
+        mIconColor.setEnabled(usePanel);
         mButtonIconColor.setEnabled(usePanel);
     }
 }
