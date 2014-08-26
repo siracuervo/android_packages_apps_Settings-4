@@ -47,10 +47,21 @@ public class SettingsRootListSettings extends SettingsPreferenceFragment impleme
             "settings_root_list_title_text_color";
     private static final String PREF_ICON_COLOR =
             "settings_root_list_icon_color";
+    private static final String PREF_SWITCH_ON_TEXT_COLOR =
+            "settings_root_list_switch_on_text_color";
+    private static final String PREF_SWITCH_OFF_TEXT_COLOR =
+            "settings_root_list_switch_off_text_color";
 
-    private static final int DEFAULT_CATEGORY_TEXT_COLOR = 0xffbebebe;
-    private static final int DEFAULT_TITLE_TEXT_COLOR    = 0xfff3f3f3;
-    private static final int DEFAULT_ICON_COLOR          = 0xffffffff;
+    private static final int DEFAULT_CATEGORY_TEXT_COLOR   =
+            0xffbebebe;
+    private static final int DEFAULT_TITLE_TEXT_COLOR      =
+            0xfff3f3f3;
+    private static final int DEFAULT_ICON_COLOR            =
+            0xffffffff;
+    private static final int DEFAULT_SWITCH_ON_TEXT_COLOR  =
+            0xfff3f3f3;
+    private static final int DEFAULT_SWITCH_OFF_TEXT_COLOR =
+            0xffbebebe;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
@@ -59,6 +70,8 @@ public class SettingsRootListSettings extends SettingsPreferenceFragment impleme
     private ColorPickerPreference mCategoryTextColor;
     private ColorPickerPreference mTitleTextColor;
     private ColorPickerPreference mIconColor;
+    private ColorPickerPreference mSwitchOnTextColor;
+    private ColorPickerPreference mSwitchOffTextColor;
 
     private ContentResolver mResolver;
 
@@ -115,6 +128,26 @@ public class SettingsRootListSettings extends SettingsPreferenceFragment impleme
         mIconColor.setSummary(hexColor);
         mIconColor.setOnPreferenceChangeListener(this);
 
+        mSwitchOnTextColor =
+                (ColorPickerPreference) findPreference(PREF_SWITCH_ON_TEXT_COLOR);
+        color = Settings.System.getInt(mResolver,
+                Settings.System.SETTINGS_ROOT_LIST_SWITCH_ON_TEXT_COLOR,
+                DEFAULT_SWITCH_ON_TEXT_COLOR);
+        mSwitchOnTextColor.setNewPreviewColor(color);
+        hexColor = String.format("#%08x", (0xffffffff & color));
+        mSwitchOnTextColor.setSummary(hexColor);
+        mSwitchOnTextColor.setOnPreferenceChangeListener(this);
+
+        mSwitchOffTextColor =
+                (ColorPickerPreference) findPreference(PREF_SWITCH_OFF_TEXT_COLOR);
+        color = Settings.System.getInt(mResolver,
+                Settings.System.SETTINGS_ROOT_LIST_SWITCH_OFF_TEXT_COLOR,
+                DEFAULT_SWITCH_OFF_TEXT_COLOR);
+        mSwitchOffTextColor.setNewPreviewColor(color);
+        hexColor = String.format("#%08x", (0xffffffff & color));
+        mSwitchOffTextColor.setSummary(hexColor);
+        mSwitchOffTextColor.setOnPreferenceChangeListener(this);
+
         setHasOptionsMenu(true);
     }
 
@@ -170,6 +203,24 @@ public class SettingsRootListSettings extends SettingsPreferenceFragment impleme
                     intHex);
             preference.setSummary(hex);
             return true;
+        } else if (preference == mSwitchOnTextColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.SETTINGS_ROOT_LIST_SWITCH_ON_TEXT_COLOR,
+                    intHex);
+            preference.setSummary(hex);
+            return true;
+        } else if (preference == mSwitchOffTextColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.SETTINGS_ROOT_LIST_SWITCH_OFF_TEXT_COLOR,
+                    intHex);
+            preference.setSummary(hex);
+            return true;
         }
         return false;
     }
@@ -217,6 +268,12 @@ public class SettingsRootListSettings extends SettingsPreferenceFragment impleme
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.SETTINGS_ROOT_LIST_ICON_COLOR,
                                     DEFAULT_ICON_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SETTINGS_ROOT_LIST_SWITCH_ON_TEXT_COLOR,
+                                    DEFAULT_SWITCH_ON_TEXT_COLOR);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SETTINGS_ROOT_LIST_SWITCH_OFF_TEXT_COLOR,
+                                    DEFAULT_SWITCH_OFF_TEXT_COLOR);
                             getOwner().refreshSettings();
                         }
                     })
@@ -234,6 +291,12 @@ public class SettingsRootListSettings extends SettingsPreferenceFragment impleme
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.SETTINGS_ROOT_LIST_ICON_COLOR,
                                     0xff33b5e5);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SETTINGS_ROOT_LIST_SWITCH_ON_TEXT_COLOR,
+                                    0xff00ff00);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SETTINGS_ROOT_LIST_SWITCH_OFF_TEXT_COLOR,
+                                    0xffff0000);
                             getOwner().refreshSettings();
                         }
                     })

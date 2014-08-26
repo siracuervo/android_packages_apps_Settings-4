@@ -48,5 +48,15 @@
             android:title="@string/icon_title"
             android:defaultValue="0xffffffff" />
 
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="settings_root_list_switch_on_text_color"
+            android:title="@string/settings_root_list_switch_on_text_color_title"
+            android:defaultValue="0xfff3f3f3" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="settings_root_list_switch_off_text_color"
+            android:title="@string/settings_root_list_switch_off_text_color_title"
+            android:defaultValue="0xffbebebe" />
+
     </PreferenceCategory>
 </PreferenceScreen>

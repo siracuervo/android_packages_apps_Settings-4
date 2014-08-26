@@ -246,6 +246,8 @@
     <string name="settings_root_list_colorize_account_icons_summary">Aktivieren um die Konto Symbole ebenfalls einzufärben.</string>
     <string name="settings_root_list_category_text_color_title">Kategorie Text</string>
     <string name="settings_root_list_title_text_color_title">Titel Text</string>
+    <string name="settings_root_list_switch_on_text_color_title">Switch Text (An)</string>
+    <string name="settings_root_list_switch_off_text_color_title">Switch Text (Aus)</string>
 
     <!-- Lockscreen settings -->
     <string name="lockscreen_background_settings_summary">Den Sperrbildschirm Hintergrund anpassen</string>

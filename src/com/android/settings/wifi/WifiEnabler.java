@@ -80,6 +80,7 @@ public class WifiEnabler implements CompoundButton.OnCheckedChangeListener  {
         // Wi-Fi state is sticky, so just let the receiver update UI
         mContext.registerReceiver(mReceiver, mIntentFilter);
         mSwitch.setOnCheckedChangeListener(this);
+        mSwitch.setCustomTextColor(getColorForState());
     }
 
     public void pause() {
@@ -98,6 +99,8 @@ public class WifiEnabler implements CompoundButton.OnCheckedChangeListener  {
         boolean isDisabled = wifiState == WifiManager.WIFI_STATE_DISABLED;
         mSwitch.setChecked(isEnabled);
         mSwitch.setEnabled(isEnabled || isDisabled);
+        mSwitch.setUseCustomTextColor();
+        mSwitch.setCustomTextColor(getColorForState());
     }
 
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -129,6 +132,7 @@ public class WifiEnabler implements CompoundButton.OnCheckedChangeListener  {
     }
 
     private void handleWifiStateChanged(int state) {
+        mSwitch.setCustomTextColor(getColorForState());
         switch (state) {
             case WifiManager.WIFI_STATE_ENABLING:
                 mSwitch.setEnabled(false);
@@ -156,6 +160,26 @@ public class WifiEnabler implements CompoundButton.OnCheckedChangeListener  {
             mStateMachineEvent = true;
             mSwitch.setChecked(checked);
             mStateMachineEvent = false;
+        }
+    }
+
+    private int getColorForState() {
+        final int wifiState = mWifiManager.getWifiState();
+        int switchOnTextColor = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SETTINGS_ROOT_LIST_SWITCH_ON_TEXT_COLOR, 0xfff3f3f3);
+        int switchOffTextColor = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SETTINGS_ROOT_LIST_SWITCH_OFF_TEXT_COLOR, 0xffbebebe);
+
+        if (wifiState == WifiManager.WIFI_STATE_ENABLING) {
+            return switchOnTextColor;
+        } else if (wifiState == WifiManager.WIFI_STATE_ENABLED) {
+            return switchOnTextColor;
+        } else if (wifiState == WifiManager.WIFI_STATE_DISABLING) {
+            return switchOffTextColor;
+        } else if (wifiState == WifiManager.WIFI_STATE_DISABLED) {
+            return switchOffTextColor;
+        } else {
+            return switchOffTextColor;
         }
     }
 

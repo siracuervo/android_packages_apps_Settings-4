@@ -78,6 +78,7 @@ public final class BluetoothEnabler implements CompoundButton.OnCheckedChangeLis
 
         mContext.registerReceiver(mReceiver, mIntentFilter);
         mSwitch.setOnCheckedChangeListener(this);
+        mSwitch.setCustomTextColor(getColorForState());
         mValidListener = true;
     }
 
@@ -103,6 +104,8 @@ public final class BluetoothEnabler implements CompoundButton.OnCheckedChangeLis
         boolean isOff = bluetoothState == BluetoothAdapter.STATE_OFF;
         setChecked(isOn);
         mSwitch.setEnabled(isOn || isOff);
+        mSwitch.setUseCustomTextColor();
+        mSwitch.setCustomTextColor(getColorForState());
     }
 
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -121,6 +124,7 @@ public final class BluetoothEnabler implements CompoundButton.OnCheckedChangeLis
     }
 
     void handleStateChanged(int state) {
+        mSwitch.setCustomTextColor(getColorForState());
         switch (state) {
             case BluetoothAdapter.STATE_TURNING_ON:
                 mSwitch.setEnabled(false);
@@ -153,6 +157,29 @@ public final class BluetoothEnabler implements CompoundButton.OnCheckedChangeLis
             if (mValidListener) {
                 mSwitch.setOnCheckedChangeListener(this);
             }
+        }
+    }
+
+    private int getColorForState() {
+        int bluetoothState = BluetoothAdapter.STATE_OFF;
+        if (mLocalAdapter != null) {
+            bluetoothState = mLocalAdapter.getBluetoothState();
+        }
+        int switchOnTextColor = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SETTINGS_ROOT_LIST_SWITCH_ON_TEXT_COLOR, 0xfff3f3f3);
+        int switchOffTextColor = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SETTINGS_ROOT_LIST_SWITCH_OFF_TEXT_COLOR, 0xffbebebe);
+
+        if (bluetoothState == BluetoothAdapter.STATE_TURNING_ON) {
+            return switchOnTextColor;
+        } else if (bluetoothState == BluetoothAdapter.STATE_ON) {
+            return switchOnTextColor;
+        } else if (bluetoothState == BluetoothAdapter.STATE_TURNING_OFF) {
+            return switchOffTextColor;
+        } else if (bluetoothState == BluetoothAdapter.STATE_OFF) {
+            return switchOffTextColor;
+        } else {
+            return switchOffTextColor;
         }
     }
 }
