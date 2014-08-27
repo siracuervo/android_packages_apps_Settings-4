@@ -63,6 +63,7 @@ public class MobileDataEnabler implements CompoundButton.OnCheckedChangeListener
         mSwitch.setOnCheckedChangeListener(null);
         mSwitch = switch_;
         mSwitch.setOnCheckedChangeListener(this);
+        mSwitch.setUseCustomTextColor();
         setSwitchState();
     }
 
@@ -75,6 +76,7 @@ public class MobileDataEnabler implements CompoundButton.OnCheckedChangeListener
         mStateMachineEvent = true;
         mSwitch.setChecked(cm.getMobileDataEnabled() && airplane);
         mSwitch.setEnabled(airplane);
+        mSwitch.setCustomTextColor(getColorForState(mSwitch.isChecked()));
         mStateMachineEvent = false;
     }
 
@@ -90,6 +92,19 @@ public class MobileDataEnabler implements CompoundButton.OnCheckedChangeListener
                 (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         cm.setMobileDataEnabled(isChecked);
+        mSwitch.setCustomTextColor(getColorForState(isChecked));
     }
 
+    private int getColorForState(boolean on) {
+        int switchOnTextColor = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SETTINGS_ROOT_LIST_SWITCH_ON_TEXT_COLOR, 0xfff3f3f3);
+        int switchOffTextColor = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SETTINGS_ROOT_LIST_SWITCH_OFF_TEXT_COLOR, 0xffbebebe);
+
+        if (on) {
+            return switchOnTextColor;
+        } else {
+            return switchOffTextColor;
+        }
+    }
 }
