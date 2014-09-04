@@ -27,6 +27,11 @@ limitations under the License.
         android:title="@string/heads_up_title"
         android:fragment="com.android.settings.darkkat.headsup.HeadsUpSettings" />
 
+	<PreferenceScreen
+	    android:key="volume_dialog"
+	    android:title="@string/volume_dialog_title"
+        android:fragment="com.android.settings.darkkat.VolumeDialogSettings" />
+
     <ListPreference
         android:key="expanded_desktop"
         android:title="@string/expanded_desktop_title"

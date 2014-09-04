@@ -870,6 +870,9 @@
     <string name="heads_up_use_custom_timeout_fs_title">Vollbild</string>
     <string name="heads_up_use_custom_timeout_fs_summary">Aktivieren um auch im Vollbild das angepasste Zeitlimit zu benutzen</string>
 
+    <!-- Volume dialog -->
+    <string name="volume_dialog_title">Lautstärke Dialogfeld</string>
+
     <!-- Immersive mode -->
     <string name="expanded_desktop_status_bar">Statusleiste anzeigen</string>
     <string name="expanded_desktop_no_status_bar">Statusleiste verbergen</string>
