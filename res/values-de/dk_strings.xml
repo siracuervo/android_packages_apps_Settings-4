@@ -242,7 +242,9 @@
     <!-- Settings root list settings -->
     <string name="settings_root_list_title">Stamm-Liste</string>
     <string name="settings_root_list_summary">Stamm-Liste der Einstellungen anpassen</string>
-    <string name="settings_root_list_colorize_account_icons_title">Konto symbole</string>
+    <string name="settings_root_list_show_mobile_settings_title">Mobilnetzwerk Einstellungen</string>
+    <string name="settings_root_list_show_mobile_settings_summary">Aktivieren um die Mobilnetzwerk Einstellungen in der Stammliste anzuzeigen, deaktivieren um die Mobilnetzwerk Einstellungen unter den Drahtlos Einstellungen anzuzeigen.</string>
+    <string name="settings_root_list_list_colorize_account_icons_title">Konto symbole</string>
     <string name="settings_root_list_colorize_account_icons_summary">Aktivieren um die Konto Symbole ebenfalls einzufärben.</string>
     <string name="settings_root_list_category_text_color_title">Kategorie Text</string>
     <string name="settings_root_list_title_text_color_title">Titel Text</string>

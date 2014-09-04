@@ -333,6 +333,19 @@ public class WirelessSettings extends RestrictedSettingsFragment
             removePreference(KEY_MOBILE_NETWORK_SETTINGS);
             removePreference(KEY_MANAGE_MOBILE_PLAN);
         }
+
+        // Remove Mobile Network Settings if it is shown on the rootlist
+        if (!Utils.isWifiOnly(getActivity())) {
+            boolean showMobileSettings = Settings.System.getInt(activity.getContentResolver(),
+                    Settings.System.SETTINGS_ROOT_LIST_SHOW_MOBILE_SETTINGS, 1) == 0;
+            if (!showMobileSettings) {
+                Preference pref = findPreference(KEY_MOBILE_NETWORK_SETTINGS);
+                if (pref != null) {
+                    removePreference(KEY_MOBILE_NETWORK_SETTINGS);
+                }
+            }
+        }
+
         // Remove Mobile Network Settings and Manage Mobile Plan
         // if config_show_mobile_plan sets false.
         boolean isMobilePlanEnabled = this.getResources().getBoolean(

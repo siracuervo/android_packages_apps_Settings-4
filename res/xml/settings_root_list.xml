@@ -23,6 +23,11 @@
         android:title="@string/options_title">
 
         <CheckBoxPreference
+            android:key="settings_root_list_show_mobile_settings"
+            android:title="@string/settings_root_list_show_mobile_settings_title"
+            android:summary="@string/settings_root_list_show_mobile_settings_summary" />
+
+        <CheckBoxPreference
             android:key="settings_root_list_colorize_account_icons"
             android:title="@string/settings_root_list_colorize_account_icons_title"
             android:summary="@string/settings_root_list_colorize_account_icons_summary" />

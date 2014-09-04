@@ -633,8 +633,11 @@ public class Settings extends PreferenceActivity
                     target.remove(i);
                 }
             } else if (id == R.id.mobile_network_settings) {
-                // Remove mobile network settings if the device doesn't have telephony
-                if (Utils.isWifiOnly(this)) {
+                // Remove mobile network settings if the device doesn't have telephony,
+                // or mobile network settings is shown at wireless settings
+                boolean showMobileSettings = System.getInt(getContentResolver(),
+                        System.SETTINGS_ROOT_LIST_SHOW_MOBILE_SETTINGS, 1) == 1;
+                if (Utils.isWifiOnly(this) || !showMobileSettings) {
                     target.remove(i);
                 }
             } else if (id == R.id.data_usage_settings) {

@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.view.Menu;
@@ -33,12 +34,17 @@ import android.view.MenuItem;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class SettingsRootListSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String PREF_CAT_OPTIONS =
+            "settings_root_list_cat_options";
+    private static final String PREF_SHOW_MOBILE_SETTINGS =
+            "settings_root_list_show_mobile_settings";
     private static final String PREF_COLORIZE_ACCOUNT_ICONS =
             "settings_root_list_colorize_account_icons";
     private static final String PREF_CATEGORY_TEXT_COLOR =
@@ -66,6 +72,7 @@ public class SettingsRootListSettings extends SettingsPreferenceFragment impleme
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
 
+    private CheckBoxPreference mShowMobileSettings;
     private CheckBoxPreference mColorizeAccountIcons;
     private ColorPickerPreference mCategoryTextColor;
     private ColorPickerPreference mTitleTextColor;
@@ -91,6 +98,19 @@ public class SettingsRootListSettings extends SettingsPreferenceFragment impleme
 
         addPreferencesFromResource(R.xml.settings_root_list);
         mResolver = getActivity().getContentResolver();
+
+        PreferenceCategory catOptions =
+                (PreferenceCategory) findPreference(PREF_CAT_OPTIONS);
+        mShowMobileSettings =
+                (CheckBoxPreference) findPreference(PREF_SHOW_MOBILE_SETTINGS);
+        if (!Utils.isWifiOnly(getActivity())) {
+            mShowMobileSettings.setChecked(Settings.System.getInt(mResolver,
+                    Settings.System.SETTINGS_ROOT_LIST_SHOW_MOBILE_SETTINGS, 1) == 1);
+            mShowMobileSettings.setOnPreferenceChangeListener(this);
+        } else {
+        // Remove Show mobile network settings checkbox on wifi-only devices.
+            catOptions.removePreference(mShowMobileSettings);
+        }
 
         mColorizeAccountIcons =
                 (CheckBoxPreference) findPreference(PREF_COLORIZE_ACCOUNT_ICONS);
@@ -170,7 +190,13 @@ public class SettingsRootListSettings extends SettingsPreferenceFragment impleme
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mColorizeAccountIcons) {
+        if (preference == mShowMobileSettings) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.SETTINGS_ROOT_LIST_SHOW_MOBILE_SETTINGS,
+                            value ? 1 : 0);
+            return true;
+        } else if (preference == mColorizeAccountIcons) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                     Settings.System.SETTINGS_ROOT_LIST_COLORIZE_ACCOUNT_ICONS,
