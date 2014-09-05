@@ -4904,4 +4904,7 @@
 
     <!-- Text to display in regulatory info screen (from device overlay). -->
     <string name="regulatory_info_text"></string>
+    <!-- OpenDelta  -->
+    <public type="string" name="system_update_settings_list_item_title" id="0x7f0c06d7" />
+    <public type="string" name="system_update_settings_list_item_summary" id="0x7f0c06d8" />
 </resources>
