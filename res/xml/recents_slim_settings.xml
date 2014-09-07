@@ -64,6 +64,11 @@ limitations under the License.
                 android:defaultValue="0xffcdcdcd" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
+                android:key="recents_panel_header_bg_color"
+                android:title="@string/recents_panel_header_bg_color_title"
+                android:defaultValue="0xff1c1c1c" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
                 android:key="recents_panel_header_text_color"
                 android:title="@string/recents_panel_header_text_color_title"
                 android:defaultValue="0xffffffff" />
