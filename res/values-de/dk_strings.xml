@@ -1150,6 +1150,6 @@
     <string name="dkupdate_settings_summary">Auf neue Versionen prüfen und diese installieren</string>
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Arbeitsspeicher</string>
-    <string name="mod_version">DarkKat-Version</string>
+    <string name="dk_version">DarkKat-Version</string>
     <string name="build_date">Build-Datum</string>
 </resources>

@@ -1110,6 +1110,6 @@
     <!-- Device info settings -->
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Memoria</string>
-    <string name="mod_version">Versión de DarkKat</string>
+    <string name="dk_version">Versión de DarkKat</string>
     <string name="build_date">Fecha de complilación</string>
 </resources>

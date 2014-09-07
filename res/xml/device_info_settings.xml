@@ -131,10 +131,10 @@
                 android:title="@string/baseband_version"
                 android:summary="@string/device_info_default"/>
 
-		<!-- Mod version -->
-		<Preference android:key="mod_version"
+		<!-- Darkkat version -->
+		<Preference android:key="dk_version"
 		        style="?android:preferenceInformationStyle"
-		        android:title="@string/mod_version"
+		        android:title="@string/dk_version"
 		        android:summary="@string/device_info_default" />
 
 		<!-- Mod build date -->

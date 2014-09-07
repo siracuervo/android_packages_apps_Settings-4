@@ -1149,6 +1149,6 @@
     <string name="dkupdate_settings_summary">Check for, view or install available updates</string>
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Memory</string>
-    <string name="mod_version">DarkKat version</string>
+    <string name="dk_version">DarkKat version</string>
     <string name="build_date">Build date</string>
 </resources>

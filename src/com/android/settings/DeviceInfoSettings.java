@@ -59,7 +59,7 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
     private static final String KEY_KERNEL_VERSION = "kernel_version";
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
-    private static final String KEY_MOD_VERSION = "mod_version";
+    private static final String KEY_DK_VERSION = "dk_version";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
     private static final String KEY_BUILD_NUMBER = "build_number";
     private static final String KEY_DEVICE_MODEL = "device_model";
@@ -99,8 +99,8 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
-        setValueSummary(KEY_MOD_VERSION, "ro.modversion");
-        findPreference(KEY_MOD_VERSION).setEnabled(true);
+        setValueSummary(KEY_DK_VERSION, "ro.dk.version");
+        findPreference(KEY_DK_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
 
         if (!SELinux.isSELinuxEnabled()) {
