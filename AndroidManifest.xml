@@ -1666,6 +1666,14 @@
         <activity android:name=".darkkat.InterfaceMenusSettings" />
         <activity android:name=".darkkat.InterfaceMoreSettings" />
         <activity android:name=".darkkat.headsup.HeadsUpSettings" />
+        <activity android:name=".darkkat.ChangeLog" />
+
+        <activity android:name=".darkkat.ChangeLog" 
+            android:label="@string/changelog_title">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to (Interface)More settings -->
         <activity android:name="Settings$InterfaceMoreSettingsActivity"

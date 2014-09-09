@@ -1149,6 +1149,12 @@
     <!-- Device info settings -->
     <string name="dkupdate_settings_title">Darkkat-Updates</string>
     <string name="dkupdate_settings_summary">Auf neue Versionen prüfen und diese installieren</string>
+    <string name="changelog_title">Changelog ansehen</string>
+    <string name="changelog_dialog">Aktueller Changelog</string>
+    <string name="changelog_loading">Changelog laden...</string>
+    <string name="changelog_error">Changelog kann nicht geladen werden</string>
+    <string name="changelog_unknown">Unbekannt</string>
+    <string name="changelog_version">Version</string>
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Arbeitsspeicher</string>
     <string name="dk_version">DarkKat-Version</string>
