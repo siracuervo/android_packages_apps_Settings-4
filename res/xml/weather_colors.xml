@@ -20,7 +20,7 @@
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="weather_icon_color"
-        android:title="@string/icon_title"
+        android:title="@string/weather_icon_color_title"
         android:defaultValue="0xffffffff" />
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference

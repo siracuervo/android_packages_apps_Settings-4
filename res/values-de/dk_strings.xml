@@ -511,7 +511,7 @@
     <string name="weather_style_title">Wetter Style</string>
     <string name="weather_panel">Erweitertes Wetter Feld</string>
     <string name="weather_bar">Wettertext Leiste</string>
-    <string name="weather_icon_style_title">Wetter Symbole</string>
+    <string name="weather_icon_style_title">Wetterlage Bilder</string>
     <string name="weather_icon_monochrome">Einfarbig</string>
     <string name="weather_icon_color">Farbig</string>
     <string name="weather_icon_vclouds">VClouds</string>
@@ -561,10 +561,11 @@
     <string name="weather_settings_colors_title">Wetter-Einstellungen:\nFarben</string>
 
     <!-- Weather colors -->
-    <string name="weather_colorize_all_icons_title">Alle Symbole einfärben</string>
-    <string name="weather_colorize_all_icons_summary">Deaktivieren um nur die einfarbigen Symbole einzufärben</string>
+    <string name="weather_colorize_all_icons_title">Wetterlage Bilder</string>
+    <string name="weather_colorize_all_icons_summary">Aktivieren um alle Wetterlage Bilder einzufärben, deaktivieren um nur die einfarbigen Wetterlage Bilder einzufärben</string>
     <string name="weather_panel_background_color_title">Hintergrund</string>
     <string name="weather_panel_background_pressed_color_title">Hintergrund gedrückt</string>
+    <string name="weather_icon_color_title">Wetterlage Bild</string>
     <string name="weather_button_icon_title">Schaltflächen Symbol</string>
 
     <!-- Weather directions -->
