@@ -233,10 +233,23 @@
     <string name="set">Seleccionar</string>
 
     <!-- Interface category -->
+    <string name="interface_settings_title">Ajustes</string>
     <string name="interface_lockscreen_settings_title">Pantalla de bloqueo</string>
     <string name="interface_bars_settings_title">Barras</string>
     <string name="interface_menus_settings_title">Menús &amp; paneles</string>
     <string name="interface_more_settings_title">Más...</string>
+
+    <!-- Settings root list settings -->
+    <string name="settings_root_list_title">Menú principal</string>
+    <string name="settings_root_list_summary">Personalizar el menú principal de los ajustes</string>
+    <string name="settings_root_list_show_mobile_settings_title">Ajustes de la red móvil</string>
+    <string name="settings_root_list_show_mobile_settings_summary">Muestra los ajustes de la red móvil en el menú principal, deshabilita para mostrar los ajustes de la red móvil en los ajustes de las conexiones inalámbricas.</string>
+    <string name="settings_root_list_colorize_account_icons_title">Iconos</string>
+    <string name="settings_root_list_colorize_account_icons_summary">Colorea también los iconos.</string>
+    <string name="settings_root_list_category_text_color_title">Texto de la categoría</string>
+    <string name="settings_root_list_title_text_color_title">Nombre</string>
+    <string name="settings_root_list_switch_on_text_color_title">Habilita el texto</string>
+    <string name="settings_root_list_switch_off_text_color_title">Deshabilita el texto</string>
 
     <!-- Lockscreen settings -->
     <string name="lockscreen_background_settings_summary">Personalizar el fondo de la pantalla de bloqueo</string>
@@ -498,7 +511,7 @@
     <string name="weather_style_title">Estilo del tiempo</string>
     <string name="weather_panel">Expandir el panel del tiempo</string>
     <string name="weather_bar">Barra de texto del tiempo</string>
-    <string name="weather_icon_style_title">Iconos del tiempo</string>
+    <string name="weather_icon_style_title">Imágenes de las condiciones metereológicas</string>
     <string name="weather_icon_monochrome">Monocromo</string>
     <string name="weather_icon_color">Coloreado</string>
     <string name="weather_icon_vclouds">VClouds</string>
@@ -548,8 +561,11 @@
     <string name="weather_settings_colors_title">Ajustes del tiempo:\nColores</string>
 
     <!-- Weather colors -->
+    <string name="weather_colorize_all_icons_title">Imágenes de las condiciones metereológicas</string>
+    <string name="weather_colorize_all_icons_summary">Habilita para colorear las imágenes de las condiciones metereológicas, deshabilita para utilizar sólo colores monocromos en las imágenes de las condiciones metereológicas</string>
     <string name="weather_panel_background_color_title">Fondo</string>
     <string name="weather_panel_background_pressed_color_title">Notificaciones en segundo plano</string>
+    <string name="weather_icon_color_title">Imagen de las condiciones metereológicas</string> 
     <string name="weather_button_icon_title">Icono del botón</string>
 
     <!-- Weather directions -->
@@ -770,7 +786,8 @@
     <string name="recents_panel_expanded_mode_always">Siempre</string>
     <string name="recents_panel_expanded_mode_never">Nunca</string>
     <string name="recents_panel_empty_icon_color_title">Icono vacío</string>
-    <string name="recents_panel_header_text_color_title">Color del texto de la cabecerar</string>
+    <string name="recents_panel_header_bg_color_title">Fondo en segundo plano</string>
+    <string name="recents_panel_header_text_color_title">Texto de la cabecera</string>
 
     <!-- ATTENTION: RTL languages need to replace left with right -->
     <string name="recents_panel_lefty_mode_title">Mostrar en el borde izquierdo</string>
@@ -806,6 +823,25 @@
     <string name="heads_up_title">Notificaciones interactivas</string>
     <string name="listview_settings_title">List view</string>
     <string name="listview_settings_summary">Personalizar la animación</string>
+    <string name="bootanimation_settings_title">Animación de arranque</string>
+    <string name="bootanimation_settings_summary">Personalizar la animación de arranque</string>
+
+    <!-- Bootanimation -->
+    <string name="custom_bootanimation_title">Personalizar la animación de arranque</string>
+    <string name="custom_bootanimation_summary">Selecciona un archivo zip con la animación de arranque de la tarjeta interna.</string>
+    <string name="install_file_manager_error">No hay ninguna aplicación para buscar el archivo zip. Por favor, instala un administrador de archivos.</string>
+    <string name="bootanimation_preview">Vista previa de la animación de arranque</string>
+    <string name="apply">Aplicar</string>
+    <string name="creating_preview">Creando vista previa...</string>
+    <string name="error_reading_zip_file">Error  leyendo el archivo zip</string>
+    <string name="error_creating_preview">Error creando la vista previa</string>
+    <string name="bootanimation_preview_loop_title">Vista previa continua</string>
+    <string name="bootanimation_preview_loop_summary">Habilita la reproducción continua de la vista previa de la animación de arranque</string>
+    <string name="dlg_bootanimation_help_message">La Rom no contiene animaciones de arranque adicionales, la animación de arranque tiene que estar guardada en la tarjeta interna\n\nLa animación de arranque tiene que estar en formato zip, (NO un zip flaseable)\n\nSe hará una copia de seguridad de la actual animación de arranque en cada instalación de la animación de arranque, esta copia puede ser restaurada en cualquier momento.\nEsta copia de seguridad será sobreescrita en cada instalación de la animación de arranque.\n\nEn la primera instalación de la animación de arranque se realizará una copia de seguridad adicional de la animación de arranque original.\n\nLas copias de seguridad no se perderán con las actualizaciones de la Rom siempre y cuando no hagas un full-wipe.\n\nLa Rom contiene un script de copia de seguridad el cuál restaurará  la actual animación de arranque durante la actualización de la Rom.</string>
+    <string name="dlg_bootanimation_restore_title">Restaurar</string>
+    <string name="dlg_bootanimation_restore_message">Presiona Cancelar para anular.\nPresiona Original para restaurar la animación de arranque original.\nPresiona Última para restaurar la última animación de arranque.</string>
+    <string name="dlg_bootanimation_restore_original">Original</string>
+    <string name="dlg_bootanimation_restore_last">Última</string>
 
     <!-- Custom carrier label -->
     <string name="custom_carrier_label_explain">Por favor introduzca un nuevo nombre. Dejar en blanco para volver al valor por defecto.</string>
@@ -837,6 +873,9 @@
     <string name="heads_up_timeout_never">Nunca</string>
     <string name="heads_up_use_custom_timeout_fs_title">Pantalla completa</string>
     <string name="heads_up_use_custom_timeout_fs_summary">Usar un Timeout personalizado en pantalla completa también</string>
+
+    <!-- Volume dialog -->
+    <string name="volume_dialog_title">Volumen</string>
 
     <!-- Immersive mode -->
     <string name="expanded_desktop_status_bar">Barra de estado visible</string>
@@ -1108,6 +1147,15 @@
     <string name="supersu_title">SuperSU</string>
 
     <!-- Device info settings -->
+    <!-- Device info settings -->
+    <string name="dkupdate_settings_title">Actualizaciones Darkkat </string>
+    <string name="dkupdate_settings_summary">Selecciona para ver o instalar actualizaciones disponibles</string>
+    <string name="changelog_title">Ver lista de cambios</string>
+    <string name="changelog_dialog">Lista de cambios actual</string>
+    <string name="changelog_loading">Cargando lista de cambios...</string>
+    <string name="changelog_error">No ha sido posible cargar la lista de cambios</string>
+    <string name="changelog_unknown">Desconocido</string>
+    <string name="changelog_version">Versión</string>
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Memoria</string>
     <string name="dk_version">Versión de DarkKat</string>
