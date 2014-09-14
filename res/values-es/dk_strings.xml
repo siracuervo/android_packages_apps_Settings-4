@@ -1147,7 +1147,6 @@
     <string name="supersu_title">SuperSU</string>
 
     <!-- Device info settings -->
-    <!-- Device info settings -->
     <string name="dkupdate_settings_title">Actualizaciones Darkkat </string>
     <string name="dkupdate_settings_summary">Selecciona para ver o instalar actualizaciones disponibles</string>
     <string name="changelog_title">Ver lista de cambios</string>
