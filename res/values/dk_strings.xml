@@ -786,7 +786,8 @@
     <string name="recents_panel_expanded_mode_always">Always</string>
     <string name="recents_panel_expanded_mode_never">Never</string>
     <string name="recents_panel_empty_icon_color_title">Empty icon</string>
-    <string name="recents_panel_header_bg_color_title">Header background</string>
+    <string name="recents_panel_header_bg_color_title">Card header background</string>
+    <string name="recents_panel_card_bg_color_title">Card background</string>
     <string name="recents_panel_header_text_color_title">Header text</string>
 
     <!-- ATTENTION: RTL languages need to replace left with right -->

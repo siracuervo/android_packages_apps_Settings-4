@@ -786,7 +786,8 @@
     <string name="recents_panel_expanded_mode_always">Immer</string>
     <string name="recents_panel_expanded_mode_never">Nie</string>
     <string name="recents_panel_empty_icon_color_title">Leer-Symbol</string>
-    <string name="recents_panel_header_text_color_title">Hintergrund der Kopfzeile</string>
+    <string name="recents_panel_header_bg_color_title">Hintergrund der Karten-Kopfzeile</string>
+    <string name="recents_panel_card_bg_color_title">Karten Hintergrund</string>
     <string name="recents_panel_header_text_color_title">Text der Kopfzeile</string>
 
     <!-- ATTENTION: RTL languages need to replace left with right -->
