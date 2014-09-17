@@ -53,6 +53,23 @@
                 android:entryValues="@array/entryvalues_font_size"
                 android:dialogTitle="@string/dialog_title_font_size" />
 
+        <PreferenceScreen
+                android:key="wifi_display"
+                android:title="@string/wifi_display_settings_title"
+                android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
+
+        <PreferenceCategory
+            android:key="category_animations"
+            android:title="@string/display_category_animations_title" >
+
+            <PreferenceScreen
+                android:key="listview_settings"
+                android:title="@string/listview_settings_title"
+		        android:summary="@string/listview_settings_summary"
+                android:fragment="com.android.settings.darkkat.ListViewSettings" />
+
+        </PreferenceCategory>
+
         <PreferenceCategory
             android:key="category_light_options"
             android:title="@string/display_category_light_options_title" >
@@ -73,11 +90,6 @@
                 android:fragment="com.android.settings.darkkat.notificationlight.NotificationLightSettings" />
 
         </PreferenceCategory>
-
-        <PreferenceScreen
-                android:key="wifi_display"
-                android:title="@string/wifi_display_settings_title"
-                android:fragment="com.android.settings.wfd.WifiDisplaySettings" />
 
         <PreferenceCategory
             android:key="display_wake_category"

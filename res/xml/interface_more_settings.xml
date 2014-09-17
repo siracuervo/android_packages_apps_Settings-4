@@ -27,11 +27,6 @@ limitations under the License.
         android:title="@string/heads_up_title"
         android:fragment="com.android.settings.darkkat.headsup.HeadsUpSettings" />
 
-	<PreferenceScreen
-	    android:key="volume_dialog"
-	    android:title="@string/volume_dialog_title"
-        android:fragment="com.android.settings.darkkat.VolumeDialogSettings" />
-
     <ListPreference
         android:key="expanded_desktop"
         android:title="@string/expanded_desktop_title"
@@ -53,12 +48,6 @@ limitations under the License.
             android:targetClass="com.cyanogenmod.lockclock.preference.Preferences"
             android:targetPackage="com.cyanogenmod.lockclock" />
     </PreferenceScreen>
-
-    <PreferenceScreen
-        android:key="listview_settings"
-        android:title="@string/listview_settings_title"
-		android:summary="@string/listview_settings_summary"
-        android:fragment="com.android.settings.darkkat.ListViewSettings" />
 
     <PreferenceScreen
         android:key="bootanimation_settings"

@@ -22,6 +22,7 @@ import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
@@ -29,6 +30,7 @@ import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.VolumePanel;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -37,6 +39,8 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class VolumeDialogSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String PREF_VOLUME_OVERLAY =
+            "volume_overlay";
     private static final String PREF_BG_COLOR =
             "bg_color";
     private static final String PREF_ICON_COLOR =
@@ -50,6 +54,7 @@ public class VolumeDialogSettings extends SettingsPreferenceFragment implements
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
+    private ListPreference mVolumeOverlay;
     private ColorPickerPreference mBgColor;
     private ColorPickerPreference mIconColor;
 
@@ -72,6 +77,14 @@ public class VolumeDialogSettings extends SettingsPreferenceFragment implements
 
         int color;
         String hexColor;
+
+        mVolumeOverlay = (ListPreference) findPreference(PREF_VOLUME_OVERLAY);
+        int volumeOverlay = Settings.System.getInt(mResolver,
+                Settings.System.MODE_VOLUME_OVERLAY,
+                VolumePanel.VOLUME_OVERLAY_EXPANDABLE);
+        mVolumeOverlay.setValue(Integer.toString(volumeOverlay));
+        mVolumeOverlay.setSummary(mVolumeOverlay.getEntry());
+        mVolumeOverlay.setOnPreferenceChangeListener(this);
 
         mBgColor =
                 (ColorPickerPreference) findPreference(PREF_BG_COLOR);
@@ -118,7 +131,13 @@ public class VolumeDialogSettings extends SettingsPreferenceFragment implements
         String hex;
         int intHex;
 
-        if (preference == mBgColor) {
+        if (preference == mVolumeOverlay) {
+            int value = Integer.valueOf((String) newValue);
+            int index = mVolumeOverlay.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.MODE_VOLUME_OVERLAY, value);
+            mVolumeOverlay.setSummary(mVolumeOverlay.getEntries()[index]);
+        } else if (preference == mBgColor) {
             hex = ColorPickerPreference.convertToARGB(
                 Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
