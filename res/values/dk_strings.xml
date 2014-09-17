@@ -822,8 +822,6 @@
 
     <!-- (Interface category) More settings -->
     <string name="heads_up_title">Heads up notifications</string>
-    <string name="listview_settings_title">List view</string>
-    <string name="listview_settings_summary">Customize the animation</string>
     <string name="bootanimation_settings_title">Bootanimation</string>
     <string name="bootanimation_settings_summary">Customize Bootanimation</string>
 
@@ -986,6 +984,8 @@
     <string name="swap_volume_buttons_summary">Swap volume buttons when the screen is rotated</string>
 
     <!-- ListView settings -->
+    <string name="listview_settings_title">List view</string>
+    <string name="listview_settings_summary">Customize the animation</string>
     <string name="dlg_reset_blacklist_message">Clear the list of excluded applications?</string>
     <string name="listview_animation_title">Animation</string>
     <string name="listview_interpolator_title">Interpolator</string>

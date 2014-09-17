@@ -822,8 +822,6 @@
 
     <!-- (Interface category) More settings -->
     <string name="heads_up_title">Heads-Up Benachrichtigungen</string>
-    <string name="listview_settings_title">Listenansicht</string>
-    <string name="listview_settings_summary">Animation anpassen</string>
     <string name="bootanimation_settings_title">Bootanimation</string>
     <string name="bootanimation_settings_summary">Bootanimation anpassen</string>
 
@@ -938,10 +936,10 @@
     <string name="quiet_hours_alarm_message">" erfüllt die Vorraussetzungen um die Ruhigen Stunden zu umgehen!"</string>
 
     <!-- Volume dialog -->
-    <string name="volume_dialog_title">Lautstärke Dialogfeld</string>
+    <string name="volume_dialog_title">Lautstärke Dialog</string>
 
     <!-- Volume Overlay -->
-    <string name="volume_overlay_title">Lautstärke-Feld</string>
+    <string name="volume_overlay_title">Lautstärke-Feld Style</string>
     <string name="volume_overlay_single">Einzeln</string>
     <string name="volume_overlay_expandable">Erweiterbar</string>
     <string name="volume_overlay_expanded">Erweitert</string>
@@ -986,6 +984,8 @@
     <string name="swap_volume_buttons_summary">Belegung der Lautstärketasten umkehren, wenn das Gerät gedreht wird</string>
 
     <!-- ListView settings -->
+    <string name="listview_settings_title">Listenansicht</string>
+    <string name="listview_settings_summary">Animation anpassen</string>
     <string name="dlg_reset_blacklist_message">Liste der auszuschließenden Anwendungen löschen?</string>
     <string name="listview_animation_title">Animation</string>
     <string name="listview_interpolator_title">Interpolator</string>
