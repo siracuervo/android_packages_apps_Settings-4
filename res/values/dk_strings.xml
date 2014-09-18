@@ -983,9 +983,10 @@
     <string name="swap_volume_buttons_title">Reorient volume buttons</string>
     <string name="swap_volume_buttons_summary">Swap volume buttons when the screen is rotated</string>
 
-    <!-- ListView settings -->
+    <!-- Animations -->
+
+    <!-- ListView -->
     <string name="listview_settings_title">List view</string>
-    <string name="listview_settings_summary">Customize the animation</string>
     <string name="dlg_reset_blacklist_message">Clear the list of excluded applications?</string>
     <string name="listview_animation_title">Animation</string>
     <string name="listview_interpolator_title">Interpolator</string>
@@ -1011,6 +1012,15 @@
     <string name="listview_overshoot_interpolator">Overshoot</string>
     <string name="listview_anticipate_overshoot_interpolator">Anticipate and overshoot</string>
     <string name="listview_bounce_interpolator">Bounce</string>
+
+    <!-- CRT animation -->
+    <string name="system_power_crt_mode_title">CRT</string>
+    <string name="system_power_crt_mode_dialog_title">CRT animation</string>
+    <string name="system_power_crt_mode_off">Don\'t show</string>
+    <string name="system_power_crt_mode_horizontal">Collapse horizontal</string>
+    <string name="system_power_crt_mode_vertical">Collapse vertical</string>
+    <string name="system_power_crt_mode_both">Collapse orientation dependent</string>
+    <string name="system_power_crt_mode_scale">Scale down</string>
 
     <!-- Notification light settings -->
     <string name="display_category_light_options_title">Light options</string>
