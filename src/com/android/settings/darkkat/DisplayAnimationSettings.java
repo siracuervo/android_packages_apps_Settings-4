@@ -39,9 +39,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ListViewSettings extends SettingsPreferenceFragment implements
+public class DisplayAnimationSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String PREF_POWER_CRT_MODE =
+            "system_power_crt_mode";
     private static final String PREF_LISTVIEW_ANIMATION =
             "listview_animation";
     private static final String PREF_LISTVIEW_INTERPOLATOR =
@@ -52,6 +54,7 @@ public class ListViewSettings extends SettingsPreferenceFragment implements
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
+    private ListPreference mCrtMode;
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
     private AppMultiSelectListPreference mExcludedApps;
@@ -62,8 +65,25 @@ public class ListViewSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.listview_settings);
+        addPreferencesFromResource(R.xml.display_animation_settings);
         mResolver = getActivity().getContentResolver();
+
+        // respect device default configuration
+        // true fades while false animates
+        boolean electronBeamFadesConfig = getResources().getBoolean(
+                com.android.internal.R.bool.config_animateScreenLights);
+        mCrtMode = (ListPreference) findPreference(PREF_POWER_CRT_MODE);
+        if (mCrtMode != null) {
+            if (!electronBeamFadesConfig) {
+                int crtMode = Settings.System.getInt(mResolver,
+                        Settings.System.SYSTEM_POWER_CRT_MODE, 1);
+                mCrtMode.setValue(String.valueOf(crtMode));
+                mCrtMode.setSummary(mCrtMode.getEntry());
+                mCrtMode.setOnPreferenceChangeListener(this);
+            } else if (mCrtMode != null) {
+                removePreference(PREF_POWER_CRT_MODE);
+            }
+        }
 
         mListViewAnimation =
                 (ListPreference) findPreference(PREF_LISTVIEW_ANIMATION);
@@ -116,7 +136,14 @@ public class ListViewSettings extends SettingsPreferenceFragment implements
         int intValue;
         int index;
 
-        if (preference == mListViewAnimation) {
+        if (preference == mCrtMode) {
+            intValue = Integer.parseInt((String) newValue);
+            index = mCrtMode.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.SYSTEM_POWER_CRT_MODE,
+                    intValue);
+            mCrtMode.setSummary(mCrtMode.getEntries()[index]);
+        } else  if (preference == mListViewAnimation) {
             intValue = Integer.valueOf((String) newValue);
             index =
                 mListViewAnimation.findIndexOfValue((String) newValue);
@@ -158,8 +185,8 @@ public class ListViewSettings extends SettingsPreferenceFragment implements
             return frag;
         }
 
-        ListViewSettings getOwner() {
-            return (ListViewSettings) getTargetFragment();
+        DisplayAnimationSettings getOwner() {
+            return (DisplayAnimationSettings) getTargetFragment();
         }
 
         @Override

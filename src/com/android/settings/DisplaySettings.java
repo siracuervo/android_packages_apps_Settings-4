@@ -52,11 +52,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     /** If there is no setting in the provider, use this. */
     private static final int FALLBACK_SCREEN_TIMEOUT_VALUE = 30000;
 
-    private static final String KEY_ANIMATIONS = "category_animations";
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
     private static final String KEY_DISPLAY_ROTATION = "display_rotation";
     private static final String KEY_FONT_SIZE = "font_size";
-    private static final String KEY_POWER_CRT_MODE = "system_power_crt_mode";
+
     private static final String KEY_LIGHT_OPTIONS = "category_light_options";
     private static final String KEY_NOTIFICATION_PULSE = "notification_pulse";
     private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
@@ -70,7 +69,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mAccelerometer;
     private PreferenceScreen mDisplayRotationPreference;
     private WarnedListPreference mFontSizePref;
-    private ListPreference mCrtMode;
     private CheckBoxPreference mNotificationPulse;
     private PreferenceCategory mLightOptions;
     private PreferenceScreen mNotificationLight;
@@ -127,25 +125,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mFontSizePref = (WarnedListPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
         mFontSizePref.setOnPreferenceClickListener(this);
-
-        // respect device default configuration
-        // true fades while false animates
-        boolean electronBeamFadesConfig = getResources().getBoolean(
-                com.android.internal.R.bool.config_animateScreenLights);
-        PreferenceCategory animations =
-            (PreferenceCategory) findPreference(KEY_ANIMATIONS);
-        mCrtMode = (ListPreference) findPreference(KEY_POWER_CRT_MODE);
-        if (mCrtMode != null) {
-            if (!electronBeamFadesConfig) {
-                int crtMode = Settings.System.getInt(getContentResolver(),
-                        Settings.System.SYSTEM_POWER_CRT_MODE, 1);
-                mCrtMode.setValue(String.valueOf(crtMode));
-                mCrtMode.setSummary(mCrtMode.getEntry());
-                mCrtMode.setOnPreferenceChangeListener(this);
-            } else if (mCrtMode != null) {
-                animations.removePreference(mCrtMode);
-            }
-        }
 
         mLightOptions = (PreferenceCategory) findPreference(KEY_LIGHT_OPTIONS);
         mNotificationPulse = (CheckBoxPreference) findPreference(KEY_NOTIFICATION_PULSE);
@@ -473,14 +452,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
         if (KEY_FONT_SIZE.equals(key)) {
             writeFontSizePreference(objValue);
-        }
-        if (KEY_POWER_CRT_MODE.equals(key)) {
-            int value = Integer.parseInt((String) objValue);
-            int index = mCrtMode.findIndexOfValue((String) objValue);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.SYSTEM_POWER_CRT_MODE,
-                    value);
-            mCrtMode.setSummary(mCrtMode.getEntries()[index]);
         }
         return true;
     }

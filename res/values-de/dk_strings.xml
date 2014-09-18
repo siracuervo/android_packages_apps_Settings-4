@@ -969,10 +969,10 @@
     <string name="volume_button_music_controls_summary">Wenn der Bildschirm aus ist, wechselt ein druck auf die Lauer/Leiser Taste den Musik Titel</string>
 
     <!-- Display settings -->
-    <string name="display_category_animations_title">Animationen</string>
+    <string name="display_rotation_title">Bildschirmausrichtung</string>
+    <string name="display_animations_settings_title">Animationen</string>
 
     <!-- Display rotation options -->
-    <string name="display_rotation_title">Bildschirmausrichtung</string>
     <string name="display_rotation_unit">Grad</string>
     <string name="display_lockscreen_rotation_title">Bildschirmsperre automatisch drehen</string>
     <string name="display_rotation_category_title">Bei Drehung um</string>
@@ -985,11 +985,19 @@
 
     <!-- Animations -->
 
+    <!-- CRT animation -->
+    <string name="system_power_crt_mode_title">Display aus Animation</string>
+    <string name="system_power_crt_mode_dialog_title">Display aus Animation</string>
+    <string name="system_power_crt_mode_off">Nicht anzeigen</string>
+    <string name="system_power_crt_mode_horizontal">Horizontaler Kollaps</string>
+    <string name="system_power_crt_mode_vertical">Vertikaler Kollaps</string>
+    <string name="system_power_crt_mode_both">Ausrichtungsabhängiger Kollaps</string>
+    <string name="system_power_crt_mode_scale">Verkleinern</string>
+
     <!-- ListView -->
-    <string name="listview_settings_title">Listenansicht</string>
     <string name="dlg_reset_blacklist_message">Liste der auszuschließenden Anwendungen löschen?</string>
-    <string name="listview_animation_title">Animation</string>
-    <string name="listview_interpolator_title">Interpolator</string>
+    <string name="listview_animation_title">Listenansicht Animation</string>
+    <string name="listview_interpolator_title">Listenansicht Interpolator</string>
     <string name="listview_blacklist_title">Anwendungen ausschließen</string>
     <string name="listview_blacklist_summary">Verhindern das Anwendungen die angepasste Animation verwenden</string>
 
@@ -1012,15 +1020,6 @@
     <string name="listview_overshoot_interpolator">Überschwingen</string>
     <string name="listview_anticipate_overshoot_interpolator">Antizipieren und überschwingen</string>
     <string name="listview_bounce_interpolator">Springen</string>
-
-    <!-- CRT animation -->
-    <string name="system_power_crt_mode_title">CRT</string>
-    <string name="system_power_crt_mode_dialog_title">CRT Animation</string>
-    <string name="system_power_crt_mode_off">Nicht anzeigen</string>
-    <string name="system_power_crt_mode_horizontal">Horizontaler Kollaps</string>
-    <string name="system_power_crt_mode_vertical">Vertikaler Kollaps</string>
-    <string name="system_power_crt_mode_both">Ausrichtungsabhängiger Kollaps</string>
-    <string name="system_power_crt_mode_scale">Verkleinern</string>
 
     <!-- Notification light settings -->
     <string name="display_category_light_options_title">Licht</string>

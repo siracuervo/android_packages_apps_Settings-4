@@ -969,10 +969,10 @@
     <string name="volume_button_music_controls_summary">When screen off, long-pressing the volume buttons will switch music tracks</string>
 
     <!-- Display settings -->
-    <string name="display_category_animations_title">Animations</string>
+    <string name="display_rotation_title">Rotation</string>
+    <string name="display_animations_settings_title">Animations</string>
 
     <!-- Display rotation options -->
-    <string name="display_rotation_title">Rotation</string>
     <string name="display_rotation_unit">degrees</string>
     <string name="display_lockscreen_rotation_title">Auto-rotate lock screen</string>
     <string name="display_rotation_category_title">Rotation modes</string>
@@ -985,11 +985,19 @@
 
     <!-- Animations -->
 
+    <!-- CRT animation -->
+    <string name="system_power_crt_mode_title">Display off animation</string>
+    <string name="system_power_crt_mode_dialog_title">Display off animation</string>
+    <string name="system_power_crt_mode_off">Don\'t show</string>
+    <string name="system_power_crt_mode_horizontal">Collapse horizontal</string>
+    <string name="system_power_crt_mode_vertical">Collapse vertical</string>
+    <string name="system_power_crt_mode_both">Collapse orientation dependent</string>
+    <string name="system_power_crt_mode_scale">Scale down</string>
+
     <!-- ListView -->
-    <string name="listview_settings_title">List view</string>
     <string name="dlg_reset_blacklist_message">Clear the list of excluded applications?</string>
-    <string name="listview_animation_title">Animation</string>
-    <string name="listview_interpolator_title">Interpolator</string>
+    <string name="listview_animation_title">List view animation</string>
+    <string name="listview_interpolator_title">List view Interpolator</string>
     <string name="listview_blacklist_title">Excluded applications</string>
     <string name="listview_blacklist_summary">Prevent Apps from custom animating</string>
 
@@ -1012,15 +1020,6 @@
     <string name="listview_overshoot_interpolator">Overshoot</string>
     <string name="listview_anticipate_overshoot_interpolator">Anticipate and overshoot</string>
     <string name="listview_bounce_interpolator">Bounce</string>
-
-    <!-- CRT animation -->
-    <string name="system_power_crt_mode_title">CRT</string>
-    <string name="system_power_crt_mode_dialog_title">CRT animation</string>
-    <string name="system_power_crt_mode_off">Don\'t show</string>
-    <string name="system_power_crt_mode_horizontal">Collapse horizontal</string>
-    <string name="system_power_crt_mode_vertical">Collapse vertical</string>
-    <string name="system_power_crt_mode_both">Collapse orientation dependent</string>
-    <string name="system_power_crt_mode_scale">Scale down</string>
 
     <!-- Notification light settings -->
     <string name="display_category_light_options_title">Light options</string>
