@@ -785,6 +785,8 @@
     <string name="recents_panel_expanded_mode_auto">Auto (Standard)</string>
     <string name="recents_panel_expanded_mode_always">Immer</string>
     <string name="recents_panel_expanded_mode_never">Nie</string>
+    <string name="recent_panel_show_topmost_title">Derzeitiger Task</string>
+    <string name="recent_panel_show_topmost_summary">Aktivieren um den derzeitigen Task anzuzeigen</string>
     <string name="recents_panel_empty_icon_color_title">Leer-Symbol</string>
     <string name="recents_panel_header_bg_color_title">Hintergrund der Karten-Kopfzeile</string>
     <string name="recents_panel_card_bg_color_title">Karten Hintergrund</string>

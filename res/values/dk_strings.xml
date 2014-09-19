@@ -785,6 +785,8 @@
     <string name="recents_panel_expanded_mode_auto">Auto (default)</string>
     <string name="recents_panel_expanded_mode_always">Always</string>
     <string name="recents_panel_expanded_mode_never">Never</string>
+    <string name="recent_panel_show_topmost_title">Show topmost task</string>
+    <string name="recent_panel_show_topmost_summary">Enable to show the topmost task</string>
     <string name="recents_panel_empty_icon_color_title">Empty icon</string>
     <string name="recents_panel_header_bg_color_title">Card header background</string>
     <string name="recents_panel_card_bg_color_title">Card background</string>

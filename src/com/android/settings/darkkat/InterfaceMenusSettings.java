@@ -60,6 +60,8 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             "recents_panel_scale";
     private static final String PREF_RECENTS_PANEL_EXPANDED_MODE =
             "recents_panel_expanded_mode";
+    private static final String RECENT_PANEL_SHOW_TOPMOST =
+            "recent_panel_show_topmost";
     private static final String PREF_RECENTS_PANEL_LEFTY_MODE =
             "recents_panel_lefty_mode";
     private static final String PREF_RECENTS_PANEL_BG_COLOR =
@@ -107,6 +109,7 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
     private CheckBoxPreference mRecentAppsType;
     private ListPreference mRecentsPanelScale;
     private ListPreference mRecentsPanelExpandedMode;
+    private CheckBoxPreference mRecentsPanelShowTopmost;
     private CheckBoxPreference mRecentsPanelLeftyMode;
     private ColorPickerPreference mRecentsPanelBgColor;
     private ColorPickerPreference mRecentsPanelIconColor;
@@ -197,6 +200,12 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             mRecentsPanelExpandedMode.setValue(recentsExpandedMode + "");
             mRecentsPanelExpandedMode.setSummary(mRecentsPanelExpandedMode.getEntry());
             mRecentsPanelExpandedMode.setOnPreferenceChangeListener(this);
+
+            mRecentsPanelShowTopmost =
+                    (CheckBoxPreference) findPreference(RECENT_PANEL_SHOW_TOPMOST);
+            mRecentsPanelShowTopmost.setChecked(Settings.System.getInt(getContentResolver(),
+                    Settings.System.RECENT_PANEL_SHOW_TOPMOST, 0) == 1);
+            mRecentsPanelShowTopmost.setOnPreferenceChangeListener(this);
 
             mRecentsPanelLeftyMode =
                     (CheckBoxPreference) findPreference(PREF_RECENTS_PANEL_LEFTY_MODE);
@@ -375,6 +384,11 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                     Settings.System.RECENT_PANEL_EXPANDED_MODE, value);
             mRecentsPanelExpandedMode.setSummary(
                     mRecentsPanelExpandedMode.getEntries()[index]);
+            return true;
+        } else if (preference == mRecentsPanelShowTopmost) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.RECENT_PANEL_SHOW_TOPMOST,
+                    ((Boolean) objValue) ? 1 : 0);
             return true;
         } else if (preference == mRecentsPanelLeftyMode) {
             Settings.System.putInt(getContentResolver(),
