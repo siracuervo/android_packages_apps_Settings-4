@@ -34,6 +34,8 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
             "heads_up_expanded";
     private static final String PREF_HEADS_UP_SHOW_UPDATE =
             "heads_up_show_update";
+    private static final String PREF_HEADS_UP_GRAVITY =
+            "heads_up_gravity";
     private static final String PREF_HEADS_UP_SNOOZE_TIME =
             "heads_up_snooze_time";
     private static final String PREF_HEADS_UP_TIMEOUT =
@@ -45,6 +47,7 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
 
     private CheckBoxPreference mHeadsUpExpanded;
     private CheckBoxPreference mHeadsUpShowUpdates;
+    private CheckBoxPreference mHeadsUpGravity;
     private ListPreference mHeadsUpSnoozeTime;
     private ListPreference mTimeout;
     private CheckBoxPreference mUseCustomTimeoutFs;
@@ -69,6 +72,12 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
         mHeadsUpShowUpdates.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.HEADS_UP_SHOW_UPDATE, 0) == 1);
         mHeadsUpShowUpdates.setOnPreferenceChangeListener(this);
+
+        mHeadsUpGravity =
+                (CheckBoxPreference) findPreference(PREF_HEADS_UP_GRAVITY);
+        mHeadsUpGravity.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.HEADS_UP_GRAVITY_BOTTOM, 0) == 1);
+        mHeadsUpGravity.setOnPreferenceChangeListener(this);
 
         mHeadsUpSnoozeTime =
                 (ListPreference) findPreference(PREF_HEADS_UP_SNOOZE_TIME);
@@ -105,6 +114,11 @@ public class HeadsUpSettings extends SettingsPreferenceFragment implements
         } else if (preference == mHeadsUpShowUpdates) {
             Settings.System.putInt(mResolver,
                     Settings.System.HEADS_UP_SHOW_UPDATE,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mHeadsUpGravity) {
+            Settings.System.putInt(mResolver,
+                    Settings.System.HEADS_UP_GRAVITY_BOTTOM,
                     (Boolean) newValue ? 1 : 0);
             return true;
         } else if (preference == mHeadsUpSnoozeTime) {

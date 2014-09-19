@@ -851,6 +851,8 @@
     <string name="heads_up_expanded_summary">Aktivieren um die Heads-Up Benachrichtigungen immer erweitert anzuzeigen</string>
     <string name="heads_up_show_updates_title">Aktuallisierungen</string>
     <string name="heads_up_show_updates_summary">Aktivieren um anstehende Benachrichtigungen im Hintergrund als Heads-Up anzuzeigen</string>
+    <string name="heads_up_gravity_title">An der Unterseite anzeigen</string>
+    <string name="heads_up_gravity_summary">Heads Up Benachrichtigungen an der Unterseite des Bildschirms anzeigen</string>
     <string name="heads_up_snooze_title">Schlummern</string>
     <string name="heads_up_snooze_summary">Wenn die Schlummern Schaltfläche gedrückt wird, Heads-Up für <xliff:g id="number">%d</xliff:g> Minuten deaktivieren.</string>
     <string name="heads_up_snooze_disabled_summary">Schlummern Timer ist deaktiviert.</string>
