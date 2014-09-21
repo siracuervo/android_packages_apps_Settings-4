@@ -42,9 +42,9 @@ limitations under the License.
                 android:persistent="false" />
 
         <CheckBoxPreference
-                android:key="recent_panel_show_topmost"
-                android:title="@string/recent_panel_show_topmost_title"
-                android:summary="@string/recent_panel_show_topmost_summary"
+                android:key="recents_panel_show_topmost"
+                android:title="@string/recents_panel_show_topmost_title"
+                android:summary="@string/recents_panel_show_topmost_summary"
                 android:persistent="false" />
 
         <CheckBoxPreference
