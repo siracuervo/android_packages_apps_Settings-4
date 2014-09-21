@@ -91,6 +91,14 @@
     <string name="five">Fünf</string>
     <string name="six">Sechs</string>
 
+    <string name="sunday">Sonntag</string>
+    <string name="monday">Montag</string>
+    <string name="tuesday">Dienstag</string>
+    <string name="wednesday">Mittwoch</string>
+    <string name="thursday">Donnerstag</string>
+    <string name="friday">Freitag</string>
+    <string name="saturday">Samstag</string>
+
     <!-- Button and shortcuts (global used) -->
 
     <!-- Button shorcut help text -->
@@ -889,55 +897,87 @@
 
     <!-- Quiet hours -->
     <string name="quiet_hours_title">Ruhige Stunden</string>
-    <string name="quiet_hours_summary">Konfiguration der Stunden, in denen das Gerät ruhig ist</string>
-    <string name="quiet_hours_enabled">Ruhige Stunden aktivieren</string>
-    <string name="quiet_hours_enabled_on">Ruhige Stunden werden erzwungen</string>
-    <string name="quiet_hours_enabled_off">Benachrichtigungen funktionieren normal</string>
-    <string name="quiet_hours_start">Start der Ruhige Stunden</string>
-    <string name="quiet_hours_start_summary">Ab wann sollen die Ruhige Stunden erzwungen werden</string>
-    <string name="quiet_hours_end">Ende der Ruhige Stunden</string>
-    <string name="quiet_hours_end_summary">Bis wann sollen die Ruhige Stunden erzwungen werden</string>
-    <string name="quiet_hours_ringer_title">Klingelton stumm schalten</string>
-    <string name="quiet_hours_ringer_on">Kein Klingelton</string>
-    <string name="quiet_hours_ringer_off">Klingelton normal</string>
-    <string name="quiet_hours_mute">Benachrichtigungen stumm schalten</string>
-    <string name="quiet_hours_mute_on">Kein Benachrichtigungston</string>
-    <string name="quiet_hours_mute_off">Benachrichtigungston normal</string>
+    <string name="quiet_hours_summary">Stunden konfigurieren, in denen das Telefon stumm bleibt</string>
+    <string name="quiet_hours_mode">Ruhige Stunden</string>
+    <string name="quiet_hours_off">Ruhige Stunden deaktiviert</string>
+    <string name="quiet_hours_forced">Ruhige Stunden sind immer aktiviert</string>
+    <string name="quiet_hours_times_warning">Zeiten können sich nicht überschneiden: Einstellung zum nächst möglichen Zeitpunkt</string>
+    <string name="quiet_hours_wifi">Erfordert eine WiFi-Verbindung</string>
+    <string name="quiet_hours_wifi_on">WiFi muss verbunden sein</string>
+    <string name="quiet_hours_wifi_off">WiFi kann in jedem Zustand sein</string>
+    <string name="quiet_hours_charging">Erfordere das Gerät anzuschliessen</string>
+    <string name="quiet_hours_charging_off">Gerät kann in jedem Ladezustand sein</string>
+    <string name="quiet_hours_charging_on">Gerät muss aufladen</string>
+    <string name="quiet_hours_timed">Ruhige Stunden setzt auf Zeitfunktionen</string>
+    <string name="quiet_hours_reset_times">Alle Zeiten auf Standardeinstellungen zurücksetzen??</string>
+    <string name="quiet_hours_daily_times">Tageszeiten</string>
+    <string name="quiet_hours_daily_on">Individuelle Zeiten pro Tag sind aktiviert</string>
+    <string name="quiet_hours_daily_off">Ein einziger Satz von Zeiten ist aktiviert</string>
+    <string name="quiet_time_prefs_title">Ruhige Stunden Zeitbereiche</string>
+    <string name="quiet_hours_auto_title">Rufton-Modus folgen (immer an und zeitlich)</string>
+    <string name="quiet_hours_auto_silent">Ruhige Stunden werden aktiviert, wenn der Rufton stumm geschaltet ist</string>
+    <string name="quiet_hours_auto_vibrate">Ruhige Stunden werden aktiviert, wenn der Rufton auf vibrieren oder stumm geschaltet ist</string>
+    <string name="quiet_hours_start">Ruhige Stunden Startzeitpunk</string>
+    <string name="quiet_hours_start_summary">Startzeitpunkt zum Durchsetzen der Ruhigen Stunden</string>
+    <string name="quiet_hours_end">Ende der Ruhigen Stunden</string>
+    <string name="quiet_hours_end_summary">Wann sollen die Ruhigen Stunden enden?</string>
+    <string name="quiet_hours_ringer_title">Ruftöne stumm</string>
+    <string name="quiet_hours_ringer_on">Keine Ruftöne werden abgespielt</string>
+    <string name="quiet_hours_ringer_off">Ruftöne werden normal abgespielt</string>
+    <string name="quiet_hours_mute">Benachritigungen stummschalten</string>
+    <string name="quiet_hours_mute_on">Es werden keine Benachrichtigungstöne abgespielt</string>
+    <string name="quiet_hours_mute_off">Benachrichtigungstöne verhalten sich wie gewohnt</string>
     <string name="quiet_hours_still">Vibration deaktivieren</string>
-    <string name="quiet_hours_still_on">Keine Vibration</string>
-    <string name="quiet_hours_still_off">Vibration normal</string>
-    <string name="quiet_hours_dim">Benachrichtigungslicht deaktivieren</string>
-    <string name="quiet_hours_dim_on">Benachrichtigungslicht deaktiviert</string>
-    <string name="quiet_hours_dim_off">Benachrichtigungslicht normal</string>
-    <string name="quiet_hours_haptic">Haptische Rückmeldung deaktivieren</string>
-    <string name="quiet_hours_haptic_on">Haptische Rückmeldung deaktiviert</string>
-    <string name="quiet_hours_haptic_off">Haptische Rückmeldung normal</string>
+    <string name="quiet_hours_still_on">Gerät vibriert nicht</string>
+    <string name="quiet_hours_still_off">Gerät vibriert wie gewohnt </string>
+    <string name="quiet_hours_dim">LED deaktivieren</string>
+    <string name="quiet_hours_dim_on">Benachrichtigungs-LED wird deaktiviert</string>
+    <string name="quiet_hours_dim_off">Benachrichtigungs-LED verhält sich wie gewohnt</string>
+    <string name="quiet_hours_system">Systemtöne deaktivieren</string>
+    <string name="quiet_hours_system_on">Systemtöne werden werden deaktiviert</string>
+    <string name="quiet_hours_system_off">Systemtöne werden normal funktionieren</string>
+    <string name="quiet_hours_haptic">Haptisches Feedback deaktivieren</string>
+    <string name="quiet_hours_haptic_on">Haptisches Feedback wird deaktiviert</string>
+    <string name="quiet_hours_haptic_off">Haptisches Feedback verhält sich wie gewohnt</string>
     <string name="quiet_hours_active_from">Aktiv von</string>
     <string name="quiet_hours_active_to">bis</string>
     <string name="quiet_hours_auto_sms_group">Automatische Antwort</string>
-    <string name="quiet_hours_auto_sms_title">Eingehende Text Nachrichten</string>
-    <string name="quiet_hours_auto_sms_call_title">Eingehende Anrufe</string>
-    <string name="quiet_hours_auto_string_title">Automatische Antwort anpassen</string>
-    <string name="quiet_hours_auto_string_explain">Diese Nachricht wird an jeden versendet, der versucht Dich während der aktiven Ruhigewn Stunden zu kontaktieren </string>
-    <string name="quiet_hours_auto_sms_null">[Automatische Nachricht] Ich werde mich so schnell wie möglich, wieder melden.</string>
+    <string name="quiet_hours_auto_sms_title">Annkommende Textnachrichten</string>
+    <string name="quiet_hours_auto_sms_call_title">Ankommende Telefonate</string>
+    <string name="quiet_hours_auto_string_title">Zu sendende Antwort</string>
+    <string name="quiet_hours_auto_string_explain">Nachricht wird an jeden gesendet, der versucht, Sie bei aktivierten Ruhigen Stunden zu erreichen</string>
+    <string name="quiet_hours_auto_sms_null">[Automatische Nachricht] Ich werde so bald wie möglich zurückrufen.</string>
+    <string name="quiet_hours_auto_disabled">Deaktiviert</string>
     <string name="quiet_hours_auto_enabled">Alle Nummern</string>
     <string name="quiet_hours_auto_contacts">Nur Kontakte</string>
+    <string name="quiet_hours_auto_starred">Nur favorisierte Kontakte</string>
     <string name="quiet_hours_bypass_group">Ruhige Stunden umgehen</string>
     <string name="quiet_hours_sms_code_null">[Alarm]</string>
-    <string name="quiet_hours_sms_bypass_title">Text Nachrichten</string>
-    <string name="quiet_hours_sms_code_title">Text Nachrichten Schlüsseltext</string>
-    <string name="quiet_hours_sms_code_explain">Wenn eine eingehende Nachricht diesen Text enthält, wird eine Alarm ausgelöst</string>
-    <string name="quiet_hours_call_bypass_title">Eingehende Anrufe</string>
-    <string name="quiet_hours_calls_required_title">Anzahl der Anrufe in 30 Minuten</string>
+    <string name="quiet_hours_sms_bypass_title">Textnachricht umgehen</string>
+    <string name="quiet_hours_sms_code_title">Textnachrichten-Schlüsselwort</string>
+    <string name="quiet_hours_sms_code_explain">Wenn eine ankommende Nachricht diesen Text enthält, wird ein Alarm ausgegeben</string>
+    <string name="quiet_hours_call_bypass_title">Eingehende Anrufe umgehen</string>
+    <string name="quiet_hours_calls_required_title">Anrufe in 30 Minuten</string>
     <string name="quiet_hours_calls_required_summary">" Anrufe, um die Ruhigen Stunden zu umgehen"</string>
-    <string name="quiet_hours_bypass_ringtone_title">Klingelton</string>
+    <string name="quiet_hours_bypass_ringtone_title">Abzuspielender Klingelton</string>
     <string name="quiet_hours_bypass_ringtone_loop_title">Klingelton wiederholen</string>
-    <string name="quiet_hours_bypass_ringtone_loop_summary_on">Klingelton wird gespielt, bis der Alarm abgebrochem wird</string>
-    <string name="quiet_hours_bypass_ringtone_loop_summary_off">Klingelton wird nur ein mal gespielt</string>
+    <string name="quiet_hours_bypass_ringtone_loop_summary_on">Klingelton wiederholt sich, bis er abgebrochen wird</string>
+    <string name="quiet_hours_bypass_ringtone_loop_summary_off">Klingelton wird nur einmal abgespielt</string>
     <string name="quiet_hours_alarm_dismiss">Alarm abbrechen</string>
     <string name="quiet_hours_alarm_and">" und "</string>
-    <string name="quiet_hours_alarm_dialog_title">RUHIGE STUNDEN UMGANGEN</string>
-    <string name="quiet_hours_alarm_message">" erfüllt die Vorraussetzungen um die Ruhigen Stunden zu umgehen!"</string>
+    <string name="quiet_hours_alarm_dialog_title">Ruhige Stunden UMGANGEN</string>
+    <string name="quiet_hours_alarm_message">" hat die Anforderungen erfüllt, um die Ruhigen Stunden zu umgehen!"</string>
+
+    <!-- Still used for Quite-Hours? -->
+    <string name="quiet_hours_note_title">Hinweis</string>
+    <string name="quiet_hours_note_summary">Ankommende Anrufe verhalten sich bei aktivierten Ruhigen Stunden wie gewohnt</string>
+    <string name="quiet_hours_enabled">Ruhige Stunden aktiv</string>
+    <string name="quiet_hours_enabled_on">Ruhige Stunden werden erzwungen</string>
+    <string name="quiet_hours_enabled_off">Benachrichtigungen verhalten sich wie gewohnt</string>
+
+    <!-- time range preference -->
+    <string name="start_time_title">Beginn</string>
+    <string name="end_time_title">Ende</string>
 
     <!-- Volume dialog -->
     <string name="volume_dialog_title">Lautstärke Dialog</string>

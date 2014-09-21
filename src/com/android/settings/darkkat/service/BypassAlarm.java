@@ -16,6 +16,7 @@
 
 package com.android.settings.darkkat.service;
 
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -50,7 +51,7 @@ public class BypassAlarm extends Activity {
                 | WindowManager.LayoutParams.FLAG_FULLSCREEN
                 | WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON);
 
-        if (SmsCallHelper.returnUserRingtoneLoop(this)) {
+        if (QuietHoursController.getInstance(this).returnUserRingtoneLoop()) {
             win.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
 
