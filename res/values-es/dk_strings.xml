@@ -785,8 +785,13 @@
     <string name="recents_panel_expanded_mode_auto">Auto (predeterminado)</string>
     <string name="recents_panel_expanded_mode_always">Siempre</string>
     <string name="recents_panel_expanded_mode_never">Nunca</string>
+    <string name="recent_panel_show_topmost_title">Mostrar tarea más usada</string>
+    <string name="recent_panel_show_topmost_summary">Muestra la tarea más usada</string>
     <string name="recents_panel_empty_icon_color_title">Icono vacío</string>
+    <string name="recents_panel_header_bg_color_title">Fondo del encabezado</string>
+    <string name="recents_panel_card_bg_color_title">Fondo</string>
     <string name="recents_panel_header_bg_color_title">Fondo en segundo plano</string>
+    <string name="recents_panel_card_bg_color_title">Card background</string>
     <string name="recents_panel_header_text_color_title">Texto de la cabecera</string>
 
     <!-- ATTENTION: RTL languages need to replace left with right -->
@@ -821,8 +826,6 @@
 
     <!-- (Interface category) More settings -->
     <string name="heads_up_title">Notificaciones interactivas</string>
-    <string name="listview_settings_title">List view</string>
-    <string name="listview_settings_summary">Personalizar la animación</string>
     <string name="bootanimation_settings_title">Animación de arranque</string>
     <string name="bootanimation_settings_summary">Personalizar la animación de arranque</string>
 
@@ -852,6 +855,8 @@
     <string name="heads_up_expanded_summary">Mostrar notificaciones heads up siempre expandidas</string>
     <string name="heads_up_show_updates_title">Actualizaciones</string>
     <string name="heads_up_show_updates_summary">Mostrar actualizaciones de notificaciones pendientes en segundo plano como heads up</string>
+    <string name="heads_up_gravity_title">Mostrar en la parte inferior</string>
+    <string name="heads_up_gravity_summary">Mostar notificaciones emergentes en la parte inferior de la pantalla</string>
     <string name="heads_up_snooze_title">Snooze timer</string>
     <string name="heads_up_snooze_summary">Si el botón snooze se presiona, se deshabilitará heads up durante <xliff:g id="number">%d</xliff:g> minutos.</string>
     <string name="heads_up_snooze_disabled_summary">Snooze timer está deshabilitado.</string>
@@ -874,9 +879,6 @@
     <string name="heads_up_use_custom_timeout_fs_title">Pantalla completa</string>
     <string name="heads_up_use_custom_timeout_fs_summary">Usar un Timeout personalizado en pantalla completa también</string>
 
-    <!-- Volume dialog -->
-    <string name="volume_dialog_title">Volumen</string>
-
     <!-- Immersive mode -->
     <string name="expanded_desktop_status_bar">Barra de estado visible</string>
     <string name="expanded_desktop_no_status_bar">Barra de estado oculta</string>
@@ -884,33 +886,6 @@
     <!-- Lock clock -->
     <string name="lock_clock_title">Widget del reloj</string>
     <string name="lock_clock_summary">Ver o cambiar \'cLock\' se mostrarán los widgets de Inicio y pantalla de bloqueo</string>
-
-    <!-- ListView settings -->
-    <string name="dlg_reset_blacklist_message">¿Limpiar la lista de aplicaciones excluidas?</string>
-    <string name="listview_animation_title">Animación</string>
-    <string name="listview_interpolator_title">Interpolador</string>
-    <string name="listview_blacklist_title">Aplicaciones excluidas</string>
-    <string name="listview_blacklist_summary">Evitar animación de apps</string>
-
-    <!-- ListView animation -->
-    <string name="listview_wave_left">Onda (Izquierda)</string>
-    <string name="listview_wave_right">Onda (Derecha)</string>
-    <string name="listview_scale">Escala</string>
-    <string name="listview_stack_top">Apilar (Arriba)</string>
-    <string name="listview_stack_bottom">Apilar (Abajo)</string>
-    <string name="listview_unfold">Desplegar</string>
-    <string name="listview_fold">Plegar</string>
-    <string name="listview_translate_left">Trasladar (Izquierda)</string>
-    <string name="listview_translate_right">Trasladar (Derecha)</string>
-
-    <!-- ListView interpolator -->
-    <string name="listview_accelerate_interpolator">Acelerar</string>
-    <string name="listview_decelerate_interpolator">Desacelerar</string>
-    <string name="listview_accelerate_decelerate_interpolator">Acelerar y Desacelerar</string>
-    <string name="listview_anticipate_interpolator">Anticipar</string>
-    <string name="listview_overshoot_interpolator">Sobrepasar</string>
-    <string name="listview_anticipate_overshoot_interpolator">Anticipar y Sobrepasar</string>
-    <string name="listview_bounce_interpolator">Rebote</string>
 
     <!-- Sound settings -->
 
@@ -966,6 +941,9 @@
     <string name="quiet_hours_alarm_dialog_title">HORAS DE SILENCIO OMITIDAS</string>
     <string name="quiet_hours_alarm_message">" cumplido con los requisitos para omitir Horas de silencio!"</string>
 
+    <!-- Volume dialog -->
+    <string name="volume_dialog_title">Volumen</string>
+
     <!-- Volume Overlay -->
     <string name="volume_overlay_title">Estilo del panel de volume</string>
     <string name="volume_overlay_single">Simple</string>
@@ -997,9 +975,10 @@
     <string name="volume_button_music_controls_summary">Con la pantalla apagada, una pulsación larga de los botones de volumen cambiarán de pista de música</string>
 
     <!-- Display settings -->
+    <string name="display_rotation_title">Rotación</string>
+    <string name="display_animations_settings_title">Animaciones</string>
 
     <!-- Display rotation options -->
-    <string name="display_rotation_title">Rotación</string>
     <string name="display_rotation_unit">grados</string>
     <string name="display_lockscreen_rotation_title">Auto-rotar pantalla de bloqueo</string>
     <string name="display_rotation_category_title">Modo de rotación</string>
@@ -1009,6 +988,44 @@
     <string name="display_rotation_270_title">270 grados</string>
     <string name="swap_volume_buttons_title">Reorientar botones de volumen</string>
     <string name="swap_volume_buttons_summary">Intercambiar botones de volumen cuando se gira la pantalla</string>
+
+    <!-- Animations -->
+
+    <!-- CRT animation -->
+    <string name="system_power_crt_mode_title">Deshabilitar animaciones</string>
+    <string name="system_power_crt_mode_dialog_title">Deshabilitar animaciones</string>
+    <string name="system_power_crt_mode_off">No mostar</string>
+    <string name="system_power_crt_mode_horizontal">Contraer horizontal</string>
+    <string name="system_power_crt_mode_vertical">Contraer vertical</string>
+    <string name="system_power_crt_mode_both">Contraer dependiendo de la orientación</string>
+    <string name="system_power_crt_mode_scale">Reducir a escala</string>
+
+    <!-- ListView -->
+    <string name="dlg_reset_blacklist_message">¿Limpiar la lista de aplicaciones excluidas?</string>
+    <string name="listview_animation_title">Vista de la animación</string>
+    <string name="listview_interpolator_title">Vista del interpolador</string>
+    <string name="listview_blacklist_title">Aplicaciones excluidas</string>
+    <string name="listview_blacklist_summary">Evitar animación de apps</string>
+
+    <!-- ListView animation -->
+    <string name="listview_wave_left">Onda (Izquierda)</string>
+    <string name="listview_wave_right">Onda (Derecha)</string>
+    <string name="listview_scale">Escala</string>
+    <string name="listview_stack_top">Apilar (Arriba)</string>
+    <string name="listview_stack_bottom">Apilar (Abajo)</string>
+    <string name="listview_unfold">Desplegar</string>
+    <string name="listview_fold">Plegar</string>
+    <string name="listview_translate_left">Trasladar (Izquierda)</string>
+    <string name="listview_translate_right">Trasladar (Derecha)</string>
+
+    <!-- ListView interpolator -->
+    <string name="listview_accelerate_interpolator">Acelerar</string>
+    <string name="listview_decelerate_interpolator">Desacelerar</string>
+    <string name="listview_accelerate_decelerate_interpolator">Acelerar y Desacelerar</string>
+    <string name="listview_anticipate_interpolator">Anticipar</string>
+    <string name="listview_overshoot_interpolator">Sobrepasar</string>
+    <string name="listview_anticipate_overshoot_interpolator">Anticipar y Sobrepasar</string>
+    <string name="listview_bounce_interpolator">Rebote</string>
 
     <!-- Notification light settings -->
     <string name="display_category_light_options_title">Opciones de LED</string>
