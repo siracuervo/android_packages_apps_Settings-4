@@ -785,8 +785,8 @@
     <string name="recents_panel_expanded_mode_auto">Auto (predeterminado)</string>
     <string name="recents_panel_expanded_mode_always">Siempre</string>
     <string name="recents_panel_expanded_mode_never">Nunca</string>
-    <string name="recent_panel_show_topmost_title">Mostrar tarea más usada</string>
-    <string name="recent_panel_show_topmost_summary">Muestra la tarea más usada</string>
+    <string name="recents_panel_show_topmost_title">Mostrar tarea más usada</string>
+    <string name="recents_panel_show_topmost_summary">Muestra la tarea más usada</string>
     <string name="recents_panel_empty_icon_color_title">Icono vacío</string>
     <string name="recents_panel_header_bg_color_title">Fondo del encabezado</string>
     <string name="recents_panel_card_bg_color_title">Fondo</string>
