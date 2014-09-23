@@ -248,8 +248,8 @@
     <string name="settings_root_list_colorize_account_icons_summary">Colorea también los iconos.</string>
     <string name="settings_root_list_category_text_color_title">Texto de la categoría</string>
     <string name="settings_root_list_title_text_color_title">Nombre</string>
-    <string name="settings_root_list_switch_on_text_color_title">Habilita el texto</string>
-    <string name="settings_root_list_switch_off_text_color_title">Deshabilita el texto</string>
+    <string name="settings_root_list_switch_on_text_color_title">texto con la opción habilitada</string>
+    <string name="settings_root_list_switch_off_text_color_title">texto con la opción deshabilitada</string>
 
     <!-- Lockscreen settings -->
     <string name="lockscreen_background_settings_summary">Personalizar el fondo de la pantalla de bloqueo</string>
@@ -261,7 +261,7 @@
     <string name="lockscreen_shortcut_settings_summary">Personalizar los accesos directos de la pantalla de bloqueo</string>
     <string name="lockscreen_shortcut_settings_disabled_summary">Habilita ocho accesos directos en el anillo de la pantalla de bloqueo</string>
     <string name="lockscreen_widgets_settings_title">Widgets</string>
-    <string name="lockscreen_widgets_settings_summary">Personaliar los widgets de la pantalla de bloqueo</string>
+    <string name="lockscreen_widgets_settings_summary">Personalizar los widgets de la pantalla de bloqueo</string>
     <string name="lockscreen_misk_settings_title">Otros Ajustes</string>
     <string name="lockscreen_misk_settings_summary">Operadora y estado de la batería</string>
     <string name="lockscreen_misk_settings_wifi_only_summary">Estado de la batería</string>
