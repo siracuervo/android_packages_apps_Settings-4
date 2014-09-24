@@ -208,7 +208,7 @@
     <string name="button_icon_enabled_color_title">Habilitar el color en los iconos</string>
     <string name="button_icon_disabled_color_title">Deshabilitar el color en los iconos</string>
     <string name="button_color_mode_dialog_title">Color</string>
-    <string name="button_color_mode_title">Modo</string>
+    <string name="button_color_mode_title">Color en los iconos</string>
     <string name="button_color_mode_summary">Modificar el modo de color de los botones de la barra de navegación</string>
 
     <!-- Icon picker -->
