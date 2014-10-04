@@ -248,8 +248,8 @@
     <string name="settings_root_list_colorize_account_icons_summary">Colorea también los iconos.</string>
     <string name="settings_root_list_category_text_color_title">Texto de la categoría</string>
     <string name="settings_root_list_title_text_color_title">Nombre</string>
-    <string name="settings_root_list_switch_on_text_color_title">texto con la opción habilitada</string>
-    <string name="settings_root_list_switch_off_text_color_title">texto con la opción deshabilitada</string>
+    <string name="settings_root_list_switch_on_text_color_title">Texto con la opción habilitada</string>
+    <string name="settings_root_list_switch_off_text_color_title">Texto con la opción deshabilitada</string>
 
     <!-- Lockscreen settings -->
     <string name="lockscreen_background_settings_summary">Personalizar el fondo de la pantalla de bloqueo</string>
