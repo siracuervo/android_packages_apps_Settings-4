@@ -60,4 +60,37 @@
                 android:defaultValue="false" />
 
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="heads_up_cat_colors"
+        android:title="@string/cat_colors_title">
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="heads_up_bg_color"
+            android:title="@string/bg_title"
+            android:defaultValue="0xff181818" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="heads_up_bg_pressed_color"
+            android:title="@string/bg_pressed_title"
+            android:defaultValue="0xff454545" />
+
+        <CheckBoxPreference
+            android:key="heads_up_colorize_notif_icons"
+            android:title="@string/heads_up_colorize_notif_icons_title"
+            android:summary="@string/heads_up_colorize_notif_icons_summary"
+            android:persistent="false"
+            android:defaultValue="false" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="heads_up_icon_color"
+            android:title="@string/icon_title"
+            android:defaultValue="0xffffffff" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="heads_up_text_color"
+            android:title="@string/text_title"
+            android:defaultValue="0xffffffff" />
+
+    </PreferenceCategory>
 </PreferenceScreen>
