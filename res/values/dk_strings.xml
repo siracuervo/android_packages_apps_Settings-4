@@ -54,6 +54,7 @@
     <string name="alpha_title">Transparency</string>
     <string name="type_title">Type</string>
     <string name="bg_title">Background</string>
+    <string name="bg_pressed_title">Pressed background</string>
     <string name="frame_title">Frame</string>
     <string name="choose_app">Choose app auswählen</string>
     <string name="expanded_desktop_title">Immersive mode</string>
@@ -876,6 +877,8 @@
     <string name="heads_up_timeout_never">Never</string>
     <string name="heads_up_use_custom_timeout_fs_title">Full screen</string>
     <string name="heads_up_use_custom_timeout_fs_summary">Enable to use the custom timeout in full screen, too</string>
+    <string name="heads_up_colorize_notif_icons_title">Notification icons</string>
+    <string name="heads_up_colorize_notif_icons_summary">Enable to colorize the notification icons, too.</string>
 
     <!-- Immersive mode -->
     <string name="expanded_desktop_status_bar">Status bar visible</string>
