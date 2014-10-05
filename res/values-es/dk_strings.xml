@@ -54,6 +54,7 @@
     <string name="alpha_title">Transparencia</string>
     <string name="type_title">Tipo</string>
     <string name="bg_title">Fondo</string>
+    <string name="bg_pressed_title">Fondo presionado </string>
     <string name="frame_title">Marco</string>
     <string name="choose_app">Escoja aplicación</string>
     <string name="expanded_desktop_title">Modo Escritorio extendido</string>
@@ -876,6 +877,8 @@
     <string name="heads_up_timeout_never">Nunca</string>
     <string name="heads_up_use_custom_timeout_fs_title">Pantalla completa</string>
     <string name="heads_up_use_custom_timeout_fs_summary">Usar un Timeout personalizado en pantalla completa también</string>
+    <string name="heads_up_colorize_notif_icons_title">Iconos de notificaciones</string>
+    <string name="heads_up_colorize_notif_icons_summary">Color ea también los iconos de notificación</string>
 
     <!-- Immersive mode -->
     <string name="expanded_desktop_status_bar">Barra de estado visible</string>
