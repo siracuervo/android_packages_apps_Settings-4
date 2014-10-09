@@ -26,6 +26,12 @@
         android:entryValues="@array/low_battery_warning_policy_values"
         android:defaultValue="0" />
 
+    <CheckBoxPreference
+        android:key="wake_when_plugged_or_unplugged"
+        android:title="@string/wake_when_plugged_or_unplugged_title"
+        android:summary="@string/wake_when_plugged_or_unplugged_summary"
+        android:defaultValue="true" />
+
     <Preference
         style="?android:attr/preferenceInformationStyle"
         android:key="battery_status"

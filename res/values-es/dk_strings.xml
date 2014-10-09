@@ -759,23 +759,73 @@
     <string name="title_pref_menu_location">Posición</string>
     <string name="title_pref_menu_display">Visibilidad</string>
 
-    <!-- Menus settings -->
-    <string name="power_menu_cat_options_title">Opciones del Menú Encendido</string>
-    <string name="power_menu_cat_colors_title">Colores del Menú Encendido</string>
-    <string name="slim_recents_panel_cat_options_title">Opciones del panel de aplicaciones recientes</string>
-    <string name="slim_recents_panel_cat_colors_title">Color del panel de aplicaciones recientes</string>
-    <string name="default_recents_cat_options_title">Opciones de la pantalla de aplicaciones recientes</string>
-    <string name="default_recents_cat_colors_title">Color de la pantalla de aplicaciones recientes</string>
+    <!-- (Interface category) More settings -->
+    <string name="bootanimation_settings_title">Animación de arranque</string>
+    <string name="bootanimation_settings_summary">Personalizar la animación de arranque</string>
+    <string name="heads_up_title">Notificaciones interactivas</string>
+    <!-- <string name="recents_app_title">Recents app</string>
+    <string name="slim_recents_panel_cat_options_title">Slim Recents options</string>
+    <string name="slim_recents_panel_cat_colors_title">Slim Recents color</string>
+    <string name="default_recents_cat_options_title">Android Recents options</string>
+    <string name="default_recents_cat_colors_title">Android Recents color</string> -->
     <string name="recent_apps_type_title">Tipo de aplicación reciente</string>
     <string name="recent_apps_type_summary">Habilitar Aplicaciones recientes Slim Recents,\ndeshabilitar aplicaciones recientes Android</string>
 
-    <!-- Power menu -->
-    <string name="power_menu_toggle_screenshot_title">Captura de Pantalla</string>
-    <string name="power_menu_toggle_screenshot_summary">Muestra Captura de Pantalla en el Menú de Encendido</string>
-    <string name="power_menu_toggle_screen_record_title">Grabación de Pantalla</string>
-    <string name="power_menu_toggle_screen_record_summary">Muestra Grabación de Pantalla en el Menú de Encendido</string>
-    <string name="power_menu_toggle_expanded_desktop_summary">Muestra Escritorio extendido en el Menú de Encendido</string>
-    <string name="power_menu_icon_color_mode_title">Color del icono</string>
+    <!-- Bootanimation -->
+    <string name="custom_bootanimation_title">Personalizar la animación de arranque</string>
+    <string name="custom_bootanimation_summary">Selecciona un archivo zip con la animación de arranque de la tarjeta interna.</string>
+    <string name="install_file_manager_error">No hay ninguna aplicación para buscar el archivo zip. Por favor, instala un administrador de archivos.</string>
+    <string name="bootanimation_preview">Vista previa de la animación de arranque</string>
+    <string name="apply">Aplicar</string>
+    <string name="creating_preview">Creando vista previa...</string>
+    <string name="error_reading_zip_file">Error  leyendo el archivo zip</string>
+    <string name="error_creating_preview">Error creando la vista previa</string>
+    <string name="bootanimation_preview_loop_title">Vista previa continua</string>
+    <string name="bootanimation_preview_loop_summary">Habilita la reproducción continua de la vista previa de la animación de arranque</string>
+    <string name="dlg_bootanimation_help_message">La Rom no contiene animaciones de arranque adicionales, la animación de arranque tiene que estar guardada en la tarjeta interna\n\nLa animación de arranque tiene que estar en formato zip, (NO un zip flaseable)\n\nSe hará una copia de seguridad de la actual animación de arranque en cada instalación de la animación de arranque, esta copia puede ser restaurada en cualquier momento.\nEsta copia de seguridad será sobreescrita en cada instalación de la animación de arranque.\n\nEn la primera instalación de la animación de arranque se realizará una copia de seguridad adicional de la animación de arranque original.\n\nLas copias de seguridad no se perderán con las actualizaciones de la Rom siempre y cuando no hagas un full-wipe.\n\nLa Rom contiene un script de copia de seguridad el cuál restaurará  la actual animación de arranque durante la actualización de la Rom.</string>
+    <string name="dlg_bootanimation_restore_title">Restaurar</string>
+    <string name="dlg_bootanimation_restore_message">Presiona Cancelar para anular.\nPresiona Original para restaurar la animación de arranque original.\nPresiona Última para restaurar la última animación de arranque.</string>
+    <string name="dlg_bootanimation_restore_original">Original</string>
+    <string name="dlg_bootanimation_restore_last">Última</string>
+
+    <!-- Custom carrier label -->
+    <string name="custom_carrier_label_explain">Por favor introduzca un nuevo nombre. Dejar en blanco para volver al valor por defecto.</string>
+
+    <!-- Immersive mode -->
+    <string name="expanded_desktop_status_bar">Barra de estado visible</string>
+    <string name="expanded_desktop_no_status_bar">Barra de estado oculta</string>
+
+    <!-- Heads up -->
+    <string name="heads_up_cat_timeout_title">Sin conexión</string>
+    <string name="heads_up_expanded_title">Expandido</string>
+    <string name="heads_up_expanded_summary">Mostrar notificaciones heads up siempre expandidas</string>
+    <string name="heads_up_show_updates_title">Actualizaciones</string>
+    <string name="heads_up_show_updates_summary">Mostrar actualizaciones de notificaciones pendientes en segundo plano como heads up</string>
+    <string name="heads_up_gravity_title">Mostrar en la parte inferior</string>
+    <string name="heads_up_gravity_summary">Mostar notificaciones emergentes en la parte inferior de la pantalla</string>
+    <string name="heads_up_snooze_title">Snooze timer</string>
+    <string name="heads_up_snooze_summary">Si el botón snooze se presiona, se deshabilitará heads up durante <xliff:g id="number">%d</xliff:g> minutos.</string>
+    <string name="heads_up_snooze_disabled_summary">Snooze timer está deshabilitado.</string>
+    <string name="heads_up_snooze_3min">3 minutos</string>
+    <string name="heads_up_snooze_5min">5 minutos</string>
+    <string name="heads_up_snooze_10min">10 minutos</string>
+    <string name="heads_up_snooze_15min">15 minutos</string>
+    <string name="heads_up_snooze_20min">20 minutos</string>
+    <string name="heads_up_timeout_title">Modo Normal &amp; Escritorio Expandido</string>
+    <string name="heads_up_timeout_summary">Las notificaciones Heads up se mostrarán durante <xliff:g id="number">%d</xliff:g> segundos.</string>
+    <string name="heads_up_timeout_never_summary">Las notificaciones Heads up notification se mostrarán hasta  que se descarten.</string>
+    <string name="heads_up_timeout_2_seconds">2 segundos</string>
+    <string name="heads_up_timeout_4_seconds">4 segundos</string>
+    <string name="heads_up_timeout_6_seconds">6 segundos</string>
+    <string name="heads_up_timeout_8_seconds">8 segundos</string>
+    <string name="heads_up_timeout_10_seconds">10 segundos</string>
+    <string name="heads_up_timeout_20_seconds">20 segundos</string>
+    <string name="heads_up_timeout_40_seconds">40 segundos</string>
+    <string name="heads_up_timeout_never">Nunca</string>
+    <string name="heads_up_use_custom_timeout_fs_title">Pantalla completa</string>
+    <string name="heads_up_use_custom_timeout_fs_summary">Usar un Timeout personalizado en pantalla completa también</string>
+    <string name="heads_up_colorize_notif_icons_title">Iconos de notificaciones</string>
+    <string name="heads_up_colorize_notif_icons_summary">Color ea también los iconos de notificación</string>
 
     <!-- Slim Recent apps panel -->
     <string name="recents_panel_scale_title">Tamaño en porcentaje</string>
@@ -822,67 +872,6 @@
     <string name="recents_clear_all_button_lb">Abajo a la izquierda</string>
     <string name="recents_clear_all_button_rb">Bottom right</string>
     <string name="recents_clear_all_button_color_title">Abajo a la derecha</string>
-
-    <!-- (Interface category) More settings -->
-    <string name="heads_up_title">Notificaciones interactivas</string>
-    <string name="bootanimation_settings_title">Animación de arranque</string>
-    <string name="bootanimation_settings_summary">Personalizar la animación de arranque</string>
-
-    <!-- Bootanimation -->
-    <string name="custom_bootanimation_title">Personalizar la animación de arranque</string>
-    <string name="custom_bootanimation_summary">Selecciona un archivo zip con la animación de arranque de la tarjeta interna.</string>
-    <string name="install_file_manager_error">No hay ninguna aplicación para buscar el archivo zip. Por favor, instala un administrador de archivos.</string>
-    <string name="bootanimation_preview">Vista previa de la animación de arranque</string>
-    <string name="apply">Aplicar</string>
-    <string name="creating_preview">Creando vista previa...</string>
-    <string name="error_reading_zip_file">Error  leyendo el archivo zip</string>
-    <string name="error_creating_preview">Error creando la vista previa</string>
-    <string name="bootanimation_preview_loop_title">Vista previa continua</string>
-    <string name="bootanimation_preview_loop_summary">Habilita la reproducción continua de la vista previa de la animación de arranque</string>
-    <string name="dlg_bootanimation_help_message">La Rom no contiene animaciones de arranque adicionales, la animación de arranque tiene que estar guardada en la tarjeta interna\n\nLa animación de arranque tiene que estar en formato zip, (NO un zip flaseable)\n\nSe hará una copia de seguridad de la actual animación de arranque en cada instalación de la animación de arranque, esta copia puede ser restaurada en cualquier momento.\nEsta copia de seguridad será sobreescrita en cada instalación de la animación de arranque.\n\nEn la primera instalación de la animación de arranque se realizará una copia de seguridad adicional de la animación de arranque original.\n\nLas copias de seguridad no se perderán con las actualizaciones de la Rom siempre y cuando no hagas un full-wipe.\n\nLa Rom contiene un script de copia de seguridad el cuál restaurará  la actual animación de arranque durante la actualización de la Rom.</string>
-    <string name="dlg_bootanimation_restore_title">Restaurar</string>
-    <string name="dlg_bootanimation_restore_message">Presiona Cancelar para anular.\nPresiona Original para restaurar la animación de arranque original.\nPresiona Última para restaurar la última animación de arranque.</string>
-    <string name="dlg_bootanimation_restore_original">Original</string>
-    <string name="dlg_bootanimation_restore_last">Última</string>
-
-    <!-- Custom carrier label -->
-    <string name="custom_carrier_label_explain">Por favor introduzca un nuevo nombre. Dejar en blanco para volver al valor por defecto.</string>
-
-    <!-- Heads up -->
-    <string name="heads_up_cat_timeout_title">Sin conexión</string>
-    <string name="heads_up_expanded_title">Expandido</string>
-    <string name="heads_up_expanded_summary">Mostrar notificaciones heads up siempre expandidas</string>
-    <string name="heads_up_show_updates_title">Actualizaciones</string>
-    <string name="heads_up_show_updates_summary">Mostrar actualizaciones de notificaciones pendientes en segundo plano como heads up</string>
-    <string name="heads_up_gravity_title">Mostrar en la parte inferior</string>
-    <string name="heads_up_gravity_summary">Mostar notificaciones emergentes en la parte inferior de la pantalla</string>
-    <string name="heads_up_snooze_title">Snooze timer</string>
-    <string name="heads_up_snooze_summary">Si el botón snooze se presiona, se deshabilitará heads up durante <xliff:g id="number">%d</xliff:g> minutos.</string>
-    <string name="heads_up_snooze_disabled_summary">Snooze timer está deshabilitado.</string>
-    <string name="heads_up_snooze_3min">3 minutos</string>
-    <string name="heads_up_snooze_5min">5 minutos</string>
-    <string name="heads_up_snooze_10min">10 minutos</string>
-    <string name="heads_up_snooze_15min">15 minutos</string>
-    <string name="heads_up_snooze_20min">20 minutos</string>
-    <string name="heads_up_timeout_title">Modo Normal &amp; Escritorio Expandido</string>
-    <string name="heads_up_timeout_summary">Las notificaciones Heads up se mostrarán durante <xliff:g id="number">%d</xliff:g> segundos.</string>
-    <string name="heads_up_timeout_never_summary">Las notificaciones Heads up notification se mostrarán hasta  que se descarten.</string>
-    <string name="heads_up_timeout_2_seconds">2 segundos</string>
-    <string name="heads_up_timeout_4_seconds">4 segundos</string>
-    <string name="heads_up_timeout_6_seconds">6 segundos</string>
-    <string name="heads_up_timeout_8_seconds">8 segundos</string>
-    <string name="heads_up_timeout_10_seconds">10 segundos</string>
-    <string name="heads_up_timeout_20_seconds">20 segundos</string>
-    <string name="heads_up_timeout_40_seconds">40 segundos</string>
-    <string name="heads_up_timeout_never">Nunca</string>
-    <string name="heads_up_use_custom_timeout_fs_title">Pantalla completa</string>
-    <string name="heads_up_use_custom_timeout_fs_summary">Usar un Timeout personalizado en pantalla completa también</string>
-    <string name="heads_up_colorize_notif_icons_title">Iconos de notificaciones</string>
-    <string name="heads_up_colorize_notif_icons_summary">Color ea también los iconos de notificación</string>
-
-    <!-- Immersive mode -->
-    <string name="expanded_desktop_status_bar">Barra de estado visible</string>
-    <string name="expanded_desktop_no_status_bar">Barra de estado oculta</string>
 
     <!-- Lock clock -->
     <string name="lock_clock_title">Widget del reloj</string>
@@ -969,11 +958,6 @@
     <!-- Safe headset volume warning -->
     <string name="safe_headset_volume_warning_title">Volumen de seguridad de los auriculares</string>
     <string name="safe_headset_volume_warning_summary">Mostrar un aviso de volumen de seguridad de los auriculares</string>
-
-    <!-- Volume button music controls -->
-    <string name="volume_button_category_title">Botón de Volumen</string>
-    <string name="volume_button_music_controls_title">Controles de música de los botones de volumen</string>
-    <string name="volume_button_music_controls_summary">Con la pantalla apagada, una pulsación larga de los botones de volumen cambiarán de pista de música</string>
 
     <!-- Display settings -->
     <string name="display_rotation_title">Rotación</string>
@@ -1072,12 +1056,25 @@
     <string name="battery_light_medium_color_title">Media carga</string>
     <string name="battery_light_full_color_title">Carga completa</string>
 
-    <!-- Display wake up options -->
-    <string name="display_wake_category_title">Opciones de despertar</string>
-    <string name="wake_when_plugged_or_unplugged_title">Despertar al cargar</string>
-    <string name="wake_when_plugged_or_unplugged_summary">Encender la pantalla cuando se conecte o desconecte el cargador</string>
-    <string name="volume_wake_title">Despertar con teclas de volumen</string>
-    <string name="volume_wake_summary">Encender la pantalla cuando se presionen las teclas de volumen arriba/abajo</string>
+    <!-- Button settings -->
+    <!-- <string name="button_settings_title">Buttons</string>
+    <string name="power_menu_settings_title">Power menu</string>
+    <string name="power_menu_settings_summary">Customize the power menu</string> -->
+    <string name="power_menu_cat_options_title">Opciones del Menú Encendido</string>
+    <string name="power_menu_cat_colors_title">Colores del Menú Encendido</string>
+    <!-- <string name="volume_button_category_title">Botón de Volumen</string>
+    <string name="volume_button_music_controls_title">Controles de música de los botones de volumen</string>
+    <string name="volume_button_music_controls_summary">Con la pantalla apagada, una pulsación larga de los botones de volumen cambiarán de pista de música</string>
+    <string name="volume_button_wake_title">Screen wake up</string>
+    <string name="volume_button_wake_summary">Enable to turn the screen on when pressing the volume button up/down</string> -->
+
+    <!-- Power menu -->
+    <string name="power_menu_toggle_screenshot_title">Captura de Pantalla</string>
+    <string name="power_menu_toggle_screenshot_summary">Muestra Captura de Pantalla en el Menú de Encendido</string>
+    <string name="power_menu_toggle_screen_record_title">Grabación de Pantalla</string>
+    <string name="power_menu_toggle_screen_record_summary">Muestra Grabación de Pantalla en el Menú de Encendido</string>
+    <string name="power_menu_toggle_expanded_desktop_summary">Muestra Escritorio extendido en el Menú de Encendido</string>
+    <string name="power_menu_icon_color_mode_title">Color del icono</string>
 
     <!-- Battery settings -->
 
@@ -1089,6 +1086,10 @@
     <string name="low_battery_warning_policy_popup">Sólo ventana emergente</string>
     <string name="low_battery_warning_policy_notif">Sólo notificación</string>
     <string name="low_battery_warning_policy_sound">Sólo sonido</string>
+
+    <!-- Wake on plug -->
+    <string name="wake_when_plugged_or_unplugged_title">Despertar al cargar</string>
+    <string name="wake_when_plugged_or_unplugged_summary">Encender la pantalla cuando se conecte o desconecte el cargador</string>
 
     <!-- Apps -->
     <string name="heads_up_switch_label">Habilitar notificaciones heads up</string>

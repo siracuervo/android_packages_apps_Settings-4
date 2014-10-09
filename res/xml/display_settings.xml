@@ -83,23 +83,4 @@
                 android:fragment="com.android.settings.darkkat.notificationlight.NotificationLightSettings" />
 
         </PreferenceCategory>
-
-        <PreferenceCategory
-            android:key="display_wake_category"
-            android:title="@string/display_wake_category_title">
-
-            <CheckBoxPreference
-                android:key="wake_when_plugged_or_unplugged"
-                android:title="@string/wake_when_plugged_or_unplugged_title"
-                android:summary="@string/wake_when_plugged_or_unplugged_summary"
-                android:defaultValue="true" />
-
-            <CheckBoxPreference
-                android:key="volume_wake"
-                android:title="@string/volume_wake_title"
-                android:summary="@string/volume_wake_summary" 
-                android:defaultValue="false"/>
-
-        </PreferenceCategory>
-
 </PreferenceScreen>

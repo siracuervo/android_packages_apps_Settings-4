@@ -26,6 +26,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcel;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -59,6 +60,8 @@ public class PowerUsageSummary extends PreferenceFragment  implements
     private static final String KEY_APP_LIST = "app_list";
     private static final String KEY_BATTERY_STATUS = "battery_status";
     private static final String KEY_LOW_BATTERY_WARNING_POLICY = "low_battery_warning_policy";
+    private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
+
     private static final int MENU_STATS_TYPE = Menu.FIRST;
     private static final int MENU_STATS_REFRESH = Menu.FIRST + 1;
     private static final int MENU_HELP = Menu.FIRST + 2;
@@ -66,6 +69,7 @@ public class PowerUsageSummary extends PreferenceFragment  implements
     private PreferenceGroup mAppListGroup;
     private Preference mBatteryStatusPref;
     private ListPreference mLowBatteryWarning;
+    private CheckBoxPreference mWakeWhenPluggedOrUnplugged;
 
     private int mStatsType = BatteryStats.STATS_SINCE_CHARGED;
 
@@ -114,6 +118,17 @@ public class PowerUsageSummary extends PreferenceFragment  implements
         mLowBatteryWarning.setValue(String.valueOf(lowBatteryWarning));
         mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
         mLowBatteryWarning.setOnPreferenceChangeListener(this);
+
+        // Default value for wake-on-plug behavior from config.xml
+        boolean wakeUpWhenPluggedOrUnpluggedConfig = getResources().getBoolean(
+                com.android.internal.R.bool.config_unplugTurnsOnScreen);
+
+        mWakeWhenPluggedOrUnplugged =
+                (CheckBoxPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
+        mWakeWhenPluggedOrUnplugged.setChecked(
+                Settings.Global.getInt(getActivity().getContentResolver(),
+                Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
+                (wakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0)) == 1);
 
         setHasOptionsMenu(true);
     }
@@ -171,6 +186,11 @@ public class PowerUsageSummary extends PreferenceFragment  implements
                     lowBatteryWarning);
             mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntries()[index]);
             return true;
+        } else if (preference == mWakeWhenPluggedOrUnplugged) {
+            Settings.Global.putInt(getActivity().getContentResolver(),
+                    Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
+                    mWakeWhenPluggedOrUnplugged.isChecked() ? 1 : 0);
+            return true;
         }
         return false;
     }
@@ -224,6 +244,9 @@ public class PowerUsageSummary extends PreferenceFragment  implements
     private void refreshStats() {
         mAppListGroup.removeAll();
         mAppListGroup.setOrderingAsAdded(false);
+
+        mWakeWhenPluggedOrUnplugged.setOrder(-4);
+        mAppListGroup.addPreference(mWakeWhenPluggedOrUnplugged);
 
         mLowBatteryWarning.setOrder(-3);
         mAppListGroup.addPreference(mLowBatteryWarning);

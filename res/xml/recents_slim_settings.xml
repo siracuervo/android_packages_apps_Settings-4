@@ -21,11 +21,11 @@ limitations under the License.
             android:key="slim_recents_panel_cat_options"
             android:title="@string/slim_recents_panel_cat_options_title" >
 
-    <CheckBoxPreference
-            android:key="recent_apps_type"
-            android:title="@string/recent_apps_type_title"
-            android:summary="@string/recent_apps_type_summary"
-            android:persistent="false" />
+        <CheckBoxPreference
+                android:key="recent_apps_type"
+                android:title="@string/recent_apps_type_title"
+                android:summary="@string/recent_apps_type_summary"
+                android:persistent="false" />
 
         <ListPreference
                 android:key="recents_panel_scale"
