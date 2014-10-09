@@ -767,23 +767,73 @@
     <string name="title_pref_menu_location">Location</string>
     <string name="title_pref_menu_display">Visibility</string>
 
-    <!-- Menus settings -->
-    <string name="power_menu_cat_options_title">Power menu options</string>
-    <string name="power_menu_cat_colors_title">Power menu colors</string>
-    <string name="slim_recents_panel_cat_options_title">Recent apps panel options</string>
-    <string name="slim_recents_panel_cat_colors_title">Recent apps panel color</string>
-    <string name="default_recents_cat_options_title">Recent apps screen options</string>
-    <string name="default_recents_cat_colors_title">Recent apps screen color</string>
+    <!-- (Interface category) More settings -->
+    <string name="bootanimation_settings_title">Bootanimation</string>
+    <string name="bootanimation_settings_summary">Customize Bootanimation</string>
+    <string name="heads_up_title">Heads up notifications</string>
+    <string name="recents_app_title">Recents app</string>
+    <string name="slim_recents_panel_cat_options_title">Slim Recents options</string>
+    <string name="slim_recents_panel_cat_colors_title">Slim Recents color</string>
+    <string name="default_recents_cat_options_title">Android Recents options</string>
+    <string name="default_recents_cat_colors_title">Android Recents color</string>
     <string name="recent_apps_type_title">Recent App type</string>
     <string name="recent_apps_type_summary">Enable for Slim Recents,\ndisable for Android Recents</string>
 
-    <!-- Power menu -->
-    <string name="power_menu_toggle_screenshot_title">Screenshot</string>
-    <string name="power_menu_toggle_screenshot_summary">Activate, to show screenshot option in Power Menu</string>
-    <string name="power_menu_toggle_screen_record_title">Screen record</string>
-    <string name="power_menu_toggle_screen_record_summary">Activate, to show screen record option in Power Menu</string>
-    <string name="power_menu_toggle_expanded_desktop_summary">Activate, to show immersive mode option in Power Menu</string>
-    <string name="power_menu_icon_color_mode_title">Icon color mode</string>
+    <!-- Bootanimation -->
+    <string name="custom_bootanimation_title">Custom boot animation</string>
+    <string name="custom_bootanimation_summary">Select a bootanimation zip from sdcard.</string>
+    <string name="install_file_manager_error">No application found to pick the zip file. Please install a file manager.</string>
+    <string name="bootanimation_preview">Bootanimation preview</string>
+    <string name="apply">Apply</string>
+    <string name="creating_preview">Creating preview...</string>
+    <string name="error_reading_zip_file">Error reading zip file</string>
+    <string name="error_creating_preview">Error creating preview</string>
+    <string name="bootanimation_preview_loop_title">Loop preview</string>
+    <string name="bootanimation_preview_loop_summary">Enable to play the bootanimation preview looped</string>
+    <string name="dlg_bootanimation_help_message">The rom doesn`t contains additional bootanimations, the bootanimation has to be stored on the sd-card\n\nThe bootaniamtion has to be in bootanimation zip format, (NOT a flashable zip!)\n\nThe current bootanimation will be backed up on every bootanimation installation, this last bootanimation can be restored at any time.\nThis backup will be overwritten on every new bootanimation installation.\n\nOn the first bootanimation installation, there will be a seperate backup of this original bootanimation, this original bootanimation can be restored at any time.\n\nThe backups won`t get lost on a rom update, as long as you DON`T use a full-wipe.\n\nThe rom contains a backup script which will restore the current bootanimation on a rom update.</string>
+    <string name="dlg_bootanimation_restore_title">Restore</string>
+    <string name="dlg_bootanimation_restore_message">Click cancel to dismiss.\nClick Original to restore the original boot animation.\nClick last to restore the last boot animation.</string>
+    <string name="dlg_bootanimation_restore_original">Original</string>
+    <string name="dlg_bootanimation_restore_last">Last</string>
+
+    <!-- Custom carrier label -->
+    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
+
+    <!-- Immersive mode -->
+    <string name="expanded_desktop_status_bar">Status bar visible</string>
+    <string name="expanded_desktop_no_status_bar">Status bar hidden</string>
+
+    <!-- Heads up -->
+    <string name="heads_up_cat_timeout_title">Time out</string>
+    <string name="heads_up_expanded_title">Expanded</string>
+    <string name="heads_up_expanded_summary">Enable to show heads up notification always expanded</string>
+    <string name="heads_up_show_updates_title">Updates</string>
+    <string name="heads_up_show_updates_summary">Enable to show updates from pending background notifications as heads up</string>
+    <string name="heads_up_gravity_title">Show at the bottom</string>
+    <string name="heads_up_gravity_summary">Show heads up notification at the bottom of the screen</string>
+    <string name="heads_up_snooze_title">Snooze timer</string>
+    <string name="heads_up_snooze_summary">If snooze button is pressed disable heads up for <xliff:g id="number">%d</xliff:g> minutes.</string>
+    <string name="heads_up_snooze_disabled_summary">Snooze timer is disabled.</string>
+    <string name="heads_up_snooze_3min">3 minutes</string>
+    <string name="heads_up_snooze_5min">5 minutes</string>
+    <string name="heads_up_snooze_10min">10 minutes</string>
+    <string name="heads_up_snooze_15min">15 minutes</string>
+    <string name="heads_up_snooze_20min">20 minutes</string>
+    <string name="heads_up_timeout_title">Normal &amp; Immersive mode</string>
+    <string name="heads_up_timeout_summary">Heads up notification will show up for <xliff:g id="number">%d</xliff:g> seconds.</string>
+    <string name="heads_up_timeout_never_summary">Heads up notification will show till it is dismissed.</string>
+    <string name="heads_up_timeout_2_seconds">2 seconds</string>
+    <string name="heads_up_timeout_4_seconds">4 seconds</string>
+    <string name="heads_up_timeout_6_seconds">6 seconds</string>
+    <string name="heads_up_timeout_8_seconds">8 seconds</string>
+    <string name="heads_up_timeout_10_seconds">10 seconds</string>
+    <string name="heads_up_timeout_20_seconds">20 seconds</string>
+    <string name="heads_up_timeout_40_seconds">40 seconds</string>
+    <string name="heads_up_timeout_never">Never</string>
+    <string name="heads_up_use_custom_timeout_fs_title">Full screen</string>
+    <string name="heads_up_use_custom_timeout_fs_summary">Enable to use the custom timeout in full screen, too</string>
+    <string name="heads_up_colorize_notif_icons_title">Notification icons</string>
+    <string name="heads_up_colorize_notif_icons_summary">Enable to colorize the notification icons, too.</string>
 
     <!-- Slim Recent apps panel -->
     <string name="recents_panel_scale_title">Size in percent</string>
@@ -830,67 +880,6 @@
     <string name="recents_clear_all_button_lb">Bottom left</string>
     <string name="recents_clear_all_button_rb">Bottom right</string>
     <string name="recents_clear_all_button_color_title">Clear all button</string>
-
-    <!-- (Interface category) More settings -->
-    <string name="heads_up_title">Heads up notifications</string>
-    <string name="bootanimation_settings_title">Bootanimation</string>
-    <string name="bootanimation_settings_summary">Customize Bootanimation</string>
-
-    <!-- Bootanimation -->
-    <string name="custom_bootanimation_title">Custom boot animation</string>
-    <string name="custom_bootanimation_summary">Select a bootanimation zip from sdcard.</string>
-    <string name="install_file_manager_error">No application found to pick the zip file. Please install a file manager.</string>
-    <string name="bootanimation_preview">Bootanimation preview</string>
-    <string name="apply">Apply</string>
-    <string name="creating_preview">Creating preview...</string>
-    <string name="error_reading_zip_file">Error reading zip file</string>
-    <string name="error_creating_preview">Error creating preview</string>
-    <string name="bootanimation_preview_loop_title">Loop preview</string>
-    <string name="bootanimation_preview_loop_summary">Enable to play the bootanimation preview looped</string>
-    <string name="dlg_bootanimation_help_message">The rom doesn`t contains additional bootanimations, the bootanimation has to be stored on the sd-card\n\nThe bootaniamtion has to be in bootanimation zip format, (NOT a flashable zip!)\n\nThe current bootanimation will be backed up on every bootanimation installation, this last bootanimation can be restored at any time.\nThis backup will be overwritten on every new bootanimation installation.\n\nOn the first bootanimation installation, there will be a seperate backup of this original bootanimation, this original bootanimation can be restored at any time.\n\nThe backups won`t get lost on a rom update, as long as you DON`T use a full-wipe.\n\nThe rom contains a backup script which will restore the current bootanimation on a rom update.</string>
-    <string name="dlg_bootanimation_restore_title">Restore</string>
-    <string name="dlg_bootanimation_restore_message">Click cancel to dismiss.\nClick Original to restore the original boot animation.\nClick last to restore the last boot animation.</string>
-    <string name="dlg_bootanimation_restore_original">Original</string>
-    <string name="dlg_bootanimation_restore_last">Last</string>
-
-    <!-- Custom carrier label -->
-    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
-
-    <!-- Heads up -->
-    <string name="heads_up_cat_timeout_title">Time out</string>
-    <string name="heads_up_expanded_title">Expanded</string>
-    <string name="heads_up_expanded_summary">Enable to show heads up notification always expanded</string>
-    <string name="heads_up_show_updates_title">Updates</string>
-    <string name="heads_up_show_updates_summary">Enable to show updates from pending background notifications as heads up</string>
-    <string name="heads_up_gravity_title">Show at the bottom</string>
-    <string name="heads_up_gravity_summary">Show heads up notification at the bottom of the screen</string>
-    <string name="heads_up_snooze_title">Snooze timer</string>
-    <string name="heads_up_snooze_summary">If snooze button is pressed disable heads up for <xliff:g id="number">%d</xliff:g> minutes.</string>
-    <string name="heads_up_snooze_disabled_summary">Snooze timer is disabled.</string>
-    <string name="heads_up_snooze_3min">3 minutes</string>
-    <string name="heads_up_snooze_5min">5 minutes</string>
-    <string name="heads_up_snooze_10min">10 minutes</string>
-    <string name="heads_up_snooze_15min">15 minutes</string>
-    <string name="heads_up_snooze_20min">20 minutes</string>
-    <string name="heads_up_timeout_title">Normal &amp; Immersive mode</string>
-    <string name="heads_up_timeout_summary">Heads up notification will show up for <xliff:g id="number">%d</xliff:g> seconds.</string>
-    <string name="heads_up_timeout_never_summary">Heads up notification will show till it is dismissed.</string>
-    <string name="heads_up_timeout_2_seconds">2 seconds</string>
-    <string name="heads_up_timeout_4_seconds">4 seconds</string>
-    <string name="heads_up_timeout_6_seconds">6 seconds</string>
-    <string name="heads_up_timeout_8_seconds">8 seconds</string>
-    <string name="heads_up_timeout_10_seconds">10 seconds</string>
-    <string name="heads_up_timeout_20_seconds">20 seconds</string>
-    <string name="heads_up_timeout_40_seconds">40 seconds</string>
-    <string name="heads_up_timeout_never">Never</string>
-    <string name="heads_up_use_custom_timeout_fs_title">Full screen</string>
-    <string name="heads_up_use_custom_timeout_fs_summary">Enable to use the custom timeout in full screen, too</string>
-    <string name="heads_up_colorize_notif_icons_title">Notification icons</string>
-    <string name="heads_up_colorize_notif_icons_summary">Enable to colorize the notification icons, too.</string>
-
-    <!-- Immersive mode -->
-    <string name="expanded_desktop_status_bar">Status bar visible</string>
-    <string name="expanded_desktop_no_status_bar">Status bar hidden</string>
 
     <!-- Lock clock -->
     <string name="lock_clock_title">Clock widget</string>
@@ -1005,11 +994,6 @@
     <string name="safe_headset_volume_warning_title">Volume warning</string>
     <string name="safe_headset_volume_warning_summary">Activate, to show safe headset volume warning</string>
 
-    <!-- Volume button music controls -->
-    <string name="volume_button_category_title">Volume button</string>
-    <string name="volume_button_music_controls_title">Volume buttons music controls</string>
-    <string name="volume_button_music_controls_summary">When screen off, long-pressing the volume buttons will switch music tracks</string>
-
     <!-- Display settings -->
     <string name="display_rotation_title">Rotation</string>
     <string name="display_animations_settings_title">Animations</string>
@@ -1107,12 +1091,25 @@
     <string name="battery_light_medium_color_title">Medium charge</string>
     <string name="battery_light_full_color_title">Fully charged</string>
 
-    <!-- Display wake up options -->
-    <string name="display_wake_category_title">Wake up options</string>
-    <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
-    <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting the charger</string>
-    <string name="volume_wake_title">Volume button wake</string>
-    <string name="volume_wake_summary">Turn the screen on when pressing the volume button up/down</string>
+    <!-- Button settings -->
+    <string name="button_settings_title">Buttons</string>
+    <string name="power_menu_settings_title">Power menu</string>
+    <string name="power_menu_settings_summary">Customize the power menu</string>
+    <string name="power_menu_cat_options_title">Power menu options</string>
+    <string name="power_menu_cat_colors_title">Power menu colors</string>
+    <string name="volume_button_category_title">Volume buttons</string>
+    <string name="volume_button_music_controls_title">Music controls</string>
+    <string name="volume_button_music_controls_summary">Enable to switch music tracks, when screen off and long-pressing the volume buttons</string>
+    <string name="volume_button_wake_title">Screen wake up</string>
+    <string name="volume_button_wake_summary">Enable to turn the screen on when pressing the volume button up/down</string>
+
+    <!-- Power menu -->
+    <string name="power_menu_toggle_screenshot_title">Screenshot</string>
+    <string name="power_menu_toggle_screenshot_summary">Activate, to show screenshot option in Power Menu</string>
+    <string name="power_menu_toggle_screen_record_title">Screen record</string>
+    <string name="power_menu_toggle_screen_record_summary">Activate, to show screen record option in Power Menu</string>
+    <string name="power_menu_toggle_expanded_desktop_summary">Activate, to show immersive mode option in Power Menu</string>
+    <string name="power_menu_icon_color_mode_title">Icon color mode</string>
 
     <!-- Battery settings -->
 
@@ -1124,6 +1121,10 @@
     <string name="low_battery_warning_policy_popup">Pop-up dialog only</string>
     <string name="low_battery_warning_policy_notif">Notification only</string>
     <string name="low_battery_warning_policy_sound">Sound only</string>
+
+    <!-- Wake on plug -->
+    <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
+    <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting the charger</string>
 
     <!-- Apps -->
     <string name="heads_up_switch_label">Enable heads up notification</string>

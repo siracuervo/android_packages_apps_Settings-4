@@ -100,14 +100,6 @@
         android:fragment="com.android.settings.darkkat.InterfaceMenusSettings"
         android:icon="@drawable/ic_menus" />
 
-    <!-- More -->
-    <header
-        android:id="@+id/interface_more_settings"
-        android:title="@string/interface_more_settings_title"
-        android:fragment="com.android.settings.darkkat.InterfaceMoreSettings"
-        android:icon="@drawable/empty_icon" />
-
-
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />
@@ -132,6 +124,13 @@
         android:icon="@drawable/ic_settings_display"
         android:fragment="com.android.settings.DisplaySettings"
         android:title="@string/display_settings" />
+
+    <!-- Buttons -->
+    <header
+        android:id="@+id/button_settings"
+        android:icon="@drawable/ic_settings_buttons"
+        android:fragment="com.android.settings.darkkat.ButtonSettings"
+        android:title="@string/button_settings_title" />
 
     <!-- Storage -->
     <header

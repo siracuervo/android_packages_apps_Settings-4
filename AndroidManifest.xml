@@ -1666,10 +1666,9 @@
         <activity android:name=".darkkat.InterfaceSettings" />
         <activity android:name=".darkkat.InterfaceLockscreenSettings" />
         <activity android:name=".darkkat.InterfaceBarsSettings" />
-        <activity android:name=".darkkat.InterfaceMenusSettings" />
         <activity android:name=".darkkat.InterfaceMoreSettings" />
         <activity android:name=".darkkat.headsup.HeadsUpSettings" />
-        <activity android:name=".darkkat.ChangeLog" />
+        <activity android:name=".darkkat.ButtonSettings" />
 
         <activity android:name=".darkkat.ChangeLog" 
             android:label="@string/changelog_title">

@@ -27,7 +27,6 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.view.Gravity;
@@ -39,21 +38,12 @@ import com.android.settings.darkkat.util.CMDProcessor;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
-import com.android.settings.widget.SeekBarPreference;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class InterfaceMenusSettings extends SettingsPreferenceFragment implements
+public class RecentsAppSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_POWER_MENU_CAT_COLORS =
-            "power_menu_cat_colors";
-    private static final String PREF_POWER_MENU_ICON_COLOR_MODE =
-            "power_menu_icon_color_mode";
-    private static final String PREF_POWER_MENU_ICON_COLOR =
-            "power_menu_icon_color";
-    private static final String PREF_POWER_MENU_TEXT_COLOR =
-            "power_menu_text_color";
     private static final String PREF_RECENT_APPS_TYPE =
             "recent_apps_type";
     private static final String PREF_RECENTS_PANEL_SCALE =
@@ -83,10 +73,6 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
     private static final String PREF_RECENTS_CLEAR_ALL_BTN_COLOR =
             "recents_clear_all_button_color";
 
-    private static final int DEFAULT_POWER_MENU_ICON_COLOR =
-            0xffffffff;
-    private static final int DEFAULT_POWER_MENU_TEXT_COLOR =
-            0xffffffff;
     private static final int DEFAULT_RECENTS_PANEL_BG_COLOR =
             0xe6000000;
     private static final int DEFAULT_RECENTS_PANEL_EMPTY_ICON_COLOR =
@@ -103,9 +89,6 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private ListPreference mPowerMenuIconColorMode;
-    private ColorPickerPreference mPowerMenuIconColor;
-    private ColorPickerPreference mPowerMenuTextColor;
     private CheckBoxPreference mRecentAppsType;
     private ListPreference mRecentsPanelScale;
     private ListPreference mRecentsPanelExpandedMode;
@@ -140,46 +123,10 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
         int intColor;
         String hexColor;
 
-        addPreferencesFromResource(R.xml.interface_menus_settings);
-
         mResolver = getActivity().getContentResolver();
 
         mSlimRecents = Settings.System.getInt(mResolver,
                 Settings.System.RECENT_APPS_TYPE, 1) == 1;
-
-        mPowerMenuIconColorMode =
-            (ListPreference) findPreference(PREF_POWER_MENU_ICON_COLOR_MODE);
-        int powerMenuIconColorMode = Settings.System.getInt(getContentResolver(),
-                Settings.System.POWER_MENU_ICON_COLOR_MODE, 0);
-        mPowerMenuIconColorMode.setValue(String.valueOf(powerMenuIconColorMode));
-        mPowerMenuIconColorMode.setSummary(mPowerMenuIconColorMode.getEntry());
-        mPowerMenuIconColorMode.setOnPreferenceChangeListener(this);
-
-        PreferenceCategory powerMenuCatColors =
-                (PreferenceCategory) findPreference(PREF_POWER_MENU_CAT_COLORS);
-        mPowerMenuIconColor =
-                (ColorPickerPreference) findPreference(PREF_POWER_MENU_ICON_COLOR);
-        // Remove color preferences if color mode is set do disabled
-        if (powerMenuIconColorMode != 3) {
-            intColor = Settings.System.getInt(mResolver,
-                    Settings.System.POWER_MENU_ICON_COLOR,
-                    DEFAULT_POWER_MENU_ICON_COLOR);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mPowerMenuIconColor.setSummary(hexColor);
-            mPowerMenuIconColor.setNewPreviewColor(intColor);
-            mPowerMenuIconColor.setOnPreferenceChangeListener(this);
-        } else {
-            powerMenuCatColors.removePreference(mPowerMenuIconColor);
-        }
-
-        mPowerMenuTextColor =
-                (ColorPickerPreference) findPreference(PREF_POWER_MENU_TEXT_COLOR);
-        intColor = Settings.System.getInt(mResolver,
-                Settings.System.POWER_MENU_TEXT_COLOR, DEFAULT_POWER_MENU_TEXT_COLOR);
-        hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mPowerMenuTextColor.setSummary(hexColor);
-        mPowerMenuTextColor.setNewPreviewColor(intColor);
-        mPowerMenuTextColor.setOnPreferenceChangeListener(this);
 
         if (mSlimRecents) {
             // Slim recents enabled, append needed settings
@@ -335,34 +282,7 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
         int index;
         int value;
 
-        if (preference == mPowerMenuIconColorMode) {
-            index = mPowerMenuIconColorMode.findIndexOfValue((String) objValue);
-            value = Integer.valueOf((String) objValue);
-            Settings.System.putInt(mResolver,
-                    Settings.System.POWER_MENU_ICON_COLOR_MODE, value);
-            mPowerMenuIconColorMode.setSummary(
-                    mPowerMenuIconColorMode.getEntries()[index]);
-            refreshSettings();
-            return true;
-        } else if (preference == mPowerMenuIconColor) {
-            hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(objValue)));
-            preference.setSummary(hex);
-            intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.POWER_MENU_ICON_COLOR,
-                    intHex);
-            return true;
-        } else if (preference == mPowerMenuTextColor) {
-            hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(objValue)));
-            preference.setSummary(hex);
-            intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.POWER_MENU_TEXT_COLOR,
-                    intHex);
-            return true;
-        } else if (preference == mRecentAppsType) {
+        if (preference == mRecentAppsType) {
             Settings.System.putInt(mResolver,
                     Settings.System.RECENT_APPS_TYPE,
                     ((Boolean) objValue) ? 1 : 0);
@@ -495,8 +415,8 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
             return frag;
         }
 
-        InterfaceMenusSettings getOwner() {
-            return (InterfaceMenusSettings) getTargetFragment();
+        RecentsAppSettings getOwner() {
+            return (RecentsAppSettings) getTargetFragment();
         }
 
         @Override
@@ -511,14 +431,6 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                     .setNeutralButton(R.string.dlg_reset_android,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.POWER_MENU_ICON_COLOR_MODE, 0);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.POWER_MENU_ICON_COLOR,
-                                    DEFAULT_POWER_MENU_ICON_COLOR);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.POWER_MENU_TEXT_COLOR,
-                                    DEFAULT_POWER_MENU_TEXT_COLOR);
                             if (getOwner().mSlimRecents) {
                                 Settings.System.putInt(getOwner().mResolver,
                                         Settings.System.RECENT_PANEL_BG_COLOR,
@@ -549,14 +461,6 @@ public class InterfaceMenusSettings extends SettingsPreferenceFragment implement
                     .setPositiveButton(R.string.dlg_reset_darkkat,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.POWER_MENU_ICON_COLOR_MODE, 0);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.POWER_MENU_ICON_COLOR,
-                                    0xff33b5e5);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.POWER_MENU_TEXT_COLOR,
-                                    DEFAULT_POWER_MENU_TEXT_COLOR);
                             if (getOwner().mSlimRecents) {
                                 Settings.System.putInt(getOwner().mResolver,
                                         Settings.System.RECENT_PANEL_BG_COLOR,
