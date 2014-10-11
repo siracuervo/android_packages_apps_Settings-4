@@ -93,12 +93,13 @@
         android:fragment="com.android.settings.darkkat.InterfaceBarsSettings"
         android:icon="@drawable/ic_bars" />
 
-    <!-- Menus -->
+    <!-- More -->
     <header
-        android:id="@+id/interface_menus_settings"
-        android:title="@string/interface_menus_settings_title"
-        android:fragment="com.android.settings.darkkat.InterfaceMenusSettings"
-        android:icon="@drawable/ic_menus" />
+        android:id="@+id/interface_more_settings"
+        android:title="@string/interface_more_settings_title"
+        android:fragment="com.android.settings.darkkat.InterfaceMoreSettings"
+        android:icon="@drawable/empty_icon" />
+
 
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
