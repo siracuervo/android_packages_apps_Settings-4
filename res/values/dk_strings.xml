@@ -749,7 +749,7 @@
 
     <!-- Nav buttons -->
     <string name="navbar_button_menu_cat_title">Menu button</string>
-    <string name="nav_button_glow_tint_title">Pressed clow effect</string>
+    <string name="navbar_button_cursor_keys_cat_title">Text navigation buttons</string>
     <string name="navigation_menu_right">Right</string>
     <string name="navigation_menu_left">Left</string>
     <string name="navigation_menu_both">Both</string>
@@ -758,6 +758,8 @@
     <string name="navigation_menu_always_show">Always show</string>
     <string name="title_pref_menu_location">Location</string>
     <string name="title_pref_menu_display">Visibility</string>
+    <string name="navbar_button_use_cursor_keys_summary">Enable to show text navigation buttons when the keyboard will be used</string>
+    <string name="nav_button_glow_tint_title">Pressed clow effect</string>
 
     <!-- (Interface category) More settings -->
     <string name="bootanimation_settings_title">Bootanimation</string>
