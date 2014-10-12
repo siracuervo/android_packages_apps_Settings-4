@@ -340,9 +340,8 @@
     <string name="navigation_bar_summary">Navigationsleiste  anpassen</string>
 
     <!-- Status bar -->
-    <string name="status_bar_toggle_brightness_title">Helligkeitskontrolle</string>
-    <string name="status_bar_toggle_brightness_summary">Helligkeit per wischen über die Statusleiste einstellen</string>
-    <string name="status_bar_toggle_info">Automatische Helligkeit aktiv</string>
+    <string name="status_bar_gestures_title">Gesten</string>
+    <string name="status_bar_gestures_summary">Gesten anpassen</string>
     <string name="status_bar_clock_date_style_title">Uhr &amp; Datum</string>
     <string name="status_bar_clock_date_style_summary">Die Uhr &amp; das Datum anpassen</string>
     <string name="status_bar_battery_status_style_title">Akkustatus</string>
@@ -356,6 +355,13 @@
     <string name="status_bar_notif_system_icons_title">Benachrichtigungen &amp; System Symbole</string>
     <string name="status_bar_notif_system_icons_title_phone">Benachr. &amp; System Symbole</string>
     <string name="status_bar_notif_system_icons_summary">Die Benachrichtigungen &amp; System Symbole anpassen</string>
+
+    <!-- Status bar gestures -->
+    <string name="status_bar_toggle_brightness_title">Helligkeitskontrolle</string>
+    <string name="status_bar_toggle_brightness_summary">Helligkeit per wischen über die Statusleiste einstellen</string>
+    <string name="status_bar_toggle_info">Automatische Helligkeit aktiv</string>
+    <string name="status_bar_double_tap_to_sleep_title">Standby</string>
+    <string name="status_bar_double_tap_to_sleep_summary">Das Gerät durch doppeltes Tippen auf die Statusleiste in den Standby-Modus setzen</string>
 
     <!-- Status bar clock date style -->
     <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>

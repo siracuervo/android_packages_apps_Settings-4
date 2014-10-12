@@ -340,9 +340,8 @@
     <string name="navigation_bar_summary">Customize navigation bar</string>
 
     <!-- Status bar -->
-    <string name="status_bar_toggle_brightness_title">Brightness control</string>
-    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across status bar</string>
-    <string name="status_bar_toggle_info">Automatic brightness is enabled</string>
+    <string name="status_bar_gestures_title">Gestures</string>
+    <string name="status_bar_gestures_summary">Customize gestures</string>
     <string name="status_bar_clock_date_style_title">Clock &amp; date</string>
     <string name="status_bar_clock_date_style_summary">Customize the clock &amp; the date</string>
     <string name="status_bar_battery_status_style_title">Battery status</string>
@@ -356,6 +355,13 @@
     <string name="status_bar_notif_system_icons_title">Notifications &amp; system icons</string>
     <string name="status_bar_notif_system_icons_title_phone">Notif. &amp; system icons</string>
     <string name="status_bar_notif_system_icons_summary">Customize the notifications &amp; system icons</string>
+
+    <!-- Status bar gestures -->
+    <string name="status_bar_toggle_brightness_title">Brightness control</string>
+    <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across status bar</string>
+    <string name="status_bar_toggle_info">Automatic brightness is enabled</string>
+    <string name="status_bar_double_tap_to_sleep_title">Sleep</string>
+    <string name="status_bar_double_tap_to_sleep_summary">Double tap the status bar to put the device to sleep</string>
 
     <!-- Status bar clock date style -->
     <string name="status_bar_cat_clock_date_title">Clock &amp; date</string>
