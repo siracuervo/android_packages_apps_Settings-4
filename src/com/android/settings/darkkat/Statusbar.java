@@ -16,28 +16,16 @@
 
 package com.android.settings.darkkat;
 
-import android.content.ContentResolver;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
-import android.provider.Settings;
-import android.provider.Settings.SettingNotFoundException;
 
 import com.android.internal.util.darkkat.DeviceUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class Statusbar extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
-
-    private static final String PREF_STATUS_BAR_BRIGHTNESS_CONTROL =
-            "status_bar_brightness_control";
-
-    private CheckBoxPreference mBrightnessControl;
-
-    private ContentResolver mResolver;
+public class Statusbar extends SettingsPreferenceFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,41 +33,10 @@ public class Statusbar extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.status_bar);
 
-        mResolver = getActivity().getContentResolver();
-
-        mBrightnessControl =
-                (CheckBoxPreference) findPreference(PREF_STATUS_BAR_BRIGHTNESS_CONTROL);
-        mBrightnessControl.setChecked((Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
-        mBrightnessControl.setOnPreferenceChangeListener(this);
-
-        try {
-            if (Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS_MODE) == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
-                mBrightnessControl.setEnabled(false);
-                mBrightnessControl.setSummary(R.string.status_bar_toggle_info);
-            }
-        } catch (SettingNotFoundException e) {
-        }
-
         if (DeviceUtils.isPhone(getActivity())) {
             PreferenceScreen notifSystemIcons =
                     (PreferenceScreen) findPreference("status_bar_notif_system_icons");
             notifSystemIcons.setTitle(R.string.status_bar_notif_system_icons_title_phone);
         }
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        boolean value;
-
-        if (preference == mBrightnessControl) {
-            value = (Boolean) objValue;
-            Settings.System.putInt(mResolver,
-                    Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, value ? 1 : 0);
-            return true;
-        }
-
-        return false;
     }
 }
