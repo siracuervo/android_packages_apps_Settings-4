@@ -28,30 +28,6 @@
         </PreferenceScreen>
 
         <PreferenceCategory
-                android:key="navbar_button_color_cat"
-                android:title="@string/color_title" >
-
-            <net.margaritov.preference.colorpicker.ColorPickerPreference
-                 android:key="nav_button_color"
-                 android:title="@string/icon_title"
-                 android:defaultValue="0xffffffff" />
-
-             <net.margaritov.preference.colorpicker.ColorPickerPreference
-                 android:key="nav_button_glow_color"
-                 android:title="@string/nav_button_glow_tint_title"
-                 android:defaultValue="0xffffffff" />
-
-            <ListPreference
-                 android:entries="@array/icon_color_mode_entries"
-                 android:entryValues="@array/icon_color_mode_values"
-                 android:key="nav_button_color_mode"
-                 android:title="@string/button_color_mode_title"
-                 android:dialogTitle="@string/button_color_mode_dialog_title"
-                 android:summary="@string/button_color_mode_summary" />
-
-        </PreferenceCategory>
-
-        <PreferenceCategory
                 android:key="navbar_button_menu_cat"
                 android:title="@string/navbar_button_menu_cat_title" >
 
@@ -69,4 +45,38 @@
 
         </PreferenceCategory>
 
+        <PreferenceCategory
+                android:key="navbar_button_cursor_keys_cat"
+                android:title="@string/navbar_button_cursor_keys_cat_title" >
+
+            <CheckBoxPreference
+                    android:key="navbar_button_use_cursor_keys"
+                    android:title="@string/show_title"
+                    android:summary="@string/navbar_button_use_cursor_keys_summary" />
+
+        </PreferenceCategory>
+
+        <PreferenceCategory
+                android:key="navbar_button_color_cat"
+                android:title="@string/color_title" >
+
+            <ListPreference
+                 android:entries="@array/icon_color_mode_entries"
+                 android:entryValues="@array/icon_color_mode_values"
+                 android:key="nav_button_color_mode"
+                 android:title="@string/button_color_mode_title"
+                 android:dialogTitle="@string/button_color_mode_dialog_title"
+                 android:summary="@string/button_color_mode_summary" />
+
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                 android:key="nav_button_color"
+                 android:title="@string/icon_title"
+                 android:defaultValue="0xffffffff" />
+
+             <net.margaritov.preference.colorpicker.ColorPickerPreference
+                 android:key="nav_button_glow_color"
+                 android:title="@string/nav_button_glow_tint_title"
+                 android:defaultValue="0xffffffff" />
+
+        </PreferenceCategory>
 </PreferenceScreen>
