@@ -21,6 +21,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -134,23 +135,31 @@ public class NavbarBg extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         String hex;
+        String fixedHex;
         int intHex;
+        int fixedColor;
 
         if (preference == mOpaqueColor) {
             hex = ColorPickerPreference.convertToARGB(
                 Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
+            fixedColor = getFixedColor(intHex, preference, true);
             Settings.System.putInt(mResolver,
-                Settings.System.NAVIGATION_BAR_OPAQUE_COLOR, intHex);
-            preference.setSummary(hex);
+                Settings.System.NAVIGATION_BAR_OPAQUE_COLOR, fixedColor);
+            fixedHex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(fixedColor)));
+            preference.setSummary(fixedHex);
             return true;
         } else if (preference == mSemiTransColor) {
             hex = ColorPickerPreference.convertToARGB(
                 Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
+            fixedColor = getFixedColor(intHex, preference, false);
             Settings.System.putInt(mResolver,
-                Settings.System.NAVIGATION_BAR_SEMI_TRANS_COLOR, intHex);
-            preference.setSummary(hex);
+                Settings.System.NAVIGATION_BAR_SEMI_TRANS_COLOR, fixedColor);
+            fixedHex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(fixedColor)));
+            preference.setSummary(fixedHex);
             return true;
         } else if (preference == mGradientColor) {
             hex = ColorPickerPreference.convertToARGB(
@@ -237,5 +246,34 @@ public class NavbarBg extends SettingsPreferenceFragment implements
         public void onCancel(DialogInterface dialog) {
 
         }
+    }
+
+    private int getFixedColor(int color, Preference preference, boolean useOpaqueColor) {
+        int currentColor = color;
+        int fixedColor;
+        int currentAlpha = Color.alpha(currentColor);
+        int defaultAlpha;
+
+        if (useOpaqueColor) {
+            // The opaque color should be always 100% opaque
+            // so check the current opacity, and change it to 100% if needed.
+            defaultAlpha = 255;
+        } else {
+            // The semi transparent color has a default transparency of 40%,
+            // in my opinion, it makes no sense to change the default transparency at all,
+            // so check the current transparency, and change it to 40% if needed.
+            defaultAlpha = 102;
+        }
+        if (currentAlpha != defaultAlpha) {
+            int r = Color.red(currentColor);
+            int g = Color.green(currentColor);
+            int b = Color.blue(currentColor);
+
+            fixedColor = (defaultAlpha << 24) + (r << 16) + (g << 8) + b;
+            ((ColorPickerPreference)preference).setNewPreviewColor(fixedColor);
+        } else {
+            fixedColor = currentColor;
+        }
+        return fixedColor;
     }
 }
