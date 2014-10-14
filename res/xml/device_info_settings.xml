@@ -127,6 +127,12 @@
                 android:title="@string/mod_version"
                 android:summary="@string/mod_version_default" />
 
+		<!-- DarkCyanKat version -->
+		<Preference android:key="dck_version"
+		        style="?android:preferenceInformationStyle"
+		        android:title="@string/dck_version"
+		        android:summary="@string/device_info_default" />
+
         <!-- Device firmware version -->
         <Preference android:key="firmware_version" 
                 style="?android:preferenceInformationStyle"
