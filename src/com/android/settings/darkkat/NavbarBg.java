@@ -32,7 +32,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.android.settings.darkkat.util.CMDProcessor;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
@@ -144,7 +143,6 @@ public class NavbarBg extends SettingsPreferenceFragment implements
             Settings.System.putInt(mResolver,
                 Settings.System.NAVIGATION_BAR_OPAQUE_COLOR, intHex);
             preference.setSummary(hex);
-            restartSystemUI();
             return true;
         } else if (preference == mSemiTransColor) {
             hex = ColorPickerPreference.convertToARGB(
@@ -153,7 +151,6 @@ public class NavbarBg extends SettingsPreferenceFragment implements
             Settings.System.putInt(mResolver,
                 Settings.System.NAVIGATION_BAR_SEMI_TRANS_COLOR, intHex);
             preference.setSummary(hex);
-            restartSystemUI();
             return true;
         } else if (preference == mGradientColor) {
             hex = ColorPickerPreference.convertToARGB(
@@ -162,7 +159,6 @@ public class NavbarBg extends SettingsPreferenceFragment implements
             Settings.System.putInt(mResolver,
                 Settings.System.NAVIGATION_BAR_GRADIENT_COLOR, intHex);
             preference.setSummary(hex);
-            restartSystemUI();
             return true;
         }
         return false;
@@ -215,7 +211,6 @@ public class NavbarBg extends SettingsPreferenceFragment implements
                                 Settings.System.NAVIGATION_BAR_GRADIENT_COLOR,
                                 DEFAULT_GRADIENT_COLOR);
                             getOwner().refreshSettings();
-                            getOwner().restartSystemUI();
                         }
                     })
                     .setPositiveButton(R.string.dlg_reset_darkkat,
@@ -231,7 +226,6 @@ public class NavbarBg extends SettingsPreferenceFragment implements
                                 Settings.System.NAVIGATION_BAR_GRADIENT_COLOR,
                                 0x6633b5e5);
                             getOwner().refreshSettings();
-                            getOwner().restartSystemUI();
                         }
                     })
                     .create();
@@ -243,9 +237,5 @@ public class NavbarBg extends SettingsPreferenceFragment implements
         public void onCancel(DialogInterface dialog) {
 
         }
-    }
-
-    public static void restartSystemUI() {
-        CMDProcessor.startSuCommand("pkill -TERM -f com.android.systemui");
     }
 }
