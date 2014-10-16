@@ -60,6 +60,12 @@
             android:title="@string/navigation_bar_category" >
 
         <PreferenceScreen
+            android:key="navbar_bg"
+            android:title="@string/bg_title"
+            android:summary="@string/bg_colors_summary"
+            android:fragment="com.android.settings.darkkat.navbar.NavBarBg" />
+
+        <PreferenceScreen
                 android:key="navigation_bar"
                 android:fragment="com.android.settings.cyanogenmod.NavBar"
                 android:title="@string/navigation_bar_title" />

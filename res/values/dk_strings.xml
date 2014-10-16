@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 Dark Cyan Kat
+<!-- Copyright (C) 2014 DarkKat
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,6 +14,28 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Global used -->
+    <string name="reset">Reset</string>
+    <string name="dlg_reset_color_values_message">Reset color values to\nAndroid- or DarkKat default?</string>
+    <string name="dlg_reset_android">Android</string>
+    <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="bg_title">Background</string>
+    <string name="bg_colors_summary">Customize the background colors</string>
+    <string name="opaque_color_title">Opaque</string>
+    <string name="semi_trans_color_title">Semi transparent</string>
+    <string name="gradient_color_title">Shadow</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on color below to apply</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Set</string>
+    <string name="theme_default_color">Theme default</string>
+    <string name="system_default_color">System default</string>
+
     <!-- Device info settings -->
     <string name="dck_version">DarkCyanKat version</string>
 </resources>
