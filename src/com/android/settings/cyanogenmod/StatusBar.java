@@ -17,10 +17,7 @@
 package com.android.settings.cyanogenmod;
 
 import android.content.ContentResolver;
-import android.database.ContentObserver;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -51,9 +48,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private ListPreference mStatusBarBattery;
     private SystemSettingCheckBoxPreference mStatusBarBatteryShowPercent;
     private ListPreference mStatusBarCmSignal;
-    private CheckBoxPreference mStatusBarBrightnessControl;
-
-    private ContentObserver mSettingsObserver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,10 +64,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarBatteryShowPercent =
                 (SystemSettingCheckBoxPreference) findPreference(STATUS_BAR_BATTERY_SHOW_PERCENT);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
-
-        mStatusBarBrightnessControl = (CheckBoxPreference)
-                prefSet.findPreference(Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL);
-        refreshBrightnessControl();
 
         int clockStyle = Settings.System.getInt(resolver, Settings.System.STATUS_BAR_CLOCK, 1);
         mStatusBarClockStyle.setValue(String.valueOf(clockStyle));
@@ -96,32 +86,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         }
 
         enableStatusBarBatteryDependents(mStatusBarBattery.getValue());
-
-        mSettingsObserver = new ContentObserver(new Handler()) {
-            @Override
-            public void onChange(boolean selfChange, Uri uri) {
-                refreshBrightnessControl();
-            }
-
-            @Override
-            public void onChange(boolean selfChange) {
-                onChange(selfChange, null);
-            }
-        };
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        getContentResolver().registerContentObserver(
-                Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS_MODE),
-                true, mSettingsObserver);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        getContentResolver().unregisterContentObserver(mSettingsObserver);
     }
 
     @Override
@@ -150,20 +114,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         }
 
         return false;
-    }
-
-    private void refreshBrightnessControl() {
-        try {
-            if (Settings.System.getInt(getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS_MODE)
-                    == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
-                mStatusBarBrightnessControl.setSummary(R.string.status_bar_toggle_info);
-            } else {
-                mStatusBarBrightnessControl.setSummary(R.string.status_bar_toggle_brightness_summary);
-            }
-        } catch (SettingNotFoundException e) {
-            // Do nothing
-        }
     }
 
     private void enableStatusBarBatteryDependents(String value) {

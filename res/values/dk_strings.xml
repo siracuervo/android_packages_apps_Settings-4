@@ -36,6 +36,20 @@
     <string name="theme_default_color">Theme default</string>
     <string name="system_default_color">System default</string>
 
+    <!-- Interface category -->
+    <string name="interface_bars_settings_title">Bars</string>
+
+    <!-- Bars settings -->
+    <string name="status_bar_summary">Customize status bar</string>
+
+    <!-- Status bar -->
+    <string name="status_bar_gestures_title">Gestures</string>
+    <string name="status_bar_gestures_summary">Customize gestures</string>
+
+    <!-- Status bar gestures -->
+    <string name="status_bar_double_tap_to_sleep_title">Sleep</string>
+    <string name="status_bar_double_tap_to_sleep_summary">Double tap the status bar to put the device to sleep</string>
+
     <!-- Device info settings -->
     <string name="dck_version">DarkCyanKat version</string>
 </resources>

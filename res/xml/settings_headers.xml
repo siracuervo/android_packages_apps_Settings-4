@@ -99,22 +99,13 @@
         android:title="@string/lock_screen_title"
         android:icon="@drawable/ic_settings_lockscreen" />
 
-    <!-- Themes -->
+    <!-- Bars -->
     <header
-        settings:includeXmlForSearch="@xml/theme_settings"
-        android:id="@+id/theme_settings"
-        android:title="@string/themes_settings_title"
-        android:breadCrumbTitle="@string/themes_settings_title"
-        android:fragment="com.android.settings.ThemeSettings"
-        android:icon="@drawable/prd_ic_themepacks" />
-
-    <!-- Status Bar -->
-    <header
-        settings:includeXmlForSearch="@xml/status_bar"
-        android:id="@+id/status_bar_settings"
-        android:icon="@drawable/ic_settings_system"
-        android:fragment="com.android.settings.cyanogenmod.StatusBar"
-        android:title="@string/status_bar_title" />
+        settings:includeXmlForSearch="@xml/interface_bars_settings"
+        android:id="@+id/interface_bars_settings"
+        android:title="@string/interface_bars_settings_title"
+        android:fragment="com.android.settings.darkkat.InterfaceBarsSettings"
+        android:icon="@drawable/ic_bars" />
 
     <!-- Notification Bar -->
     <header
@@ -123,6 +114,15 @@
         android:icon="@drawable/ic_notify_open_normal"
         android:fragment="com.android.settings.cyanogenmod.NotificationDrawer"
         android:title="@string/notification_drawer_title" />
+
+    <!-- Themes -->
+    <header
+        settings:includeXmlForSearch="@xml/theme_settings"
+        android:id="@+id/theme_settings"
+        android:title="@string/themes_settings_title"
+        android:breadCrumbTitle="@string/themes_settings_title"
+        android:fragment="com.android.settings.ThemeSettings"
+        android:icon="@drawable/prd_ic_themepacks" />
 
     <!-- Gestures -->
     <header

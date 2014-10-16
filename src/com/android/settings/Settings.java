@@ -204,7 +204,6 @@ public class Settings extends PreferenceActivity
             R.id.nfc_payment_settings,
             R.id.home_settings,
             R.id.interface_section,
-            R.id.status_bar_settings,
             R.id.notification_bar_settings,
             R.id.lock_screen_settings,
             R.id.privacy_settings_cyanogenmod,
