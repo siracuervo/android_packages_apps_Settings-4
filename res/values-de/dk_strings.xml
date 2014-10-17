@@ -46,10 +46,6 @@
     <string name="status_bar_gestures_title">Gesten</string>
     <string name="status_bar_gestures_summary">Gesten anpassen</string>
 
-    <!-- Status bar gestures -->
-    <string name="status_bar_double_tap_to_sleep_title">Standby</string>
-    <string name="status_bar_double_tap_to_sleep_summary">Das Gerät durch doppeltes Tippen auf die Statusleiste in den Standby-Modus setzen</string>
-
     <!-- Device info settings -->
     <string name="dck_version">DarkCyanKat-Version</string>
 </resources>
