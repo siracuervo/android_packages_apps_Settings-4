@@ -24,6 +24,11 @@
         android:summary="@string/status_bar_show_clock_summary" />
 
     <CheckBoxPreference
+        android:key="status_bar_force_clock_on_lockscreen"
+        android:title="@string/status_bar_force_clock_on_lockscreen_title"
+        android:summary="@string/status_bar_force_clock_on_lockscreen_summary" />
+
+    <CheckBoxPreference
         android:key="status_bar_show_date"
         android:title="@string/status_bar_show_date_title"
         android:summary="@string/status_bar_show_date_summary" />

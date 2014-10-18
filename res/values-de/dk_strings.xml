@@ -369,6 +369,8 @@
     <string name="status_bar_cat_date_title">Datum</string>
     <string name="status_bar_show_clock_title">Die Uhr anzeigen</string>
     <string name="status_bar_show_clock_summary">Aktivieren um die Uhr in der Statusleiste anzuzeigen</string>
+    <string name="status_bar_force_clock_on_lockscreen_title">Auf Sperrbildschirm anzeigen</string>
+    <string name="status_bar_force_clock_on_lockscreen_summary">Aktivieren um Uhr (&amp; Datum) auf dem Sperrbildschirm anzuzeigen</string>
     <string name="status_bar_show_date_title">Das Datum anzeigen</string>
     <string name="status_bar_show_date_summary">Aktivieren um das Datum neben der Uhr in der Statusleiste anzuzeigen</string>
     <string name="status_bar_clock_date_position_title">Position</string>
