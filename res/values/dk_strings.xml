@@ -56,6 +56,8 @@
     <string name="status_bar_cat_date_title">Date</string>
     <string name="status_bar_show_clock_title">Show clock</string>
     <string name="status_bar_show_clock_summary">Enable to show the clock in the status bar</string>
+    <string name="status_bar_force_clock_on_lockscreen_title">Show on Lockscreen</string>
+    <string name="status_bar_force_clock_on_lockscreen_summary">Enable to show the clock (&amp; date) on lockscreen</string>
     <string name="status_bar_show_date_title">Show date</string>
     <string name="status_bar_show_date_summary">Enable to show the date next to the clock in the status bar</string>
     <string name="status_bar_clock_date_position_title">Position</string>

@@ -54,6 +54,8 @@ public class StatusBarClockDateStyle extends SettingsPreferenceFragment implemen
             "status_bar_cat_date";
     private static final String PREF_STAT_BAR_SHOW_CLOCK =
             "status_bar_show_clock";
+    private static final String PREF_STAT_BAR_FORCE_CLOCK_ON_LOCKSCREEN =
+            "status_bar_force_clock_on_lockscreen";
     private static final String PREF_STAT_BAR_SHOW_DATE =
             "status_bar_show_date";
     private static final String PREF_STAT_BAR_CLOCK_DATE_POSITION =
@@ -77,6 +79,7 @@ public class StatusBarClockDateStyle extends SettingsPreferenceFragment implemen
     private static final int DLG_RESET = 0;
 
     private CheckBoxPreference mShowClock;
+    private CheckBoxPreference mForceClockOnLockscreen;
     private CheckBoxPreference mShowDate;
     private CheckBoxPreference mClockDatePosition;
     private ColorPickerPreference mClockDateColor;
@@ -126,6 +129,12 @@ public class StatusBarClockDateStyle extends SettingsPreferenceFragment implemen
                 (ColorPickerPreference) findPreference(PREF_STAT_BAR_CLOCK_DATE_COLOR);
         mClockAmPm = (ListPreference) findPreference(PREF_STAT_BAR_AM_PM);
         if (isClockEnabled) {
+            mForceClockOnLockscreen =
+                    (CheckBoxPreference) findPreference(PREF_STAT_BAR_FORCE_CLOCK_ON_LOCKSCREEN);
+            mForceClockOnLockscreen.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_FORCE_CLOCK_ON_LOCKSCREEN, 0) == 1);
+            mForceClockOnLockscreen.setOnPreferenceChangeListener(this);
+
             mShowDate = (CheckBoxPreference) findPreference(PREF_STAT_BAR_SHOW_DATE);
             mShowDate.setChecked(isDateEnabled);
             mShowDate.setOnPreferenceChangeListener(this);
@@ -156,6 +165,7 @@ public class StatusBarClockDateStyle extends SettingsPreferenceFragment implemen
                 mClockAmPm.setEnabled(false);
             }
         } else {
+            removePreference(PREF_STAT_BAR_FORCE_CLOCK_ON_LOCKSCREEN);
             removePreference(PREF_STAT_BAR_SHOW_DATE);
             statusBarCatClockDate.removePreference(mClockDatePosition);
             statusBarCatClockDate.removePreference(mClockDateColor);
@@ -222,6 +232,12 @@ public class StatusBarClockDateStyle extends SettingsPreferenceFragment implemen
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_SHOW_CLOCK, value ? 1 : 0);
             refreshSettings();
+            return true;
+        } else if (preference == mForceClockOnLockscreen) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_FORCE_CLOCK_ON_LOCKSCREEN,
+                    value ? 1 : 0);
             return true;
         } else if (preference == mShowDate) {
             boolean value = (Boolean) newValue;
@@ -379,6 +395,8 @@ public class StatusBarClockDateStyle extends SettingsPreferenceFragment implemen
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_FORCE_CLOCK_ON_LOCKSCREEN, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_CLOCK_POSITION, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_CLOCK_DATE_COLOR,
@@ -398,6 +416,8 @@ public class StatusBarClockDateStyle extends SettingsPreferenceFragment implemen
                     .setPositiveButton(R.string.dlg_reset_darkkat,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_FORCE_CLOCK_ON_LOCKSCREEN, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_CLOCK_POSITION, 1);
                             Settings.System.putInt(getOwner().mResolver,
