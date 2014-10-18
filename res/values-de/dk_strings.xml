@@ -17,9 +17,11 @@
     <!-- Global used -->
     <string name="reset">Zurücksetzen</string>
     <string name="dlg_reset_color_values_message">Farb Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
+    <string name="dlg_reset_values_message">Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="bg_title">Hintergrund</string>
+    <string name="color_title">Farbe</string>
     <string name="bg_colors_summary">Die Hintergrund Farben anpassen</string>
     <string name="opaque_color_title">Undurchsichtig</string>
     <string name="semi_trans_color_title">Halbtransparent</string>
@@ -45,6 +47,34 @@
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gesten</string>
     <string name="status_bar_gestures_summary">Gesten anpassen</string>
+    <string name="status_bar_clock_date_style_title">Uhr &amp; Datum</string>
+    <string name="status_bar_clock_date_style_summary">Die Uhr &amp; das Datum anpassen</string>
+
+    <!-- Status bar clock date style -->
+    <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>
+    <string name="status_bar_cat_clock_title">Uhr</string>
+    <string name="status_bar_cat_date_title">Datum</string>
+    <string name="status_bar_show_clock_title">Die Uhr anzeigen</string>
+    <string name="status_bar_show_clock_summary">Aktivieren um die Uhr in der Statusleiste anzuzeigen</string>
+    <string name="status_bar_show_date_title">Das Datum anzeigen</string>
+    <string name="status_bar_show_date_summary">Aktivieren um das Datum neben der Uhr in der Statusleiste anzuzeigen</string>
+    <string name="status_bar_clock_date_position_title">Position</string>
+    <string name="status_bar_clock_date_position_summary">Aktivieren um Uhr (&amp; Datum) in der Statusleiste zentriert anzuzeigen</string>
+    <string name="status_bar_am_pm_title">AM&#47;PM Style</string>
+    <string name="status_bar_am_pm_disabled_summary">24-Stunden-Format ist aktiviert</string>
+    <string name="status_bar_am_pm_normal">Normal</string>
+    <string name="status_bar_am_pm_small">Klein</string>
+    <string name="status_bar_am_pm_none">Verborgen</string>
+    <string name="status_bar_date_size_title">Größe</string>
+    <string name="status_bar_date_size_summary">Aktivieren um ein kleines Datum anzuzeigen</string>
+    <string name="status_bar_date_style_title">Style</string>
+    <string name="status_bar_date_style_normal">Normal</string>
+    <string name="status_bar_date_style_lowercase">Kleinbuchstaben</string>
+    <string name="status_bar_date_style_uppercase">Großbuchstaben</string>
+    <string name="status_bar_date_format_title">Datumsformat</string>
+    <string name="status_bar_date_custom_java_format">Eigenes Java Format</string>
+    <string name="status_bar_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
+    <string name="status_bar_date_string_edittext_summary">Zeichenfolge eingeben</string>
 
     <!-- Device info settings -->
     <string name="dck_version">DarkCyanKat-Version</string>

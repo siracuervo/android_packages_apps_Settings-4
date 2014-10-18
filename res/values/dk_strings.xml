@@ -17,9 +17,11 @@
     <!-- Global used -->
     <string name="reset">Reset</string>
     <string name="dlg_reset_color_values_message">Reset color values to\nAndroid- or DarkKat default?</string>
+    <string name="dlg_reset_values_message">Reset values to\nAndroid- or DarkKat default?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="bg_title">Background</string>
+    <string name="color_title">Color</string>
     <string name="bg_colors_summary">Customize the background colors</string>
     <string name="opaque_color_title">Opaque</string>
     <string name="semi_trans_color_title">Semi transparent</string>
@@ -45,6 +47,34 @@
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gestures</string>
     <string name="status_bar_gestures_summary">Customize gestures</string>
+    <string name="status_bar_clock_date_style_title">Clock &amp; date</string>
+    <string name="status_bar_clock_date_style_summary">Customize the clock &amp; the date</string>
+
+    <!-- Status bar clock date style -->
+    <string name="status_bar_cat_clock_date_title">Clock &amp; date</string>
+    <string name="status_bar_cat_clock_title">Clock</string>
+    <string name="status_bar_cat_date_title">Date</string>
+    <string name="status_bar_show_clock_title">Show clock</string>
+    <string name="status_bar_show_clock_summary">Enable to show the clock in the status bar</string>
+    <string name="status_bar_show_date_title">Show date</string>
+    <string name="status_bar_show_date_summary">Enable to show the date next to the clock in the status bar</string>
+    <string name="status_bar_clock_date_position_title">Position</string>
+    <string name="status_bar_clock_date_position_summary">Enabe to show the clock (&amp; date) centered in the status bar</string>
+    <string name="status_bar_am_pm_title">AM&#47;PM style</string>
+    <string name="status_bar_am_pm_disabled_summary">24-hour format is enabled</string>
+    <string name="status_bar_am_pm_normal">Normal</string>
+    <string name="status_bar_am_pm_small">Small</string>
+    <string name="status_bar_am_pm_none">Hide</string>
+    <string name="status_bar_date_size_title">Size</string>
+    <string name="status_bar_date_size_summary">Enabe to display the date small sized</string>
+    <string name="status_bar_date_style_title">Style</string>
+    <string name="status_bar_date_style_normal">Normal</string>
+    <string name="status_bar_date_style_lowercase">Lowercase</string>
+    <string name="status_bar_date_style_uppercase">Uppercase</string>
+    <string name="status_bar_date_format_title">Date format</string>
+    <string name="status_bar_date_custom_java_format">Custom java format</string>
+    <string name="status_bar_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
+    <string name="status_bar_date_string_edittext_summary">Enter string</string>
 
     <!-- Device info settings -->
     <string name="dck_version">DarkCyanKat version</string>
