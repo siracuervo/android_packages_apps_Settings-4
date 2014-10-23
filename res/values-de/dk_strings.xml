@@ -15,12 +15,25 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Global used -->
+    <string name="cat_options_general_title">Optionen Allgemein</string>
+    <string name="cat_colors_title">Farben anpassen</string>
     <string name="reset">Zurücksetzen</string>
+    <string name="hidden_title">Verborgen</string>
     <string name="dlg_reset_color_values_message">Farb Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_values_message">Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="bg_title">Hintergrund</string>
+    <string name="type_title">Typ</string>
+    <string name="icon_title">Symbol</string>
+    <string name="icon_portrait_title">Symbol (Hochformat)</string>
+    <string name="icon_landscape_title">Symbol (Querformat)</string>
+    <string name="ring_title">Ring</string>
+    <string name="text_title">Text</string>
+    <string name="dotted_title">Gepunktet</string>
+    <string name="dotted_summary">Aktivieren um den Akkustatus-Ring gepunktet anzuzeigen</string>
+    <string name="dot_length_title">Ring Punkt Länge</string>
+    <string name="dot_interval_title">Ring Punkt Abstand</string>
     <string name="color_title">Farbe</string>
     <string name="bg_colors_summary">Die Hintergrund Farben anpassen</string>
     <string name="opaque_color_title">Undurchsichtig</string>
@@ -49,6 +62,8 @@
     <string name="status_bar_gestures_summary">Gesten anpassen</string>
     <string name="status_bar_clock_date_style_title">Uhr &amp; Datum</string>
     <string name="status_bar_clock_date_style_summary">Die Uhr &amp; das Datum anpassen</string>
+    <string name="status_bar_battery_status_style_title">Akkustatus</string>
+    <string name="status_bar_battery_status_style_summary">Den Akkustatus anpassen</string>
 
     <!-- Status bar clock date style -->
     <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>
@@ -78,7 +93,19 @@
     <string name="status_bar_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">Zeichenfolge eingeben</string>
 
+    <!-- Status bar battery status style -->
+    <string name="battery_status_cat_options_ring_title">Optionen Ring</string>
+    <string name="battery_status_show_text_title">Text anzeigen</string>
+    <string name="battery_status_show_text_summary">Aktivieren um den Akkustatus Text anzuzeigen</string>
+    <string name="battery_status_animation_speed">Lade-Animations Geschwindigkeit</string>
+    <string name="battery_status_animation_speed_none">Keine Animation</string>
+    <string name="battery_status_animation_speed_slow">Langsam</string>
+    <string name="battery_status_animation_speed_stock">Normal</string>
+    <string name="battery_status_animation_speed_fast">Schnell</string>
+    <string name="battery_status_color">Füllung</string>
+    <string name="battery_text_color">Text normal</string>
+    <string name="battery_text_charging_color">Text während des Ladevorgangs</string>
+
     <!-- Device info settings -->
     <string name="dck_version">DarkCyanKat-Version</string>
 </resources>
-

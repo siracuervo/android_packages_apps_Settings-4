@@ -82,4 +82,62 @@
         <item>EEEE MM/dd</item>
         <item>Custom java format</item>
     </string-array>
+
+    <string-array name="battery_status_style_entries" >
+        <item>@string/icon_portrait_title</item>
+        <item>@string/icon_landscape_title</item>
+        <item>@string/ring_title</item>
+        <item>@string/text_title</item>
+        <item>@string/hidden_title</item>
+    </string-array>
+
+    <string-array name="battery_status_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="battery_circle_dot_entries">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="battery_circle_dot_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="battery_status_animation_speed_entries" >
+        <item>@string/battery_status_animation_speed_none</item>
+        <item>@string/battery_status_animation_speed_slow</item>
+        <item>@string/battery_status_animation_speed_stock</item>
+        <item>@string/battery_status_animation_speed_fast</item>
+    </string-array>
+
+    <string-array name="battery_status_animation_speed_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+        <item>5</item>
+    </string-array>
 </resources>
