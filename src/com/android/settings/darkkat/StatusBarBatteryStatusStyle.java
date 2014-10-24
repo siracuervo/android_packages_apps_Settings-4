@@ -21,6 +21,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -458,10 +459,13 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
+            int fixedColor = getFixedColor(intHex, preference);
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_BATTERY_FRAME_COLOR,
-                    intHex);
-            preference.setSummary(hex);
+                    fixedColor);
+            String fixedHex = ColorPickerPreference.convertToARGB(
+                Integer.valueOf(String.valueOf(fixedColor)));
+            preference.setSummary(fixedHex);
             return true;
         } else if (preference == mTextColor) {
             hex = ColorPickerPreference.convertToARGB(
@@ -623,5 +627,24 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         public void onCancel(DialogInterface dialog) {
 
         }
+    }
+
+    private int getFixedColor(int color, Preference preference) {
+        int currentColor = color;
+        int fixedColor;
+        int currentAlpha = Color.alpha(currentColor);
+        int defaultAlpha = 102;
+
+        if (currentAlpha == defaultAlpha) {
+            return currentColor;
+        } else {
+            int r = Color.red(currentColor);
+            int g = Color.green(currentColor);
+            int b = Color.blue(currentColor);
+
+            fixedColor = (defaultAlpha << 24) + (r << 16) + (g << 8) + b;
+            ((ColorPickerPreference)preference).setNewPreviewColor(fixedColor);
+        }
+        return fixedColor;
     }
 }
