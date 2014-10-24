@@ -421,7 +421,7 @@
     <string name="battery_bar_animate_title">Charging animation</string>
     <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string> 
     <string name="battery_bar_thickness_title">Thickness</string>
-    <string name="battery_bar_statusbar">Top of Statusbar</string>
+    <string name="battery_bar_statusbar">Top of statusbar</string>
     <string name="battery_bar_navbar_top">Top of navigation bar</string>
     <string name="battery_bar_navbar_buttom">Buttom of navigation bar</string>
     <string name="battery_bar_thickness_1">1dp (default)</string>
