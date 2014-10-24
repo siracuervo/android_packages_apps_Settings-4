@@ -45,6 +45,11 @@
 		android:entries="@array/battery_bar_thickness_entries"
 		android:entryValues="@array/battery_bar_thickness_values" />
 
+	<CheckBoxPreference
+		android:key="battery_show_frame"
+		android:title="@string/battery_show_frame_title"
+		android:summary="@string/battery_show_frame_summary" />
+
 	<net.margaritov.preference.colorpicker.ColorPickerPreference
 		android:key="battery_bar_color"
 		android:title="@string/color_title"

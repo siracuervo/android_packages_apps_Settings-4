@@ -49,6 +49,8 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
             "battery_bar_animate";
     private static final String PREF_BATT_BAR_WIDTH =
             "battery_bar_thickness";
+    private static final String PREF_BATT_BAR_SHOW_FRAME =
+            "battery_show_frame";
     private static final String PREF_BATT_BAR_COLOR =
             "battery_bar_color";
 
@@ -60,6 +62,7 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
     private CheckBoxPreference mBatteryBarCenter;
     private CheckBoxPreference mBatteryBarChargingAnimation;
     private ListPreference mBatteryBarThickness;
+    private CheckBoxPreference mBatteryBarShowFrame;
     private ColorPickerPreference mBatteryBarColor;
 
     private ContentResolver mResolver;
@@ -98,14 +101,14 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
 
             mBatteryBarCenter =
                     (CheckBoxPreference) findPreference(PREF_BATT_BAR_CENTER);
-            mBatteryBarCenter.setChecked((Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_BATTERY_BAR_STYLE, 0) == 1));
+            mBatteryBarCenter.setChecked(Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_BATTERY_BAR_STYLE, 0) == 1);
             mBatteryBarCenter.setOnPreferenceChangeListener(this);
 
             mBatteryBarChargingAnimation =
                     (CheckBoxPreference) findPreference(PREF_BATT_ANIMATE);
-            mBatteryBarChargingAnimation.setChecked((Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_BATTERY_BAR_ANIMATE, 0) == 1));
+            mBatteryBarChargingAnimation.setChecked(Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_BATTERY_BAR_ANIMATE, 0) == 1);
             mBatteryBarChargingAnimation.setOnPreferenceChangeListener(this);
 
             mBatteryBarThickness =
@@ -115,6 +118,12 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
             mBatteryBarThickness.setValue(String.valueOf(batteryBarThickness));
             mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntry());
             mBatteryBarThickness.setOnPreferenceChangeListener(this);
+
+            mBatteryBarShowFrame =
+                    (CheckBoxPreference) findPreference(PREF_BATT_BAR_SHOW_FRAME);
+            mBatteryBarShowFrame.setChecked(Settings.System.getInt(mResolver,
+                    Settings.System.STATUS_BAR_BATTERY_BAR_SHOW_FRAME, 0) == 1);
+            mBatteryBarShowFrame.setOnPreferenceChangeListener(this);
 
             mBatteryBarColor =
                     (ColorPickerPreference) findPreference(PREF_BATT_BAR_COLOR);
@@ -129,6 +138,7 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
             removePreference(PREF_BATT_BAR_CENTER);
             removePreference(PREF_BATT_ANIMATE);
             removePreference(PREF_BATT_BAR_WIDTH);
+            removePreference(PREF_BATT_BAR_SHOW_FRAME);
             removePreference(PREF_BATT_BAR_COLOR);
         }
 
@@ -196,6 +206,12 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
             mBatteryBarThickness.setSummary(
                 mBatteryBarThickness.getEntries()[index]);
             return true;
+        } else if (preference == mBatteryBarShowFrame) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_BATTERY_BAR_SHOW_FRAME,
+                    value ? 1 : 0);
+            return true;
         } else if (preference == mBatteryBarColor) {
             String hex = ColorPickerPreference.convertToARGB(
                 Integer.valueOf(String.valueOf(newValue)));
@@ -254,6 +270,8 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_BATTERY_BAR_THICKNESS, 1);
                             Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_BATTERY_BAR_SHOW_FRAME, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_BATTERY_BAR_COLOR,
                                 0xffffffff);
                             getOwner().refreshSettings();
@@ -270,6 +288,8 @@ public class StatusBarBatteryBarStyle extends SettingsPreferenceFragment impleme
                                 Settings.System.STATUS_BAR_BATTERY_BAR_ANIMATE, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_BATTERY_BAR_THICKNESS, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_BATTERY_BAR_SHOW_FRAME, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_BATTERY_BAR_COLOR,
                                 0xff33b5e5);
