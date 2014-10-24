@@ -421,13 +421,15 @@
     <string name="battery_bar_animate_title">Lade-Animation</string>
     <string name="battery_bar_animate_summary">Die Lade-Animation kann zu trägem Verhalten des Gerätes führen. Aktiviere sie, nach deinem eigenen Ermessen.</string> 
     <string name="battery_bar_thickness_title">Dicke</string>
-    <string name="battery_bar_statusbar">Statusleiste</string>
+    <string name="battery_bar_statusbar">Über der Statusleiste</string>
     <string name="battery_bar_navbar_top">Über der Navigationsleiste</string>
     <string name="battery_bar_navbar_buttom">Unter der Navigationsleiste</string>
     <string name="battery_bar_thickness_1">1dp (Standard)</string>
     <string name="battery_bar_thickness_2">2dp</string>
     <string name="battery_bar_thickness_3">3dp</string>
     <string name="battery_bar_thickness_4">4dp</string>
+    <string name="battery_show_frame_title">Hintergrund anzeigen</string>
+    <string name="battery_show_frame_summary">Aktivieren um den Hintergrund anzuzeigen,\n(Farbe der Akkuleiste mit 40% Transparenz)</string>
 
     <!-- Status bar signal wifi icon style  -->
     <string name="status_bar_cat_signal_strength_title">Mobilnetzwerk-Stärke Symbol</string>
