@@ -64,6 +64,8 @@
     <string name="status_bar_clock_date_style_summary">Customize the clock &amp; the date</string>
     <string name="status_bar_battery_status_style_title">Battery status</string>
     <string name="status_bar_battery_status_style_summary">Customize the battery status</string>
+    <string name="status_bar_battery_bar_title">Battery bar</string>
+    <string name="status_bar_battery_bar_summary">Customize the battery bar</string>
 
     <!-- Status bar clock date style -->
     <string name="status_bar_cat_clock_date_title">Clock &amp; date</string>
@@ -105,6 +107,22 @@
     <string name="battery_status_color">Fill</string>
     <string name="battery_text_color">Text normal</string>
     <string name="battery_text_charging_color">Text while charging</string>
+
+    <!-- Status bar battery bar -->
+    <string name="battery_bar_position_title">Position</string>
+    <string name="battery_bar_disabled">Disabled</string>
+    <string name="battery_bar_statusbar_top">Top of statusbar</string>
+    <string name="battery_bar_navbar_top">Top of navigation bar</string>
+    <string name="battery_bar_navbar_buttom">Buttom of navigation bar</string>
+    <string name="battery_bar_center_title">Center-mirrored</string>
+    <string name="battery_bar_center_summary">Display the battery bar center-mirrored</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string> 
+    <string name="battery_bar_thickness_title">Thickness</string>
+    <string name="battery_bar_thickness_1">1dp (default)</string>
+    <string name="battery_bar_thickness_2">2dp</string>
+    <string name="battery_bar_thickness_3">3dp</string>
+    <string name="battery_bar_thickness_4">4dp</string>
 
     <!-- Device info settings -->
     <string name="dck_version">DarkCyanKat version</string>

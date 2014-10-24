@@ -64,6 +64,8 @@
     <string name="status_bar_clock_date_style_summary">Die Uhr &amp; das Datum anpassen</string>
     <string name="status_bar_battery_status_style_title">Akkustatus</string>
     <string name="status_bar_battery_status_style_summary">Den Akkustatus anpassen</string>
+    <string name="status_bar_battery_bar_title">Akkuleiste</string>
+    <string name="status_bar_battery_bar_summary">Die Akkuleiste anpassen</string>
 
     <!-- Status bar clock date style -->
     <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>
@@ -105,6 +107,22 @@
     <string name="battery_status_color">Füllung</string>
     <string name="battery_text_color">Text normal</string>
     <string name="battery_text_charging_color">Text während des Ladevorgangs</string>
+
+    <!-- Status bar battery bar -->
+    <string name="battery_bar_position_title">Position</string>
+    <string name="battery_bar_disabled">Deaktiviert</string>
+    <string name="battery_bar_statusbar_top">Über der Statusleiste</string>
+    <string name="battery_bar_navbar_top">Über der Navigationsleiste</string>
+    <string name="battery_bar_navbar_buttom">Unter der Navigationsleiste</string>
+    <string name="battery_bar_center_title">Mittig-gespiegelt</string>
+    <string name="battery_bar_center_summary">Die Akkuleiste mittig-gespiegelt darstellen</string>
+    <string name="battery_bar_animate_title">Lade-Animation</string>
+    <string name="battery_bar_animate_summary">Die Lade-Animation kann zu trägem Verhalten des Gerätes führen. Aktiviere sie, nach deinem eigenen Ermessen.</string> 
+    <string name="battery_bar_thickness_title">Dicke</string>
+    <string name="battery_bar_thickness_1">1dp (Standard)</string>
+    <string name="battery_bar_thickness_2">2dp</string>
+    <string name="battery_bar_thickness_3">3dp</string>
+    <string name="battery_bar_thickness_4">4dp</string>
 
     <!-- Device info settings -->
     <string name="dck_version">DarkCyanKat-Version</string>
