@@ -400,7 +400,7 @@
     <string name="battery_status_show_percentage_sign_title">Show percentage sign</string>
     <string name="battery_status_show_percentage_sign_summary">Activate, to show the battery status percentage sign</string>
     <string name="battery_status_custom_frame_color_title">Custom frame color</string>
-    <string name="battery_status_custom_frame_color_summary">If disabled, the battery status color with a transparency of 80% will be used.</string>
+    <string name="battery_status_custom_frame_color_summary">If disabled, the battery status color will be used. The transparency is always 60%</string>
     <string name="battery_status_custom_text_hight_color_title">High level</string>
     <string name="battery_status_custom_text_hight_color_summary">Enable to use a custom text color for the battery status at 90 percent or more. Disable to use green color.</string>
     <string name="battery_status_animation_speed">Charge animation speed</string>
@@ -409,6 +409,7 @@
     <string name="battery_status_animation_speed_stock">Normal</string>
     <string name="battery_status_animation_speed_fast">Fast</string>
     <string name="battery_status_color">Fill</string>
+    <string name="battery_frame_color">Frame (transparency 60%)</string>
     <string name="battery_text_color">Text normal</string>
     <string name="battery_text_hight_color">Text normal (High level)</string>
     <string name="battery_text_charging_color">Text while charging</string>
