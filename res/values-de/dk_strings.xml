@@ -438,7 +438,7 @@
     <string name="battery_bar_thickness_3">3dp</string>
     <string name="battery_bar_thickness_4">4dp</string>
     <string name="battery_show_frame_title">Hintergrund anzeigen</string>
-    <string name="battery_show_frame_summary">Aktivieren um den Hintergrund anzuzeigen,\n(Farbe der Akkuleiste mit 40% Transparenz)</string>
+    <string name="battery_show_frame_summary">Aktivieren um den Hintergrund anzuzeigen,\n(Farbe der Akkuleiste mit 60% Transparenz)</string>
 
     <!-- Status bar signal wifi icon style  -->
     <string name="status_bar_cat_signal_strength_title">Mobilnetzwerk-Stärke Symbol</string>

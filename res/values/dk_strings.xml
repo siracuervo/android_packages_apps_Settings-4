@@ -438,7 +438,7 @@
     <string name="battery_bar_thickness_3">3dp</string>
     <string name="battery_bar_thickness_4">4dp</string>
     <string name="battery_show_frame_title">Show background</string>
-    <string name="battery_show_frame_summary">Enable to show the background,\n(battery bar with a transparency of 40%)</string>
+    <string name="battery_show_frame_summary">Enable to show the background,\n(battery bar with a transparency of 60%)</string>
 
     <!-- Status bar signal wifi icon style  -->
     <string name="status_bar_cat_signal_strength_title">Mobile network strength icon</string>
