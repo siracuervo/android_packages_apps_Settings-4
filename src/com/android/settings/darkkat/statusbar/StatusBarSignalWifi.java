@@ -38,7 +38,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment implements
+public class StatusBarSignalWifi extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener { 
 
     private static final String PREF_STAT_BAR_SIGNAL =
@@ -74,7 +74,7 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.status_bar_signal_wifi_style);
+        addPreferencesFromResource(R.xml.status_bar_signal_wifi);
         mResolver = getActivity().getContentResolver();
 
         int intColor;
@@ -211,8 +211,8 @@ public class StatusBarSignalWifiStyle extends SettingsPreferenceFragment impleme
             return frag;
         }
 
-        StatusBarSignalWifiStyle getOwner() {
-            return (StatusBarSignalWifiStyle) getTargetFragment();
+        StatusBarSignalWifi getOwner() {
+            return (StatusBarSignalWifi) getTargetFragment();
         }
 
         @Override

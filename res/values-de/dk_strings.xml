@@ -15,6 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Global used -->
+    <string name="cat_options_title">Optionen</string>
     <string name="cat_options_general_title">Optionen Allgemein</string>
     <string name="cat_colors_title">Farben anpassen</string>
     <string name="reset">Zurücksetzen</string>
@@ -62,16 +63,18 @@
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gesten</string>
     <string name="status_bar_gestures_summary">Gesten anpassen</string>
-    <string name="status_bar_clock_date_style_title">Uhr &amp; Datum</string>
-    <string name="status_bar_clock_date_style_summary">Die Uhr &amp; das Datum anpassen</string>
-    <string name="status_bar_battery_status_style_title">Akkustatus</string>
-    <string name="status_bar_battery_status_style_summary">Den Akkustatus anpassen</string>
+    <string name="status_bar_clock_date_title">Uhr &amp; Datum</string>
+    <string name="status_bar_clock_date_summary">Die Uhr &amp; das Datum anpassen</string>
+    <string name="status_bar_battery_status_title">Akkustatus</string>
+    <string name="status_bar_battery_status_summary">Den Akkustatus anpassen</string>
     <string name="status_bar_battery_bar_title">Akkuleiste</string>
     <string name="status_bar_battery_bar_summary">Die Akkuleiste anpassen</string>
     <string name="status_bar_signal_wifi_title">Netzwerk Symbole</string>
     <string name="status_bar_signal_wifi_summary">Die Netzwerk Symbole anpassen</string>
+    <string name="status_bar_traffic_title">Netzwerkverkehr</string>
+    <string name="status_bar_traffic_summary">Die Netzwerkverkehrs Anzeige anpassen</string>
 
-    <!-- Status bar clock date style -->
+    <!-- Status bar clock date -->
     <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>
     <string name="status_bar_cat_clock_title">Uhr</string>
     <string name="status_bar_cat_date_title">Datum</string>
@@ -99,7 +102,7 @@
     <string name="status_bar_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
     <string name="status_bar_date_string_edittext_summary">Zeichenfolge eingeben</string>
 
-    <!-- Status bar battery status style -->
+    <!-- Status bar battery status -->
     <string name="battery_status_cat_options_ring_title">Optionen Ring</string>
     <string name="battery_status_show_text_title">Text anzeigen</string>
     <string name="battery_status_show_text_summary">Aktivieren um den Akkustatus Text anzuzeigen</string>
@@ -130,6 +133,29 @@
 
     <!-- Status bar signal wifi icon -->
     <string name="status_bar_airplane_mode_icon_color_title">Flugmodus Symbol</string>
+
+    <!-- Status bar traffic -->
+    <string name="traffic_indicator_title">Anzeige</string>
+    <string name="traffic_disabled">Deaktiviert</string>
+    <string name="traffic_download">Download</string>
+    <string name="traffic_upload">Upload</string>
+    <string name="traffic_download_upload">Download &amp; Upload</string>
+    <string name="traffic_show_icon_title">Symbol</string>
+    <string name="traffic_show_icon_summary">Aktivieren um das Symbol anzuzeigen</string>
+    <string name="traffic_summary_title">Datenmenge anzeigen</string>
+    <string name="traffic_timeout_0s">Nicht anzeigen</string>
+    <string name="traffic_timeout_1s">1 Sekunde</string>
+    <string name="traffic_timeout_2s">2 Sekunden</string>
+    <string name="traffic_timeout_3s">3 Sekunden</string>
+    <string name="traffic_timeout_5s">5 Sekunden</string>
+    <string name="traffic_timeout_8s">8 Sekunden</string>
+    <string name="traffic_timeout_10s">10 Sekunden</string>
+    <string name="traffic_timeout_15s">15 Sekunden</string>
+    <string name="traffic_timeout_25s">25 Sekunden</string>
+    <string name="traffic_bit_byte_title">Bit-Werte anzeigen</string>
+    <string name="traffic_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
+    <string name="traffic_hide_indicator_title">Anzeige verstecken</string>
+    <string name="traffic_hide_indicator_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
 
     <!-- Device info settings -->
     <string name="dck_version">DarkCyanKat-Version</string>

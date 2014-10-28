@@ -43,7 +43,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import java.util.Date;
 
-public class StatusBarClockDateStyle extends SettingsPreferenceFragment implements
+public class StatusBarClockDate extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener { 
 
     private static final String PREF_STAT_BAR_CAT_CLOCK_DATE =
@@ -102,7 +102,7 @@ public class StatusBarClockDateStyle extends SettingsPreferenceFragment implemen
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.status_bar_clock_date_style);
+        addPreferencesFromResource(R.xml.status_bar_clock_date);
 
         mResolver = getActivity().getContentResolver();
 
@@ -378,8 +378,8 @@ public class StatusBarClockDateStyle extends SettingsPreferenceFragment implemen
             return frag;
         }
 
-        StatusBarClockDateStyle getOwner() {
-            return (StatusBarClockDateStyle) getTargetFragment();
+        StatusBarClockDate getOwner() {
+            return (StatusBarClockDate) getTargetFragment();
         }
 
         @Override

@@ -37,7 +37,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment implements
+public class StatusBarBatteryStatus extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String PREF_CAT_OPTIONS_GENERAL =
@@ -46,8 +46,8 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
             "battery_status_cat_options_ring";
     private static final String PREF_CAT_COLORS =
             "battery_status_cat_colors";
-    private static final String PREF_BATT_STAT_STYLE =
-            "battery_status_style";
+    private static final String PREF_BATT_STAT_TYPE =
+            "battery_status_type";
     private static final String PREF_BATT_STAT_SHOW_TEXT =
             "battery_status_show_text";
     private static final String PREF_BATT_STAT_ANIMATION_SPEED =
@@ -76,7 +76,7 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private ListPreference mBatteryStatusStyle;
+    private ListPreference mBatteryStatusType;
     private CheckBoxPreference mShowText;
     private ListPreference mAnimSpeed;
     private CheckBoxPreference mCircleDotted;
@@ -110,8 +110,8 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         PreferenceCategory catColor =
                 (PreferenceCategory) findPreference(PREF_CAT_COLORS);
 
-        mBatteryStatusStyle =
-                (ListPreference) findPreference(PREF_BATT_STAT_STYLE);
+        mBatteryStatusType =
+                (ListPreference) findPreference(PREF_BATT_STAT_TYPE);
         mShowText =
                 (CheckBoxPreference) findPreference(PREF_BATT_STAT_SHOW_TEXT);
         mAnimSpeed =
@@ -140,9 +140,9 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         int intColor;
         String hexColor;
 
-        mBatteryStatusStyle.setValue(String.valueOf(batteryStatus));
-        mBatteryStatusStyle.setSummary(mBatteryStatusStyle.getEntry());
-        mBatteryStatusStyle.setOnPreferenceChangeListener(this);
+        mBatteryStatusType.setValue(String.valueOf(batteryStatus));
+        mBatteryStatusType.setSummary(mBatteryStatusType.getEntry());
+        mBatteryStatusType.setOnPreferenceChangeListener(this);
 
         if (isBatteryStatusEnabled) {
             if (batteryStatus != BATTERY_STATUS_TEXT) {
@@ -257,14 +257,14 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
         int intHex;
         String hex;
 
-        if (preference == mBatteryStatusStyle) {
+        if (preference == mBatteryStatusType) {
             intValue = Integer.valueOf((String) newValue);
-            index = mBatteryStatusStyle.findIndexOfValue((String) newValue);
+            index = mBatteryStatusType.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
                     Settings.System.STATUS_BAR_BATTERY_STATUS_STYLE,
                     intValue);
-            mBatteryStatusStyle.setSummary(
-                    mBatteryStatusStyle.getEntries()[index]);
+            mBatteryStatusType.setSummary(
+                    mBatteryStatusType.getEntries()[index]);
             refreshSettings();
             return true;
         } else if (preference == mShowText) {
@@ -358,8 +358,8 @@ public class StatusBarBatteryStatusStyle extends SettingsPreferenceFragment impl
             return frag;
         }
 
-        StatusBarBatteryStatusStyle getOwner() {
-            return (StatusBarBatteryStatusStyle) getTargetFragment();
+        StatusBarBatteryStatus getOwner() {
+            return (StatusBarBatteryStatus) getTargetFragment();
         }
 
         @Override

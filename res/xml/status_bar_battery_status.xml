@@ -16,18 +16,18 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/status_bar_battery_status_style_title">
+    android:title="@string/status_bar_battery_status_title">
 
     <PreferenceCategory
         android:key="battery_status_cat_options_general"
         android:title="@string/cat_options_general_title">
 
 	    <ListPreference
-	        android:key="battery_status_style"
+	        android:key="battery_status_type"
 	        android:dialogTitle="@string/type_title"
 	        android:title="@string/type_title"
-	        android:entries="@array/battery_status_style_entries"
-	        android:entryValues="@array/battery_status_style_values" />
+	        android:entries="@array/battery_status_type_entries"
+	        android:entryValues="@array/battery_status_type_values" />
 
         <CheckBoxPreference
             android:key="battery_status_show_text"

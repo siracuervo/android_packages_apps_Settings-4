@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 DarkKat
+<!-- Copyright (C) 2014 DarkKat
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -83,7 +83,7 @@
         <item>Custom java format</item>
     </string-array>
 
-    <string-array name="battery_status_style_entries" >
+    <string-array name="battery_status_type_entries" >
         <item>@string/icon_portrait_title</item>
         <item>@string/icon_landscape_title</item>
         <item>@string/ring_title</item>
@@ -91,7 +91,7 @@
         <item>@string/hidden_title</item>
     </string-array>
 
-    <string-array name="battery_status_style_values" translatable="false">
+    <string-array name="battery_status_type_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
@@ -167,5 +167,43 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+
+    <string-array name="traffic_indicator_entries" >
+        <item>@string/traffic_disabled</item>
+        <item>@string/traffic_download</item>
+        <item>@string/traffic_upload</item>
+        <item>@string/traffic_download_upload</item> 
+    </string-array>
+
+    <string-array name="traffic_indicator_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="traffic_summary_entries" >
+        <item>@string/traffic_timeout_0s</item>
+        <item>@string/traffic_timeout_1s</item>
+        <item>@string/traffic_timeout_2s</item> 
+        <item>@string/traffic_timeout_3s</item>
+        <item>@string/traffic_timeout_5s</item>
+        <item>@string/traffic_timeout_8s</item>
+        <item>@string/traffic_timeout_10s</item>
+        <item>@string/traffic_timeout_15s</item>
+        <item>@string/traffic_timeout_25s</item>
+    </string-array>
+
+    <string-array name="traffic_summary_values" translatable="false">
+        <item>0</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>5000</item>
+        <item>8000</item>
+        <item>10000</item>
+        <item>15000</item>
+        <item>25000</item>
     </string-array>
 </resources>
