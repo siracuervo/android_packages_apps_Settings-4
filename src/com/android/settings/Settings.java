@@ -92,7 +92,7 @@ import com.android.settings.cyanogenmod.LockscreenInterface;
 import com.android.settings.cyanogenmod.NavBar;
 import com.android.settings.cyanogenmod.NavRing;
 import com.android.settings.cyanogenmod.PerformanceSettings;
-import com.android.settings.cyanogenmod.StatusBar;
+import com.android.settings.darkkat.statusbar.StatusBar;
 import com.android.settings.cyanogenmod.NotificationDrawer;
 import com.android.settings.cyanogenmod.superuser.PolicyNativeFragment;
 import com.android.settings.deviceinfo.Memory;

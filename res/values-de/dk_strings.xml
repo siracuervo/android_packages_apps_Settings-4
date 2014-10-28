@@ -39,6 +39,8 @@
     <string name="opaque_color_title">Undurchsichtig</string>
     <string name="semi_trans_color_title">Halbtransparent</string>
     <string name="gradient_color_title">Schatten</string>
+    <string name="color_normal_title">Normal</string>
+    <string name="color_fully_title">Vollständig verbunden</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Farbauswahl</string>
@@ -66,6 +68,8 @@
     <string name="status_bar_battery_status_style_summary">Den Akkustatus anpassen</string>
     <string name="status_bar_battery_bar_title">Akkuleiste</string>
     <string name="status_bar_battery_bar_summary">Die Akkuleiste anpassen</string>
+    <string name="status_bar_signal_wifi_title">Netzwerk Symbole</string>
+    <string name="status_bar_signal_wifi_summary">Die Netzwerk Symbole anpassen</string>
 
     <!-- Status bar clock date style -->
     <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>
@@ -123,6 +127,9 @@
     <string name="battery_bar_thickness_2">2dp</string>
     <string name="battery_bar_thickness_3">3dp</string>
     <string name="battery_bar_thickness_4">4dp</string>
+
+    <!-- Status bar signal wifi icon -->
+    <string name="status_bar_airplane_mode_icon_color_title">Flugmodus Symbol</string>
 
     <!-- Device info settings -->
     <string name="dck_version">DarkCyanKat-Version</string>
