@@ -73,6 +73,9 @@
     <string name="status_bar_signal_wifi_summary">Die Netzwerk Symbole anpassen</string>
     <string name="status_bar_traffic_title">Netzwerkverkehr</string>
     <string name="status_bar_traffic_summary">Die Netzwerkverkehrs Anzeige anpassen</string>
+    <string name="status_bar_notif_system_icons_title">Benachrichtigungen &amp; System Symbole</string>
+    <string name="status_bar_notif_system_icons_title_phone">Benachr. &amp; System Symbole</string>
+    <string name="status_bar_notif_system_icons_summary">Die Benachrichtigungen &amp; System Symbole anpassen</string>
 
     <!-- Status bar clock date -->
     <string name="status_bar_cat_clock_date_title">Uhr &amp; Datum</string>
@@ -156,6 +159,13 @@
     <string name="traffic_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
     <string name="traffic_hide_indicator_title">Anzeige verstecken</string>
     <string name="traffic_hide_indicator_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
+
+    <!-- Status bar notifications and system icons -->
+    <string name="notif_system_colorize_notif_icons_title">Benachrichtigungs-Symbol Farbe</string>
+    <string name="notif_system_colorize_notif_icons_title_phone">Benachr. Symbol einfärben</string>
+    <string name="notif_system_colorize_notif_icons_summary">Aktivieren um die Benachrichtiguns-Symbole einzufärben</string>
+    <string name="notif_system_notif_text_color_title">Benachrichtigungstext</string>
+    <string name="notif_system_notif_count_text_color_title">Benachrichtigungszähler Text</string>
 
     <!-- Device info settings -->
     <string name="dck_version">DarkCyanKat-Version</string>

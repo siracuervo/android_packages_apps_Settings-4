@@ -73,6 +73,9 @@
     <string name="status_bar_signal_wifi_summary">Customize the network icons</string>
     <string name="status_bar_traffic_title">Network traffic</string>
     <string name="status_bar_traffic_summary">Customize the network traffic indicator</string>
+    <string name="status_bar_notif_system_icons_title">Notifications &amp; system icons</string>
+    <string name="status_bar_notif_system_icons_title_phone">Notif. &amp; system icons</string>
+    <string name="status_bar_notif_system_icons_summary">Customize the notifications &amp; system icons</string>
 
     <!-- Status bar clock date -->
     <string name="status_bar_cat_clock_date_title">Clock &amp; date</string>
@@ -156,6 +159,13 @@
     <string name="traffic_bit_byte_summary">Enable to show the values in bit instead of byte</string>
     <string name="traffic_hide_indicator_title">Hide the indicator</string>
     <string name="traffic_hide_indicator_summary">Enable to hide the indicator if there is no traffic</string>
+
+    <!-- Status bar notifications and system icons -->
+    <string name="notif_system_colorize_notif_icons_title">Colorize notification icons</string>
+    <string name="notif_system_colorize_notif_icons_title_phone">Colorize notif. icons</string>
+    <string name="notif_system_colorize_notif_icons_summary">Enable to colorize the notification icons color</string>
+    <string name="notif_system_notif_text_color_title">Notification Text</string>
+    <string name="notif_system_notif_count_text_color_title">Notification count Text</string>
 
     <!-- Device info settings -->
     <string name="dck_version">DarkCyanKat version</string>

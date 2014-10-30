@@ -60,10 +60,10 @@
         android:summary="@string/status_bar_traffic_summary"
         android:fragment="com.android.settings.darkkat.statusbar.StatusBarTraffic" />
 
-    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
-        android:key="status_bar_notif_count"
-        android:title="@string/status_bar_notif_count_title"
-        android:summary="@string/status_bar_notif_count_summary"
-        android:defaultValue="false" />
+    <PreferenceScreen
+        android:key="status_bar_notif_system_icons"
+        android:title="@string/status_bar_notif_system_icons_title"
+        android:summary="@string/status_bar_notif_system_icons_summary"
+        android:fragment="com.android.settings.darkkat.statusbar.StatusBarNotifSystemIcons" />
 
 </PreferenceScreen>
