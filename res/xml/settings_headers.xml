@@ -115,14 +115,14 @@
         android:fragment="com.android.settings.cyanogenmod.NotificationDrawer"
         android:title="@string/notification_drawer_title" />
 
-    <!-- Themes -->
+    <!-- Themes
     <header
         settings:includeXmlForSearch="@xml/theme_settings"
         android:id="@+id/theme_settings"
         android:title="@string/themes_settings_title"
         android:breadCrumbTitle="@string/themes_settings_title"
         android:fragment="com.android.settings.ThemeSettings"
-        android:icon="@drawable/prd_ic_themepacks" />
+        android:icon="@drawable/prd_ic_themepacks" /> -->
 
     <!-- Gestures -->
     <header
