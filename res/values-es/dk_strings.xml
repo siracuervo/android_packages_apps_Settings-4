@@ -370,7 +370,7 @@
     <string name="status_bar_show_clock_title">Mostrar hora</string>
     <string name="status_bar_show_clock_summary">Muestra la hora en la barra de estado</string>
     <string name="status_bar_force_clock_on_lockscreen_title"> Mostrar en la pantalla de bloqueo</string>
-    <string name="status_bar_force_clock_on_lockscreen_summary ">Mostrar la fecha y hora en la pantalla de bloqueo</string>
+    <string name="status_bar_force_clock_on_lockscreen_summary">Mostrar la fecha y hora en la pantalla de bloqueo</string>
     <string name="status_bar_show_date_title">Mostrar fecha</string>
     <string name="status_bar_show_date_summary">Muestra la fecha en la barra de estado</string>
     <string name="status_bar_clock_date_position_title">Posición</string>
