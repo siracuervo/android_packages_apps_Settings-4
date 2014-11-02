@@ -16,8 +16,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/notification_drawer_title"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    android:title="@string/notification_drawer_title">
 
     <ListPreference
         android:key="notification_drawer_collapse_on_dismiss"
@@ -25,17 +24,6 @@
         android:dialogTitle="@string/notification_drawer_collapse_on_dismiss_title"
         android:entries="@array/notification_drawer_collapse_on_dismiss_entries"
         android:entryValues="@array/notification_drawer_collapse_on_dismiss_values" />
-
-    <PreferenceScreen
-            settings:includeXmlForSearch="@xml/quick_settings_panel"
-            android:key="quick_settings_panel"
-            android:fragment="com.android.settings.quicksettings.QuickSettings"
-            android:title="@string/quick_settings_panel_title" />
-
-    <Preference
-            android:key="heads_up_enabled"
-            android:fragment="com.android.settings.headsup.HeadsUpSettings"
-            android:title="@string/category_heads_up" />
 
     <PreferenceCategory
         android:title="@string/category_quick_access" >

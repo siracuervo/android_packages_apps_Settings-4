@@ -56,9 +56,14 @@
 
     <!-- Interface category -->
     <string name="interface_bars_settings_title">Leisten</string>
+    <string name="interface_more_settings_title">Mehr...</string>
 
     <!-- Bars settings -->
     <string name="status_bar_summary">Statusleiste anpassen</string>
+    <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
+    <string name="status_bar_expanded_summary">Erweiterte Statusleiste  anpassen</string>
+    <string name="navigation_bar_title">Navigationsleiste</string>
+    <string name="navigation_bar_summary">Navigationsleiste  anpassen</string>
 
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gesten</string>

@@ -107,14 +107,6 @@
         android:fragment="com.android.settings.darkkat.InterfaceBarsSettings"
         android:icon="@drawable/ic_bars" />
 
-    <!-- Notification Bar -->
-    <header
-        settings:includeXmlForSearch="@xml/notification_drawer"
-        android:id="@+id/notification_bar_settings"
-        android:icon="@drawable/ic_notify_open_normal"
-        android:fragment="com.android.settings.cyanogenmod.NotificationDrawer"
-        android:title="@string/notification_drawer_title" />
-
     <!-- Themes
     <header
         settings:includeXmlForSearch="@xml/theme_settings"
@@ -134,6 +126,14 @@
             android:targetPackage="com.cyanogenmod.settings.device"
             android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
     </header>
+
+    <!-- More -->
+    <header
+        settings:includeXmlForSearch="@xml/interface_more_settings"
+        android:id="@+id/interface_more_settings"
+        android:title="@string/interface_more_settings_title"
+        android:fragment="com.android.settings.darkkat.InterfaceMoreSettings"
+        android:icon="@drawable/empty_icon" />
 
     <!-- DEVICE -->
     <header android:id="@+id/device_section"

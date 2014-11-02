@@ -56,9 +56,14 @@
 
     <!-- Interface category -->
     <string name="interface_bars_settings_title">Bars</string>
+    <string name="interface_more_settings_title">More...</string>
 
     <!-- Bars settings -->
     <string name="status_bar_summary">Customize status bar</string>
+    <string name="status_bar_expanded_title">Status bar expanded</string>
+    <string name="status_bar_expanded_summary">Customize status bar expanded</string>
+    <string name="navigation_bar_title">Navigation bar</string>
+    <string name="navigation_bar_summary">Customize navigation bar</string>
 
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gestures</string>
