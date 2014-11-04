@@ -16,17 +16,55 @@
 
 package com.android.settings.darkkat.statusbarexpanded;
 
+import android.content.ContentResolver;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.provider.Settings;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBarExpanded extends SettingsPreferenceFragment {
+public class StatusBarExpanded extends SettingsPreferenceFragment implements
+        OnPreferenceChangeListener {
+
+    private static final String PREF_BACKGROUND_COLOR =
+            "status_bar_expanded_background_color";
+
+    private ColorPickerPreference mBackgroundColor;
+
+    private ContentResolver mResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.status_bar_expanded);
+
+        mResolver = getActivity().getContentResolver();
+
+        mBackgroundColor =
+                (ColorPickerPreference) findPreference(PREF_BACKGROUND_COLOR);
+        int color = Settings.System.getInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_BACKGROUND_COLOR, 0xe60d0d0d);
+        mBackgroundColor.setNewPreviewColor(color);
+        String hexColor = String.format("#%08x", (0xffffffff & color));
+        mBackgroundColor.setSummary(hexColor);
+        mBackgroundColor.setAlphaSliderEnabled(true);
+        mBackgroundColor.setOnPreferenceChangeListener(this);
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mBackgroundColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                Settings.System.STATUS_BAR_EXPANDED_BACKGROUND_COLOR, intHex);
+            preference.setSummary(hex);
+            return true;
+        }
+        return false;
     }
 }

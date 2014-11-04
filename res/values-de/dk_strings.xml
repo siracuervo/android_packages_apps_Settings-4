@@ -18,6 +18,7 @@
     <string name="cat_options_title">Optionen</string>
     <string name="cat_options_general_title">Optionen Allgemein</string>
     <string name="cat_colors_title">Farben anpassen</string>
+    <string name="cat_color_title">Farbe anpassen</string>
     <string name="reset">Zurücksetzen</string>
     <string name="hidden_title">Verborgen</string>
     <string name="dlg_reset_color_values_message">Farb Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
@@ -171,6 +172,16 @@
     <string name="notif_system_colorize_notif_icons_summary">Aktivieren um die Benachrichtiguns-Symbole einzufärben</string>
     <string name="notif_system_notif_text_color_title">Benachrichtigungstext</string>
     <string name="notif_system_notif_count_text_color_title">Benachrichtigungszähler Text</string>
+
+    <!-- Statusbar expanded -->
+    <string name="status_bar_expanded_header_title">Kopfzeile</string>
+
+    <!-- Statusbar expanded header -->
+    <string name="header_settings_btn_title">Einstellungen Schaltfläche</string>
+    <string name="header_settings_btn_summary">Aktivieren um den Einstellungen Schaltfläche immer anzuzeigen</string>
+    <string name="header_background_title">Hintergrund</string>
+    <string name="header_clock_date_title">Uhr &amp; Datum</string>
+    <string name="header_buttons_title">Schaltflächen</string>
 
     <!-- Device info settings -->
     <string name="dck_version">DarkCyanKat-Version</string>
