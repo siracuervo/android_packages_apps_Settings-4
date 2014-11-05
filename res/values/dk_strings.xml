@@ -175,6 +175,7 @@
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_title">Header</string>
+    <string name="status_bar_expanded_close_handle_title">Closing handle</string>
 
     <!-- Statusbar expanded header -->
     <string name="header_settings_btn_title">Settings button</string>
@@ -182,6 +183,9 @@
     <string name="header_background_title">Background</string>
     <string name="header_clock_date_title">Clock &amp; date</string>
     <string name="header_buttons_title">Buttons</string>
+
+    <!-- Statusbar expanded close handle -->
+    <string name="status_bar_expanded_close_handle_bar_color_title">Bar</string>
 
     <!-- Device info settings -->
     <string name="dck_version">DarkCyanKat version</string>
