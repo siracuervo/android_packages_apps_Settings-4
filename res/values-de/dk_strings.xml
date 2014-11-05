@@ -21,6 +21,7 @@
     <string name="cat_color_title">Farbe anpassen</string>
     <string name="reset">Zurücksetzen</string>
     <string name="hidden_title">Verborgen</string>
+    <string name="dlg_reset_color_value_android_message">Farb Wert auf Android Standard\nzurück setzen?</string>
     <string name="dlg_reset_color_values_message">Farb Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_values_message">Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_android">Android</string>

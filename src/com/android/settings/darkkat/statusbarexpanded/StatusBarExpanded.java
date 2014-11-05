@@ -16,11 +16,19 @@
 
 package com.android.settings.darkkat.statusbarexpanded;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -32,6 +40,11 @@ public class StatusBarExpanded extends SettingsPreferenceFragment implements
     private static final String PREF_BACKGROUND_COLOR =
             "status_bar_expanded_background_color";
 
+    private static final int DEFAULT_BACKGROUND_COLOR = 0xe60d0d0d;
+
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DLG_RESET = 0;
+
     private ColorPickerPreference mBackgroundColor;
 
     private ContentResolver mResolver;
@@ -39,6 +52,14 @@ public class StatusBarExpanded extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshSettings();
+    }
+
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
 
         addPreferencesFromResource(R.xml.status_bar_expanded);
 
@@ -47,12 +68,32 @@ public class StatusBarExpanded extends SettingsPreferenceFragment implements
         mBackgroundColor =
                 (ColorPickerPreference) findPreference(PREF_BACKGROUND_COLOR);
         int color = Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_BACKGROUND_COLOR, 0xe60d0d0d);
+                Settings.System.STATUS_BAR_EXPANDED_BACKGROUND_COLOR,
+                DEFAULT_BACKGROUND_COLOR);
         mBackgroundColor.setNewPreviewColor(color);
         String hexColor = String.format("#%08x", (0xffffffff & color));
         mBackgroundColor.setSummary(hexColor);
         mBackgroundColor.setAlphaSliderEnabled(true);
         mBackgroundColor.setOnPreferenceChangeListener(this);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, MENU_RESET, 0, R.string.reset)
+                .setIcon(R.drawable.ic_settings_backup) // use the backup icon
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_RESET:
+                showDialogInner(DLG_RESET);
+                return true;
+             default:
+                return super.onContextItemSelected(item);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -66,5 +107,54 @@ public class StatusBarExpanded extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
+    }
+
+    private void showDialogInner(int id) {
+        DialogFragment newFragment = MyAlertDialogFragment.newInstance(id);
+        newFragment.setTargetFragment(this, 0);
+        newFragment.show(getFragmentManager(), "dialog " + id);
+    }
+
+    public static class MyAlertDialogFragment extends DialogFragment {
+
+        public static MyAlertDialogFragment newInstance(int id) {
+            MyAlertDialogFragment frag = new MyAlertDialogFragment();
+            Bundle args = new Bundle();
+            args.putInt("id", id);
+            frag.setArguments(args);
+            return frag;
+        }
+
+        StatusBarExpanded getOwner() {
+            return (StatusBarExpanded) getTargetFragment();
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            int id = getArguments().getInt("id");
+            switch (id) {
+                case DLG_RESET:
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.reset)
+                    .setMessage(R.string.dlg_reset_color_value_android_message)
+                    .setNegativeButton(R.string.cancel, null)
+                    .setPositiveButton(R.string.dlg_ok,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                Settings.System.STATUS_BAR_EXPANDED_BACKGROUND_COLOR,
+                                DEFAULT_BACKGROUND_COLOR);
+                            getOwner().refreshSettings();
+                        }
+                    })
+                    .create();
+            }
+            throw new IllegalArgumentException("unknown id " + id);
+        }
+
+        @Override
+        public void onCancel(DialogInterface dialog) {
+
+        }
     }
 }
