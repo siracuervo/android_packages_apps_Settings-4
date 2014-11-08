@@ -15,6 +15,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Development settings -->
+
+    <!-- Advanced reboot options -->
+    <string name="advanced_reboot_title">Erweitertes Neustartmenü</string>
+    <string name="advanced_reboot_summary">Bei entsperrtem Bildschirm dem Neustartmenü Optionen Schneller Neustart, Neustart in Recovery und Neustart in Bootloader hinzufügen</string>
+
     <!-- Device info settings -->
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Arbeitsspeicher</string>
