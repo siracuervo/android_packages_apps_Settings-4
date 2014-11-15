@@ -71,6 +71,21 @@
 
     </dashboard-category>
 
+    <!-- Interface -->
+    <dashboard-category
+            android:id="@+id/ui_section"
+            android:title="@string/category_ui_section" >
+
+        <!-- Bars -->
+        <dashboard-tile
+                android:id="@+id/bars"
+                android:title="@string/bars"
+                android:fragment="com.android.settings.darkkat.Bars"
+                android:icon="@drawable/ic_settings_bars"
+                />
+
+    </dashboard-category>
+
     <!-- DEVICE -->
     <dashboard-category
             android:id="@+id/device_section"
