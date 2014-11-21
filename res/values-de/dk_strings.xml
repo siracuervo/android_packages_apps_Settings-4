@@ -39,7 +39,7 @@
     <string name="category_ui_section">Benutzeroberfläche</string>
 
     <!-- dashboard tiles-->
-    <string name="bars">Bars</string>
+    <string name="bars">Leisten</string>
 
     <!-- Bars settings -->
     <string name="status_bar_title">Statusleiste</string>
