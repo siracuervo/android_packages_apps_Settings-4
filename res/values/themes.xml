@@ -113,7 +113,7 @@
     <style name="Theme.SettingsBase" parent="@android:style/Theme.Material" />
 
     <style name="Theme.Settings" parent="Theme.SettingsBase">
-        <item name="android:colorBackground">#ff1B1F23</item>
+        <item name="android:colorBackground">@*android:color/darkkat_blue_grey</item>
         <item name="@*android:preferenceHeaderPanelStyle">@style/PreferenceHeaderPanelSinglePane</item>
         <item name="@*android:preferencePanelStyle">@style/PreferencePanelSinglePane</item>
         <item name="@*android:preferenceListStyle">@style/PreferenceHeaderListSinglePane</item>
@@ -179,7 +179,7 @@
 
     <style name="Theme.DialogWhenLarge" parent="@android:style/Theme.Material.DialogWhenLarge">
         <!-- Explicitly override the background color. -->
-        <item name="android:colorBackground">@color/dashboard_category_bg</item>
+        <item name="android:colorBackground">@*android:color/darkkat_blue_grey</item>
 
         <!-- Used by the ActionBar -->
         <item name="android:colorPrimary">@color/theme_primary</item>
@@ -216,7 +216,7 @@
         <item name="android:windowSoftInputMode">adjustResize</item>
 
         <!-- Explicitly override the background color. -->
-        <item name="android:colorBackground">@color/dashboard_category_bg</item>
+        <item name="android:colorBackground">@*android:color/darkkat_blue_grey</item>
 
         <!-- Used by the ActionBar -->
         <item name="android:colorPrimary">@color/theme_primary</item>
