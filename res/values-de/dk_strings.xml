@@ -16,6 +16,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Global used -->
+    <string name="cat_network_icons_title">Netzwerk Symbole</string>
+    <string name="cat_network_activity_icons_title">Aktivitäts Symbole</string>
+    <string name="cat_airplane_mode_icon_title">Flugmodus Symbol</string>
     <string name="position_right_title">Rechts</string>
     <string name="position_centered_title">Zentriert</string>
     <string name="hidden_title">Verborgen</string>
@@ -25,6 +28,8 @@
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="color_title">Farbe</string>
+    <string name="color_normal_title">Normal</string>
+    <string name="color_fully_title">Vollständig verbunden</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Farbauswahl</string>
@@ -48,6 +53,8 @@
     <!-- Status bar -->
     <string name="status_bar_clock_date_settings_title">Uhr &amp; Datum</string>
     <string name="status_bar_clock_date_settings_summary">Die Uhr &amp; das Datum anpassen</string>
+    <string name="status_bar_signal_wifi_settings_title">Netzwerk Symbole</string>
+    <string name="status_bar_signal_wifi_settings_summary">Die Netzwerk Symbole anpassen</string>
 
     <!-- clock and date settings -->
     <string name="clock_date_position_title">Position</string>
@@ -68,6 +75,10 @@
     <string name="clock_date_date_custom_java_format">Eigenes Java Format</string>
     <string name="clock_date_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
     <string name="clock_date_date_string_edittext_summary">Zeichenfolge eingeben</string>
+
+    <!-- Status bar signal wifi icon settings  -->
+    <string name="signal_wifi_show_activity_title">Netzwerkaktivität anzeigen</string>
+    <string name="signal_wifi_show_activity_summary">Aktivieren um die Netzwerkaktivität anzuzeigen</string>
 
     <!-- Development settings -->
 
