@@ -86,6 +86,12 @@
     <string name="volume_button_wake_title">Screen wake up</string>
     <string name="volume_button_wake_summary">Enable to turn the screen on when pressing the volume button up/down</string>
 
+    <!-- Battery settings -->
+
+    <!-- Wake on plug -->
+    <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
+    <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting the charger</string>
+
     <!-- Development settings -->
 
     <!-- Advanced reboot options -->
