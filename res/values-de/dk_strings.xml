@@ -82,9 +82,15 @@
 
     <!-- Button settings -->
     <string name="button_settings_title">Tasten</string>
-<string name="volume_button_category_title">Lautstärke Tasten</string>
+    <string name="volume_button_category_title">Lautstärke Tasten</string>
     <string name="volume_button_wake_title">Bildschirm aufwecken</string>
     <string name="volume_button_wake_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald die Lauter/Leiser Taste gedrückt wird</string>
+
+    <!-- Battery settings -->
+
+    <!-- Wake on plug -->
+    <string name="wake_when_plugged_or_unplugged_title">Ladegerät weckt Bildschirm</string>
+    <string name="wake_when_plugged_or_unplugged_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald ein Ladegerät angeschlossen oder entfernt wird</string>
 
     <!-- Development settings -->
 
