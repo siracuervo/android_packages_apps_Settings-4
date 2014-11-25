@@ -80,6 +80,12 @@
     <string name="signal_wifi_show_activity_title">Netzwerkaktivität anzeigen</string>
     <string name="signal_wifi_show_activity_summary">Aktivieren um die Netzwerkaktivität anzuzeigen</string>
 
+    <!-- Button settings -->
+    <string name="button_settings_title">Tasten</string>
+<string name="volume_button_category_title">Lautstärke Tasten</string>
+    <string name="volume_button_wake_title">Bildschirm aufwecken</string>
+    <string name="volume_button_wake_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald die Lauter/Leiser Taste gedrückt wird</string>
+
     <!-- Development settings -->
 
     <!-- Advanced reboot options -->

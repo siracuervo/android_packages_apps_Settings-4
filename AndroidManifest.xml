@@ -1696,6 +1696,7 @@
 
         <!-- DarkKat activities Start -->
         <activity android:name=".darkkat.Bars" />
+        <activity android:name=".darkkat.ButtonSettings" />
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
