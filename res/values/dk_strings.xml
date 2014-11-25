@@ -80,6 +80,12 @@
     <string name="signal_wifi_show_activity_title">Show network activity</string>
     <string name="signal_wifi_show_activity_summary">Enable to show the network activity</string>
 
+    <!-- Button settings -->
+    <string name="button_settings_title">Buttons</string>
+    <string name="volume_button_category_title">Volume buttons</string>
+    <string name="volume_button_wake_title">Screen wake up</string>
+    <string name="volume_button_wake_summary">Enable to turn the screen on when pressing the volume button up/down</string>
+
     <!-- Development settings -->
 
     <!-- Advanced reboot options -->
