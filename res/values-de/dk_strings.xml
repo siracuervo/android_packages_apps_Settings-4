@@ -51,10 +51,16 @@
     <string name="status_bar_summary">Statusleiste anpassen</string>
 
     <!-- Status bar -->
+    <string name="status_bar_gestures_title">Gesten</string>
+    <string name="status_bar_gestures_summary">Gesten anpassen</string>
     <string name="status_bar_clock_date_settings_title">Uhr &amp; Datum</string>
     <string name="status_bar_clock_date_settings_summary">Die Uhr &amp; das Datum anpassen</string>
     <string name="status_bar_signal_wifi_settings_title">Netzwerk Symbole</string>
     <string name="status_bar_signal_wifi_settings_summary">Die Netzwerk Symbole anpassen</string>
+
+    <!-- Status bar gestures -->
+    <string name="status_bar_double_tap_to_sleep_title">Standby</string>
+    <string name="status_bar_double_tap_to_sleep_summary">Das Gerät durch doppeltes Tippen auf die Statusleiste in den Standby-Modus setzen</string>
 
     <!-- clock and date settings -->
     <string name="clock_date_position_title">Position</string>
