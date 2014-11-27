@@ -28,7 +28,7 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String PREF_VOLBTN_WAKE =
-            "volume_button_wake";
+            "button_volume_button_wake";
 
     private CheckBoxPreference mVolBtnWake;
 

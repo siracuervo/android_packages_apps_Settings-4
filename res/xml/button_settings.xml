@@ -18,14 +18,20 @@ limitations under the License.
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/button_settings_title">
 
+    <PreferenceScreen
+        android:key="button_power_menu_settings"
+        android:title="@string/button_power_menu_settings_title"
+        android:summary="@string/button_power_menu_settings_summary"
+        android:fragment="com.android.settings.darkkat.PowerMenuSettings" />
+
     <PreferenceCategory
-        android:key="volume_button_category"
-        android:title="@string/volume_button_category_title">
+        android:key="button_volume_button_category"
+        android:title="@string/button_volume_button_category_title">
 
         <CheckBoxPreference
-            android:key="volume_button_wake"
-            android:title="@string/volume_button_wake_title"
-            android:summary="@string/volume_button_wake_summary" 
+            android:key="button_volume_button_wake"
+            android:title="@string/button_volume_button_wake_title"
+            android:summary="@string/button_volume_button_wake_summary" 
             android:defaultValue="false"/>
 
     </PreferenceCategory>
