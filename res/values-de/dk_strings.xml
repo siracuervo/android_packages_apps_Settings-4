@@ -59,6 +59,9 @@
     <string name="status_bar_signal_wifi_settings_summary">Die Netzwerk Symbole anpassen</string>
 
     <!-- Status bar gestures -->
+    <string name="status_bar_toggle_brightness_title">Helligkeitskontrolle</string>
+    <string name="status_bar_toggle_brightness_summary">Helligkeit per wischen über die Statusleiste einstellen</string>
+    <string name="status_bar_toggle_info">Automatische Helligkeit aktiv</string>
     <string name="status_bar_double_tap_to_sleep_title">Standby</string>
     <string name="status_bar_double_tap_to_sleep_summary">Das Gerät durch doppeltes Tippen auf die Statusleiste in den Standby-Modus setzen</string>
 
