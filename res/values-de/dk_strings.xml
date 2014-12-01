@@ -56,6 +56,8 @@
     <string name="status_bar_clock_date_settings_title">Uhr &amp; Datum</string>
     <string name="status_bar_clock_date_settings_summary">Die Uhr &amp; das Datum anpassen</string>
     <string name="status_bar_signal_wifi_settings_title">Netzwerk Symbole</string>
+    <string name="status_bar_battery_status_settings_title">Akkustatus</string>
+    <string name="status_bar_battery_status_settings_summary">Den Akkustatus anpassen</string>
     <string name="status_bar_signal_wifi_settings_summary">Die Netzwerk Symbole anpassen</string>
 
     <!-- Status bar gestures -->
@@ -84,6 +86,14 @@
     <string name="clock_date_date_custom_java_format">Eigenes Java Format</string>
     <string name="clock_date_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
     <string name="clock_date_date_string_edittext_summary">Zeichenfolge eingeben</string>
+
+    <!-- Status bar battery status settings -->
+    <string name="battery_status_show_text_title">Text anzeigen</string>
+    <string name="battery_status_show_text_summary">Aktivieren um den Akkustatus Text anzuzeigen</string>
+    <string name="battery_status_show_charging_animation_title">Ladeanimation anzeigen</string>
+    <string name="battery_status_show_charging_animation_summary">Aktivieren um die Ladeanimation anzuzeigen</string>
+    <string name="battery_status_battery_color_title">Akku</string>
+    <string name="battery_status_text_color_title">Text</string>
 
     <!-- Status bar signal wifi icon settings  -->
     <string name="signal_wifi_show_activity_title">Netzwerkaktivität anzeigen</string>
