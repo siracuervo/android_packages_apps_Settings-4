@@ -84,6 +84,13 @@
                 android:icon="@drawable/ic_settings_bars"
                 />
 
+        <!-- More -->
+        <dashboard-tile
+            android:id="@+id/more"
+            android:title="@string/more"
+            android:fragment="com.android.settings.darkkat.More"
+            android:icon="@drawable/ic_settings_more" />
+
     </dashboard-category>
 
     <!-- DEVICE -->

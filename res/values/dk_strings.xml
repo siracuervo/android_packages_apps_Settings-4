@@ -45,6 +45,7 @@
 
     <!-- dashboard tiles-->
     <string name="bars">Bars</string>
+    <string name="more">More</string>
 
     <!-- Bars settings -->
     <string name="status_bar_title">Status bar</string>
@@ -99,6 +100,10 @@
     <!-- Status bar signal wifi icon settings  -->
     <string name="signal_wifi_show_activity_title">Show network activity</string>
     <string name="signal_wifi_show_activity_summary">Enable to show the network activity</string>
+
+    <!-- Lock clock -->
+    <string name="lock_clock_title">Clock widget</string>
+    <string name="lock_clock_summary">View or change how the \'cLock\' Home  widget will display</string>
 
     <!-- Button settings -->
     <string name="button_settings_title">Buttons</string>
