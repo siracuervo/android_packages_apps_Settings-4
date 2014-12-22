@@ -45,6 +45,7 @@
 
     <!-- dashboard tiles-->
     <string name="bars">Leisten</string>
+    <string name="more">Mehr</string>
 
     <!-- Bars settings -->
     <string name="status_bar_title">Statusleiste</string>
@@ -98,6 +99,10 @@
     <!-- Status bar signal wifi icon settings  -->
     <string name="signal_wifi_show_activity_title">Netzwerkaktivität anzeigen</string>
     <string name="signal_wifi_show_activity_summary">Aktivieren um die Netzwerkaktivität anzuzeigen</string>
+
+    <!-- Lock clock -->
+    <string name="lock_clock_title">Uhr-Widget</string>
+    <string name="lock_clock_summary">\"cLock-Widget\" konfigurieren</string>
 
     <!-- Button settings -->
     <string name="button_settings_title">Tasten</string>
