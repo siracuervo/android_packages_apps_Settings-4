@@ -50,6 +50,8 @@
     <!-- Bars settings -->
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_summary">Customize status bar</string>
+    <string name="status_bar_expanded_title">Status bar expanded</string>
+    <string name="status_bar_expanded_summary">Customize status bar expanded</string>
 
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gestures</string>
@@ -67,7 +69,6 @@
     <string name="status_bar_toggle_info">Automatic brightness is enabled</string>
     <string name="status_bar_double_tap_to_sleep_title">Sleep</string>
     <string name="status_bar_double_tap_to_sleep_summary">Double tap the status bar to put the device to sleep</string>
-
 
     <!-- clock and date settings -->
     <string name="clock_date_position_title">Position</string>
@@ -100,6 +101,15 @@
     <!-- Status bar signal wifi icon settings  -->
     <string name="signal_wifi_show_activity_title">Show network activity</string>
     <string name="signal_wifi_show_activity_summary">Enable to show the network activity</string>
+
+    <!-- Statusbar expanded -->
+    <string name="status_bar_expanded_header_title">Header</string>
+
+    <!-- Weather -->
+    <string name="status_bar_expanded_header_show_weather_title">Show weather</string>
+    <string name="status_bar_expanded_header_show_weather_summary">Enable to show the weather</string>
+    <string name="status_bar_expanded_header_show_weather_location_title">Show location</string>
+    <string name="status_bar_expanded_header_show_weather_location_summary">Enable to show the location</string>
 
     <!-- Lock clock -->
     <string name="lock_clock_title">Clock widget</string>
