@@ -28,6 +28,9 @@
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="color_title">Farbe</string>
+    <string name="colors_title">Farben</string>
+    <string name="icons_title">Symbole</string>
+    <string name="text_title">Text</string>
     <string name="color_normal_title">Normal</string>
     <string name="color_fully_title">Vollständig verbunden</string>
 
@@ -103,13 +106,15 @@
     <string name="signal_wifi_show_activity_summary">Aktivieren um die Netzwerkaktivität anzuzeigen</string>
 
     <!-- Statusbar expanded -->
-    <string name="status_bar_expanded_header_title">Kopfzeile</string>
+    <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
 
-    <!-- Weather -->
-    <string name="status_bar_expanded_header_show_weather_title">Wetter anzeigen</string>
-    <string name="status_bar_expanded_header_show_weather_summary">Aktivieren um das wetter anzuzeigen</string>
-    <string name="status_bar_expanded_header_show_weather_location_title">Standort anzeigen</string>
-    <string name="status_bar_expanded_header_show_weather_location_summary">Aktivieren um den Standort anzuzeigen</string>
+    <!-- Header -->
+    <string name="expanded_header_show_battery_status_text_title">Akkustatus Text anzeigen</string>
+    <string name="expanded_header_show_battery_status_text_summary">Aktivieren um den (standard) Akkustatus Text neben dem Akku Symbol anzuzeigen</string>
+    <string name="expanded_header_show_weather_title">Wetter anzeigen</string>
+    <string name="expanded_header_show_weather_summary">Aktivieren um das wetter anzuzeigen</string>
+    <string name="expanded_header_show_weather_location_title">Standort anzeigen</string>
+    <string name="expanded_header_show_weather_location_summary">Aktivieren um den Standort anzuzeigen</string>
 
     <!-- Lock clock -->
     <string name="lock_clock_title">Uhr-Widget</string>
