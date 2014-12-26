@@ -119,6 +119,12 @@
     <!-- Lock clock -->
     <string name="lock_clock_title">Uhr-Widget</string>
     <string name="lock_clock_summary">\"cLock-Widget\" konfigurieren</string>
+    <string name="lock_clock_clock_section_title">Uhrzeit und Alarme</string>
+    <string name="lock_clock_clock_section_summary">Uhr des \"cLock-Widget\" konfigurieren</string>
+    <string name="lock_clock_weather_section_title">Wetter</string>
+    <string name="lock_clock_weather_section_summary">Wetter des \"cLock-Widget\" konfigurieren</string>
+    <string name="lock_clock_calendar_section_title">Kalender</string>
+    <string name="lock_clock_calendar_section_summary">Kalender des \"cLock-Widget\" konfigurieren</string>
 
     <!-- Button settings -->
     <string name="button_settings_title">Tasten</string>
