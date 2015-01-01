@@ -27,8 +27,10 @@
     <string name="dlg_reset_values_message">Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="options_title">Optionen</string>
     <string name="color_title">Farbe</string>
     <string name="colors_title">Farben</string>
+    <string name="icon_title">Symbol</string>
     <string name="icons_title">Symbole</string>
     <string name="text_title">Text</string>
     <string name="color_normal_title">Normal</string>
@@ -65,6 +67,8 @@
     <string name="status_bar_battery_status_settings_title">Akkustatus</string>
     <string name="status_bar_battery_status_settings_summary">Den Akkustatus anpassen</string>
     <string name="status_bar_signal_wifi_settings_summary">Die Netzwerk Symbole anpassen</string>
+    <string name="status_bar_network_speed_settings_title">Netzw.-Geschw. Anzeige</string>
+    <string name="status_bar_network_speed_settings_summary">Die Netzw.-Geschw. Anzeige anpassen</string>
 
     <!-- Status bar gestures -->
     <string name="status_bar_toggle_brightness_title">Helligkeitskontrolle</string>
@@ -104,6 +108,30 @@
     <!-- Status bar signal wifi icon settings  -->
     <string name="signal_wifi_show_activity_title">Netzwerkaktivität anzeigen</string>
     <string name="signal_wifi_show_activity_summary">Aktivieren um die Netzwerkaktivität anzuzeigen</string>
+
+    <!-- Status bar Network speed style -->
+    <string name="network_speed_indicator_title">Anzeige</string>
+    <string name="network_speed_indicator_down_up">Download &amp; Upload</string>
+    <string name="network_speed_indicator_down">Download</string>
+    <string name="network_speed_indicator_up">Upload</string>
+    <string name="network_speed_indicator_disabled">Deaktiviert</string>
+    <string name="network_speed_show_icon_title">Symbol</string>
+    <string name="network_speed_show_icon_summary">Aktivieren um das Symbol anzuzeigen</string>
+    <string name="network_speed_summary_title">Datenmenge anzeigen</string>
+    <string name="network_speed_traffic_timeout_dlg_title">Anzeige dauer</string>
+    <string name="network_speed_traffic_timeout_0s">Nicht anzeigen</string>
+    <string name="network_speed_traffic_timeout_1s">1 Sekunde</string>
+    <string name="network_speed_traffic_timeout_2s">2 Sekunden</string>
+    <string name="network_speed_traffic_timeout_3s">3 Sekunden</string>
+    <string name="network_speed_traffic_timeout_5s">5 Sekunden</string>
+    <string name="network_speed_traffic_timeout_8s">8 Sekunden</string>
+    <string name="network_speed_traffic_timeout_10s">10 Sekunden</string>
+    <string name="network_speed_traffic_timeout_15s">15 Sekunden</string>
+    <string name="network_speed_traffic_timeout_25s">25 Sekunden</string>
+    <string name="network_speed_bit_byte_title">Bit-Werte anzeigen</string>
+    <string name="network_speed_bit_byte_summary">Aktivieren um die Werte in Bit anstatt Byte anzuzeigen</string>
+    <string name="network_speed_hide_indicator_title">Anzeige verstecken</string>
+    <string name="network_speed_hide_indicator_summary">Aktivieren um die Anzeige bei keinem Datenverkehr zu verstecken</string>
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
