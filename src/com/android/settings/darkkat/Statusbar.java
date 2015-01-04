@@ -17,6 +17,9 @@
 package com.android.settings.darkkat;
 
 import android.os.Bundle;
+import android.preference.PreferenceScreen;
+
+import com.android.internal.util.darkkat.DeviceUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -28,5 +31,11 @@ public class Statusbar extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.status_bar);
+
+        if (DeviceUtils.isPhone(getActivity())) {
+            PreferenceScreen notifSystemIcons =
+                    (PreferenceScreen) findPreference("status_bar_notif_system_icons_settings");
+            notifSystemIcons.setTitle(R.string.status_bar_notif_system_icons_settings_title_phone);
+        }
     }
 }
