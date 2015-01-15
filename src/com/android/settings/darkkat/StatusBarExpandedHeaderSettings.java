@@ -38,8 +38,6 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_SHOW_BATTERY =
-            "expanded_header_show_battery_status_text";
     private static final String PREF_SHOW_WEATHER =
             "expanded_header_show_weather";
     private static final String PREF_SHOW_LOCATION =
@@ -54,7 +52,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private CheckBoxPreference mShowBattery;
     private CheckBoxPreference mShowWeather;
     private CheckBoxPreference mShowLocation;
     private ColorPickerPreference mTextColor;
@@ -82,12 +79,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
 
         int intColor;
         String hexColor;
-
-        mShowBattery =
-                (CheckBoxPreference) findPreference(PREF_SHOW_BATTERY);
-        mShowBattery.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_BATTERY_STATUS_TEXT, 1) == 1);
-        mShowBattery.setOnPreferenceChangeListener(this);
 
         mShowWeather =
                 (CheckBoxPreference) findPreference(PREF_SHOW_WEATHER);
@@ -150,14 +141,7 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         String hex;
         int intHex;
 
-        if (preference == mShowBattery) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_BATTERY_STATUS_TEXT,
-                value ? 1 : 0);
-            refreshSettings();
-            return true;
-        } else if (preference == mShowWeather) {
+        if (preference == mShowWeather) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER,
@@ -223,8 +207,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_BATTERY_STATUS_TEXT, 1);
-                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
@@ -240,8 +222,6 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                     .setPositiveButton(R.string.dlg_reset_darkkat,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_BATTERY_STATUS_TEXT, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER, 1);
                             Settings.System.putInt(getOwner().mResolver,
