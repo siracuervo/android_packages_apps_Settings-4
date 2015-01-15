@@ -102,11 +102,28 @@
     <string name="clock_date_date_string_edittext_summary">Zeichenfolge eingeben</string>
 
     <!-- Status bar battery status settings -->
-    <string name="battery_status_show_text_title">Text anzeigen</string>
-    <string name="battery_status_show_text_summary">Aktivieren um den Akkustatus Text anzuzeigen</string>
-    <string name="battery_status_show_charging_animation_title">Ladeanimation anzeigen</string>
-    <string name="battery_status_show_charging_animation_summary">Aktivieren um die Ladeanimation anzuzeigen</string>
-    <string name="battery_status_battery_color_title">Akku</string>
+    <string name="battery_status_cat_circle_options_title">Kreis anpassen</string>
+    <string name="battery_status_style_title">Anzeige</string>
+    <string name="battery_status_style_icon_portrait">Symbol Hochformat</string>
+    <string name="battery_status_style_icon_landscape">Symbol Querformat</string>
+    <string name="battery_status_style_circle">Kreis</string>
+    <string name="battery_status_style_text">Text</string>
+    <string name="battery_status_style_hidden">Verborgen</string>
+    <string name="battery_status_percent_style_title">Position der Prozentanzeige</string>
+    <string name="battery_status_percent_style_dialog_title">Wähle eine Position</string>
+    <string name="battery_status_percent_style_text_inside">Im Symbol</string>
+    <string name="battery_status_percent_style_text_next">Neben dem Symbol</string>
+    <string name="battery_status_percent_style_default">Verborgen (Standard)</string>
+    <string name="battery_status_charge_animation_speed_title">Ladeanimations Geschwindigkeit</string>
+    <string name="battery_status_charge_animation_speed_none">Deaktiviert</string>
+    <string name="battery_status_charge_animation_speed_slow">Langsam</string>
+    <string name="battery_status_charge_animation_speed_normal">Normal</string>
+    <string name="battery_status_charge_animation_speed_fast">Schnell</string>
+    <string name="battery_status_show_circle_dotted_title">Kreis gepunktet</string>
+    <string name="battery_status_show_circle_dotted_summary">Aktivieren um den Kreis gepunktet anzuzeigen</string>
+    <string name="battery_status_circle_dot_length_title">Kreis Punk Länge</string>
+    <string name="battery_status_circle_dot_interval_title">Kreis Punk Abstand</string>
+    <string name="battery_status_battery_color_title">Füllung</string>
     <string name="battery_status_text_color_title">Text</string>
 
     <!-- Status bar signal wifi icon settings  -->
@@ -154,8 +171,6 @@
     <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
 
     <!-- Header -->
-    <string name="expanded_header_show_battery_status_text_title">Akkustatus Text anzeigen</string>
-    <string name="expanded_header_show_battery_status_text_summary">Aktivieren um den (standard) Akkustatus Text neben dem Akku Symbol anzuzeigen</string>
     <string name="expanded_header_show_weather_title">Wetter anzeigen</string>
     <string name="expanded_header_show_weather_summary">Aktivieren um das wetter anzuzeigen</string>
     <string name="expanded_header_show_weather_location_title">Standort anzeigen</string>

@@ -19,12 +19,6 @@
     android:title="@string/status_bar_expanded_header_settings_title">
 
     <CheckBoxPreference
-	    android:key="expanded_header_show_battery_status_text"
-	    android:title="@string/expanded_header_show_battery_status_text_title"
-	    android:summary="@string/expanded_header_show_battery_status_text_summary"
-	    android:defaultValue="true" />
-
-    <CheckBoxPreference
 	    android:key="expanded_header_show_weather"
 	    android:title="@string/expanded_header_show_weather_title"
 	    android:summary="@string/expanded_header_show_weather_summary"
