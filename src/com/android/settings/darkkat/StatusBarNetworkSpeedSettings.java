@@ -324,7 +324,7 @@ public class StatusBarNetworkSpeedSettings extends SettingsPreferenceFragment im
                                 Settings.System.STATUS_BAR_NETWORK_SPEED_HIDE_TRAFFIC, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_SPEED_TEXT_COLOR,
-                                0xffff0000);
+                                0xff33b5e5);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_SPEED_ICON_COLOR,
                                 0xff33b5e5);

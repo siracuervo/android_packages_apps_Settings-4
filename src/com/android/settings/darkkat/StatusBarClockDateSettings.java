@@ -398,7 +398,7 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                                     "EEE");
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CLOCK_DATE_COLOR,
-                                    0xffff0000);
+                                    0xff33b5e5);
                             getOwner().refreshSettings();
                         }
                     })
