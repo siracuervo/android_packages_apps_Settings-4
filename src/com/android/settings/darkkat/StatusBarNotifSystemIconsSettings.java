@@ -59,6 +59,7 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
 
     private static final int DEFAULT_COLOR = 0xffffffff;
     private static final int DEFAULT_COUNT_ICON_COLOR = 0xffE5350D;
+    private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -308,21 +309,21 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_COLORIZE_NOTIF_ICONS, 1);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.STATUS_BAR_SHOW_TICKER, 0);
+                                    Settings.System.STATUS_BAR_SHOW_TICKER, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_SHOW_NOTIF_COUNT, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIF_SYSTEM_ICON_COLOR,
-                                    0xff33b5e5);
+                                    HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIF_TEXT_COLOR,
-                                    0xffff0000);
+                                    HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIF_COUNT_ICON_COLOR,
-                                    0xff33b5e5);
+                                    HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIF_COUNT_TEXT_COLOR,
-                                    0xffff0000);
+                                    DEFAULT_COLOR);
                             getOwner().refreshSettings();
                         }
                     })
