@@ -31,11 +31,13 @@
     <string name="options_title">Options</string>
     <string name="color_title">Color</string>
     <string name="colors_title">Colors</string>
+    <string name="background_title">Background</string>
     <string name="icon_title">Icon</string>
     <string name="icons_title">Icons</string>
     <string name="text_title">Text</string>
     <string name="color_normal_title">Normal</string>
     <string name="color_fully_title">Fully connected</string>
+    <string name="display_rotation_title">Display rotation</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -50,14 +52,10 @@
     <string name="category_ui_section">User interface</string>
 
     <!-- dashboard tiles-->
-    <string name="bars">Bars</string>
-    <string name="more">More</string>
-
-    <!-- Bars settings -->
     <string name="status_bar_title">Status bar</string>
-    <string name="status_bar_summary">Customize status bar</string>
     <string name="status_bar_expanded_title">Status bar expanded</string>
-    <string name="status_bar_expanded_summary">Customize status bar expanded</string>
+    <string name="more_title">More</string>
+    <string name="button_settings_title">Buttons</string>
 
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gestures</string>
@@ -169,12 +167,30 @@
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_settings_title">Header</string>
+    <string name="status_bar_expanded_qs_settings_title">Quick settings</string>
 
     <!-- Header -->
     <string name="expanded_header_show_weather_title">Show weather</string>
     <string name="expanded_header_show_weather_summary">Enable to show the weather</string>
     <string name="expanded_header_show_weather_location_title">Show location</string>
     <string name="expanded_header_show_weather_location_summary">Enable to show the location</string>
+
+    <!-- Quick settings -->
+    <string name="qs_quick_pulldown_title">Quick pulldown</string>
+    <string name="qs_quick_pulldown_summary">Enable to use the right edge of the status bar to pull down Quick Settings</string>
+    <string name="qs_order_title">Select and order tiles</string>
+    <string name="add_qs">Add new tile</string>
+    <string name="cast_screen">Cast screen</string>
+    <string name="hotspot">Hotspot</string>
+    <string name="qs_action_delete">Delete</string>
+    <string name="qs_action_add">Add</string>
+    <string name="qs_action_no_more_tiles">No more tiles available</string>
+    <string name="qs_main_tiles_title">Enlarge first row</string>
+    <string name="qs_main_tiles_summary">Enable to show 2 main tiles on the first row, disable to show 3 tiles</string>
+    <string name="qs_advanced_location_title">Advanced location quick settings</string>
+    <string name="qs_advanced_location_summary">Enable advanced settings for location in quick settings</string>
+    <string name="qs_show_brightness_slider_title">Show brightness slider</string>
+    <string name="qs_show_brightness_slider_summary">Enable to show the brightness slider</string>
 
     <!-- Lock clock -->
     <string name="lock_clock_title">Clock widget</string>
@@ -186,7 +202,6 @@
     <string name="lock_clock_calendar_section_summary">View or change how the calendar events of the \'cLock\' Home  widget will display</string>
 
     <!-- Button settings -->
-    <string name="button_settings_title">Buttons</string>
     <string name="button_volume_button_category_title">Volume buttons</string>
     <string name="button_power_menu_settings_title">Power menu</string>
     <string name="button_power_menu_settings_summary">Customize power menu</string>

@@ -76,20 +76,29 @@
             android:id="@+id/ui_section"
             android:title="@string/category_ui_section" >
 
-        <!-- Bars -->
+        <!-- Status bar -->
         <dashboard-tile
-                android:id="@+id/bars"
-                android:title="@string/bars"
-                android:fragment="com.android.settings.darkkat.Bars"
-                android:icon="@drawable/ic_settings_bars"
+                android:id="@+id/status_bar"
+                android:title="@string/status_bar_title"
+                android:fragment="com.android.settings.darkkat.Statusbar"
+                android:icon="@drawable/ic_settings_status_bar"
+                />
+
+        <!-- Status bar expanded -->
+        <dashboard-tile
+                android:id="@+id/status_bar_expanded"
+                android:title="@string/status_bar_expanded_title"
+                android:fragment="com.android.settings.darkkat.StatusBarExpanded"
+                android:icon="@drawable/ic_settings_status_bar_expanded"
                 />
 
         <!-- More -->
         <dashboard-tile
-            android:id="@+id/more"
-            android:title="@string/more"
-            android:fragment="com.android.settings.darkkat.More"
-            android:icon="@drawable/ic_settings_more" />
+                android:id="@+id/more"
+                android:title="@string/more_title"
+                android:fragment="com.android.settings.darkkat.More"
+                android:icon="@drawable/ic_settings_more"
+                />
 
     </dashboard-category>
 
