@@ -15,7 +15,7 @@ limitations under the License.
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/more">
+    android:title="@string/more_title">
 
     <PreferenceCategory
         android:key="more_cat_lock_clock"

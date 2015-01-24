@@ -31,11 +31,13 @@
     <string name="options_title">Optionen</string>
     <string name="color_title">Farbe</string>
     <string name="colors_title">Farben</string>
+    <string name="background_title">Hintergrund</string>
     <string name="icon_title">Symbol</string>
     <string name="icons_title">Symbole</string>
     <string name="text_title">Text</string>
     <string name="color_normal_title">Normal</string>
     <string name="color_fully_title">Vollständig verbunden</string>
+    <string name="display_rotation_title">Bildschirm Ausrichtung</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Farbauswahl</string>
@@ -50,14 +52,10 @@
     <string name="category_ui_section">Benutzeroberfläche</string>
 
     <!-- dashboard tiles-->
-    <string name="bars">Leisten</string>
-    <string name="more">Mehr</string>
-
-    <!-- Bars settings -->
     <string name="status_bar_title">Statusleiste</string>
-    <string name="status_bar_summary">Statusleiste anpassen</string>
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
-    <string name="status_bar_expanded_summary">Erweiterte Statusleiste  anpassen</string>
+    <string name="more_title">Mehr</string>
+    <string name="button_settings_title">Tasten</string>
 
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gesten</string>
@@ -169,12 +167,30 @@
 
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
+    <string name="status_bar_expanded_qs_settings_title">Schnelleinstellungen</string>
 
     <!-- Header -->
     <string name="expanded_header_show_weather_title">Wetter anzeigen</string>
     <string name="expanded_header_show_weather_summary">Aktivieren um das wetter anzuzeigen</string>
     <string name="expanded_header_show_weather_location_title">Standort anzeigen</string>
     <string name="expanded_header_show_weather_location_summary">Aktivieren um den Standort anzuzeigen</string>
+
+    <!-- Quick settings -->
+    <string name="qs_quick_pulldown_title">Schnelles Öffnen</string>
+    <string name="qs_quick_pulldown_summary">Aktivieren um die Schnelleinstellungen von der rechten Seite der Statusleiste direkt zu öffnen</string>
+    <string name="qs_order_title">Kacheln wählen und anordnen</string>
+    <string name="add_qs">Neue Kachel hinzufügen</string>
+    <string name="cast_screen">Bildschirmübertragung</string>
+    <string name="hotspot">Hotspot</string>
+    <string name="qs_action_delete">Löschen</string>
+    <string name="qs_action_add">Hinzufügen</string>
+    <string name="qs_action_no_more_tiles">keine weiteren Kacheln verfügbar</string>
+    <string name="qs_main_tiles_title">Erste Reihe</string>
+    <string name="qs_main_tiles_summary">Aktivieren um 2 Haupt-Kacheln in der ersten Reihe anzuzeigen, deaktivieren um 3 Kacheln anzuzeigen</string>
+    <string name="qs_advanced_location_title">Standort erweiterbar</string>
+    <string name="qs_advanced_location_summary">Aktivieren um erweiterte Standort Einstellungen anzuzeigen</string>
+    <string name="qs_show_brightness_slider_title">Helligkeitsregler anzeigen</string>
+    <string name="qs_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler anzuzeigen</string>
 
     <!-- Lock clock -->
     <string name="lock_clock_title">Uhr-Widget</string>
@@ -186,7 +202,6 @@
     <string name="lock_clock_calendar_section_summary">Kalender des \"cLock-Widget\" konfigurieren</string>
 
     <!-- Button settings -->
-    <string name="button_settings_title">Tasten</string>
     <string name="button_volume_button_category_title">Lautstärke Tasten</string>
     <string name="button_power_menu_settings_title">Ein&#47;Aus Menü</string>
     <string name="button_power_menu_settings_summary">Ein&#47;Aus Menü anpassen</string>
