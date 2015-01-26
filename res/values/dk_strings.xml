@@ -64,8 +64,8 @@
     <string name="status_bar_clock_date_settings_summary">Customize the clock &amp; the date</string>
     <string name="status_bar_battery_status_settings_title">Battery status</string>
     <string name="status_bar_battery_status_settings_summary">Customize the battery status</string>
-    <string name="status_bar_signal_wifi_settings_title">Netzwerk Symbole</string>
-    <string name="status_bar_signal_wifi_settings_summary">Die Netzwerk Symbole anpassen</string>
+    <string name="status_bar_signal_wifi_settings_title">Network icons</string>
+    <string name="status_bar_signal_wifi_settings_summary">Customize the Network icons</string>
     <string name="status_bar_network_speed_settings_title">Network speed indicator</string>
     <string name="status_bar_network_speed_settings_summary">Customize the network speed indicator</string>
     <string name="status_bar_notif_system_icons_settings_title">Notifications &amp; system icons</string>
