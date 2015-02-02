@@ -67,6 +67,15 @@
     <string name="weather_show_weather_summary">Aktivieren um das wetter anzuzeigen</string>
     <string name="weather_show_location_title">Standort anzeigen</string>
     <string name="weather_show_location_summary">Aktivieren um den Standort anzuzeigen</string>
+    <string name="weather_show_timestamp_title">Aktuallisierungszeitpunkt anzeigen</string>
+    <string name="weather_show_timestamp_summary">Aktivieren um den Aktuallisierungszeitpunkt anzuzeigen</string>
+    <string name="weather_condition_icon_title">Symbol der Wetterlage</string>
+    <string name="weather_condition_icon_dlg_title">Wähle ein Symbol zum anzeigen der Wetterlage</string>
+    <string name="weather_condition_icon_monochrome_title">Einfarbig</string>
+    <string name="weather_condition_icon_colored_title">Farbig</string>
+    <string name="weather_condition_icon_vclouds_title">VClouds</string>
+    <string name="weather_colorize_all_icons_title">Alle Symbole einfärben</string>
+    <string name="weather_colorize_all_icons_summary">Aktivieren um alle symbole einzufärben, deaktivieren um nur die einfarbigen symbole einzufärben</string>
 
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gesten</string>
