@@ -55,6 +55,7 @@
     <string name="lock_screen_title">Sperrbildschirm</string>
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
+    <string name="weather_settings_title">Wetter</string>
     <string name="more_title">Mehr</string>
     <string name="button_settings_title">Tasten</string>
 
