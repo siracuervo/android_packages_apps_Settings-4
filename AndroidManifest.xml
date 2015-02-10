@@ -1753,6 +1753,7 @@
         <activity android:name=".darkkat.LockScreen" />
         <activity android:name=".darkkat.Statusbar" />
         <activity android:name=".darkkat.StatusBarExpanded" />
+        <activity android:name=".darkkat.WeatherSettings" />
         <activity android:name=".darkkat.More" />
         <activity android:name=".darkkat.ButtonSettings" />
 
