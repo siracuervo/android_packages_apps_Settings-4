@@ -62,6 +62,8 @@
    <!-- Lock screen -->
     <string name="lock_screen_weather_settings_title">Wetter</string>
     <string name="lock_screen_weather_settings_summary">Das Wetter anpassen</string>
+    <string name="lock_screen_shortcuts_settings_title">Verknüpfungen</string>
+    <string name="lock_screen_shortcuts_settings_summary">Verknüpfungen anpassen</string>
     <string name="lock_screen_color_settings_summary">Die Farben anpassen</string>
 
    <!-- Weather settings -->
@@ -78,6 +80,24 @@
     <string name="weather_condition_icon_vclouds_title">VClouds</string>
     <string name="weather_colorize_all_icons_title">Alle Symbole einfärben</string>
     <string name="weather_colorize_all_icons_summary">Aktivieren um alle Symbole einzufärben, deaktivieren um nur die einfarbigen Symbole einzufärben</string>
+
+   <!-- Shortcuts settings -->
+    <string name="shortcuts_target_settings_title">Ziele</string>
+    <string name="shortcuts_target_settings_summary">Ziele anpassen</string>
+    <string name="shortcuts_colorize_custom_icons_title">Alle Symbole einfärben</string>
+    <string name="shortcuts_colorize_custom_icons_summary">Aktivieren um alle Symbole einzufärben, deaktivieren um nur die Standard-Symbole einzufärben</string>
+
+   <!-- Targets settings -->
+    <string name="shortcuts_hint_message">Auf das rechte oder linke Symbol Tippen, um ein Ziel neu zuzuweisen.</string>
+    <string name="shortcuts_reassign_shortcut_title">Ziel neu zuweisen</string>
+    <string name="shortcuts_default_target">Standard</string>
+    <string name="shortcuts_none_target">Keines</string>
+    <string name="shortcuts_custom_target">Individuelles Ziel auswählen</string>
+
+    <string name="picker_apps_title">Apps</string>
+    <string name="picker_activities_title">Aktivitäten</string>
+    <string name="picker_select_custom_app_title">Individuelle App auswählen</string>
+    <string name="picker_select_custom_activity_title">Individuelle Aktivität auswählen</string>
 
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gesten</string>
