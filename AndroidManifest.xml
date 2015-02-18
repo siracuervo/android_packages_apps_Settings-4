@@ -1431,7 +1431,7 @@
 
         <activity android:name="ActivityPicker"
                 android:label="@string/activity_picker_label"
-                android:theme="@*android:style/Theme.Material.Light.Dialog.Alert"
+                android:theme="@*android:style/Theme.Material.Dialog.Alert.DarkKat"
                 android:finishOnCloseSystemDialogs="true">
             <intent-filter>
                 <action android:name="android.intent.action.PICK_ACTIVITY" />

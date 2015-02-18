@@ -23,6 +23,12 @@
         android:fragment="com.android.settings.darkkat.LockScreenWeatherSettings" />
 
     <PreferenceScreen
+        android:key="lock_screen_shortcuts_settings"
+        android:title="@string/lock_screen_shortcuts_settings_title"
+		android:summary="@string/lock_screen_shortcuts_settings_summary"
+        android:fragment="com.android.settings.darkkat.LockScreenShortcutsSettings" />
+
+    <PreferenceScreen
         android:key="lock_screen_color_settings"
         android:title="@string/colors_title"
 		android:summary="@string/lock_screen_color_settings_summary"
