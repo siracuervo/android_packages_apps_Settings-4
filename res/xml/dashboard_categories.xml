@@ -103,7 +103,7 @@
         <!-- Weather settings -->
         <dashboard-tile
                 android:id="@+id/weather_settings"
-                android:title="@string/weather_settings_title"
+                android:title="@string/weather_title"
                 android:icon="@drawable/ic_settings_weather">
                 <intent
                     android:action="android.intent.action.MAIN"

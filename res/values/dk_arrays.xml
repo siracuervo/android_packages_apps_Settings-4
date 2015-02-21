@@ -111,8 +111,8 @@
         <item>@string/battery_status_style_icon_portrait</item>
         <item>@string/battery_status_style_icon_landscape</item>
         <item>@string/battery_status_style_circle</item>
-        <item>@string/battery_status_style_text</item>
-        <item>@string/battery_status_style_hidden</item>
+        <item>@string/text_title</item>
+        <item>@string/hidden_title</item>
     </string-array>
 
     <string-array name="battery_status_style_values" translatable="false">
@@ -164,9 +164,9 @@
     </string-array>
 
     <string-array name="battery_status_charge_animation_speed_entries" >
-        <item>@string/battery_status_charge_animation_speed_none</item>
+        <item>@string/disabled_title</item>
         <item>@string/battery_status_charge_animation_speed_slow</item>
-        <item>@string/battery_status_charge_animation_speed_normal</item>
+        <item>@string/normal_title</item>
         <item>@string/battery_status_charge_animation_speed_fast</item>
     </string-array>
 
@@ -181,7 +181,7 @@
         <item>@string/network_speed_indicator_down_up</item>
         <item>@string/network_speed_indicator_down</item>
         <item>@string/network_speed_indicator_up</item>
-        <item>@string/network_speed_indicator_disabled</item>
+        <item>@string/disabled_title</item>
     </string-array>
 
     <string-array name="network_speed_indicator_values" translatable="false">

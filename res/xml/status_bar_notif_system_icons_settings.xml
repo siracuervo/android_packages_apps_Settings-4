@@ -48,7 +48,7 @@
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="notif_system_icons_icon_color"
-            android:title="@string/notif_system_icons_icon_color_title"
+            android:title="@string/icons_title"
             android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference

@@ -227,7 +227,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 Settings.System.ACCELEROMETER_ROTATION, 0) != 0;
 
         if (!rotationEnabled) {
-            mDisplayRotationPreference.setSummary(R.string.display_rotation_disabled);
+            mDisplayRotationPreference.setSummary(R.string.disabled_title);
             return;
         }
 
