@@ -75,7 +75,7 @@
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="battery_status_text_color"
-            android:title="@string/battery_status_text_color_title"
+            android:title="@string/text_title"
             android:defaultValue="0xff000000" />
     </PreferenceCategory>
 </PreferenceScreen>

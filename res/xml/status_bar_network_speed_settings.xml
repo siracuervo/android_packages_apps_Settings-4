@@ -30,7 +30,7 @@
 
         <CheckBoxPreference
             android:key="network_speed_show_icon"
-            android:title="@string/network_speed_show_icon_title"
+            android:title="@string/icon_title"
             android:summary="@string/network_speed_show_icon_summary"
             android:defaultValue="true" />
 

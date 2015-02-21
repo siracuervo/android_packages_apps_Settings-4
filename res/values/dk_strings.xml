@@ -20,14 +20,15 @@
     <string name="cat_network_activity_icons_title">Activity icons</string>
     <string name="cat_airplane_mode_icon_title">Airplane mode icons</string>
     <string name="cat_colors_title">Customize colors</string>
-    <string name="position_right_title">Right</string>
-    <string name="position_centered_title">Centered</string>
-    <string name="hidden_title">Hidden</string>
-    <string name="normal_title">Normal</string>
     <string name="reset">Reset</string>
     <string name="dlg_reset_values_message">Reset values to\nAndroid- or DarkKat default?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="disabled_title">Disabled</string>
+    <string name="position_right_title">Right</string>
+    <string name="position_centered_title">Centered</string>
+    <string name="hidden_title">Hidden</string>
+    <string name="normal_title">Normal</string>
     <string name="options_title">Options</string>
     <string name="color_title">Color</string>
     <string name="colors_title">Colors</string>
@@ -35,9 +36,15 @@
     <string name="icon_title">Icon</string>
     <string name="icons_title">Icons</string>
     <string name="text_title">Text</string>
-    <string name="color_normal_title">Normal</string>
     <string name="color_fully_title">Fully connected</string>
     <string name="display_rotation_title">Display rotation</string>
+    <string name="weather_title">Weather</string>
+
+    <!-- Shortcut Picker -->
+    <string name="picker_apps_title">Apps</string>
+    <string name="picker_activities_title">Activities</string>
+    <string name="picker_select_custom_app_title">Select custom app</string>
+    <string name="picker_select_custom_activity_title">Select custom activity</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -55,16 +62,13 @@
     <string name="lock_screen_title">Lock screen</string>
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_expanded_title">Status bar expanded</string>
-    <string name="weather_settings_title">Weather</string>
     <string name="more_title">More</string>
     <string name="button_settings_title">Buttons</string>
 
    <!-- Lock screen -->
-    <string name="lock_screen_weather_settings_title">Weather</string>
     <string name="lock_screen_weather_settings_summary">Customize Weather</string>
     <string name="lock_screen_shortcuts_settings_title">Shortcuts</string>
     <string name="lock_screen_shortcuts_settings_summary">Customize shortcuts</string>
-    <string name="lock_screen_color_settings_summary">Customize colors</string>
 
    <!-- Weather settings -->
     <string name="weather_show_weather_title">Show weather</string>
@@ -93,11 +97,6 @@
     <string name="shortcuts_default_target">Default</string>
     <string name="shortcuts_none_target">None</string>
     <string name="shortcuts_custom_target">Choose custom target</string>
-
-    <string name="picker_apps_title">Apps</string>
-    <string name="picker_activities_title">Activities</string>
-    <string name="picker_select_custom_app_title">Select custom app</string>
-    <string name="picker_select_custom_activity_title">Select custom activity</string>
 
     <!-- Status bar -->
     <string name="status_bar_gestures_title">Gestures</string>
@@ -147,36 +146,29 @@
     <string name="battery_status_style_icon_portrait">Icon portrait</string>
     <string name="battery_status_style_icon_landscape">Icon landscape</string>
     <string name="battery_status_style_circle">Circle</string>
-    <string name="battery_status_style_text">Text</string>
-    <string name="battery_status_style_hidden">Hidden</string>
     <string name="battery_status_percent_style_title">Percentage text position</string>
     <string name="battery_status_percent_style_dialog_title">Choose a position</string>
     <string name="battery_status_percent_style_text_inside">Inside the icon</string>
     <string name="battery_status_percent_style_text_next">Next to the icon</string>
     <string name="battery_status_percent_style_default">Hidden (default)</string>
     <string name="battery_status_charge_animation_speed_title">Charging animation speed</string>
-    <string name="battery_status_charge_animation_speed_none">Disabled</string>
     <string name="battery_status_charge_animation_speed_slow">Slow</string>
-    <string name="battery_status_charge_animation_speed_normal">Normal</string>
     <string name="battery_status_charge_animation_speed_fast">Fast</string>
     <string name="battery_status_show_circle_dotted_title">Circle dotted</string>
     <string name="battery_status_show_circle_dotted_summary">Activate to show the circle dotted</string>
     <string name="battery_status_circle_dot_length_title">Circle dot length</string>
     <string name="battery_status_circle_dot_interval_title">Circle dot interval</string>
     <string name="battery_status_battery_color_title">Fill</string>
-    <string name="battery_status_text_color_title">Text</string>
 
     <!-- Status bar signal wifi icon settings  -->
     <string name="signal_wifi_show_activity_title">Show network activity</string>
     <string name="signal_wifi_show_activity_summary">Enable to show the network activity</string>
 
-    <!-- Status bar Network speed -->
+    <!-- Status bar Network speed settings -->
     <string name="network_speed_indicator_title">Indicator</string>
     <string name="network_speed_indicator_down_up">Download &amp; Upload</string>
     <string name="network_speed_indicator_down">Download</string>
     <string name="network_speed_indicator_up">Upload</string>
-    <string name="network_speed_indicator_disabled">Disabled</string>
-    <string name="network_speed_show_icon_title">Icon</string>
     <string name="network_speed_show_icon_summary">Enable, to show an indicator icon</string>
     <string name="network_speed_summary_title">Show summary of traffic</string>
     <string name="network_speed_traffic_timeout_dlg_title">Timeout</string>
@@ -202,7 +194,6 @@
     <string name="notif_system_icons_show_ticker_summary">Enable to show the ticker</string>
     <string name="notif_system_icons_show_count_title">Notification count</string>
     <string name="notif_system_icons_show_count_summary">Enable to display the number of pending notifications</string>
-    <string name="notif_system_icons_icon_color_title">Icons</string>
     <string name="notif_system_icons_notif_text_color_title">Ticker text</string>
     <string name="notif_system_icons_count_icon_color_title">Notification count icon</string>
     <string name="notif_system_icons_count_text_color_title">Notification count Text</string>
@@ -250,7 +241,6 @@
     <string name="display_rotation_settings_title">Rotation</string>
 
     <!-- Rotation -->
-    <string name="display_rotation_disabled">Disabled</string>
     <string name="display_rotation_unit">degrees</string>
     <string name="display_rotation_category_title">Rotation modes</string>
     <string name="display_rotation_0_title">0 degrees</string>
