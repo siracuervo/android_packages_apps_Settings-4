@@ -42,11 +42,6 @@
                     android:targetClass="com.cyanogenmod.updater.UpdatesSettings" />
         </PreferenceScreen>
 
-        <!-- Advanced mode -->
-        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
-            android:key="advanced_mode"
-            android:title="@string/advanced_mode_title"/>
-
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"
                 android:title="@string/device_status" 
@@ -55,6 +50,11 @@
                     android:targetPackage="com.android.settings"
                     android:targetClass="com.android.settings.deviceinfo.Status" />
         </PreferenceScreen>
+
+        <!-- Advanced mode -->
+        <com.android.settings.cyanogenmod.SecureSettingSwitchPreference
+            android:key="advanced_mode"
+            android:title="@string/advanced_mode_title"/>
 
         <!-- Contributors cloud -->
         <PreferenceScreen android:key="contributor_cloud"
@@ -131,22 +131,28 @@
                 android:title="@string/model_name"
                 android:summary="@string/device_info_default"/>
 
-        <!-- Mod version -->
-        <Preference android:key="mod_version"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/mod_version"
-                android:summary="@string/mod_version_default" />
-
         <!-- Device firmware version -->
         <Preference android:key="firmware_version" 
                 style="?android:preferenceInformationStyle"
                 android:title="@string/firmware_version"
                 android:summary="@string/device_info_default"/>
 
-        <!-- Device FCC equipment id -->
-        <Preference android:key="fcc_equipment_id"
+		<!-- Device cpu info -->
+		<Preference android:key="device_cpu"
+		        style="?android:preferenceInformationStyle"
+		        android:title="@string/cpu_info"
+		        android:summary="@string/device_info_default"/>
+
+		<!-- Device mem info -->
+		<Preference android:key="device_memory"
+		        style="?android:preferenceInformationStyle"
+		        android:title="@string/mem_info"
+		        android:summary="@string/device_info_default"/>
+
+        <!-- Device Kernel version -->
+        <Preference android:key="kernel_version" 
                 style="?android:preferenceInformationStyle"
-                android:title="@string/fcc_equipment_id"
+                android:title="@string/kernel_version"
                 android:summary="@string/device_info_default"/>
 
         <!-- Device Baseband version -->
@@ -155,10 +161,22 @@
                 android:title="@string/baseband_version"
                 android:summary="@string/device_info_default"/>
 
-        <!-- Device Kernel version -->
-        <Preference android:key="kernel_version" 
+        <!-- Mod version -->
+        <Preference android:key="mod_version"
                 style="?android:preferenceInformationStyle"
-                android:title="@string/kernel_version"
+                android:title="@string/mod_version"
+                android:summary="@string/cm_version_summary" />
+
+		<!-- Darkkat version -->
+		<Preference android:key="dk_version"
+		        style="?android:preferenceInformationStyle"
+		        android:title="@string/dk_version"
+		        android:summary="@string/device_info_default" />
+
+        <!-- Device FCC equipment id -->
+        <Preference android:key="fcc_equipment_id"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/fcc_equipment_id"
                 android:summary="@string/device_info_default"/>
 
         <!-- Build date -->
