@@ -18,7 +18,6 @@
     <!-- Device info settings -->
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Memory</string>
-    <string name="cm_version_summary">12</string>
     <string name="dk_version">DarkKat version</string>
 </resources>
 

@@ -165,7 +165,7 @@
         <Preference android:key="mod_version"
                 style="?android:preferenceInformationStyle"
                 android:title="@string/mod_version"
-                android:summary="@string/cm_version_summary" />
+                android:summary="@string/device_info_default" />
 
 		<!-- Darkkat version -->
 		<Preference android:key="dk_version"
