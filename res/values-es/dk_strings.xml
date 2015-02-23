@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 DarkKat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Global used -->
+    <string name="cat_network_icons_title">Iconos de red</string>
+    <string name="cat_network_activity_icons_title">Iconos de actividad</string>
+    <string name="cat_airplane_mode_icon_title">Iconos modo avión</string>
+    <string name="cat_colors_title">Personalizar colores</string>
+    <string name="reset">Resetear</string>
+    <string name="dlg_reset_values_message">¿Restablecer a los valores predeteriminados de \nAndroid- orDarkKat?</string>
+    <string name="dlg_reset_android">Android</string>
+    <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="disabled_title">Deshabilitados</string>
+    <string name="position_right_title">Derecha</string>
+    <string name="position_centered_title">Centrado</string>
+    <string name="hidden_title">Oculto</string>
+    <string name="normal_title">Normal</string>
+    <string name="options_title">Opciones</string>
+    <string name="color_title">Color</string>
+    <string name="colors_title">Colores</string>
+    <string name="background_title">Fondo</string>
+    <string name="icon_title">Icono</string>
+    <string name="icons_title">Iconos</string>
+    <string name="text_title">Texto</string>
+    <string name="color_fully_title">Totalmente cargado</string>
+    <string name="display_rotation_title">Rotación de la pantalla</string>
+    <string name="weather_title">Tiempo</string>
+
+    <!-- Shortcut Picker -->
+    <string name="picker_apps_title">Aplicaciones</string>
+    <string name="picker_activities_title">Actividades</string>
+    <string name="picker_select_custom_app_title">Seleccionar aplicación personalizada</string>
+    <string name="picker_select_custom_activity_title">Seleccionar actividad personalizada</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Tableta de colores</string>
+    <string name="press_color_to_apply">Selecciona el color de debajo para aplicar</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Aplicar</string>
+
+    <!-- dashboard categories-->
+    <string name="category_ui_section">Interfaz de usuario</string>
+
+    <!-- dashboard tiles-->
+    <string name="lock_screen_title">Pantalla de bloqueo</string>
+    <string name="status_bar_title">Barra de estado</string>
+    <string name="status_bar_expanded_title">Barra de estado expandida</string>
+    <string name="more_title">Más</string>
+    <string name="button_settings_title">Botones</string>
+
+   <!-- Lock screen -->
+    <string name="lock_screen_weather_settings_summary">Personalizar el Tiempo</string>
+    <string name="lock_screen_shortcuts_settings_title">Accesos directos</string>
+    <string name="lock_screen_shortcuts_settings_summary">Personalizar accesos directos</string>
+
+   <!-- Weather settings -->
+    <string name="weather_show_weather_title">Mostrar el tiempo</string>
+    <string name="weather_show_weather_summary">Muestra la información metereológica</string>
+    <string name="weather_show_location_title">Mostrar ubicación</string>
+    <string name="weather_show_location_summary">Muestra la ubicación</string>
+    <string name="weather_show_timestamp_title">Mostrar  sello de tiempo</string>
+    <string name="weather_show_timestamp_summary">Muestra el  sello de tiempo</string>
+    <string name="weather_condition_icon_title">Icono de condiciones climáticas</string>
+    <string name="weather_condition_icon_dlg_title">Elige un icono para la visualización de las condiciones climáticas</string>
+    <string name="weather_condition_icon_monochrome_title">Monocromo</string>
+    <string name="weather_condition_icon_colored_title">Coloreado</string>
+    <string name="weather_condition_icon_vclouds_title">VClouds</string>
+    <string name="weather_colorize_all_icons_title">Colorear todos los iconos</string>
+    <string name="weather_colorize_all_icons_summary">Colorear todos los iconos, deshabilitando los iconos monocoromos</string>
+
+   <!-- Shortcuts settings -->
+    <string name="shortcuts_target_settings_title">Accesos directos</string>
+    <string name="shortcuts_target_settings_summary">Personalizar los accesos directos</string>
+    <string name="shortcuts_colorize_custom_icons_title">Colorear todos los iconos</string>
+    <string name="shortcuts_colorize_custom_icons_summary">Colorea todos los iconos, deshabilitando los iconos predeterminados</string>
+
+   <!-- Targets settings -->
+    <string name="shortcuts_hint_message">Toque un icono de la izquierda o la derecha para volver a asignar una aplicación.</string>
+    <string name="shortcuts_reassign_shortcut_title">Reasignar una aplicación</string>
+    <string name="shortcuts_default_target">Predeterminado</string>
+    <string name="shortcuts_none_target">Ninguno</string>
+    <string name="shortcuts_custom_target">Escoger una aplicación personalizada</string>
+
+    <!-- Status bar -->
+    <string name="status_bar_gestures_title">Gestos</string>
+    <string name="status_bar_gestures_summary">Personalizar gestos</string>
+    <string name="status_bar_clock_date_settings_title">Hora y fecha</string>
+    <string name="status_bar_clock_date_settings_summary">Personalizar la hora y la fecha</string>
+    <string name="status_bar_battery_status_settings_title">Estado de la batería</string>
+    <string name="status_bar_battery_status_settings_summary">Personalizar el estado de la batería</string>
+    <string name="status_bar_signal_wifi_settings_title">Iconos de red</string>
+    <string name="status_bar_signal_wifi_settings_summary">Personalizar los iconos de red</string>
+    <string name="status_bar_network_speed_settings_title">Indicador de velocidad de red</string>
+    <string name="status_bar_network_speed_settings_summary">Personalizar el indicador de velocidad de red</string>
+    <string name="status_bar_notif_system_icons_settings_title">Notificaciones e iconos de sistema</string>
+    <string name="status_bar_notif_system_icons_settings_title_phone">Notificaciones e iconos de sistema</string>
+    <string name="status_bar_notif_system_icons_settings_summary">Personalizar las notificaciones e iconos de sistema</string>
+
+    <!-- Status bar gestures -->
+    <string name="status_bar_toggle_brightness_title">Control de Brillo</string>
+    <string name="status_bar_toggle_brightness_summary">Ajustar el brillo deslizando a lo largo de la barra de estado</string>
+    <string name="status_bar_toggle_info">El brillo automático está habilitado</string>
+    <string name="status_bar_double_tap_to_sleep_title">Doble pulsación para dormir</string>
+    <string name="status_bar_double_tap_to_sleep_summary">Presionar 2 veces la barra de estado pondrá en reposo el dispositivo</string>
+
+    <!-- clock and date settings -->
+    <string name="clock_date_position_title">Posición</string>
+    <string name="clock_date_cat_clock_date_title">Hora y fecha</string>
+    <string name="clock_date_cat_clock_title">Hora</string>
+    <string name="clock_date_cat_date_title">Fecha</string>
+    <string name="clock_date_show_date_title">Mostrar fecha</string>
+    <string name="clock_date_show_date_summary">Muestra la hora del próximo evento en la barra de estado</string>
+    <string name="clock_date_am_pm_title">Estilo AM/PM</string>
+    <string name="clock_date_am_pm_disabled_summary">El formato 24-horas está habilitado</string>
+    <string name="clock_date_am_pm_small">Pequeño</string>
+    <string name="clock_date_date_size_title">Tamaño</string>
+    <string name="clock_date_date_size_summary">Muestra la fecha con tamaño pequeño de letra</string>
+    <string name="clock_date_date_style_title">Estilo</string>
+    <string name="clock_date_date_style_lowercase">Minúsculas</string>
+    <string name="clock_date_date_style_uppercase">Mayúsculas</string>
+    <string name="clock_date_date_format_title">Formato de fecha</string>
+    <string name="clock_date_date_custom_java_format">Personalizar formato java</string>
+    <string name="clock_date_date_string_edittext_title">Debe estar en formato fecha ej. MM/dd/yy</string>
+    <string name="clock_date_date_string_edittext_summary">Introduce cadena</string>
+
+    <!-- Status bar battery status settings -->
+    <string name="battery_status_cat_circle_options_title">Personalizar el círculo</string>
+    <string name="battery_status_style_title">Indicador</string>
+    <string name="battery_status_style_icon_portrait">Icono vertical</string>
+    <string name="battery_status_style_icon_landscape">Icono horizontal</string>
+    <string name="battery_status_style_circle">Círculo</string>
+    <string name="battery_status_percent_style_title">Posición del texto de porcentaje</string>
+    <string name="battery_status_percent_style_dialog_title">Escoger una posición</string>
+    <string name="battery_status_percent_style_text_inside">Dentro del icono</string>
+    <string name="battery_status_percent_style_text_next">Junto al icono</string>
+    <string name="battery_status_percent_style_default">Oculto (por defecto)</string>
+    <string name="battery_status_charge_animation_speed_title">Modificar la velocidad de la animación</string>
+    <string name="battery_status_charge_animation_speed_slow">Lenta</string>
+    <string name="battery_status_charge_animation_speed_fast">Rápida</string>
+    <string name="battery_status_show_circle_dotted_title">Círculo con puntos</string>
+    <string name="battery_status_show_circle_dotted_summary">Mostrar el círculo con puntos</string>
+    <string name="battery_status_circle_dot_length_title">Longitud del punto del círculo</string>
+    <string name="battery_status_circle_dot_interval_title">Intervalo del punto del círculo</string>
+    <string name="battery_status_battery_color_title">Llenar</string>
+
+    <!-- Status bar signal wifi icon settings  -->
+    <string name="signal_wifi_show_activity_title">Mostrar actividad de red</string>
+    <string name="signal_wifi_show_activity_summary">Muestra la actividad de red</string>
+
+    <!-- Status bar Network speed settings -->
+    <string name="network_speed_indicator_title">Indicador</string>
+    <string name="network_speed_indicator_down_up">Bajada y subida</string>
+    <string name="network_speed_indicator_down">Bajada</string>
+    <string name="network_speed_indicator_up">Subida</string>
+    <string name="network_speed_show_icon_summary">Muestra el icono del indicador</string>
+    <string name="network_speed_summary_title">Muestra el resumen del tráfico</string>
+    <string name="network_speed_traffic_timeout_dlg_title">Tiempo de espera</string>
+    <string name="network_speed_traffic_timeout_0s">No mostrar</string>
+    <string name="network_speed_traffic_timeout_1s">1 segundo</string>
+    <string name="network_speed_traffic_timeout_2s">2 segundos</string>
+    <string name="network_speed_traffic_timeout_3s">3 segundos</string>
+    <string name="network_speed_traffic_timeout_5s">5 segundos</string>
+    <string name="network_speed_traffic_timeout_8s">8 segundos</string>
+    <string name="network_speed_traffic_timeout_10s">10 segundos</string>
+    <string name="network_speed_traffic_timeout_15s">15 segundos</string>
+    <string name="network_speed_traffic_timeout_25s">25 segundos</string>
+    <string name="network_speed_bit_byte_title">Mostrar valores bit</string>
+    <string name="network_speed_bit_byte_summary">Muestra los valores en bit en vez de en byte</string>
+    <string name="network_speed_hide_indicator_title">Ocultar el indicador</string>
+    <string name="network_speed_hide_indicator_summary">Oculta el indicador si no hay tráfico</string>
+
+    <!-- Status bar notifications and system icons -->
+    <string name="notif_system_icons_colorize_notif_icons_title">Colorear los iconos de notificación</string>
+    <string name="notif_system_icons_colorize_notif_icons_title_phone">Colorea los iconos de notificación</string>
+    <string name="notif_system_icons_colorize_notif_icons_summary">Colorear los iconos de notificación</string>
+    <string name="notif_system_icons_show_ticker_title">Mostrar tablero</string>
+    <string name="notif_system_icons_show_ticker_summary">Muestra el tablero</string>
+    <string name="notif_system_icons_show_count_title">Contador de notificaciones</string>
+    <string name="notif_system_icons_show_count_summary">Muestra el número de notificaciones pendientes</string>
+    <string name="notif_system_icons_notif_text_color_title">Texto del tablero</string>
+    <string name="notif_system_icons_count_icon_color_title">Icono del contador de notificación</string>
+    <string name="notif_system_icons_count_text_color_title">Texto del contador de notificación</string>
+
+    <!-- Statusbar expanded -->
+    <string name="status_bar_expanded_header_settings_title">Cabecera</string>
+    <string name="status_bar_expanded_qs_settings_title">Ajustes rápidos</string>
+
+    <!-- Header -->
+    <string name="expanded_header_show_weather_title">Mostrar el tiempo</string>
+    <string name="expanded_header_show_weather_summary">Muestra el tiempo</string>
+    <string name="expanded_header_show_weather_location_title">Mostrar ubicación</string>
+    <string name="expanded_header_show_weather_location_summary">Muestra la ubicación</string>
+
+    <!-- Quick settings -->
+    <string name="qs_quick_pulldown_title">Despliegue rápido</string>
+    <string name="qs_quick_pulldown_summary">Utilizar el borde derecho de la barra de estado para desplegar los ajustes rápidos</string>
+    <string name="qs_order_title">Seleccionar y ordenar las casillas</string>
+    <string name="add_qs">Añadir nueva casilla</string>
+    <string name="cast_screen">Fundir pantalla</string>
+    <string name="hotspot">Hotspot</string>
+    <string name="qs_action_delete">Eliminar</string>
+    <string name="qs_action_add">Añadir</string>
+    <string name="qs_action_no_more_tiles">No hay más casillas disponibles</string>
+    <string name="qs_main_tiles_title">Agrandar la primera fila</string>
+    <string name="qs_main_tiles_summary">Mostrar 2 casillas principales en la primera fila, deshabilita mostrar 3 casillas</string>
+    <string name="qs_advanced_location_title">Ajustes rápidos de ubicación avanzada</string>
+    <string name="qs_advanced_location_summary">Ajustes avanzados para ubicación en ajustes rápidos</string>
+    <string name="qs_show_brightness_slider_title">Mostrar el control deslizante del brillo</string>
+    <string name="qs_show_brightness_slider_summary">Muestra  el control deslizante del brillo</string>
+
+    <!-- Lock clock -->
+    <string name="lock_clock_title">Widget del reloj</string>
+    <string name="lock_clock_clock_section_title">Hora y alarma</string>
+    <string name="lock_clock_clock_section_summary">Ver o cambiar cómo se muestra la hora y la alarma en el widget</string>
+    <string name="lock_clock_weather_section_title">Panel del tiempo</string>
+    <string name="lock_clock_weather_section_summary">Ver o cambiar cómo se muestra el tiempo en el widget</string>
+    <string name="lock_clock_calendar_section_title">Eventos del Calendario</string>
+    <string name="lock_clock_calendar_section_summary">Ver o cambiar cómo se muestran los eventos del calendario en el widget </string>
+
+    <!-- Display -->
+    <string name="display_rotation_settings_title">Rotación</string>
+
+    <!-- Rotation -->
+    <string name="display_rotation_unit">Grados</string>
+    <string name="display_rotation_category_title">Modos de rotación</string>
+    <string name="display_rotation_0_title">0 grados</string>
+    <string name="display_rotation_90_title">90 grados</string>
+    <string name="display_rotation_180_title">180 grados</string>
+    <string name="display_rotation_270_title">270 grados</string>
+
+    <!-- Button settings -->
+    <string name="button_volume_button_category_title">Botones de Volumen</string>
+    <string name="button_power_menu_settings_title">Menú de encendido</string>
+    <string name="button_power_menu_settings_summary">Personalizar el menú de encendido</string>
+    <string name="button_volume_button_wake_title">Despertar pantalla</string>
+    <string name="button_volume_button_wake_summary">Enciende la pantalla pulsando los botones de volumen arriba/abajo</string>
+
+    <!-- Power menu settings -->
+    <string name="power_menu_reboot_title">Reiniciar</string>
+    <string name="power_menu_reboot_summary">Muestra el botón de reinicio</string>
+    <string name="power_menu_airplane_title">Modo avión</string>
+    <string name="power_menu_airplane_summary">Muestra el desplegable de modo avión</string>
+    <string name="power_menu_users_title">Usuarios</string>
+    <string name="power_menu_users_summary">Muestra el botón de usuarios</string>
+    <string name="power_menu_settings_title">Ajustes</string>
+    <string name="power_menu_settings_summary">Muestra el botón de ajustes de sistema</string>
+    <string name="power_menu_lockdown_title">Bloquear ahora</string>
+    <string name="power_menu_lockdown_summary">Muestra el botón de bloquear ahora</string>
+    <string name="power_menu_silent_title">Modo sonido</string>
+    <string name="power_menu_silent_summary">Muestra el desplegable de modo sonido</string>
+
+    <!-- Battery settings -->
+
+    <!-- Wake on plug -->
+    <string name="wake_when_plugged_or_unplugged_title">Despertar al cargar</string>
+    <string name="wake_when_plugged_or_unplugged_summary">Despertar el dispositivo al conectar o desconectar el cargador</string>
+
+    <!-- Development settings -->
+
+    <!-- Advanced reboot options -->
+    <string name="advanced_reboot_title">Reinicio avanzado</string>
+    <string name="advanced_reboot_summary">Cuando esté desbloqueado, incluir opciones para reiniciar en Recovery, Bootloader o realizar un reinicio por software</string>
+
+    <!-- SuperSU -->
+    <string name="supersu_title">SuperSU</string>
+
+    <!-- Device info settings -->
+    <string name="cpu_info">CPU</string>
+    <string name="mem_info">Memoria</string>
+    <string name="dk_version">Versión DarkKat</string>
+    <string name="build_date">Fecha de creación</string>
+</resources>
