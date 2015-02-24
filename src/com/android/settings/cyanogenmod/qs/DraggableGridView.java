@@ -114,12 +114,14 @@ public class DraggableGridView extends ViewGroup implements
     public void addView(View child, int index) {
         super.addView(child, index);
         mNewPositions.add(-1);
+        child.setBackgroundColor(0xff000000);
     }
 
     @Override
     public void addView(View child) {
         super.addView(child);
         mNewPositions.add(-1);
+        child.setBackgroundColor(0xff000000);
     };
 
     @Override
@@ -359,6 +361,11 @@ public class DraggableGridView extends ViewGroup implements
                     mIsDelete = mOnRearrangeListener != null
                             && mOnRearrangeListener.isDeleteTarget(getIndexFromCoordinate(x, y));
 
+                    //Set the background color of the draggedView to a solid white
+                    //if the state is delete, so the color filter turns the background color
+                    //to a light transparent red, set the default background color (black) again,
+                    //if the state isn`t delete any more
+                    draggedView.setBackgroundColor(mIsDelete ? 0xffffffff : 0xff000000);
                     draggedView.setColor(mIsDelete ? Color.RED : Color.TRANSPARENT);
 
                     // check for new target hover

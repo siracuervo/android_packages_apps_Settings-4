@@ -156,7 +156,7 @@ public class ShortcutPickHelper {
                     return true;
                 }
             });
-            Builder builder = new Builder(mParent);
+            Builder builder = new Builder(mParent, AlertDialog.THEME_MATERIAL_DARK);
             builder.setView(appListView);
             mAlertDialog = builder.create();
             mAlertDialog.setTitle(mParent.getString(R.string.select_custom_activity_title));
