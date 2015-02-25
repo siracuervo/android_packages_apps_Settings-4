@@ -228,7 +228,7 @@
     <string name="qs_advanced_wifi_title">Wi\u2011Fi</string>
     <string name="qs_advanced_click_summary">Aktivieren um erweiterte Einstellungen anzuzeigen,\nwenn die Kachel nicht als Dual Kachel angezeigt wird</string>
 
-    <!-- Lock clock -->
+    <!-- More -->
     <string name="lock_clock_title">Uhr-Widget</string>
     <string name="lock_clock_clock_section_title">Uhrzeit und Alarme</string>
     <string name="lock_clock_clock_section_summary">Uhrzeit und Alarme des \"cLock-Widget\" konfigurieren</string>
@@ -236,6 +236,18 @@
     <string name="lock_clock_weather_section_summary">Wetter des \"cLock-Widget\" konfigurieren</string>
     <string name="lock_clock_calendar_section_title">Kalender</string>
     <string name="lock_clock_calendar_section_summary">Kalender des \"cLock-Widget\" konfigurieren</string>
+    <string name="expanded_desktop_title">Erweiterter Desktop</string>
+    <string name="expanded_desktop_summary">Erweiterten Desktop anpassen</string>
+
+    <!-- Expanded desktop -->
+    <string name="expanded_hide_nothing">Nichts ausblenden</string>
+    <string name="expanded_hide_status">Statusleiste ausblenden</string>
+    <string name="expanded_hide_navigation">Navigationsleiste ausblenden</string>
+    <string name="expanded_hide_both">Beides ausblenden</string>
+    <string name="expanded_nothing_to_show">Um eine benutzerdefinierte Per-App-Konfiguration für den erweiterten Modus hinzuzufügen, schalten Sie \"Für alle aktiviert\" auf aus</string>
+    <string name="expanded_enabled_for_all">Für alle aktiviert</string>
+    <string name="expanded_desktop_style">Stil des erw. Desktop</string>
+    <string name="expanded_desktop_style_description">Wählen Sie einen Standard-Stil für den erw. Desktop</string>
 
     <!-- Display -->
     <string name="display_rotation_settings_title">Bildschirmausrichtung</string>
