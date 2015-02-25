@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 DarkKat
+<!-- Copyright (C) 2013 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,15 +13,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Lockscreen shortcuts -->
-    <color name="lockscreen_shortcuts_text_color">#ffffff</color>
-    <color name="lockscreen_shortcuts_tint_color">#ffffff</color>
-    <color name="lockscreen_shortcuts_phone_screen_color">#ff37474f</color>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_activated="true" android:drawable="@drawable/expanded_item_bg_activated" />
+    <item android:state_activated="false" android:drawable="@drawable/expanded_item_bg" />
+</selector>
 
-    <!-- Expanded desktop -->
-    <color name="text_color_white">@android:color/white</color>
-    <drawable name="expanded_item_bg_activated">@android:color/black</drawable>
-    <drawable name="expanded_item_bg">@android:color/black</drawable>
-</resources>
