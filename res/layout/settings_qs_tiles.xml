@@ -19,7 +19,7 @@
     android:layout_width="match_parent"
     android:gravity="center_vertical"
     android:padding="16dp"
-    android:background="@*android:color/darkkat_blue_grey">
+    android:background="@color/qs_background_color">
 
     <com.android.settings.darkkat.qs.DraggableGridView
         android:id="@+id/qs_gridview"
