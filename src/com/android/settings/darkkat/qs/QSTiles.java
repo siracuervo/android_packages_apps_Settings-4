@@ -55,7 +55,7 @@ public class QSTiles extends Fragment implements
             Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.settings_qs_tiles, container, false);
         mDraggableGridView = (DraggableGridView) v.findViewById(R.id.qs_gridview);
-        mDraggableGridView.setBackgroundColor(getbackgroundColor());
+        mDraggableGridView.setBackgroundColor(getBackgroundColor());
         return v;
     }
 
@@ -238,7 +238,7 @@ public class QSTiles extends Fragment implements
         return order.split(",").length;
     }
 
-    private int getbackgroundColor() {
+    private int getBackgroundColor() {
         int bgColor = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.QS_BACKGROUND_COLOR, 0xff263238);
         return bgColor;
