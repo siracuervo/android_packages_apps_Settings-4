@@ -42,7 +42,6 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
-import android.graphics.PorterDuff;
 import android.net.ConnectivityManager;
 import android.net.LinkProperties;
 import android.net.Uri;
