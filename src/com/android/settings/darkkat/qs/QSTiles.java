@@ -184,7 +184,7 @@ public class QSTiles extends Fragment implements
 
         final QSListAdapter adapter = new QSListAdapter(getActivity(), tilesList);
         new AlertDialog.Builder(getActivity())
-                .setTitle(R.string.add_qs)
+                .setTitle(R.string.qs_add_tile)
                 .setSingleChoiceItems(adapter, -1, selectionListener)
                 .setNegativeButton(R.string.cancel, null)
                 .show();
