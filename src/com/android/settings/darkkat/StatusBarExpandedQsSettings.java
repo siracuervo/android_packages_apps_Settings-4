@@ -146,13 +146,18 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
         mQSTextColor.setSummary(hexColor);
         mQSTextColor.setOnPreferenceChangeListener(this);
 
+        updateQsTileCount();
+
         setHasOptionsMenu(true);
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        updateQsTileCount();
+    }
 
+    private void updateQsTileCount() {
         int qsTileCount = QSTiles.determineTileCount(getActivity());
         mQSTiles.setSummary(getResources().getQuantityString(R.plurals.qs_tiles_summary,
                     qsTileCount, qsTileCount));
