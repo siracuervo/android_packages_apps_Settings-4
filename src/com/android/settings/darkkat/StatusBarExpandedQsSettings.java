@@ -38,16 +38,16 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String PREF_QS_TILES =
+            "qs_tiles";
     private static final String PREF_QS_QUICK_PULLDOWN =
             "qs_quick_pulldown";
-    private static final String PREF_QS_ORDER =
-            "qs_order";
-    private static final String PREF_QS_MAIN_TILES =
-            "qs_main_tiles";
-    private static final String PREF_QS_LOCATION_ADVANCED =
-            "qs_location_advanced";
     private static final String PREF_QS_SHOW_BRIGHTNESS_SLIDER =
             "qs_show_brightness_slider";
+    private static final String PREF_QS_ENLARGE_FIRST_ROW =
+            "qs_enlarge_first_row";
+    private static final String PREF_QS_LOCATION_ADVANCED =
+            "qs_location_advanced";
     private static final String PREF_QS_BACKGROUND_COLOR =
             "qs_background_color";
     private static final String PREF_QS_ICON_COLOR =
@@ -62,11 +62,11 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private CheckBoxPreference mQSQuickPulldown;
     private Preference mQSTiles;
-    private CheckBoxPreference mQSMainTiles;
-    private CheckBoxPreference mQSLocationAdvanced;
     private CheckBoxPreference mQSShowBrightnessSlider;
+    private CheckBoxPreference mQSQuickPulldown;
+    private CheckBoxPreference mQSEnlargeFirstRow;
+    private CheckBoxPreference mQSLocationAdvanced;
     private ColorPickerPreference mQSBackgroundColor;
     private ColorPickerPreference mQSIconColor;
     private ColorPickerPreference mQSTextColor;
@@ -91,31 +91,31 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
         int intColor;
         String hexColor;
 
+        mQSTiles = findPreference(PREF_QS_TILES);
+
         mQSQuickPulldown =
                 (CheckBoxPreference) findPreference(PREF_QS_QUICK_PULLDOWN);
         mQSQuickPulldown.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.QS_QUICK_PULLDOWN, 0) == 1);
         mQSQuickPulldown.setOnPreferenceChangeListener(this);
 
-        mQSTiles = findPreference(PREF_QS_ORDER);
+        mQSShowBrightnessSlider =
+                (CheckBoxPreference) findPreference(PREF_QS_SHOW_BRIGHTNESS_SLIDER);
+        mQSShowBrightnessSlider.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, 1) == 1);
+        mQSShowBrightnessSlider.setOnPreferenceChangeListener(this);
 
-        mQSMainTiles =
-                (CheckBoxPreference) findPreference(PREF_QS_MAIN_TILES);
-        mQSMainTiles.setChecked(Settings.System.getInt(mResolver,
+        mQSEnlargeFirstRow =
+                (CheckBoxPreference) findPreference(PREF_QS_ENLARGE_FIRST_ROW);
+        mQSEnlargeFirstRow.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.QS_USE_MAIN_TILES, 1) == 1);
-        mQSMainTiles.setOnPreferenceChangeListener(this);
+        mQSEnlargeFirstRow.setOnPreferenceChangeListener(this);
 
         mQSLocationAdvanced =
                 (CheckBoxPreference) findPreference(PREF_QS_LOCATION_ADVANCED);
         mQSLocationAdvanced.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.QS_LOCATION_ADVANCED, 0) == 1);
         mQSLocationAdvanced.setOnPreferenceChangeListener(this);
-
-        mQSShowBrightnessSlider =
-                (CheckBoxPreference) findPreference(PREF_QS_SHOW_BRIGHTNESS_SLIDER);
-        mQSShowBrightnessSlider.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, 1) == 1);
-        mQSShowBrightnessSlider.setOnPreferenceChangeListener(this);
 
         mQSBackgroundColor =
                 (ColorPickerPreference) findPreference(PREF_QS_BACKGROUND_COLOR);
@@ -191,7 +191,12 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
             Settings.System.putInt(mResolver,
                 Settings.System.QS_QUICK_PULLDOWN, value ? 1 : 0);
             return true;
-        } else if (preference == mQSMainTiles) {
+        } else if (preference == mQSShowBrightnessSlider) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, value ? 1 : 0);
+            return true;
+        } else if (preference == mQSEnlargeFirstRow) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.QS_USE_MAIN_TILES, value ? 1 : 0);
@@ -200,11 +205,6 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.QS_LOCATION_ADVANCED, value ? 1 : 0);
-            return true;
-        } else if (preference == mQSShowBrightnessSlider) {
-            value = (Boolean) newValue;
-            Settings.System.putInt(mResolver,
-                Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, value ? 1 : 0);
             return true;
         } else if (preference == mQSBackgroundColor) {
             hex = ColorPickerPreference.convertToARGB(
@@ -269,11 +269,11 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_QUICK_PULLDOWN, 0);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, 1);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_USE_MAIN_TILES, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_LOCATION_ADVANCED, 0);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_BACKGROUND_COLOR,
                                     DEFAULT_BACKGROUND_COLOR);
@@ -290,11 +290,11 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_QUICK_PULLDOWN, 1);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, 1);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_USE_MAIN_TILES, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_LOCATION_ADVANCED, 1);
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_BACKGROUND_COLOR,
                                     0xff1b1f23);
