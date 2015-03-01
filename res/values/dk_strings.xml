@@ -221,6 +221,12 @@
     <string name="qs_tile_location">Location</string>
     <string name="qs_tile_cast_screen">Cast screen</string>
     <string name="qs_tile_hotspot">Hotspot</string>
+    <string name="qs_tile_adb_over_network">ADB over network</string>
+    <string name="qs_tile_nfc">NFC</string>
+    <string name="qs_tile_visualizer" translatable="false">AudioFX</string>
+    <string name="qs_tile_lockscreen">Lock screen</string>
+    <string name="qs_tile_screen_timeout">Screen timeout</string>
+    <string name="qs_tile_compass">Compass</string>
     <string name="qs_add_tile">Add new tile</string>
     <string name="qs_action_delete">Delete</string>
     <string name="qs_action_add">Add</string>

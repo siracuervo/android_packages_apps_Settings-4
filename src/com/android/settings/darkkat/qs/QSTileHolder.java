@@ -92,6 +92,30 @@ public class QSTileHolder {
                 resourceName = "ic_qs_hotspot_on";
                 stringId = R.string.qs_tile_hotspot;
                 break;
+            case QSConstants.TILE_ADB_NETWORK:
+                resourceName = "ic_qs_network_adb_on";
+                stringId = R.string.qs_tile_adb_over_network;
+                break;
+            case QSConstants.TILE_NFC:
+                resourceName = "ic_qs_nfc_on";
+                stringId = R.string.qs_tile_nfc;
+                break;
+            case QSConstants.TILE_VISUALIZER:
+                resourceName = "ic_qs_visualizer_static";
+                stringId = R.string.qs_tile_visualizer;
+                break;
+            case QSConstants.TILE_LOCKSCREEN:
+                resourceName = "ic_qs_lock_screen_on";
+                stringId = R.string.qs_tile_lockscreen;
+                break;
+            case QSConstants.TILE_SCREEN_TIMEOUT:
+                resourceName = "ic_qs_screen_timeout_vector";
+                stringId = R.string.qs_tile_screen_timeout;
+                break;
+            case QSConstants.TILE_COMPASS:
+                resourceName = "ic_qs_compass_on";
+                stringId = R.string.qs_tile_compass;
+                break;
             default:
                 return null;
         }
