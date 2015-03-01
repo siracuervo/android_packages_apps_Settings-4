@@ -222,6 +222,11 @@
     <string name="qs_tile_location">Standort</string>
     <string name="qs_tile_cast_screen">Bildschirm übertragen</string>
     <string name="qs_tile_hotspot">Hotspot</string>
+    <string name="qs_tile_adb_over_network">ADB über Netzwerk</string>
+    <string name="qs_tile_nfc">NFC</string>
+    <string name="qs_tile_lockscreen">Bildschirm sperren</string>
+    <string name="qs_tile_screen_timeout">Bildschirm Zeitlimit</string>
+    <string name="qs_tile_compass">Kompass</string>
     <string name="qs_add_tile">Neue Kachel hinzufügen</string>
     <string name="qs_action_delete">Löschen</string>
     <string name="qs_action_add">Hinzufügen</string>
