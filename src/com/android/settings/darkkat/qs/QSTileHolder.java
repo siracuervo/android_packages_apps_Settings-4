@@ -132,6 +132,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_lte_on";
                 stringId = R.string.qs_tile_lte;
                 break;
+            case QSConstants.TILE_DATA:
+                resourceName = "ic_qs_data_on";
+                stringId = R.string.qs_tile_mobile_data;
+                break;
             default:
                 return null;
         }
