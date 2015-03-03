@@ -227,6 +227,7 @@
     <string name="qs_tile_screen_timeout">Bildschirm Zeitlimit</string>
     <string name="qs_tile_compass">Kompass</string>
     <string name="qs_tile_lte">Lte</string>
+    <string name="qs_tile_mobile_data">Mobile Daten</string>
     <string name="qs_add_tile">Neue Kachel hinzufügen</string>
     <string name="qs_action_delete">Löschen</string>
     <string name="qs_action_add">Hinzufügen</string>
