@@ -29,8 +29,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
     private static final String PREF_VOLBTN_WAKE =
             "button_volume_button_wake";
+    private static final String PREF_VOLBTN_SWAP =
+            "button_swap_volume_buttons";
 
     private CheckBoxPreference mVolBtnWake;
+    private CheckBoxPreference mVolBtnSwap;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,11 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         mVolBtnWake.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
         mVolBtnWake.setOnPreferenceChangeListener(this);
+
+        mVolBtnSwap = (CheckBoxPreference) findPreference(PREF_VOLBTN_SWAP);
+        mVolBtnSwap.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.SWAP_VOLUME_BUTTONS_ON_ROTATION, 0) == 1);
+        mVolBtnSwap.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -49,6 +57,12 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             boolean value = (Boolean) newValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.VOLUME_WAKE_SCREEN,
+                    value ? 1 : 0);
+            return true;
+        } else if (preference == mVolBtnSwap) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.SWAP_VOLUME_BUTTONS_ON_ROTATION,
                     value ? 1 : 0);
             return true;
         }
