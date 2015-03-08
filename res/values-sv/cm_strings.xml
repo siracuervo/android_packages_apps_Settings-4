@@ -27,6 +27,7 @@
   <string name="ring_mode_normal">Normal</string>
   <string name="ring_mode_vibrate">Vibrera</string>
   <string name="ring_mode_mute">Tyst</string>
+  <string name="profiles_settings_title">Systemprofiler</string>
   <string name="profiles_add">Lägg till</string>
   <string name="profile_settings_title">Profil</string>
   <string name="profile_empty_list_profiles_off">För att konfigurera och använda systemprofiler, sätt på profiler.</string>
@@ -220,6 +221,7 @@
   <string name="status_bar_notif_count_summary">Visa antalet väntande aviseringar</string>
   <string name="status_bar_clock_style_center">Mitten</string>
   <string name="status_bar_clock_style_hidden">Gömd</string>
+  <string name="status_bar_am_pm_normal">Normal</string>
   <string name="edit_light_settings">Justera ljusinställningar</string>
   <string name="pulse_speed_title">Pulslängd och hastighet</string>
   <string name="default_time">Normal</string>
@@ -447,6 +449,7 @@
   <string name="notification_drawer_title">Aviseringsfält</string>
   <string name="qs_action_add">Lägg till</string>
   <string name="qs_tile_nfc">NFC</string>
+  <string name="qs_tile_lockscreen">Låsskärm</string>
   <string name="qs_tile_lte">LTE</string>
   <string name="themes_settings_title">Teman</string>
   <string name="wifi_mode">Läge</string>
@@ -458,7 +461,11 @@
   <string name="maximum_body_level">Kropp: %1$s W/kg</string>
   <string name="power_menu_expanded_desktop">Utökat skrivbord</string>
   <string name="lockscreen_default_target">Standard</string>
+  <string name="lockscreen_none_target">Ingen</string>
+  <string name="lockscreen_choose_action_title">Välj åtgärd</string>
   <string name="whisperpush_title">WhisperPush</string>
   <string name="whisperpush_summary">Hantera säkra SMS-inställningar</string>
   <string name="gestures_action_menu">Meny</string>
+  <string name="category_sounds">Ljud</string>
+  <string name="lockscreen_settings">Låsskärm</string>
 </resources>

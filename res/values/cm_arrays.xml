@@ -344,6 +344,20 @@
         <item>@string/profile_action_enable</item>
     </string-array>
 
+    <!-- Profile mode options. -->
+     <string-array name="profile_entries">
+         <item>On</item>
+         <item>Off</item>
+         <item>No override</item>
+     </string-array>
+
+     <!-- Values for vibrate_entries matching constants in SoundSettings. Do not translate. -->
+     <string-array name="profile_values" translatable="false">
+         <item>OVERRIDE</item>
+         <item>SUPPRESS</item>
+         <item>DEFAULT</item>
+     </string-array>
+
     <!-- Gamma calibration descriptors, deliberately empty as string values populated via
          per-device overlay. Required to build on non-hardware tunable devices -->
     <string-array name="gamma_descriptors" translatable="false">
@@ -456,6 +470,19 @@
     </string-array>
 
     <string-array name="expanded_desktop_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Quick pulldown -->
+    <string-array name="quick_pulldown_entries" translatable="false">
+        <item>@string/quick_pulldown_off</item>
+        <item>@string/quick_pulldown_right</item>
+        <item>@string/quick_pulldown_left</item>
+    </string-array>
+
+    <string-array name="quick_pulldown_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
