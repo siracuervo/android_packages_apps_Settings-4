@@ -220,22 +220,29 @@
     <string name="qs_advanced_location_summary">Ajustes avanzados para ubicación en ajustes rápidos</string>
 
     <!-- Quick settings tiles -->
-    <string name="qs_tile_wifi">Wi\u2011Fi</string>
+    <string name="qs_tile_wifi">WiFi</string>
     <string name="qs_tile_bluetooth">Bluetooth</string>
     <string name="qs_tile_display_inversion">Inversión de color</string>
-    <string name="qs_tile_cellular_data">Conexión de datos</string>
+    <string name="qs_tile_cellular_data">Redes móviles</string>
     <string name="qs_tile_airplane_mode">Modo avión</string>
     <string name="qs_tile_display_rotation">Rotación</string>
     <string name="qs_tile_flashlight">Linterna</string>
     <string name="qs_tile_location">Ubicación</string>
-    <string name="qs_tile_cast_screen">Fundir pantalla</string>
+    <string name="qs_tile_cast_screen">Enviar contenido a pantalla</string>
     <string name="qs_tile_hotspot">Hotspot</string>
+    <string name="qs_tile_adb_over_network">Compartir conexión de internet</string>
+    <string name="qs_tile_nfc">NFC</string>
+    <string name="qs_tile_lockscreen">Pantalla de bloqueo</string>
+    <string name="qs_tile_screen_timeout">Suspender después de</string>
+    <string name="qs_tile_compass">Brújula</string>
+    <string name="qs_tile_lte">LTE</string>
+    <string name="qs_tile_mobile_data">Redes móviles</string>
     <string name="qs_add_tile">Añadir nueva casilla</string>
     <string name="qs_action_delete">Eliminar</string>
     <string name="qs_action_add">Añadir</string>
     <string name="qs_action_no_more_tiles">No hay más casillas disponibles</string>
 
-    <!-- Lock clock -->
+    <!-- More -->
     <string name="lock_clock_title">Widget del reloj</string>
     <string name="lock_clock_clock_section_title">Hora y alarma</string>
     <string name="lock_clock_clock_section_summary">Ver o cambiar cómo se muestra la hora y la alarma en el widget</string>
@@ -243,6 +250,18 @@
     <string name="lock_clock_weather_section_summary">Ver o cambiar cómo se muestra el tiempo en el widget</string>
     <string name="lock_clock_calendar_section_title">Eventos del Calendario</string>
     <string name="lock_clock_calendar_section_summary">Ver o cambiar cómo se muestran los eventos del calendario en el widget </string>
+    <string name="expanded_desktop_title">Escritorio expandido</string>
+    <string name="expanded_desktop_summary">Personalizar el escritorio expandido</string>
+
+    <!-- Expanded desktop -->
+    <string name="expanded_hide_nothing">Siempre visible</string>
+    <string name="expanded_hide_status">Ocultar la barra de estado</string>
+    <string name="expanded_hide_navigation">Ocultar la barra de navegación</string>
+    <string name="expanded_hide_both">Ocultar ambas</string>
+    <string name="expanded_nothing_to_show">Para agregar una configuración personalizada por aplicación para el escritorio expandido, selecciona 'Habilitado para todo'</string>
+    <string name="expanded_enabled_for_all">Habilitado para todo</string>
+    <string name="expanded_desktop_style">Estilo del escritorio expandido</string>
+    <string name="expanded_desktop_style_description">Escoger un estilo para el escritorio expandido</string>
 
     <!-- Display -->
     <string name="display_rotation_settings_title">Rotación</string>
@@ -261,6 +280,8 @@
     <string name="button_power_menu_settings_summary">Personalizar el menú de encendido</string>
     <string name="button_volume_button_wake_title">Despertar pantalla</string>
     <string name="button_volume_button_wake_summary">Enciende la pantalla pulsando los botones de volumen arriba/abajo</string>
+    <string name="button_swap_volume_buttons_title">Reorientar</string>
+    <string name="button_swap_volume_buttons_summary">Intercambiar los botones de volumen cuando se gire la pantalla</string>
 
     <!-- Power menu settings -->
     <string name="power_menu_reboot_title">Reiniciar</string>
@@ -287,6 +308,11 @@
     <!-- Advanced reboot options -->
     <string name="advanced_reboot_title">Reinicio avanzado</string>
     <string name="advanced_reboot_summary">Cuando esté desbloqueado, incluir opciones para reiniciar en Recovery, Bootloader o realizar un reinicio por software</string>
+
+    <!-- ADB over network -->
+    <string name="adb_over_network">Compartir conexión a internet</string>
+    <string name="adb_over_network_summary">Habilitar depuración TCP/IP a través de las interfaces de red (redes WIFI, USB). Esta opción reiniciará el móvil</string>
+    <string name="adb_over_network_warning">AVISO: Cuando se comparte la conexión a internet tu teléfono es vulnerable a conexiones de intrusos</string>
 
     <!-- SuperSU -->
     <string name="supersu_title">SuperSU</string>
