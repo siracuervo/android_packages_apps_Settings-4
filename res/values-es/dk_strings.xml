@@ -261,7 +261,7 @@
     <string name="expanded_hide_status">Ocultar la barra de estado</string>
     <string name="expanded_hide_navigation">Ocultar la barra de navegación</string>
     <string name="expanded_hide_both">Ocultar ambas</string>
-    <string name="expanded_nothing_to_show">Para agregar una configuración personalizada por aplicación para el escritorio expandido, selecciona 'Habilitado para todo'</string>
+    <string name="expanded_nothing_to_show">Para agregar una configuración personalizada por aplicación para el escritorio expandido, selecciona \'Habilitado para todo\'</string>
     <string name="expanded_enabled_for_all">Habilitado para todo</string>
     <string name="expanded_desktop_style">Estilo del escritorio expandido</string>
     <string name="expanded_desktop_style_description">Escoger un estilo para el escritorio expandido</string>
