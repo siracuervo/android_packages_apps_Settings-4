@@ -18,6 +18,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_expanded_qs_settings_title">
 
+    <PreferenceScreen
+        android:key="qs_order"
+        android:title="@string/qs_order_title"
+        android:fragment="com.android.settings.darkkat.qs.QSTiles" />
+
     <PreferenceCategory
         android:key="qs_cat_options"
         android:title="@string/options_title">
@@ -28,10 +33,11 @@
             android:summary="@string/qs_quick_pulldown_summary"
             android:defaultValue="false" />
 
-        <PreferenceScreen
-            android:key="qs_order"
-            android:title="@string/qs_order_title"
-            android:fragment="com.android.settings.darkkat.qs.QSTiles" />
+        <CheckBoxPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/qs_show_brightness_slider_title"
+            android:summary="@string/qs_show_brightness_slider_summary"
+            android:defaultValue="true" />
 
         <CheckBoxPreference
             android:key="qs_main_tiles"
@@ -39,17 +45,29 @@
             android:summary="@string/qs_main_tiles_summary"
             android:defaultValue="true" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="qs_cat_advanced_tiles"
+        android:title="@string/qs_cat_advanced_tiles_title">
+
         <CheckBoxPreference
-            android:key="qs_location_advanced"
-            android:title="@string/qs_advanced_location_title"
-            android:summary="@string/qs_advanced_location_summary"
+            android:key="qs_advanced_bluetooth"
+            android:title="@string/qs_advanced_bluetooth_title"
+            android:summary="@string/qs_advanced_click_summary"
             android:defaultValue="false" />
 
         <CheckBoxPreference
-            android:key="qs_show_brightness_slider"
-            android:title="@string/qs_show_brightness_slider_title"
-            android:summary="@string/qs_show_brightness_slider_summary"
-            android:defaultValue="true" />
+            android:key="qs_advanced_location"
+            android:title="@string/qs_advanced_location_title"
+            android:summary="@string/qs_advanced_click_summary"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="qs_advanced_wifi"
+            android:title="@string/qs_advanced_wifi_title"
+            android:summary="@string/qs_advanced_click_summary"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 

@@ -38,16 +38,20 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_QS_QUICK_PULLDOWN =
-            "qs_quick_pulldown";
     private static final String PREF_QS_ORDER =
             "qs_order";
-    private static final String PREF_QS_MAIN_TILES =
-            "qs_main_tiles";
-    private static final String PREF_QS_LOCATION_ADVANCED =
-            "qs_location_advanced";
+    private static final String PREF_QS_QUICK_PULLDOWN =
+            "qs_quick_pulldown";
     private static final String PREF_QS_SHOW_BRIGHTNESS_SLIDER =
             "qs_show_brightness_slider";
+    private static final String PREF_QS_MAIN_TILES =
+            "qs_main_tiles";
+    private static final String PREF_QS_BLUETOOTH_ADVANCED =
+            "qs_advanced_bluetooth";
+    private static final String PREF_QS_LOCATION_ADVANCED =
+            "qs_advanced_location";
+    private static final String PREF_QS_WIFI_ADVANCED =
+            "qs_advanced_wifi";
     private static final String PREF_QS_BACKGROUND_COLOR =
             "qs_background_color";
     private static final String PREF_QS_ICON_COLOR =
@@ -62,11 +66,13 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private CheckBoxPreference mQSQuickPulldown;
     private Preference mQSTiles;
-    private CheckBoxPreference mQSMainTiles;
-    private CheckBoxPreference mQSLocationAdvanced;
+    private CheckBoxPreference mQSQuickPulldown;
     private CheckBoxPreference mQSShowBrightnessSlider;
+    private CheckBoxPreference mQSMainTiles;
+    private CheckBoxPreference mQSBluetoothAdvanced;
+    private CheckBoxPreference mQSLocationAdvanced;
+    private CheckBoxPreference mQSWifiAdvanced;
     private ColorPickerPreference mQSBackgroundColor;
     private ColorPickerPreference mQSIconColor;
     private ColorPickerPreference mQSTextColor;
@@ -91,13 +97,19 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
         int intColor;
         String hexColor;
 
+        mQSTiles = findPreference(PREF_QS_ORDER);
+
         mQSQuickPulldown =
                 (CheckBoxPreference) findPreference(PREF_QS_QUICK_PULLDOWN);
         mQSQuickPulldown.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.QS_QUICK_PULLDOWN, 0) == 1);
         mQSQuickPulldown.setOnPreferenceChangeListener(this);
 
-        mQSTiles = findPreference(PREF_QS_ORDER);
+        mQSShowBrightnessSlider =
+                (CheckBoxPreference) findPreference(PREF_QS_SHOW_BRIGHTNESS_SLIDER);
+        mQSShowBrightnessSlider.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, 1) == 1);
+        mQSShowBrightnessSlider.setOnPreferenceChangeListener(this);
 
         mQSMainTiles =
                 (CheckBoxPreference) findPreference(PREF_QS_MAIN_TILES);
@@ -105,17 +117,23 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
                 Settings.System.QS_USE_MAIN_TILES, 1) == 1);
         mQSMainTiles.setOnPreferenceChangeListener(this);
 
+        mQSBluetoothAdvanced =
+                (CheckBoxPreference) findPreference(PREF_QS_BLUETOOTH_ADVANCED);
+        mQSBluetoothAdvanced.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.QS_BLUETOOTH_ADVANCED, 0) == 1);
+        mQSBluetoothAdvanced.setOnPreferenceChangeListener(this);
+
         mQSLocationAdvanced =
                 (CheckBoxPreference) findPreference(PREF_QS_LOCATION_ADVANCED);
         mQSLocationAdvanced.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.QS_LOCATION_ADVANCED, 0) == 1);
         mQSLocationAdvanced.setOnPreferenceChangeListener(this);
 
-        mQSShowBrightnessSlider =
-                (CheckBoxPreference) findPreference(PREF_QS_SHOW_BRIGHTNESS_SLIDER);
-        mQSShowBrightnessSlider.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, 1) == 1);
-        mQSShowBrightnessSlider.setOnPreferenceChangeListener(this);
+        mQSWifiAdvanced =
+                (CheckBoxPreference) findPreference(PREF_QS_WIFI_ADVANCED);
+        mQSWifiAdvanced.setChecked(Settings.System.getInt(mResolver,
+                Settings.System.QS_WIFI_ADVANCED, 0) == 1);
+        mQSWifiAdvanced.setOnPreferenceChangeListener(this);
 
         mQSBackgroundColor =
                 (ColorPickerPreference) findPreference(PREF_QS_BACKGROUND_COLOR);
@@ -186,20 +204,30 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
             Settings.System.putInt(mResolver,
                 Settings.System.QS_QUICK_PULLDOWN, value ? 1 : 0);
             return true;
+        } else if (preference == mQSShowBrightnessSlider) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, value ? 1 : 0);
+            return true;
         } else if (preference == mQSMainTiles) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.QS_USE_MAIN_TILES, value ? 1 : 0);
+            return true;
+        } else if (preference == mQSBluetoothAdvanced) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                Settings.System.QS_BLUETOOTH_ADVANCED, value ? 1 : 0);
             return true;
         } else if (preference == mQSLocationAdvanced) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
                 Settings.System.QS_LOCATION_ADVANCED, value ? 1 : 0);
             return true;
-        } else if (preference == mQSShowBrightnessSlider) {
+        } else if (preference == mQSWifiAdvanced) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
-                Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, value ? 1 : 0);
+                Settings.System.QS_WIFI_ADVANCED, value ? 1 : 0);
             return true;
         } else if (preference == mQSBackgroundColor) {
             hex = ColorPickerPreference.convertToARGB(
@@ -264,11 +292,15 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_QUICK_PULLDOWN, 0);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, 1);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_USE_MAIN_TILES, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_BLUETOOTH_ADVANCED, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_LOCATION_ADVANCED, 0);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, 1);
+                                    Settings.System.QS_WIFI_ADVANCED, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_BACKGROUND_COLOR,
                                     DEFAULT_BACKGROUND_COLOR);
@@ -285,11 +317,15 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_QUICK_PULLDOWN, 1);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, 1);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_USE_MAIN_TILES, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.QS_BLUETOOTH_ADVANCED, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_LOCATION_ADVANCED, 1);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, 1);
+                                    Settings.System.QS_WIFI_ADVANCED, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_BACKGROUND_COLOR,
                                     0xff1b1f23);
