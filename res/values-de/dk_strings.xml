@@ -211,7 +211,19 @@
     <!-- Quick settings -->
     <string name="qs_cat_advanced_tiles_title">Erweiterbare Kacheln</string>
     <string name="qs_order_title">Kacheln wählen und anordnen</string>
-    <string name="qs_tile_wifi">WLAN</string>
+    <string name="qs_quick_pulldown_title">Schnelles Öffnen</string>
+    <string name="qs_quick_pulldown_summary">Aktivieren um die Schnelleinstellungen von der rechten Seite der Statusleiste direkt zu öffnen</string>
+    <string name="qs_show_brightness_slider_title">Helligkeitsregler anzeigen</string>
+    <string name="qs_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler anzuzeigen</string>
+    <string name="qs_main_tiles_title">Erste Reihe</string>
+    <string name="qs_main_tiles_summary">Aktivieren um 2 Haupt-Kacheln in der ersten Reihe anzuzeigen, deaktivieren um 3 Kacheln anzuzeigen</string>
+    <string name="qs_advanced_bluetooth_title">Bluetooth</string>
+    <string name="qs_advanced_location_title">Standort</string>
+    <string name="qs_advanced_wifi_title">Wi\u2011Fi</string>
+    <string name="qs_advanced_click_summary">Aktivieren um erweiterte Einstellungen anzuzeigen,\nwenn die Kachel nicht als Dual Kachel angezeigt wird</string>
+
+    <!-- Quick settings tiles -->
+    <string name="qs_tile_wifi">Wi\u2011Fi</string>
     <string name="qs_tile_bluetooth">Bluetooth</string>
     <string name="qs_tile_display_inversion">Farbumkehrung</string>
     <string name="qs_tile_cellular_data">Datenverbindung</string>
@@ -232,16 +244,6 @@
     <string name="qs_action_delete">Löschen</string>
     <string name="qs_action_add">Hinzufügen</string>
     <string name="qs_action_no_more_tiles">keine weiteren Kacheln verfügbar</string>
-    <string name="qs_quick_pulldown_title">Schnelles Öffnen</string>
-    <string name="qs_quick_pulldown_summary">Aktivieren um die Schnelleinstellungen von der rechten Seite der Statusleiste direkt zu öffnen</string>
-    <string name="qs_show_brightness_slider_title">Helligkeitsregler anzeigen</string>
-    <string name="qs_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler anzuzeigen</string>
-    <string name="qs_main_tiles_title">Erste Reihe</string>
-    <string name="qs_main_tiles_summary">Aktivieren um 2 Haupt-Kacheln in der ersten Reihe anzuzeigen, deaktivieren um 3 Kacheln anzuzeigen</string>
-    <string name="qs_advanced_bluetooth_title">Bluetooth</string>
-    <string name="qs_advanced_location_title">Standort</string>
-    <string name="qs_advanced_wifi_title">Wi\u2011Fi</string>
-    <string name="qs_advanced_click_summary">Aktivieren um erweiterte Einstellungen anzuzeigen,\nwenn die Kachel nicht als Dual Kachel angezeigt wird</string>
 
     <!-- More -->
     <string name="lock_clock_title">Uhr-Widget</string>
