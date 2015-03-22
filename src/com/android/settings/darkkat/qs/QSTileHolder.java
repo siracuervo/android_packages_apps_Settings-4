@@ -73,7 +73,7 @@ public class QSTileHolder {
                 stringId = R.string.qs_tile_airplane_mode;
                 break;
             case QSConstants.TILE_ROTATION:
-                resourceName = "ic_qs_rotation_locked";
+                resourceName = "ic_qs_rotation_01";
                 stringId = R.string.qs_tile_display_rotation;
                 break;
             case QSConstants.TILE_FLASHLIGHT:
@@ -109,7 +109,7 @@ public class QSTileHolder {
                 stringId = R.string.qs_tile_lockscreen;
                 break;
             case QSConstants.TILE_SCREEN_TIMEOUT:
-                resourceName = "ic_qs_screen_timeout_vector";
+                resourceName = "ic_qs_screen_timeout_on";
                 stringId = R.string.qs_tile_screen_timeout;
                 break;
             case QSConstants.TILE_COMPASS:
