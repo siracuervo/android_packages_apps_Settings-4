@@ -37,7 +37,6 @@
     <string name="icons_title">Icons</string>
     <string name="text_title">Text</string>
     <string name="color_fully_title">Fully connected</string>
-    <string name="display_rotation_title">Display rotation</string>
     <string name="weather_title">Weather</string>
 
     <!-- Shortcut Picker -->
@@ -268,11 +267,11 @@
     <string name="expanded_desktop_style_description">Choose a default expanded desktop style</string>
 
     <!-- Display -->
-    <string name="display_rotation_settings_title">Rotation</string>
+    <string name="display_rotation_settings_title">Display rotation</string>
 
     <!-- Rotation -->
-    <string name="display_rotation_unit">degrees</string>
     <string name="display_rotation_category_title">Rotation modes</string>
+    <string name="display_rotation_unit">degrees</string>
     <string name="display_rotation_0_title">0 degrees</string>
     <string name="display_rotation_90_title">90 degrees</string>
     <string name="display_rotation_180_title">180 degrees</string>

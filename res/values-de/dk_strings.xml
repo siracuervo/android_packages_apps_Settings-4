@@ -37,7 +37,6 @@
     <string name="icons_title">Symbole</string>
     <string name="text_title">Text</string>
     <string name="color_fully_title">Vollständig verbunden</string>
-    <string name="display_rotation_title">Bildschirm Ausrichtung</string>
     <string name="weather_title">Wetter</string>
 
     <!-- Shortcut Picker -->
@@ -267,11 +266,11 @@
     <string name="expanded_desktop_style_description">Wählen Sie einen Standard-Stil für den erw. Desktop</string>
 
     <!-- Display -->
-    <string name="display_rotation_settings_title">Bildschirmausrichtung</string>
+    <string name="display_rotation_settings_title">Bildschirm-Ausrichtung</string>
 
     <!-- Rotation -->
-    <string name="display_rotation_unit">Grad</string>
     <string name="display_rotation_category_title">Bei Drehung um</string>
+    <string name="display_rotation_unit">Grad</string>
     <string name="display_rotation_0_title">0 Grad</string>
     <string name="display_rotation_90_title">90 Grad</string>
     <string name="display_rotation_180_title">180 Grad</string>

@@ -37,7 +37,6 @@
     <string name="icons_title">Iconos</string>
     <string name="text_title">Texto</string>
     <string name="color_fully_title">Totalmente cargado</string>
-    <string name="display_rotation_title">Rotación de la pantalla</string>
     <string name="weather_title">Tiempo</string>
 
     <!-- Shortcut Picker -->
@@ -267,11 +266,11 @@
     <string name="expanded_desktop_style_description">Escoger un estilo para el escritorio expandido</string>
 
     <!-- Display -->
-    <string name="display_rotation_settings_title">Rotación</string>
+    <string name="display_rotation_settings_title">Rotación de la pantalla</string>
 
     <!-- Rotation -->
-    <string name="display_rotation_unit">Grados</string>
     <string name="display_rotation_category_title">Modos de rotación</string>
+    <string name="display_rotation_unit">Grados</string>
     <string name="display_rotation_0_title">0 grados</string>
     <string name="display_rotation_90_title">90 grados</string>
     <string name="display_rotation_180_title">180 grados</string>

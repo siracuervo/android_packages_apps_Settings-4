@@ -753,7 +753,7 @@
     <string name="wifi_tether_configure_subtext" msgid="7957547035983257748">"<xliff:g id="NETWORK_SSID">%1$s</xliff:g> <xliff:g id="NETWORK_SECURITY">%2$s</xliff:g> mobiler WLAN-Hotspot"</string>
     <string name="wifi_tether_configure_ssid_default" msgid="8467525402622138547">"AndroidHotspot"</string>
     <string name="home_settings" msgid="212375129455718176">"Startseite"</string>
-    <string name="display_settings_title" msgid="1708697328627382561">"Display"</string>
+    <string name="display_settings_title" msgid="1708697328627382561">"Bildschirm"</string>
     <string name="sound_settings" msgid="5534671337768745343">"Töne"</string>
     <string name="ringtone_summary" msgid="2630023412632683493"></string>
     <string name="all_volume_title" msgid="4296957391257836961">"Lautstärke"</string>
@@ -804,8 +804,8 @@
     <string name="category_work" msgid="8699184680584175622">"Geschäftlich"</string>
     <string name="search_settings" msgid="1910951467596035063">"Suche"</string>
     <string name="search_settings_summary" msgid="9205656546570654169">"Sucheinstellungen und Suchverlauf verwalten"</string>
-    <string name="display_settings" msgid="7965901687241669598">"Display"</string>
-    <string name="accelerometer_title" msgid="7854608399547349157">"Display automatisch drehen"</string>
+    <string name="display_settings" msgid="7965901687241669598">"Bildschirm"</string>
+    <string name="accelerometer_title" msgid="7854608399547349157">"Bildschirm automatisch drehen"</string>
     <string name="accelerometer_summary_on" product="tablet" msgid="429982132339828942">"Ausrichtung beim Drehen des Tablets automatisch ändern"</string>
     <string name="accelerometer_summary_on" product="default" msgid="1133737282813048021">"Ausrichtung beim Drehen des Telefons automatisch ändern"</string>
     <string name="accelerometer_summary_off" product="tablet" msgid="4781734213242521682">"Ausrichtung beim Drehen des Tablets automatisch ändern"</string>
@@ -816,7 +816,7 @@
     <string name="auto_brightness_title" msgid="6341042882350279391">"Adaptive Helligkeit"</string>
     <string name="auto_brightness_summary" msgid="1799041158760605375">"Helligkeitsstufe an Lichtverhältnisse anpassen"</string>
     <string name="screen_timeout" msgid="4351334843529712571">"Ruhezustand"</string>
-    <string name="screen_timeout_title" msgid="5130038655092628247">"Display wird ausgeschaltet."</string>
+    <string name="screen_timeout_title" msgid="5130038655092628247">"Bildschirm wird ausgeschaltet."</string>
     <string name="screen_timeout_summary" msgid="327761329263064327">"Nach <xliff:g id="TIMEOUT_DESCRIPTION">%1$s</xliff:g> ohne Aktivität"</string>
     <string name="wallpaper_settings_title" msgid="5449180116365824625">"Hintergrund"</string>
     <string name="wallpaper_settings_fragment_title" msgid="519078346877860129">"Hintergrund auswählen"</string>
