@@ -369,6 +369,11 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                     .setNeutralButton(R.string.dlg_reset_android,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CLOCK_DATE_POSITION, 0);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_SHOW_DATE, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_AM_PM, 2);
                             Settings.System.putInt(getOwner().mResolver,
@@ -387,6 +392,10 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                     .setPositiveButton(R.string.dlg_reset_darkkat,
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_CLOCK_DATE_POSITION, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_SHOW_DATE, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_AM_PM, 2);
                             Settings.System.putInt(getOwner().mResolver,

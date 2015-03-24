@@ -145,7 +145,7 @@ public class StatusBarBatteryStatusSettings extends SettingsPreferenceFragment i
             mChargeAnimationSpeed =
                     (ListPreference) findPreference(PREF_CHARGE_ANIMATION_SPEED);
             int chargeAnimationSpeed = Settings.System.getInt(mResolver,
-                   Settings.System.STATUS_BAR_BATTERY_STATUS_CHARGING_ANIMATION_SPEED, 3);
+                   Settings.System.STATUS_BAR_BATTERY_STATUS_CHARGING_ANIMATION_SPEED, 0);
             mChargeAnimationSpeed.setValue(String.valueOf(chargeAnimationSpeed));
             mChargeAnimationSpeed.setSummary(mChargeAnimationSpeed.getEntry());
             mChargeAnimationSpeed.setOnPreferenceChangeListener(this);

@@ -101,7 +101,7 @@ public class StatusBarNetworkSpeedSettings extends SettingsPreferenceFragment im
         mIndicator =
                 (ListPreference) findPreference(PREF_INDICATOR);
         int indicator = Settings.System.getInt(mResolver,
-               Settings.System.STATUS_BAR_NETWORK_SPEED_INDICATOR, 2);
+               Settings.System.STATUS_BAR_NETWORK_SPEED_INDICATOR, 3);
         mIndicator.setValue(String.valueOf(indicator));
         mIndicator.setSummary(mIndicator.getEntry());
         mIndicator.setOnPreferenceChangeListener(this);
