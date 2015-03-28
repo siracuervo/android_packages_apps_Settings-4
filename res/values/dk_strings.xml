@@ -217,7 +217,7 @@
     <string name="qs_main_tiles_title">Enlarge first row</string>
     <string name="qs_main_tiles_summary">Enable to show 2 main tiles on the first row, disable to show 3 tiles</string>
     <string name="qs_advanced_bluetooth_title">Bluetooth</string>
-    <string name="qs_advanced_location_title">Location quick settings</string>
+    <string name="qs_advanced_location_title">Location</string>
     <string name="qs_advanced_wifi_title">Wi\u2011Fi</string>
     <string name="qs_advanced_click_summary">Enable to show advanced settings,\nif the tile isn\`t shown as dual tile</string>
 

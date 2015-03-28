@@ -266,7 +266,7 @@
     <string name="expanded_desktop_style_description">Escoger un estilo para el escritorio expandido</string>
 
     <!-- Display -->
-    <string name="display_rotation_settings_title">Rotación de la pantalla</string>
+    <string name="display_rotation_settings_title">Rotation</string>
 
     <!-- Rotation -->
     <string name="display_rotation_category_title">Modos de rotación</string>
