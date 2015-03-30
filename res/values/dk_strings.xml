@@ -48,10 +48,6 @@
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Press on color below to apply</string>
-    <string name="arrow_right">→</string>
-    <string name="arrow_down">↓</string>
-    <string name="hex">Hex:</string>
-    <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
 
     <!-- dashboard categories-->
@@ -234,7 +230,6 @@
     <string name="qs_tile_hotspot">Hotspot</string>
     <string name="qs_tile_adb_over_network">ADB over network</string>
     <string name="qs_tile_nfc">NFC</string>
-    <string name="qs_tile_visualizer" translatable="false">AudioFX</string>
     <string name="qs_tile_lockscreen">Lock screen</string>
     <string name="qs_tile_screen_timeout">Screen timeout</string>
     <string name="qs_tile_compass">Compass</string>

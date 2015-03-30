@@ -48,10 +48,6 @@
     <!-- Color Picker -->
     <string name="dialog_color_picker">Tableta de colores</string>
     <string name="press_color_to_apply">Selecciona el color de debajo para aplicar</string>
-    <string name="arrow_right">→</string>
-    <string name="arrow_down">↓</string>
-    <string name="hex">Hex:</string>
-    <string name="hex_hint">#ff000000</string>
     <string name="set">Aplicar</string>
 
     <!-- dashboard categories-->
