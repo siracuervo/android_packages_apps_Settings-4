@@ -208,18 +208,18 @@
     <string name="expanded_header_show_weather_location_summary">Activer pour montrer la position</string>
 
     <!-- Quick settings -->
-    <string name="qs_cat_advanced_tiles_title">Advanced tiles</string>
+    <string name="qs_cat_advanced_tiles_title">Tuiles avancée</string>
     <string name="qs_order_title">Sélectionnez les tuiles et mettez dans l\'ordre souhaitez</string>
     <string name="qs_quick_pulldown_title">Déroulant rapide</string>
     <string name="qs_quick_pulldown_summary">Permettre d\'utiliser le bord droit de la barre d\'état pour afficher les paramètres rapides</string>
     <string name="qs_show_brightness_slider_title">Afficher le curseur de luminosité</string>
     <string name="qs_show_brightness_slider_summary">Activer pour montrer le curseur de luminosité</string>
-    <string name="qs_main_tiles_title">Enlarge first row</string>
-    <string name="qs_main_tiles_summary">Enable to show 2 main tiles on the first row, disable to show 3 tiles</string>
+    <string name="qs_main_tiles_title">Agrandir la première ligne</string>
+    <string name="qs_main_tiles_summary">Activer pour montrer les deux principales tuiles , désactiver pour montrer trois tuiles</string>
     <string name="qs_advanced_bluetooth_title">Bluetooth</string>
-    <string name="qs_advanced_location_title">Location</string>
+    <string name="qs_advanced_location_title">Emplacement</string>
     <string name="qs_advanced_wifi_title">Wi\u2011Fi</string>
-    <string name="qs_advanced_click_summary">Enable to show advanced settings,\nif the tile isn\`t shown as dual tile</string>
+    <string name="qs_advanced_click_summary">Activer pour afficher les paramètres avancés,\nif la tuile isn\`t montrer en tant que double tuile</string>
 
     <!-- Quick settings tiles -->
     <string name="qs_tile_wifi">Wi\u2011Fi</string>
@@ -314,7 +314,7 @@
     <!-- ADB over network -->
     <string name="adb_over_network">ADB sur le réseau</string>
     <string name="adb_over_network_summary">Activer le débogage TCP / IP sur les interfaces réseau (Wi-Fi, réseaux USB). Ce paramètre est remis à zéro au redémarrage</string>
-    <string name="adb_over_network_warning">WARNING: When ADB over network is enabled, your phone is open for intrusions on all connected networks, including GSM data network!\n\nOnly use this feature when you are connected on trusted networks.\n\nDo you really want to enable this function?</string>
+    <string name="adb_over_network_warning">ATTENTION : Lorsque que ADB à travers le réseau est activée,votre téléphone est ouvert au intrusions sur tous les réseaux connectés , y compris le réseau de données GSM!\n\nOnly utiliser cette fonction lorsque vous êtes connecté sur les réseaux de confiance.\n\nDo Voulez-vous vraiment activer cette fonctionnalité ?</string>
 
     <!-- SuperSU -->
     <string name="supersu_title">SuperSU</string>

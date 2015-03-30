@@ -208,7 +208,7 @@
     <string name="expanded_header_show_weather_location_summary">Muestra la ubicación</string>
 
     <!-- Quick settings -->
-    <string name="qs_cat_advanced_tiles_title">Advanced tiles</string>
+    <string name="qs_cat_advanced_tiles_title">Casillas avanzadas</string>
     <string name="qs_order_title">Seleccionar y ordenar las casillas</string>
     <string name="qs_quick_pulldown_title">Despliegue rápido</string>
     <string name="qs_quick_pulldown_summary">Utilizar el borde derecho de la barra de estado para desplegar los ajustes rápidos</string>
@@ -217,9 +217,9 @@
     <string name="qs_main_tiles_title">Agrandar la primera fila</string>
     <string name="qs_main_tiles_summary">Mostrar 2 casillas principales en la primera fila, deshabilita mostrar 3 casillas</string>
     <string name="qs_advanced_bluetooth_title">Bluetooth</string>
-    <string name="qs_advanced_location_title">Location</string>
-    <string name="qs_advanced_wifi_title">Wi\u2011Fi</string>
-    <string name="qs_advanced_click_summary">Enable to show advanced settings,\nif the tile isn\`t shown as dual tile</string>
+    <string name="qs_advanced_location_title">Ubicación</string>
+    <string name="qs_advanced_wifi_title">WiFi</string>
+    <string name="qs_advanced_click_summary">Muestra ajustes avanzados si la casilla no se muestra como dual</string>
 
     <!-- Quick settings tiles -->
     <string name="qs_tile_wifi">WiFi</string>
@@ -266,7 +266,7 @@
     <string name="expanded_desktop_style_description">Escoger un estilo para el escritorio expandido</string>
 
     <!-- Display -->
-    <string name="display_rotation_settings_title">Rotation</string>
+    <string name="display_rotation_settings_title">Rotación</string>
 
     <!-- Rotation -->
     <string name="display_rotation_category_title">Modos de rotación</string>
