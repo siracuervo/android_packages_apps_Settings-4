@@ -73,6 +73,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_KERNEL_VERSION = "kernel_version";
     private static final String KEY_DEVICE_CPU = "device_cpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
+    private static final String KEY_BUILD_ID = "build_id";
     private static final String KEY_DK_VERSION = "dk_version";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
     private static final String KEY_BUILD_NUMBER = "build_number";
@@ -107,6 +108,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
+        setStringSummary(KEY_BUILD_ID, Build.ID);
         setValueSummary(KEY_DK_VERSION, "ro.dk.version");
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
 
