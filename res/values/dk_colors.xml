@@ -15,6 +15,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <color name="white">#ffffffff</color>
+
+    <!-- Color picker -->
+    <color name="divider">#1fffffff</color>
+    <color name="ripple_material_dark">#4dffffff</color>
+
     <!-- Lockscreen shortcuts -->
     <color name="lockscreen_shortcuts_text_color">#ffffff</color>
     <color name="lockscreen_shortcuts_tint_color">#ffffff</color>
