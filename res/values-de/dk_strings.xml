@@ -19,6 +19,7 @@
     <string name="cat_network_icons_title">Netzwerk Symbole</string>
     <string name="cat_network_activity_icons_title">Aktivitäts Symbole</string>
     <string name="cat_airplane_mode_icon_title">Flugmodus Symbol</string>
+    <string name="cat_vpn_icon_title">Vpn Symbol</string>
     <string name="cat_colors_title">Farben anpassen</string>
     <string name="reset">Zurücksetzen</string>
     <string name="dlg_reset_values_message">Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
