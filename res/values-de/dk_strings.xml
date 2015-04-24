@@ -269,6 +269,11 @@
 
     <!-- Display -->
     <string name="display_rotation_settings_title">Bildschirm-Ausrichtung</string>
+    <string name="lcd_density">LCD Dichte</string>
+    <string name="dialog_title_lcd_density">LCD Dichte</string>
+    <string name="lcd_density_value_format">%d DPI</string>
+    <string name="lcd_density_default_value_format">%d DPI (Standard)</string>
+    <string name="restarting_ui">UI wird neu gestartet\u2026</string>
 
     <!-- Rotation -->
     <string name="display_rotation_category_title">Bei Drehung um</string>
