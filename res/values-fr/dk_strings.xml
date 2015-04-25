@@ -19,6 +19,7 @@
     <string name="cat_network_icons_title">Icônes de réseau</string>
     <string name="cat_network_activity_icons_title">Icônes d\'activité</string>
     <string name="cat_airplane_mode_icon_title">Icônes du mode avion</string>
+    <string name="cat_vpn_icon_title">Vpn icon</string> <!-- needs translation -->
     <string name="cat_colors_title">Personnaliser les couleurs</string>
     <string name="reset">Réinitialisation</string>
     <string name="dlg_reset_values_message">Réinitialiser les valeurs d\'\nAndroid- ou DarkKat par défault ?</string>
@@ -46,9 +47,13 @@
     <string name="picker_select_custom_activity_title">Sélectionnez une activité personnalisée</string>
 
     <!-- Color Picker -->
-    <string name="dialog_color_picker">Sélectionneur de couleur</string>
+    <string name="dialog_color_picker_title">Sélectionneur de couleur</string>
     <string name="press_color_to_apply">Appuyez sur la couleur ci-dessous pour appliquer</string>
-    <string name="set">Fixé</string>
+    <string name="palette_darkkat_title">DarkKat</string> <!-- needs translation -->
+    <string name="palette_material_title">Material</string> <!-- needs translation -->
+    <string name="palette_rgb_title">RGB</string> <!-- needs translation -->
+    <string name="reset_android_title">Android default</string> <!-- needs translation -->
+    <string name="reset_darkkat_title">DarkKat default</string> <!-- needs translation -->
 
     <!-- dashboard categories-->
     <string name="category_ui_section">Interface de l\'utilisateur</string>
@@ -263,6 +268,11 @@
 
     <!-- Display -->
     <string name="display_rotation_settings_title">Rotation</string>
+    <string name="lcd_density">LCD density</string> <!-- needs translation -->
+    <string name="dialog_title_lcd_density">LCD density</string> <!-- needs translation -->
+    <string name="lcd_density_value_format">%d DPI</string> <!-- needs translation -->
+    <string name="lcd_density_default_value_format">%d DPI (default)</string> <!-- needs translation -->
+    <string name="restarting_ui">Restarting UI\u2026</string> <!-- needs translation -->
 
     <!-- Rotation -->
     <string name="display_rotation_unit">degrés</string>
@@ -318,6 +328,7 @@
     <!-- Device info settings -->
     <string name="cpu_info">CPU</string>
     <string name="mem_info">Mémoire</string>
+    <string name="build_id">Android build ID</string> <!-- needs translation -->
     <string name="dk_version">Version de DarkKat</string>
     <string name="build_date">Date de création</string>
 </resources>
