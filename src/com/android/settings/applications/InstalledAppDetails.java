@@ -580,8 +580,8 @@ public class InstalledAppDetails extends Fragment
         icon.setImageDrawable(mAppEntry.icon);
         // Set application name.
         TextView label = (TextView) appSnippet.findViewById(R.id.app_name);
-        // Set application package name.
         label.setText(mAppEntry.label);
+        // Set application package name.
         TextView packageName = (TextView) appSnippet.findViewById(R.id.app_pkgname);
         packageName.setText(mAppEntry.info.packageName);
         packageName.setVisibility(View.VISIBLE);
