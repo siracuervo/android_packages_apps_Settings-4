@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 DarkKat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Global used -->
+    <string name="cat_network_icons_title">Сетевые иконки</string>
+    <string name="cat_network_activity_icons_title">Иконки активности </string>
+    <string name="cat_airplane_mode_icon_title">Значки режима Самолет</string>
+    <string name="cat_vpn_icon_title">Vpn icon</string>
+    <string name="cat_colors_title">Настройка цвета</string>
+    <string name="reset">сброс</string>
+    <string name="dlg_reset_values_message">Сбросить значения для\nAndroid- или DarkKat?</string>
+    <string name="dlg_reset_android">Android</string>
+    <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="disabled_title">Отключено</string>
+    <string name="position_right_title">Право</string>
+    <string name="position_centered_title">По центру</string>
+    <string name="hidden_title">Скрыто</string>
+    <string name="normal_title">Нормальный</string>
+    <string name="options_title">Опции</string>
+    <string name="color_title">Цвета</string>
+    <string name="colors_title">Цвета</string>
+    <string name="background_title">Фон</string>
+    <string name="icon_title">Иконка</string>
+    <string name="icons_title">Иконки</string>
+    <string name="text_title">Текст</string>
+    <string name="color_fully_title">Полностью подключены</string>
+    <string name="weather_title">Погода</string>
+
+    <!-- Shortcut Picker -->
+    <string name="picker_apps_title">Приложнеия</string>
+    <string name="picker_activities_title">Активность</string>
+    <string name="picker_select_custom_app_title">Выберите пользовательское приложение</string>
+    <string name="picker_select_custom_activity_title">Выберите пользовательский активность</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker_title">Выбор цвета</string>
+    <string name="press_color_to_apply">Нажмите на цвет ниже, чтобы применить</string>
+    <string name="palette_darkkat_title">DarkKat</string>
+    <string name="palette_material_title">Material</string>
+    <string name="palette_rgb_title">RGB</string>
+    <string name="reset_android_title">Стандартный Android</string>
+    <string name="reset_darkkat_title">Стандартный DarkKat</string>
+
+    <!-- dashboard categories-->
+    <string name="category_ui_section">Пользовательский интерфейс</string>
+
+    <!-- dashboard tiles-->
+    <string name="lock_screen_title">Экран блокировки</string>
+    <string name="status_bar_title">Строка состояния</string>
+    <string name="status_bar_expanded_title">Строка состояния расширена</string>
+    <string name="more_title">Ещё</string>
+    <string name="button_settings_title">Кнопки</string>
+
+   <!-- Lock screen -->
+    <string name="lock_screen_weather_settings_summary">Настроить погоду</string>
+    <string name="lock_screen_shortcuts_settings_title">Ярлыки</string>
+    <string name="lock_screen_shortcuts_settings_summary">Настройка ярлыков</string>
+
+   <!-- Weather settings -->
+    <string name="weather_show_weather_title">Показать погоду</string>
+    <string name="weather_show_weather_summary">Включить, чтобы показать информацию о погоде</string>
+    <string name="weather_show_location_title">Показать расположение</string>
+    <string name="weather_show_location_summary">Включить, чтобы показать расположение</string>
+    <string name="weather_show_timestamp_title">Показывать время</string>
+    <string name="weather_show_timestamp_summary">Включить, чтобы показать метку</string>
+    <string name="weather_condition_icon_title">Состояние значка</string>
+    <string name="weather_condition_icon_dlg_title">Выберите значок для отображения состояния погоды</string>
+    <string name="weather_condition_icon_monochrome_title">Монохромный</string>
+    <string name="weather_condition_icon_colored_title">Цветной</string>
+    <string name="weather_condition_icon_vclouds_title">VClouds</string>
+    <string name="weather_colorize_all_icons_title">Раскрасить все иконки</string>
+    <string name="weather_colorize_all_icons_summary">Включить, чтобы раскрасить все иконки, отключить, чтобы раскрасить только монохромные иконки</string>
+
+   <!-- Shortcuts settings -->
+    <string name="shortcuts_target_settings_title">Цели</string>
+    <string name="shortcuts_target_settings_summary">Настройка целей</string>
+    <string name="shortcuts_colorize_custom_icons_title">Раскрасить все иконки</string>
+    <string name="shortcuts_colorize_custom_icons_summary">Включить, чтобы раскрасить все иконки, отключить, чтобы раскрасить значки по умолчанию</string>
+
+   <!-- Targets settings -->
+    <string name="shortcuts_hint_message">Нажмите на иконку, слева или справа, чтобы переназначить цель.</string>
+    <string name="shortcuts_reassign_shortcut_title">Переназначение цели</string>
+    <string name="shortcuts_default_target">Стандарнто</string>
+    <string name="shortcuts_none_target">Нет</string>
+    <string name="shortcuts_custom_target">Выберите пользовательскую цель</string>
+
+    <!-- Status bar -->
+    <string name="status_bar_gestures_title">Жесты</string>
+    <string name="status_bar_gestures_summary">Настройка жестов</string>
+    <string name="status_bar_clock_date_settings_title">Часы &amp; дата</string>
+    <string name="status_bar_clock_date_settings_summary">Настройки часов &amp; даты</string>
+    <string name="status_bar_battery_status_settings_title">Состояние батареи</string>
+    <string name="status_bar_battery_status_settings_summary">Настройте состояние батареи</string>
+    <string name="status_bar_signal_wifi_settings_title">Сетевые иконки</string>
+    <string name="status_bar_signal_wifi_settings_summary">Настройка значков сети</string>
+    <string name="status_bar_network_speed_settings_title">Индикатор скорости сети</string>
+    <string name="status_bar_network_speed_settings_summary">Настроить индикатор скорости сети</string>
+    <string name="status_bar_notif_system_icons_settings_title">Уведомления &amp; системные иконки</string>
+    <string name="status_bar_notif_system_icons_settings_title_phone">Увед. &amp; системные иконки</string>
+    <string name="status_bar_notif_system_icons_settings_summary">Настройка уведомлений &amp; системных иконок</string>
+
+    <!-- Status bar gestures -->
+    <string name="status_bar_toggle_brightness_title">Регулировка яркости</string>
+    <string name="status_bar_toggle_brightness_summary">Отрегулируйте яркость, проведя по строке состояния</string>
+    <string name="status_bar_toggle_info">Автоматическая регулировка яркости включена</string>
+    <string name="status_bar_double_tap_to_sleep_title">Сон</string>
+    <string name="status_bar_double_tap_to_sleep_summary">Дважды нажмите в строке состояния, чтобы погрузить устройство в сон</string>
+
+    <!-- clock and date settings -->
+    <string name="clock_date_position_title">Позиция</string>
+    <string name="clock_date_cat_clock_date_title">Время &amp; дата</string>
+    <string name="clock_date_cat_clock_title">Время</string>
+    <string name="clock_date_cat_date_title">Дата</string>
+    <string name="clock_date_show_date_title">Показать дату</string>
+    <string name="clock_date_show_date_summary">Включить, чтобы показать дату рядом с часами в строке состояния</string>
+    <string name="clock_date_am_pm_title">AM&#47;PM стиль</string>
+    <string name="clock_date_am_pm_disabled_summary">24-часовой формат включен</string>
+    <string name="clock_date_am_pm_small">Маленький</string>
+    <string name="clock_date_date_size_title">Размер</string>
+    <string name="clock_date_date_size_summary">Включить для отображения даты небольшого размера</string>
+    <string name="clock_date_date_style_title">Стиль</string>
+    <string name="clock_date_date_style_lowercase">Нижний регистр</string>
+    <string name="clock_date_date_style_uppercase">Заглавные</string>
+    <string name="clock_date_date_format_title">Формат даты</string>
+    <string name="clock_date_date_custom_java_format">Пользовательский формат Java</string>
+    <string name="clock_date_date_string_edittext_title">Дата должна быть например. ММ / дд / гг</string>
+    <string name="clock_date_date_string_edittext_summary">Введите строку</string>
+
+    <!-- Status bar battery status settings -->
+    <string name="battery_status_cat_circle_options_title">Настройте круг</string>
+    <string name="battery_status_style_title">Индикатор</string>
+    <string name="battery_status_style_icon_portrait">Портретная иконка </string>
+    <string name="battery_status_style_icon_landscape">Горизонтальная иконка</string>
+    <string name="battery_status_style_circle">Круг</string>
+    <string name="battery_status_percent_style_title">Позиция процентов </string>
+    <string name="battery_status_percent_style_dialog_title">Выберите положение</string>
+    <string name="battery_status_percent_style_text_inside">Внутри иконки</string>
+    <string name="battery_status_percent_style_text_next">Рядом с иконкой</string>
+    <string name="battery_status_percent_style_default">Скрытый (по умолчанию)</string>
+    <string name="battery_status_charge_animation_speed_title">скорость анимации зарядки  </string>
+    <string name="battery_status_charge_animation_speed_slow">Медленно</string>
+    <string name="battery_status_charge_animation_speed_fast">Быстро</string>
+    <string name="battery_status_show_circle_dotted_title">Точечный круг</string>
+    <string name="battery_status_show_circle_dotted_summary">Активировать, чтобы показать точечный круг</string>
+    <string name="battery_status_circle_dot_length_title">Длина точки круга</string>
+    <string name="battery_status_circle_dot_interval_title">интервал точки круга</string>
+    <string name="battery_status_battery_color_title">Заполнить</string>
+
+    <!-- Status bar signal wifi icon settings  -->
+    <string name="signal_wifi_show_activity_title">Показать сетевую активность</string>
+    <string name="signal_wifi_show_activity_summary">Включить, чтобы показать сетевую активность</string>
+
+    <!-- Status bar Network speed settings -->
+    <string name="network_speed_indicator_title">Индикатор</string>
+    <string name="network_speed_indicator_down_up">Загрузка &amp; Раздача</string>
+    <string name="network_speed_indicator_down">Загрузка</string>
+    <string name="network_speed_indicator_up">Раздача</string>
+    <string name="network_speed_show_icon_summary">Включить, чтобы показать значок индикатора</string>
+    <string name="network_speed_summary_title">Показать суммарный трафик</string>
+    <string name="network_speed_traffic_timeout_dlg_title">Тайм-аут</string>
+    <string name="network_speed_traffic_timeout_0s">Не показывать</string>
+    <string name="network_speed_traffic_timeout_1s">1 секунда</string>
+    <string name="network_speed_traffic_timeout_2s">2 секунды</string>
+    <string name="network_speed_traffic_timeout_3s">3 секунды</string>
+    <string name="network_speed_traffic_timeout_5s">5 секунд</string>
+    <string name="network_speed_traffic_timeout_8s">8 секунд</string>
+    <string name="network_speed_traffic_timeout_10s">10 секунд</string>
+    <string name="network_speed_traffic_timeout_15s">15 секунд</string>
+    <string name="network_speed_traffic_timeout_25s">25 секунд</string>
+    <string name="network_speed_bit_byte_title">Показать битные значения</string>
+    <string name="network_speed_bit_byte_summary">Включить, чтобы показать значения в бит вместо байт</string>
+    <string name="network_speed_hide_indicator_title">Скрыть индикатор</string>
+    <string name="network_speed_hide_indicator_summary">Включить, чтобы скрыть индикатор, если нет активности</string>
+
+    <!-- Status bar notifications and system icons -->
+    <string name="notif_system_icons_colorize_notif_icons_title">Раскрасить иконки уведомления</string>
+    <string name="notif_system_icons_colorize_notif_icons_title_phone">Раскрасить иконки увед. </string>
+    <string name="notif_system_icons_colorize_notif_icons_summary">Включить раскраску иконок уведомления</string>
+    <string name="notif_system_icons_show_ticker_title">Показать тикер</string>
+    <string name="notif_system_icons_show_ticker_summary">Включить, чтобы показать тикер</string>
+    <string name="notif_system_icons_show_count_title">Количество уведомлений</string>
+    <string name="notif_system_icons_show_count_summary">Включить для отображения количества отложенных уведомлений</string>
+    <string name="notif_system_icons_notif_text_color_title">БЕГУЩАЯБЕГУЩАЯ СТРОКА</string>
+    <string name="notif_system_icons_count_icon_color_title">Количество значков уведомления  </string>
+    <string name="notif_system_icons_count_text_color_title">Количество текста уведомления</string>
+
+    <!-- Statusbar expanded -->
+    <string name="status_bar_expanded_header_settings_title">Заголовок</string>
+    <string name="status_bar_expanded_qs_settings_title">Быстрые настройки</string>
+
+    <!-- Header -->
+    <string name="expanded_header_show_weather_title">Show weather</string>
+    <string name="expanded_header_show_weather_summary">Включить, чтобы показать погоду</string>
+    <string name="expanded_header_show_weather_location_title">Показать расположение</string>
+    <string name="expanded_header_show_weather_location_summary">Включить, чтобы показать расположение</string>
+
+    <!-- Quick settings -->
+    <string name="qs_cat_advanced_tiles_title">Расширенные плитки</string>
+    <string name="qs_order_title">Выбор и применение плиток</string>
+    <string name="qs_quick_pulldown_title">Быстрое вытягивание</string>
+    <string name="qs_quick_pulldown_summary">Включить правый край строки состояния, чтобы вытяннуть быстрые настройки</string>
+    <string name="qs_show_brightness_slider_title">Показать ползунок яркости</string>
+    <string name="qs_show_brightness_slider_summary">Включить, чтобы показать ползунок яркости</string>
+    <string name="qs_main_tiles_title">Увеличить первую строку</string>
+    <string name="qs_main_tiles_summary">Включить, чтобы показать 2 основных плитки на первом ряду, отключить, чтобы показать 3 плитки</string>
+    <string name="qs_advanced_bluetooth_title">Bluetooth</string>
+    <string name="qs_advanced_location_title">Местоположение</string>
+    <string name="qs_advanced_wifi_title">Wi\u2011Fi</string>
+    <string name="qs_advanced_click_summary">Включить, чтобы показать дополнительные параметры, отключить, чтобы показать как двойный плитки</string>
+
+    <!-- Quick settings tiles -->
+    <string name="qs_tile_wifi">Wi\u2011Fi</string>
+    <string name="qs_tile_bluetooth">Bluetooth</string>
+    <string name="qs_tile_display_inversion">Инверсия цвета</string>
+    <string name="qs_tile_cellular_data">Подключение для передачи данных</string>
+    <string name="qs_tile_airplane_mode">Режим полета</string>
+    <string name="qs_tile_display_rotation">Поворот</string>
+    <string name="qs_tile_flashlight">Фонарик</string>
+    <string name="qs_tile_location">Местоположение</string>
+    <string name="qs_tile_cast_screen">Трансляция</string>
+    <string name="qs_tile_hotspot">Точка доступа</string>
+    <string name="qs_tile_adb_over_network">ADB по сети</string>
+    <string name="qs_tile_nfc">NFC</string>
+    <string name="qs_tile_lockscreen">Экран блокировки</string>
+    <string name="qs_tile_screen_timeout">Тайм-аут экрана</string>
+    <string name="qs_tile_compass">Компасс</string>
+    <string name="qs_tile_lte">Lte</string>
+    <string name="qs_tile_mobile_data">Мобильные данные</string>
+    <string name="qs_add_tile">Добавить плитку</string>
+    <string name="qs_action_delete">Удалить</string>
+    <string name="qs_action_add">Добавить</string>
+    <string name="qs_action_no_more_tiles">Плитки больше не доступны</string>
+
+    <!-- More -->
+    <string name="lock_clock_title">Виджет часов </string>
+    <string name="lock_clock_clock_section_title">Часы и будильник</string>
+    <string name="lock_clock_clock_section_summary">Просмотреть или изменить, как будет отображаться часы и будильник  \'cLock\' домашнего виджета</string>
+    <string name="lock_clock_weather_section_title">Панель погоды </string>
+    <string name="lock_clock_weather_section_summary">Просмотреть или изменить, как будет отображаться панель погоды  \'cLock\' на домашнем виджете</string>
+    <string name="lock_clock_calendar_section_title">Календарь событий</string>
+    <string name="lock_clock_calendar_section_summary">Просмотреть или изменить, как будут отображаться события календаря  \'cLock\' на домашнем виджете</string>
+    <string name="expanded_desktop_title">Расширенный рабочий стол</string>
+    <string name="expanded_desktop_summary">Настроить расширенный рабочий стол</string>
+
+    <!-- Expanded desktop -->
+    <string name="expanded_hide_nothing">Ничего не скрывать</string>
+    <string name="expanded_hide_status">Скрыть строку состояния</string>
+    <string name="expanded_hide_navigation">Скрыть панель навигации</string>
+    <string name="expanded_hide_both">Спрятать оба</string>
+    <string name="expanded_nothing_to_show">Чтобы добавить пользовательскую конфигурацию приложения для расширенного состояния \'Enabled for all\' установленного в положение ВЫКЛ</string>
+    <string name="expanded_enabled_for_all">Включено для всех</string>
+    <string name="expanded_desktop_style">Расширенный стиль рабочего стола</string>
+    <string name="expanded_desktop_style_description">Выберите по умолчанию стиль расширенного рабочего стола</string>
+
+    <!-- Display -->
+    <string name="display_rotation_settings_title">Вращение дисплея</string>
+    <string name="lcd_density">Плотность экрана</string>
+    <string name="dialog_title_lcd_density">Плотность экрана</string>
+    <string name="lcd_density_value_format">%d DPI</string>
+    <string name="lcd_density_default_value_format">%d DPI (стандартный)</string>
+    <string name="restarting_ui">Перезапуск UI\u2026</string>
+
+    <!-- Rotation -->
+    <string name="display_rotation_category_title">Режим вращения</string>
+    <string name="display_rotation_unit">Градусы</string>
+    <string name="display_rotation_0_title">0 градусов</string>
+    <string name="display_rotation_90_title">90 градусов</string>
+    <string name="display_rotation_180_title">180 градусов</string>
+    <string name="display_rotation_270_title">270 градусов</string>
+
+    <!-- Button settings -->
+    <string name="button_volume_button_category_title">Кнопки регулировки громкости</string>
+    <string name="button_power_menu_settings_title">Меню питания</string>
+    <string name="button_power_menu_settings_summary">Настройка меню питания</string>
+    <string name="button_volume_button_wake_title">Пробуждение экрана</string>
+    <string name="button_volume_button_wake_summary">Включить, чтобы при нажатии кнопки громкости вверх / вниз включиался экран</string>
+    <string name="button_swap_volume_buttons_title">Переназначить</string>
+    <string name="button_swap_volume_buttons_summary">Кнопки регулировки громкости меняются местами когда поворачивается экран</string>
+
+    <!-- Power menu settings -->
+    <string name="power_menu_reboot_title">Перезагрузка</string>
+    <string name="power_menu_reboot_summary">Включить, чтобы показать кнопку перезагрузки</string>
+    <string name="power_menu_airplane_title">Режим самолёта</string>
+    <string name="power_menu_airplane_summary">Включить, чтобы показать режим переключения самолета</string>
+    <string name="power_menu_users_title">Пользователи</string>
+    <string name="power_menu_users_summary">Включить, чтобы показать кнопки пользователей</string>
+    <string name="power_menu_settings_title">Настройки</string>
+    <string name="power_menu_settings_summary">Включить, чтобы показать кнопку настройки системы</string>
+    <string name="power_menu_lockdown_title">Заблокиоровать сейчас</string>
+    <string name="power_menu_lockdown_summary">Включить, чтобы показать значок блокировки</string>
+    <string name="power_menu_silent_title">Режим звука</string>
+    <string name="power_menu_silent_summary">Включить, чтобы показать звук в режиме переключения</string>
+
+    <!-- Battery settings -->
+
+    <!-- Wake on plug -->
+    <string name="wake_when_plugged_or_unplugged_title">Просыпаться, при подключении</string>
+    <string name="wake_when_plugged_or_unplugged_summary">Включить экран при подключении или отключении зарядного устройства</string>
+
+    <!-- Development settings -->
+
+    <!-- Advanced reboot options -->
+    <string name="advanced_reboot_title">Расширенная перезагрузка</string>
+    <string name="advanced_reboot_summary">Когда разблокирован, показывает параметры быстрой перезагрузки, перезагрузки в режим восстановления и перезагрузки в загрузчик</string>
+
+    <!-- ADB over network -->
+    <string name="adb_over_network">ADB по сети</string>
+    <string name="adb_over_network_summary">Включить TCP/IP отладку через сетевые интерфейсы (Wi-Fi, USB сети). Эта установка сбрасывается при перезагрузке</string>
+    <string name="adb_over_network_warning">ВНИМАНИЕ:ADB по сети включена, ваш телефон открыт для вторжения на всех подключенных сетях, в том числе сети передачи данных GSM!\n\nИспользовать только эту функцию, если вы подключены к доверенным сетей.\n\nВы действительно хотите включить эту функцию?</string>
+
+    <!-- SuperSU -->
+    <string name="supersu_title">SuperSU</string>
+
+    <!-- Device info settings -->
+    <string name="cpu_info">Процессор</string>
+    <string name="mem_info">Память</string>
+    <string name="build_id">Номер версии Android</string>
+    <string name="dk_version">DarkKat версия</string>
+    <string name="build_date">Дата создания</string>
+</resources>
