@@ -59,8 +59,9 @@ public class StatusBarSignalWifiSettings extends SettingsPreferenceFragment impl
     private static final String PREF_VPN_COLOR =
             "signal_wifi_vpn_icon_color";
 
-    private static final int DEFAULT_COLOR = 0xffffffff;
-    private static final int DEFAULT_ACTIVITY_COLOR = 0xff000000;
+    private static final int WHITE = 0xffffffff;
+    private static final int BLACK = 0xff000000;
+    private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -106,20 +107,22 @@ public class StatusBarSignalWifiSettings extends SettingsPreferenceFragment impl
                 PREF_NETWORK_NORMAL_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_NETWORK_ICONS_NORMAL_COLOR,
-                DEFAULT_COLOR); 
+                WHITE); 
         mNetworkNormalColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mNetworkNormalColor.setSummary(hexColor);
+        mNetworkNormalColor.setDefaultColors(WHITE, WHITE);
         mNetworkNormalColor.setOnPreferenceChangeListener(this);
 
         mNetworkFullyColor = (ColorPickerPreference) findPreference(
                 PREF_NETWORK_FULLY_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_NETWORK_ICONS_FULLY_COLOR,
-                DEFAULT_COLOR); 
+                WHITE); 
         mNetworkFullyColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mNetworkFullyColor.setSummary(hexColor);
+        mNetworkFullyColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mNetworkFullyColor.setOnPreferenceChangeListener(this);
 
         PreferenceCategory activityCat =
@@ -131,18 +134,20 @@ public class StatusBarSignalWifiSettings extends SettingsPreferenceFragment impl
         if (isNetworkActivityEnabled) {
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NETWORK_ACTIVITY_ICONS_NORMAL_COLOR,
-                    DEFAULT_ACTIVITY_COLOR); 
+                    BLACK); 
             mActivityNormalColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mActivityNormalColor.setSummary(hexColor);
+            mActivityNormalColor.setDefaultColors(BLACK, BLACK);
             mActivityNormalColor.setOnPreferenceChangeListener(this);
 
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NETWORK_ACTIVITY_ICONS_FULLY_COLOR,
-                    DEFAULT_ACTIVITY_COLOR); 
+                    BLACK); 
             mActivityFullyColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mActivityFullyColor.setSummary(hexColor);
+            mActivityFullyColor.setDefaultColors(BLACK, BLACK);
             mActivityFullyColor.setOnPreferenceChangeListener(this);
         } else {
             activityCat.removePreference(mActivityNormalColor);
@@ -154,20 +159,22 @@ public class StatusBarSignalWifiSettings extends SettingsPreferenceFragment impl
                 PREF_AIRPLANE_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_AIRPLANE_MODE_ICON_COLOR,
-                DEFAULT_COLOR); 
+                WHITE); 
         mAirplaneColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mAirplaneColor.setSummary(hexColor);
+        mAirplaneColor.setDefaultColors(WHITE, WHITE);
         mAirplaneColor.setOnPreferenceChangeListener(this);
 
         mVpnColor = (ColorPickerPreference) findPreference(
                 PREF_VPN_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_VPN_ICON_COLOR,
-                DEFAULT_COLOR); 
+                WHITE); 
         mVpnColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mVpnColor.setSummary(hexColor);
+        mVpnColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mVpnColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
@@ -297,22 +304,22 @@ public class StatusBarSignalWifiSettings extends SettingsPreferenceFragment impl
                                 Settings.System.STATUS_BAR_SHOW_NETWORK_ACTIVITY, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_ICONS_NORMAL_COLOR,
-                                DEFAULT_COLOR);
+                                WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_ICONS_FULLY_COLOR,
-                                DEFAULT_COLOR);
+                                WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_ACTIVITY_ICONS_NORMAL_COLOR,
-                                DEFAULT_ACTIVITY_COLOR);
+                                BLACK);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_ACTIVITY_ICONS_FULLY_COLOR,
-                                DEFAULT_ACTIVITY_COLOR);
+                                BLACK);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_AIRPLANE_MODE_ICON_COLOR,
-                                DEFAULT_COLOR);
+                                WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_VPN_ICON_COLOR,
-                                DEFAULT_COLOR);
+                                WHITE);
                             getOwner().refreshSettings();
                         }
                     })
@@ -323,22 +330,22 @@ public class StatusBarSignalWifiSettings extends SettingsPreferenceFragment impl
                                 Settings.System.STATUS_BAR_SHOW_NETWORK_ACTIVITY, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_ICONS_NORMAL_COLOR,
-                                DEFAULT_COLOR);
+                                WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_ICONS_FULLY_COLOR,
-                                0xff33b5e5);
+                                HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_ACTIVITY_ICONS_NORMAL_COLOR,
-                                DEFAULT_ACTIVITY_COLOR);
+                                BLACK);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_NETWORK_ACTIVITY_ICONS_FULLY_COLOR,
-                                DEFAULT_ACTIVITY_COLOR);
+                                BLACK);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_AIRPLANE_MODE_ICON_COLOR,
-                                DEFAULT_COLOR);
+                                WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                 Settings.System.STATUS_BAR_VPN_ICON_COLOR,
-                                0xff33b5e5);
+                                HOLO_BLUE_LIGHT);
                             getOwner().refreshSettings();
                         }
                     })

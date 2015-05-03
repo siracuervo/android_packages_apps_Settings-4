@@ -49,8 +49,9 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final String PREF_ICON_COLOR =
             "expanded_header_icon_color";
 
-    private static final int DEFAULT_COLOR = 0xffffffff;
-    private static final int DEFAULT_BG_COLOR = 0xff384248;
+    private static final int SYSTEMUI_SECONDARY = 0xff384248;
+    private static final int WHITE = 0xffffffff;
+    private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -103,31 +104,33 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                 (ColorPickerPreference) findPreference(PREF_BG_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR,
-                DEFAULT_BG_COLOR); 
+                SYSTEMUI_SECONDARY); 
         mBackgroundColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBackgroundColor.setSummary(hexColor);
-        mBackgroundColor.setDefaultColors(DEFAULT_BG_COLOR, DEFAULT_BG_COLOR);
+        mBackgroundColor.setDefaultColors(SYSTEMUI_SECONDARY, SYSTEMUI_SECONDARY);
         mBackgroundColor.setOnPreferenceChangeListener(this);
 
         mTextColor =
                 (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_TEXT_COLOR,
-                DEFAULT_COLOR); 
+                WHITE); 
         mTextColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mTextColor.setSummary(hexColor);
+        mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mTextColor.setOnPreferenceChangeListener(this);
 
         mIconColor =
                 (ColorPickerPreference) findPreference(PREF_ICON_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR,
-                DEFAULT_COLOR); 
+                WHITE); 
         mIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColor.setSummary(hexColor);
+        mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
@@ -235,13 +238,13 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR,
-                                    DEFAULT_BG_COLOR);
+                                    SYSTEMUI_SECONDARY);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_TEXT_COLOR,
-                                    DEFAULT_COLOR);
+                                    WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR,
-                                    DEFAULT_COLOR);
+                                    WHITE);
                             getOwner().refreshSettings();
                         }
                     })
@@ -254,13 +257,13 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_BG_COLOR,
-                                    DEFAULT_BG_COLOR);
+                                    SYSTEMUI_SECONDARY);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_TEXT_COLOR,
-                                    0xff33b5e5);
+                                    HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_HEADER_ICON_COLOR,
-                                    0xff33b5e5);
+                                    HOLO_BLUE_LIGHT);
                             getOwner().refreshSettings();
                         }
                     })

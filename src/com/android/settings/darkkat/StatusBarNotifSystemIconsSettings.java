@@ -57,8 +57,8 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
     private static final String PREF_COUNT_TEXT_COLOR =
             "notif_system_icons_count_text_color";
 
-    private static final int DEFAULT_COLOR = 0xffffffff;
-    private static final int DEFAULT_COUNT_ICON_COLOR = 0xffE5350D;
+    private static final int WHITE = 0xffffffff;
+    private static final int DEEP_ORANGE_600 = 0xfff4511e;
     private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
     private static final int MENU_RESET = Menu.FIRST;
@@ -89,7 +89,7 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
         addPreferencesFromResource(R.xml.status_bar_notif_system_icons_settings);
 
         mResolver = getActivity().getContentResolver();
-        int intColor = DEFAULT_COLOR;
+        int intColor = WHITE;
         String hexColor = String.format("#%08x", (0xffffffff & intColor));
 
         boolean showTicker = Settings.System.getInt(mResolver,
@@ -120,10 +120,11 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
                 (ColorPickerPreference) findPreference(PREF_ICON_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_NOTIF_SYSTEM_ICON_COLOR,
-                DEFAULT_COLOR); 
+                WHITE); 
         mIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColor.setSummary(hexColor);
+        mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
 
         PreferenceCategory catColors =
@@ -133,10 +134,11 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
         if (showTicker) {
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NOTIF_TEXT_COLOR,
-                    DEFAULT_COLOR); 
+                    WHITE); 
             mNotifTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mNotifTextColor.setSummary(hexColor);
+            mNotifTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
             mNotifTextColor.setOnPreferenceChangeListener(this);
         } else {
             // Remove uneeded preferences if ticker is disabled
@@ -150,18 +152,20 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
         if (showCount) {
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NOTIF_COUNT_ICON_COLOR,
-                    DEFAULT_COUNT_ICON_COLOR); 
+                    DEEP_ORANGE_600); 
             mCountIconColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mCountIconColor.setSummary(hexColor);
+            mCountIconColor.setDefaultColors(DEEP_ORANGE_600, HOLO_BLUE_LIGHT);
             mCountIconColor.setOnPreferenceChangeListener(this);
 
             intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_NOTIF_COUNT_TEXT_COLOR,
-                    DEFAULT_COLOR); 
+                    WHITE); 
             mCountTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mCountTextColor.setSummary(hexColor);
+            mCountTextColor.setDefaultColors(WHITE, WHITE);
             mCountTextColor.setOnPreferenceChangeListener(this);
         } else {
             // Remove uneeded preferences if notification count is disabled
@@ -290,16 +294,16 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
                                     Settings.System.STATUS_BAR_SHOW_NOTIF_COUNT, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIF_SYSTEM_ICON_COLOR,
-                                    DEFAULT_COLOR);
+                                    WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIF_TEXT_COLOR,
-                                    DEFAULT_COLOR);
+                                    WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIF_COUNT_ICON_COLOR,
-                                    DEFAULT_COUNT_ICON_COLOR);
+                                    DEEP_ORANGE_600);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIF_COUNT_TEXT_COLOR,
-                                    DEFAULT_COLOR);
+                                    WHITE);
                             getOwner().refreshSettings();
                         }
                     })
@@ -323,7 +327,7 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
                                     HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_NOTIF_COUNT_TEXT_COLOR,
-                                    DEFAULT_COLOR);
+                                    WHITE);
                             getOwner().refreshSettings();
                         }
                     })

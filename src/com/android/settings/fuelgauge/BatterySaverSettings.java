@@ -61,7 +61,7 @@ public class BatterySaverSettings extends SettingsPreferenceFragment
     private static final String PREF_COLOR = "battery_saver_color";
     private static final long WAIT_FOR_SWITCH_ANIM = 500;
 
-    private static final int DEFAULT_COLOR = 0xfff4511e;
+    private static final int DEEP_ORANGE_600 = 0xfff4511e;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -120,10 +120,11 @@ public class BatterySaverSettings extends SettingsPreferenceFragment
 
     private void refreshColorPicker() {
         int intColor = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.BATTERY_SAVER_MODE_COLOR, DEFAULT_COLOR); 
+                Settings.System.BATTERY_SAVER_MODE_COLOR, DEEP_ORANGE_600); 
         mColor.setNewPreviewColor(intColor);
         String hexColor = String.format("#%08x", (0xffffffff & intColor));
         mColor.setSummary(hexColor);
+        mColor.setDefaultColors(DEEP_ORANGE_600, DEEP_ORANGE_600);
     }
 
     @Override
@@ -273,7 +274,7 @@ public class BatterySaverSettings extends SettingsPreferenceFragment
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getActivity().getContentResolver(),
                                 Settings.System.BATTERY_SAVER_MODE_COLOR,
-                                DEFAULT_COLOR);
+                                DEEP_ORANGE_600);
                             getOwner().refreshColorPicker();
                         }
                     })
@@ -282,7 +283,7 @@ public class BatterySaverSettings extends SettingsPreferenceFragment
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getActivity().getContentResolver(),
                                 Settings.System.BATTERY_SAVER_MODE_COLOR,
-                                DEFAULT_COLOR);
+                                DEEP_ORANGE_600);
                             getOwner().refreshColorPicker();
                         }
                     })

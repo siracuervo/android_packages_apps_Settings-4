@@ -71,7 +71,8 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
     public static final int DATE_STYLE_UPPERCASE = 2;
     private static final int CUSTOM_DATE_FORMAT_INDEX = 18;
 
-    private static final int DEFAULT_TEXT_COLOR = 0xffffffff;
+    private static final int WHITE = 0xffffffff;
+    private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -146,10 +147,11 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
 
             int intColor = Settings.System.getInt(mResolver,
                     Settings.System.STATUS_BAR_CLOCK_DATE_COLOR,
-                    DEFAULT_TEXT_COLOR); 
+                    WHITE); 
             mClockDateColor.setNewPreviewColor(intColor);
             String hexColor = String.format("#%08x", (0xffffffff & intColor));
             mClockDateColor.setSummary(hexColor);
+            mClockDateColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
             mClockDateColor.setOnPreferenceChangeListener(this);
         } else {
             removePreference(PREF_SHOW_DATE);
@@ -385,7 +387,7 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                                     "EEE");
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CLOCK_DATE_COLOR,
-                                    DEFAULT_TEXT_COLOR);
+                                    WHITE);
                             getOwner().refreshSettings();
                         }
                     })
@@ -407,7 +409,7 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                                     "EEE");
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_CLOCK_DATE_COLOR,
-                                    0xff33b5e5);
+                                    HOLO_BLUE_LIGHT);
                             getOwner().refreshSettings();
                         }
                     })

@@ -43,7 +43,7 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
     private static final String PREF_ICON_COLOR =
             "colors_icon_color";
 
-    private static final int DEFAULT_COLOR = 0xffffffff;
+    private static final int WHITE = 0xffffffff;
     private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
     private static final int MENU_RESET = Menu.FIRST;
@@ -76,20 +76,22 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
                 (ColorPickerPreference) findPreference(PREF_TEXT_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.LOCK_SCREEN_TEXT_COLOR,
-                DEFAULT_COLOR); 
+                WHITE); 
         mTextColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mTextColor.setSummary(hexColor);
+        mTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mTextColor.setOnPreferenceChangeListener(this);
 
         mIconColor =
                 (ColorPickerPreference) findPreference(PREF_ICON_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.LOCK_SCREEN_ICON_COLOR,
-                DEFAULT_COLOR); 
+                WHITE); 
         mIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColor.setSummary(hexColor);
+        mIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
@@ -171,10 +173,10 @@ public class LockScreenColorSettings extends SettingsPreferenceFragment implemen
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_TEXT_COLOR,
-                                    DEFAULT_COLOR);
+                                    WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.LOCK_SCREEN_ICON_COLOR,
-                                    DEFAULT_COLOR);
+                                    WHITE);
                             getOwner().refreshSettings();
                         }
                     })

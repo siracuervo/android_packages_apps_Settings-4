@@ -59,7 +59,8 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
     private static final String PREF_QS_TEXT_COLOR =
             "qs_text_color";
 
-    private static final int DEFAULT_BACKGROUND_COLOR = 0xff263238;
+    private static final int SYSTEMUI_PRIMARY = 0xff263238;
+    private static final int DARKKAT_BLUE_GREY = 0xff1b1f23;
     private static final int WHITE = 0xffffffff;
     private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
 
@@ -139,11 +140,12 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
                 (ColorPickerPreference) findPreference(PREF_QS_BACKGROUND_COLOR);
         intColor = Settings.System.getInt(mResolver,
                 Settings.System.QS_BACKGROUND_COLOR,
-                DEFAULT_BACKGROUND_COLOR); 
+                SYSTEMUI_PRIMARY); 
         mQSBackgroundColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mQSBackgroundColor.setSummary(hexColor);
         mQSBackgroundColor.setAlphaSliderEnabled(true);
+        mQSBackgroundColor.setDefaultColors(SYSTEMUI_PRIMARY, DARKKAT_BLUE_GREY);
         mQSBackgroundColor.setOnPreferenceChangeListener(this);
 
         mQSIconColor =
@@ -153,6 +155,7 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
         mQSIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mQSIconColor.setSummary(hexColor);
+        mQSIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mQSIconColor.setOnPreferenceChangeListener(this);
 
         mQSTextColor =
@@ -162,6 +165,7 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
         mQSTextColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mQSTextColor.setSummary(hexColor);
+        mQSTextColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
         mQSTextColor.setOnPreferenceChangeListener(this);
 
         updateQsTileCount();
@@ -308,7 +312,7 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
                                     Settings.System.QS_WIFI_ADVANCED, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_BACKGROUND_COLOR,
-                                    DEFAULT_BACKGROUND_COLOR);
+                                    SYSTEMUI_PRIMARY);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_ICON_COLOR, WHITE);
                             Settings.System.putInt(getOwner().mResolver,
@@ -333,7 +337,7 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
                                     Settings.System.QS_WIFI_ADVANCED, 0);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_BACKGROUND_COLOR,
-                                    0xff1b1f23);
+                                    DARKKAT_BLUE_GREY);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.QS_ICON_COLOR,
                                     HOLO_BLUE_LIGHT);
