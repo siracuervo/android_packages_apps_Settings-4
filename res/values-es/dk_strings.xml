@@ -253,21 +253,11 @@
     <string name="lock_clock_weather_section_summary">Ver o cambiar cómo se muestra el tiempo en el widget</string>
     <string name="lock_clock_calendar_section_title">Eventos del Calendario</string>
     <string name="lock_clock_calendar_section_summary">Ver o cambiar cómo se muestran los eventos del calendario en el widget </string>
-    <string name="expanded_desktop_title">Escritorio expandido</string>
-    <string name="expanded_desktop_summary">Personalizar el escritorio expandido</string>
-
-    <!-- Expanded desktop -->
-    <string name="expanded_hide_nothing">Siempre visible</string>
-    <string name="expanded_hide_status">Ocultar la barra de estado</string>
-    <string name="expanded_hide_navigation">Ocultar la barra de navegación</string>
-    <string name="expanded_hide_both">Ocultar ambas</string>
-    <string name="expanded_nothing_to_show">Para agregar una configuración personalizada por aplicación para el escritorio expandido, selecciona \'Habilitado para todo\'</string>
-    <string name="expanded_enabled_for_all">Habilitado para todo</string>
-    <string name="expanded_desktop_style">Estilo del escritorio expandido</string>
-    <string name="expanded_desktop_style_description">Escoger un estilo para el escritorio expandido</string>
 
     <!-- Display -->
     <string name="display_rotation_settings_title">Rotación</string>
+    <string name="expanded_desktop_title">Escritorio expandido</string>
+    <string name="expanded_desktop_summary">Personalizar el escritorio expandido</string>
     <string name="lcd_density">Densidad de LCD </string>
     <string name="dialog_title_lcd_density">Densidad de LCD</string>
     <string name="lcd_density_value_format">%d DPI</string>
@@ -281,6 +271,16 @@
     <string name="display_rotation_90_title">90 grados</string>
     <string name="display_rotation_180_title">180 grados</string>
     <string name="display_rotation_270_title">270 grados</string>
+
+    <!-- Expanded desktop -->
+    <string name="expanded_hide_nothing">Siempre visible</string>
+    <string name="expanded_hide_status">Ocultar la barra de estado</string>
+    <string name="expanded_hide_navigation">Ocultar la barra de navegación</string>
+    <string name="expanded_hide_both">Ocultar ambas</string>
+    <string name="expanded_nothing_to_show">Para agregar una configuración personalizada por aplicación para el escritorio expandido, selecciona \'Habilitado para todo\'</string>
+    <string name="expanded_enabled_for_all">Habilitado para todo</string>
+    <string name="expanded_desktop_style">Estilo del escritorio expandido</string>
+    <string name="expanded_desktop_style_description">Escoger un estilo para el escritorio expandido</string>
 
     <!-- Button settings -->
     <string name="button_volume_button_category_title">Botones de Volumen</string>

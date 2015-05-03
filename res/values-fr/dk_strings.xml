@@ -253,21 +253,11 @@
     <string name="lock_clock_weather_section_summary">Afficher ou modifier la façon dont le panneau de la météo du \'cLock\' Home  widget vont être affiché</string>
     <string name="lock_clock_calendar_section_title">Événements du calendrier</string>
     <string name="lock_clock_calendar_section_summary">Afficher ou modifier la façon dont les événements de l\'agenda du \'cLock\' Home  widget vont être affiché</string>
-    <string name="expanded_desktop_title">Bureau élargi</string>
-    <string name="expanded_desktop_summary">Personnalisez le bureau élargi</string>
-
-    <!-- Expanded desktop -->
-    <string name="expanded_hide_nothing">Ne rien cacher</string>
-    <string name="expanded_hide_status">Masquer la barre d\'état</string>
-    <string name="expanded_hide_navigation">Masquer la barre de navigation</string>
-    <string name="expanded_hide_both">Masquer les deux</string>
-    <string name="expanded_nothing_to_show">Pour ajouter une configuration personnalisée par application pour état étendu, réglez \'Enabled for all\' en position d\'arrêt</string>
-    <string name="expanded_enabled_for_all">Activer pour tous</string>
-    <string name="expanded_desktop_style">Style de bureau élargi</string>
-    <string name="expanded_desktop_style_description">Choisissez un style de bureau élargi par défaut</string>
 
     <!-- Display -->
     <string name="display_rotation_settings_title">Rotation</string>
+    <string name="expanded_desktop_title">Bureau élargi</string>
+    <string name="expanded_desktop_summary">Personnalisez le bureau élargi</string>
     <string name="lcd_density">Densité LCD</string>
     <string name="dialog_title_lcd_density">Densité LCD</string>
     <string name="lcd_density_value_format">%d DPI</string>
@@ -281,6 +271,16 @@
     <string name="display_rotation_90_title">90 degrés</string>
     <string name="display_rotation_180_title">180 degrés</string>
     <string name="display_rotation_270_title">270 degrés</string>
+
+    <!-- Expanded desktop -->
+    <string name="expanded_hide_nothing">Ne rien cacher</string>
+    <string name="expanded_hide_status">Masquer la barre d\'état</string>
+    <string name="expanded_hide_navigation">Masquer la barre de navigation</string>
+    <string name="expanded_hide_both">Masquer les deux</string>
+    <string name="expanded_nothing_to_show">Pour ajouter une configuration personnalisée par application pour état étendu, réglez \'Enabled for all\' en position d\'arrêt</string>
+    <string name="expanded_enabled_for_all">Activer pour tous</string>
+    <string name="expanded_desktop_style">Style de bureau élargi</string>
+    <string name="expanded_desktop_style_description">Choisissez un style de bureau élargi par défaut</string>
 
     <!-- Button settings -->
     <string name="button_volume_button_category_title">Boutons de volume</string>
