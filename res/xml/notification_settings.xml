@@ -90,13 +90,13 @@
         android:key="notification"
         android:title="@string/notification_section_header" >
 
-        <!-- Pulse notification light -->
+        <!-- Pulse notification light
         <SwitchPreference
                 android:key="notification_pulse"
                 android:title="@string/notification_pulse_title"
                 android:switchTextOff=""
                 android:switchTextOn=""
-                android:persistent="false" />
+                android:persistent="false" /> -->
 
          <!-- When device is locked -->
         <com.android.settings.notification.DropDownPreference

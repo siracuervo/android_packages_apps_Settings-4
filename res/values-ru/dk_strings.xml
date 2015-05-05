@@ -253,8 +253,26 @@
     <string name="lock_clock_weather_section_summary">Просмотреть или изменить, как будет отображаться панель погоды  \'cLock\' на домашнем виджете</string>
     <string name="lock_clock_calendar_section_title">Календарь событий</string>
     <string name="lock_clock_calendar_section_summary">Просмотреть или изменить, как будут отображаться события календаря  \'cLock\' на домашнем виджете</string>
+
+    <!-- Display -->
+    <string name="display_rotation_settings_title">Вращение дисплея</string>
     <string name="expanded_desktop_title">Расширенный рабочий стол</string>
     <string name="expanded_desktop_summary">Настроить расширенный рабочий стол</string>
+    <string name="lcd_density">Плотность экрана</string>
+    <string name="dialog_title_lcd_density">Плотность экрана</string>
+    <string name="lcd_density_value_format">%d DPI</string>
+    <string name="lcd_density_default_value_format">%d DPI (стандартный)</string>
+    <string name="restarting_ui">Перезапуск UI\u2026</string>
+    <string name="battery_light_title">Battery light</string> <!-- needs translation -->
+    <string name="notification_light_title">Notification light</string> <!-- needs translation -->
+
+    <!-- Rotation -->
+    <string name="display_rotation_category_title">Режим вращения</string>
+    <string name="display_rotation_unit">Градусы</string>
+    <string name="display_rotation_0_title">0 градусов</string>
+    <string name="display_rotation_90_title">90 градусов</string>
+    <string name="display_rotation_180_title">180 градусов</string>
+    <string name="display_rotation_270_title">270 градусов</string>
 
     <!-- Expanded desktop -->
     <string name="expanded_hide_nothing">Ничего не скрывать</string>
@@ -266,21 +284,46 @@
     <string name="expanded_desktop_style">Расширенный стиль рабочего стола</string>
     <string name="expanded_desktop_style_description">Выберите по умолчанию стиль расширенного рабочего стола</string>
 
-    <!-- Display -->
-    <string name="display_rotation_settings_title">Вращение дисплея</string>
-    <string name="lcd_density">Плотность экрана</string>
-    <string name="dialog_title_lcd_density">Плотность экрана</string>
-    <string name="lcd_density_value_format">%d DPI</string>
-    <string name="lcd_density_default_value_format">%d DPI (стандартный)</string>
-    <string name="restarting_ui">Перезапуск UI\u2026</string>
+    <!-- Light settings -->
 
-    <!-- Rotation -->
-    <string name="display_rotation_category_title">Режим вращения</string>
-    <string name="display_rotation_unit">Градусы</string>
-    <string name="display_rotation_0_title">0 градусов</string>
-    <string name="display_rotation_90_title">90 градусов</string>
-    <string name="display_rotation_180_title">180 градусов</string>
-    <string name="display_rotation_270_title">270 градусов</string>
+    <!-- Battery light settings -->
+    <string name="battery_low_pulse_title">Pulse if battery low</string> <!-- needs translation -->
+    <string name="battery_light_list_title">Colors</string> <!-- needs translation -->
+    <string name="battery_light_low_color_title">Battery low</string> <!-- needs translation -->
+    <string name="battery_light_medium_color_title">Charging</string> <!-- needs translation -->
+    <string name="battery_light_full_color_title">Fully charged</string> <!-- needs translation -->
+
+    <!-- Notification light settings -->
+    <string name="notification_light_general_title">General</string> <!-- needs translation -->
+    <string name="notification_light_applist_title">Apps</string> <!-- needs translation -->
+    <string name="notification_light_phonelist_title">Phone</string> <!-- needs translation -->
+    <string name="notification_light_use_custom">Use custom values</string> <!-- needs translation -->
+    <string name="notification_light_default_value">Default</string> <!-- needs translation -->
+    <string name="notification_light_missed_call_title">Missed call</string> <!-- needs translation -->
+    <string name="notification_light_voicemail_title">Voicemail</string> <!-- needs translation -->
+    <string name="notification_light_add">Add</string> <!-- needs translation -->
+    <string name="notification_light_choose_app">Choose app</string> <!-- needs translation -->
+
+    <!-- Light dialogs -->
+    <string name="edit_light_settings">Edit light settings</string> <!-- needs translation -->
+    <string name="pulse_speed_title">Pulse length and speed</string> <!-- needs translation -->
+    <string name="default_time">Normal</string> <!-- needs translation -->
+    <string name="custom_time">Custom</string> <!-- needs translation -->
+    <string name="dialog_delete_title">Delete</string> <!-- needs translation -->
+    <string name="dialog_delete_message">Remove selected item?</string> <!-- needs translation -->
+
+    <!-- Light pulse spinners values --> <!-- needs translation -->
+    <string name="pulse_length_always_on">Always on</string> <!-- needs translation -->
+    <string name="pulse_length_very_short">Very short</string> <!-- needs translation -->
+    <string name="pulse_length_short">Short</string> <!-- needs translation -->
+    <string name="pulse_length_normal">Normal</string> <!-- needs translation -->
+    <string name="pulse_length_long">Long</string> <!-- needs translation -->
+    <string name="pulse_length_very_long">Very long</string> <!-- needs translation -->
+    <string name="pulse_speed_very_fast">Very fast</string> <!-- needs translation -->
+    <string name="pulse_speed_fast">Fast</string> <!-- needs translation -->
+    <string name="pulse_speed_normal">Normal</string> <!-- needs translation -->
+    <string name="pulse_speed_slow">Slow</string> <!-- needs translation -->
+    <string name="pulse_speed_very_slow">Very slow</string> <!-- needs translation -->
 
     <!-- Button settings -->
     <string name="button_volume_button_category_title">Кнопки регулировки громкости</string>

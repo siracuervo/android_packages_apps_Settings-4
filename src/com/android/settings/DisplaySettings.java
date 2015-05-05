@@ -78,6 +78,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_DOZE = "doze";
     private static final String KEY_AUTO_BRIGHTNESS = "auto_brightness";
     private static final String KEY_LCD_DENSITY = "lcd_density";
+    private static final String KEY_BATTERY_LIGHT = "battery_light";
+    private static final String KEY_NOTIFICATION_LIGHT = "notification_light";
 
     private static final int DLG_GLOBAL_CHANGE_WARNING = 1;
 
@@ -193,6 +195,15 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
             mLcdDensityPreference.setOnPreferenceChangeListener(this);
             updateLcdDensityPreferenceDescription(currentDensity);
+        }
+
+        if (!getResources().getBoolean(
+                com.android.internal.R.bool.config_intrusiveNotificationLed)) {
+            removePreference(KEY_NOTIFICATION_LIGHT);
+        }
+        if (!getResources().getBoolean(
+                com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+            removePreference(KEY_BATTERY_LIGHT);
         }
     }
 

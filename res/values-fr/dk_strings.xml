@@ -263,6 +263,8 @@
     <string name="lcd_density_value_format">%d DPI</string>
     <string name="lcd_density_default_value_format">%d DPI (défaut)</string>
     <string name="restarting_ui">Redémarrage UI\u2026</string>
+    <string name="battery_light_title">Battery light</string> <!-- needs translation -->
+    <string name="notification_light_title">Notification light</string> <!-- needs translation -->
 
     <!-- Rotation -->
     <string name="display_rotation_unit">degrés</string>
@@ -281,6 +283,47 @@
     <string name="expanded_enabled_for_all">Activer pour tous</string>
     <string name="expanded_desktop_style">Style de bureau élargi</string>
     <string name="expanded_desktop_style_description">Choisissez un style de bureau élargi par défaut</string>
+
+    <!-- Light settings -->
+
+    <!-- Battery light settings -->
+    <string name="battery_low_pulse_title">Pulse if battery low</string> <!-- needs translation -->
+    <string name="battery_light_list_title">Colors</string> <!-- needs translation -->
+    <string name="battery_light_low_color_title">Battery low</string> <!-- needs translation -->
+    <string name="battery_light_medium_color_title">Charging</string> <!-- needs translation -->
+    <string name="battery_light_full_color_title">Fully charged</string> <!-- needs translation -->
+
+    <!-- Notification light settings -->
+    <string name="notification_light_general_title">General</string> <!-- needs translation -->
+    <string name="notification_light_applist_title">Apps</string> <!-- needs translation -->
+    <string name="notification_light_phonelist_title">Phone</string> <!-- needs translation -->
+    <string name="notification_light_use_custom">Use custom values</string> <!-- needs translation -->
+    <string name="notification_light_default_value">Default</string> <!-- needs translation -->
+    <string name="notification_light_missed_call_title">Missed call</string> <!-- needs translation -->
+    <string name="notification_light_voicemail_title">Voicemail</string> <!-- needs translation -->
+    <string name="notification_light_add">Add</string> <!-- needs translation -->
+    <string name="notification_light_choose_app">Choose app</string> <!-- needs translation -->
+
+    <!-- Light dialogs -->
+    <string name="edit_light_settings">Edit light settings</string> <!-- needs translation -->
+    <string name="pulse_speed_title">Pulse length and speed</string> <!-- needs translation -->
+    <string name="default_time">Normal</string> <!-- needs translation -->
+    <string name="custom_time">Custom</string> <!-- needs translation -->
+    <string name="dialog_delete_title">Delete</string> <!-- needs translation -->
+    <string name="dialog_delete_message">Remove selected item?</string> <!-- needs translation -->
+
+    <!-- Light pulse spinners values --> <!-- needs translation -->
+    <string name="pulse_length_always_on">Always on</string> <!-- needs translation -->
+    <string name="pulse_length_very_short">Very short</string> <!-- needs translation -->
+    <string name="pulse_length_short">Short</string> <!-- needs translation -->
+    <string name="pulse_length_normal">Normal</string> <!-- needs translation -->
+    <string name="pulse_length_long">Long</string> <!-- needs translation -->
+    <string name="pulse_length_very_long">Very long</string> <!-- needs translation -->
+    <string name="pulse_speed_very_fast">Very fast</string> <!-- needs translation -->
+    <string name="pulse_speed_fast">Fast</string> <!-- needs translation -->
+    <string name="pulse_speed_normal">Normal</string> <!-- needs translation -->
+    <string name="pulse_speed_slow">Slow</string> <!-- needs translation -->
+    <string name="pulse_speed_very_slow">Very slow</string> <!-- needs translation -->
 
     <!-- Button settings -->
     <string name="button_volume_button_category_title">Boutons de volume</string>
