@@ -222,7 +222,7 @@ public class SettingsActivity extends Activity
             R.id.lock_screen,
             R.id.status_bar,
             R.id.status_bar_expanded,
-            R.id.more,
+            R.id.advanced,
             R.id.button_settings,
             R.id.device_section,
             R.id.notification_settings,
@@ -1178,6 +1178,10 @@ public class SettingsActivity extends Activity
                         }
                     } catch (RemoteException e) {
                         // ignored
+                    }
+                } else if (id == R.id.weather_settings) {
+                    if (!Utils.isPackageInstalled(this, "com.cyanogenmod.lockclock")) {
+                        removeTile = true;
                     }
                 } else if (id == R.id.battery_settings) {
                     // Remove battery settings when battery is not available. (e.g. TV)

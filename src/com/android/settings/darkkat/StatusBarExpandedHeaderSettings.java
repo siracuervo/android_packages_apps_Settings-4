@@ -25,6 +25,7 @@ import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.view.Menu;
@@ -33,11 +34,17 @@ import android.view.MenuItem;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
+
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String PREF_CAT_WEATHER =
+            "expanded_header_cat_weather";
+    private static final String PREF_LOCK_CLOCK_MISSING =
+            "expanded_header_lock_clock_missing";
     private static final String PREF_SHOW_WEATHER =
             "expanded_header_show_weather";
     private static final String PREF_SHOW_LOCATION =
@@ -85,19 +92,25 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         int intColor;
         String hexColor;
 
+        PreferenceCategory catWeather =
+                (PreferenceCategory) findPreference(PREF_CAT_WEATHER);
         mShowWeather =
                 (CheckBoxPreference) findPreference(PREF_SHOW_WEATHER);
         mShowWeather.setChecked(showWeather);
         mShowWeather.setOnPreferenceChangeListener(this);
-
-        if (showWeather) {
-            mShowLocation =
-                    (CheckBoxPreference) findPreference(PREF_SHOW_LOCATION);
-            mShowLocation.setChecked(Settings.System.getInt(mResolver,
-                    Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1) == 1);
-            mShowLocation.setOnPreferenceChangeListener(this);
+        mShowLocation =
+                (CheckBoxPreference) findPreference(PREF_SHOW_LOCATION);
+        if (!Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock")) {
+            catWeather.removePreference(mShowLocation);
         } else {
-            removePreference(PREF_SHOW_LOCATION);
+            catWeather.removePreference(findPreference(PREF_LOCK_CLOCK_MISSING));
+            if (showWeather) {
+                mShowLocation.setChecked(Settings.System.getInt(mResolver,
+                        Settings.System.STATUS_BAR_EXPANDED_HEADER_SHOW_WEATHER_LOCATION, 1) == 1);
+                mShowLocation.setOnPreferenceChangeListener(this);
+            } else {
+                catWeather.removePreference(mShowLocation);
+            }
         }
 
         mBackgroundColor =

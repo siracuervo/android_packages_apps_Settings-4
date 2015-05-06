@@ -15,11 +15,17 @@ limitations under the License.
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/more_title">
+    android:title="@string/advanced_title">
 
     <PreferenceCategory
-        android:key="more_cat_lock_clock"
+        android:key="advanced_cat_lock_clock"
         android:title="@string/lock_clock_title">
+
+        <Preference
+            android:key="lock_clock_missing"
+            android:title="@string/lock_clock_missing_title"
+            android:summary="@string/lock_clock_missing_summary"
+            android:enabled="false" />
 
         <PreferenceScreen
             android:key="lock_clock_clock_section"

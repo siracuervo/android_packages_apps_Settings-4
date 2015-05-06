@@ -25,20 +25,26 @@
     <string name="dlg_reset_values_message">Reset values to\nAndroid- or DarkKat default?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
-    <string name="disabled_title">Disabled</string>
-    <string name="position_right_title">Right</string>
-    <string name="position_centered_title">Centered</string>
-    <string name="hidden_title">Hidden</string>
-    <string name="normal_title">Normal</string>
     <string name="options_title">Options</string>
     <string name="color_title">Color</string>
     <string name="colors_title">Colors</string>
+    <string name="weather_title">Weather</string>
     <string name="background_title">Background</string>
     <string name="icon_title">Icon</string>
     <string name="icons_title">Icons</string>
     <string name="text_title">Text</string>
+    <string name="normal_title">Normal</string>
     <string name="color_fully_title">Fully connected</string>
-    <string name="weather_title">Weather</string>
+    <string name="show_title">Anzeigen</string>
+    <string name="show_weather_summary">Enable to show weather informations</string>
+    <string name="show_location_title">Show location</string>
+    <string name="show_location_summary">Enable to show the location</string>
+    <string name="lock_clock_missing_title">Clock widget isn\`t installed</string>
+    <string name="lock_clock_missing_summary">To use the weather feature, the Clock widget \'cLock\' has to be installed</string>
+    <string name="disabled_title">Disabled</string>
+    <string name="position_right_title">Right</string>
+    <string name="position_centered_title">Centered</string>
+    <string name="hidden_title">Hidden</string>
 
     <!-- Shortcut Picker -->
     <string name="picker_apps_title">Apps</string>
@@ -62,7 +68,7 @@
     <string name="lock_screen_title">Lock screen</string>
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_expanded_title">Status bar expanded</string>
-    <string name="more_title">More</string>
+    <string name="advanced_title">Advanced</string>
     <string name="button_settings_title">Buttons</string>
 
    <!-- Lock screen -->
@@ -71,10 +77,6 @@
     <string name="lock_screen_shortcuts_settings_summary">Customize shortcuts</string>
 
    <!-- Weather settings -->
-    <string name="weather_show_weather_title">Show weather</string>
-    <string name="weather_show_weather_summary">Enable to show weather informations</string>
-    <string name="weather_show_location_title">Show location</string>
-    <string name="weather_show_location_summary">Enable to show the location</string>
     <string name="weather_show_timestamp_title">Show timestamp</string>
     <string name="weather_show_timestamp_summary">Enable to show the timestamp</string>
     <string name="weather_condition_icon_title">Condition icon</string>
@@ -202,12 +204,6 @@
     <string name="status_bar_expanded_header_settings_title">Header</string>
     <string name="status_bar_expanded_qs_settings_title">Quick settings</string>
 
-    <!-- Header -->
-    <string name="expanded_header_show_weather_title">Show weather</string>
-    <string name="expanded_header_show_weather_summary">Enable to show the weather</string>
-    <string name="expanded_header_show_weather_location_title">Show location</string>
-    <string name="expanded_header_show_weather_location_summary">Enable to show the location</string>
-
     <!-- Quick settings -->
     <string name="qs_cat_advanced_tiles_title">Advanced tiles</string>
     <string name="qs_order_title">Select and order tiles</string>
@@ -245,7 +241,7 @@
     <string name="qs_action_add">Add</string>
     <string name="qs_action_no_more_tiles">No more tiles available</string>
 
-    <!-- More -->
+    <!-- Advanced -->
     <string name="lock_clock_title">Clock widget</string>
     <string name="lock_clock_clock_section_title">Clock and alarm</string>
     <string name="lock_clock_clock_section_summary">View or change how the clock and alarm of the \'cLock\' Home  widget will display</string>

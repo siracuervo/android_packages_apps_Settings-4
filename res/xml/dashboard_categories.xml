@@ -114,11 +114,11 @@
                 </intent>
         </dashboard-tile>
 
-        <!-- More -->
+        <!-- Advanced -->
         <dashboard-tile
-                android:id="@+id/more"
-                android:title="@string/more_title"
-                android:fragment="com.android.settings.darkkat.More"
+                android:id="@+id/advanced"
+                android:title="@string/advanced_title"
+                android:fragment="com.android.settings.darkkat.Advanced"
                 android:icon="@drawable/ic_settings_more"
                 />
 

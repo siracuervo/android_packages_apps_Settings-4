@@ -18,13 +18,13 @@
 
     <CheckBoxPreference
         android:key="weather_show_weather"
-        android:title="@string/weather_show_weather_title"
-        android:summary="@string/weather_show_weather_summary" />
+        android:title="@string/show_title"
+        android:summary="@string/show_weather_summary" />
 
     <CheckBoxPreference
         android:key="weather_show_location"
-        android:title="@string/weather_show_location_title"
-        android:summary="@string/weather_show_location_summary" />
+        android:title="@string/show_location_title"
+        android:summary="@string/show_location_summary" />
 
     <CheckBoxPreference
         android:key="weather_show_timestamp"

@@ -25,20 +25,26 @@
     <string name="dlg_reset_values_message">Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
-    <string name="disabled_title">Deaktiviert</string>
-    <string name="position_right_title">Rechts</string>
-    <string name="position_centered_title">Zentriert</string>
-    <string name="hidden_title">Verborgen</string>
-    <string name="normal_title">Normal</string>
     <string name="options_title">Optionen</string>
     <string name="color_title">Farbe</string>
     <string name="colors_title">Farben</string>
+    <string name="weather_title">Wetter</string>
     <string name="background_title">Hintergrund</string>
     <string name="icon_title">Symbol</string>
     <string name="icons_title">Symbole</string>
     <string name="text_title">Text</string>
+    <string name="normal_title">Normal</string>
     <string name="color_fully_title">Vollständig verbunden</string>
-    <string name="weather_title">Wetter</string>
+    <string name="show_title">Anzeigen</string>
+    <string name="show_weather_summary">Aktivieren um das Wetter anzuzeigen</string>
+    <string name="show_location_title">Standort anzeigen</string>
+    <string name="show_location_summary">Aktivieren um den Standort anzuzeigen</string>
+    <string name="lock_clock_missing_title">Uhr-Widget ist nicht installiert</string>
+    <string name="lock_clock_missing_summary">Um die Wetter Funtion nutzen zu können, muss das Uhr-Widget \"cLock-Widget\" installiert sein</string>
+    <string name="disabled_title">Deaktiviert</string>
+    <string name="position_right_title">Rechts</string>
+    <string name="position_centered_title">Zentriert</string>
+    <string name="hidden_title">Verborgen</string>
 
     <!-- Shortcut Picker -->
     <string name="picker_apps_title">Apps</string>
@@ -49,7 +55,6 @@
     <!-- Color Picker -->
     <string name="dialog_color_picker_title">Farbauswahl</string>
     <string name="press_color_to_apply">Drücke unten auf eine Farbe um sie anzuwenden</string>
-    <string name="set">Setzen</string>
     <string name="palette_darkkat_title">DarkKat</string>
     <string name="palette_material_title">Material</string>
     <string name="palette_rgb_title">RGB</string>
@@ -63,7 +68,7 @@
     <string name="lock_screen_title">Sperrbildschirm</string>
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
-    <string name="more_title">Mehr</string>
+    <string name="advanced_title">Erweitert</string>
     <string name="button_settings_title">Tasten</string>
 
    <!-- Lock screen -->
@@ -72,10 +77,6 @@
     <string name="lock_screen_shortcuts_settings_summary">Verknüpfungen anpassen</string>
 
    <!-- Weather settings -->
-    <string name="weather_show_weather_title">Wetter anzeigen</string>
-    <string name="weather_show_weather_summary">Aktivieren um das wetter anzuzeigen</string>
-    <string name="weather_show_location_title">Standort anzeigen</string>
-    <string name="weather_show_location_summary">Aktivieren um den Standort anzuzeigen</string>
     <string name="weather_show_timestamp_title">Aktuallisierungszeitpunkt anzeigen</string>
     <string name="weather_show_timestamp_summary">Aktivieren um den Aktuallisierungszeitpunkt anzuzeigen</string>
     <string name="weather_condition_icon_title">Symbol der Wetterlage</string>
@@ -203,12 +204,6 @@
     <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
     <string name="status_bar_expanded_qs_settings_title">Schnelleinstellungen</string>
 
-    <!-- Header -->
-    <string name="expanded_header_show_weather_title">Wetter anzeigen</string>
-    <string name="expanded_header_show_weather_summary">Aktivieren um das wetter anzuzeigen</string>
-    <string name="expanded_header_show_weather_location_title">Standort anzeigen</string>
-    <string name="expanded_header_show_weather_location_summary">Aktivieren um den Standort anzuzeigen</string>
-
     <!-- Quick settings -->
     <string name="qs_cat_advanced_tiles_title">Erweiterbare Kacheln</string>
     <string name="qs_order_title">Kacheln wählen und anordnen</string>
@@ -246,7 +241,7 @@
     <string name="qs_action_add">Hinzufügen</string>
     <string name="qs_action_no_more_tiles">keine weiteren Kacheln verfügbar</string>
 
-    <!-- More -->
+    <!-- Advanced -->
     <string name="lock_clock_title">Uhr-Widget</string>
     <string name="lock_clock_clock_section_title">Uhrzeit und Alarme</string>
     <string name="lock_clock_clock_section_summary">Uhrzeit und Alarme des \"cLock-Widget\" konfigurieren</string>

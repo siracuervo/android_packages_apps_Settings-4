@@ -1754,7 +1754,7 @@
         <activity android:name=".darkkat.Statusbar" />
         <activity android:name=".darkkat.StatusBarExpanded" />
         <activity android:name=".darkkat.WeatherSettings" />
-        <activity android:name=".darkkat.More" />
+        <activity android:name=".darkkat.Advanced" />
         <activity android:name=".darkkat.ButtonSettings" />
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->

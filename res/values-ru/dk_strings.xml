@@ -25,20 +25,26 @@
     <string name="dlg_reset_values_message">Сбросить значения для\nAndroid- или DarkKat?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
-    <string name="disabled_title">Отключено</string>
-    <string name="position_right_title">Право</string>
-    <string name="position_centered_title">По центру</string>
-    <string name="hidden_title">Скрыто</string>
-    <string name="normal_title">Нормальный</string>
     <string name="options_title">Опции</string>
     <string name="color_title">Цвета</string>
     <string name="colors_title">Цвета</string>
+    <string name="weather_title">Погода</string>
     <string name="background_title">Фон</string>
     <string name="icon_title">Иконка</string>
     <string name="icons_title">Иконки</string>
     <string name="text_title">Текст</string>
+    <string name="normal_title">Нормальный</string>
     <string name="color_fully_title">Полностью подключены</string>
-    <string name="weather_title">Погода</string>
+    <string name="show_title">Show</string> <!-- needs translation -->
+    <string name="show_weather_summary">Включить, чтобы показать информацию о погоде</string>
+    <string name="show_location_title">Показать расположение</string>
+    <string name="show_location_summary">Включить, чтобы показать расположение</string>
+    <string name="lock_clock_missing_title">Clock widget isn\`t installed</string> <!-- needs translation -->
+    <string name="lock_clock_missing_summary">To use the weather feature, the Clock widget \'cLock\' has to be installed</string> <!-- needs translation -->
+    <string name="disabled_title">Отключено</string>
+    <string name="position_right_title">Право</string>
+    <string name="position_centered_title">По центру</string>
+    <string name="hidden_title">Скрыто</string>
 
     <!-- Shortcut Picker -->
     <string name="picker_apps_title">Приложнеия</string>
@@ -62,7 +68,7 @@
     <string name="lock_screen_title">Экран блокировки</string>
     <string name="status_bar_title">Строка состояния</string>
     <string name="status_bar_expanded_title">Строка состояния расширена</string>
-    <string name="more_title">Ещё</string>
+    <string name="advanced_title">Advanced</string> <!-- needs translation -->
     <string name="button_settings_title">Кнопки</string>
 
    <!-- Lock screen -->
@@ -71,10 +77,6 @@
     <string name="lock_screen_shortcuts_settings_summary">Настройка ярлыков</string>
 
    <!-- Weather settings -->
-    <string name="weather_show_weather_title">Показать погоду</string>
-    <string name="weather_show_weather_summary">Включить, чтобы показать информацию о погоде</string>
-    <string name="weather_show_location_title">Показать расположение</string>
-    <string name="weather_show_location_summary">Включить, чтобы показать расположение</string>
     <string name="weather_show_timestamp_title">Показывать время</string>
     <string name="weather_show_timestamp_summary">Включить, чтобы показать метку</string>
     <string name="weather_condition_icon_title">Состояние значка</string>
@@ -202,12 +204,6 @@
     <string name="status_bar_expanded_header_settings_title">Заголовок</string>
     <string name="status_bar_expanded_qs_settings_title">Быстрые настройки</string>
 
-    <!-- Header -->
-    <string name="expanded_header_show_weather_title">Show weather</string>
-    <string name="expanded_header_show_weather_summary">Включить, чтобы показать погоду</string>
-    <string name="expanded_header_show_weather_location_title">Показать расположение</string>
-    <string name="expanded_header_show_weather_location_summary">Включить, чтобы показать расположение</string>
-
     <!-- Quick settings -->
     <string name="qs_cat_advanced_tiles_title">Расширенные плитки</string>
     <string name="qs_order_title">Выбор и применение плиток</string>
@@ -245,7 +241,7 @@
     <string name="qs_action_add">Добавить</string>
     <string name="qs_action_no_more_tiles">Плитки больше не доступны</string>
 
-    <!-- More -->
+    <!-- Advanced -->
     <string name="lock_clock_title">Виджет часов </string>
     <string name="lock_clock_clock_section_title">Часы и будильник</string>
     <string name="lock_clock_clock_section_summary">Просмотреть или изменить, как будет отображаться часы и будильник  \'cLock\' домашнего виджета</string>

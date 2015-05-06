@@ -18,17 +18,29 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_expanded_header_settings_title">
 
-    <CheckBoxPreference
-	    android:key="expanded_header_show_weather"
-	    android:title="@string/expanded_header_show_weather_title"
-	    android:summary="@string/expanded_header_show_weather_summary"
-	    android:defaultValue="false" />
+    <PreferenceCategory
+        android:key="expanded_header_cat_weather"
+        android:title="@string/weather_title">
 
-    <CheckBoxPreference
-	    android:key="expanded_header_show_weather_location"
-	    android:title="@string/expanded_header_show_weather_location_title"
-	    android:summary="@string/expanded_header_show_weather_location_summary"
-	    android:defaultValue="true" />
+        <Preference
+            android:key="expanded_header_lock_clock_missing"
+            android:title="@string/lock_clock_missing_title"
+            android:summary="@string/lock_clock_missing_summary"
+            android:enabled="false" />
+
+        <CheckBoxPreference
+	        android:key="expanded_header_show_weather"
+	        android:title="@string/show_title"
+	        android:summary="@string/show_weather_summary"
+	        android:defaultValue="false" />
+
+        <CheckBoxPreference
+	        android:key="expanded_header_show_weather_location"
+	        android:title="@string/show_location_title"
+	        android:summary="@string/show_location_summary"
+	        android:defaultValue="true" />
+
+	</PreferenceCategory>
 
     <PreferenceCategory
         android:key="expanded_header_cat_color"

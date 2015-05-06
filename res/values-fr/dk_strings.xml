@@ -25,20 +25,26 @@
     <string name="dlg_reset_values_message">Réinitialiser les valeurs d\'\nAndroid- ou DarkKat par défault ?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
-    <string name="disabled_title">Désactivé</string>
-    <string name="position_right_title">Droite</string>
-    <string name="position_centered_title">Centré</string>
-    <string name="hidden_title">Caché</string>
-    <string name="normal_title">Normal</string>
     <string name="options_title">Options</string>
     <string name="color_title">Couleurs</string>
     <string name="colors_title">Couleurs</string>
+    <string name="weather_title">Météo</string>
     <string name="background_title">Fond</string>
     <string name="icon_title">Icône</string>
     <string name="icons_title">Icônes</string>
     <string name="text_title">Texte</string>
+    <string name="normal_title">Normal</string>
     <string name="color_fully_title">Entièrement connecté</string>
-    <string name="weather_title">Météo</string>
+    <string name="show_title">Show</string> <!-- needs translation -->
+    <string name="show_weather_summary">Activer pour montrer les informations météorologiques</string>
+    <string name="show_location_title">Montrer la position</string>
+    <string name="show_location_summary">Activer pour montrer l\'emplacement</string>
+    <string name="lock_clock_missing_title">Clock widget isn\`t installed</string> <!-- needs translation -->
+    <string name="lock_clock_missing_summary">To use the weather feature, the Clock widget \'cLock\' has to be installed</string> <!-- needs translation -->
+    <string name="disabled_title">Désactivé</string>
+    <string name="position_right_title">Droite</string>
+    <string name="position_centered_title">Centré</string>
+    <string name="hidden_title">Caché</string>
 
     <!-- Shortcut Picker -->
     <string name="picker_apps_title">Applications</string>
@@ -62,7 +68,7 @@
     <string name="lock_screen_title">Êcran de verrouillage</string>
     <string name="status_bar_title">Barre d\'état</string>
     <string name="status_bar_expanded_title">Barre d\'état élargi</string>
-    <string name="more_title">Plus</string>
+    <string name="advanced_title">Advanced</string> <!-- needs translation -->
     <string name="button_settings_title">Boutons</string>
 
    <!-- Lock screen -->
@@ -71,10 +77,6 @@
     <string name="lock_screen_shortcuts_settings_summary">Personnaliser les raccourcis</string>
 
    <!-- Weather settings -->
-    <string name="weather_show_weather_title">Afficher la météo</string>
-    <string name="weather_show_weather_summary">Activer pour montrer les informations météorologiques</string>
-    <string name="weather_show_location_title">Montrer la position</string>
-    <string name="weather_show_location_summary">Activer pour montrer l\'emplacement</string>
     <string name="weather_show_timestamp_title">Monter l\'horodatage</string>
     <string name="weather_show_timestamp_summary">Monter l\'horodatage</string>
     <string name="weather_condition_icon_title">Icône de condition</string>
@@ -202,12 +204,6 @@
     <string name="status_bar_expanded_header_settings_title">En-tête</string>
     <string name="status_bar_expanded_qs_settings_title">Réglages rapides</string>
 
-    <!-- Header -->
-    <string name="expanded_header_show_weather_title">Montrer la méteo</string>
-    <string name="expanded_header_show_weather_summary">Activer pour montrer la météo</string>
-    <string name="expanded_header_show_weather_location_title">Montrer la position</string>
-    <string name="expanded_header_show_weather_location_summary">Activer pour montrer la position</string>
-
     <!-- Quick settings -->
     <string name="qs_cat_advanced_tiles_title">Tuiles avancée</string>
     <string name="qs_order_title">Sélectionnez les tuiles et mettez dans l\'ordre souhaitez</string>
@@ -245,7 +241,7 @@
     <string name="qs_action_add">Ajouter</string>
     <string name="qs_action_no_more_tiles">Plus de tuiles disponibles</string>
 
-    <!-- More -->
+    <!-- Advanced -->
     <string name="lock_clock_title">Widget de l\'horloge</string>
     <string name="lock_clock_clock_section_title">Horloge et alarme</string>
     <string name="lock_clock_clock_section_summary">Afficher ou modifier la façon dont l\'horloge et d\'alarme du \'cLock\' Home widget vont être affiché  </string>
