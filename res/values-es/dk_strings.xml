@@ -204,6 +204,7 @@
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_settings_title">Cabecera</string>
     <string name="status_bar_expanded_qs_settings_title">Ajustes rápidos</string>
+    <string name="status_bar_expanded_nd_settings_title">Notification drawer</string> <!-- needs translation -->
 
     <!-- Quick settings -->
     <string name="qs_cat_advanced_tiles_title">Casillas avanzadas</string>
@@ -241,6 +242,9 @@
     <string name="qs_action_delete">Eliminar</string>
     <string name="qs_action_add">Añadir</string>
     <string name="qs_action_no_more_tiles">No hay más casillas disponibles</string>
+
+    <!-- notification_drawer settings -->
+    <string name="notification_drawer_clear_all_icon_color_title">Clear all icon</string> <!-- needs translation -->
 
     <!-- Advanced -->
     <string name="lock_clock_title">Widget del reloj</string>

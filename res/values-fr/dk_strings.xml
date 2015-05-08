@@ -204,6 +204,7 @@
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_settings_title">En-tête</string>
     <string name="status_bar_expanded_qs_settings_title">Réglages rapides</string>
+    <string name="status_bar_expanded_nd_settings_title">Notification drawer</string> <!-- needs translation -->
 
     <!-- Quick settings -->
     <string name="qs_cat_advanced_tiles_title">Tuiles avancée</string>
@@ -241,6 +242,9 @@
     <string name="qs_action_delete">Effacer</string>
     <string name="qs_action_add">Ajouter</string>
     <string name="qs_action_no_more_tiles">Plus de tuiles disponibles</string>
+
+    <!-- notification_drawer settings -->
+    <string name="notification_drawer_clear_all_icon_color_title">Clear all icon</string> <!-- needs translation -->
 
     <!-- Advanced -->
     <string name="lock_clock_title">Widget de l\'horloge</string>
