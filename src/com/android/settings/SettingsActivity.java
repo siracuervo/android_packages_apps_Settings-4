@@ -1183,6 +1183,13 @@ public class SettingsActivity extends Activity
                     if (!Utils.isPackageInstalled(this, "com.cyanogenmod.lockclock")) {
                         removeTile = true;
                     }
+                } else if (id == R.id.led_light_settings) {
+                    if (!getResources().getBoolean(com.android.internal.R.bool
+                            .config_intrusiveNotificationLed) &&
+                            !getResources().getBoolean(com.android.internal.R.bool
+                            .config_intrusiveBatteryLed)) {
+                        removeTile = true;
+                    }
                 } else if (id == R.id.battery_settings) {
                     // Remove battery settings when battery is not available. (e.g. TV)
 

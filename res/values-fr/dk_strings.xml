@@ -69,6 +69,7 @@
     <string name="status_bar_title">Barre d\'état</string>
     <string name="status_bar_expanded_title">Barre d\'état élargi</string>
     <string name="advanced_title">Advanced</string> <!-- needs translation -->
+    <string name="led_light_settings">LED light</string> <!-- needs translation -->
     <string name="button_settings_title">Boutons</string>
 
    <!-- Lock screen -->
@@ -259,8 +260,6 @@
     <string name="lcd_density_value_format">%d DPI</string>
     <string name="lcd_density_default_value_format">%d DPI (défaut)</string>
     <string name="restarting_ui">Redémarrage UI\u2026</string>
-    <string name="battery_light_title">Battery light</string> <!-- needs translation -->
-    <string name="notification_light_title">Notification light</string> <!-- needs translation -->
 
     <!-- Rotation -->
     <string name="display_rotation_unit">degrés</string>
@@ -280,7 +279,9 @@
     <string name="expanded_desktop_style">Style de bureau élargi</string>
     <string name="expanded_desktop_style_description">Choisissez un style de bureau élargi par défaut</string>
 
-    <!-- Light settings -->
+    <!-- LED Light settings -->
+    <string name="battery_light_title">Battery light</string> <!-- needs translation -->
+    <string name="notification_light_title">Notification light</string> <!-- needs translation -->
 
     <!-- Battery light settings -->
     <string name="battery_low_pulse_title">Pulse if battery low</string> <!-- needs translation -->

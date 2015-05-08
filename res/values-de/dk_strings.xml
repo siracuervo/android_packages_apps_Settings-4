@@ -69,6 +69,7 @@
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
     <string name="advanced_title">Erweitert</string>
+    <string name="led_light_settings">LED Leuchte</string>
     <string name="button_settings_title">Tasten</string>
 
    <!-- Lock screen -->
@@ -259,8 +260,6 @@
     <string name="lcd_density_value_format">%d DPI</string>
     <string name="lcd_density_default_value_format">%d DPI (Standard)</string>
     <string name="restarting_ui">UI wird neu gestartet\u2026</string>
-    <string name="battery_light_title">Akkulicht</string>
-    <string name="notification_light_title">Benachrichtigungslicht</string>
 
     <!-- Rotation -->
     <string name="display_rotation_category_title">Bei Drehung um</string>
@@ -280,7 +279,9 @@
     <string name="expanded_desktop_style">Stil des erw. Desktop</string>
     <string name="expanded_desktop_style_description">Wählen Sie einen Standard-Stil für den erw. Desktop</string>
 
-    <!-- Light settings -->
+    <!-- LED Light settings -->
+    <string name="battery_light_title">Akku LED</string>
+    <string name="notification_light_title">Benachrichtigungs LED</string>
 
     <!-- Battery light settings -->
     <string name="battery_low_pulse_title">Bei schwachem Akku pulsieren</string>
