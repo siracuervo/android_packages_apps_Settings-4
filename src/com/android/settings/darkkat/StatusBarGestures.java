@@ -21,8 +21,8 @@ import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 
@@ -37,8 +37,8 @@ public class StatusBarGestures extends SettingsPreferenceFragment implements
     private static final String PREF_STATUS_BAR_DOUBLE_TAP_TO_SLEEP =
             "status_bar_double_tap_to_sleep";
 
-    private CheckBoxPreference mBrightnessControl;
-    private CheckBoxPreference mDoubleTapToSleep;
+    private SwitchPreference mBrightnessControl;
+    private SwitchPreference mDoubleTapToSleep;
 
     private ContentResolver mResolver;
     private ContentObserver mSettingsObserver;
@@ -52,14 +52,14 @@ public class StatusBarGestures extends SettingsPreferenceFragment implements
         mResolver = getActivity().getContentResolver();
 
         mBrightnessControl =
-                (CheckBoxPreference) findPreference(PREF_STATUS_BAR_BRIGHTNESS_CONTROL);
+                (SwitchPreference) findPreference(PREF_STATUS_BAR_BRIGHTNESS_CONTROL);
         mBrightnessControl.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
         mBrightnessControl.setOnPreferenceChangeListener(this);
         refreshBrightnessControl();
 
         mDoubleTapToSleep =
-                (CheckBoxPreference) findPreference(PREF_STATUS_BAR_DOUBLE_TAP_TO_SLEEP);
+                (SwitchPreference) findPreference(PREF_STATUS_BAR_DOUBLE_TAP_TO_SLEEP);
         mDoubleTapToSleep.setChecked((Settings.System.getInt(mResolver,
                 Settings.System.STATUS_BAR_DOUBLE_TAP_TO_SLEEP, 0) == 1));
         mDoubleTapToSleep.setOnPreferenceChangeListener(this);

@@ -23,12 +23,12 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -66,7 +66,7 @@ public class StatusBarSignalWifiSettings extends SettingsPreferenceFragment impl
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private CheckBoxPreference mShowNetworkActivity;
+    private SwitchPreference mShowNetworkActivity;
     private ColorPickerPreference mNetworkNormalColor;
     private ColorPickerPreference mNetworkFullyColor;
     private ColorPickerPreference mActivityNormalColor;
@@ -98,7 +98,7 @@ public class StatusBarSignalWifiSettings extends SettingsPreferenceFragment impl
         String hexColor;
 
         mShowNetworkActivity =
-                (CheckBoxPreference) findPreference(
+                (SwitchPreference) findPreference(
                     PREF_SHOW_ACTIVITY);
         mShowNetworkActivity.setChecked(isNetworkActivityEnabled);
         mShowNetworkActivity.setOnPreferenceChangeListener(this);

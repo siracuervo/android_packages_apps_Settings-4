@@ -17,8 +17,8 @@
 package com.android.settings.darkkat;
 
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 
 import com.android.settings.R;
@@ -32,8 +32,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
     private static final String PREF_VOLBTN_SWAP =
             "button_swap_volume_buttons";
 
-    private CheckBoxPreference mVolBtnWake;
-    private CheckBoxPreference mVolBtnSwap;
+    private SwitchPreference mVolBtnWake;
+    private SwitchPreference mVolBtnSwap;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,12 +41,12 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.button_settings);
 
-        mVolBtnWake = (CheckBoxPreference) findPreference(PREF_VOLBTN_WAKE);
+        mVolBtnWake = (SwitchPreference) findPreference(PREF_VOLBTN_WAKE);
         mVolBtnWake.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
         mVolBtnWake.setOnPreferenceChangeListener(this);
 
-        mVolBtnSwap = (CheckBoxPreference) findPreference(PREF_VOLBTN_SWAP);
+        mVolBtnSwap = (SwitchPreference) findPreference(PREF_VOLBTN_SWAP);
         mVolBtnSwap.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.SWAP_VOLUME_BUTTONS_ON_ROTATION, 0) == 1);
         mVolBtnSwap.setOnPreferenceChangeListener(this);

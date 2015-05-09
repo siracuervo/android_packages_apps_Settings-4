@@ -21,9 +21,9 @@ import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -68,12 +68,12 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
     private static final int DLG_RESET = 0;
 
     private Preference mQSTiles;
-    private CheckBoxPreference mQSQuickPulldown;
-    private CheckBoxPreference mQSShowBrightnessSlider;
-    private CheckBoxPreference mQSMainTiles;
-    private CheckBoxPreference mQSBluetoothAdvanced;
-    private CheckBoxPreference mQSLocationAdvanced;
-    private CheckBoxPreference mQSWifiAdvanced;
+    private SwitchPreference mQSQuickPulldown;
+    private SwitchPreference mQSShowBrightnessSlider;
+    private SwitchPreference mQSMainTiles;
+    private SwitchPreference mQSBluetoothAdvanced;
+    private SwitchPreference mQSLocationAdvanced;
+    private SwitchPreference mQSWifiAdvanced;
     private ColorPickerPreference mQSBackgroundColor;
     private ColorPickerPreference mQSIconColor;
     private ColorPickerPreference mQSTextColor;
@@ -101,37 +101,37 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
         mQSTiles = findPreference(PREF_QS_ORDER);
 
         mQSQuickPulldown =
-                (CheckBoxPreference) findPreference(PREF_QS_QUICK_PULLDOWN);
+                (SwitchPreference) findPreference(PREF_QS_QUICK_PULLDOWN);
         mQSQuickPulldown.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.QS_QUICK_PULLDOWN, 0) == 1);
         mQSQuickPulldown.setOnPreferenceChangeListener(this);
 
         mQSShowBrightnessSlider =
-                (CheckBoxPreference) findPreference(PREF_QS_SHOW_BRIGHTNESS_SLIDER);
+                (SwitchPreference) findPreference(PREF_QS_SHOW_BRIGHTNESS_SLIDER);
         mQSShowBrightnessSlider.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.QS_SHOW_BRIGHTNESS_SLIDER, 1) == 1);
         mQSShowBrightnessSlider.setOnPreferenceChangeListener(this);
 
         mQSMainTiles =
-                (CheckBoxPreference) findPreference(PREF_QS_MAIN_TILES);
+                (SwitchPreference) findPreference(PREF_QS_MAIN_TILES);
         mQSMainTiles.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.QS_USE_MAIN_TILES, 1) == 1);
         mQSMainTiles.setOnPreferenceChangeListener(this);
 
         mQSBluetoothAdvanced =
-                (CheckBoxPreference) findPreference(PREF_QS_BLUETOOTH_ADVANCED);
+                (SwitchPreference) findPreference(PREF_QS_BLUETOOTH_ADVANCED);
         mQSBluetoothAdvanced.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.QS_BLUETOOTH_ADVANCED, 0) == 1);
         mQSBluetoothAdvanced.setOnPreferenceChangeListener(this);
 
         mQSLocationAdvanced =
-                (CheckBoxPreference) findPreference(PREF_QS_LOCATION_ADVANCED);
+                (SwitchPreference) findPreference(PREF_QS_LOCATION_ADVANCED);
         mQSLocationAdvanced.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.QS_LOCATION_ADVANCED, 0) == 1);
         mQSLocationAdvanced.setOnPreferenceChangeListener(this);
 
         mQSWifiAdvanced =
-                (CheckBoxPreference) findPreference(PREF_QS_WIFI_ADVANCED);
+                (SwitchPreference) findPreference(PREF_QS_WIFI_ADVANCED);
         mQSWifiAdvanced.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.QS_WIFI_ADVANCED, 0) == 1);
         mQSWifiAdvanced.setOnPreferenceChangeListener(this);

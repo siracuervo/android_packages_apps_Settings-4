@@ -27,19 +27,19 @@
         android:key="qs_cat_options"
         android:title="@string/options_title">
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="qs_quick_pulldown"
             android:title="@string/qs_quick_pulldown_title"
             android:summary="@string/qs_quick_pulldown_summary"
             android:defaultValue="false" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="qs_show_brightness_slider"
             android:title="@string/qs_show_brightness_slider_title"
             android:summary="@string/qs_show_brightness_slider_summary"
             android:defaultValue="true" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="qs_main_tiles"
             android:title="@string/qs_main_tiles_title"
             android:summary="@string/qs_main_tiles_summary"
@@ -51,19 +51,19 @@
         android:key="qs_cat_advanced_tiles"
         android:title="@string/qs_cat_advanced_tiles_title">
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="qs_advanced_bluetooth"
             android:title="@string/qs_advanced_bluetooth_title"
             android:summary="@string/qs_advanced_click_summary"
             android:defaultValue="false" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="qs_advanced_location"
             android:title="@string/qs_advanced_location_title"
             android:summary="@string/qs_advanced_click_summary"
             android:defaultValue="false" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="qs_advanced_wifi"
             android:title="@string/qs_advanced_wifi_title"
             android:summary="@string/qs_advanced_click_summary"

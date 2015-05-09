@@ -28,13 +28,13 @@ limitations under the License.
         android:key="button_volume_button_category"
         android:title="@string/button_volume_button_category_title">
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="button_volume_button_wake"
             android:title="@string/button_volume_button_wake_title"
             android:summary="@string/button_volume_button_wake_summary" 
             android:defaultValue="false" />
 
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="button_swap_volume_buttons"
             android:title="@string/button_swap_volume_buttons_title"
             android:summary="@string/button_swap_volume_buttons_summary" 

@@ -29,11 +29,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.UserHandle;
 import android.os.UserManager;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -75,7 +75,7 @@ public class PowerUsageSummary extends PreferenceFragment implements
 
     private BatteryHistoryPreference mHistPref;
     private PreferenceGroup mAppListGroup;
-    private CheckBoxPreference mWakeWhenPluggedOrUnplugged;
+    private SwitchPreference mWakeWhenPluggedOrUnplugged;
     private String mBatteryLevel;
     private String mBatteryStatus;
 
@@ -122,7 +122,7 @@ public class PowerUsageSummary extends PreferenceFragment implements
                 com.android.internal.R.bool.config_unplugTurnsOnScreen);
 
         mWakeWhenPluggedOrUnplugged =
-                (CheckBoxPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
+                (SwitchPreference) findPreference(KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
         mWakeWhenPluggedOrUnplugged.setChecked(
                 Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,

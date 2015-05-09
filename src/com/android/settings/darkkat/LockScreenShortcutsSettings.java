@@ -18,8 +18,8 @@ package com.android.settings.darkkat;
 
 import android.content.ContentResolver;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 
 import com.android.settings.R;
@@ -31,7 +31,7 @@ public class LockScreenShortcutsSettings extends SettingsPreferenceFragment impl
     private static final String PREF_COLORIZE_CUSTOM_ICONS =
             "shortcuts_colorize_custom_icons";
 
-    private CheckBoxPreference mColorizeCustomIcons;
+    private SwitchPreference mColorizeCustomIcons;
 
     private ContentResolver mResolver;
 
@@ -43,7 +43,7 @@ public class LockScreenShortcutsSettings extends SettingsPreferenceFragment impl
         mResolver = getActivity().getContentResolver();
 
         mColorizeCustomIcons =
-                (CheckBoxPreference) findPreference(PREF_COLORIZE_CUSTOM_ICONS);
+                (SwitchPreference) findPreference(PREF_COLORIZE_CUSTOM_ICONS);
         mColorizeCustomIcons.setChecked(Settings.System.getInt(mResolver,
                 Settings.System.LOCK_SCREEN_SHORTCUTS_COLORIZE_CUSTOM_ICONS, 0) == 1);
         mColorizeCustomIcons.setOnPreferenceChangeListener(this);

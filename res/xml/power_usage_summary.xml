@@ -20,7 +20,7 @@
         settings:keywords="@string/keywords_battery"
         android:key="app_list">
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="wake_when_plugged_or_unplugged"
         android:title="@string/wake_when_plugged_or_unplugged_title"
         android:summary="@string/wake_when_plugged_or_unplugged_summary"

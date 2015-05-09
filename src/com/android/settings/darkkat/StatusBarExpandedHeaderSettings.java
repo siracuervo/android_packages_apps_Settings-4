@@ -23,10 +23,10 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -63,8 +63,8 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private CheckBoxPreference mShowWeather;
-    private CheckBoxPreference mShowLocation;
+    private SwitchPreference mShowWeather;
+    private SwitchPreference mShowLocation;
     private ColorPickerPreference mBackgroundColor;
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
@@ -95,11 +95,11 @@ public class StatusBarExpandedHeaderSettings extends SettingsPreferenceFragment 
         PreferenceCategory catWeather =
                 (PreferenceCategory) findPreference(PREF_CAT_WEATHER);
         mShowWeather =
-                (CheckBoxPreference) findPreference(PREF_SHOW_WEATHER);
+                (SwitchPreference) findPreference(PREF_SHOW_WEATHER);
         mShowWeather.setChecked(showWeather);
         mShowWeather.setOnPreferenceChangeListener(this);
         mShowLocation =
-                (CheckBoxPreference) findPreference(PREF_SHOW_LOCATION);
+                (SwitchPreference) findPreference(PREF_SHOW_LOCATION);
         if (!Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock")) {
             catWeather.removePreference(mShowLocation);
         } else {

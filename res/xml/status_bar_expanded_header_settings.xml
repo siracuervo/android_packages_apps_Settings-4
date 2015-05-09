@@ -28,13 +28,13 @@
             android:summary="@string/lock_clock_missing_summary"
             android:enabled="false" />
 
-        <CheckBoxPreference
+        <SwitchPreference
 	        android:key="expanded_header_show_weather"
 	        android:title="@string/show_title"
 	        android:summary="@string/show_weather_summary"
 	        android:defaultValue="false" />
 
-        <CheckBoxPreference
+        <SwitchPreference
 	        android:key="expanded_header_show_weather_location"
 	        android:title="@string/show_location_title"
 	        android:summary="@string/show_location_summary"

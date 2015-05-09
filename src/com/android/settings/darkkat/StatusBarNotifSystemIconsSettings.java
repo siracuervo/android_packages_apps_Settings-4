@@ -22,10 +22,10 @@ import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -64,9 +64,9 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
 
-    private CheckBoxPreference mColorizeNotifIcons;
-    private CheckBoxPreference mShowTicker;
-    private CheckBoxPreference mShowCount;
+    private SwitchPreference mColorizeNotifIcons;
+    private SwitchPreference mShowTicker;
+    private SwitchPreference mShowCount;
     private ColorPickerPreference mIconColor;
     private ColorPickerPreference mNotifTextColor;
     private ColorPickerPreference mCountIconColor;
@@ -98,7 +98,7 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
                Settings.System.STATUS_BAR_SHOW_NOTIF_COUNT, 0) == 1;
 
         mColorizeNotifIcons =
-                (CheckBoxPreference) findPreference(PREF_COLORIZE_NOTIF_ICONS);
+                (SwitchPreference) findPreference(PREF_COLORIZE_NOTIF_ICONS);
         mColorizeNotifIcons.setChecked(Settings.System.getInt(mResolver,
                Settings.System.STATUS_BAR_COLORIZE_NOTIF_ICONS, 0) == 1);
         if (DeviceUtils.isPhone(getActivity())) {
@@ -107,12 +107,12 @@ public class StatusBarNotifSystemIconsSettings extends SettingsPreferenceFragmen
         mColorizeNotifIcons.setOnPreferenceChangeListener(this);
 
         mShowTicker =
-                (CheckBoxPreference) findPreference(PREF_SHOW_TICKER);
+                (SwitchPreference) findPreference(PREF_SHOW_TICKER);
         mShowTicker.setChecked(showTicker);
         mShowTicker.setOnPreferenceChangeListener(this);
 
         mShowCount =
-                (CheckBoxPreference) findPreference(PREF_SHOW_COUNT);
+                (SwitchPreference) findPreference(PREF_SHOW_COUNT);
         mShowCount.setChecked(showCount);
         mShowCount.setOnPreferenceChangeListener(this);
 

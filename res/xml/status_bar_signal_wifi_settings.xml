@@ -18,7 +18,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/status_bar_signal_wifi_settings_title">
 
-   <CheckBoxPreference
+   <SwitchPreference
         android:key="signal_wifi_show_network_activity"
         android:title="@string/signal_wifi_show_activity_title"
         android:summary="@string/signal_wifi_show_activity_summary"

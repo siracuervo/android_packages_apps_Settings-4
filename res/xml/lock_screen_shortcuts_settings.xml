@@ -22,7 +22,7 @@
         android:summary="@string/shortcuts_target_settings_summary"
         android:fragment="com.android.settings.darkkat.LockscreenShortcuts" />
 
-    <CheckBoxPreference
+    <SwitchPreference
         android:key="shortcuts_colorize_custom_icons"
         android:title="@string/shortcuts_colorize_custom_icons_title"
         android:summary="@string/shortcuts_colorize_custom_icons_summary" />

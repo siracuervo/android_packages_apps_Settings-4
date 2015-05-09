@@ -23,13 +23,13 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.view.Menu;
@@ -78,9 +78,9 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
     private static final int DLG_RESET = 0;
 
     private ListPreference mClockDatePosition;
-    private CheckBoxPreference mShowDate;
+    private SwitchPreference mShowDate;
     private ListPreference mClockAmPm;
-    private CheckBoxPreference mDateSize;
+    private SwitchPreference mDateSize;
     private ListPreference mDateStyle;
     private ListPreference mDateFormat;
     private ColorPickerPreference mClockDateColor;
@@ -126,7 +126,7 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
                 (ColorPickerPreference) findPreference(PREF_CLOCK_DATE_COLOR);
 
         if (isClockEnabled) {
-            mShowDate = (CheckBoxPreference) findPreference(PREF_SHOW_DATE);
+            mShowDate = (SwitchPreference) findPreference(PREF_SHOW_DATE);
             mShowDate.setChecked(isDateEnabled);
             mShowDate.setOnPreferenceChangeListener(this);
 
@@ -161,7 +161,7 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
             removePreference(PREF_CAT_CLOCK);
         }
 
-        mDateSize = (CheckBoxPreference) findPreference(PREF_DATE_SIZE);
+        mDateSize = (SwitchPreference) findPreference(PREF_DATE_SIZE);
         mDateStyle = (ListPreference) findPreference(PREF_DATE_STYLE);
         mDateFormat = (ListPreference) findPreference(PREF_DATE_FORMAT);
         if (isClockEnabled && isDateEnabled) {
