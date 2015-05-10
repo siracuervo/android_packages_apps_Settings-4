@@ -358,6 +358,12 @@
     <string name="wake_when_plugged_or_unplugged_title">Despertar al cargar</string>
     <string name="wake_when_plugged_or_unplugged_summary">Despertar el dispositivo al conectar o desconectar el cargador</string>
 
+    <!-- Application settings -->
+    <string name="app_notification_show_on_keyguard_title">Show on lockscreen</string> <!-- needs translation -->
+    <string name="app_notification_show_on_keyguard_summary">Show notifications from this app on the lockscreen</string> <!-- needs translation -->
+    <string name="app_notification_no_ongoing_on_keyguard_title">Disable ongoing on lockscreen</string> <!-- needs translation -->
+    <string name="app_notification_no_ongoing_on_keyguard_summary">Never show ongoing notifications from this app on the lockscreen</string> <!-- needs translation -->
+
     <!-- Development settings -->
 
     <!-- Advanced reboot options -->

@@ -358,6 +358,12 @@
     <string name="wake_when_plugged_or_unplugged_title">Ladegerät weckt Bildschirm</string>
     <string name="wake_when_plugged_or_unplugged_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald ein Ladegerät angeschlossen oder entfernt wird</string>
 
+    <!-- Application settings -->
+    <string name="app_notification_show_on_keyguard_title">Auf Sperrbildschirm anzeigen</string>
+    <string name="app_notification_show_on_keyguard_summary">Benachrichtigungen von dieser App auf dem Sperrbildschirm anzeigen</string>
+    <string name="app_notification_no_ongoing_on_keyguard_title">Permanente auf Sperrbildschirm unterdrücken</string>
+    <string name="app_notification_no_ongoing_on_keyguard_summary">Laufende Benachrichtigungen von dieser App nie auf dem Sperrbildschirm anzeigen</string>
+
     <!-- Development settings -->
 
     <!-- Advanced reboot options -->
