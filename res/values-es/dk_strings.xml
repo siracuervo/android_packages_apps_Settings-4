@@ -210,7 +210,10 @@
     <string name="qs_cat_advanced_tiles_title">Casillas avanzadas</string>
     <string name="qs_order_title">Seleccionar y ordenar las casillas</string>
     <string name="qs_quick_pulldown_title">Despliegue rápido</string>
-    <string name="qs_quick_pulldown_summary">Utilizar el borde derecho de la barra de estado para desplegar los ajustes rápidos</string>
+    <string name="qs_quick_pulldown_summary">%1$s edge of the status bar pulls down Quick Settings</string> <!-- needs translation -->
+    <string name="qs_quick_pulldown_dlg_title">Choose which edge of the status bar pulls down Quick Settings</string> <!-- needs translation -->
+    <string name="qs_quick_pulldown_right">Right</string> <!-- needs translation -->
+    <string name="qs_quick_pulldown_left">Left</string> <!-- needs translation -->
     <string name="qs_show_brightness_slider_title">Mostrar el control deslizante del brillo</string>
     <string name="qs_show_brightness_slider_summary">Muestra  el control deslizante del brillo</string>
     <string name="qs_main_tiles_title">Agrandar la primera fila</string>

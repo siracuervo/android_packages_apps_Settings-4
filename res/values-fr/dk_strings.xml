@@ -210,7 +210,10 @@
     <string name="qs_cat_advanced_tiles_title">Tuiles avancée</string>
     <string name="qs_order_title">Sélectionnez les tuiles et mettez dans l\'ordre souhaitez</string>
     <string name="qs_quick_pulldown_title">Déroulant rapide</string>
-    <string name="qs_quick_pulldown_summary">Permettre d\'utiliser le bord droit de la barre d\'état pour afficher les paramètres rapides</string>
+    <string name="qs_quick_pulldown_summary">%1$s edge of the status bar pulls down Quick Settings</string> <!-- needs translation -->
+    <string name="qs_quick_pulldown_dlg_title">Choose which edge of the status bar pulls down Quick Settings</string> <!-- needs translation -->
+    <string name="qs_quick_pulldown_right">Right</string> <!-- needs translation -->
+    <string name="qs_quick_pulldown_left">Left</string> <!-- needs translation -->
     <string name="qs_show_brightness_slider_title">Afficher le curseur de luminosité</string>
     <string name="qs_show_brightness_slider_summary">Activer pour montrer le curseur de luminosité</string>
     <string name="qs_main_tiles_title">Agrandir la première ligne</string>

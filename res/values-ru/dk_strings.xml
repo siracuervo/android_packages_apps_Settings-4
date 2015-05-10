@@ -210,7 +210,10 @@
     <string name="qs_cat_advanced_tiles_title">Расширенные плитки</string>
     <string name="qs_order_title">Выбор и применение плиток</string>
     <string name="qs_quick_pulldown_title">Быстрое вытягивание</string>
-    <string name="qs_quick_pulldown_summary">Включить правый край строки состояния, чтобы вытяннуть быстрые настройки</string>
+    <string name="qs_quick_pulldown_summary">%1$s edge of the status bar pulls down Quick Settings</string> <!-- needs translation -->
+    <string name="qs_quick_pulldown_dlg_title">Choose which edge of the status bar pulls down Quick Settings</string> <!-- needs translation -->
+    <string name="qs_quick_pulldown_right">Right</string> <!-- needs translation -->
+    <string name="qs_quick_pulldown_left">Left</string> <!-- needs translation -->
     <string name="qs_show_brightness_slider_title">Показать ползунок яркости</string>
     <string name="qs_show_brightness_slider_summary">Включить, чтобы показать ползунок яркости</string>
     <string name="qs_main_tiles_title">Увеличить первую строку</string>

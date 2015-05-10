@@ -210,7 +210,10 @@
     <string name="qs_cat_advanced_tiles_title">Erweiterbare Kacheln</string>
     <string name="qs_order_title">Kacheln wählen und anordnen</string>
     <string name="qs_quick_pulldown_title">Schnelles Öffnen</string>
-    <string name="qs_quick_pulldown_summary">Aktivieren um die Schnelleinstellungen von der rechten Seite der Statusleiste direkt zu öffnen</string>
+    <string name="qs_quick_pulldown_summary">%1$s Rand der Statusleiste öffnet die Schnelleinstellungen</string>
+    <string name="qs_quick_pulldown_dlg_title">Wähle welcher Rand der Statusleiste die Schnelleinstellungen öffnet</string>
+    <string name="qs_quick_pulldown_right">Rechter</string>
+    <string name="qs_quick_pulldown_left">Linker</string>
     <string name="qs_show_brightness_slider_title">Helligkeitsregler anzeigen</string>
     <string name="qs_show_brightness_slider_summary">Aktivieren um den Helligkeitsregler anzuzeigen</string>
     <string name="qs_main_tiles_title">Erste Reihe</string>

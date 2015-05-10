@@ -27,11 +27,13 @@
         android:key="qs_cat_options"
         android:title="@string/options_title">
 
-        <SwitchPreference
+        <ListPreference
             android:key="qs_quick_pulldown"
             android:title="@string/qs_quick_pulldown_title"
-            android:summary="@string/qs_quick_pulldown_summary"
-            android:defaultValue="false" />
+            android:dialogTitle="@string/qs_quick_pulldown_dlg_title"
+            android:entries="@array/qs_quick_pulldown_entries"
+            android:entryValues="@array/qs_quick_pulldown_values"
+            android:persistent="false" />
 
         <SwitchPreference
             android:key="qs_show_brightness_slider"

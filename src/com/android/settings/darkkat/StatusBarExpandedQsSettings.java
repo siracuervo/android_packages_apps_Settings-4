@@ -18,22 +18,28 @@ package com.android.settings.darkkat;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.res.Resources;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.darkkat.qs.QSTiles;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
+import java.util.Locale;
 
 public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -68,7 +74,7 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
     private static final int DLG_RESET = 0;
 
     private Preference mQSTiles;
-    private SwitchPreference mQSQuickPulldown;
+    private ListPreference mQSQuickPulldown;
     private SwitchPreference mQSShowBrightnessSlider;
     private SwitchPreference mQSMainTiles;
     private SwitchPreference mQSBluetoothAdvanced;
@@ -101,9 +107,11 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
         mQSTiles = findPreference(PREF_QS_ORDER);
 
         mQSQuickPulldown =
-                (SwitchPreference) findPreference(PREF_QS_QUICK_PULLDOWN);
-        mQSQuickPulldown.setChecked(Settings.System.getInt(mResolver,
-                Settings.System.QS_QUICK_PULLDOWN, 0) == 1);
+                (ListPreference) findPreference(PREF_QS_QUICK_PULLDOWN);
+        int quickPulldown = Settings.System.getInt(mResolver,
+               Settings.System.QS_QUICK_PULLDOWN, 0);
+        mQSQuickPulldown.setValue(String.valueOf(quickPulldown));
+        updateQuickPulldownSummary(quickPulldown);
         mQSQuickPulldown.setOnPreferenceChangeListener(this);
 
         mQSShowBrightnessSlider =
@@ -209,9 +217,10 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
         int intHex;
 
         if (preference == mQSQuickPulldown) {
-            value = (Boolean) newValue;
+            int intValue = Integer.valueOf((String) newValue);
             Settings.System.putInt(mResolver,
-                Settings.System.QS_QUICK_PULLDOWN, value ? 1 : 0);
+                Settings.System.QS_QUICK_PULLDOWN, intValue);
+            updateQuickPulldownSummary(intValue);
             return true;
         } else if (preference == mQSShowBrightnessSlider) {
             value = (Boolean) newValue;
@@ -355,6 +364,22 @@ public class StatusBarExpandedQsSettings extends SettingsPreferenceFragment impl
         @Override
         public void onCancel(DialogInterface dialog) {
 
+        }
+    }
+
+    private void updateQuickPulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // quick pulldown deactivated
+            mQSQuickPulldown.setSummary(res.getString(R.string.disabled_title));
+        } else {
+            Locale l = Locale.getDefault();
+            boolean isRtl = TextUtils.getLayoutDirectionFromLocale(l) == View.LAYOUT_DIRECTION_RTL;
+            String direction = res.getString(value == 2
+                    ? (isRtl ? R.string.qs_quick_pulldown_right : R.string.qs_quick_pulldown_left)
+                    : (isRtl ? R.string.qs_quick_pulldown_left : R.string.qs_quick_pulldown_right));
+            mQSQuickPulldown.setSummary(res.getString(R.string.qs_quick_pulldown_summary, direction));
         }
     }
 }
