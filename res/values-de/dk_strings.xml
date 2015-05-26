@@ -204,7 +204,6 @@
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_settings_title">Kopfzeile</string>
     <string name="status_bar_expanded_qs_settings_title">Schnelleinstellungen</string>
-    <string name="status_bar_expanded_nd_settings_title">Benachrichtigungsanzeige</string>
 
     <!-- Quick settings -->
     <string name="qs_cat_advanced_tiles_title">Erweiterbare Kacheln</string>
@@ -245,9 +244,6 @@
     <string name="qs_action_delete">Löschen</string>
     <string name="qs_action_add">Hinzufügen</string>
     <string name="qs_action_no_more_tiles">keine weiteren Kacheln verfügbar</string>
-
-    <!-- notification_drawer settings -->
-    <string name="notification_drawer_clear_all_icon_color_title">Alle schließen Symbol</string>
 
     <!-- Advanced -->
     <string name="lock_clock_title">Uhr-Widget</string>
@@ -357,6 +353,21 @@
     <!-- Wake on plug -->
     <string name="wake_when_plugged_or_unplugged_title">Ladegerät weckt Bildschirm</string>
     <string name="wake_when_plugged_or_unplugged_summary">Aktivieren, damit der Bildschirm aufgeweckt wird, sobald ein Ladegerät angeschlossen oder entfernt wird</string>
+
+    <!-- Notification & sound settings -->
+
+    <!-- Notification color settings -->
+    <string name="notification_color_settings_title">Farben der Benachrichtigung</string>
+    <string name="notification_media_bg_mode_title">Medien Hintergrund einfärben</string>
+    <string name="notification_app_icon_bg_mode_title">App Symbol Hintergrund einfärben</string>
+    <string name="notification_app_icon_color_mode_title">App Symbol einfärben</string>
+    <string name="notification_mode_never_title">Nie</string>
+    <string name="notification_mode_no_color_title">Wenn die Benachrichtigung keine eigene Farbe enthält</string>
+    <string name="notification_mode_greyscale_title">Wenn das Symbol ein Graustufen Symbol ist</string>
+    <string name="notification_mode_always_title">Immer</string>
+    <string name="notification_bg_guts_color_title">Hintergrund bei Langklick</string>
+    <string name="notification_app_icon_bg_color_title">App Symbol Hintergrund</string>
+    <string name="notification_clear_all_icon_color_title">Alle schließen Symbol</string>
 
     <!-- Application settings -->
     <string name="app_notification_show_on_keyguard_title">Auf Sperrbildschirm anzeigen</string>

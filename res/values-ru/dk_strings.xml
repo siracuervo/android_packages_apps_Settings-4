@@ -204,7 +204,6 @@
     <!-- Statusbar expanded -->
     <string name="status_bar_expanded_header_settings_title">Заголовок</string>
     <string name="status_bar_expanded_qs_settings_title">Быстрые настройки</string>
-    <string name="status_bar_expanded_nd_settings_title">Notification drawer</string> <!-- needs translation -->
 
     <!-- Quick settings -->
     <string name="qs_cat_advanced_tiles_title">Расширенные плитки</string>
@@ -245,9 +244,6 @@
     <string name="qs_action_delete">Удалить</string>
     <string name="qs_action_add">Добавить</string>
     <string name="qs_action_no_more_tiles">Плитки больше не доступны</string>
-
-    <!-- notification_drawer settings -->
-    <string name="notification_drawer_clear_all_icon_color_title">Clear all icon</string> <!-- needs translation -->
 
     <!-- Advanced -->
     <string name="lock_clock_title">Виджет часов </string>
@@ -357,6 +353,21 @@
     <!-- Wake on plug -->
     <string name="wake_when_plugged_or_unplugged_title">Просыпаться, при подключении</string>
     <string name="wake_when_plugged_or_unplugged_summary">Включить экран при подключении или отключении зарядного устройства</string>
+
+    <!-- Notification & sound settings -->
+
+    <!-- Notification color settings -->
+    <string name="notification_color_settings_title">Notification colors</string> <!-- needs translation -->
+    <string name="notification_media_bg_mode_title">Colorize the media background</string> <!-- needs translation -->
+    <string name="notification_app_icon_bg_mode_title">Colorize the app icon background</string> <!-- needs translation -->
+    <string name="notification_app_icon_color_mode_title">Colorize app icon</string> <!-- needs translation -->
+    <string name="notification_mode_never_title">Never</string> <!-- needs translation -->
+    <string name="notification_mode_no_color_title">If the notification doesn\`t include an own color</string> <!-- needs translation -->
+    <string name="notification_mode_greyscale_title">If the icon is an greyscale icon</string> <!-- needs translation -->
+    <string name="notification_mode_always_title">Always</string> <!-- needs translation -->
+    <string name="notification_bg_guts_color_title">Color of the overlay on longpress</string> <!-- needs translation -->
+    <string name="notification_app_icon_bg_color_title">App icon background</string> <!-- needs translation -->
+    <string name="notification_clear_all_icon_color_title">Clear all icon</string> <!-- needs translation -->
 
     <!-- Application settings -->
     <string name="app_notification_show_on_keyguard_title">Show on lockscreen</string> <!-- needs translation -->

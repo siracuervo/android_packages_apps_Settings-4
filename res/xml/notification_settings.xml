@@ -98,6 +98,12 @@
                 android:switchTextOn=""
                 android:persistent="false" /> -->
 
+        <!-- Notification colors -->
+        <PreferenceScreen
+                android:id="@+id/notification_colors"
+                android:title="@string/cat_colors_title"
+                android:fragment="com.android.settings.darkkat.NotificationColorSettings" />
+
          <!-- When device is locked -->
         <com.android.settings.notification.DropDownPreference
                 android:key="lock_screen_notifications"

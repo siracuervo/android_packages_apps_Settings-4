@@ -227,6 +227,24 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="notification_bg_mode_entries" >
+        <item>@string/notification_mode_never_title</item>
+        <item>@string/notification_mode_no_color_title</item>
+        <item>@string/notification_mode_always_title</item>
+    </string-array>
+
+    <string-array name="notification_app_icon_color_mode_entries" >
+        <item>@string/notification_mode_never_title</item>
+        <item>@string/notification_mode_greyscale_title</item>
+        <item>@string/notification_mode_always_title</item>
+    </string-array>
+
+    <string-array name="notification_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <string-array name="expanded_desktop_entries" translatable="false">
         <item>@string/expanded_hide_both</item>
         <item>@string/expanded_hide_status</item>

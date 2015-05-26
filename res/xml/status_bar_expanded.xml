@@ -28,10 +28,5 @@
         android:fragment="com.android.settings.darkkat.StatusBarExpandedQsSettings"
         android:title="@string/status_bar_expanded_qs_settings_title" />
 
-    <PreferenceScreen
-        android:key="status_bar_expanded_notification_drawer"
-        android:fragment="com.android.settings.darkkat.StatusBarExpandedNdSettings"
-        android:title="@string/status_bar_expanded_nd_settings_title" />
-
 </PreferenceScreen>
 
