@@ -62,7 +62,6 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
             "notification_clear_all_icon_color";
 
     private static final int DARKKAT_BLUE_GREY = 0xff1b1f23;
-    private static final int BG_NORMAL_COLOR = 0xfffafafa;
     private static final int SYSTEMUI_SECONDARY = 0xff384248;
     private static final int WHITE = 0xffffffff;
     private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
