@@ -19,7 +19,7 @@
     <string name="cat_network_icons_title">Сетевые иконки</string>
     <string name="cat_network_activity_icons_title">Иконки активности </string>
     <string name="cat_airplane_mode_icon_title">Значки режима Самолет</string>
-    <string name="cat_vpn_icon_title">Vpn icon</string>
+    <string name="cat_vpn_icon_title">Vpn иконка</string>
     <string name="cat_colors_title">Настройка цвета</string>
     <string name="reset">сброс</string>
     <string name="dlg_reset_values_message">Сбросить значения для\nAndroid- или DarkKat?</string>
@@ -54,7 +54,7 @@
 
     <!-- Color Picker -->
     <string name="dialog_color_picker_title">Выбор цвета</string>
-    <string name="press_color_to_apply">Нажмите на цвет ниже, чтобы применить</string>
+    <string name="press_color_to_apply">Нажмите на цвет ниже и справа, чтобы применить</string>
     <string name="palette_darkkat_title">DarkKat</string>
     <string name="palette_material_title">Material</string>
     <string name="palette_rgb_title">RGB</string>
@@ -67,7 +67,7 @@
     <!-- dashboard tiles-->
     <string name="lock_screen_title">Экран блокировки</string>
     <string name="status_bar_title">Строка состояния</string>
-    <string name="status_bar_expanded_title">Строка состояния расширена</string>
+    <string name="status_bar_expanded_title">Панель уведомлений</string>
     <string name="advanced_title">Advanced</string> <!-- needs translation -->
     <string name="led_light_settings">LED light</string> <!-- needs translation -->
     <string name="button_settings_title">Кнопки</string>
@@ -86,13 +86,13 @@
     <string name="weather_condition_icon_colored_title">Цветной</string>
     <string name="weather_condition_icon_vclouds_title">VClouds</string>
     <string name="weather_colorize_all_icons_title">Раскрасить все иконки</string>
-    <string name="weather_colorize_all_icons_summary">Включить, чтобы раскрасить все иконки, отключить, чтобы раскрасить только монохромные иконки</string>
+    <string name="weather_colorize_all_icons_summary">Включить, чтобы раскрасить все иконки</string>
 
    <!-- Shortcuts settings -->
-    <string name="shortcuts_target_settings_title">Цели</string>
-    <string name="shortcuts_target_settings_summary">Настройка целей</string>
+    <string name="shortcuts_target_settings_title">Ярлыки</string>
+    <string name="shortcuts_target_settings_summary">Настройка ярлыков</string>
     <string name="shortcuts_colorize_custom_icons_title">Раскрасить все иконки</string>
-    <string name="shortcuts_colorize_custom_icons_summary">Включить, чтобы раскрасить все иконки, отключить, чтобы раскрасить значки по умолчанию</string>
+    <string name="shortcuts_colorize_custom_icons_summary">Включить, чтобы раскрасить все иконки</string>
 
    <!-- Targets settings -->
     <string name="shortcuts_hint_message">Нажмите на иконку, слева или справа, чтобы переназначить цель.</string>
@@ -213,14 +213,14 @@
     <string name="qs_quick_pulldown_dlg_title">Choose which edge of the status bar pulls down Quick Settings</string> <!-- needs translation -->
     <string name="qs_quick_pulldown_right">Right</string> <!-- needs translation -->
     <string name="qs_quick_pulldown_left">Left</string> <!-- needs translation -->
-    <string name="qs_show_brightness_slider_title">Показать ползунок яркости</string>
-    <string name="qs_show_brightness_slider_summary">Включить, чтобы показать ползунок яркости</string>
+    <string name="qs_show_brightness_slider_title">Ползунок яркости</string>
+    <string name="qs_show_brightness_slider_summary">Показать ползунок яркости</string>
     <string name="qs_main_tiles_title">Увеличить первую строку</string>
-    <string name="qs_main_tiles_summary">Включить, чтобы показать 2 основных плитки на первом ряду, отключить, чтобы показать 3 плитки</string>
+    <string name="qs_main_tiles_summary">Показать 2 основных плитки на первом ряду, отключите, чтобы показать 3 плитки</string>
     <string name="qs_advanced_bluetooth_title">Bluetooth</string>
     <string name="qs_advanced_location_title">Местоположение</string>
     <string name="qs_advanced_wifi_title">Wi\u2011Fi</string>
-    <string name="qs_advanced_click_summary">Включить, чтобы показать дополнительные параметры, отключить, чтобы показать как двойный плитки</string>
+    <string name="qs_advanced_click_summary">Включить, чтобы показать дополнительные параметры</string>
 
     <!-- Quick settings tiles -->
     <string name="qs_tile_wifi">Wi\u2011Fi</string>
@@ -248,11 +248,11 @@
     <!-- Advanced -->
     <string name="lock_clock_title">Виджет часов </string>
     <string name="lock_clock_clock_section_title">Часы и будильник</string>
-    <string name="lock_clock_clock_section_summary">Просмотреть или изменить, как будет отображаться часы и будильник  \'cLock\' домашнего виджета</string>
+    <string name="lock_clock_clock_section_summary">Изменить отображение часов и будильника на домашнем виджете</string>
     <string name="lock_clock_weather_section_title">Панель погоды </string>
-    <string name="lock_clock_weather_section_summary">Просмотреть или изменить, как будет отображаться панель погоды  \'cLock\' на домашнем виджете</string>
+    <string name="lock_clock_weather_section_summary">Изменить отображение панели погоды на домашнем виджете</string>
     <string name="lock_clock_calendar_section_title">Календарь событий</string>
-    <string name="lock_clock_calendar_section_summary">Просмотреть или изменить, как будут отображаться события календаря  \'cLock\' на домашнем виджете</string>
+    <string name="lock_clock_calendar_section_summary">Изменить отображение событий календаря  на домашнем виджете</string>
 
     <!-- Display -->
     <string name="display_rotation_settings_title">Вращение дисплея</string>
@@ -261,12 +261,12 @@
     <string name="lcd_density">Плотность экрана</string>
     <string name="dialog_title_lcd_density">Плотность экрана</string>
     <string name="lcd_density_value_format">%d DPI</string>
-    <string name="lcd_density_default_value_format">%d DPI (стандартный)</string>
+    <string name="lcd_density_default_value_format">%d DPI (По умолчанию)</string>
     <string name="restarting_ui">Перезапуск UI\u2026</string>
 
     <!-- Rotation -->
     <string name="display_rotation_category_title">Режим вращения</string>
-    <string name="display_rotation_unit">Градусы</string>
+    <string name="display_rotation_unit">Градусов</string>
     <string name="display_rotation_0_title">0 градусов</string>
     <string name="display_rotation_90_title">90 градусов</string>
     <string name="display_rotation_180_title">180 градусов</string>
