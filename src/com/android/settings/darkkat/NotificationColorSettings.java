@@ -66,7 +66,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
     private static final int WHITE = 0xffffffff;
     private static final int HOLO_BLUE_LIGHT = 0xff33b5e5;
     private static final int TRANSLUCENT_HOLO_BLUE_LIGHT = 0x4d33b5e5;
-    private static final int TRANSLUCENT_BLACK = 0x4d000000;
+    private static final int TRANSLUCENT_WHITE = 0x4dffffff;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET = 0;
@@ -148,11 +148,11 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                 (ColorPickerPreference) findPreference(PREF_APP_ICON_BG_COLOR);
         if (appIconBgMode != 0) {
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.NOTIFICATION_APP_ICON_BG_COLOR, TRANSLUCENT_BLACK); 
+                    Settings.System.NOTIFICATION_APP_ICON_BG_COLOR, TRANSLUCENT_WHITE); 
             mAppIconBgColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mAppIconBgColor.setSummary(hexColor);
-            mAppIconBgColor.setDefaultColors(TRANSLUCENT_BLACK, TRANSLUCENT_HOLO_BLUE_LIGHT);
+            mAppIconBgColor.setDefaultColors(TRANSLUCENT_WHITE, TRANSLUCENT_HOLO_BLUE_LIGHT);
             mAppIconBgColor.setOnPreferenceChangeListener(this);
         } else {     
             colorCat.removePreference(mAppIconBgColor);
@@ -334,7 +334,7 @@ public class NotificationColorSettings extends SettingsPreferenceFragment implem
                                     SYSTEMUI_SECONDARY);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.NOTIFICATION_APP_ICON_BG_COLOR,
-                                    TRANSLUCENT_BLACK);
+                                    TRANSLUCENT_WHITE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.NOTIFICATION_TEXT_COLOR, WHITE);
                             Settings.System.putInt(getOwner().mResolver,
