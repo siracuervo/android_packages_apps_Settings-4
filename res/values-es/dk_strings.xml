@@ -35,12 +35,12 @@
     <string name="text_title">Texto</string>
     <string name="normal_title">Normal</string>
     <string name="color_fully_title">Totalmente cargado</string>
-    <string name="show_title">Show</string> <!-- needs translation -->
+    <string name="show_title">Mostrar</string>
     <string name="show_weather_summary">Muestra la información metereológica</string>
     <string name="show_location_title">Mostrar ubicación</string>
     <string name="show_location_summary">Muestra la ubicación</string>
-    <string name="lock_clock_missing_title">Clock widget isn\`t installed</string> <!-- needs translation -->
-    <string name="lock_clock_missing_summary">To use the weather feature, the Clock widget \'cLock\' has to be installed</string> <!-- needs translation -->
+    <string name="lock_clock_missing_title">El widget del reloj no está instalado</string>
+    <string name="lock_clock_missing_summary">Para utilizar la información metereológica, el widget del reloj tiene que estar instalado</string>
     <string name="disabled_title">Deshabilitados</string>
     <string name="position_right_title">Derecha</string>
     <string name="position_centered_title">Centrado</string>
@@ -68,8 +68,8 @@
     <string name="lock_screen_title">Pantalla de bloqueo</string>
     <string name="status_bar_title">Barra de estado</string>
     <string name="status_bar_expanded_title">Barra de estado expandida</string>
-    <string name="advanced_title">Advanced</string> <!-- needs translation -->
-    <string name="led_light_settings">LED light</string> <!-- needs translation -->
+    <string name="advanced_title">Avanzado</string>
+    <string name="led_light_settings">Luz LED</string>
     <string name="button_settings_title">Botones</string>
 
    <!-- Lock screen -->
@@ -209,10 +209,10 @@
     <string name="qs_cat_advanced_tiles_title">Casillas avanzadas</string>
     <string name="qs_order_title">Seleccionar y ordenar las casillas</string>
     <string name="qs_quick_pulldown_title">Despliegue rápido</string>
-    <string name="qs_quick_pulldown_summary">%1$s edge of the status bar pulls down Quick Settings</string> <!-- needs translation -->
-    <string name="qs_quick_pulldown_dlg_title">Choose which edge of the status bar pulls down Quick Settings</string> <!-- needs translation -->
-    <string name="qs_quick_pulldown_right">Right</string> <!-- needs translation -->
-    <string name="qs_quick_pulldown_left">Left</string> <!-- needs translation -->
+    <string name="qs_quick_pulldown_summary">%1$s borde de la barra de estado se baja en ajustes rápidos</string>
+    <string name="qs_quick_pulldown_dlg_title">Escoge la ubicación de la barra de estado que se muestra en ajustes rápidos</string>
+    <string name="qs_quick_pulldown_right">Derecha</string>
+    <string name="qs_quick_pulldown_left">Izquierda</string>
     <string name="qs_show_brightness_slider_title">Mostrar el control deslizante del brillo</string>
     <string name="qs_show_brightness_slider_summary">Muestra  el control deslizante del brillo</string>
     <string name="qs_main_tiles_title">Agrandar la primera fila</string>
@@ -287,43 +287,43 @@
     <string name="notification_light_title">Notification light</string> <!-- needs translation -->
 
     <!-- Battery light settings -->
-    <string name="battery_low_pulse_title">Pulse if battery low</string> <!-- needs translation -->
-    <string name="battery_light_list_title">Colors</string> <!-- needs translation -->
-    <string name="battery_light_low_color_title">Battery low</string> <!-- needs translation -->
-    <string name="battery_light_medium_color_title">Charging</string> <!-- needs translation -->
-    <string name="battery_light_full_color_title">Fully charged</string> <!-- needs translation -->
+    <string name="battery_low_pulse_title">Pulse para batería baja</string>
+    <string name="battery_light_list_title">Colores</string>
+    <string name="battery_light_low_color_title">Batería baja</string>
+    <string name="battery_light_medium_color_title">Cargando</string>
+    <string name="battery_light_full_color_title">Totalmente cargado</string>
 
     <!-- Notification light settings -->
-    <string name="notification_light_general_title">General</string> <!-- needs translation -->
-    <string name="notification_light_applist_title">Apps</string> <!-- needs translation -->
-    <string name="notification_light_phonelist_title">Phone</string> <!-- needs translation -->
-    <string name="notification_light_use_custom">Use custom values</string> <!-- needs translation -->
-    <string name="notification_light_default_value">Default</string> <!-- needs translation -->
-    <string name="notification_light_missed_call_title">Missed call</string> <!-- needs translation -->
-    <string name="notification_light_voicemail_title">Voicemail</string> <!-- needs translation -->
-    <string name="notification_light_add">Add</string> <!-- needs translation -->
-    <string name="notification_light_choose_app">Choose app</string> <!-- needs translation -->
+    <string name="notification_light_general_title">General</string>
+    <string name="notification_light_applist_title">Aplicaciones</string>
+    <string name="notification_light_phonelist_title">Teléfono</string>
+    <string name="notification_light_use_custom">Utilizar valores personalizados</string>
+    <string name="notification_light_default_value">Predeterminado</string>
+    <string name="notification_light_missed_call_title">Llamada perdida</string>
+    <string name="notification_light_voicemail_title">Correo de voz</string>
+    <string name="notification_light_add">Añadir</string>
+    <string name="notification_light_choose_app">Escoger aplicación</string>
 
     <!-- Light dialogs -->
-    <string name="edit_light_settings">Edit light settings</string> <!-- needs translation -->
-    <string name="pulse_speed_title">Pulse length and speed</string> <!-- needs translation -->
-    <string name="default_time">Normal</string> <!-- needs translation -->
-    <string name="custom_time">Custom</string> <!-- needs translation -->
-    <string name="dialog_delete_title">Delete</string> <!-- needs translation -->
-    <string name="dialog_delete_message">Remove selected item?</string> <!-- needs translation -->
+    <string name="edit_light_settings">Editar ajustes de luz</string>
+    <string name="pulse_speed_title">Seleccionar longitud</string>
+    <string name="default_time">Normal</string>
+    <string name="custom_time">Personalizar</string>
+    <string name="dialog_delete_title">Eliminar</string>
+    <string name="dialog_delete_message">¿Eliminar artículo seleccionado?</string>
 
-    <!-- Light pulse spinners values --> <!-- needs translation -->
-    <string name="pulse_length_always_on">Always on</string> <!-- needs translation -->
-    <string name="pulse_length_very_short">Very short</string> <!-- needs translation -->
-    <string name="pulse_length_short">Short</string> <!-- needs translation -->
-    <string name="pulse_length_normal">Normal</string> <!-- needs translation -->
-    <string name="pulse_length_long">Long</string> <!-- needs translation -->
-    <string name="pulse_length_very_long">Very long</string> <!-- needs translation -->
-    <string name="pulse_speed_very_fast">Very fast</string> <!-- needs translation -->
-    <string name="pulse_speed_fast">Fast</string> <!-- needs translation -->
-    <string name="pulse_speed_normal">Normal</string> <!-- needs translation -->
-    <string name="pulse_speed_slow">Slow</string> <!-- needs translation -->
-    <string name="pulse_speed_very_slow">Very slow</string> <!-- needs translation -->
+    <!-- Light pulse spinners values -->
+    <string name="pulse_length_always_on">Mostrar siempre</string>
+    <string name="pulse_length_very_short">Muy corto</string>
+    <string name="pulse_length_short">Corto</string>
+    <string name="pulse_length_normal">Normal</string>
+    <string name="pulse_length_long">Largo</string>
+    <string name="pulse_length_very_long">Muy largo</string>
+    <string name="pulse_speed_very_fast">Muy rápido</string>
+    <string name="pulse_speed_fast">Rápido</string>
+    <string name="pulse_speed_normal">Normal</string>
+    <string name="pulse_speed_slow">Lento</string>
+    <string name="pulse_speed_very_slow">Muy lento</string>
 
     <!-- Button settings -->
     <string name="button_volume_button_category_title">Botones de Volumen</string>
@@ -357,23 +357,23 @@
     <!-- Notification & sound settings -->
 
     <!-- Notification color settings -->
-    <string name="notification_color_settings_title">Notification colors</string> <!-- needs translation -->
-    <string name="notification_media_bg_mode_title">Colorize the media background</string> <!-- needs translation -->
-    <string name="notification_app_icon_bg_mode_title">Colorize the app icon background</string> <!-- needs translation -->
-    <string name="notification_app_icon_color_mode_title">Colorize app icon</string> <!-- needs translation -->
-    <string name="notification_mode_never_title">Never</string> <!-- needs translation -->
-    <string name="notification_mode_no_color_title">If the notification doesn\`t include an own color</string> <!-- needs translation -->
-    <string name="notification_mode_greyscale_title">If the icon is an greyscale icon</string> <!-- needs translation -->
-    <string name="notification_mode_always_title">Always</string> <!-- needs translation -->
-    <string name="notification_bg_guts_color_title">Color of the overlay on longpress</string> <!-- needs translation -->
-    <string name="notification_app_icon_bg_color_title">App icon background</string> <!-- needs translation -->
-    <string name="notification_clear_all_icon_color_title">Clear all icon</string> <!-- needs translation -->
+    <string name="notification_color_settings_title">Colores de notificación</string>
+    <string name="notification_media_bg_mode_title">Colorear el fondo</string>
+    <string name="notification_app_icon_bg_mode_title">Colorear el fondo del icono de la aplicación</string>
+    <string name="notification_app_icon_color_mode_title">Colorear el icono de la aplicación</string>
+    <string name="notification_mode_never_title">Nunca</string>
+    <string name="notification_mode_no_color_title">Si la notificación no incluye su propio color</string>
+    <string name="notification_mode_greyscale_title">Si el icono es un icono en escala de grises</string>
+    <string name="notification_mode_always_title">Siempre</string>
+    <string name="notification_bg_guts_color_title">Color de la superposición presionando largo tiempo </string>
+    <string name="notification_app_icon_bg_color_title">Fondo del icono de la aplicación</string>
+    <string name="notification_clear_all_icon_color_title">Eliminar todos los  iconos</string>
 
     <!-- Application settings -->
-    <string name="app_notification_show_on_keyguard_title">Show on lockscreen</string> <!-- needs translation -->
-    <string name="app_notification_show_on_keyguard_summary">Show notifications from this app on the lockscreen</string> <!-- needs translation -->
-    <string name="app_notification_no_ongoing_on_keyguard_title">Disable ongoing on lockscreen</string> <!-- needs translation -->
-    <string name="app_notification_no_ongoing_on_keyguard_summary">Never show ongoing notifications from this app on the lockscreen</string> <!-- needs translation -->
+    <string name="app_notification_show_on_keyguard_title">Mostrar en la pantalla de bloqueo</string>
+    <string name="app_notification_show_on_keyguard_summary">Mostrar notificaciones de esta aplicación en la pantalla de bloqueo</string>
+    <string name="app_notification_no_ongoing_on_keyguard_title">Deshabilitar notificaciones en la pantalla de bloqueo</string>
+    <string name="app_notification_no_ongoing_on_keyguard_summary">No mostrar notificaciones de esta aplicación en la pantalla de bloqueo</string>
 
     <!-- Development settings -->
 
