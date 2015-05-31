@@ -283,8 +283,8 @@
     <string name="expanded_desktop_style_description">Выберите по умолчанию стиль расширенного рабочего стола</string>
 
     <!-- LED Light settings -->
-    <string name="battery_light_title">Battery light</string> <!-- needs translation -->
-    <string name="notification_light_title">Notification light</string> <!-- needs translation -->
+    <string name="battery_light_title">Цвет батареи</string>
+    <string name="notification_light_title">Цвет уведомлений</string>
 
     <!-- Battery light settings -->
     <string name="battery_low_pulse_title">Мигать, если осталось мало заряда</string>

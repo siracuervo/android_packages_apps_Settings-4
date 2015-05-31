@@ -283,8 +283,8 @@
     <string name="expanded_desktop_style_description">Escoger un estilo para el escritorio expandido</string>
 
     <!-- LED Light settings -->
-    <string name="battery_light_title">Battery light</string> <!-- needs translation -->
-    <string name="notification_light_title">Notification light</string> <!-- needs translation -->
+    <string name="battery_light_title">Indicador de batería</string>
+    <string name="notification_light_title">Indicador de notificación</string>
 
     <!-- Battery light settings -->
     <string name="battery_low_pulse_title">Pulse para batería baja</string>
