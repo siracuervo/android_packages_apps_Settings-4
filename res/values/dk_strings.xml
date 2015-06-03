@@ -108,6 +108,8 @@
     <string name="status_bar_clock_date_settings_summary">Customize the clock &amp; the date</string>
     <string name="status_bar_battery_status_settings_title">Battery status</string>
     <string name="status_bar_battery_status_settings_summary">Customize the battery status</string>
+    <string name="status_bar_battery_bar_settings_title">Battery bar</string>
+    <string name="status_bar_battery_bar_settings_summary">Customize the battery bar</string>
     <string name="status_bar_signal_wifi_settings_title">Network icons</string>
     <string name="status_bar_signal_wifi_settings_summary">Customize the Network icons</string>
     <string name="status_bar_network_speed_settings_title">Network speed indicator</string>
@@ -162,6 +164,19 @@
     <string name="battery_status_circle_dot_length_title">Circle dot length</string>
     <string name="battery_status_circle_dot_interval_title">Circle dot interval</string>
     <string name="battery_status_battery_color_title">Fill</string>
+
+    <!-- Status bar battery bar settings -->
+    <string name="battery_bar_indicator_title">Indicator</string>
+    <string name="battery_bar_indicator_fill_title">Only fill</string>
+    <string name="battery_bar_indicator_frame_fill_title">Frame &amp; fill</string>
+    <string name="battery_bar_thickness_title">Thickness</string>
+    <string name="battery_bar_thickness_1_dp_title">1 dp</string>
+    <string name="battery_bar_thickness_2_dp_title">2 dp</string>
+    <string name="battery_bar_thickness_3_dp_title">3 dp</string>
+    <string name="battery_bar_thickness_4_dp_title">4 dp</string>
+    <string name="battery_bar_charge_animation_speed_title">Charging animation speed</string>
+    <string name="battery_bar_charge_animation_speed_slow">Slow</string>
+    <string name="battery_bar_charge_animation_speed_fast">Fast</string>
 
     <!-- Status bar signal wifi icon settings  -->
     <string name="signal_wifi_show_activity_title">Show network activity</string>
