@@ -384,6 +384,10 @@
     <string name="notification_app_icon_bg_color_title">App icon background</string>
     <string name="notification_clear_all_icon_color_title">Clear all icon</string>
 
+    <!-- USB settings -->
+    <string name="usb_charging_title">Charging</string>
+    <string name="usb_charging_summary">Lets you disable all data and file transfer connection with computer and put device in charging only mode.</string>
+
     <!-- Application settings -->
     <string name="app_notification_show_on_keyguard_title">Show on lockscreen</string>
     <string name="app_notification_show_on_keyguard_summary">Show notifications from this app on the lockscreen</string>

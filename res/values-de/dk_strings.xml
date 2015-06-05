@@ -384,6 +384,10 @@
     <string name="notification_app_icon_bg_color_title">App Symbol Hintergrund</string>
     <string name="notification_clear_all_icon_color_title">Alle schließen Symbol</string>
 
+    <!-- USB settings -->
+  <string name="usb_charging_title">Nur aufladen</string>
+  <string name="usb_charging_summary">Deaktiviert alle Datenübertragungen mit dem Computer und lädt das Gerät über den USB-Anschluss</string>
+
     <!-- Application settings -->
     <string name="app_notification_show_on_keyguard_title">Auf Sperrbildschirm anzeigen</string>
     <string name="app_notification_show_on_keyguard_summary">Benachrichtigungen von dieser App auf dem Sperrbildschirm anzeigen</string>
