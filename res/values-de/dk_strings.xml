@@ -261,6 +261,8 @@
     <string name="qs_action_no_more_tiles">keine weiteren Kacheln verfügbar</string>
 
     <!-- Advanced -->
+    <string name="recent_apps_settings_title">Anwendungsverlauf</string>
+    <string name="recent_apps_settings_summary">Den Anwendungsverlauf anpassen</string>
     <string name="lock_clock_title">Uhr-Widget</string>
     <string name="lock_clock_clock_section_title">Uhrzeit und Alarme</string>
     <string name="lock_clock_clock_section_summary">Uhrzeit und Alarme des \"cLock-Widget\" konfigurieren</string>
@@ -268,6 +270,19 @@
     <string name="lock_clock_weather_section_summary">Wetter des \"cLock-Widget\" konfigurieren</string>
     <string name="lock_clock_calendar_section_title">Kalender</string>
     <string name="lock_clock_calendar_section_summary">Kalender des \"cLock-Widget\" konfigurieren</string>
+
+    <!-- Recent apps view settings -->
+    <string name="recent_apps_cat_clear_all_button_title">Anwendungsverlauf löschen Schaltfläche</string>
+    <string name="recent_apps_show_search_bar_title">Suchleiste anzeigen</string>
+    <string name="recent_apps_show_search_bar_summary">Aktivieren um die Suchleiste anzuzeigen</string>
+    <string name="recent_apps_show_clear_all_summary">Aktivieren um die Anwendungsverlauf löschen Schaltfläche anzuzeigen</string>
+    <string name="recent_apps_clear_all_position_horizontal_title">Horizontale Position</string>
+    <string name="recent_apps_clear_all_position_vertical_title">Vertikale Position</string>
+    <string name="recent_apps_clear_all_position_left">Links</string>
+    <string name="recent_apps_clear_all_position_right">Rechts</string>
+    <string name="recent_apps_clear_all_position_center">Zentriert</string>
+    <string name="recent_apps_clear_all_position_top">Oben</string>
+    <string name="recent_apps_clear_all_position_bottom">Unten</string>
 
     <!-- Display -->
     <string name="display_rotation_settings_title">Bildschirm-Ausrichtung</string>

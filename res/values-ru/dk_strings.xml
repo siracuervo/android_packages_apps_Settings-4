@@ -261,6 +261,8 @@
     <string name="qs_action_no_more_tiles">Плитки больше не доступны</string>
 
     <!-- Advanced -->
+    <string name="recent_apps_settings_title">Recent apps view</string> <!-- Needs translation -->
+    <string name="recent_apps_settings_summary">Customize recent apps view</string> <!-- Needs translation -->
     <string name="lock_clock_title">Виджет часов </string>
     <string name="lock_clock_clock_section_title">Часы и будильник</string>
     <string name="lock_clock_clock_section_summary">Изменить отображение часов и будильника на домашнем виджете</string>
@@ -268,6 +270,19 @@
     <string name="lock_clock_weather_section_summary">Изменить отображение панели погоды на домашнем виджете</string>
     <string name="lock_clock_calendar_section_title">Календарь событий</string>
     <string name="lock_clock_calendar_section_summary">Изменить отображение событий календаря  на домашнем виджете</string>
+
+    <!-- Recent apps view settings -->
+    <string name="recent_apps_cat_clear_all_button_title">Clear all button</string> <!-- Needs translation -->
+    <string name="recent_apps_show_search_bar_title">Show search bar</string> <!-- Needs translation -->
+    <string name="recent_apps_show_search_bar_summary">Enable to show the search bar</string> <!-- Needs translation -->
+    <string name="recent_apps_show_clear_all_summary">Enable to show the clear all button</string> <!-- Needs translation -->
+    <string name="recent_apps_clear_all_position_horizontal_title">Position horizontal</string> <!-- Needs translation -->
+    <string name="recent_apps_clear_all_position_vertical_title">Position vertical</string> <!-- Needs translation -->
+    <string name="recent_apps_clear_all_position_left">Left</string> <!-- Needs translation -->
+    <string name="recent_apps_clear_all_position_right">Right</string> <!-- Needs translation -->
+    <string name="recent_apps_clear_all_position_center">Center</string> <!-- Needs translation -->
+    <string name="recent_apps_clear_all_position_top">Top</string> <!-- Needs translation -->
+    <string name="recent_apps_clear_all_position_bottom">Bottom</string> <!-- Needs translation -->
 
     <!-- Display -->
     <string name="display_rotation_settings_title">Вращение дисплея</string>
