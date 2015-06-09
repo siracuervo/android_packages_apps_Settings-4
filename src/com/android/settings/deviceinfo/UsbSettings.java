@@ -70,7 +70,11 @@ public class UsbSettings extends SettingsPreferenceFragment {
 
         mMtp = (CheckBoxPreference)root.findPreference(KEY_MTP);
         mPtp = (CheckBoxPreference)root.findPreference(KEY_PTP);
-        mCharging = (CheckBoxPreference)root.findPreference(KEY_CHARGING);
+        if (!getResources().getBoolean(R.bool.config_show_usb_charge_only_checkbox)) {
+            removePreference(KEY_CHARGING);
+        } else {
+            mCharging = (CheckBoxPreference)root.findPreference(KEY_CHARGING);
+        }
 
         UserManager um = (UserManager) getActivity().getSystemService(Context.USER_SERVICE);
         if (um.hasUserRestriction(UserManager.DISALLOW_USB_FILE_TRANSFER)) {
@@ -110,19 +114,27 @@ public class UsbSettings extends SettingsPreferenceFragment {
         if (UsbManager.USB_FUNCTION_MTP.equals(function)) {
             mMtp.setChecked(true);
             mPtp.setChecked(false);
-            mCharging.setChecked(false);
+            if (mCharging != null) {
+                mCharging.setChecked(false);
+            }
         } else if (UsbManager.USB_FUNCTION_PTP.equals(function)) {
             mMtp.setChecked(false);
             mPtp.setChecked(true);
-            mCharging.setChecked(false);
+            if (mCharging != null) {
+                mCharging.setChecked(false);
+            }
         } else if (UsbManager.USB_FUNCTION_CHARGING.equals(function)) {
             mMtp.setChecked(false);
             mPtp.setChecked(false);
-            mCharging.setChecked(true);
+            if (mCharging != null) {
+                mCharging.setChecked(true);
+            }
         } else  {
             mMtp.setChecked(false);
             mPtp.setChecked(false);
-            mCharging.setChecked(false);
+            if (mCharging != null) {
+                mCharging.setChecked(false);
+            }
         }
         UserManager um = (UserManager) getActivity().getSystemService(Context.USER_SERVICE);
         if (um.hasUserRestriction(UserManager.DISALLOW_USB_FILE_TRANSFER)) {
