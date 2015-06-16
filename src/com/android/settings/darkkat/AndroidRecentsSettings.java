@@ -37,23 +37,23 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class RecentAppsSettings extends SettingsPreferenceFragment implements
+public class AndroidRecentsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener { 
 
     private static final String PREF_CAT_CLEAR_ALL =
-            "recent_apps_cat_clear_all_button";
+            "android_recents_cat_clear_all_button";
     private static final String PREF_SHOW_SEARCH_BAR =
-            "recent_apps_show_search_bar";
+            "android_recents_show_search_bar";
     private static final String PREF_SHOW_CLEAR_ALL =
-            "recent_apps_show_clear_all";
+            "android_recents_show_clear_all";
     private static final String PREF_CLEAR_ALL_POSITION_HORIZONTAL =
-            "recent_apps_clear_all_position_horizontal";
+            "android_recents_clear_all_position_horizontal";
     private static final String PREF_CLEAR_ALL_POSITION_VERTICAL =
-            "recent_apps_clear_all_position_vertical";
+            "android_recents_clear_all_position_vertical";
     private static final String PREF_CLEAR_ALL_BG_COLOR =
-            "recent_apps_clear_all_bg_color";
+            "android_recents_clear_all_bg_color";
     private static final String PREF_CLEAR_ALL_ICON_COLOR =
-            "recent_apps_clear_all_icon_color";
+            "android_recents_clear_all_icon_color";
 
     private static final int DEEP_TEAL_500 = 0xff009688;
     private static final int WHITE = 0xffffffff;
@@ -83,69 +83,67 @@ public class RecentAppsSettings extends SettingsPreferenceFragment implements
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.recent_apps_settings);
+        addPreferencesFromResource(R.xml.android_recents_settings);
 
         mResolver = getActivity().getContentResolver();
         int intvalue;
         int intColor;
         String hexColor;
 
-        boolean showClearAll = Settings.System.getInt(mResolver,
-               Settings.System.RECENT_APPS_SHOW_CLEAR_ALL, 0) == 1;
-
         mShowSearchBar = (SwitchPreference) findPreference(PREF_SHOW_SEARCH_BAR);
         mShowSearchBar.setChecked(Settings.System.getInt(mResolver,
-               Settings.System.RECENT_APPS_SHOW_SEARCH_BAR, 1) == 1);
+               Settings.System.ANDROID_RECENTS_SHOW_SEARCH_BAR, 1) == 1);
         mShowSearchBar.setOnPreferenceChangeListener(this);
 
         mShowClearAll = (SwitchPreference) findPreference(PREF_SHOW_CLEAR_ALL);
+        boolean showClearAll = Settings.System.getInt(mResolver,
+               Settings.System.ANDROID_RECENTS_SHOW_CLEAR_ALL, 0) == 1;
         mShowClearAll.setChecked(showClearAll);
         mShowClearAll.setOnPreferenceChangeListener(this);
 
         PreferenceCategory catClearAll =
                 (PreferenceCategory) findPreference(PREF_CAT_CLEAR_ALL);
-        mClearAllPositionHorizontal =
-                (ListPreference) findPreference(PREF_CLEAR_ALL_POSITION_HORIZONTAL);
-        mClearAllPositionVertical =
-                (ListPreference) findPreference(PREF_CLEAR_ALL_POSITION_VERTICAL);
-        mClearAllBgColor =
-                (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_BG_COLOR);
-        mClearAllIconColor =
-                (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_ICON_COLOR);
-
         if (showClearAll) {
+            mClearAllPositionHorizontal =
+                    (ListPreference) findPreference(PREF_CLEAR_ALL_POSITION_HORIZONTAL);
             intvalue = Settings.System.getInt(mResolver,
-                    Settings.System.RECENT_APPS_CLEAR_ALL_POSITION_HORIZONTAL, 2);
+                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_HORIZONTAL, 2);
             mClearAllPositionHorizontal.setValue(String.valueOf(intvalue));
             mClearAllPositionHorizontal.setSummary(mClearAllPositionHorizontal.getEntry());
             mClearAllPositionHorizontal.setOnPreferenceChangeListener(this);
 
+            mClearAllPositionVertical =
+                    (ListPreference) findPreference(PREF_CLEAR_ALL_POSITION_VERTICAL);
             intvalue = Settings.System.getInt(mResolver,
-                    Settings.System.RECENT_APPS_CLEAR_ALL_POSITION_VERTICAL, 0);
+                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_VERTICAL, 0);
             mClearAllPositionVertical.setValue(String.valueOf(intvalue));
             mClearAllPositionVertical.setSummary(mClearAllPositionVertical.getEntry());
             mClearAllPositionVertical.setOnPreferenceChangeListener(this);
 
+            mClearAllBgColor =
+                    (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_BG_COLOR);
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.RECENT_APPS_CLEAR_ALL_BG_COLOR, DEEP_TEAL_500); 
+                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_BG_COLOR, DEEP_TEAL_500); 
             mClearAllBgColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mClearAllBgColor.setSummary(hexColor);
             mClearAllBgColor.setDefaultColors(DEEP_TEAL_500, DEEP_TEAL_500);
             mClearAllBgColor.setOnPreferenceChangeListener(this);
 
+            mClearAllIconColor =
+                    (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_ICON_COLOR);
             intColor = Settings.System.getInt(mResolver,
-                    Settings.System.RECENT_APPS_CLEAR_ALL_ICON_COLOR, WHITE); 
+                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_ICON_COLOR, WHITE); 
             mClearAllIconColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mClearAllIconColor.setSummary(hexColor);
             mClearAllIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
             mClearAllIconColor.setOnPreferenceChangeListener(this);
         } else {
-            catClearAll.removePreference(mClearAllPositionHorizontal);
-            catClearAll.removePreference(mClearAllPositionVertical);
-            catClearAll.removePreference(mClearAllBgColor);
-            catClearAll.removePreference(mClearAllIconColor);
+            catClearAll.removePreference(findPreference(PREF_CLEAR_ALL_POSITION_HORIZONTAL));
+            catClearAll.removePreference(findPreference(PREF_CLEAR_ALL_POSITION_VERTICAL));
+            catClearAll.removePreference(findPreference(PREF_CLEAR_ALL_BG_COLOR));
+            catClearAll.removePreference(findPreference(PREF_CLEAR_ALL_ICON_COLOR));
         }
         setHasOptionsMenu(true);
     }
@@ -178,13 +176,13 @@ public class RecentAppsSettings extends SettingsPreferenceFragment implements
         if (preference == mShowSearchBar) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
-                    Settings.System.RECENT_APPS_SHOW_SEARCH_BAR,
+                    Settings.System.ANDROID_RECENTS_SHOW_SEARCH_BAR,
                     value ? 1 : 0);
             return true;
         } else if (preference == mShowClearAll) {
             value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
-                    Settings.System.RECENT_APPS_SHOW_CLEAR_ALL,
+                    Settings.System.ANDROID_RECENTS_SHOW_CLEAR_ALL,
                     value ? 1 : 0);
             refreshSettings();
             return true;
@@ -192,7 +190,7 @@ public class RecentAppsSettings extends SettingsPreferenceFragment implements
             intvalue = Integer.valueOf((String) newValue);
             index = mClearAllPositionHorizontal.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
-                    Settings.System.RECENT_APPS_CLEAR_ALL_POSITION_HORIZONTAL,
+                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_HORIZONTAL,
                     intvalue);
             preference.setSummary(mClearAllPositionHorizontal.getEntries()[index]);
             return true;
@@ -200,7 +198,7 @@ public class RecentAppsSettings extends SettingsPreferenceFragment implements
             intvalue = Integer.valueOf((String) newValue);
             index = mClearAllPositionVertical.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
-                    Settings.System.RECENT_APPS_CLEAR_ALL_POSITION_VERTICAL,
+                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_VERTICAL,
                     intvalue);
             preference.setSummary(mClearAllPositionVertical.getEntries()[index]);
             return true;
@@ -209,7 +207,7 @@ public class RecentAppsSettings extends SettingsPreferenceFragment implements
                     Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                    Settings.System.RECENT_APPS_CLEAR_ALL_BG_COLOR, intHex);
+                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_BG_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         } else if (preference == mClearAllIconColor) {
@@ -217,7 +215,7 @@ public class RecentAppsSettings extends SettingsPreferenceFragment implements
                     Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                    Settings.System.RECENT_APPS_CLEAR_ALL_ICON_COLOR, intHex);
+                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_ICON_COLOR, intHex);
             preference.setSummary(hex);
             return true;
         }
@@ -240,8 +238,8 @@ public class RecentAppsSettings extends SettingsPreferenceFragment implements
             return frag;
         }
 
-        RecentAppsSettings getOwner() {
-            return (RecentAppsSettings) getTargetFragment();
+        AndroidRecentsSettings getOwner() {
+            return (AndroidRecentsSettings) getTargetFragment();
         }
 
         @Override
@@ -257,18 +255,18 @@ public class RecentAppsSettings extends SettingsPreferenceFragment implements
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENT_APPS_SHOW_SEARCH_BAR, 1);
+                                    Settings.System.ANDROID_RECENTS_SHOW_SEARCH_BAR, 1);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENT_APPS_SHOW_CLEAR_ALL, 0);
+                                    Settings.System.ANDROID_RECENTS_SHOW_CLEAR_ALL, 0);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENT_APPS_CLEAR_ALL_POSITION_HORIZONTAL, 2);
+                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_HORIZONTAL, 2);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENT_APPS_CLEAR_ALL_POSITION_VERTICAL, 0);
+                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_VERTICAL, 0);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENT_APPS_CLEAR_ALL_BG_COLOR,
+                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_BG_COLOR,
                                     DEEP_TEAL_500);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENT_APPS_CLEAR_ALL_ICON_COLOR,
+                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_ICON_COLOR,
                                     WHITE);
                             getOwner().refreshSettings();
                         }
@@ -277,18 +275,18 @@ public class RecentAppsSettings extends SettingsPreferenceFragment implements
                         new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENT_APPS_SHOW_SEARCH_BAR, 0);
+                                    Settings.System.ANDROID_RECENTS_SHOW_SEARCH_BAR, 0);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENT_APPS_SHOW_CLEAR_ALL, 1);
+                                    Settings.System.ANDROID_RECENTS_SHOW_CLEAR_ALL, 1);
                              Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENT_APPS_CLEAR_ALL_POSITION_HORIZONTAL, 2);
+                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_HORIZONTAL, 2);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENT_APPS_CLEAR_ALL_POSITION_VERTICAL, 1);
+                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_VERTICAL, 1);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENT_APPS_CLEAR_ALL_BG_COLOR,
+                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_BG_COLOR,
                                     DEEP_TEAL_500);
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.RECENT_APPS_CLEAR_ALL_ICON_COLOR,
+                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_ICON_COLOR,
                                     HOLO_BLUE_LIGHT);
                             getOwner().refreshSettings();
                         }

@@ -17,11 +17,28 @@ limitations under the License.
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/advanced_title">
 
-    <PreferenceScreen
-        android:key="recent_apps_settings"
-        android:title="@string/recent_apps_settings_title"
-		android:summary="@string/recent_apps_settings_summary"
-        android:fragment="com.android.settings.darkkat.RecentAppsSettings" />
+    <PreferenceCategory
+        android:key="advanced_cat_recents"
+        android:title="@string/cat_recents_title">
+
+        <SwitchPreference
+            android:key="use_slim_recents"
+            android:title="@string/use_slim_recents_title"
+            android:defaultValue="false" />
+
+        <PreferenceScreen
+            android:key="slim_recents_settings"
+            android:title="@string/slim_recents_settings_title"
+		    android:summary="@string/recents_settings_summary"
+            android:fragment="com.android.settings.darkkat.SlimRecentsSettings" />
+
+        <PreferenceScreen
+            android:key="android_recents_settings"
+            android:title="@string/android_recents_settings_title"
+		    android:summary="@string/recents_settings_summary"
+            android:fragment="com.android.settings.darkkat.AndroidRecentsSettings" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="advanced_cat_lock_clock"

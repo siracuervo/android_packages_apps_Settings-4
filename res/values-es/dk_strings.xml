@@ -261,28 +261,62 @@
     <string name="qs_action_no_more_tiles">No hay más casillas disponibles</string>
 
     <!-- Advanced -->
-    <string name="recent_apps_settings_title">Recent apps view</string> <!-- Needs translation -->
-    <string name="recent_apps_settings_summary">Customize recent apps view</string> <!-- Needs translation -->
-    <string name="lock_clock_title">Widget del reloj</string>
-    <string name="lock_clock_clock_section_title">Hora y alarma</string>
-    <string name="lock_clock_clock_section_summary">Ver o cambiar cómo se muestra la hora y la alarma en el widget</string>
-    <string name="lock_clock_weather_section_title">Panel del tiempo</string>
-    <string name="lock_clock_weather_section_summary">Ver o cambiar cómo se muestra el tiempo en el widget</string>
-    <string name="lock_clock_calendar_section_title">Eventos del Calendario</string>
-    <string name="lock_clock_calendar_section_summary">Ver o cambiar cómo se muestran los eventos del calendario en el widget </string>
+    <string name="cat_recents_title">Recent apps view</string> <!-- Needs translation -->
+    <string name="use_slim_recents_title">Use SlimLP recents</string> <!-- Needs translation -->
+    <string name="slim_recents_settings_title">SlimLP recent apps view</string> <!-- Needs translation -->
+    <string name="android_recents_settings_title">Android Recent apps view</string> <!-- Needs translation -->
+    <string name="recents_settings_summary">Customize recent apps view</string> <!-- Needs translation -->
+    <string name="lock_clock_title">Widget del reloj</string> <!-- Needs translation -->
+    <string name="lock_clock_clock_section_title">Hora y alarma</string> <!-- Needs translation -->
+    <string name="lock_clock_clock_section_summary">Ver o cambiar cómo se muestra la hora y la alarma en el widget</string> <!-- Needs translation -->
+    <string name="lock_clock_weather_section_title">Panel del tiempo</string> <!-- Needs translation -->
+    <string name="lock_clock_weather_section_summary">Ver o cambiar cómo se muestra el tiempo en el widget</string> <!-- Needs translation -->
+    <string name="lock_clock_calendar_section_title">Eventos del Calendario</string> <!-- Needs translation -->
+    <string name="lock_clock_calendar_section_summary">Ver o cambiar cómo se muestran los eventos del calendario en el widget </string> <!-- Needs translation -->
 
-    <!-- Recent apps view settings -->
-    <string name="recent_apps_cat_clear_all_button_title">Clear all button</string> <!-- Needs translation -->
-    <string name="recent_apps_show_search_bar_title">Show search bar</string> <!-- Needs translation -->
-    <string name="recent_apps_show_search_bar_summary">Enable to show the search bar</string> <!-- Needs translation -->
-    <string name="recent_apps_show_clear_all_summary">Enable to show the clear all button</string> <!-- Needs translation -->
-    <string name="recent_apps_clear_all_position_horizontal_title">Position horizontal</string> <!-- Needs translation -->
-    <string name="recent_apps_clear_all_position_vertical_title">Position vertical</string> <!-- Needs translation -->
-    <string name="recent_apps_clear_all_position_left">Left</string> <!-- Needs translation -->
-    <string name="recent_apps_clear_all_position_right">Right</string> <!-- Needs translation -->
-    <string name="recent_apps_clear_all_position_center">Center</string> <!-- Needs translation -->
-    <string name="recent_apps_clear_all_position_top">Top</string> <!-- Needs translation -->
-    <string name="recent_apps_clear_all_position_bottom">Bottom</string> <!-- Needs translation -->
+     <!-- Slim recents settings -->
+    <string name="cat_appearance_title">Appearance</string> <!-- Needs translation -->
+    <string name="cat_apps_title">Apps</string> <!-- Needs translation -->
+
+    <!-- Slim recents options -->
+    <string name="slim_recents_scale_title">Size</string> <!-- Needs translation -->
+    <string name="slim_recents_expanded_mode_title">Expanded mode</string> <!-- Needs translation -->
+    <string name="slim_recents_mode_auto">Auto</string> <!-- Needs translation -->
+    <string name="slim_recents_expanded_mode_always">Always</string> <!-- Needs translation -->
+    <string name="slim_recents_expanded_mode_never">Never</string> <!-- Needs translation -->
+    <string name="slim_recents_lefty_mode_title">Show on the left edge</string> <!-- Needs translation -->
+    <string name="slim_recents_lefty_mode_summary">Show recent apps panel on the left edge</string> <!-- Needs translation -->
+    <string name="slim_recents_popup_theme_mode_title">Popup menu theme</string> <!-- Needs translation -->
+    <string name="slim_recents_popup_theme_mode_dark">Dark</string> <!-- Needs translation -->
+    <string name="slim_recents_popup_theme_mode_light">Light</string> <!-- Needs translation -->
+    <string name="slim_recents_only_show_running_tasks_title">Only show running</string> <!-- Needs translation -->
+    <string name="slim_recents_only_show_running_tasks_summary">Enable to show only apps which are currently running</string> <!-- Needs translation -->
+    <string name="slim_recents_show_topmost_title">Show topmost task</string> <!-- Needs translation -->
+    <string name="slim_recents_show_topmost_summary">Enable to show the topmost task</string> <!-- Needs translation -->
+    <string name="slim_recents_max_apps_title">Max allowed</string> <!-- Needs translation -->
+
+    <!-- Slim recents colors -->
+    <string name="slim_recents_use_text_color_summary">Enable to use a custom color for the app name</string> <!-- Needs translation -->
+    <string name="slim_recents_use_expand_icon_color_title">Expand button icon</string> <!-- Needs translation -->
+    <string name="slim_recents_use_expand_icon_color_summary">Enable to use a custom color for the expand button icon</string> <!-- Needs translation -->
+    <string name="slim_recents_use_empty_icon_color_title">Empty recents icon</string> <!-- Needs translation -->
+    <string name="slim_recents_use_empty_icon_color_summary">Enable to use a custom color for the icon on empty recent apps view</string> <!-- Needs translation -->
+    <string name="slim_recents_card_bg_color_title">Card background</string> <!-- Needs translation -->
+    <string name="slim_recents_expand_icon_color_title">Expand button icon</string> <!-- Needs translation -->
+    <string name="slim_recents_empty_icon_color_title">Empty recents icon</string> <!-- Needs translation -->
+
+    <!-- Android recents settings -->
+    <string name="android_recents_cat_clear_all_button_title">Clear all button</string> <!-- Needs translation -->
+    <string name="android_recents_show_search_bar_title">Show search bar</string> <!-- Needs translation -->
+    <string name="android_recents_show_search_bar_summary">Enable to show the search bar</string> <!-- Needs translation -->
+    <string name="android_recents_show_clear_all_summary">Enable to show the clear all button</string> <!-- Needs translation -->
+    <string name="android_recents_clear_all_position_horizontal_title">Position horizontal</string> <!-- Needs translation -->
+    <string name="android_recents_clear_all_position_vertical_title">Position vertical</string> <!-- Needs translation -->
+    <string name="android_recents_clear_all_position_left">Left</string> <!-- Needs translation -->
+    <string name="android_recents_clear_all_position_right">Right</string> <!-- Needs translation -->
+    <string name="android_recents_clear_all_position_center">Center</string> <!-- Needs translation -->
+    <string name="android_recents_clear_all_position_top">Top</string> <!-- Needs translation -->
+    <string name="android_recents_clear_all_position_bottom">Bottom</string> <!-- Needs translation -->
 
     <!-- Display -->
     <string name="display_rotation_settings_title">Rotación</string>

@@ -267,19 +267,37 @@
         <item>2</item>
     </string-array>
 
-    <string-array name="recent_apps_clear_all_position_horizontal_entries" >
-        <item>@string/recent_apps_clear_all_position_left</item>
-        <item>@string/recent_apps_clear_all_position_center</item>
-        <item>@string/recent_apps_clear_all_position_right</item>
+    <string-array name="slim_recents_expanded_mode_entries">
+        <item>@string/slim_recents_mode_auto</item>
+        <item>@string/slim_recents_expanded_mode_always</item>
+        <item>@string/slim_recents_expanded_mode_never</item>
     </string-array>
 
-    <string-array name="recent_apps_clear_all_position_vertical_entries" >
-        <item>@string/recent_apps_clear_all_position_top</item>
-        <item>@string/recent_apps_clear_all_position_center</item>
-        <item>@string/recent_apps_clear_all_position_bottom</item>
+    <string-array name="slim_recents_popup_theme_mode_entries">
+        <item>@string/slim_recents_mode_auto</item>
+        <item>@string/slim_recents_popup_theme_mode_dark</item>
+        <item>@string/slim_recents_popup_theme_mode_light</item>
     </string-array>
 
-    <string-array name="recent_apps_clear_all_position_values" translatable="false">
+    <string-array name="slim_recents_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="android_recents_clear_all_position_horizontal_entries" >
+        <item>@string/android_recents_clear_all_position_left</item>
+        <item>@string/android_recents_clear_all_position_center</item>
+        <item>@string/android_recents_clear_all_position_right</item>
+    </string-array>
+
+    <string-array name="android_recents_clear_all_position_vertical_entries" >
+        <item>@string/android_recents_clear_all_position_top</item>
+        <item>@string/android_recents_clear_all_position_center</item>
+        <item>@string/android_recents_clear_all_position_bottom</item>
+    </string-array>
+
+    <string-array name="android_recents_clear_all_position_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
