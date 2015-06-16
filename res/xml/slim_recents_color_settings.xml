@@ -47,7 +47,7 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="slim_recents_bg_color"
             android:title="@string/background_title"
-            android:defaultValue="0x0x80000000" />
+            android:defaultValue="0x80000000" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="slim_recents_card_bg_color"
@@ -57,17 +57,17 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="slim_recents_text_color"
             android:title="@string/text_title"
-            android:defaultValue="0x0xffffffff" />
+            android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="slim_recents_expand_icon_color"
             android:title="@string/slim_recents_expand_icon_color_title"
-            android:defaultValue="0x0xffffffff" />
+            android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="slim_recents_empty_icon_color"
             android:title="@string/slim_recents_empty_icon_color_title"
-            android:defaultValue="0x0xffffffff" />
+            android:defaultValue="0xffffffff" />
 
 	</PreferenceCategory>
 </PreferenceScreen>
