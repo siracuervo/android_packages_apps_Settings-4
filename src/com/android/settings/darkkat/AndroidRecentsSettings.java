@@ -50,6 +50,8 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
             "android_recents_clear_all_position_horizontal";
     private static final String PREF_CLEAR_ALL_POSITION_VERTICAL =
             "android_recents_clear_all_position_vertical";
+    private static final String PREF_CLEAR_ALL_USE_ICON_COLOR =
+            "android_recents_clear_all_use_icon_color";
     private static final String PREF_CLEAR_ALL_BG_COLOR =
             "android_recents_clear_all_bg_color";
     private static final String PREF_CLEAR_ALL_ICON_COLOR =
@@ -66,6 +68,7 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
     private SwitchPreference mShowClearAll;
     private ListPreference mClearAllPositionHorizontal;
     private ListPreference mClearAllPositionVertical;
+    private SwitchPreference mClearAllUseIconColor;
     private ColorPickerPreference mClearAllIconColor;
     private ColorPickerPreference mClearAllBgColor;
 
@@ -120,6 +123,12 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
             mClearAllPositionVertical.setSummary(mClearAllPositionVertical.getEntry());
             mClearAllPositionVertical.setOnPreferenceChangeListener(this);
 
+            mClearAllUseIconColor = (SwitchPreference) findPreference(PREF_CLEAR_ALL_USE_ICON_COLOR);
+            boolean clearAllUseIconColor = Settings.System.getInt(mResolver,
+                   Settings.System.ANDROID_RECENTS_CLEAR_ALL_USE_ICON_COLOR, 0) == 1;
+            mClearAllUseIconColor.setChecked(clearAllUseIconColor);
+            mClearAllUseIconColor.setOnPreferenceChangeListener(this);
+
             mClearAllBgColor =
                     (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_BG_COLOR);
             intColor = Settings.System.getInt(mResolver,
@@ -127,18 +136,24 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
             mClearAllBgColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mClearAllBgColor.setSummary(hexColor);
+            mClearAllBgColor.setAlphaSliderEnabled(true);
             mClearAllBgColor.setDefaultColors(DEEP_TEAL_500, DEEP_TEAL_500);
             mClearAllBgColor.setOnPreferenceChangeListener(this);
 
-            mClearAllIconColor =
-                    (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_ICON_COLOR);
-            intColor = Settings.System.getInt(mResolver,
-                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_ICON_COLOR, WHITE); 
-            mClearAllIconColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mClearAllIconColor.setSummary(hexColor);
-            mClearAllIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
-            mClearAllIconColor.setOnPreferenceChangeListener(this);
+            if (clearAllUseIconColor) {
+                mClearAllIconColor =
+                        (ColorPickerPreference) findPreference(PREF_CLEAR_ALL_ICON_COLOR);
+                intColor = Settings.System.getInt(mResolver,
+                        Settings.System.ANDROID_RECENTS_CLEAR_ALL_ICON_COLOR, WHITE); 
+                mClearAllIconColor.setNewPreviewColor(intColor);
+                hexColor = String.format("#%08x", (0xffffffff & intColor));
+                mClearAllIconColor.setSummary(hexColor);
+                mClearAllIconColor.setAlphaSliderEnabled(true);
+                mClearAllIconColor.setDefaultColors(WHITE, HOLO_BLUE_LIGHT);
+                mClearAllIconColor.setOnPreferenceChangeListener(this);
+            } else {
+                catClearAll.removePreference(findPreference(PREF_CLEAR_ALL_ICON_COLOR));
+            }
         } else {
             catClearAll.removePreference(findPreference(PREF_CLEAR_ALL_POSITION_HORIZONTAL));
             catClearAll.removePreference(findPreference(PREF_CLEAR_ALL_POSITION_VERTICAL));
@@ -202,6 +217,12 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                     intvalue);
             preference.setSummary(mClearAllPositionVertical.getEntries()[index]);
             return true;
+        } else if (preference == mClearAllUseIconColor) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_USE_ICON_COLOR,
+                    value ? 1 : 0);
+            refreshSettings();
         } else if (preference == mClearAllBgColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
@@ -263,6 +284,8 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_VERTICAL, 0);
                             Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_USE_ICON_COLOR, 0);
+                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_BG_COLOR,
                                     DEEP_TEAL_500);
                             Settings.System.putInt(getOwner().mResolver,
@@ -282,6 +305,8 @@ public class AndroidRecentsSettings extends SettingsPreferenceFragment implement
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_HORIZONTAL, 2);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_POSITION_VERTICAL, 1);
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.ANDROID_RECENTS_CLEAR_ALL_USE_ICON_COLOR, 1);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.ANDROID_RECENTS_CLEAR_ALL_BG_COLOR,
                                     DEEP_TEAL_500);

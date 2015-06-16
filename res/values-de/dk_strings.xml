@@ -317,6 +317,8 @@
     <string name="android_recents_clear_all_position_center">Zentriert</string>
     <string name="android_recents_clear_all_position_top">Oben</string>
     <string name="android_recents_clear_all_position_bottom">Unten</string>
+    <string name="android_recents_clear_all_use_icon_color_title">Symbolfarbe</string>
+    <string name="android_recents_clear_all_use_icon_color_summary">Aktivieren um die Farbe des Anwendungsverlauf löschen Schaltflächen Symbols anzupassen</string>
 
     <!-- Display -->
     <string name="display_rotation_settings_title">Bildschirm-Ausrichtung</string>

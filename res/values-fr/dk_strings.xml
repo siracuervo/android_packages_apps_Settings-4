@@ -317,6 +317,8 @@
     <string name="android_recents_clear_all_position_center">Center</string> <!-- Needs translation -->
     <string name="android_recents_clear_all_position_top">Top</string> <!-- Needs translation -->
     <string name="android_recents_clear_all_position_bottom">Bottom</string> <!-- Needs translation -->
+    <string name="android_recents_clear_all_use_icon_color_title">Icon color</string> <!-- Needs translation -->
+    <string name="android_recents_clear_all_use_icon_color_summary">Enable to use a custom color for the clear all button icon</string> <!-- Needs translation -->
 
     <!-- Display -->
     <string name="display_rotation_settings_title">Rotation</string>

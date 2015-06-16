@@ -321,6 +321,8 @@
     <string name="android_recents_clear_all_position_center">Center</string>
     <string name="android_recents_clear_all_position_top">Top</string>
     <string name="android_recents_clear_all_position_bottom">Bottom</string>
+    <string name="android_recents_clear_all_use_icon_color_title">Icon color</string>
+    <string name="android_recents_clear_all_use_icon_color_summary">Enable to use a custom color for the clear all button icon</string>
 
     <!-- Display -->
     <string name="display_rotation_settings_title">Display rotation</string>
